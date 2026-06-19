@@ -103,7 +103,7 @@ QCM_France/
 │   │   │   │   └── repository/
 │   │   │   │       └── QuestionRepository.kt    ✅ étape 2  tirage stratifié 6-9-6-13-6
 │   │   │   ├── di/
-│   │   │   │   └── AppModule.kt                 🔲 étape 3  Hilt @Module
+│   │   │   │   └── AppModule.kt                 ✅ étape 3  Hilt @Module (AppDatabase, QuestionDao, QuestionRepository)
 │   │   │   ├── ui/
 │   │   │   │   ├── screen/
 │   │   │   │   │   ├── HomeScreen.kt            🔲 étape 5
