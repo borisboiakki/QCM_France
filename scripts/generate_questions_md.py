@@ -51,6 +51,10 @@ def main():
         f"à partir de `app/src/main/res/raw/questions.json`  ",
         f"> **{len(questions)} questions** réparties en {len(by_theme)} thèmes.",
         "",
+        "> **Note :** dans l'application, l'ordre des propositions (A, B, C, D) est mélangé "
+        "aléatoirement à chaque examen. L'ordre affiché dans ce tableau correspond à l'ordre "
+        "original du fichier de données et peut donc différer de celui présenté lors du test.",
+        "",
         "---",
         "",
         "## Table des matières",
