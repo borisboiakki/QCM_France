@@ -8,30 +8,53 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
     onStartExam: () -> Unit,
-    onShowHistory: () -> Unit
+    onShowHistory: () -> Unit,
+    onShowSettings: () -> Unit
 ) {
-    Scaffold { innerPadding ->
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {},
+                actions = {
+                    IconButton(onClick = onShowSettings) {
+                        Icon(
+                            imageVector = Icons.Default.Settings,
+                            contentDescription = "Paramètres"
+                        )
+                    }
+                }
+            )
+        }
+    ) { innerPadding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .padding(24.dp),
+                .padding(horizontal = 24.dp)
+                .padding(bottom = 24.dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -59,11 +82,11 @@ fun HomeScreen(
                     modifier = Modifier.padding(16.dp),
                     verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    RuleRow(label = "Questions",         value = "40")
-                    RuleRow(label = "Seuil de réussite", value = "32 / 40 (80 %)")
-                    RuleRow(label = "Durée maximale",    value = "45 minutes")
-                    RuleRow(label = "Format",            value = "1 bonne réponse parmi 4")
-                    RuleRow(label = "Feedback",          value = "Uniquement à la fin")
+                    RuleRow(label = "Questions",          value = "40")
+                    RuleRow(label = "Seuil de réussite",  value = "32 / 40 (80 %)")
+                    RuleRow(label = "Durée maximale",     value = "45 minutes")
+                    RuleRow(label = "Format",             value = "1 bonne réponse parmi 4")
+                    RuleRow(label = "Feedback",           value = "Uniquement à la fin")
                 }
             }
 
@@ -71,28 +94,18 @@ fun HomeScreen(
 
             Button(
                 onClick = onStartExam,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(56.dp)
+                modifier = Modifier.fillMaxWidth().height(56.dp)
             ) {
-                Text(
-                    text = "Commencer l'examen",
-                    style = MaterialTheme.typography.titleMedium
-                )
+                Text(text = "Commencer l'examen", style = MaterialTheme.typography.titleMedium)
             }
 
             Spacer(modifier = Modifier.height(12.dp))
 
             OutlinedButton(
                 onClick = onShowHistory,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(48.dp)
+                modifier = Modifier.fillMaxWidth().height(48.dp)
             ) {
-                Text(
-                    text = "Voir l'historique",
-                    style = MaterialTheme.typography.bodyLarge
-                )
+                Text(text = "Voir l'historique", style = MaterialTheme.typography.bodyLarge)
             }
         }
     }

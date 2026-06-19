@@ -13,13 +13,16 @@ import com.example.qcmfrance.ui.screen.HistoryScreen
 import com.example.qcmfrance.ui.screen.HomeScreen
 import com.example.qcmfrance.ui.screen.QuizScreen
 import com.example.qcmfrance.ui.screen.ResultScreen
+import com.example.qcmfrance.ui.screen.SettingsScreen
 import com.example.qcmfrance.ui.viewmodel.HistoryViewModel
 import com.example.qcmfrance.ui.viewmodel.QuizViewModel
+import com.example.qcmfrance.ui.viewmodel.SettingsViewModel
 
-private const val ROUTE_HOME    = "home"
-private const val ROUTE_QUIZ    = "quiz"
-private const val ROUTE_RESULT  = "result"
-private const val ROUTE_HISTORY = "history"
+private const val ROUTE_HOME     = "home"
+private const val ROUTE_QUIZ     = "quiz"
+private const val ROUTE_RESULT   = "result"
+private const val ROUTE_HISTORY  = "history"
+private const val ROUTE_SETTINGS = "settings"
 
 @Composable
 fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
@@ -30,11 +33,9 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
 
         composable(ROUTE_HOME) {
             HomeScreen(
-                onStartExam = {
-                    viewModel.startQuiz()
-                    navController.navigate(ROUTE_QUIZ)
-                },
-                onShowHistory = { navController.navigate(ROUTE_HISTORY) }
+                onStartExam    = { viewModel.startQuiz(); navController.navigate(ROUTE_QUIZ) },
+                onShowHistory  = { navController.navigate(ROUTE_HISTORY) },
+                onShowSettings = { navController.navigate(ROUTE_SETTINGS) }
             )
         }
 
@@ -71,6 +72,16 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
                 results        = results,
                 onBack         = { navController.popBackStack() },
                 onClearHistory = historyViewModel::clearHistory
+            )
+        }
+
+        composable(ROUTE_SETTINGS) {
+            val settingsViewModel: SettingsViewModel = hiltViewModel()
+            val themeMode by settingsViewModel.themeMode.collectAsStateWithLifecycle()
+            SettingsScreen(
+                currentTheme  = themeMode,
+                onThemeChange = settingsViewModel::setThemeMode,
+                onBack        = { navController.popBackStack() }
             )
         }
     }

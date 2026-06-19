@@ -1,5 +1,7 @@
 package com.example.qcmfrance.ui.screen
 
+import android.media.AudioManager
+import android.media.ToneGenerator
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -20,6 +22,8 @@ import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -47,6 +51,13 @@ fun QuizScreen(
     val timerColor = if (uiState.remainingSeconds < 300) Color.Red else MaterialTheme.colorScheme.onSurface
     val minutes = uiState.remainingSeconds / 60
     val seconds = uiState.remainingSeconds % 60
+
+    val toneGenerator = remember {
+        runCatching { ToneGenerator(AudioManager.STREAM_MUSIC, 60) }.getOrNull()
+    }
+    DisposableEffect(Unit) {
+        onDispose { toneGenerator?.release() }
+    }
 
     Scaffold { innerPadding ->
         Column(
@@ -102,7 +113,10 @@ fun QuizScreen(
                     letter = letter,
                     text = text,
                     selected = selectedAnswer == letter,
-                    onClick = { onSelect(letter) }
+                    onClick = {
+                        toneGenerator?.startTone(ToneGenerator.TONE_PROP_CLICK, 80)
+                        onSelect(letter)
+                    }
                 )
                 Spacer(modifier = Modifier.height(8.dp))
             }

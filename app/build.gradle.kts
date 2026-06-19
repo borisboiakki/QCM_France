@@ -62,6 +62,7 @@ dependencies {
     implementation(libs.lifecycle.compose)
     implementation(libs.coroutines.android)
     implementation(libs.gson)
+    implementation(libs.datastore.preferences)
 
     debugImplementation(libs.compose.ui.tooling.debug)
 }
