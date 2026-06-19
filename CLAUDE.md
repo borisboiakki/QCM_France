@@ -80,51 +80,60 @@ minSdk     = 26          // Android 8 — couvre >95 % des devices actifs
 targetSdk  = 35
 ```
 
-Kotlin : `2.0.x` | AGP : `8.x`
+Kotlin : `2.0.21` | AGP : `8.7.3` | KSP : `2.0.21-1.0.27` | Gradle : `8.11.1`
 
 ---
 
 ## Structure du projet
 
+Légende : ✅ implémenté | 🔲 à faire
+
 ```
 QCM_France/
 ├── app/
 │   ├── src/main/
-│   │   ├── AndroidManifest.xml
+│   │   ├── AndroidManifest.xml                  ✅ étape 1
 │   │   ├── java/com/example/qcmfrance/
 │   │   │   ├── data/
 │   │   │   │   ├── db/
-│   │   │   │   │   ├── AppDatabase.kt          # Room @Database
-│   │   │   │   │   ├── QuestionDao.kt          # @Dao avec requêtes par thème
-│   │   │   │   │   └── Converters.kt           # TypeConverters (List<String>)
+│   │   │   │   │   ├── AppDatabase.kt           ✅ étape 2  Room @Database + seed callback
+│   │   │   │   │   └── QuestionDao.kt           ✅ étape 2  @Dao : getRandomByTheme, insertAll, count
 │   │   │   │   ├── model/
-│   │   │   │   │   └── Question.kt             # @Entity Room
+│   │   │   │   │   └── Question.kt              ✅ étape 2  @Entity Room
 │   │   │   │   └── repository/
-│   │   │   │       └── QuestionRepository.kt
+│   │   │   │       └── QuestionRepository.kt    ✅ étape 2  tirage stratifié 6-9-6-13-6
 │   │   │   ├── di/
-│   │   │   │   └── AppModule.kt                # Hilt modules
+│   │   │   │   └── AppModule.kt                 ✅ étape 3  Hilt @Module (AppDatabase, QuestionDao, QuestionRepository)
 │   │   │   ├── ui/
 │   │   │   │   ├── screen/
-│   │   │   │   │   ├── HomeScreen.kt
-│   │   │   │   │   ├── QuizScreen.kt
-│   │   │   │   │   └── ResultScreen.kt
+│   │   │   │   │   ├── HomeScreen.kt            ✅ étape 4  titre, règles, bouton "Commencer"
+│   │   │   │   │   ├── QuizScreen.kt            ✅ étape 4  question N/40, options, timer, progression
+│   │   │   │   │   └── ResultScreen.kt          ✅ étape 4  score, RÉUSSI/ÉCHOUÉ, détail par question
 │   │   │   │   ├── viewmodel/
-│   │   │   │   │   └── QuizViewModel.kt
+│   │   │   │   │   └── QuizViewModel.kt         ✅ étape 4  QuizUiState, timer, scoring, stratified draw
 │   │   │   │   ├── navigation/
-│   │   │   │   │   └── NavGraph.kt
+│   │   │   │   │   └── NavGraph.kt              ✅ étape 4  routes home/quiz/result
 │   │   │   │   └── theme/
-│   │   │   │       ├── Theme.kt
-│   │   │   │       ├── Color.kt
-│   │   │   │       └── Type.kt
-│   │   │   └── MainActivity.kt
+│   │   │   │       ├── Theme.kt                 ✅ étape 1  Material 3 dynamique
+│   │   │   │       ├── Color.kt                 ✅ étape 1
+│   │   │   │       └── Type.kt                  ✅ étape 1
+│   │   │   ├── QcmFranceApplication.kt          ✅ étape 1  @HiltAndroidApp
+│   │   │   └── MainActivity.kt                  ✅ étape 1  @AndroidEntryPoint
 │   │   └── res/
-│   │       └── raw/
-│   │           └── questions.json              # Seed data (258 questions)
-│   └── build.gradle.kts
-├── build.gradle.kts
-├── settings.gradle.kts
+│   │       ├── raw/
+│   │       │   └── questions.json               ✅ étape 2  258 questions (seed)
+│   │       └── values/
+│   │           ├── strings.xml                  ✅ étape 1
+│   │           └── themes.xml                   ✅ étape 1
+│   ├── build.gradle.kts                         ✅ étape 1
+│   └── proguard-rules.pro                       ✅ étape 1
+├── build.gradle.kts                             ✅ étape 1
+├── settings.gradle.kts                          ✅ étape 1
+├── gradlew / gradlew.bat                        ✅ étape 1  Gradle wrapper 8.11.1
 └── gradle/
-    └── libs.versions.toml                      # Version catalog
+    ├── libs.versions.toml                       ✅ étape 1  Version catalog complet
+    └── wrapper/
+        └── gradle-wrapper.properties            ✅ étape 1
 ```
 
 ---
@@ -242,20 +251,29 @@ fun submitQuiz() {
 
 ## Pré-peuplement de la base de données
 
-La BDD est peuplée **au premier lancement** depuis `questions.json` :
+La BDD est peuplée **au premier lancement** depuis `questions.json`.
+Implémenté dans `AppDatabase.build()` via le pattern `instance` :
 
 ```kotlin
-addCallback(object : RoomDatabase.Callback() {
-    override fun onCreate(db: SupportSQLiteDatabase) {
-        CoroutineScope(Dispatchers.IO).launch {
-            val json = context.resources.openRawResource(R.raw.questions)
-                .bufferedReader().readText()
-            val questions = Gson().fromJson(json, Array<Question>::class.java).toList()
-            dao.insertAll(questions)
+// AppDatabase.kt — pattern utilisé pour éviter une double instanciation
+var instance: AppDatabase? = null
+instance = Room.databaseBuilder(context, AppDatabase::class.java, "qcm_france.db")
+    .addCallback(object : Callback() {
+        override fun onCreate(db: SupportSQLiteDatabase) {
+            CoroutineScope(Dispatchers.IO).launch {
+                val json = context.resources.openRawResource(R.raw.questions)
+                    .bufferedReader().readText()
+                val type = object : TypeToken<List<Question>>() {}.type
+                val questions: List<Question> = Gson().fromJson(json, type)
+                instance!!.questionDao().insertAll(questions)
+            }
         }
-    }
-})
+    })
+    .build()
 ```
+
+> `instance!!` est sûr ici : Room appelle `onCreate` de manière lazy, donc `instance`
+> est déjà assigné avant le premier accès à la base.
 
 ---
 
