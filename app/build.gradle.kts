@@ -48,6 +48,7 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.compose.ui.tooling)
     implementation(libs.activity.compose)
+    implementation(libs.appcompat)
 
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
