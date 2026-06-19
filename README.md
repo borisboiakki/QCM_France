@@ -193,6 +193,19 @@ L'APK debug se trouve dans `app/build/outputs/apk/debug/`.
 
 ---
 
+## Sources officielles
+
+Les 258 questions sont issues des documents officiels du Ministère de l'Intérieur :
+
+| Document | Description |
+|---|---|
+| **Livret du citoyen** | Référentiel officiel des connaissances civiques pour la naturalisation |
+| **Charte des droits et devoirs du citoyen français** | Document signé lors de la cérémonie de naturalisation |
+| **Questions officielles de l'examen de naturalisation 2025** | Base de questions publiée par les services de l'État |
+| **Jeu de données data.gouv.fr** | Dataset public officiel des QCM de naturalisation |
+
+---
+
 ## Structure des fichiers source
 
 ```
