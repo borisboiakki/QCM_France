@@ -373,3 +373,16 @@ ksp                    = { id = "com.google.devtools.ksp",              version 
 ./gradlew connectedAndroidTest
 ./gradlew lint
 ```
+
+---
+
+## CI / GitHub Actions
+
+Le workflow `build.yml` se déclenche **automatiquement** sur tout push vers `main` et sur les pull requests.
+**Ne pas déclencher manuellement** (`workflow_dispatch`) après un push — le build est déjà en cours.
+
+Le workflow `release.yml` se déclenche sur un tag `v.N.N.N` :
+```bash
+git tag v.1.0.0
+git push origin v.1.0.0
+```
