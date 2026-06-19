@@ -5,7 +5,7 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
-  workflow_dispatch:        # déclenchement manuel depuis l'onglet Actions
+  workflow_dispatch:
 
 jobs:
   build:
@@ -24,9 +24,14 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
-      # Android SDK + licences acceptées automatiquement
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
+      # Utilisation du sdkmanager pré-installé sur le runner (évite android-actions/setup-android
+      # qui cible Node.js 20 et est instable sur Node.js 24)
+      - name: Install Android SDK 35
+        run: |
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses > /dev/null 2>&1 || true
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager \
+            "platforms;android-35" \
+            "build-tools;35.0.0"
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
