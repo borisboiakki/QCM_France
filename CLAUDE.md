@@ -86,24 +86,28 @@ Kotlin : `2.0.21` | AGP : `8.7.3` | KSP : `2.0.21-1.0.27` | Gradle : `8.11.1`
 
 ## Structure du projet
 
-Légende : ✅ implémenté | 🔲 à faire
+Légende : ✅ implémenté
 
 ```
 QCM_France/
+├── .github/
+│   └── workflows/
+│       └── build.yml                            ✅ CI — build APK debug sur push/PR/manual
 ├── app/
 │   ├── src/main/
 │   │   ├── AndroidManifest.xml                  ✅ étape 1
 │   │   ├── java/com/example/qcmfrance/
 │   │   │   ├── data/
 │   │   │   │   ├── db/
-│   │   │   │   │   ├── AppDatabase.kt           ✅ étape 2  Room @Database + seed callback
+│   │   │   │   │   ├── AppDatabase.kt           ✅ étape 2  Room @Database + @TypeConverters
+│   │   │   │   │   ├── Converters.kt            ✅ fix      @TypeConverter List<String> ↔ JSON String
 │   │   │   │   │   └── QuestionDao.kt           ✅ étape 2  @Dao : getRandomByTheme, insertAll, count
 │   │   │   │   ├── model/
 │   │   │   │   │   └── Question.kt              ✅ étape 2  @Entity Room
 │   │   │   │   └── repository/
-│   │   │   │       └── QuestionRepository.kt    ✅ étape 2  tirage stratifié 6-9-6-13-6
+│   │   │   │       └── QuestionRepository.kt    ✅ étape 2  seed + tirage stratifié 6-9-6-13-6
 │   │   │   ├── di/
-│   │   │   │   └── AppModule.kt                 ✅ étape 3  Hilt @Module (AppDatabase, QuestionDao, QuestionRepository)
+│   │   │   │   └── AppModule.kt                 ✅ étape 3  Hilt @Module (AppDatabase, QuestionDao)
 │   │   │   ├── ui/
 │   │   │   │   ├── screen/
 │   │   │   │   │   ├── HomeScreen.kt            ✅ étape 4  titre, règles, bouton "Commencer"
@@ -124,10 +128,11 @@ QCM_France/
 │   │       │   └── questions.json               ✅ étape 2  258 questions (seed)
 │   │       └── values/
 │   │           ├── strings.xml                  ✅ étape 1
-│   │           └── themes.xml                   ✅ étape 1
+│   │           └── themes.xml                   ✅ étape 1  Theme.AppCompat.DayNight.NoActionBar
 │   ├── build.gradle.kts                         ✅ étape 1
 │   └── proguard-rules.pro                       ✅ étape 1
 ├── build.gradle.kts                             ✅ étape 1
+├── gradle.properties                            ✅ fix      android.useAndroidX=true
 ├── settings.gradle.kts                          ✅ étape 1
 ├── gradlew / gradlew.bat                        ✅ étape 1  Gradle wrapper 8.11.1
 └── gradle/
@@ -146,17 +151,19 @@ QCM_France/
 @Entity(tableName = "questions")
 data class Question(
     @PrimaryKey val id: Int,
-    val theme: String,           // L'un des 5 thèmes officiels
-    val text: String,            // Énoncé de la question
+    val theme: String,              // L'un des 5 thèmes officiels
+    val text: String,               // Énoncé de la question
     val optionA: String,
     val optionB: String,
     val optionC: String,
     val optionD: String,
-    val correctAnswer: String,   // "A", "B", "C" ou "D"
-    val correctAnswers: String,  // JSON array — toutes les réponses officiellement acceptées
-    val explanation: String = ""
+    val correctAnswer: String,      // "A", "B", "C" ou "D"
+    val correctAnswers: List<String>, // toutes les réponses officiellement acceptées
+    val explanation: String = ""      // stocké en JSON String dans Room via Converters.kt
 )
 ```
+
+`correctAnswers` est sérialisé en JSON String dans SQLite par `Converters.kt` (`@TypeConverter`).
 
 ### Format JSON de seed (`res/raw/questions.json`)
 
@@ -166,16 +173,19 @@ data class Question(
     "id": 1,
     "theme": "Principes et valeurs de la République",
     "text": "Complétez les paroles de la Marseillaise...",
-    "optionA": "Le jour de gloire est arrivé !",
+    "optionA": "Le jour de gloire est arrivé",
     "optionB": "Vive la France et la liberté !",
-    "optionC": "Aux armes, citoyens !",
-    "optionD": "Contre nous, la tyrannie !",
+    "optionC": "Aux armes, citoyens, formez vos bataillons !",
+    "optionD": "Contre nous, la tyrannie est vaincue !",
     "correctAnswer": "A",
-    "correctAnswers": "[\"Le jour de gloire est arrivé\"]",
+    "correctAnswers": ["Le jour de gloire est arrivé"],
     "explanation": ""
   }
 ]
 ```
+
+> `correctAnswers` est un **tableau JSON** dans le fichier — Gson le désérialise en `List<String>`,
+> Room le stocke en chaîne JSON via `Converters.kt`.
 
 ---
 
@@ -209,7 +219,8 @@ data class QuizUiState(
     val passed: Boolean = false,                   // score >= 32
     // Timer
     val remainingSeconds: Int = 2700,              // 45 min = 2700 s
-    val timerExpired: Boolean = false
+    val timerExpired: Boolean = false,
+    val isLoading: Boolean = true                  // spinner pendant le chargement des questions
 )
 ```
 
@@ -251,29 +262,27 @@ fun submitQuiz() {
 
 ## Pré-peuplement de la base de données
 
-La BDD est peuplée **au premier lancement** depuis `questions.json`.
-Implémenté dans `AppDatabase.build()` via le pattern `instance` :
+La BDD est peuplée **au premier lancement** depuis `questions.json`, directement dans
+`QuestionRepository.drawStratifiedQuestions()` :
 
 ```kotlin
-// AppDatabase.kt — pattern utilisé pour éviter une double instanciation
-var instance: AppDatabase? = null
-instance = Room.databaseBuilder(context, AppDatabase::class.java, "qcm_france.db")
-    .addCallback(object : Callback() {
-        override fun onCreate(db: SupportSQLiteDatabase) {
-            CoroutineScope(Dispatchers.IO).launch {
-                val json = context.resources.openRawResource(R.raw.questions)
-                    .bufferedReader().readText()
-                val type = object : TypeToken<List<Question>>() {}.type
-                val questions: List<Question> = Gson().fromJson(json, type)
-                instance!!.questionDao().insertAll(questions)
-            }
-        }
-    })
-    .build()
+// QuestionRepository.kt
+suspend fun drawStratifiedQuestions(): List<Question> {
+    if (dao.count() == 0) {                        // premier lancement uniquement
+        val json = context.resources.openRawResource(R.raw.questions)
+            .bufferedReader().readText()
+        val type = object : TypeToken<List<Question>>() {}.type
+        val questions: List<Question> = Gson().fromJson(json, type)
+        dao.insertAll(questions)
+    }
+    // tirage stratifié après seed garanti
+    ...
+}
 ```
 
-> `instance!!` est sûr ici : Room appelle `onCreate` de manière lazy, donc `instance`
-> est déjà assigné avant le premier accès à la base.
+> Seed et tirage sont **séquentiels** dans la même coroutine `suspend` — aucune race condition
+> possible. L'ancienne approche (`RoomDatabase.Callback` async) causait un écran noir au premier
+> lancement car la requête s'exécutait avant la fin du seed.
 
 ---
 
@@ -291,27 +300,30 @@ coroutines        = "1.9.0"
 gson              = "2.10.1"
 
 [libraries]
-compose-bom            = { group = "androidx.compose", name = "compose-bom",                   version.ref = "compose-bom" }
+compose-bom            = { group = "androidx.compose", name = "compose-bom",                    version.ref = "compose-bom" }
 compose-ui             = { group = "androidx.compose.ui", name = "ui" }
 compose-material3      = { group = "androidx.compose.material3", name = "material3" }
 compose-ui-tooling     = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-activity-compose       = { group = "androidx.activity", name = "activity-compose",              version = "1.9.3" }
-room-runtime           = { group = "androidx.room", name = "room-runtime",                      version.ref = "room" }
-room-ktx               = { group = "androidx.room", name = "room-ktx",                         version.ref = "room" }
-room-compiler          = { group = "androidx.room", name = "room-compiler",                     version.ref = "room" }
-hilt-android           = { group = "com.google.dagger", name = "hilt-android",                  version.ref = "hilt" }
-hilt-compiler          = { group = "com.google.dagger", name = "hilt-android-compiler",         version.ref = "hilt" }
-hilt-navigation        = { group = "androidx.hilt", name = "hilt-navigation-compose",           version = "1.2.0" }
-navigation-compose     = { group = "androidx.navigation", name = "navigation-compose",           version.ref = "navigation" }
+compose-ui-tooling-debug = { group = "androidx.compose.ui", name = "ui-tooling" }
+activity-compose       = { group = "androidx.activity", name = "activity-compose",               version = "1.9.3" }
+appcompat              = { group = "androidx.appcompat", name = "appcompat",                     version = "1.7.0" }
+room-runtime           = { group = "androidx.room", name = "room-runtime",                       version.ref = "room" }
+room-ktx               = { group = "androidx.room", name = "room-ktx",                          version.ref = "room" }
+room-compiler          = { group = "androidx.room", name = "room-compiler",                      version.ref = "room" }
+hilt-android           = { group = "com.google.dagger", name = "hilt-android",                   version.ref = "hilt" }
+hilt-compiler          = { group = "com.google.dagger", name = "hilt-android-compiler",          version.ref = "hilt" }
+hilt-navigation        = { group = "androidx.hilt", name = "hilt-navigation-compose",            version = "1.2.0" }
+navigation-compose     = { group = "androidx.navigation", name = "navigation-compose",            version.ref = "navigation" }
+lifecycle-compose      = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose",      version = "2.8.7" }
 coroutines-android     = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
-gson                   = { group = "com.google.code.gson", name = "gson",                       version.ref = "gson" }
+gson                   = { group = "com.google.code.gson", name = "gson",                        version.ref = "gson" }
 
 [plugins]
-android-application    = { id = "com.android.application",              version.ref = "agp" }
-kotlin-android         = { id = "org.jetbrains.kotlin.android",         version.ref = "kotlin" }
-kotlin-compose         = { id = "org.jetbrains.kotlin.plugin.compose",  version.ref = "kotlin" }
-hilt                   = { id = "com.google.dagger.hilt.android",       version.ref = "hilt" }
-ksp                    = { id = "com.google.devtools.ksp",               version = "2.0.21-1.0.27" }
+android-application    = { id = "com.android.application",             version.ref = "agp" }
+kotlin-android         = { id = "org.jetbrains.kotlin.android",        version.ref = "kotlin" }
+kotlin-compose         = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+hilt                   = { id = "com.google.dagger.hilt.android",      version.ref = "hilt" }
+ksp                    = { id = "com.google.devtools.ksp",              version = "2.0.21-1.0.27" }
 ```
 
 ---
