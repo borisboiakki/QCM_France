@@ -12,7 +12,7 @@ data class Question(
     val optionB: String,
     val optionC: String,
     val optionD: String,
-    val correctAnswer: String,   // "A", "B", "C" ou "D"
-    val correctAnswers: String,  // JSON array string — ex: "[\"A\",\"B\"]"
+    val correctAnswer: String,            // "A", "B", "C" ou "D"
+    val correctAnswers: List<String>,     // toutes les réponses acceptées
     val explanation: String = ""
 )
