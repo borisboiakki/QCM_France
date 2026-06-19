@@ -114,7 +114,7 @@ fun QuizScreen(
                     text = text,
                     selected = selectedAnswer == letter,
                     onClick = {
-                        toneGenerator?.startTone(ToneGenerator.TONE_PROP_CLICK, 80)
+                        toneGenerator?.startTone(ToneGenerator.TONE_PROP_BEEP, 80)
                         onSelect(letter)
                     }
                 )
