@@ -9,14 +9,17 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.qcmfrance.ui.screen.HistoryScreen
 import com.example.qcmfrance.ui.screen.HomeScreen
 import com.example.qcmfrance.ui.screen.QuizScreen
 import com.example.qcmfrance.ui.screen.ResultScreen
+import com.example.qcmfrance.ui.viewmodel.HistoryViewModel
 import com.example.qcmfrance.ui.viewmodel.QuizViewModel
 
-private const val ROUTE_HOME   = "home"
-private const val ROUTE_QUIZ   = "quiz"
-private const val ROUTE_RESULT = "result"
+private const val ROUTE_HOME    = "home"
+private const val ROUTE_QUIZ    = "quiz"
+private const val ROUTE_RESULT  = "result"
+private const val ROUTE_HISTORY = "history"
 
 @Composable
 fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
@@ -30,12 +33,12 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
                 onStartExam = {
                     viewModel.startQuiz()
                     navController.navigate(ROUTE_QUIZ)
-                }
+                },
+                onShowHistory = { navController.navigate(ROUTE_HISTORY) }
             )
         }
 
         composable(ROUTE_QUIZ) {
-            // Handles both manual submit and timer-expiry auto-submit
             LaunchedEffect(uiState.isFinished) {
                 if (uiState.isFinished) {
                     navController.navigate(ROUTE_RESULT) {
@@ -43,12 +46,11 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
                     }
                 }
             }
-
             QuizScreen(
                 uiState  = uiState,
                 onSelect = viewModel::selectAnswer,
                 onNext   = viewModel::nextQuestion,
-                onSubmit = viewModel::submitQuiz   // LaunchedEffect handles navigation
+                onSubmit = viewModel::submitQuiz
             )
         }
 
@@ -57,9 +59,18 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
                 uiState   = uiState,
                 onRestart = {
                     viewModel.restartQuiz()
-                    // Pop back to the existing HOME entry — no duplicate created
                     navController.popBackStack(ROUTE_HOME, inclusive = false)
                 }
+            )
+        }
+
+        composable(ROUTE_HISTORY) {
+            val historyViewModel: HistoryViewModel = hiltViewModel()
+            val results by historyViewModel.results.collectAsStateWithLifecycle()
+            HistoryScreen(
+                results        = results,
+                onBack         = { navController.popBackStack() },
+                onClearHistory = historyViewModel::clearHistory
             )
         }
     }

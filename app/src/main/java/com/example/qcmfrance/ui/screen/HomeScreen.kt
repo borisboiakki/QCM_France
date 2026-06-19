@@ -12,6 +12,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -21,7 +22,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun HomeScreen(onStartExam: () -> Unit) {
+fun HomeScreen(
+    onStartExam: () -> Unit,
+    onShowHistory: () -> Unit
+) {
     Scaffold { innerPadding ->
         Column(
             modifier = Modifier
@@ -55,11 +59,11 @@ fun HomeScreen(onStartExam: () -> Unit) {
                     modifier = Modifier.padding(16.dp),
                     verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    RuleRow(label = "Questions", value = "40")
+                    RuleRow(label = "Questions",         value = "40")
                     RuleRow(label = "Seuil de réussite", value = "32 / 40 (80 %)")
-                    RuleRow(label = "Durée maximale", value = "45 minutes")
-                    RuleRow(label = "Format", value = "1 bonne réponse parmi 4")
-                    RuleRow(label = "Feedback", value = "Uniquement à la fin")
+                    RuleRow(label = "Durée maximale",    value = "45 minutes")
+                    RuleRow(label = "Format",            value = "1 bonne réponse parmi 4")
+                    RuleRow(label = "Feedback",          value = "Uniquement à la fin")
                 }
             }
 
@@ -74,6 +78,20 @@ fun HomeScreen(onStartExam: () -> Unit) {
                 Text(
                     text = "Commencer l'examen",
                     style = MaterialTheme.typography.titleMedium
+                )
+            }
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            OutlinedButton(
+                onClick = onShowHistory,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(48.dp)
+            ) {
+                Text(
+                    text = "Voir l'historique",
+                    style = MaterialTheme.typography.bodyLarge
                 )
             }
         }
