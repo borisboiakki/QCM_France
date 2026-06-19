@@ -29,6 +29,9 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
     val viewModel: QuizViewModel = hiltViewModel()
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
+    val settingsViewModel: SettingsViewModel = hiltViewModel()
+    val soundEnabled by settingsViewModel.soundEnabled.collectAsStateWithLifecycle()
+
     NavHost(navController = navController, startDestination = ROUTE_HOME) {
 
         composable(ROUTE_HOME) {
@@ -48,10 +51,11 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
                 }
             }
             QuizScreen(
-                uiState  = uiState,
-                onSelect = viewModel::selectAnswer,
-                onNext   = viewModel::nextQuestion,
-                onSubmit = viewModel::submitQuiz
+                uiState      = uiState,
+                soundEnabled = soundEnabled,
+                onSelect     = viewModel::selectAnswer,
+                onNext       = viewModel::nextQuestion,
+                onSubmit     = viewModel::submitQuiz
             )
         }
 
@@ -76,11 +80,12 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
         }
 
         composable(ROUTE_SETTINGS) {
-            val settingsViewModel: SettingsViewModel = hiltViewModel()
             val themeMode by settingsViewModel.themeMode.collectAsStateWithLifecycle()
             SettingsScreen(
                 currentTheme  = themeMode,
                 onThemeChange = settingsViewModel::setThemeMode,
+                soundEnabled  = soundEnabled,
+                onSoundChange = settingsViewModel::setSoundEnabled,
                 onBack        = { navController.popBackStack() }
             )
         }

@@ -33,6 +33,7 @@ import com.example.qcmfrance.ui.viewmodel.QuizUiState
 @Composable
 fun QuizScreen(
     uiState: QuizUiState,
+    soundEnabled: Boolean,
     onSelect: (String) -> Unit,
     onNext: () -> Unit,
     onSubmit: () -> Unit
@@ -114,7 +115,7 @@ fun QuizScreen(
                     text = text,
                     selected = selectedAnswer == letter,
                     onClick = {
-                        toneGenerator?.startTone(ToneGenerator.TONE_PROP_BEEP, 80)
+                        if (soundEnabled) toneGenerator?.startTone(ToneGenerator.TONE_PROP_BEEP, 80)
                         onSelect(letter)
                     }
                 )

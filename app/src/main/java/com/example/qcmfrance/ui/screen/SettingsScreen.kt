@@ -17,6 +17,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -30,6 +31,8 @@ import com.example.qcmfrance.data.repository.ThemeMode
 fun SettingsScreen(
     currentTheme: ThemeMode,
     onThemeChange: (ThemeMode) -> Unit,
+    soundEnabled: Boolean,
+    onSoundChange: (Boolean) -> Unit,
     onBack: () -> Unit
 ) {
     Scaffold(
@@ -85,6 +88,38 @@ fun SettingsScreen(
                 selected = currentTheme == ThemeMode.DARK,
                 onSelect = { onThemeChange(ThemeMode.DARK) }
             )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Text(
+                text = "Son",
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.padding(vertical = 8.dp)
+            )
+            HorizontalDivider()
+            Spacer(modifier = Modifier.height(4.dp))
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable { onSoundChange(!soundEnabled) }
+                    .padding(vertical = 8.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(text = "Son de sélection", style = MaterialTheme.typography.bodyLarge)
+                    Text(
+                        text = "Bip lors de la sélection d'une réponse",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+                Switch(
+                    checked = soundEnabled,
+                    onCheckedChange = onSoundChange
+                )
+            }
         }
     }
 }

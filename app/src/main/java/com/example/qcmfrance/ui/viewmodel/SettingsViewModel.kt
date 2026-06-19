@@ -23,7 +23,18 @@ class SettingsViewModel @Inject constructor(
             initialValue = ThemeMode.SYSTEM
         )
 
+    val soundEnabled: StateFlow<Boolean> = repository.soundEnabled
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5_000),
+            initialValue = true
+        )
+
     fun setThemeMode(mode: ThemeMode) {
         viewModelScope.launch { repository.setThemeMode(mode) }
+    }
+
+    fun setSoundEnabled(enabled: Boolean) {
+        viewModelScope.launch { repository.setSoundEnabled(enabled) }
     }
 }
