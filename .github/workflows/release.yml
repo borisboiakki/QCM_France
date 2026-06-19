@@ -39,9 +39,29 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
+      - name: Resolve version tag
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "tag=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+          else
+            echo "tag=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Check signing configuration
+        id: signing
+        run: |
+          if [ -n "$SIGNING_KEY_CHECK" ]; then
+            echo "available=true" >> $GITHUB_OUTPUT
+          else
+            echo "available=false" >> $GITHUB_OUTPUT
+          fi
+        env:
+          SIGNING_KEY_CHECK: ${{ secrets.SIGNING_KEY }}
+
       # Étape A — Signing disponible (secrets configurés dans le dépôt)
       - name: Build & Sign Release APK
-        if: ${{ secrets.SIGNING_KEY != '' }}
+        if: steps.signing.outputs.available == 'true'
         run: ./gradlew assembleRelease --no-daemon
         env:
           SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
@@ -50,7 +70,7 @@ jobs:
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
 
       - name: Sign APK
-        if: ${{ secrets.SIGNING_KEY != '' }}
+        if: steps.signing.outputs.available == 'true'
         uses: r0adkll/sign-android-release@v1
         id: sign_apk
         with:
@@ -62,26 +82,17 @@ jobs:
         env:
           BUILD_TOOLS_VERSION: "35.0.0"
 
-      - name: Resolve version tag
-        id: version
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "tag=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
-          else
-            echo "tag=${{ github.ref_name }}" >> $GITHUB_OUTPUT
-          fi
-
       - name: Rename Signed APK
-        if: ${{ secrets.SIGNING_KEY != '' }}
+        if: steps.signing.outputs.available == 'true'
         run: mv "${{ steps.sign_apk.outputs.signedReleaseFile }}" "qcm-france-${{ steps.version.outputs.tag }}.apk"
 
       # Étape B — Pas de signing : APK debug (signé debug key, installable en sideload)
       - name: Build Debug APK (fallback)
-        if: ${{ secrets.SIGNING_KEY == '' }}
+        if: steps.signing.outputs.available == 'false'
         run: ./gradlew assembleDebug --no-daemon
 
       - name: Rename Debug APK (fallback)
-        if: ${{ secrets.SIGNING_KEY == '' }}
+        if: steps.signing.outputs.available == 'false'
         run: mv app/build/outputs/apk/debug/app-debug.apk "qcm-france-${{ steps.version.outputs.tag }}.apk"
 
       - name: Generate QUESTIONS.md
