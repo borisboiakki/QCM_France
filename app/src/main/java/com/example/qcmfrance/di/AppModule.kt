@@ -3,6 +3,7 @@ package com.example.qcmfrance.di
 import android.content.Context
 import com.example.qcmfrance.data.db.AppDatabase
 import com.example.qcmfrance.data.db.QuestionDao
+import com.example.qcmfrance.data.db.QuizResultDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,4 +23,8 @@ object AppModule {
     @Provides
     @Singleton
     fun provideQuestionDao(db: AppDatabase): QuestionDao = db.questionDao()
+
+    @Provides
+    @Singleton
+    fun provideQuizResultDao(db: AppDatabase): QuizResultDao = db.quizResultDao()
 }

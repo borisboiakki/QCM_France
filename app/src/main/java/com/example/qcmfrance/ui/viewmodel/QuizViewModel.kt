@@ -3,6 +3,8 @@ package com.example.qcmfrance.ui.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.qcmfrance.data.model.Question
+import com.example.qcmfrance.data.model.QuizResult
+import com.example.qcmfrance.data.repository.HistoryRepository
 import com.example.qcmfrance.data.repository.QuestionRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
@@ -27,7 +29,8 @@ data class QuizUiState(
 
 @HiltViewModel
 class QuizViewModel @Inject constructor(
-    private val repository: QuestionRepository
+    private val repository: QuestionRepository,
+    private val historyRepository: HistoryRepository
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(QuizUiState())
@@ -72,11 +75,20 @@ class QuizViewModel @Inject constructor(
                 passed = score >= 32
             )
         }
+        viewModelScope.launch {
+            historyRepository.save(
+                QuizResult(
+                    date            = System.currentTimeMillis(),
+                    score           = score,
+                    passed          = score >= 32,
+                    durationSeconds = 2700 - state.remainingSeconds
+                )
+            )
+        }
     }
 
     fun restartQuiz() {
         _uiState.value = QuizUiState()
-        // L'utilisateur devra re-cliquer "Commencer" → startQuiz() sera rappelé
     }
 
     private fun runTimer() {
