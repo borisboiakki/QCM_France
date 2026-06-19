@@ -24,6 +24,7 @@ hilt-navigation        = { group = "androidx.hilt", name = "hilt-navigation-comp
 navigation-compose     = { group = "androidx.navigation", name = "navigation-compose",            version.ref = "navigation" }
 coroutines-android     = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
 gson                   = { group = "com.google.code.gson", name = "gson",                        version.ref = "gson" }
+lifecycle-compose      = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose",      version = "2.8.7" }
 
 [plugins]
 android-application    = { id = "com.android.application",             version.ref = "agp" }

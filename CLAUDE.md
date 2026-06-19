@@ -106,18 +106,18 @@ QCM_France/
 │   │   │   │   └── AppModule.kt                 ✅ étape 3  Hilt @Module (AppDatabase, QuestionDao, QuestionRepository)
 │   │   │   ├── ui/
 │   │   │   │   ├── screen/
-│   │   │   │   │   ├── HomeScreen.kt            🔲 étape 5
-│   │   │   │   │   ├── QuizScreen.kt            🔲 étape 6
-│   │   │   │   │   └── ResultScreen.kt          🔲 étape 7
+│   │   │   │   │   ├── HomeScreen.kt            ✅ étape 4  titre, règles, bouton "Commencer"
+│   │   │   │   │   ├── QuizScreen.kt            ✅ étape 4  question N/40, options, timer, progression
+│   │   │   │   │   └── ResultScreen.kt          ✅ étape 4  score, RÉUSSI/ÉCHOUÉ, détail par question
 │   │   │   │   ├── viewmodel/
-│   │   │   │   │   └── QuizViewModel.kt         🔲 étape 4
+│   │   │   │   │   └── QuizViewModel.kt         ✅ étape 4  QuizUiState, timer, scoring, stratified draw
 │   │   │   │   ├── navigation/
-│   │   │   │   │   └── NavGraph.kt              🔲 étape 4
+│   │   │   │   │   └── NavGraph.kt              ✅ étape 4  routes home/quiz/result
 │   │   │   │   └── theme/
 │   │   │   │       ├── Theme.kt                 ✅ étape 1  Material 3 dynamique
 │   │   │   │       ├── Color.kt                 ✅ étape 1
 │   │   │   │       └── Type.kt                  ✅ étape 1
-│   │   │   ├── QcmFranceApplication.kt          ✅ étape 1  @HiltAndroidApp stub
+│   │   │   ├── QcmFranceApplication.kt          ✅ étape 1  @HiltAndroidApp
 │   │   │   └── MainActivity.kt                  ✅ étape 1  @AndroidEntryPoint
 │   │   └── res/
 │   │       ├── raw/

@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import com.example.qcmfrance.ui.navigation.QcmNavGraph
 import com.example.qcmfrance.ui.theme.QcmFranceTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -14,7 +15,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             QcmFranceTheme {
-                // Navigation graph will be added in Étape 4
+                QcmNavGraph()
             }
         }
     }

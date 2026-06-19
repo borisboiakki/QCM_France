@@ -58,6 +58,7 @@ dependencies {
     implementation(libs.hilt.navigation)
 
     implementation(libs.navigation.compose)
+    implementation(libs.lifecycle.compose)
     implementation(libs.coroutines.android)
     implementation(libs.gson)
 
