@@ -26,13 +26,15 @@ import androidx.compose.ui.unit.dp
 import com.example.qcmfrance.data.model.Question
 import com.example.qcmfrance.ui.viewmodel.QuizUiState
 
-private val GreenOk  = Color(0xFF2E7D32)
-private val RedFail  = Color(0xFFC62828)
+private val GreenOk = Color(0xFF2E7D32)
+private val RedFail = Color(0xFFC62828)
 
 @Composable
 fun ResultScreen(uiState: QuizUiState, onRestart: () -> Unit) {
     val passColor = if (uiState.passed) GreenOk else RedFail
     val passLabel = if (uiState.passed) "RÉUSSI" else "ÉCHOUÉ"
+    val durationSeconds = 2700 - uiState.remainingSeconds
+    val durationStr = "%02d:%02d".format(durationSeconds / 60, durationSeconds % 60)
 
     Scaffold { innerPadding ->
         LazyColumn(
@@ -63,6 +65,12 @@ fun ResultScreen(uiState: QuizUiState, onRestart: () -> Unit) {
                         Text(
                             text = "${uiState.score} / ${uiState.questions.size}",
                             style = MaterialTheme.typography.headlineMedium
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Text(
+                            text = "Temps utilisé : $durationStr",
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                         if (uiState.timerExpired) {
                             Spacer(modifier = Modifier.height(4.dp))
