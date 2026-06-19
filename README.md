@@ -12,9 +12,11 @@ Application Android de préparation à l'examen civique de naturalisation franç
 - **Chronomètre décompte 45 minutes** — affiché en rouge dans les 5 dernières minutes
 - **Soumission automatique** à 00:00 si l'examen n'est pas terminé manuellement
 - **Aucun feedback pendant l'examen** (règle officielle) — les réponses correctes ne sont révélées qu'à la fin
+- **Son de sélection** — bip au choix d'une réponse (activable/désactivable dans les paramètres)
 
 ### Écran d'accueil
-Rappel des règles officielles avant de commencer : nombre de questions, seuil de réussite, durée, format.
+Rappel des règles officielles avant de commencer : nombre de questions, seuil de réussite, durée, format.  
+Accès rapide à l'historique et aux paramètres.
 
 ### Écran de quiz
 - Barre de progression (question N / 40)
@@ -26,8 +28,19 @@ Rappel des règles officielles avant de commencer : nombre de questions, seuil d
 ### Écran de résultats
 - Score final `X / 40`
 - Mention **RÉUSSI** (fond vert, score ≥ 32) ou **ÉCHOUÉ** (fond rouge, score < 32)
+- Temps utilisé affiché
 - Détail question par question : réponse donnée vs bonne réponse
 - Bouton **Recommencer** pour relancer un nouvel examen
+- Bouton **Exporter les résultats** — partage le rapport complet (détail par question) via l'intent Android standard
+
+### Historique des résultats
+- Liste de tous les examens passés (date, score, durée, mention)
+- Icône de partage sur chaque entrée pour exporter le résumé
+- Bouton **Vider l'historique** avec confirmation
+
+### Paramètres
+- **Thème** : Système (par défaut) / Clair / Sombre — persisté entre les sessions
+- **Son de sélection** : activé/désactivé — persisté entre les sessions
 
 ---
 
@@ -159,6 +172,7 @@ Les 258 questions sont embarquées dans `res/raw/questions.json` et insérées d
 | UI | Jetpack Compose + Material 3 | BOM 2024.12.01 |
 | Architecture | MVVM + StateFlow | — |
 | Base de données | Room (SQLite) | 2.6.1 |
+| Préférences | DataStore Preferences | 1.1.1 |
 | Injection | Hilt (Dagger) | 2.52 |
 | Navigation | Navigation Compose | 2.8.5 |
 | JSON | Gson | 2.10.1 |
@@ -210,24 +224,36 @@ Les 258 questions sont issues des documents officiels du Ministère de l'Intéri
 
 ```
 QCM_France/
+├── .github/workflows/
+│   ├── build.yml              CI — build APK debug sur push/PR vers main
+│   └── release.yml            Release — build + publication sur tag v.N.N.N
+├── scripts/
+│   └── generate_questions_md.py   Génère QUESTIONS.md depuis questions.json
+├── LICENSE                    Licence MIT
+├── QUESTIONS.md               Liste des 258 questions (généré automatiquement)
 ├── app/
 │   ├── build.gradle.kts
-│   ├── proguard-rules.pro
 │   └── src/main/
 │       ├── AndroidManifest.xml
 │       ├── java/com/example/qcmfrance/
 │       │   ├── MainActivity.kt
 │       │   ├── QcmFranceApplication.kt
-│       │   ├── data/db/        AppDatabase.kt  QuestionDao.kt
-│       │   ├── data/model/     Question.kt
-│       │   ├── data/repository/QuestionRepository.kt
-│       │   ├── di/             AppModule.kt
-│       │   └── ui/             NavGraph.kt  HomeScreen.kt
-│       │                       QuizScreen.kt  ResultScreen.kt
-│       │                       QuizViewModel.kt  Theme/
+│       │   ├── data/
+│       │   │   ├── db/        AppDatabase.kt  QuestionDao.kt  QuizResultDao.kt  Converters.kt
+│       │   │   ├── model/     Question.kt  QuizResult.kt
+│       │   │   └── repository/QuestionRepository.kt  QuizResultRepository.kt  SettingsRepository.kt
+│       │   ├── di/            AppModule.kt
+│       │   └── ui/
+│       │       ├── navigation/NavGraph.kt
+│       │       ├── screen/    HomeScreen.kt  QuizScreen.kt  ResultScreen.kt
+│       │       │              HistoryScreen.kt  SettingsScreen.kt
+│       │       ├── utils/     ResultExporter.kt
+│       │       ├── viewmodel/ QuizViewModel.kt  HistoryViewModel.kt  SettingsViewModel.kt
+│       │       └── theme/     Theme.kt  Color.kt  Type.kt
 │       └── res/
-│           ├── raw/questions.json   (258 questions, seed)
-│           └── values/              strings.xml  themes.xml
+│           ├── mipmap-*/      Icônes adaptatives (fond bleu tricolore, texte QCM)
+│           ├── raw/           questions.json (258 questions, seed)
+│           └── values/        strings.xml  themes.xml  colors.xml
 ├── build.gradle.kts
 ├── settings.gradle.kts
 └── gradle/

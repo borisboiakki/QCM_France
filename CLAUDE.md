@@ -86,59 +86,75 @@ Kotlin : `2.0.21` | AGP : `8.7.3` | KSP : `2.0.21-1.0.27` | Gradle : `8.11.1`
 
 ## Structure du projet
 
-Légende : ✅ implémenté
-
 ```
 QCM_France/
 ├── .github/
 │   └── workflows/
-│       └── build.yml                            ✅ CI — build APK debug sur push/PR/manual
+│       ├── build.yml                            CI — build APK debug sur push/PR vers main
+│       └── release.yml                          Release — build + publication sur tag v.N.N.N
+│                                                (supporte aussi workflow_dispatch avec input version)
+├── scripts/
+│   └── generate_questions_md.py                 Génère QUESTIONS.md depuis questions.json
+├── LICENSE                                      Licence MIT
+├── QUESTIONS.md                                 Liste des 258 questions (généré par release)
 ├── app/
 │   ├── src/main/
-│   │   ├── AndroidManifest.xml                  ✅ étape 1
+│   │   ├── AndroidManifest.xml
 │   │   ├── java/com/example/qcmfrance/
 │   │   │   ├── data/
 │   │   │   │   ├── db/
-│   │   │   │   │   ├── AppDatabase.kt           ✅ étape 2  Room @Database + @TypeConverters
-│   │   │   │   │   ├── Converters.kt            ✅ fix      @TypeConverter List<String> ↔ JSON String
-│   │   │   │   │   └── QuestionDao.kt           ✅ étape 2  @Dao : getRandomByTheme, insertAll, count
+│   │   │   │   │   ├── AppDatabase.kt           Room @Database v2 + migrations
+│   │   │   │   │   ├── Converters.kt            @TypeConverter List<String> ↔ JSON String
+│   │   │   │   │   ├── QuestionDao.kt           @Dao : getRandomByTheme, insertAll, count
+│   │   │   │   │   └── QuizResultDao.kt         @Dao : insertResult, getAllResults, deleteAll
 │   │   │   │   ├── model/
-│   │   │   │   │   └── Question.kt              ✅ étape 2  @Entity Room
+│   │   │   │   │   ├── Question.kt              @Entity Room
+│   │   │   │   │   └── QuizResult.kt            @Entity Room : id, date, score, passed, duration
 │   │   │   │   └── repository/
-│   │   │   │       └── QuestionRepository.kt    ✅ étape 2  seed + tirage stratifié 6-9-6-13-6
+│   │   │   │       ├── QuestionRepository.kt    seed + tirage stratifié 6-9-6-13-6
+│   │   │   │       ├── QuizResultRepository.kt  sauvegarde et récupération de l'historique
+│   │   │   │       └── SettingsRepository.kt    DataStore : ThemeMode + soundEnabled
 │   │   │   ├── di/
-│   │   │   │   └── AppModule.kt                 ✅ étape 3  Hilt @Module (AppDatabase, QuestionDao)
+│   │   │   │   └── AppModule.kt                 Hilt @Module (AppDatabase, DAOs, Repositories)
 │   │   │   ├── ui/
-│   │   │   │   ├── screen/
-│   │   │   │   │   ├── HomeScreen.kt            ✅ étape 4  titre, règles, bouton "Commencer"
-│   │   │   │   │   ├── QuizScreen.kt            ✅ étape 4  question N/40, options, timer, progression
-│   │   │   │   │   └── ResultScreen.kt          ✅ étape 4  score, RÉUSSI/ÉCHOUÉ, détail par question
-│   │   │   │   ├── viewmodel/
-│   │   │   │   │   └── QuizViewModel.kt         ✅ étape 4  QuizUiState, timer, scoring, stratified draw
 │   │   │   │   ├── navigation/
-│   │   │   │   │   └── NavGraph.kt              ✅ étape 4  routes home/quiz/result
+│   │   │   │   │   └── NavGraph.kt              5 routes : home/quiz/result/history/settings
+│   │   │   │   ├── screen/
+│   │   │   │   │   ├── HomeScreen.kt            titre, règles, boutons historique/paramètres
+│   │   │   │   │   ├── QuizScreen.kt            question N/40, options, timer, son conditionnel
+│   │   │   │   │   ├── ResultScreen.kt          score, RÉUSSI/ÉCHOUÉ, temps, détail, export
+│   │   │   │   │   ├── HistoryScreen.kt         liste des résultats, export par résultat, vider
+│   │   │   │   │   └── SettingsScreen.kt        thème (Système/Clair/Sombre) + toggle son
+│   │   │   │   ├── utils/
+│   │   │   │   │   └── ResultExporter.kt        partage texte via Intent.ACTION_SEND
+│   │   │   │   ├── viewmodel/
+│   │   │   │   │   ├── QuizViewModel.kt         QuizUiState, timer, scoring, tirage stratifié
+│   │   │   │   │   ├── HistoryViewModel.kt      Flow<List<QuizResult>>, clearHistory()
+│   │   │   │   │   └── SettingsViewModel.kt     themeMode + soundEnabled StateFlow
 │   │   │   │   └── theme/
-│   │   │   │       ├── Theme.kt                 ✅ étape 1  Material 3 dynamique
-│   │   │   │       ├── Color.kt                 ✅ étape 1
-│   │   │   │       └── Type.kt                  ✅ étape 1
-│   │   │   ├── QcmFranceApplication.kt          ✅ étape 1  @HiltAndroidApp
-│   │   │   └── MainActivity.kt                  ✅ étape 1  @AndroidEntryPoint
+│   │   │   │       ├── Theme.kt                 Material 3 dynamique, accepte ThemeMode
+│   │   │   │       ├── Color.kt
+│   │   │   │       └── Type.kt
+│   │   │   ├── QcmFranceApplication.kt          @HiltAndroidApp
+│   │   │   └── MainActivity.kt                  @AndroidEntryPoint, collecte ThemeMode
 │   │   └── res/
+│   │       ├── mipmap-*/                        Icônes adaptatives (fond bleu tricolore)
 │   │       ├── raw/
-│   │       │   └── questions.json               ✅ étape 2  258 questions (seed)
+│   │       │   └── questions.json               258 questions (seed)
 │   │       └── values/
-│   │           ├── strings.xml                  ✅ étape 1
-│   │           └── themes.xml                   ✅ étape 1  Theme.AppCompat.DayNight.NoActionBar
-│   ├── build.gradle.kts                         ✅ étape 1
-│   └── proguard-rules.pro                       ✅ étape 1
-├── build.gradle.kts                             ✅ étape 1
-├── gradle.properties                            ✅ fix      android.useAndroidX=true
-├── settings.gradle.kts                          ✅ étape 1
-├── gradlew / gradlew.bat                        ✅ étape 1  Gradle wrapper 8.11.1
+│   │           ├── strings.xml
+│   │           ├── themes.xml
+│   │           └── colors.xml
+│   ├── build.gradle.kts
+│   └── proguard-rules.pro
+├── build.gradle.kts
+├── gradle.properties                            android.useAndroidX=true
+├── settings.gradle.kts
+├── gradlew / gradlew.bat                        Gradle wrapper 8.11.1
 └── gradle/
-    ├── libs.versions.toml                       ✅ étape 1  Version catalog complet
+    ├── libs.versions.toml                       Version catalog complet
     └── wrapper/
-        └── gradle-wrapper.properties            ✅ étape 1
+        └── gradle-wrapper.properties
 ```
 
 ---
@@ -252,9 +268,11 @@ fun submitQuiz() {
 
 | Route | Écran | Contenu |
 |---|---|---|
-| `home` | Accueil | Titre, règles résumées, bouton "Commencer l'examen" |
-| `quiz` | Examen | Question N/40, 4 options, chrono MM:SS, barre de progression |
-| `result` | Résultat | Score X/40, mention Réussi/Échoué (seuil 32), détail par question |
+| `home` | Accueil | Titre, règles résumées, boutons "Commencer", "Historique", "Paramètres" |
+| `quiz` | Examen | Question N/40, 4 options, chrono MM:SS, barre de progression, son conditionnel |
+| `result` | Résultat | Score X/40, temps utilisé, mention Réussi/Échoué, détail, export |
+| `history` | Historique | Liste des résultats passés, export individuel, vider l'historique |
+| `settings` | Paramètres | Thème (Système/Clair/Sombre), toggle son de sélection |
 
 **Règle UX importante :** sur l'écran quiz, **aucun feedback immédiat** sur la bonne/mauvaise réponse (c'est un examen, pas un entraînement). Le feedback n'est affiché qu'à l'écran résultat.
 
@@ -298,6 +316,7 @@ hilt              = "2.52"
 navigation        = "2.8.5"
 coroutines        = "1.9.0"
 gson              = "2.10.1"
+datastore         = "1.1.1"
 
 [libraries]
 compose-bom            = { group = "androidx.compose", name = "compose-bom",                    version.ref = "compose-bom" }
@@ -347,20 +366,28 @@ ksp                    = { id = "com.google.devtools.ksp",              version 
 
 ```
 [HomeScreen]
-  └─ "Commencer l'examen" ──► [QuizScreen]  ← timer 45 min démarre
-                                  ├─ Question N/40 (sans feedback immédiat)
-                                  ├─ Chrono MM:SS (rouge < 5 min)
-                                  ├─ "Suivant" → question N+1
-                                  ├─ Dernière question → bouton "Terminer"
-                                  └─ Timer à 00:00 → soumission automatique
-                                        │
-                                        ▼
-                                  [ResultScreen]
-                                    ├─ Score X/40
-                                    ├─ ✅ RÉUSSI (≥ 32) ou ❌ ÉCHOUÉ (< 32)
-                                    ├─ Détail : question par question
-                                    │   (bonne réponse en vert, mauvaise en rouge)
-                                    └─ "Recommencer" → [HomeScreen]
+  ├─ "Commencer l'examen" ──► [QuizScreen]  ← timer 45 min démarre
+  │                               ├─ Question N/40 (sans feedback immédiat)
+  │                               ├─ Chrono MM:SS (rouge < 5 min)
+  │                               ├─ Son au clic (si activé dans les paramètres)
+  │                               ├─ "Suivant" → question N+1
+  │                               ├─ Dernière question → bouton "Terminer"
+  │                               └─ Timer à 00:00 → soumission automatique
+  │                                       │
+  │                                       ▼
+  │                               [ResultScreen]
+  │                                 ├─ Score X/40 + temps utilisé
+  │                                 ├─ RÉUSSI (≥ 32) ou ÉCHOUÉ (< 32)
+  │                                 ├─ Détail : question par question
+  │                                 ├─ "Exporter les résultats" → Intent.ACTION_SEND
+  │                                 └─ "Recommencer" → [HomeScreen]
+  ├─ "Historique" ──► [HistoryScreen]
+  │                     ├─ Liste des résultats (date, score, durée, mention)
+  │                     ├─ Icône partage sur chaque résultat → Intent.ACTION_SEND
+  │                     └─ "Vider l'historique" (avec confirmation)
+  └─ "Paramètres" ──► [SettingsScreen]
+                        ├─ Thème : Système / Clair / Sombre (persisté DataStore)
+                        └─ Son de sélection : activé/désactivé (persisté DataStore)
 ```
 
 ---
@@ -381,8 +408,14 @@ ksp                    = { id = "com.google.devtools.ksp",              version 
 Le workflow `build.yml` se déclenche **automatiquement** sur tout push vers `main` et sur les pull requests.
 **Ne pas déclencher manuellement** (`workflow_dispatch`) après un push — le build est déjà en cours.
 
-Le workflow `release.yml` se déclenche sur un tag `v.N.N.N` :
+Le workflow `release.yml` se déclenche soit sur un tag `v.N.N.N`, soit manuellement via `workflow_dispatch` (input `version`) :
 ```bash
+# Via tag (si accès push non bloqué)
 git tag v.1.0.0
 git push origin v.1.0.0
+
+# Via workflow_dispatch (GitHub Actions → Release APK → Run workflow)
+# Saisir le numéro de version dans l'input "Version tag"
 ```
+
+La release publie l'APK (signé si secrets configurés, sinon debug) + `QUESTIONS.md` généré automatiquement.
