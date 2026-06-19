@@ -1,6 +1,7 @@
 package com.example.qcmfrance.ui.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -34,16 +35,20 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
         }
 
         composable(ROUTE_QUIZ) {
-            QuizScreen(
-                uiState    = uiState,
-                onSelect   = viewModel::selectAnswer,
-                onNext     = viewModel::nextQuestion,
-                onSubmit   = {
-                    viewModel.submitQuiz()
+            // Handles both manual submit and timer-expiry auto-submit
+            LaunchedEffect(uiState.isFinished) {
+                if (uiState.isFinished) {
                     navController.navigate(ROUTE_RESULT) {
                         popUpTo(ROUTE_QUIZ) { inclusive = true }
                     }
                 }
+            }
+
+            QuizScreen(
+                uiState  = uiState,
+                onSelect = viewModel::selectAnswer,
+                onNext   = viewModel::nextQuestion,
+                onSubmit = viewModel::submitQuiz   // LaunchedEffect handles navigation
             )
         }
 
@@ -52,9 +57,8 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
                 uiState   = uiState,
                 onRestart = {
                     viewModel.restartQuiz()
-                    navController.navigate(ROUTE_HOME) {
-                        popUpTo(ROUTE_RESULT) { inclusive = true }
-                    }
+                    // Pop back to the existing HOME entry — no duplicate created
+                    navController.popBackStack(ROUTE_HOME, inclusive = false)
                 }
             )
         }

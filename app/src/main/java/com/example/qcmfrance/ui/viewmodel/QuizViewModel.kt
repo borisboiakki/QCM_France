@@ -76,7 +76,7 @@ class QuizViewModel @Inject constructor(
 
     fun restartQuiz() {
         _uiState.value = QuizUiState()
-        startQuiz()
+        // L'utilisateur devra re-cliquer "Commencer" → startQuiz() sera rappelé
     }
 
     private fun runTimer() {
