@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">QCM France</string>
+    <string name="start_exam">Commencer l\'examen</string>
+    <string name="next_question">Suivant</string>
+    <string name="finish_exam">Terminer</string>
+    <string name="restart_exam">Recommencer</string>
+    <string name="question_counter">Question %1$d / 40</string>
+    <string name="score_label">Score : %1$d / 40</string>
+    <string name="passed">RÉUSSI</string>
+    <string name="failed">ÉCHOUÉ</string>
+    <string name="passing_score">32 / 40 (80 %%)</string>
+    <string name="exam_duration">45 minutes</string>
+    <string name="your_answer">Votre réponse</string>
+    <string name="correct_answer">Bonne réponse</string>
+</resources>

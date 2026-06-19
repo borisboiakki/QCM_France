@@ -1,0 +1,33 @@
+[versions]
+kotlin            = "2.0.21"
+agp               = "8.7.3"
+compose-bom       = "2024.12.01"
+room              = "2.6.1"
+hilt              = "2.52"
+navigation        = "2.8.5"
+coroutines        = "1.9.0"
+gson              = "2.10.1"
+
+[libraries]
+compose-bom            = { group = "androidx.compose", name = "compose-bom",                    version.ref = "compose-bom" }
+compose-ui             = { group = "androidx.compose.ui", name = "ui" }
+compose-material3      = { group = "androidx.compose.material3", name = "material3" }
+compose-ui-tooling     = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+compose-ui-tooling-debug = { group = "androidx.compose.ui", name = "ui-tooling" }
+activity-compose       = { group = "androidx.activity", name = "activity-compose",               version = "1.9.3" }
+room-runtime           = { group = "androidx.room", name = "room-runtime",                       version.ref = "room" }
+room-ktx               = { group = "androidx.room", name = "room-ktx",                          version.ref = "room" }
+room-compiler          = { group = "androidx.room", name = "room-compiler",                      version.ref = "room" }
+hilt-android           = { group = "com.google.dagger", name = "hilt-android",                   version.ref = "hilt" }
+hilt-compiler          = { group = "com.google.dagger", name = "hilt-android-compiler",          version.ref = "hilt" }
+hilt-navigation        = { group = "androidx.hilt", name = "hilt-navigation-compose",            version = "1.2.0" }
+navigation-compose     = { group = "androidx.navigation", name = "navigation-compose",            version.ref = "navigation" }
+coroutines-android     = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+gson                   = { group = "com.google.code.gson", name = "gson",                        version.ref = "gson" }
+
+[plugins]
+android-application    = { id = "com.android.application",             version.ref = "agp" }
+kotlin-android         = { id = "org.jetbrains.kotlin.android",        version.ref = "kotlin" }
+kotlin-compose         = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+hilt                   = { id = "com.google.dagger.hilt.android",      version.ref = "hilt" }
+ksp                    = { id = "com.google.devtools.ksp",              version = "2.0.21-1.0.27" }
