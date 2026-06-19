@@ -15,15 +15,18 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.qcmfrance.data.model.Question
+import com.example.qcmfrance.ui.utils.ResultExporter
 import com.example.qcmfrance.ui.viewmodel.QuizUiState
 
 private val GreenOk = Color(0xFF2E7D32)
@@ -31,6 +34,7 @@ private val RedFail = Color(0xFFC62828)
 
 @Composable
 fun ResultScreen(uiState: QuizUiState, onRestart: () -> Unit) {
+    val context = LocalContext.current
     val passColor = if (uiState.passed) GreenOk else RedFail
     val passLabel = if (uiState.passed) "RÉUSSI" else "ÉCHOUÉ"
     val durationSeconds = 2700 - uiState.remainingSeconds
@@ -108,6 +112,15 @@ fun ResultScreen(uiState: QuizUiState, onRestart: () -> Unit) {
                         .height(52.dp)
                 ) {
                     Text(text = "Recommencer", style = MaterialTheme.typography.titleMedium)
+                }
+                Spacer(modifier = Modifier.height(8.dp))
+                OutlinedButton(
+                    onClick = { ResultExporter.shareFullResult(context, uiState) },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(52.dp)
+                ) {
+                    Text(text = "Exporter les résultats", style = MaterialTheme.typography.titleMedium)
                 }
                 Spacer(modifier = Modifier.height(16.dp))
             }
