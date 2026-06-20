@@ -13,12 +13,17 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -44,6 +49,10 @@ fun ResultScreen(uiState: QuizUiState, onRestart: () -> Unit) {
     val passLabel = if (uiState.passed) "RÉUSSI" else "ÉCHOUÉ"
     val durationSeconds = 2700 - uiState.remainingSeconds
     val durationStr = "%02d:%02d".format(durationSeconds / 60, durationSeconds % 60)
+
+    var showOnlyWrong by remember { mutableStateOf(false) }
+    val wrongQuestions = uiState.questions.filter { q -> uiState.answers[q.id] != q.correctAnswer }
+    val displayedQuestions = if (showOnlyWrong) wrongQuestions else uiState.questions
 
     Scaffold { innerPadding ->
         LazyColumn(
@@ -94,19 +103,41 @@ fun ResultScreen(uiState: QuizUiState, onRestart: () -> Unit) {
             }
 
             item {
-                Text(
-                    text = "Détail des réponses",
-                    style = MaterialTheme.typography.titleMedium
-                )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = "Détail des réponses",
+                        style = MaterialTheme.typography.titleMedium
+                    )
+                    FilterChip(
+                        selected = showOnlyWrong,
+                        onClick = { showOnlyWrong = !showOnlyWrong },
+                        label = { Text("Erreurs (${wrongQuestions.size})") }
+                    )
+                }
                 HorizontalDivider()
             }
 
-            itemsIndexed(uiState.questions) { index, question ->
-                QuestionResultItem(
-                    index = index + 1,
-                    question = question,
-                    givenAnswer = uiState.answers[question.id]
-                )
+            if (displayedQuestions.isEmpty()) {
+                item {
+                    Text(
+                        text = "Aucune erreur — score parfait !",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = GreenOk,
+                        modifier = Modifier.padding(vertical = 8.dp)
+                    )
+                }
+            } else {
+                itemsIndexed(displayedQuestions) { index, question ->
+                    QuestionResultItem(
+                        index = if (showOnlyWrong) uiState.questions.indexOf(question) + 1 else index + 1,
+                        question = question,
+                        givenAnswer = uiState.answers[question.id]
+                    )
+                }
             }
 
             item {
