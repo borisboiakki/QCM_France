@@ -30,6 +30,7 @@ Accès rapide à l'historique et aux paramètres.
 - Mention **RÉUSSI** (fond vert, score ≥ 32) ou **ÉCHOUÉ** (fond rouge, score < 32)
 - Temps utilisé affiché
 - Détail question par question : réponse donnée vs bonne réponse
+- **Filtre "Erreurs (N)"** — chip pour n'afficher que les questions ratées (mauvaise réponse ou sans réponse) ; message spécifique si le score est parfait
 - Bouton **Recommencer** pour relancer un nouvel examen
 - Bouton **Exporter les résultats** — partage le rapport complet (détail par question) via l'intent Android standard
 

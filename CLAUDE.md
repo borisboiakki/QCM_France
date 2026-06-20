@@ -122,7 +122,7 @@ QCM_France/
 │   │   │   │   ├── screen/
 │   │   │   │   │   ├── HomeScreen.kt            titre, règles, boutons historique/paramètres
 │   │   │   │   │   ├── QuizScreen.kt            question N/40, options, timer, son conditionnel
-│   │   │   │   │   ├── ResultScreen.kt          score, RÉUSSI/ÉCHOUÉ, temps, détail, export
+│   │   │   │   │   ├── ResultScreen.kt          score, RÉUSSI/ÉCHOUÉ, temps, filtre erreurs (FilterChip), détail, export
 │   │   │   │   │   ├── HistoryScreen.kt         liste des résultats, export par résultat, vider
 │   │   │   │   │   └── SettingsScreen.kt        thème (Système/Clair/Sombre) + toggle son
 │   │   │   │   ├── utils/
@@ -404,6 +404,8 @@ ksp                    = { id = "com.google.devtools.ksp",              version 
 ./gradlew connectedAndroidTest
 ./gradlew lint
 ```
+
+> **Contrainte environnement Claude Code web (sessions distantes) :** Gradle ne peut pas résoudre les dépendances Android (AGP, dépôts Google/Maven inaccessibles). La compilation locale est donc impossible dans ces sessions. Workflow à adopter : **revue du code uniquement** (lecture des fichiers, vérification des imports, logique, cohérence avec l'architecture) puis push sur la branche de travail — la CI GitHub Actions (`build.yml`) se charge de la compilation et de la validation.
 
 ---
 
