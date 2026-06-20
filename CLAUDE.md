@@ -22,7 +22,7 @@ Application Android de préparation à l'examen civique de naturalisation franç
 | 2 | Système institutionnel et politique | 55 | ~9 |
 | 3 | Droits et devoirs | 37 | ~6 |
 | 4 | Histoire, géographie et culture | 83 | ~13 |
-| 5 | Vivre dans la société française | 44 | ~7 |
+| 5 | Vivre dans la société française | 44 | 6 |
 | | **Total** | **258** | **40 (arrondi au plus proche, ajusté à 40)** |
 
 **Stratégie de tirage :** tirage proportionnel par thème (stratified sampling) pour garantir que chaque thème est représenté, puis ajustement pour atteindre exactement 40. L'ordre des questions est ensuite mélangé.
@@ -106,16 +106,16 @@ QCM_France/
 │   │   │   │   │   ├── AppDatabase.kt           Room @Database v2 + migrations
 │   │   │   │   │   ├── Converters.kt            @TypeConverter List<String> ↔ JSON String
 │   │   │   │   │   ├── QuestionDao.kt           @Dao : getRandomByTheme, insertAll, count
-│   │   │   │   │   └── QuizResultDao.kt         @Dao : insertResult, getAllResults, deleteAll
+│   │   │   │   │   └── QuizResultDao.kt         @Dao : getAll (Flow), insert, deleteAll
 │   │   │   │   ├── model/
 │   │   │   │   │   ├── Question.kt              @Entity Room
 │   │   │   │   │   └── QuizResult.kt            @Entity Room : id, date, score, passed, duration
 │   │   │   │   └── repository/
 │   │   │   │       ├── QuestionRepository.kt    seed + tirage stratifié 6-9-6-13-6
-│   │   │   │       ├── QuizResultRepository.kt  sauvegarde et récupération de l'historique
+│   │   │   │       ├── HistoryRepository.kt     sauvegarde et récupération de l'historique
 │   │   │   │       └── SettingsRepository.kt    DataStore : ThemeMode + soundEnabled
 │   │   │   ├── di/
-│   │   │   │   └── AppModule.kt                 Hilt @Module (AppDatabase, DAOs, Repositories)
+│   │   │   │   └── AppModule.kt                 Hilt @Module (AppDatabase, DAOs)
 │   │   │   ├── ui/
 │   │   │   │   ├── navigation/
 │   │   │   │   │   └── NavGraph.kt              5 routes : home/quiz/result/history/settings
@@ -148,7 +148,7 @@ QCM_France/
 │   ├── build.gradle.kts
 │   └── proguard-rules.pro
 ├── build.gradle.kts
-├── gradle.properties                            android.useAndroidX=true
+├── gradle.properties                            android.useAndroidX=true, android.nonTransitiveRClass=true, org.gradle.jvmargs=-Xmx4g
 ├── settings.gradle.kts
 ├── gradlew / gradlew.bat                        Gradle wrapper 8.11.1
 └── gradle/
@@ -195,7 +195,8 @@ data class Question(
     "optionD": "Contre nous, la tyrannie est vaincue !",
     "correctAnswer": "A",
     "correctAnswers": ["Le jour de gloire est arrivé"],
-    "explanation": ""
+    "explanation": "",
+    "source": "https://fr.wikipedia.org/wiki/La_Marseillaise"
   }
 ]
 ```
@@ -253,6 +254,8 @@ viewModelScope.launch {
     if (_uiState.value.remainingSeconds == 0) submitQuiz()
 }
 ```
+
+**Mélange des options :** au chargement, `QuizViewModel` mélange aléatoirement les 4 options de chaque question (via `withShuffledOptions()`) et met à jour `correctAnswer` en conséquence, pour que la bonne réponse ne soit jamais toujours à la même position.
 
 **Logique de scoring :**
 ```kotlin
@@ -336,6 +339,7 @@ navigation-compose     = { group = "androidx.navigation", name = "navigation-com
 lifecycle-compose      = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose",      version = "2.8.7" }
 coroutines-android     = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
 gson                   = { group = "com.google.code.gson", name = "gson",                        version.ref = "gson" }
+datastore-preferences  = { group = "androidx.datastore", name = "datastore-preferences",          version.ref = "datastore" }
 
 [plugins]
 android-application    = { id = "com.android.application",             version.ref = "agp" }
