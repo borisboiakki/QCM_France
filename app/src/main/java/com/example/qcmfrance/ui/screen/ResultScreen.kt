@@ -23,7 +23,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import com.example.qcmfrance.data.model.Question
 import com.example.qcmfrance.ui.utils.ResultExporter
@@ -136,6 +141,7 @@ private fun QuestionResultItem(index: Int, question: Question, givenAnswer: Stri
         correct             -> GreenOk
         else                -> RedFail
     }
+    val uriHandler = LocalUriHandler.current
 
     Card(modifier = Modifier.fillMaxWidth()) {
         Column(modifier = Modifier.padding(12.dp)) {
@@ -172,6 +178,33 @@ private fun QuestionResultItem(index: Int, question: Question, givenAnswer: Stri
                     text = correctText,
                     style = MaterialTheme.typography.bodySmall,
                     color = GreenOk
+                )
+            }
+            if (question.source.isNotBlank()) {
+                Spacer(modifier = Modifier.height(4.dp))
+                val annotated = buildAnnotatedString {
+                    append("Source : ")
+                    pushStringAnnotation(tag = "URL", annotation = question.source)
+                    withStyle(
+                        SpanStyle(
+                            color = MaterialTheme.colorScheme.primary,
+                            textDecoration = TextDecoration.Underline
+                        )
+                    ) {
+                        append(question.source)
+                    }
+                    pop()
+                }
+                androidx.compose.foundation.text.ClickableText(
+                    text = annotated,
+                    style = MaterialTheme.typography.bodySmall.copy(
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    ),
+                    onClick = { offset ->
+                        annotated.getStringAnnotations("URL", offset, offset)
+                            .firstOrNull()
+                            ?.let { uriHandler.openUri(it.item) }
+                    }
                 )
             }
         }
