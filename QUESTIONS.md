@@ -1,6 +1,6 @@
 # QCM France — Liste des questions et réponses
 
-> Généré automatiquement le 2026-06-19 à partir de `app/src/main/res/raw/questions.json`  
+> Généré automatiquement le 2026-06-20 à partir de `app/src/main/res/raw/questions.json`  
 > **258 questions** réparties en 5 thèmes.
 
 > **Note :** dans l'application, l'ordre des propositions (A, B, C, D) est mélangé aléatoirement à chaque examen. L'ordre affiché dans ce tableau correspond à l'ordre original du fichier de données et peut donc différer de celui présenté lors du test.
