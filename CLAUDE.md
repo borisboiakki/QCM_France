@@ -80,7 +80,7 @@ minSdk     = 26          // Android 8 — couvre >95 % des devices actifs
 targetSdk  = 35
 ```
 
-Kotlin : `2.0.21` | AGP : `8.7.3` | KSP : `2.0.21-1.0.27` | Gradle : `8.11.1`
+Kotlin : `2.0.21` | AGP : `8.13.2` | KSP : `2.0.21-1.0.27` | Gradle : `8.13`
 
 ---
 
@@ -312,7 +312,7 @@ suspend fun drawStratifiedQuestions(): List<Question> {
 ```toml
 [versions]
 kotlin            = "2.0.21"
-agp               = "8.7.3"
+agp               = "8.13.2"
 compose-bom       = "2024.12.01"
 room              = "2.6.1"
 hilt              = "2.52"
