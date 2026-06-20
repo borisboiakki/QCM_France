@@ -423,7 +423,7 @@
     "id": 27,
     "theme": "Principes et valeurs de la République",
     "text": "En France, il est possible pour l'État de financer :",
-    "optionA": "Les partis politiques",
+    "optionA": "Les clubs sportifs professionnels",
     "optionB": "Les entreprises privées",
     "optionC": "Les cultes religieux",
     "optionD": "Les écoles publiques, les hôpitaux et les infrastructures",
@@ -2120,16 +2120,16 @@
     "optionA": "Napoléon Bonaparte",
     "optionB": "François Hollande",
     "optionC": "Louis XIV",
-    "optionD": "Charles de Gaulle",
-    "correctAnswer": "D",
+    "optionD": "René Coty",
+    "correctAnswer": "B",
     "correctAnswers": [
+      "François Hollande",
       "Charles de Gaulle",
       "Georges Pompidou",
       "Valéry Giscard d'Estaing",
       "François Mitterrand",
       "Jacques Chirac",
       "Nicolas Sarkozy",
-      "François Hollande",
       "Emmanuel Macron"
     ],
     "explanation": "",
@@ -2396,7 +2396,7 @@
   {
     "id": 150,
     "theme": "Histoire, géographie et culture",
-    "text": "En quelle année l'Union européenne a-t-elle été fondée?",
+    "text": "En quelle année le Traité de Maastricht a-t-il été signé ?",
     "optionA": "1992",
     "optionB": "1957",
     "optionC": "1985",
@@ -2459,11 +2459,11 @@
     "text": "Que célèbre-t-on le 8 mai ?",
     "optionA": "Prise de la Bastille",
     "optionB": "Fête de la Musique",
-    "optionC": "La fin de la secnode guerre mondiale",
+    "optionC": "La fin de la seconde guerre mondiale",
     "optionD": "Armistice de 1918",
     "correctAnswer": "C",
     "correctAnswers": [
-      "La fin de la secnode guerre mondiale",
+      "La fin de la seconde guerre mondiale",
       "La victoire des Alliés et la fin de la Seconde Guerre mondiale en Europe (1945)",
       "La capitulation de l'Allemagne nazie (8 mai 1945)"
     ],
@@ -2492,12 +2492,12 @@
     "text": "Qui était une figure de la Résistance française pendant la Seconde Guerre mondiale ?",
     "optionA": "Napoléon",
     "optionB": "Pétain",
-    "optionC": "De Gaulle",
+    "optionC": "Albert Lebrun",
     "optionD": "Jean Moulin",
     "correctAnswer": "D",
     "correctAnswers": [
       "Jean Moulin",
-      "Le Général de Gaulle"
+      "De Gaulle (France Libre)"
     ],
     "explanation": "",
     "source": "https://fr.wikipedia.org/wiki/Jean_Moulin"
@@ -2647,11 +2647,11 @@
     "optionB": "Montesquieu",
     "optionC": "Diderot",
     "optionD": "Rousseau",
-    "correctAnswer": "B",
+    "correctAnswer": "A",
     "correctAnswers": [
+      "Voltaire",
       "Montesquieu",
-      "Condorcet",
-      "Voltaire"
+      "Condorcet"
     ],
     "explanation": "",
     "source": "https://fr.wikipedia.org/wiki/Montesquieu"
