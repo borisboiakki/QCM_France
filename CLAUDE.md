@@ -121,13 +121,14 @@ QCM_France/
 │   │   │   │   └── AppModule.kt                 Hilt @Module (AppDatabase, DAOs)
 │   │   │   ├── ui/
 │   │   │   │   ├── navigation/
-│   │   │   │   │   └── NavGraph.kt              5 routes : home/quiz/result/history/settings
+│   │   │   │   │   └── NavGraph.kt              6 routes : home/quiz/result/history/settings/help
 │   │   │   │   ├── screen/
-│   │   │   │   │   ├── HomeScreen.kt            titre, règles, bouton Reprendre (si pause), AlertDialog confirmation
+│   │   │   │   │   ├── HomeScreen.kt            titre, règles, bouton Reprendre (si pause), AlertDialog confirmation, icône Aide
 │   │   │   │   │   ├── QuizScreen.kt            question N/40, options, timer, bouton Pause, BackHandler, son
 │   │   │   │   │   ├── ResultScreen.kt          score, RÉUSSI/ÉCHOUÉ, temps, filtre erreurs (FilterChip), détail, export
 │   │   │   │   │   ├── HistoryScreen.kt         liste des résultats, export par résultat, vider
-│   │   │   │   │   └── SettingsScreen.kt        thème (Système/Clair/Sombre) + toggle son
+│   │   │   │   │   ├── SettingsScreen.kt        thème (Système/Clair/Sombre) + toggle son
+│   │   │   │   │   └── HelpScreen.kt            guide utilisateur + 7 liens officiels cliquables
 │   │   │   │   ├── utils/
 │   │   │   │   │   └── ResultExporter.kt        partage texte via Intent.ACTION_SEND
 │   │   │   │   ├── viewmodel/
@@ -317,11 +318,12 @@ fun submitQuiz() {
 
 | Route | Écran | Contenu |
 |---|---|---|
-| `home` | Accueil | Titre, règles résumées, boutons "Commencer" / "Reprendre" (conditionnel), "Historique", "Paramètres" |
+| `home` | Accueil | Titre, règles résumées, boutons "Commencer" / "Reprendre" (conditionnel), "Historique", "Paramètres", icône "Aide" |
 | `quiz` | Examen | Question N/40, 4 options, chrono MM:SS, bouton Pause, BackHandler, barre de progression, son |
 | `result` | Résultat | Score X/40, temps utilisé, mention Réussi/Échoué, détail, export |
 | `history` | Historique | Liste des résultats passés, export individuel, vider l'historique |
 | `settings` | Paramètres | Thème (Système/Clair/Sombre), toggle son de sélection |
+| `help` | Aide | Guide utilisateur, règles de l'examen, thèmes, fonctionnalités, 7 liens officiels cliquables |
 
 **Règle UX importante :** sur l'écran quiz, **aucun feedback immédiat** sur la bonne/mauvaise réponse (c'est un examen, pas un entraînement). Le feedback n'est affiché qu'à l'écran résultat.
 
@@ -441,9 +443,12 @@ ksp                    = { id = "com.google.devtools.ksp",              version 
   │                     ├─ Liste des résultats (date, score, durée, mention)
   │                     ├─ Icône partage sur chaque résultat → Intent.ACTION_SEND
   │                     └─ "Vider l'historique" (avec confirmation)
-  └─ "Paramètres" ──► [SettingsScreen]
-                        ├─ Thème : Système / Clair / Sombre (persisté DataStore)
-                        └─ Son de sélection : activé/désactivé (persisté DataStore)
+  ├─ "Paramètres" ──► [SettingsScreen]
+  │                     ├─ Thème : Système / Clair / Sombre (persisté DataStore)
+  │                     └─ Son de sélection : activé/désactivé (persisté DataStore)
+  └─ Icône Aide (Info) ──► [HelpScreen]
+                            ├─ Règles de l'examen, thèmes, fonctionnalités
+                            └─ 7 liens officiels cliquables (gouvernement, Légifrance, etc.)
 ```
 
 ---

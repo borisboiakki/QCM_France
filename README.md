@@ -17,7 +17,7 @@ Application Android de préparation à l'examen civique de naturalisation franç
 
 ### Écran d'accueil
 Rappel des règles officielles avant de commencer : nombre de questions, seuil de réussite, durée, format.  
-Accès rapide à l'historique et aux paramètres.  
+Accès rapide à l'historique, aux paramètres et à l'aide (icône Info dans la barre du haut).  
 Si un examen est en pause, bouton **Reprendre l'examen** (couleur secondaire). Démarrer un nouvel examen affiche une confirmation pour éviter d'écraser l'état sauvegardé.
 
 ### Écran de quiz
@@ -45,6 +45,12 @@ Si un examen est en pause, bouton **Reprendre l'examen** (couleur secondaire). D
 ### Paramètres
 - **Thème** : Système (par défaut) / Clair / Sombre — persisté entre les sessions
 - **Son de sélection** : activé/désactivé — persisté entre les sessions
+
+### Écran d'aide
+Accessible via l'icône Info (barre du haut de l'accueil) :
+- Rappel des règles officielles et de la répartition des thèmes
+- Description des fonctionnalités de l'application
+- 7 liens cliquables vers les ressources officielles (gouvernement, Légifrance, Conseil constitutionnel)
 
 ---
 
@@ -89,28 +95,40 @@ app/src/main/java/com/example/qcmfrance/
 │   ├── model/
 │   │   ├── Question.kt            Entité Room : id, theme, text, optionA-D,
 │   │   │                          correctAnswer, correctAnswers (JSON), explanation
+│   │   ├── QuizResult.kt          Entité Room : id, date, score, passed, duration
 │   │   └── PausedQuiz.kt          Entité Room singleton : état sérialisé (questions, réponses, timer)
 │   ├── db/
 │   │   ├── QuestionDao.kt         DAO Room : getRandomByTheme, insertAll, count
-│   │   ├── PausedQuizDao.kt       DAO Room : save (REPLACE), get, delete
+│   │   ├── QuizResultDao.kt       DAO Room : getAll (Flow), insert, deleteAll
+│   │   ├── PausedQuizDao.kt       DAO Room : save (REPLACE), get, observe (Flow), delete
+│   │   ├── Converters.kt          @TypeConverter List<String> ↔ JSON String
 │   │   └── AppDatabase.kt         Base Room v4 + migrations 1→2→3→4
 │   └── repository/
-│       ├── QuestionRepository.kt  Tirage stratifié 6-9-6-13-6 = 40 questions
-│       └── PausedQuizRepository.kt  Sérialisation Gson : save / load / clear
+│       ├── QuestionRepository.kt  Seed au premier lancement + tirage stratifié 6-9-6-13-6
+│       ├── HistoryRepository.kt   Sauvegarde et récupération de l'historique des résultats
+│       ├── SettingsRepository.kt  DataStore : ThemeMode + soundEnabled
+│       └── PausedQuizRepository.kt  Sérialisation Gson : save / load / clear / observeHasPaused
 │
 ├── di/
-│   └── AppModule.kt               Module Hilt : fournit AppDatabase, QuestionDao,
-│                                  QuestionRepository en @Singleton
+│   └── AppModule.kt               Module Hilt : fournit AppDatabase et tous les DAOs
 │
 └── ui/                            Couche présentation
     ├── viewmodel/
-    │   └── QuizViewModel.kt       État centralisé (QuizUiState) + logique métier
+    │   ├── QuizViewModel.kt       QuizUiState, timerJob (cancellable), pauseQuiz/resumeQuiz
+    │   ├── HomeViewModel.kt       hasPausedQuiz : StateFlow<Boolean> (Flow réactif depuis Room)
+    │   ├── HistoryViewModel.kt    Flow<List<QuizResult>>, clearHistory()
+    │   └── SettingsViewModel.kt   themeMode + soundEnabled StateFlow
     ├── navigation/
-    │   └── NavGraph.kt            Graph de navigation : home → quiz → result
+    │   └── NavGraph.kt            6 routes : home / quiz / result / history / settings / help
     ├── screen/
-    │   ├── HomeScreen.kt          Écran d'accueil
-    │   ├── QuizScreen.kt          Écran de quiz
-    │   └── ResultScreen.kt        Écran de résultats
+    │   ├── HomeScreen.kt          Accueil : règles, boutons, icône Aide, AlertDialog confirmation
+    │   ├── QuizScreen.kt          Examen : question N/40, options, timer, Pause, BackHandler, son
+    │   ├── ResultScreen.kt        Résultat : score, mention, filtre erreurs, export
+    │   ├── HistoryScreen.kt       Historique : liste, export par résultat, vider
+    │   ├── SettingsScreen.kt      Paramètres : thème, toggle son
+    │   └── HelpScreen.kt          Aide : guide utilisateur + 7 liens officiels cliquables
+    ├── utils/
+    │   └── ResultExporter.kt      Partage texte via Intent.ACTION_SEND
     └── theme/
         ├── Color.kt, Type.kt      Palette et typographie
         └── Theme.kt               Thème Material 3 (dynamique sur Android 12+)
@@ -151,7 +169,7 @@ startQuiz()
 
 ### Seed de la base de données
 
-Les 258 questions sont embarquées dans `res/raw/questions.json` et insérées dans Room **une seule fois**, au premier lancement, via un `RoomDatabase.Callback.onCreate()`. Les lancements suivants utilisent directement la base SQLite.
+Les 258 questions sont embarquées dans `res/raw/questions.json` et insérées dans Room **une seule fois**, au premier lancement, directement dans `QuestionRepository.drawStratifiedQuestions()` (vérification `count() == 0`). Les lancements suivants utilisent directement la base SQLite.
 
 ### Navigation
 
@@ -159,6 +177,9 @@ Les 258 questions sont embarquées dans `res/raw/questions.json` et insérées d
 [HomeScreen]
      │  "Commencer l'examen" → startQuiz() + navigate(quiz)
      │  "Reprendre l'examen" → resumeQuiz() + navigate(quiz)   (visible si pause sauvegardée)
+     │  Icône Historique → navigate(history)
+     │  Icône Paramètres → navigate(settings)
+     │  Icône Aide → navigate(help)
      ▼
 [QuizScreen]  ←── timer démarre (ou reprend)
      │  "Terminer" → submitQuiz()
@@ -185,7 +206,7 @@ Les 258 questions sont embarquées dans `res/raw/questions.json` et insérées d
 | Injection | Hilt (Dagger) | 2.52 |
 | Navigation | Navigation Compose | 2.8.5 |
 | JSON | Gson | 2.10.1 |
-| Build | Gradle Kotlin DSL + KSP | 8.11.1 / 2.0.21-1.0.27 |
+| Build | Gradle Kotlin DSL + KSP | 8.13 / 2.0.21-1.0.27 |
 | SDK cible | Android 8+ (API 26+) | compileSdk 35 |
 
 ---
