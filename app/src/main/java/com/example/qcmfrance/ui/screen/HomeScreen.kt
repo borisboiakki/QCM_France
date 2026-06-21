@@ -15,7 +15,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -25,8 +27,13 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -38,9 +45,34 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun HomeScreen(
     onStartExam: () -> Unit,
+    onResumeExam: () -> Unit,
     onShowHistory: () -> Unit,
-    onShowSettings: () -> Unit
+    onShowSettings: () -> Unit,
+    hasPausedQuiz: Boolean = false
 ) {
+    var showConfirmDialog by remember { mutableStateOf(false) }
+
+    if (showConfirmDialog) {
+        AlertDialog(
+            onDismissRequest = { showConfirmDialog = false },
+            title = { Text("Commencer un nouvel examen ?") },
+            text = { Text("Un examen en pause sera définitivement perdu. Continuer ?") },
+            confirmButton = {
+                TextButton(onClick = {
+                    showConfirmDialog = false
+                    onStartExam()
+                }) {
+                    Text("Commencer")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showConfirmDialog = false }) {
+                    Text("Annuler")
+                }
+            }
+        )
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -131,10 +163,23 @@ fun HomeScreen(
             Spacer(modifier = Modifier.height(32.dp))
 
             Button(
-                onClick = onStartExam,
+                onClick = { if (hasPausedQuiz) showConfirmDialog = true else onStartExam() },
                 modifier = Modifier.fillMaxWidth().height(56.dp)
             ) {
                 Text(text = "Commencer l'examen", style = MaterialTheme.typography.titleMedium)
+            }
+
+            if (hasPausedQuiz) {
+                Spacer(modifier = Modifier.height(12.dp))
+                Button(
+                    onClick = onResumeExam,
+                    modifier = Modifier.fillMaxWidth().height(56.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.secondary
+                    )
+                ) {
+                    Text(text = "Reprendre l'examen", style = MaterialTheme.typography.titleMedium)
+                }
             }
 
             Spacer(modifier = Modifier.height(12.dp))

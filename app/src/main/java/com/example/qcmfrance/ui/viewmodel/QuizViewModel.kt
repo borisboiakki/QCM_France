@@ -5,8 +5,10 @@ import androidx.lifecycle.viewModelScope
 import com.example.qcmfrance.data.model.Question
 import com.example.qcmfrance.data.model.QuizResult
 import com.example.qcmfrance.data.repository.HistoryRepository
+import com.example.qcmfrance.data.repository.PausedQuizRepository
 import com.example.qcmfrance.data.repository.QuestionRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -30,14 +32,18 @@ data class QuizUiState(
 @HiltViewModel
 class QuizViewModel @Inject constructor(
     private val repository: QuestionRepository,
-    private val historyRepository: HistoryRepository
+    private val historyRepository: HistoryRepository,
+    private val pausedQuizRepository: PausedQuizRepository
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(QuizUiState())
     val uiState: StateFlow<QuizUiState> = _uiState.asStateFlow()
 
+    private var timerJob: Job? = null
+
     fun startQuiz() {
         viewModelScope.launch {
+            pausedQuizRepository.clear()
             _uiState.update { it.copy(isLoading = true) }
             val questions = repository.drawStratifiedQuestions().map { it.withShuffledOptions() }
             _uiState.update {
@@ -46,6 +52,34 @@ class QuizViewModel @Inject constructor(
                     isLoading = false
                 )
             }
+            runTimer()
+        }
+    }
+
+    fun pauseQuiz() {
+        timerJob?.cancel()
+        val state = _uiState.value
+        viewModelScope.launch {
+            pausedQuizRepository.save(
+                questions        = state.questions,
+                answers          = state.answers,
+                currentIndex     = state.currentIndex,
+                remainingSeconds = state.remainingSeconds
+            )
+        }
+    }
+
+    fun resumeQuiz() {
+        viewModelScope.launch {
+            val saved = pausedQuizRepository.load() ?: return@launch
+            pausedQuizRepository.clear()
+            _uiState.value = QuizUiState(
+                questions        = saved.questions,
+                answers          = saved.answers,
+                currentIndex     = saved.currentIndex,
+                remainingSeconds = saved.remainingSeconds,
+                isLoading        = false
+            )
             runTimer()
         }
     }
@@ -108,7 +142,7 @@ class QuizViewModel @Inject constructor(
     }
 
     private fun runTimer() {
-        viewModelScope.launch {
+        timerJob = viewModelScope.launch {
             while (_uiState.value.remainingSeconds > 0 && !_uiState.value.isFinished) {
                 delay(1000L)
                 _uiState.update { it.copy(remainingSeconds = it.remainingSeconds - 1) }

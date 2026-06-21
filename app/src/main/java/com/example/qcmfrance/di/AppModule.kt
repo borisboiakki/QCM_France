@@ -2,6 +2,7 @@ package com.example.qcmfrance.di
 
 import android.content.Context
 import com.example.qcmfrance.data.db.AppDatabase
+import com.example.qcmfrance.data.db.PausedQuizDao
 import com.example.qcmfrance.data.db.QuestionDao
 import com.example.qcmfrance.data.db.QuizResultDao
 import dagger.Module
@@ -27,4 +28,8 @@ object AppModule {
     @Provides
     @Singleton
     fun provideQuizResultDao(db: AppDatabase): QuizResultDao = db.quizResultDao()
+
+    @Provides
+    @Singleton
+    fun providePausedQuizDao(db: AppDatabase): PausedQuizDao = db.pausedQuizDao()
 }

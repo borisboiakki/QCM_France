@@ -15,6 +15,7 @@ import com.example.qcmfrance.ui.screen.QuizScreen
 import com.example.qcmfrance.ui.screen.ResultScreen
 import com.example.qcmfrance.ui.screen.SettingsScreen
 import com.example.qcmfrance.ui.viewmodel.HistoryViewModel
+import com.example.qcmfrance.ui.viewmodel.HomeViewModel
 import com.example.qcmfrance.ui.viewmodel.QuizViewModel
 import com.example.qcmfrance.ui.viewmodel.SettingsViewModel
 
@@ -35,10 +36,14 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
     NavHost(navController = navController, startDestination = ROUTE_HOME) {
 
         composable(ROUTE_HOME) {
+            val homeViewModel: HomeViewModel = hiltViewModel()
+            val hasPausedQuiz by homeViewModel.hasPausedQuiz.collectAsStateWithLifecycle()
             HomeScreen(
                 onStartExam    = { viewModel.startQuiz(); navController.navigate(ROUTE_QUIZ) },
+                onResumeExam   = { viewModel.resumeQuiz(); navController.navigate(ROUTE_QUIZ) },
                 onShowHistory  = { navController.navigate(ROUTE_HISTORY) },
-                onShowSettings = { navController.navigate(ROUTE_SETTINGS) }
+                onShowSettings = { navController.navigate(ROUTE_SETTINGS) },
+                hasPausedQuiz  = hasPausedQuiz
             )
         }
 
@@ -55,7 +60,11 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
                 soundEnabled = soundEnabled,
                 onSelect     = viewModel::selectAnswer,
                 onNext       = viewModel::nextQuestion,
-                onSubmit     = viewModel::submitQuiz
+                onSubmit     = viewModel::submitQuiz,
+                onPause      = {
+                    viewModel.pauseQuiz()
+                    navController.popBackStack(ROUTE_HOME, inclusive = false)
+                }
             )
         }
 

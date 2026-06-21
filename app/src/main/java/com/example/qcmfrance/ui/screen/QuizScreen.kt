@@ -2,6 +2,7 @@ package com.example.qcmfrance.ui.screen
 
 import android.media.AudioManager
 import android.media.ToneGenerator
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -21,6 +22,7 @@ import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
@@ -36,8 +38,11 @@ fun QuizScreen(
     soundEnabled: Boolean,
     onSelect: (String) -> Unit,
     onNext: () -> Unit,
-    onSubmit: () -> Unit
+    onSubmit: () -> Unit,
+    onPause: () -> Unit
 ) {
+    BackHandler(onBack = onPause)
+
     if (uiState.isLoading) {
         Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             CircularProgressIndicator()
@@ -84,6 +89,13 @@ fun QuizScreen(
                     style = MaterialTheme.typography.titleMedium,
                     color = timerColor
                 )
+                TextButton(onClick = onPause) {
+                    Text(
+                        text = "Pause",
+                        style = MaterialTheme.typography.labelLarge,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
             }
 
             Spacer(modifier = Modifier.height(8.dp))
