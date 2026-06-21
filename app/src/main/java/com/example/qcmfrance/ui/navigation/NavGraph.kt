@@ -9,6 +9,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.qcmfrance.ui.screen.HelpScreen
 import com.example.qcmfrance.ui.screen.HistoryScreen
 import com.example.qcmfrance.ui.screen.HomeScreen
 import com.example.qcmfrance.ui.screen.QuizScreen
@@ -24,6 +25,7 @@ private const val ROUTE_QUIZ     = "quiz"
 private const val ROUTE_RESULT   = "result"
 private const val ROUTE_HISTORY  = "history"
 private const val ROUTE_SETTINGS = "settings"
+private const val ROUTE_HELP     = "help"
 
 @Composable
 fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
@@ -43,6 +45,7 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
                 onResumeExam   = { viewModel.resumeQuiz(); navController.navigate(ROUTE_QUIZ) },
                 onShowHistory  = { navController.navigate(ROUTE_HISTORY) },
                 onShowSettings = { navController.navigate(ROUTE_SETTINGS) },
+                onShowHelp     = { navController.navigate(ROUTE_HELP) },
                 hasPausedQuiz  = hasPausedQuiz
             )
         }
@@ -97,6 +100,10 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
                 onSoundChange = settingsViewModel::setSoundEnabled,
                 onBack        = { navController.popBackStack() }
             )
+        }
+
+        composable(ROUTE_HELP) {
+            HelpScreen(onBack = { navController.popBackStack() })
         }
     }
 }

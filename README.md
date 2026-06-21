@@ -229,6 +229,21 @@ Les 258 questions sont issues des documents officiels du Ministère de l'Intéri
 
 ---
 
+## Ressources utiles pour les utilisateurs
+
+Liens disponibles depuis l'écran **Aide** de l'application :
+
+| Ressource | Lien |
+|---|---|
+| Informations générales sur l'examen civique | https://formation-civique.interieur.gouv.fr/examen-civique/informations-g%C3%A9n%C3%A9rales-sur-lexamen-civique/ |
+| Tests complémentaires en ligne (Ensemble en France) | https://www.ensemble-en-france.org/quiz-examen-civique-gratuit-debutant/ |
+| Fiche d'information sur l'examen | https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/lexamen-civique-pour-demande-de-naturalisation-ou-de-reintegration-dans-nationalite-francaise.html |
+| Livret du citoyen | https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/livret-du-citoyen.html |
+| Charte des droits et devoirs du citoyen français | https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/charte-des-droits-et-devoirs-du-citoyen-francais.html |
+| Déclaration des droits de l'homme et du citoyen (1789) | https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789 |
+
+---
+
 ## Structure des fichiers source
 
 ```
@@ -257,7 +272,7 @@ QCM_France/
 │       │   └── ui/
 │       │       ├── navigation/NavGraph.kt
 │       │       ├── screen/    HomeScreen.kt  QuizScreen.kt  ResultScreen.kt
-│       │       │              HistoryScreen.kt  SettingsScreen.kt
+│       │       │              HistoryScreen.kt  SettingsScreen.kt  HelpScreen.kt
 │       │       ├── utils/     ResultExporter.kt
 │       │       ├── viewmodel/ QuizViewModel.kt  HomeViewModel.kt
 │       │       │              HistoryViewModel.kt  SettingsViewModel.kt

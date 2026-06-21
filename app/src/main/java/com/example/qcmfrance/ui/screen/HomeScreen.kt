@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
@@ -48,6 +49,7 @@ fun HomeScreen(
     onResumeExam: () -> Unit,
     onShowHistory: () -> Unit,
     onShowSettings: () -> Unit,
+    onShowHelp: () -> Unit,
     hasPausedQuiz: Boolean = false
 ) {
     var showConfirmDialog by remember { mutableStateOf(false) }
@@ -78,6 +80,12 @@ fun HomeScreen(
             TopAppBar(
                 title = {},
                 actions = {
+                    IconButton(onClick = onShowHelp) {
+                        Icon(
+                            imageVector = Icons.Default.Info,
+                            contentDescription = "Aide"
+                        )
+                    }
                     IconButton(onClick = onShowSettings) {
                         Icon(
                             imageVector = Icons.Default.Settings,
