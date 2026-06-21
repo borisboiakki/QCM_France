@@ -5,6 +5,8 @@ import com.example.qcmfrance.data.model.PausedQuiz
 import com.example.qcmfrance.data.model.Question
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -47,6 +49,8 @@ class PausedQuizRepository @Inject constructor(private val dao: PausedQuizDao) {
             remainingSeconds = row.remainingSeconds
         )
     }
+
+    fun observeHasPaused(): Flow<Boolean> = dao.observe().map { it != null }
 
     suspend fun hasPaused(): Boolean = dao.get() != null
 
