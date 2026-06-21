@@ -197,20 +197,19 @@ private fun QuestionResultItem(index: Int, question: Question, givenAnswer: Stri
                     color = GreenOk
                 )
             }
-            if (!correct && givenAnswer != null) {
-                Spacer(modifier = Modifier.height(4.dp))
-                val correctText = when (question.correctAnswer) {
-                    "A" -> question.optionA
-                    "B" -> question.optionB
-                    "C" -> question.optionC
-                    else -> question.optionD
-                }
-                Text(
-                    text = correctText,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = GreenOk
-                )
+            Spacer(modifier = Modifier.height(4.dp))
+            val correctText = when (question.correctAnswer) {
+                "A" -> question.optionA
+                "B" -> question.optionB
+                "C" -> question.optionC
+                else -> question.optionD
             }
+            Text(
+                text = correctText,
+                style = MaterialTheme.typography.bodySmall,
+                color = GreenOk,
+                fontWeight = FontWeight.Bold
+            )
             if (question.source.isNotBlank()) {
                 Spacer(modifier = Modifier.height(4.dp))
                 val annotated = buildAnnotatedString {
