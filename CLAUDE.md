@@ -103,32 +103,36 @@ QCM_France/
 │   │   ├── java/com/example/qcmfrance/
 │   │   │   ├── data/
 │   │   │   │   ├── db/
-│   │   │   │   │   ├── AppDatabase.kt           Room @Database v2 + migrations
+│   │   │   │   │   ├── AppDatabase.kt           Room @Database v4 + migrations 1→2→3→4
 │   │   │   │   │   ├── Converters.kt            @TypeConverter List<String> ↔ JSON String
 │   │   │   │   │   ├── QuestionDao.kt           @Dao : getRandomByTheme, insertAll, count
-│   │   │   │   │   └── QuizResultDao.kt         @Dao : getAll (Flow), insert, deleteAll
+│   │   │   │   │   ├── QuizResultDao.kt         @Dao : getAll (Flow), insert, deleteAll
+│   │   │   │   │   └── PausedQuizDao.kt         @Dao : save (REPLACE), get, delete
 │   │   │   │   ├── model/
 │   │   │   │   │   ├── Question.kt              @Entity Room
-│   │   │   │   │   └── QuizResult.kt            @Entity Room : id, date, score, passed, duration
+│   │   │   │   │   ├── QuizResult.kt            @Entity Room : id, date, score, passed, duration
+│   │   │   │   │   └── PausedQuiz.kt            @Entity Room : singleton (PK=1), état sérialisé JSON
 │   │   │   │   └── repository/
 │   │   │   │       ├── QuestionRepository.kt    seed + tirage stratifié 6-9-6-13-6
 │   │   │   │       ├── HistoryRepository.kt     sauvegarde et récupération de l'historique
-│   │   │   │       └── SettingsRepository.kt    DataStore : ThemeMode + soundEnabled
+│   │   │   │       ├── SettingsRepository.kt    DataStore : ThemeMode + soundEnabled
+│   │   │   │       └── PausedQuizRepository.kt  save/load/clear + PausedQuizState (Gson)
 │   │   │   ├── di/
 │   │   │   │   └── AppModule.kt                 Hilt @Module (AppDatabase, DAOs)
 │   │   │   ├── ui/
 │   │   │   │   ├── navigation/
 │   │   │   │   │   └── NavGraph.kt              5 routes : home/quiz/result/history/settings
 │   │   │   │   ├── screen/
-│   │   │   │   │   ├── HomeScreen.kt            titre, règles, boutons historique/paramètres
-│   │   │   │   │   ├── QuizScreen.kt            question N/40, options, timer, son conditionnel
+│   │   │   │   │   ├── HomeScreen.kt            titre, règles, bouton Reprendre (si pause), AlertDialog confirmation
+│   │   │   │   │   ├── QuizScreen.kt            question N/40, options, timer, bouton Pause, BackHandler, son
 │   │   │   │   │   ├── ResultScreen.kt          score, RÉUSSI/ÉCHOUÉ, temps, filtre erreurs (FilterChip), détail, export
 │   │   │   │   │   ├── HistoryScreen.kt         liste des résultats, export par résultat, vider
 │   │   │   │   │   └── SettingsScreen.kt        thème (Système/Clair/Sombre) + toggle son
 │   │   │   │   ├── utils/
 │   │   │   │   │   └── ResultExporter.kt        partage texte via Intent.ACTION_SEND
 │   │   │   │   ├── viewmodel/
-│   │   │   │   │   ├── QuizViewModel.kt         QuizUiState, timer, scoring, tirage stratifié
+│   │   │   │   │   ├── QuizViewModel.kt         QuizUiState, timerJob (cancellable), pauseQuiz/resumeQuiz, scoring
+│   │   │   │   │   ├── HomeViewModel.kt         hasPausedQuiz : StateFlow<Boolean>
 │   │   │   │   │   ├── HistoryViewModel.kt      Flow<List<QuizResult>>, clearHistory()
 │   │   │   │   │   └── SettingsViewModel.kt     themeMode + soundEnabled StateFlow
 │   │   │   │   └── theme/
@@ -180,6 +184,24 @@ data class Question(
 ```
 
 `correctAnswers` est sérialisé en JSON String dans SQLite par `Converters.kt` (`@TypeConverter`).
+
+### Entité Room — `PausedQuiz`
+
+```kotlin
+@Entity(tableName = "paused_quiz")
+data class PausedQuiz(
+    @PrimaryKey val id: Int = 1,           // singleton — un seul examen en pause à la fois
+    val questionsJson: String,             // Gson List<Question> avec options déjà mélangées
+    val answersJson: String,               // Gson Map<Int,String> (questionId → lettre)
+    val currentIndex: Int,
+    val remainingSeconds: Int,
+    val savedAt: Long = System.currentTimeMillis()
+)
+```
+
+INSERT OR REPLACE sur PK=1 garantit qu'il n'y a jamais plus d'une ligne. La table est créée par `MIGRATION_3_4`.
+
+---
 
 ### Format JSON de seed (`res/raw/questions.json`)
 
@@ -241,19 +263,43 @@ data class QuizUiState(
 )
 ```
 
-**Événements :** `SelectAnswer(letter)`, `NextQuestion`, `SubmitQuiz`, `RestartQuiz`
+**Événements :** `SelectAnswer(letter)`, `NextQuestion`, `SubmitQuiz`, `RestartQuiz`, `PauseQuiz`, `ResumeQuiz`
 
 **Logique du timer :**
 ```kotlin
-// Dans QuizViewModel.init
-viewModelScope.launch {
-    while (_uiState.value.remainingSeconds > 0 && !_uiState.value.isFinished) {
-        delay(1000L)
-        _uiState.update { it.copy(remainingSeconds = it.remainingSeconds - 1) }
+private var timerJob: Job? = null   // stocké pour permettre l'annulation (pause)
+
+private fun runTimer() {
+    timerJob = viewModelScope.launch {
+        while (_uiState.value.remainingSeconds > 0 && !_uiState.value.isFinished) {
+            delay(1000L)
+            _uiState.update { it.copy(remainingSeconds = it.remainingSeconds - 1) }
+        }
+        if (_uiState.value.remainingSeconds == 0 && !_uiState.value.isFinished) submitQuiz()
     }
-    if (_uiState.value.remainingSeconds == 0) submitQuiz()
 }
 ```
+
+**Pause / Reprise :**
+```kotlin
+fun pauseQuiz() {
+    timerJob?.cancel()                    // arrêt immédiat du timer
+    viewModelScope.launch {
+        pausedQuizRepository.save(...)    // sérialisation Gson → Room
+    }
+}
+
+fun resumeQuiz() {
+    viewModelScope.launch {
+        val saved = pausedQuizRepository.load() ?: return@launch
+        pausedQuizRepository.clear()
+        _uiState.value = QuizUiState(restored state)
+        runTimer()                        // reprise du timer depuis remainingSeconds sauvegardé
+    }
+}
+```
+
+`startQuiz()` appelle `pausedQuizRepository.clear()` avant de tirer de nouvelles questions.
 
 **Mélange des options :** au chargement, `QuizViewModel` mélange aléatoirement les 4 options de chaque question (via `withShuffledOptions()`) et met à jour `correctAnswer` en conséquence, pour que la bonne réponse ne soit jamais toujours à la même position.
 
@@ -271,8 +317,8 @@ fun submitQuiz() {
 
 | Route | Écran | Contenu |
 |---|---|---|
-| `home` | Accueil | Titre, règles résumées, boutons "Commencer", "Historique", "Paramètres" |
-| `quiz` | Examen | Question N/40, 4 options, chrono MM:SS, barre de progression, son conditionnel |
+| `home` | Accueil | Titre, règles résumées, boutons "Commencer" / "Reprendre" (conditionnel), "Historique", "Paramètres" |
+| `quiz` | Examen | Question N/40, 4 options, chrono MM:SS, bouton Pause, BackHandler, barre de progression, son |
 | `result` | Résultat | Score X/40, temps utilisé, mention Réussi/Échoué, détail, export |
 | `history` | Historique | Liste des résultats passés, export individuel, vider l'historique |
 | `settings` | Paramètres | Thème (Système/Clair/Sombre), toggle son de sélection |
@@ -370,21 +416,27 @@ ksp                    = { id = "com.google.devtools.ksp",              version 
 
 ```
 [HomeScreen]
-  ├─ "Commencer l'examen" ──► [QuizScreen]  ← timer 45 min démarre
-  │                               ├─ Question N/40 (sans feedback immédiat)
-  │                               ├─ Chrono MM:SS (rouge < 5 min)
-  │                               ├─ Son au clic (si activé dans les paramètres)
-  │                               ├─ "Suivant" → question N+1
-  │                               ├─ Dernière question → bouton "Terminer"
-  │                               └─ Timer à 00:00 → soumission automatique
-  │                                       │
-  │                                       ▼
-  │                               [ResultScreen]
-  │                                 ├─ Score X/40 + temps utilisé
-  │                                 ├─ RÉUSSI (≥ 32) ou ÉCHOUÉ (< 32)
-  │                                 ├─ Détail : question par question
-  │                                 ├─ "Exporter les résultats" → Intent.ACTION_SEND
-  │                                 └─ "Recommencer" → [HomeScreen]
+  ├─ "Commencer l'examen" ──► (si pause active → AlertDialog confirmation)
+  │                               └─ confirmé → startQuiz() + [QuizScreen]
+  ├─ "Reprendre l'examen" ──► resumeQuiz() + [QuizScreen]  (bouton visible si pause sauvegardée)
+  │
+  │   [QuizScreen]  ← timer 45 min démarre (ou reprend depuis remainingSeconds)
+  │       ├─ Question N/40 (sans feedback immédiat)
+  │       ├─ Chrono MM:SS (rouge < 5 min)
+  │       ├─ Son au clic (si activé dans les paramètres)
+  │       ├─ "Suivant" → question N+1
+  │       ├─ Dernière question → bouton "Terminer"
+  │       ├─ Timer à 00:00 → soumission automatique
+  │       └─ "Pause" / retour système → pauseQuiz() → état sauvegardé Room → [HomeScreen]
+  │                                                                   ↑
+  │                                                   bouton "Reprendre" apparaît ──────┘
+  │
+  │       [ResultScreen]  (après Terminer ou expiration du timer)
+  │           ├─ Score X/40 + temps utilisé
+  │           ├─ RÉUSSI (≥ 32) ou ÉCHOUÉ (< 32)
+  │           ├─ Détail : question par question
+  │           ├─ "Exporter les résultats" → Intent.ACTION_SEND
+  │           └─ "Recommencer" → [HomeScreen]
   ├─ "Historique" ──► [HistoryScreen]
   │                     ├─ Liste des résultats (date, score, durée, mention)
   │                     ├─ Icône partage sur chaque résultat → Intent.ACTION_SEND

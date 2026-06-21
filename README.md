@@ -13,10 +13,12 @@ Application Android de préparation à l'examen civique de naturalisation franç
 - **Soumission automatique** à 00:00 si l'examen n'est pas terminé manuellement
 - **Aucun feedback pendant l'examen** (règle officielle) — les réponses correctes ne sont révélées qu'à la fin
 - **Son de sélection** — bip au choix d'une réponse (activable/désactivable dans les paramètres)
+- **Pause et reprise** — sauvegarde l'état complet (questions, réponses, timer) et permet de reprendre plus tard, même après fermeture de l'application
 
 ### Écran d'accueil
 Rappel des règles officielles avant de commencer : nombre de questions, seuil de réussite, durée, format.  
-Accès rapide à l'historique et aux paramètres.
+Accès rapide à l'historique et aux paramètres.  
+Si un examen est en pause, bouton **Reprendre l'examen** (couleur secondaire). Démarrer un nouvel examen affiche une confirmation pour éviter d'écraser l'état sauvegardé.
 
 ### Écran de quiz
 - Barre de progression (question N / 40)
@@ -24,6 +26,7 @@ Accès rapide à l'historique et aux paramètres.
 - 4 propositions de réponse (boutons radio)
 - Chronomètre `MM:SS` en haut à droite
 - Bouton **Suivant** jusqu'à la dernière question, puis **Terminer**
+- Bouton **Pause** (header) et bouton retour système — sauvegardent l'état et retournent à l'accueil
 
 ### Écran de résultats
 - Score final `X / 40`
@@ -84,13 +87,16 @@ app/src/main/java/com/example/qcmfrance/
 │
 ├── data/                          Couche données (indépendante de l'UI)
 │   ├── model/
-│   │   └── Question.kt            Entité Room : id, theme, text, optionA-D,
-│   │                              correctAnswer, correctAnswers (JSON), explanation
+│   │   ├── Question.kt            Entité Room : id, theme, text, optionA-D,
+│   │   │                          correctAnswer, correctAnswers (JSON), explanation
+│   │   └── PausedQuiz.kt          Entité Room singleton : état sérialisé (questions, réponses, timer)
 │   ├── db/
 │   │   ├── QuestionDao.kt         DAO Room : getRandomByTheme, insertAll, count
-│   │   └── AppDatabase.kt         Base Room + seed automatique au 1er lancement
+│   │   ├── PausedQuizDao.kt       DAO Room : save (REPLACE), get, delete
+│   │   └── AppDatabase.kt         Base Room v4 + migrations 1→2→3→4
 │   └── repository/
-│       └── QuestionRepository.kt  Tirage stratifié 6-9-6-13-6 = 40 questions
+│       ├── QuestionRepository.kt  Tirage stratifié 6-9-6-13-6 = 40 questions
+│       └── PausedQuizRepository.kt  Sérialisation Gson : save / load / clear
 │
 ├── di/
 │   └── AppModule.kt               Module Hilt : fournit AppDatabase, QuestionDao,
@@ -152,10 +158,12 @@ Les 258 questions sont embarquées dans `res/raw/questions.json` et insérées d
 ```
 [HomeScreen]
      │  "Commencer l'examen" → startQuiz() + navigate(quiz)
+     │  "Reprendre l'examen" → resumeQuiz() + navigate(quiz)   (visible si pause sauvegardée)
      ▼
-[QuizScreen]  ←── timer démarre
+[QuizScreen]  ←── timer démarre (ou reprend)
      │  "Terminer" → submitQuiz()
      │  ou timer expiré → submitQuiz() automatique
+     │  "Pause" / retour système → pauseQuiz() + popBackStack(home)
      │  isFinished = true → LaunchedEffect → navigate(result)
      ▼
 [ResultScreen]
@@ -240,16 +248,19 @@ QCM_France/
 │       │   ├── MainActivity.kt
 │       │   ├── QcmFranceApplication.kt
 │       │   ├── data/
-│       │   │   ├── db/        AppDatabase.kt  QuestionDao.kt  QuizResultDao.kt  Converters.kt
-│       │   │   ├── model/     Question.kt  QuizResult.kt
-│       │   │   └── repository/QuestionRepository.kt  QuizResultRepository.kt  SettingsRepository.kt
+│       │   │   ├── db/        AppDatabase.kt (v4)  QuestionDao.kt  QuizResultDao.kt
+│       │   │   │              PausedQuizDao.kt  Converters.kt
+│       │   │   ├── model/     Question.kt  QuizResult.kt  PausedQuiz.kt
+│       │   │   └── repository/QuestionRepository.kt  HistoryRepository.kt
+│       │   │                  SettingsRepository.kt  PausedQuizRepository.kt
 │       │   ├── di/            AppModule.kt
 │       │   └── ui/
 │       │       ├── navigation/NavGraph.kt
 │       │       ├── screen/    HomeScreen.kt  QuizScreen.kt  ResultScreen.kt
 │       │       │              HistoryScreen.kt  SettingsScreen.kt
 │       │       ├── utils/     ResultExporter.kt
-│       │       ├── viewmodel/ QuizViewModel.kt  HistoryViewModel.kt  SettingsViewModel.kt
+│       │       ├── viewmodel/ QuizViewModel.kt  HomeViewModel.kt
+│       │       │              HistoryViewModel.kt  SettingsViewModel.kt
 │       │       └── theme/     Theme.kt  Color.kt  Type.kt
 │       └── res/
 │           ├── mipmap-*/      Icônes adaptatives (fond bleu tricolore, texte QCM)
