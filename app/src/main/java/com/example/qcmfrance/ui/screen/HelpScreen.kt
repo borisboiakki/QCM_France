@@ -57,6 +57,10 @@ private val OFFICIAL_LINKS = listOf(
         label = "Déclaration des droits de l'homme et du citoyen (1789)",
         url   = "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789"
     ),
+    ExternalLink(
+        label = "Constitution française (1958)",
+        url   = "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000571356/"
+    ),
 )
 
 @OptIn(ExperimentalMaterial3Api::class)
