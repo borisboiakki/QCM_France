@@ -48,6 +48,15 @@ jobs:
             echo "tag=${{ github.ref_name }}" >> $GITHUB_OUTPUT
           fi
 
+      - name: Set version in Gradle
+        run: |
+          # Retire le préfixe "v." du tag (ex : v.0.5.1 -> 0.5.1)
+          VERSION="${{ steps.version.outputs.tag }}"
+          VERSION="${VERSION#v.}"
+          sed -i -E "s/(versionName[[:space:]]*=[[:space:]]*).*/\1\"${VERSION}\"/" app/build.gradle.kts
+          echo "versionName défini sur ${VERSION} :"
+          grep versionName app/build.gradle.kts
+
       - name: Check signing configuration
         id: signing
         run: |
