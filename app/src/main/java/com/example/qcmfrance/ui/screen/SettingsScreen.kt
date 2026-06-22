@@ -1,6 +1,7 @@
 package com.example.qcmfrance.ui.screen
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -17,6 +18,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Slider
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -24,7 +26,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.qcmfrance.data.repository.TextSizeMode
 import com.example.qcmfrance.data.repository.ThemeMode
+import kotlin.math.roundToInt
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -33,6 +37,8 @@ fun SettingsScreen(
     onThemeChange: (ThemeMode) -> Unit,
     soundEnabled: Boolean,
     onSoundChange: (Boolean) -> Unit,
+    textSizeMode: TextSizeMode,
+    onTextSizeModeChange: (TextSizeMode) -> Unit,
     onBack: () -> Unit
 ) {
     Scaffold(
@@ -88,6 +94,48 @@ fun SettingsScreen(
                 selected = currentTheme == ThemeMode.DARK,
                 onSelect = { onThemeChange(ThemeMode.DARK) }
             )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Text(
+                text = "Taille du texte",
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.padding(vertical = 8.dp)
+            )
+            HorizontalDivider()
+            Spacer(modifier = Modifier.height(4.dp))
+
+            val sliderValue = when (textSizeMode) {
+                TextSizeMode.SMALL  -> 0f
+                TextSizeMode.MEDIUM -> 1f
+                TextSizeMode.LARGE  -> 2f
+            }
+            Slider(
+                value = sliderValue,
+                onValueChange = { v ->
+                    onTextSizeModeChange(
+                        when (v.roundToInt()) {
+                            0    -> TextSizeMode.SMALL
+                            2    -> TextSizeMode.LARGE
+                            else -> TextSizeMode.MEDIUM
+                        }
+                    )
+                },
+                valueRange = 0f..2f,
+                steps = 1,
+                modifier = Modifier.fillMaxWidth()
+            )
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 8.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text("Petit", style = MaterialTheme.typography.bodySmall)
+                Text("Moyen", style = MaterialTheme.typography.bodySmall)
+                Text("Grand", style = MaterialTheme.typography.bodySmall)
+            }
 
             Spacer(modifier = Modifier.height(16.dp))
 

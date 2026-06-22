@@ -3,6 +3,7 @@ package com.example.qcmfrance.ui.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.qcmfrance.data.repository.SettingsRepository
+import com.example.qcmfrance.data.repository.TextSizeMode
 import com.example.qcmfrance.data.repository.ThemeMode
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
@@ -36,5 +37,16 @@ class SettingsViewModel @Inject constructor(
 
     fun setSoundEnabled(enabled: Boolean) {
         viewModelScope.launch { repository.setSoundEnabled(enabled) }
+    }
+
+    val textSizeMode: StateFlow<TextSizeMode> = repository.textSizeMode
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5_000),
+            initialValue = TextSizeMode.MEDIUM
+        )
+
+    fun setTextSizeMode(mode: TextSizeMode) {
+        viewModelScope.launch { repository.setTextSizeMode(mode) }
     }
 }

@@ -93,12 +93,15 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
 
         composable(ROUTE_SETTINGS) {
             val themeMode by settingsViewModel.themeMode.collectAsStateWithLifecycle()
+            val textSizeMode by settingsViewModel.textSizeMode.collectAsStateWithLifecycle()
             SettingsScreen(
-                currentTheme  = themeMode,
-                onThemeChange = settingsViewModel::setThemeMode,
-                soundEnabled  = soundEnabled,
-                onSoundChange = settingsViewModel::setSoundEnabled,
-                onBack        = { navController.popBackStack() }
+                currentTheme         = themeMode,
+                onThemeChange        = settingsViewModel::setThemeMode,
+                soundEnabled         = soundEnabled,
+                onSoundChange        = settingsViewModel::setSoundEnabled,
+                textSizeMode         = textSizeMode,
+                onTextSizeModeChange = settingsViewModel::setTextSizeMode,
+                onBack               = { navController.popBackStack() }
             )
         }
 

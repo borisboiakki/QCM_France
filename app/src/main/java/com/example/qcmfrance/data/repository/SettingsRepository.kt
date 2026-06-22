@@ -13,6 +13,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 enum class ThemeMode { SYSTEM, LIGHT, DARK }
+enum class TextSizeMode { SMALL, MEDIUM, LARGE }
 
 private val Context.settingsDataStore by preferencesDataStore(name = "settings")
 
@@ -20,8 +21,9 @@ private val Context.settingsDataStore by preferencesDataStore(name = "settings")
 class SettingsRepository @Inject constructor(
     @ApplicationContext private val context: Context
 ) {
-    private val THEME_KEY = stringPreferencesKey("theme_mode")
-    private val SOUND_KEY = booleanPreferencesKey("sound_enabled")
+    private val THEME_KEY     = stringPreferencesKey("theme_mode")
+    private val SOUND_KEY     = booleanPreferencesKey("sound_enabled")
+    private val TEXT_SIZE_KEY = stringPreferencesKey("text_size_mode")
 
     val themeMode: Flow<ThemeMode> = context.settingsDataStore.data
         .catch { emit(androidx.datastore.preferences.core.emptyPreferences()) }
@@ -40,5 +42,16 @@ class SettingsRepository @Inject constructor(
 
     suspend fun setSoundEnabled(enabled: Boolean) {
         context.settingsDataStore.edit { prefs -> prefs[SOUND_KEY] = enabled }
+    }
+
+    val textSizeMode: Flow<TextSizeMode> = context.settingsDataStore.data
+        .catch { emit(androidx.datastore.preferences.core.emptyPreferences()) }
+        .map { prefs ->
+            runCatching { TextSizeMode.valueOf(prefs[TEXT_SIZE_KEY] ?: TextSizeMode.MEDIUM.name) }
+                .getOrDefault(TextSizeMode.MEDIUM)
+        }
+
+    suspend fun setTextSizeMode(mode: TextSizeMode) {
+        context.settingsDataStore.edit { prefs -> prefs[TEXT_SIZE_KEY] = mode.name }
     }
 }

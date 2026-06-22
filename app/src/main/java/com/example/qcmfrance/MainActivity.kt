@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.runtime.getValue
 import com.example.qcmfrance.data.repository.SettingsRepository
+import com.example.qcmfrance.data.repository.TextSizeMode
 import com.example.qcmfrance.data.repository.ThemeMode
 import com.example.qcmfrance.ui.navigation.QcmNavGraph
 import com.example.qcmfrance.ui.theme.QcmFranceTheme
@@ -24,7 +25,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             val themeMode by settingsRepository.themeMode
                 .collectAsStateWithLifecycle(initialValue = ThemeMode.SYSTEM)
-            QcmFranceTheme(themeMode = themeMode) {
+            val textSizeMode by settingsRepository.textSizeMode
+                .collectAsStateWithLifecycle(initialValue = TextSizeMode.MEDIUM)
+            QcmFranceTheme(themeMode = themeMode, textSizeMode = textSizeMode) {
                 QcmNavGraph()
             }
         }
