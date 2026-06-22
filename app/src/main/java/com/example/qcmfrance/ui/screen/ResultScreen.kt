@@ -206,7 +206,7 @@ private fun QuestionResultItem(index: Int, question: Question, givenAnswer: Stri
             }
             Text(
                 text = correctText,
-                style = MaterialTheme.typography.bodySmall,
+                style = MaterialTheme.typography.bodyMedium,
                 color = GreenOk,
                 fontWeight = FontWeight.Bold
             )
