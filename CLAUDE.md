@@ -138,7 +138,7 @@ QCM_France/
 │   │   │   │   │   └── ResultExporter.kt        partage texte via Intent.ACTION_SEND
 │   │   │   │   ├── viewmodel/
 │   │   │   │   │   ├── QuizViewModel.kt         QuizUiState, timerJob (cancellable), pauseQuiz/resumeQuiz, scoring
-│   │   │   │   │   ├── TrainingViewModel.kt     TrainingUiState, themeProgress, startTheme/selectAnswer/next/restart/reset
+│   │   │   │   │   ├── TrainingViewModel.kt     TrainingUiState, themeProgress, startTheme/selectAnswer/confirmAnswer/next/restart/reset
 │   │   │   │   │   ├── QuestionExt.kt           helper partagé withShuffledOptions() (examen + entraînement)
 │   │   │   │   │   ├── HomeViewModel.kt         hasPausedQuiz : StateFlow<Boolean>
 │   │   │   │   │   ├── HistoryViewModel.kt      Flow<List<QuizResult>>, clearHistory()
@@ -239,7 +239,7 @@ Mode complémentaire à l'examen, orienté apprentissage — l'inverse UX de l'e
 
 - **Flux** : Accueil → « S'entraîner par thème » → `TrainingThemesScreen` (liste des 5 thèmes + barre `X/total`) → choix d'un thème → `TrainingScreen`.
 - **Persistance** : `TrainingViewModel.next()` enregistre `currentIndex` après chaque question via `TrainingRepository.saveProgress(theme, index)`. Aucun mécanisme « pause » nécessaire : un simple retour ne perd rien.
-- **Feedback** : sélection → `revealed=true`, l'option correcte passe en vert, une mauvaise réponse sélectionnée en rouge ; bloc « Bonne/Mauvaise réponse » + `explanation` (si non vide) + bouton « Voir la source » (`LocalUriHandler.openUri`).
+- **Feedback** : sélection (`selectAnswer`, modifiable) → bouton **« Confirmer »** (`confirmAnswer`) → `revealed=true`, l'option correcte passe en vert, une mauvaise réponse sélectionnée en rouge ; bloc « Bonne/Mauvaise réponse » + `explanation` (si non vide) + bouton « Voir la source » (`LocalUriHandler.openUri`). Tant que la réponse n'est pas confirmée, la correction reste cachée et la sélection peut être changée. Après confirmation, le bouton bas devient « Suivant »/« Terminer ».
 - **Seed partagé** : `QuestionRepository.seedIfNeeded()` (extrait de `drawStratifiedQuestions()`) est appelé aussi par le chemin entraînement, pour le cas où l'utilisateur ouvre l'entraînement avant tout examen.
 - **Option shuffling** : réutilise `withShuffledOptions()` (déplacé dans `ui/viewmodel/QuestionExt.kt`, partagé par les deux ViewModels).
 - **Réinitialisation** : Paramètres → « Réinitialiser la progression » (AlertDialog de confirmation) → `TrainingViewModel.resetTraining()` → `TrainingRepository.resetAll()`.

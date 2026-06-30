@@ -50,6 +50,7 @@ private val WrongRed = Color(0xFFC62828)
 fun TrainingScreen(
     uiState: TrainingUiState,
     onSelect: (String) -> Unit,
+    onConfirm: () -> Unit,
     onNext: () -> Unit,
     onRestart: () -> Unit,
     onBack: () -> Unit
@@ -161,15 +162,29 @@ fun TrainingScreen(
                     Spacer(modifier = Modifier.height(16.dp))
 
                     val isLast = uiState.currentIndex == uiState.questions.lastIndex
-                    Button(
-                        onClick = onNext,
-                        enabled = uiState.revealed,
-                        modifier = Modifier.fillMaxWidth().height(52.dp)
-                    ) {
-                        Text(
-                            text = if (isLast) "Terminer" else "Suivant",
-                            style = MaterialTheme.typography.titleMedium
-                        )
+                    if (!uiState.revealed) {
+                        // Étape 1 : confirmer la réponse sélectionnée pour révéler la correction.
+                        Button(
+                            onClick = onConfirm,
+                            enabled = uiState.selectedAnswer != null,
+                            modifier = Modifier.fillMaxWidth().height(52.dp)
+                        ) {
+                            Text(
+                                text = "Confirmer",
+                                style = MaterialTheme.typography.titleMedium
+                            )
+                        }
+                    } else {
+                        // Étape 2 : passer à la question suivante (ou terminer le thème).
+                        Button(
+                            onClick = onNext,
+                            modifier = Modifier.fillMaxWidth().height(52.dp)
+                        ) {
+                            Text(
+                                text = if (isLast) "Terminer" else "Suivant",
+                                style = MaterialTheme.typography.titleMedium
+                            )
+                        }
                     }
 
                     Spacer(modifier = Modifier.height(16.dp))

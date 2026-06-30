@@ -77,11 +77,19 @@ class TrainingViewModel @Inject constructor(
         }
     }
 
-    /** Sélectionne une réponse et révèle immédiatement le feedback (verrouillé après révélation). */
+    /** Sélectionne une réponse (modifiable tant qu'elle n'est pas confirmée). */
     fun selectAnswer(letter: String) {
         _uiState.update { state ->
             if (state.revealed) state
-            else state.copy(selectedAnswer = letter, revealed = true)
+            else state.copy(selectedAnswer = letter)
+        }
+    }
+
+    /** Confirme la réponse sélectionnée et révèle le feedback (bonne réponse, explication, source). */
+    fun confirmAnswer() {
+        _uiState.update { state ->
+            if (state.revealed || state.selectedAnswer == null) state
+            else state.copy(revealed = true)
         }
     }
 

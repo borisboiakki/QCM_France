@@ -75,6 +75,7 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
             TrainingScreen(
                 uiState   = trainingState,
                 onSelect  = trainingViewModel::selectAnswer,
+                onConfirm = trainingViewModel::confirmAnswer,
                 onNext    = trainingViewModel::next,
                 onRestart = trainingViewModel::restartTheme,
                 onBack    = { navController.popBackStack(ROUTE_TRAINING_THEMES, inclusive = false) }
