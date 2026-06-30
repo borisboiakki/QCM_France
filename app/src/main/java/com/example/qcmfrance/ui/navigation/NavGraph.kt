@@ -73,12 +73,13 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
         composable(ROUTE_TRAINING) {
             val trainingState by trainingViewModel.uiState.collectAsStateWithLifecycle()
             TrainingScreen(
-                uiState   = trainingState,
-                onSelect  = trainingViewModel::selectAnswer,
-                onConfirm = trainingViewModel::confirmAnswer,
-                onNext    = trainingViewModel::next,
-                onRestart = trainingViewModel::restartTheme,
-                onBack    = { navController.popBackStack(ROUTE_TRAINING_THEMES, inclusive = false) }
+                uiState    = trainingState,
+                onSelect   = trainingViewModel::selectAnswer,
+                onConfirm  = trainingViewModel::confirmAnswer,
+                onNext     = trainingViewModel::next,
+                onPrevious = trainingViewModel::previous,
+                onRestart  = trainingViewModel::restartTheme,
+                onBack     = { navController.popBackStack(ROUTE_TRAINING_THEMES, inclusive = false) }
             )
         }
 

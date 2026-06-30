@@ -52,6 +52,7 @@ fun TrainingScreen(
     onSelect: (String) -> Unit,
     onConfirm: () -> Unit,
     onNext: () -> Unit,
+    onPrevious: () -> Unit,
     onRestart: () -> Unit,
     onBack: () -> Unit
 ) {
@@ -162,26 +163,29 @@ fun TrainingScreen(
                     Spacer(modifier = Modifier.height(16.dp))
 
                     val isLast = uiState.currentIndex == uiState.questions.lastIndex
-                    if (!uiState.revealed) {
-                        // Étape 1 : confirmer la réponse sélectionnée pour révéler la correction.
-                        Button(
-                            onClick = onConfirm,
-                            enabled = uiState.selectedAnswer != null,
-                            modifier = Modifier.fillMaxWidth().height(52.dp)
-                        ) {
-                            Text(
-                                text = "Confirmer",
-                                style = MaterialTheme.typography.titleMedium
-                            )
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        if (uiState.currentIndex > 0) {
+                            OutlinedButton(
+                                onClick = onPrevious,
+                                modifier = Modifier.weight(1f).height(52.dp)
+                            ) {
+                                Text("Précédent", style = MaterialTheme.typography.titleMedium)
+                            }
                         }
-                    } else {
-                        // Étape 2 : passer à la question suivante (ou terminer le thème).
                         Button(
-                            onClick = onNext,
-                            modifier = Modifier.fillMaxWidth().height(52.dp)
+                            onClick = if (!uiState.revealed) onConfirm else onNext,
+                            enabled = uiState.revealed || uiState.selectedAnswer != null,
+                            modifier = Modifier.weight(1f).height(52.dp)
                         ) {
                             Text(
-                                text = if (isLast) "Terminer" else "Suivant",
+                                text = when {
+                                    !uiState.revealed -> "Confirmer"
+                                    isLast -> "Terminer"
+                                    else -> "Suivant"
+                                },
                                 style = MaterialTheme.typography.titleMedium
                             )
                         }

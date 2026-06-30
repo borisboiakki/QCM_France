@@ -109,6 +109,15 @@ class TrainingViewModel @Inject constructor(
         }
     }
 
+    /** Revient à la question précédente et réinitialise la sélection. */
+    fun previous() {
+        val state = _uiState.value
+        if (state.currentIndex <= 0 || state.isFinished) return
+        val prevIndex = state.currentIndex - 1
+        _uiState.update { it.copy(currentIndex = prevIndex, selectedAnswer = null, revealed = false) }
+        viewModelScope.launch { repository.saveProgress(state.theme, prevIndex) }
+    }
+
     /** Rejoue un thème depuis le début. */
     fun restartTheme() {
         val theme = _uiState.value.theme
