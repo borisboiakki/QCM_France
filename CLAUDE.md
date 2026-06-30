@@ -103,36 +103,43 @@ QCM_France/
 │   │   ├── java/com/example/qcmfrance/
 │   │   │   ├── data/
 │   │   │   │   ├── db/
-│   │   │   │   │   ├── AppDatabase.kt           Room @Database v4 + migrations 1→2→3→4
+│   │   │   │   │   ├── AppDatabase.kt           Room @Database v5 + migrations 1→2→3→4→5
 │   │   │   │   │   ├── Converters.kt            @TypeConverter List<String> ↔ JSON String
-│   │   │   │   │   ├── QuestionDao.kt           @Dao : getRandomByTheme, insertAll, count
+│   │   │   │   │   ├── QuestionDao.kt           @Dao : getRandomByTheme, getAllByTheme, countByTheme, insertAll, count
 │   │   │   │   │   ├── QuizResultDao.kt         @Dao : getAll (Flow), insert, deleteAll
-│   │   │   │   │   └── PausedQuizDao.kt         @Dao : save (REPLACE), get, delete
+│   │   │   │   │   ├── PausedQuizDao.kt         @Dao : save (REPLACE), get, delete
+│   │   │   │   │   └── TrainingProgressDao.kt   @Dao : save (REPLACE), get, observeAll (Flow), clear
 │   │   │   │   ├── model/
 │   │   │   │   │   ├── Question.kt              @Entity Room
 │   │   │   │   │   ├── QuizResult.kt            @Entity Room : id, date, score, passed, duration
-│   │   │   │   │   └── PausedQuiz.kt            @Entity Room : singleton (PK=1), état sérialisé JSON
+│   │   │   │   │   ├── PausedQuiz.kt            @Entity Room : singleton (PK=1), état sérialisé JSON
+│   │   │   │   │   └── TrainingProgress.kt      @Entity Room : PK=theme, currentIndex (point de reprise)
 │   │   │   │   └── repository/
-│   │   │   │       ├── QuestionRepository.kt    seed + tirage stratifié 6-9-6-13-6
+│   │   │   │       ├── QuestionRepository.kt    seedIfNeeded + tirage stratifié 6-9-6-13-6, themes
 │   │   │   │       ├── HistoryRepository.kt     sauvegarde et récupération de l'historique
 │   │   │   │       ├── SettingsRepository.kt    DataStore : ThemeMode + soundEnabled
-│   │   │   │       └── PausedQuizRepository.kt  save/load/clear + PausedQuizState (Gson)
+│   │   │   │       ├── PausedQuizRepository.kt  save/load/clear + PausedQuizState (Gson)
+│   │   │   │       └── TrainingRepository.kt    questions par thème (ordre stable), avancement par thème
 │   │   │   ├── di/
 │   │   │   │   └── AppModule.kt                 Hilt @Module (AppDatabase, DAOs)
 │   │   │   ├── ui/
 │   │   │   │   ├── navigation/
-│   │   │   │   │   └── NavGraph.kt              6 routes : home/quiz/result/history/settings/help
+│   │   │   │   │   └── NavGraph.kt              8 routes : home/quiz/result/history/settings/help/training_themes/training
 │   │   │   │   ├── screen/
-│   │   │   │   │   ├── HomeScreen.kt            titre, règles, bouton Reprendre (si pause), AlertDialog confirmation, icône Aide
+│   │   │   │   │   ├── HomeScreen.kt            titre, règles, Reprendre (si pause), S'entraîner par thème, AlertDialog, icône Aide
 │   │   │   │   │   ├── QuizScreen.kt            question N/40, options, timer, bouton Pause, BackHandler, son
 │   │   │   │   │   ├── ResultScreen.kt          score, RÉUSSI/ÉCHOUÉ, temps, filtre erreurs (FilterChip), détail, export
 │   │   │   │   │   ├── HistoryScreen.kt         liste des résultats, export par résultat, vider
-│   │   │   │   │   ├── SettingsScreen.kt        thème (Système/Clair/Sombre) + toggle son
-│   │   │   │   │   └── HelpScreen.kt            guide utilisateur + 7 liens officiels cliquables
+│   │   │   │   │   ├── SettingsScreen.kt        thème (Système/Clair/Sombre), toggle son, réinitialiser l'entraînement
+│   │   │   │   │   ├── HelpScreen.kt            guide utilisateur + 7 liens officiels cliquables
+│   │   │   │   │   ├── TrainingThemesScreen.kt  sélection du thème + barre d'avancement X/total par thème
+│   │   │   │   │   └── TrainingScreen.kt        question du thème, feedback immédiat (vert/rouge), explication + lien source
 │   │   │   │   ├── utils/
 │   │   │   │   │   └── ResultExporter.kt        partage texte via Intent.ACTION_SEND
 │   │   │   │   ├── viewmodel/
 │   │   │   │   │   ├── QuizViewModel.kt         QuizUiState, timerJob (cancellable), pauseQuiz/resumeQuiz, scoring
+│   │   │   │   │   ├── TrainingViewModel.kt     TrainingUiState, themeProgress, startTheme/selectAnswer/next/restart/reset
+│   │   │   │   │   ├── QuestionExt.kt           helper partagé withShuffledOptions() (examen + entraînement)
 │   │   │   │   │   ├── HomeViewModel.kt         hasPausedQuiz : StateFlow<Boolean>
 │   │   │   │   │   ├── HistoryViewModel.kt      Flow<List<QuizResult>>, clearHistory()
 │   │   │   │   │   └── SettingsViewModel.kt     themeMode + soundEnabled StateFlow
@@ -201,6 +208,41 @@ data class PausedQuiz(
 ```
 
 INSERT OR REPLACE sur PK=1 garantit qu'il n'y a jamais plus d'une ligne. La table est créée par `MIGRATION_3_4`.
+
+### Entité Room — `TrainingProgress`
+
+```kotlin
+@Entity(tableName = "training_progress")
+data class TrainingProgress(
+    @PrimaryKey val theme: String,         // un des 5 thèmes officiels — une ligne par thème
+    val currentIndex: Int,                 // index 0-based de la prochaine question = nb de questions complétées
+    val updatedAt: Long = System.currentTimeMillis()
+)
+```
+
+Avancement du **mode entraînement**. `currentIndex` sert de point de reprise et de valeur « X » de la barre `X/total`. Thème terminé quand `currentIndex >= total`. La table est créée par `MIGRATION_4_5` (BDD passée en v5). Réinitialisation globale via `TrainingProgressDao.clear()` (bouton dans les Paramètres).
+
+---
+
+## Mode « S'entraîner » (entraînement)
+
+Mode complémentaire à l'examen, orienté apprentissage — l'inverse UX de l'examen.
+
+| Aspect | Examen | Entraînement |
+|---|---|---|
+| Questions | 40 tirées aléatoirement (tous thèmes) | toutes les questions d'**un** thème choisi |
+| Ordre | mélangé | **fixe** (`ORDER BY id`) pour une reprise cohérente |
+| Chronomètre | 45 min | aucun |
+| Feedback | uniquement à la fin | **immédiat** après chaque réponse |
+| Source | — | **lien cliquable** (`Question.source`) + explication, dans tous les cas |
+| Avancement | pause/reprise (1 examen) | **par thème**, persisté à chaque question |
+
+- **Flux** : Accueil → « S'entraîner par thème » → `TrainingThemesScreen` (liste des 5 thèmes + barre `X/total`) → choix d'un thème → `TrainingScreen`.
+- **Persistance** : `TrainingViewModel.next()` enregistre `currentIndex` après chaque question via `TrainingRepository.saveProgress(theme, index)`. Aucun mécanisme « pause » nécessaire : un simple retour ne perd rien.
+- **Feedback** : sélection → `revealed=true`, l'option correcte passe en vert, une mauvaise réponse sélectionnée en rouge ; bloc « Bonne/Mauvaise réponse » + `explanation` (si non vide) + bouton « Voir la source » (`LocalUriHandler.openUri`).
+- **Seed partagé** : `QuestionRepository.seedIfNeeded()` (extrait de `drawStratifiedQuestions()`) est appelé aussi par le chemin entraînement, pour le cas où l'utilisateur ouvre l'entraînement avant tout examen.
+- **Option shuffling** : réutilise `withShuffledOptions()` (déplacé dans `ui/viewmodel/QuestionExt.kt`, partagé par les deux ViewModels).
+- **Réinitialisation** : Paramètres → « Réinitialiser la progression » (AlertDialog de confirmation) → `TrainingViewModel.resetTraining()` → `TrainingRepository.resetAll()`.
 
 ---
 
@@ -318,12 +360,14 @@ fun submitQuiz() {
 
 | Route | Écran | Contenu |
 |---|---|---|
-| `home` | Accueil | Titre, règles résumées, boutons "Commencer" / "Reprendre" (conditionnel), "Historique", "Paramètres", icône "Aide" |
+| `home` | Accueil | Titre, règles résumées, boutons "Commencer" / "Reprendre" (conditionnel), "S'entraîner par thème", "Historique", "Paramètres", icône "Aide" |
 | `quiz` | Examen | Question N/40, 4 options, chrono MM:SS, bouton Pause, BackHandler, barre de progression, son |
 | `result` | Résultat | Score X/40, temps utilisé, mention Réussi/Échoué, détail, export |
 | `history` | Historique | Liste des résultats passés, export individuel, vider l'historique |
-| `settings` | Paramètres | Thème (Système/Clair/Sombre), toggle son de sélection |
+| `settings` | Paramètres | Thème (Système/Clair/Sombre), toggle son, réinitialiser la progression d'entraînement |
 | `help` | Aide | Guide utilisateur, règles de l'examen, thèmes, fonctionnalités, 7 liens officiels cliquables |
+| `training_themes` | Entraînement (thèmes) | Liste des 5 thèmes + barre d'avancement `X/total`, retour Accueil |
+| `training` | Entraînement (question) | Question d'un thème, feedback immédiat (vert/rouge), explication + lien source, "Suivant"/"Terminer" |
 
 **Règle UX importante :** sur l'écran quiz, **aucun feedback immédiat** sur la bonne/mauvaise réponse (c'est un examen, pas un entraînement). Le feedback n'est affiché qu'à l'écran résultat.
 

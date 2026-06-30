@@ -7,6 +7,8 @@ import com.example.qcmfrance.data.model.Question
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -23,15 +25,28 @@ class QuestionRepository @Inject constructor(
         "Vivre dans la société française"       to 6
     )
 
-    suspend fun drawStratifiedQuestions(): List<Question> {
-        // Seed au premier lancement — séquentiel, pas de race condition
+    /** Les 5 thèmes officiels, dans l'ordre, pour l'écran de sélection de l'entraînement. */
+    val themes: List<String> = themeCounts.keys.toList()
+
+    /**
+     * Amorce la base depuis [R.raw.questions] au tout premier accès. Séquentiel dans la
+     * coroutine appelante — pas de race condition. Réutilisé par l'examen et l'entraînement
+     * (un utilisateur peut ouvrir l'entraînement avant d'avoir lancé un examen).
+     */
+    suspend fun seedIfNeeded() {
         if (dao.count() == 0) {
-            val json = context.resources.openRawResource(R.raw.questions)
-                .bufferedReader().readText()
-            val type = object : TypeToken<List<Question>>() {}.type
-            val questions: List<Question> = Gson().fromJson(json, type)
+            val questions: List<Question> = withContext(Dispatchers.IO) {
+                val json = context.resources.openRawResource(R.raw.questions)
+                    .bufferedReader().readText()
+                val type = object : TypeToken<List<Question>>() {}.type
+                Gson().fromJson(json, type)
+            }
             dao.insertAll(questions)
         }
+    }
+
+    suspend fun drawStratifiedQuestions(): List<Question> {
+        seedIfNeeded()
 
         val questions = mutableListOf<Question>()
         for ((theme, count) in themeCounts) {

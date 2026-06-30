@@ -47,6 +47,7 @@ import androidx.compose.ui.unit.dp
 fun HomeScreen(
     onStartExam: () -> Unit,
     onResumeExam: () -> Unit,
+    onStartTraining: () -> Unit,
     onShowHistory: () -> Unit,
     onShowSettings: () -> Unit,
     onShowHelp: () -> Unit,
@@ -188,6 +189,15 @@ fun HomeScreen(
                 ) {
                     Text(text = "Reprendre l'examen", style = MaterialTheme.typography.titleMedium)
                 }
+            }
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            OutlinedButton(
+                onClick = onStartTraining,
+                modifier = Modifier.fillMaxWidth().height(56.dp)
+            ) {
+                Text(text = "S'entraîner par thème", style = MaterialTheme.typography.titleMedium)
             }
 
             Spacer(modifier = Modifier.height(12.dp))

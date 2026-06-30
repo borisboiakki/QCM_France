@@ -10,14 +10,20 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.qcmfrance.data.model.PausedQuiz
 import com.example.qcmfrance.data.model.Question
 import com.example.qcmfrance.data.model.QuizResult
+import com.example.qcmfrance.data.model.TrainingProgress
 
-@Database(entities = [Question::class, QuizResult::class, PausedQuiz::class], version = 4, exportSchema = false)
+@Database(
+    entities = [Question::class, QuizResult::class, PausedQuiz::class, TrainingProgress::class],
+    version = 5,
+    exportSchema = false
+)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun questionDao(): QuestionDao
     abstract fun quizResultDao(): QuizResultDao
     abstract fun pausedQuizDao(): PausedQuizDao
+    abstract fun trainingProgressDao(): TrainingProgressDao
 
     companion object {
         private val MIGRATION_1_2 = object : Migration(1, 2) {
@@ -62,9 +68,23 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
 
+        private val MIGRATION_4_5 = object : Migration(4, 5) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS training_progress (
+                        theme TEXT PRIMARY KEY NOT NULL,
+                        currentIndex INTEGER NOT NULL,
+                        updatedAt INTEGER NOT NULL
+                    )
+                    """.trimIndent()
+                )
+            }
+        }
+
         fun build(context: Context): AppDatabase =
             Room.databaseBuilder(context, AppDatabase::class.java, "qcm_france.db")
-                .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4)
+                .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5)
                 .build()
     }
 }
