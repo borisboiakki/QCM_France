@@ -15,6 +15,16 @@ Application Android de préparation à l'examen civique de naturalisation franç
 - **Son de sélection** — bip au choix d'une réponse (activable/désactivable dans les paramètres)
 - **Pause et reprise** — sauvegarde l'état complet (questions, réponses, timer) et permet de reprendre plus tard, même après fermeture de l'application
 
+### Mode S'entraîner
+- **Choix du thème** parmi les 5 thèmes officiels — barre de progression `X/total` par thème
+- **Toutes les questions du thème**, une par une, dans un ordre stable et cohérent
+- **Avancement persisté** : reprendre un thème interrompu reprend exactement là où on s'était arrêté, même après fermeture de l'application
+- **Feedback immédiat** : sélectionner une réponse puis cliquer **Confirmer** révèle la correction — la bonne réponse passe en vert, une mauvaise sélection en rouge
+- **Explication** affichée après confirmation (si disponible)
+- **Lien vers la source officielle** cliquable après confirmation, ouvrant le navigateur
+- **Écran de fin de thème** avec bouton « Recommencer ce thème »
+- **Réinitialisation globale** de la progression depuis les Paramètres
+
 ### Écran d'accueil
 Rappel des règles officielles avant de commencer : nombre de questions, seuil de réussite, durée, format.  
 Accès rapide à l'historique, aux paramètres et à l'aide (icône Info dans la barre du haut).  
@@ -45,6 +55,7 @@ Si un examen est en pause, bouton **Reprendre l'examen** (couleur secondaire). D
 ### Paramètres
 - **Thème** : Système (par défaut) / Clair / Sombre — persisté entre les sessions
 - **Son de sélection** : activé/désactivé — persisté entre les sessions
+- **Réinitialiser la progression** : efface l'avancement de tous les thèmes du mode entraînement (avec confirmation)
 
 ### Écran d'aide
 Accessible via l'icône Info (barre du haut de l'accueil) :
@@ -94,17 +105,20 @@ app/src/main/java/com/example/qcmfrance/
 ├── data/                          Couche données (indépendante de l'UI)
 │   ├── model/
 │   │   ├── Question.kt            Entité Room : id, theme, text, optionA-D,
-│   │   │                          correctAnswer, correctAnswers (JSON), explanation
+│   │   │                          correctAnswer, correctAnswers (JSON), explanation, source
 │   │   ├── QuizResult.kt          Entité Room : id, date, score, passed, duration
-│   │   └── PausedQuiz.kt          Entité Room singleton : état sérialisé (questions, réponses, timer)
+│   │   ├── PausedQuiz.kt          Entité Room singleton : état sérialisé (questions, réponses, timer)
+│   │   └── TrainingProgress.kt    Entité Room : PK=theme, currentIndex (point de reprise par thème)
 │   ├── db/
-│   │   ├── QuestionDao.kt         DAO Room : getRandomByTheme, insertAll, count
+│   │   ├── QuestionDao.kt         DAO Room : getRandomByTheme, getAllByTheme, countByTheme, insertAll, count
 │   │   ├── QuizResultDao.kt       DAO Room : getAll (Flow), insert, deleteAll
 │   │   ├── PausedQuizDao.kt       DAO Room : save (REPLACE), get, observe (Flow), delete
+│   │   ├── TrainingProgressDao.kt DAO Room : save (REPLACE), get, observeAll (Flow), clear
 │   │   ├── Converters.kt          @TypeConverter List<String> ↔ JSON String
-│   │   └── AppDatabase.kt         Base Room v4 + migrations 1→2→3→4
+│   │   └── AppDatabase.kt         Base Room v5 + migrations 1→2→3→4→5
 │   └── repository/
-│       ├── QuestionRepository.kt  Seed au premier lancement + tirage stratifié 6-9-6-13-6
+│       ├── QuestionRepository.kt  seedIfNeeded + tirage stratifié 6-9-6-13-6, liste des thèmes
+│       ├── TrainingRepository.kt  Questions par thème (ordre stable), avancement par thème
 │       ├── HistoryRepository.kt   Sauvegarde et récupération de l'historique des résultats
 │       ├── SettingsRepository.kt  DataStore : ThemeMode + soundEnabled
 │       └── PausedQuizRepository.kt  Sérialisation Gson : save / load / clear / observeHasPaused
@@ -115,18 +129,22 @@ app/src/main/java/com/example/qcmfrance/
 └── ui/                            Couche présentation
     ├── viewmodel/
     │   ├── QuizViewModel.kt       QuizUiState, timerJob (cancellable), pauseQuiz/resumeQuiz
+    │   ├── TrainingViewModel.kt   TrainingUiState + themeProgress, startTheme/confirmAnswer/next/restart/reset
+    │   ├── QuestionExt.kt         Helper partagé withShuffledOptions() (examen + entraînement)
     │   ├── HomeViewModel.kt       hasPausedQuiz : StateFlow<Boolean> (Flow réactif depuis Room)
     │   ├── HistoryViewModel.kt    Flow<List<QuizResult>>, clearHistory()
     │   └── SettingsViewModel.kt   themeMode + soundEnabled StateFlow
     ├── navigation/
-    │   └── NavGraph.kt            6 routes : home / quiz / result / history / settings / help
+    │   └── NavGraph.kt            8 routes : home / quiz / result / history / settings / help / training_themes / training
     ├── screen/
-    │   ├── HomeScreen.kt          Accueil : règles, boutons, icône Aide, AlertDialog confirmation
+    │   ├── HomeScreen.kt          Accueil : règles, boutons (examen + entraînement), icône Aide
     │   ├── QuizScreen.kt          Examen : question N/40, options, timer, Pause, BackHandler, son
     │   ├── ResultScreen.kt        Résultat : score, mention, filtre erreurs, export
     │   ├── HistoryScreen.kt       Historique : liste, export par résultat, vider
-    │   ├── SettingsScreen.kt      Paramètres : thème, toggle son
-    │   └── HelpScreen.kt          Aide : guide utilisateur + 7 liens officiels cliquables
+    │   ├── SettingsScreen.kt      Paramètres : thème, toggle son, réinitialiser entraînement
+    │   ├── HelpScreen.kt          Aide : guide utilisateur + 7 liens officiels cliquables
+    │   ├── TrainingThemesScreen.kt  Sélection du thème + barre X/total par thème
+    │   └── TrainingScreen.kt      Question d'entraînement, feedback immédiat, explication + lien source
     ├── utils/
     │   └── ResultExporter.kt      Partage texte via Intent.ACTION_SEND
     └── theme/
@@ -177,9 +195,20 @@ Les 258 questions sont embarquées dans `res/raw/questions.json` et insérées d
 [HomeScreen]
      │  "Commencer l'examen" → startQuiz() + navigate(quiz)
      │  "Reprendre l'examen" → resumeQuiz() + navigate(quiz)   (visible si pause sauvegardée)
+     │  "S'entraîner par thème" → navigate(training_themes)
      │  Icône Historique → navigate(history)
      │  Icône Paramètres → navigate(settings)
      │  Icône Aide → navigate(help)
+     │
+     ├──► [TrainingThemesScreen]   Liste des 5 thèmes + barre X/total
+     │         │  Choisir un thème → startTheme() + navigate(training)
+     │         ▼
+     │    [TrainingScreen]   Question d'entraînement, feedback immédiat
+     │         │  Sélectionner → "Confirmer" → révèle vert/rouge + explication + source
+     │         │  "Suivant" → question suivante (avancement persisté)
+     │         │  "Terminer" (dernière question) → écran de fin → retour aux thèmes
+     │         │  Retour → popBackStack(training_themes)
+     │
      ▼
 [QuizScreen]  ←── timer démarre (ou reprend)
      │  "Terminer" → submitQuiz()
@@ -285,19 +314,20 @@ QCM_France/
 │       │   ├── MainActivity.kt
 │       │   ├── QcmFranceApplication.kt
 │       │   ├── data/
-│       │   │   ├── db/        AppDatabase.kt (v4)  QuestionDao.kt  QuizResultDao.kt
-│       │   │   │              PausedQuizDao.kt  Converters.kt
-│       │   │   ├── model/     Question.kt  QuizResult.kt  PausedQuiz.kt
-│       │   │   └── repository/QuestionRepository.kt  HistoryRepository.kt
-│       │   │                  SettingsRepository.kt  PausedQuizRepository.kt
+│       │   │   ├── db/        AppDatabase.kt (v5)  QuestionDao.kt  QuizResultDao.kt
+│       │   │   │              PausedQuizDao.kt  TrainingProgressDao.kt  Converters.kt
+│       │   │   ├── model/     Question.kt  QuizResult.kt  PausedQuiz.kt  TrainingProgress.kt
+│       │   │   └── repository/QuestionRepository.kt  TrainingRepository.kt
+│       │   │                  HistoryRepository.kt  SettingsRepository.kt  PausedQuizRepository.kt
 │       │   ├── di/            AppModule.kt
 │       │   └── ui/
 │       │       ├── navigation/NavGraph.kt
 │       │       ├── screen/    HomeScreen.kt  QuizScreen.kt  ResultScreen.kt
 │       │       │              HistoryScreen.kt  SettingsScreen.kt  HelpScreen.kt
+│       │       │              TrainingThemesScreen.kt  TrainingScreen.kt
 │       │       ├── utils/     ResultExporter.kt
-│       │       ├── viewmodel/ QuizViewModel.kt  HomeViewModel.kt
-│       │       │              HistoryViewModel.kt  SettingsViewModel.kt
+│       │       ├── viewmodel/ QuizViewModel.kt  TrainingViewModel.kt  QuestionExt.kt
+│       │       │              HomeViewModel.kt  HistoryViewModel.kt  SettingsViewModel.kt
 │       │       └── theme/     Theme.kt  Color.kt  Type.kt
 │       └── res/
 │           ├── mipmap-*/      Icônes adaptatives (fond bleu tricolore, texte QCM)

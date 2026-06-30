@@ -95,9 +95,9 @@ fun HelpScreen(onBack: () -> Unit) {
                 HelpSectionTitle("À propos")
                 Text(
                     text = "QCM France vous aide à préparer l'examen civique de naturalisation française. " +
-                        "Les examens simulés reproduisent les conditions officielles : 40 questions tirées aléatoirement, " +
-                        "45 minutes au chronomètre, sans correction immédiate. " +
-                        "Le score et le détail de vos réponses sont affichés à la fin.",
+                        "L'application propose deux modes complémentaires :\n\n" +
+                        "• Mode examen : 40 questions tirées aléatoirement, 45 minutes au chronomètre, sans correction immédiate — comme dans les conditions officielles.\n\n" +
+                        "• Mode S'entraîner : parcourez toutes les questions d'un thème, une par une, avec correction immédiate, explication et lien vers la source après chaque réponse confirmée.",
                     style = MaterialTheme.typography.bodyMedium
                 )
             }
@@ -145,13 +145,37 @@ fun HelpScreen(onBack: () -> Unit) {
             }
 
             item {
-                HelpSectionTitle("Fonctionnalités")
+                HelpSectionTitle("Mode examen")
                 Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                     HelpFeatureRow("Chronomètre", "Décompte de 45 min, affiché en rouge dans les 5 dernières minutes. Soumission automatique à 00:00.")
                     HelpFeatureRow("Pause et reprise", "Mettez l'examen en pause via le bouton Pause ou la touche Retour. L'état est sauvegardé et vous pouvez reprendre plus tard, même après avoir fermé l'application.")
                     HelpFeatureRow("Historique", "Consultez tous vos examens passés avec le score, la durée et la mention obtenue.")
                     HelpFeatureRow("Export des résultats", "Partagez le détail de votre examen (question par question) via les applications installées sur votre téléphone.")
-                    HelpFeatureRow("Paramètres", "Choisissez le thème visuel (système, clair ou sombre) et activez/désactivez le son de sélection.")
+                }
+            }
+
+            item {
+                HelpSectionTitle("Mode S'entraîner")
+                Text(
+                    text = "Un mode d'apprentissage complémentaire à l'examen, sans chronomètre et avec correction immédiate.",
+                    style = MaterialTheme.typography.bodyMedium
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                    HelpFeatureRow("Choix du thème", "Sélectionnez l'un des 5 thèmes officiels. Une barre de progression indique combien de questions vous avez déjà vues dans ce thème.")
+                    HelpFeatureRow("Confirmer pour révéler", "Choisissez une réponse — vous pouvez la modifier tant que vous n'avez pas appuyé sur « Confirmer ». Une fois confirmée, la bonne réponse apparaît en vert et une mauvaise sélection en rouge.")
+                    HelpFeatureRow("Explication et source", "Après confirmation, une explication est affichée (si disponible) ainsi qu'un lien vers la source officielle, ouvrant votre navigateur.")
+                    HelpFeatureRow("Avancement persisté", "Votre progression est sauvegardée question par question. Revenir en arrière ou fermer l'application ne fait pas perdre votre avancement — le thème reprend exactement là où vous vous étiez arrêté.")
+                    HelpFeatureRow("Réinitialisation", "Depuis les Paramètres, réinitialisez la progression de tous les thèmes en une seule action.")
+                }
+            }
+
+            item {
+                HelpSectionTitle("Paramètres")
+                Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                    HelpFeatureRow("Thème visuel", "Choisissez entre le thème du système, clair ou sombre — persisté entre les sessions.")
+                    HelpFeatureRow("Son de sélection", "Activez ou désactivez le bip joué lors de la sélection d'une réponse en examen.")
+                    HelpFeatureRow("Réinitialiser l'entraînement", "Efface la progression de tous les thèmes du mode S'entraîner (action irréversible, avec confirmation).")
                 }
             }
 
