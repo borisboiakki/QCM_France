@@ -5,6 +5,7 @@ import com.example.qcmfrance.data.db.AppDatabase
 import com.example.qcmfrance.data.db.PausedQuizDao
 import com.example.qcmfrance.data.db.QuestionDao
 import com.example.qcmfrance.data.db.QuizResultDao
+import com.example.qcmfrance.data.db.TrainingProgressDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,4 +33,8 @@ object AppModule {
     @Provides
     @Singleton
     fun providePausedQuizDao(db: AppDatabase): PausedQuizDao = db.pausedQuizDao()
+
+    @Provides
+    @Singleton
+    fun provideTrainingProgressDao(db: AppDatabase): TrainingProgressDao = db.trainingProgressDao()
 }

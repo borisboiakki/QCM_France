@@ -125,22 +125,6 @@ class QuizViewModel @Inject constructor(
         _uiState.value = QuizUiState()
     }
 
-    private fun Question.withShuffledOptions(): Question {
-        val letters = listOf("A", "B", "C", "D")
-        val originals = listOf(optionA, optionB, optionC, optionD)
-        val shuffledIndices = (0..3).shuffled()
-        val newOptions = shuffledIndices.map { originals[it] }
-        val origCorrectIdx = letters.indexOf(correctAnswer)
-        val newCorrectIdx = shuffledIndices.indexOf(origCorrectIdx)
-        return copy(
-            optionA = newOptions[0],
-            optionB = newOptions[1],
-            optionC = newOptions[2],
-            optionD = newOptions[3],
-            correctAnswer = letters[newCorrectIdx]
-        )
-    }
-
     private fun runTimer() {
         timerJob = viewModelScope.launch {
             while (_uiState.value.remainingSeconds > 0 && !_uiState.value.isFinished) {

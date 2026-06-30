@@ -15,17 +15,22 @@ import com.example.qcmfrance.ui.screen.HomeScreen
 import com.example.qcmfrance.ui.screen.QuizScreen
 import com.example.qcmfrance.ui.screen.ResultScreen
 import com.example.qcmfrance.ui.screen.SettingsScreen
+import com.example.qcmfrance.ui.screen.TrainingScreen
+import com.example.qcmfrance.ui.screen.TrainingThemesScreen
 import com.example.qcmfrance.ui.viewmodel.HistoryViewModel
 import com.example.qcmfrance.ui.viewmodel.HomeViewModel
 import com.example.qcmfrance.ui.viewmodel.QuizViewModel
 import com.example.qcmfrance.ui.viewmodel.SettingsViewModel
+import com.example.qcmfrance.ui.viewmodel.TrainingViewModel
 
-private const val ROUTE_HOME     = "home"
-private const val ROUTE_QUIZ     = "quiz"
-private const val ROUTE_RESULT   = "result"
-private const val ROUTE_HISTORY  = "history"
-private const val ROUTE_SETTINGS = "settings"
-private const val ROUTE_HELP     = "help"
+private const val ROUTE_HOME            = "home"
+private const val ROUTE_QUIZ            = "quiz"
+private const val ROUTE_RESULT          = "result"
+private const val ROUTE_HISTORY         = "history"
+private const val ROUTE_SETTINGS        = "settings"
+private const val ROUTE_HELP            = "help"
+private const val ROUTE_TRAINING_THEMES = "training_themes"
+private const val ROUTE_TRAINING        = "training"
 
 @Composable
 fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
@@ -35,18 +40,46 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
     val settingsViewModel: SettingsViewModel = hiltViewModel()
     val soundEnabled by settingsViewModel.soundEnabled.collectAsStateWithLifecycle()
 
+    val trainingViewModel: TrainingViewModel = hiltViewModel()
+
     NavHost(navController = navController, startDestination = ROUTE_HOME) {
 
         composable(ROUTE_HOME) {
             val homeViewModel: HomeViewModel = hiltViewModel()
             val hasPausedQuiz by homeViewModel.hasPausedQuiz.collectAsStateWithLifecycle()
             HomeScreen(
-                onStartExam    = { viewModel.startQuiz(); navController.navigate(ROUTE_QUIZ) },
-                onResumeExam   = { viewModel.resumeQuiz(); navController.navigate(ROUTE_QUIZ) },
-                onShowHistory  = { navController.navigate(ROUTE_HISTORY) },
-                onShowSettings = { navController.navigate(ROUTE_SETTINGS) },
-                onShowHelp     = { navController.navigate(ROUTE_HELP) },
-                hasPausedQuiz  = hasPausedQuiz
+                onStartExam     = { viewModel.startQuiz(); navController.navigate(ROUTE_QUIZ) },
+                onResumeExam    = { viewModel.resumeQuiz(); navController.navigate(ROUTE_QUIZ) },
+                onStartTraining = { navController.navigate(ROUTE_TRAINING_THEMES) },
+                onShowHistory   = { navController.navigate(ROUTE_HISTORY) },
+                onShowSettings  = { navController.navigate(ROUTE_SETTINGS) },
+                onShowHelp      = { navController.navigate(ROUTE_HELP) },
+                hasPausedQuiz   = hasPausedQuiz
+            )
+        }
+
+        composable(ROUTE_TRAINING_THEMES) {
+            val themes by trainingViewModel.themeProgress.collectAsStateWithLifecycle()
+            TrainingThemesScreen(
+                themes = themes,
+                onSelectTheme = { theme ->
+                    trainingViewModel.startTheme(theme)
+                    navController.navigate(ROUTE_TRAINING)
+                },
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        composable(ROUTE_TRAINING) {
+            val trainingState by trainingViewModel.uiState.collectAsStateWithLifecycle()
+            TrainingScreen(
+                uiState    = trainingState,
+                onSelect   = trainingViewModel::selectAnswer,
+                onConfirm  = trainingViewModel::confirmAnswer,
+                onNext     = trainingViewModel::next,
+                onPrevious = trainingViewModel::previous,
+                onRestart  = trainingViewModel::restartTheme,
+                onBack     = { navController.popBackStack(ROUTE_TRAINING_THEMES, inclusive = false) }
             )
         }
 
@@ -101,6 +134,7 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
                 onSoundChange        = settingsViewModel::setSoundEnabled,
                 textSizeMode         = textSizeMode,
                 onTextSizeModeChange = settingsViewModel::setTextSizeMode,
+                onResetTraining      = trainingViewModel::resetTraining,
                 onBack               = { navController.popBackStack() }
             )
         }
