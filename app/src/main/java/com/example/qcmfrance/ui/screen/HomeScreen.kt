@@ -1,5 +1,6 @@
 package com.example.qcmfrance.ui.screen
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -25,7 +26,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -41,6 +41,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+
+// Couleurs du drapeau français
+private val FlagBlue = Color(0xFF002395)
+private val FlagRed = Color(0xFFED2939)
+// Bleu plus clair que le bleu du drapeau, pour le bouton « Reprendre l'examen »
+private val ResumeBlue = Color(0xFF4A73C8)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -110,7 +116,7 @@ fun HomeScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(
-                        color = Color(0xFF002395),
+                        color = FlagBlue,
                         shape = RoundedCornerShape(16.dp)
                     )
                     .padding(vertical = 28.dp, horizontal = 16.dp),
@@ -133,9 +139,9 @@ fun HomeScreen(
                             .width(80.dp)
                             .height(4.dp)
                     ) {
-                        Box(modifier = Modifier.weight(1f).fillMaxHeight().background(Color(0xFF002395)))
+                        Box(modifier = Modifier.weight(1f).fillMaxHeight().background(FlagBlue))
                         Box(modifier = Modifier.weight(1f).fillMaxHeight().background(Color.White))
-                        Box(modifier = Modifier.weight(1f).fillMaxHeight().background(Color(0xFFED2939)))
+                        Box(modifier = Modifier.weight(1f).fillMaxHeight().background(FlagRed))
                     }
                 }
             }
@@ -165,15 +171,20 @@ fun HomeScreen(
                     RuleRow(label = "Seuil de réussite",  value = "32 / 40 (80 %)")
                     RuleRow(label = "Durée maximale",     value = "45 minutes")
                     RuleRow(label = "Format",             value = "1 bonne réponse parmi 4")
-                    RuleRow(label = "Feedback",           value = "Uniquement à la fin")
+                    RuleRow(label = "Correction",         value = "Uniquement à la fin")
                 }
             }
 
             Spacer(modifier = Modifier.height(32.dp))
 
+            // Couleurs du drapeau français : un bouton par couleur (bleu, blanc, rouge).
             Button(
                 onClick = { if (hasPausedQuiz) showConfirmDialog = true else onStartExam() },
-                modifier = Modifier.fillMaxWidth().height(56.dp)
+                modifier = Modifier.fillMaxWidth().height(56.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = FlagBlue,
+                    contentColor = Color.White
+                )
             ) {
                 Text(text = "Commencer l'examen", style = MaterialTheme.typography.titleMedium)
             }
@@ -184,7 +195,9 @@ fun HomeScreen(
                     onClick = onResumeExam,
                     modifier = Modifier.fillMaxWidth().height(56.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = MaterialTheme.colorScheme.secondary
+                        // Bleu plus clair que le bleu du drapeau
+                        containerColor = ResumeBlue,
+                        contentColor = Color.White
                     )
                 ) {
                     Text(text = "Reprendre l'examen", style = MaterialTheme.typography.titleMedium)
@@ -193,20 +206,29 @@ fun HomeScreen(
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            OutlinedButton(
+            Button(
                 onClick = onStartTraining,
-                modifier = Modifier.fillMaxWidth().height(56.dp)
+                modifier = Modifier.fillMaxWidth().height(56.dp),
+                border = BorderStroke(1.dp, FlagBlue),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color.White,
+                    contentColor = FlagBlue
+                )
             ) {
                 Text(text = "S'entraîner par thème", style = MaterialTheme.typography.titleMedium)
             }
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            OutlinedButton(
+            Button(
                 onClick = onShowHistory,
-                modifier = Modifier.fillMaxWidth().height(48.dp)
+                modifier = Modifier.fillMaxWidth().height(56.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = FlagRed,
+                    contentColor = Color.White
+                )
             ) {
-                Text(text = "Voir l'historique", style = MaterialTheme.typography.bodyLarge)
+                Text(text = "Historique des examens", style = MaterialTheme.typography.titleMedium)
             }
         }
     }
