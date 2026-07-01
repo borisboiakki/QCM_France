@@ -1,5 +1,6 @@
 package com.example.qcmfrance.ui.screen
 
+import android.media.MediaPlayer
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -20,6 +21,7 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -35,6 +37,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import com.example.qcmfrance.R
 import com.example.qcmfrance.data.model.Question
 import com.example.qcmfrance.ui.utils.ResultExporter
 import com.example.qcmfrance.ui.viewmodel.QuizUiState
@@ -43,8 +46,27 @@ private val GreenOk = Color(0xFF2E7D32)
 private val RedFail = Color(0xFFC62828)
 
 @Composable
-fun ResultScreen(uiState: QuizUiState, onRestart: () -> Unit) {
+fun ResultScreen(uiState: QuizUiState, soundEnabled: Boolean, onRestart: () -> Unit) {
     val context = LocalContext.current
+
+    // Musique de fin d'examen : La Marseillaise si réussi, marche funèbre si échoué.
+    // Jouée une fois à l'ouverture de l'écran, uniquement si le son est activé.
+    // Libérée quand on quitte l'écran pour éviter toute fuite ou lecture résiduelle.
+    DisposableEffect(soundEnabled, uiState.passed) {
+        val player: MediaPlayer? = if (soundEnabled) {
+            val resId = if (uiState.passed) R.raw.marseillaise else R.raw.marche_funebre
+            runCatching { MediaPlayer.create(context, resId)?.apply { start() } }.getOrNull()
+        } else {
+            null
+        }
+        onDispose {
+            player?.let { p ->
+                runCatching { if (p.isPlaying) p.stop() }
+                p.release()
+            }
+        }
+    }
+
     val passColor = if (uiState.passed) GreenOk else RedFail
     val passLabel = if (uiState.passed) "RÉUSSI" else "ÉCHOUÉ"
     val durationSeconds = 2700 - uiState.remainingSeconds

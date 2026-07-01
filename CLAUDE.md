@@ -97,6 +97,7 @@ QCM_France/
 │   └── generate_questions_md.py                 Génère QUESTIONS.md depuis questions.json
 ├── LICENSE                                      Licence MIT
 ├── QUESTIONS.md                                 Liste des 258 questions (généré par release)
+├── AUDIO_CREDITS.md                             Sources/licences audio + remplacement des placeholders
 ├── app/
 │   ├── src/main/
 │   │   ├── AndroidManifest.xml
@@ -128,7 +129,7 @@ QCM_France/
 │   │   │   │   ├── screen/
 │   │   │   │   │   ├── HomeScreen.kt            titre, règles, Reprendre (si pause), S'entraîner par thème, AlertDialog, icône Aide
 │   │   │   │   │   ├── QuizScreen.kt            question N/40, options, timer, bouton Pause, BackHandler, son
-│   │   │   │   │   ├── ResultScreen.kt          score, RÉUSSI/ÉCHOUÉ, temps, filtre erreurs (FilterChip), détail, export
+│   │   │   │   │   ├── ResultScreen.kt          score, RÉUSSI/ÉCHOUÉ, temps, filtre erreurs (FilterChip), détail, export, musique de fin (MediaPlayer)
 │   │   │   │   │   ├── HistoryScreen.kt         liste des résultats, export par résultat, vider
 │   │   │   │   │   ├── SettingsScreen.kt        thème (Système/Clair/Sombre), toggle son, réinitialiser l'entraînement
 │   │   │   │   │   ├── HelpScreen.kt            guide utilisateur + 7 liens officiels cliquables
@@ -152,7 +153,9 @@ QCM_France/
 │   │   └── res/
 │   │       ├── mipmap-*/                        Icônes adaptatives (fond bleu tricolore)
 │   │       ├── raw/
-│   │       │   └── questions.json               258 questions (seed)
+│   │       │   ├── questions.json               258 questions (seed)
+│   │       │   ├── marseillaise.ogg             musique si examen réussi (placeholder — voir AUDIO_CREDITS.md)
+│   │       │   └── marche_funebre.ogg           musique si examen échoué (placeholder — voir AUDIO_CREDITS.md)
 │   │       └── values/
 │   │           ├── strings.xml
 │   │           ├── themes.xml
