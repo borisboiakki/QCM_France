@@ -154,8 +154,8 @@ QCM_France/
 │   │       ├── mipmap-*/                        Icônes adaptatives (fond bleu tricolore)
 │   │       ├── raw/
 │   │       │   ├── questions.json               258 questions (seed)
-│   │       │   ├── marseillaise.ogg             musique si examen réussi (placeholder — voir AUDIO_CREDITS.md)
-│   │       │   └── marche_funebre.ogg           musique si examen échoué (placeholder — voir AUDIO_CREDITS.md)
+│   │       │   ├── marseillaise.ogg             musique si examen réussi (domaine public — voir AUDIO_CREDITS.md)
+│   │       │   └── marche_funebre.ogg           musique si examen échoué (domaine public — voir AUDIO_CREDITS.md)
 │   │       └── values/
 │   │           ├── strings.xml
 │   │           ├── themes.xml
