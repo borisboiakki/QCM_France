@@ -106,7 +106,8 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
 
         composable(ROUTE_RESULT) {
             ResultScreen(
-                uiState   = uiState,
+                uiState      = uiState,
+                soundEnabled = soundEnabled,
                 onRestart = {
                     viewModel.restartQuiz()
                     navController.popBackStack(ROUTE_HOME, inclusive = false)
