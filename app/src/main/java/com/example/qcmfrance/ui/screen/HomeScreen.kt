@@ -167,11 +167,11 @@ fun HomeScreen(
                     modifier = Modifier.padding(16.dp),
                     verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    RuleRow(label = "Questions",          value = "40")
-                    RuleRow(label = "Seuil de réussite",  value = "32 / 40 (80 %)")
-                    RuleRow(label = "Durée maximale",     value = "45 minutes")
-                    RuleRow(label = "Format",             value = "1 bonne réponse parmi 4")
-                    RuleRow(label = "Correction",         value = "Uniquement à la fin")
+                    RuleRow(label = "Nombre de questions", value = "40")
+                    RuleRow(label = "Seuil de réussite",   value = "32 / 40 (80 %)")
+                    RuleRow(label = "Durée maximale",      value = "45 minutes")
+                    RuleRow(label = "Format",              value = "1 bonne réponse parmi 4")
+                    RuleRow(label = "Résultats",           value = "Affichés à la fin uniquement")
                 }
             }
 
@@ -238,13 +238,20 @@ fun HomeScreen(
 private fun RuleRow(label: String, value: String) {
     Row(
         modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceBetween
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.Top
     ) {
-        Text(text = label, style = MaterialTheme.typography.bodyMedium)
+        Text(
+            text = label,
+            style = MaterialTheme.typography.bodyMedium,
+            modifier = Modifier.weight(1f)
+        )
+        Spacer(modifier = Modifier.width(8.dp))
         Text(
             text = value,
             style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.primary
+            color = MaterialTheme.colorScheme.primary,
+            textAlign = TextAlign.End
         )
     }
 }
