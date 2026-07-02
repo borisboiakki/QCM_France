@@ -9,6 +9,7 @@ Application Android de préparation à l'examen civique de naturalisation franç
 ### Examen simulé
 - **40 questions** tirées aléatoirement dans une base de 258 questions officielles
 - **Tirage proportionnel** par thème pour respecter la répartition de l'examen réel
+- **Anti-répétition entre examens** — chaque thème cycle sur toutes ses questions (ordre mélangé et persisté) avant qu'une question ne puisse revenir, au lieu d'un tirage aléatoire indépendant à chaque examen
 - **Chronomètre décompte 45 minutes** — affiché en rouge dans les 5 dernières minutes
 - **Soumission automatique** à 00:00 si l'examen n'est pas terminé manuellement
 - **Aucun feedback pendant l'examen** (règle officielle) — les réponses correctes ne sont révélées qu'à la fin
@@ -56,6 +57,7 @@ Si un examen est en pause, bouton **Reprendre l'examen** (couleur secondaire). D
 - **Thème** : Système (par défaut) / Clair / Sombre — persisté entre les sessions
 - **Son de sélection** : activé/désactivé — persisté entre les sessions
 - **Réinitialiser la progression** : efface l'avancement de tous les thèmes du mode entraînement (avec confirmation)
+- **Réinitialiser le cycle de l'examen** : relance le tirage anti-répétition à zéro pour chaque thème (avec confirmation)
 
 ### Écran d'aide
 Accessible via l'icône Info (barre du haut de l'accueil) :
@@ -108,16 +110,18 @@ app/src/main/java/com/example/qcmfrance/
 │   │   │                          correctAnswer, correctAnswers (JSON), explanation, source
 │   │   ├── QuizResult.kt          Entité Room : id, date, score, passed, duration
 │   │   ├── PausedQuiz.kt          Entité Room singleton : état sérialisé (questions, réponses, timer)
-│   │   └── TrainingProgress.kt    Entité Room : PK=theme, currentIndex (point de reprise par thème)
+│   │   ├── TrainingProgress.kt    Entité Room : PK=theme, currentIndex (point de reprise par thème)
+│   │   └── ExamCycle.kt           Entité Room : PK=theme, permutation d'ids (JSON) + curseur (anti-répétition examen)
 │   ├── db/
-│   │   ├── QuestionDao.kt         DAO Room : getRandomByTheme, getAllByTheme, countByTheme, insertAll, count
+│   │   ├── QuestionDao.kt         DAO Room : getAllByTheme, getIdsByTheme, getByIds, countByTheme, insertAll, count
 │   │   ├── QuizResultDao.kt       DAO Room : getAll (Flow), insert, deleteAll
 │   │   ├── PausedQuizDao.kt       DAO Room : save (REPLACE), get, observe (Flow), delete
 │   │   ├── TrainingProgressDao.kt DAO Room : save (REPLACE), get, observeAll (Flow), clear
+│   │   ├── ExamCycleDao.kt        DAO Room : save (REPLACE), get, clear
 │   │   ├── Converters.kt          @TypeConverter List<String> ↔ JSON String
-│   │   └── AppDatabase.kt         Base Room v5 + migrations 1→2→3→4→5
+│   │   └── AppDatabase.kt         Base Room v6 + migrations 1→2→3→4→5→6
 │   └── repository/
-│       ├── QuestionRepository.kt  seedIfNeeded + tirage stratifié 6-9-6-13-6, liste des thèmes
+│       ├── QuestionRepository.kt  seedIfNeeded + tirage stratifié 6-9-6-13-6 cyclé par thème (exam_cycle), liste des thèmes
 │       ├── TrainingRepository.kt  Questions par thème (ordre stable), avancement par thème
 │       ├── HistoryRepository.kt   Sauvegarde et récupération de l'historique des résultats
 │       ├── SettingsRepository.kt  DataStore : ThemeMode + soundEnabled
@@ -141,7 +145,7 @@ app/src/main/java/com/example/qcmfrance/
     │   ├── QuizScreen.kt          Examen : question N/40, options, timer, Pause, BackHandler, son
     │   ├── ResultScreen.kt        Résultat : score, mention, filtre erreurs, export
     │   ├── HistoryScreen.kt       Historique : liste, export par résultat, vider
-    │   ├── SettingsScreen.kt      Paramètres : thème, toggle son, réinitialiser entraînement
+    │   ├── SettingsScreen.kt      Paramètres : thème, toggle son, réinitialiser entraînement, réinitialiser cycle examen
     │   ├── HelpScreen.kt          Aide : guide utilisateur + 7 liens officiels cliquables
     │   ├── TrainingThemesScreen.kt  Sélection du thème + barre X/total par thème
     │   └── TrainingScreen.kt      Question d'entraînement, feedback immédiat, explication + lien source
@@ -188,6 +192,10 @@ startQuiz()
 ### Seed de la base de données
 
 Les 258 questions sont embarquées dans `res/raw/questions.json` et insérées dans Room **une seule fois**, au premier lancement, directement dans `QuestionRepository.drawStratifiedQuestions()` (vérification `count() == 0`). Les lancements suivants utilisent directement la base SQLite.
+
+### Cycle de tirage de l'examen (anti-répétition)
+
+Le tirage n'utilise pas `ORDER BY RANDOM()` à chaque examen (ce qui permettrait de retirer les mêmes questions d'un examen à l'autre). Chaque thème a une permutation persistée de ses ids (table `exam_cycle`) et un curseur : chaque nouvel examen consomme la suite de la permutation, garantissant que toutes les questions d'un thème sont utilisées une fois avant qu'une répétition ne survienne. Quand un thème boucle, une nouvelle permutation est générée pour le tour suivant. Ce cycle est indépendant de la pause/reprise : il n'avance qu'au lancement d'un nouvel examen.
 
 ### Navigation
 
@@ -314,9 +322,9 @@ QCM_France/
 │       │   ├── MainActivity.kt
 │       │   ├── QcmFranceApplication.kt
 │       │   ├── data/
-│       │   │   ├── db/        AppDatabase.kt (v5)  QuestionDao.kt  QuizResultDao.kt
-│       │   │   │              PausedQuizDao.kt  TrainingProgressDao.kt  Converters.kt
-│       │   │   ├── model/     Question.kt  QuizResult.kt  PausedQuiz.kt  TrainingProgress.kt
+│       │   │   ├── db/        AppDatabase.kt (v6)  QuestionDao.kt  QuizResultDao.kt
+│       │   │   │              PausedQuizDao.kt  TrainingProgressDao.kt  ExamCycleDao.kt  Converters.kt
+│       │   │   ├── model/     Question.kt  QuizResult.kt  PausedQuiz.kt  TrainingProgress.kt  ExamCycle.kt
 │       │   │   └── repository/QuestionRepository.kt  TrainingRepository.kt
 │       │   │                  HistoryRepository.kt  SettingsRepository.kt  PausedQuizRepository.kt
 │       │   ├── di/            AppModule.kt
