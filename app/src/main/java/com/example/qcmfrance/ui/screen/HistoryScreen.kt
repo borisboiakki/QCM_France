@@ -34,8 +34,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.qcmfrance.R
 import com.example.qcmfrance.data.model.QuizResult
 import com.example.qcmfrance.ui.theme.SuccessGreen
 import com.example.qcmfrance.ui.utils.ResultExporter
@@ -55,16 +57,16 @@ fun HistoryScreen(
     if (showConfirmDialog) {
         AlertDialog(
             onDismissRequest = { showConfirmDialog = false },
-            title = { Text("Vider l'historique") },
-            text  = { Text("Tous les résultats seront supprimés définitivement.") },
+            title = { Text(stringResource(R.string.history_dialog_title)) },
+            text  = { Text(stringResource(R.string.history_dialog_text)) },
             confirmButton = {
                 TextButton(onClick = {
                     onClearHistory()
                     showConfirmDialog = false
-                }) { Text("Vider", color = MaterialTheme.colorScheme.error) }
+                }) { Text(stringResource(R.string.history_dialog_confirm), color = MaterialTheme.colorScheme.error) }
             },
             dismissButton = {
-                TextButton(onClick = { showConfirmDialog = false }) { Text("Annuler") }
+                TextButton(onClick = { showConfirmDialog = false }) { Text(stringResource(R.string.common_cancel)) }
             }
         )
     }
@@ -72,12 +74,12 @@ fun HistoryScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Historique") },
+                title = { Text(stringResource(R.string.history_title)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Retour"
+                            contentDescription = stringResource(R.string.common_back)
                         )
                     }
                 }
@@ -92,7 +94,7 @@ fun HistoryScreen(
                 contentAlignment = Alignment.Center
             ) {
                 Text(
-                    text = "Aucun résultat enregistré.",
+                    text = stringResource(R.string.history_empty),
                     style = MaterialTheme.typography.bodyLarge,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -122,7 +124,7 @@ fun HistoryScreen(
                         .padding(vertical = 12.dp)
                 ) {
                     Text(
-                        text = "Vider l'historique",
+                        text = stringResource(R.string.history_clear),
                         color = MaterialTheme.colorScheme.error
                     )
                 }
@@ -164,19 +166,19 @@ private fun ResultHistoryCard(result: QuizResult) {
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
                 Text(
-                    text = "${result.score} / ${result.totalQuestions}",
+                    text = stringResource(R.string.result_score, result.score, result.totalQuestions),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = "Durée : $durationStr",
+                    text = stringResource(R.string.history_duration, durationStr),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
 
             Text(
-                text = if (result.passed) "RÉUSSI" else "ÉCHOUÉ",
+                text = stringResource(if (result.passed) R.string.result_passed else R.string.result_failed),
                 style = MaterialTheme.typography.labelLarge,
                 fontWeight = FontWeight.Bold,
                 color = if (result.passed) SuccessGreen else MaterialTheme.colorScheme.error
@@ -185,7 +187,7 @@ private fun ResultHistoryCard(result: QuizResult) {
             IconButton(onClick = { ResultExporter.shareHistoryResult(context, result) }) {
                 Icon(
                     imageVector = Icons.Default.Share,
-                    contentDescription = "Exporter ce résultat",
+                    contentDescription = stringResource(R.string.cd_share_result),
                     tint = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }

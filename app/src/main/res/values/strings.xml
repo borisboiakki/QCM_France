@@ -1,16 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">QCM France</string>
-    <string name="start_exam">Commencer l\'examen</string>
-    <string name="next_question">Suivant</string>
-    <string name="finish_exam">Terminer</string>
-    <string name="restart_exam">Recommencer</string>
-    <string name="question_counter">Question %1$d / 40</string>
-    <string name="score_label">Score : %1$d / 40</string>
-    <string name="passed">RÉUSSI</string>
-    <string name="failed">ÉCHOUÉ</string>
-    <string name="passing_score">32 / 40 (80 %%)</string>
-    <string name="exam_duration">45 minutes</string>
-    <string name="your_answer">Votre réponse</string>
-    <string name="correct_answer">Bonne réponse</string>
+
+    <!-- Communs -->
+    <string name="common_next">Suivant</string>
+    <string name="common_finish">Terminer</string>
+    <string name="common_cancel">Annuler</string>
+    <string name="common_back">Retour</string>
+    <string name="result_passed">RÉUSSI</string>
+    <string name="result_failed">ÉCHOUÉ</string>
+
+    <!-- Accueil -->
+    <string name="home_subtitle">Préparation à l\'examen civique de naturalisation</string>
+    <string name="home_rule_questions_label">Nombre de questions</string>
+    <string name="home_rule_questions_value">40</string>
+    <string name="home_rule_pass_label">Seuil de réussite</string>
+    <string name="home_rule_pass_value" formatted="false">32 / 40 (80 %)</string>
+    <string name="home_rule_duration_label">Durée maximale</string>
+    <string name="home_rule_duration_value">45 minutes</string>
+    <string name="home_rule_format_label">Format</string>
+    <string name="home_rule_format_value">1 bonne réponse parmi 4</string>
+    <string name="home_rule_results_label">Résultats</string>
+    <string name="home_rule_results_value">Affichés à la fin uniquement</string>
+    <string name="home_start_exam">Commencer l\'examen</string>
+    <string name="home_resume_exam">Reprendre l\'examen</string>
+    <string name="home_training">S\'entraîner par thème</string>
+    <string name="home_history">Historique des examens</string>
+    <string name="home_dialog_new_exam_title">Commencer un nouvel examen ?</string>
+    <string name="home_dialog_new_exam_text">Un examen en pause sera définitivement perdu. Continuer ?</string>
+    <string name="home_dialog_new_exam_confirm">Commencer</string>
+    <string name="cd_help">Aide</string>
+    <string name="cd_settings">Paramètres</string>
+
+    <!-- Examen -->
+    <string name="quiz_question_counter">Question %1$d / %2$d</string>
+    <string name="quiz_pause">Pause</string>
+
+    <!-- Résultat -->
+    <string name="result_score">%1$d / %2$d</string>
+    <string name="result_time_used">Temps utilisé : %1$s</string>
+    <string name="result_timer_expired">Temps écoulé — soumission automatique</string>
+    <string name="result_details">Détail des réponses</string>
+    <string name="result_errors_chip">Erreurs (%1$d)</string>
+    <string name="result_no_errors">Aucune erreur — score parfait !</string>
+    <string name="result_your_answer">Votre réponse : %1$s</string>
+    <string name="result_correct_answer">Bonne réponse : %1$s</string>
+    <string name="result_source_prefix">"Source : "</string>
+    <string name="result_restart">Recommencer</string>
+    <string name="result_export">Exporter les résultats</string>
+    <string name="result_no_answer">—</string>
+
+    <!-- Historique -->
+    <string name="history_title">Historique</string>
+    <string name="history_empty">Aucun résultat enregistré.</string>
+    <string name="history_duration">Durée : %1$s</string>
+    <string name="history_clear">Vider l\'historique</string>
+    <string name="history_dialog_title">Vider l\'historique</string>
+    <string name="history_dialog_text">Tous les résultats seront supprimés définitivement.</string>
+    <string name="history_dialog_confirm">Vider</string>
+    <string name="cd_share_result">Exporter ce résultat</string>
+
+    <!-- Paramètres -->
+    <string name="settings_title">Paramètres</string>
+    <string name="settings_appearance">Apparence</string>
+    <string name="settings_theme_system">Système (par défaut)</string>
+    <string name="settings_theme_system_desc">Suit le thème du téléphone</string>
+    <string name="settings_theme_light">Clair</string>
+    <string name="settings_theme_light_desc">Fond blanc, texte sombre</string>
+    <string name="settings_theme_dark">Sombre</string>
+    <string name="settings_theme_dark_desc">Fond noir, texte clair</string>
+    <string name="settings_text_size">Taille du texte</string>
+    <string name="settings_text_size_small">Petit</string>
+    <string name="settings_text_size_medium">Moyen</string>
+    <string name="settings_text_size_large">Grand</string>
+    <string name="settings_sound">Son</string>
+    <string name="settings_sound_label">Son de sélection</string>
+    <string name="settings_sound_desc">Bip lors de la sélection d\'une réponse</string>
+    <string name="settings_training">Entraînement</string>
+    <string name="settings_training_desc">Réinitialiser votre progression dans tous les thèmes du mode entraînement.</string>
+    <string name="settings_reset_training">Réinitialiser la progression</string>
+    <string name="settings_exam">Examen blanc</string>
+    <string name="settings_exam_desc">Les questions de l\'examen blanc sont tirées en évitant les répétitions d\'un examen à l\'autre. Réinitialisez ce cycle pour recommencer le tirage à zéro.</string>
+    <string name="settings_reset_cycle">Réinitialiser le cycle de l\'examen</string>
+    <string name="settings_dialog_reset_training_title">Réinitialiser la progression ?</string>
+    <string name="settings_dialog_reset_training_text">Toute votre progression du mode entraînement (tous les thèmes) sera effacée. Cette action est irréversible.</string>
+    <string name="settings_dialog_reset_cycle_title">Réinitialiser le cycle de l\'examen ?</string>
+    <string name="settings_dialog_reset_cycle_text">Le tirage des questions de l\'examen blanc recommencera à zéro pour chaque thème. Cette action est irréversible.</string>
+    <string name="settings_dialog_reset_confirm">Réinitialiser</string>
+
+    <!-- Entraînement : choix du thème -->
+    <string name="themes_title">S\'entraîner</string>
+    <string name="themes_intro">Choisissez un thème et parcourez toutes ses questions à votre rythme, avec correction immédiate. Votre progression est enregistrée automatiquement.</string>
+    <string name="themes_done">Terminé</string>
+    <string name="themes_progress">%1$d / %2$d</string>
+
+    <!-- Entraînement : questions -->
+    <string name="training_confirm">Confirmer</string>
+    <string name="training_previous">Précédent</string>
+    <string name="training_good_answer">Bonne réponse !</string>
+    <string name="training_bad_answer">Mauvaise réponse</string>
+    <string name="training_see_source">Voir la source</string>
+    <string name="training_theme_done">Thème terminé !</string>
+    <string name="training_theme_done_desc">Vous avez parcouru les %1$d questions de ce thème.</string>
+    <string name="training_restart_theme">Recommencer ce thème</string>
+    <string name="training_back_to_themes">Retour aux thèmes</string>
+    <string name="cd_correct_answer">Bonne réponse</string>
+    <string name="cd_wrong_answer">Réponse incorrecte</string>
+
+    <!-- Aide -->
+    <string name="help_title">Aide</string>
+    <string name="help_about_title">À propos</string>
+    <string name="help_about_text">QCM France vous aide à préparer l\'examen civique de naturalisation française. L\'application propose deux modes complémentaires :\n\n• Mode examen : 40 questions tirées aléatoirement, 45 minutes au chronomètre, sans correction immédiate — comme dans les conditions officielles.\n\n• Mode S\'entraîner : parcourez toutes les questions d\'un thème, une par une, avec correction immédiate, explication et lien vers la source après chaque réponse confirmée.</string>
+    <string name="help_rules_title">Règles de l\'examen officiel</string>
+    <string name="help_themes_title">Thèmes couverts</string>
+    <string name="help_theme_1">Principes et valeurs de la République</string>
+    <string name="help_theme_2">Système institutionnel et politique</string>
+    <string name="help_theme_3">Droits et devoirs</string>
+    <string name="help_theme_4">Histoire, géographie et culture</string>
+    <string name="help_theme_5">Vivre dans la société française</string>
+    <string name="help_theme_count">%1$d questions</string>
+    <string name="help_exam_title">Mode examen</string>
+    <string name="help_exam_timer_title">Chronomètre</string>
+    <string name="help_exam_timer_desc">Décompte de 45 min, affiché en rouge dans les 5 dernières minutes. Soumission automatique à 00:00.</string>
+    <string name="help_exam_rotation_title">Rotation des questions</string>
+    <string name="help_exam_rotation_desc">Pour chaque thème, l\'application fait tourner l\'ensemble des questions disponibles : toutes sont utilisées une fois avant qu\'une répétition ne survienne d\'un examen à l\'autre.</string>
+    <string name="help_exam_pause_title">Pause et reprise</string>
+    <string name="help_exam_pause_desc">Mettez l\'examen en pause via le bouton Pause ou la touche Retour. L\'état est sauvegardé et vous pouvez reprendre plus tard, même après avoir fermé l\'application.</string>
+    <string name="help_exam_history_title">Historique</string>
+    <string name="help_exam_history_desc">Consultez tous vos examens passés avec le score, la durée et la mention obtenue.</string>
+    <string name="help_exam_export_title">Export des résultats</string>
+    <string name="help_exam_export_desc">Partagez le détail de votre examen (question par question) via les applications installées sur votre téléphone.</string>
+    <string name="help_training_title">Mode S\'entraîner</string>
+    <string name="help_training_intro">Un mode d\'apprentissage complémentaire à l\'examen, sans chronomètre et avec correction immédiate.</string>
+    <string name="help_training_theme_title">Choix du thème</string>
+    <string name="help_training_theme_desc">Sélectionnez l\'un des 5 thèmes officiels. Une barre de progression indique combien de questions vous avez déjà vues dans ce thème.</string>
+    <string name="help_training_confirm_title">Confirmer pour révéler</string>
+    <string name="help_training_confirm_desc">Choisissez une réponse — vous pouvez la modifier tant que vous n\'avez pas appuyé sur « Confirmer ». Une fois confirmée, la bonne réponse apparaît en vert et une mauvaise sélection en rouge.</string>
+    <string name="help_training_source_title">Explication et source</string>
+    <string name="help_training_source_desc">Après confirmation, une explication est affichée (si disponible) ainsi qu\'un lien vers la source officielle, ouvrant votre navigateur.</string>
+    <string name="help_training_progress_title">Avancement persisté</string>
+    <string name="help_training_progress_desc">Votre progression est sauvegardée question par question. Revenir en arrière ou fermer l\'application ne fait pas perdre votre avancement — le thème reprend exactement là où vous vous étiez arrêté.</string>
+    <string name="help_training_reset_title">Réinitialisation</string>
+    <string name="help_training_reset_desc">Depuis les Paramètres, réinitialisez la progression de tous les thèmes en une seule action.</string>
+    <string name="help_settings_title">Paramètres</string>
+    <string name="help_settings_theme_title">Thème visuel</string>
+    <string name="help_settings_theme_desc">Choisissez entre le thème du système, clair ou sombre — persisté entre les sessions.</string>
+    <string name="help_settings_sound_title">Son de sélection</string>
+    <string name="help_settings_sound_desc">Activez ou désactivez le bip joué lors de la sélection d\'une réponse en examen.</string>
+    <string name="help_settings_reset_training_title">Réinitialiser l\'entraînement</string>
+    <string name="help_settings_reset_training_desc">Efface la progression de tous les thèmes du mode S\'entraîner (action irréversible, avec confirmation).</string>
+    <string name="help_settings_reset_cycle_title">Réinitialiser le cycle de l\'examen</string>
+    <string name="help_settings_reset_cycle_desc">Relance depuis le début la rotation anti-répétition des questions de l\'examen, pour chaque thème (action irréversible, avec confirmation).</string>
+    <string name="help_links_title">Ressources officielles</string>
+    <string name="help_links_hint">Appuyez sur un lien pour l\'ouvrir dans votre navigateur.</string>
+    <string name="help_link_general">Informations générales sur l\'examen civique</string>
+    <string name="help_link_quiz">Tests complémentaires en ligne (Ensemble en France)</string>
+    <string name="help_link_factsheet">Fiche d\'information sur l\'examen</string>
+    <string name="help_link_citizen_booklet">Livret du citoyen</string>
+    <string name="help_link_charter">Charte des droits et devoirs du citoyen français</string>
+    <string name="help_link_declaration">Déclaration des droits de l\'homme et du citoyen (1789)</string>
+    <string name="help_link_constitution">Constitution française (1958)</string>
+
+    <!-- Export / partage -->
+    <string name="export_subject">Résultats QCM France</string>
+    <string name="export_chooser_title">Exporter via…</string>
+    <string name="export_full_header">QCM France — Résultats du %1$s</string>
+    <string name="export_single_header">QCM France — Résultat du %1$s</string>
+    <string name="export_score_line">Score : %1$d/%2$d (%3$d%%) — %4$s</string>
+    <string name="export_duration_line">Durée : %1$s</string>
+    <string name="export_details_label">Détail des réponses :</string>
+    <string name="export_your_answer">Votre réponse : %1$s</string>
+    <string name="export_correct_answer">Bonne réponse : %1$s — %2$s</string>
 </resources>

@@ -13,6 +13,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
@@ -28,10 +30,13 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
+import com.example.qcmfrance.R
 import com.example.qcmfrance.data.ExamConstants
 import com.example.qcmfrance.ui.viewmodel.QuizUiState
 
@@ -99,7 +104,11 @@ fun QuizScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "Question ${uiState.currentIndex + 1} / ${uiState.questions.size}",
+                    text = stringResource(
+                        R.string.quiz_question_counter,
+                        uiState.currentIndex + 1,
+                        uiState.questions.size
+                    ),
                     style = MaterialTheme.typography.titleSmall
                 )
                 Text(
@@ -109,7 +118,7 @@ fun QuizScreen(
                 )
                 TextButton(onClick = onPause) {
                     Text(
-                        text = "Pause",
+                        text = stringResource(R.string.quiz_pause),
                         style = MaterialTheme.typography.labelLarge,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -139,17 +148,19 @@ fun QuizScreen(
                 "D" to question.optionD
             )
 
-            options.forEach { (letter, text) ->
-                OptionRow(
-                    letter = letter,
-                    text = text,
-                    selected = selectedAnswer == letter,
-                    onClick = {
-                        if (soundEnabled) toneGenerator?.startTone(ToneGenerator.TONE_PROP_BEEP, 80)
-                        onSelect(letter)
-                    }
-                )
-                Spacer(modifier = Modifier.height(8.dp))
+            Column(modifier = Modifier.selectableGroup()) {
+                options.forEach { (letter, text) ->
+                    OptionRow(
+                        letter = letter,
+                        text = text,
+                        selected = selectedAnswer == letter,
+                        onClick = {
+                            if (soundEnabled) toneGenerator?.startTone(ToneGenerator.TONE_PROP_BEEP, 80)
+                            onSelect(letter)
+                        }
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                }
             }
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -161,7 +172,7 @@ fun QuizScreen(
                     .height(52.dp)
             ) {
                 Text(
-                    text = if (isLastQuestion) "Terminer" else "Suivant",
+                    text = stringResource(if (isLastQuestion) R.string.common_finish else R.string.common_next),
                     style = MaterialTheme.typography.titleMedium
                 )
             }
@@ -178,15 +189,17 @@ private fun OptionRow(
     selected: Boolean,
     onClick: () -> Unit
 ) {
-    OutlinedCard(
-        onClick = onClick,
-        modifier = Modifier.fillMaxWidth()
-    ) {
+    // Modifier.selectable sur la ligne + RadioButton sans onClick : une seule cible
+    // de focus par option pour TalkBack, avec le rôle « bouton radio » annoncé.
+    OutlinedCard(modifier = Modifier.fillMaxWidth()) {
         Row(
-            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .selectable(selected = selected, role = Role.RadioButton, onClick = onClick)
+                .padding(horizontal = 8.dp, vertical = 4.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            RadioButton(selected = selected, onClick = onClick)
+            RadioButton(selected = selected, onClick = null)
             Text(
                 text = "$letter.  $text",
                 style = MaterialTheme.typography.bodyMedium,

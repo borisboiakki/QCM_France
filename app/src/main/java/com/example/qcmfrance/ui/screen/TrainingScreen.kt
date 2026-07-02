@@ -12,6 +12,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -37,8 +39,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.qcmfrance.R
 import com.example.qcmfrance.ui.theme.FailureRed
 import com.example.qcmfrance.ui.theme.SuccessGreen
 import com.example.qcmfrance.ui.viewmodel.TrainingUiState
@@ -70,7 +75,7 @@ fun TrainingScreen(
                     IconButton(onClick = onBack) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Retour"
+                            contentDescription = stringResource(R.string.common_back)
                         )
                     }
                 }
@@ -109,7 +114,11 @@ fun TrainingScreen(
                     Spacer(modifier = Modifier.height(8.dp))
 
                     Text(
-                        text = "Question ${uiState.currentIndex + 1} / ${uiState.questions.size}",
+                        text = stringResource(
+                            R.string.quiz_question_counter,
+                            uiState.currentIndex + 1,
+                            uiState.questions.size
+                        ),
                         style = MaterialTheme.typography.titleSmall
                     )
 
@@ -136,16 +145,18 @@ fun TrainingScreen(
                         "D" to question.optionD
                     )
 
-                    options.forEach { (letter, text) ->
-                        TrainingOptionRow(
-                            letter = letter,
-                            text = text,
-                            selected = uiState.selectedAnswer == letter,
-                            revealed = uiState.revealed,
-                            isCorrectOption = question.correctAnswer == letter,
-                            onClick = { if (!uiState.revealed) onSelect(letter) }
-                        )
-                        Spacer(modifier = Modifier.height(8.dp))
+                    Column(modifier = Modifier.selectableGroup()) {
+                        options.forEach { (letter, text) ->
+                            TrainingOptionRow(
+                                letter = letter,
+                                text = text,
+                                selected = uiState.selectedAnswer == letter,
+                                revealed = uiState.revealed,
+                                isCorrectOption = question.correctAnswer == letter,
+                                onClick = { if (!uiState.revealed) onSelect(letter) }
+                            )
+                            Spacer(modifier = Modifier.height(8.dp))
+                        }
                     }
 
                     if (uiState.revealed) {
@@ -170,7 +181,10 @@ fun TrainingScreen(
                                 onClick = onPrevious,
                                 modifier = Modifier.weight(1f).height(52.dp)
                             ) {
-                                Text("Précédent", style = MaterialTheme.typography.titleMedium)
+                                Text(
+                                    stringResource(R.string.training_previous),
+                                    style = MaterialTheme.typography.titleMedium
+                                )
                             }
                         }
                         Button(
@@ -179,11 +193,13 @@ fun TrainingScreen(
                             modifier = Modifier.weight(1f).height(52.dp)
                         ) {
                             Text(
-                                text = when {
-                                    !uiState.revealed -> "Confirmer"
-                                    isLast -> "Terminer"
-                                    else -> "Suivant"
-                                },
+                                text = stringResource(
+                                    when {
+                                        !uiState.revealed -> R.string.training_confirm
+                                        isLast -> R.string.common_finish
+                                        else -> R.string.common_next
+                                    }
+                                ),
                                 style = MaterialTheme.typography.titleMedium
                             )
                         }
@@ -215,19 +231,27 @@ private fun TrainingOptionRow(
     }
     val border = accent?.let { BorderStroke(2.dp, it) } ?: CardDefaults.outlinedCardBorder()
 
+    // Modifier.selectable sur la ligne + RadioButton sans onClick : une seule cible
+    // de focus par option pour TalkBack, avec le rôle « bouton radio » annoncé.
     OutlinedCard(
-        onClick = onClick,
-        enabled = !revealed,
         modifier = Modifier.fillMaxWidth(),
         border = border
     ) {
         Row(
-            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .selectable(
+                    selected = selected,
+                    enabled = !revealed,
+                    role = Role.RadioButton,
+                    onClick = onClick
+                )
+                .padding(horizontal = 8.dp, vertical = 4.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             RadioButton(
                 selected = selected,
-                onClick = onClick,
+                onClick = null,
                 enabled = !revealed
             )
             Text(
@@ -239,13 +263,13 @@ private fun TrainingOptionRow(
             if (revealed && isCorrectOption) {
                 Icon(
                     imageVector = Icons.Default.CheckCircle,
-                    contentDescription = "Bonne réponse",
+                    contentDescription = stringResource(R.string.cd_correct_answer),
                     tint = SuccessGreen
                 )
             } else if (revealed && selected) {
                 Icon(
                     imageVector = Icons.Default.Close,
-                    contentDescription = "Réponse incorrecte",
+                    contentDescription = stringResource(R.string.cd_wrong_answer),
                     tint = FailureRed
                 )
             }
@@ -268,7 +292,9 @@ private fun FeedbackBlock(
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(
-                text = if (isCorrect) "Bonne réponse !" else "Mauvaise réponse",
+                text = stringResource(
+                    if (isCorrect) R.string.training_good_answer else R.string.training_bad_answer
+                ),
                 style = MaterialTheme.typography.titleSmall,
                 fontWeight = FontWeight.Bold,
                 color = if (isCorrect) SuccessGreen else FailureRed
@@ -285,7 +311,7 @@ private fun FeedbackBlock(
             if (source.isNotBlank()) {
                 Spacer(modifier = Modifier.height(12.dp))
                 OutlinedButton(onClick = onOpenSource) {
-                    Text("Voir la source")
+                    Text(stringResource(R.string.training_see_source))
                 }
             }
         }
@@ -311,13 +337,13 @@ private fun ThemeCompleted(
         )
         Spacer(modifier = Modifier.height(16.dp))
         Text(
-            text = "Thème terminé !",
+            text = stringResource(R.string.training_theme_done),
             style = MaterialTheme.typography.headlineSmall,
             fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.height(8.dp))
         Text(
-            text = "Vous avez parcouru les $total questions de ce thème.",
+            text = stringResource(R.string.training_theme_done_desc, total),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
@@ -326,14 +352,14 @@ private fun ThemeCompleted(
             onClick = onRestart,
             modifier = Modifier.fillMaxWidth().height(52.dp)
         ) {
-            Text("Recommencer ce thème", style = MaterialTheme.typography.titleMedium)
+            Text(stringResource(R.string.training_restart_theme), style = MaterialTheme.typography.titleMedium)
         }
         Spacer(modifier = Modifier.height(12.dp))
         OutlinedButton(
             onClick = onBack,
             modifier = Modifier.fillMaxWidth().height(48.dp)
         ) {
-            Text("Retour aux thèmes")
+            Text(stringResource(R.string.training_back_to_themes))
         }
     }
 }
