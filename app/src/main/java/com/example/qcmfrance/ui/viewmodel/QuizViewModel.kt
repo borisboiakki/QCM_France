@@ -42,9 +42,12 @@ class QuizViewModel @Inject constructor(
     private var timerJob: Job? = null
 
     fun startQuiz() {
+        // Réinitialisation synchrone : un état isFinished=true resté d'un examen précédent
+        // déclencherait la navigation immédiate vers l'écran résultat.
+        timerJob?.cancel()
+        _uiState.value = QuizUiState()
         viewModelScope.launch {
             pausedQuizRepository.clear()
-            _uiState.update { it.copy(isLoading = true) }
             val questions = repository.drawStratifiedQuestions().map { it.withShuffledOptions() }
             _uiState.update {
                 QuizUiState(
@@ -70,6 +73,8 @@ class QuizViewModel @Inject constructor(
     }
 
     fun resumeQuiz() {
+        timerJob?.cancel()
+        _uiState.value = QuizUiState()
         viewModelScope.launch {
             val saved = pausedQuizRepository.load() ?: return@launch
             pausedQuizRepository.clear()
@@ -101,6 +106,7 @@ class QuizViewModel @Inject constructor(
 
     fun submitQuiz() {
         val state = _uiState.value
+        if (state.isFinished) return   // évite un double envoi (double tap ou course avec le timer)
         val score = state.questions.count { q -> state.answers[q.id] == q.correctAnswer }
         _uiState.update {
             it.copy(
