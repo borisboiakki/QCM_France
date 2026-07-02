@@ -29,6 +29,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.example.qcmfrance.data.ExamConstants
 import com.example.qcmfrance.ui.viewmodel.QuizUiState
 
@@ -39,9 +42,21 @@ fun QuizScreen(
     onSelect: (String) -> Unit,
     onNext: () -> Unit,
     onSubmit: () -> Unit,
-    onPause: () -> Unit
+    onPause: () -> Unit,
+    onAutoSave: () -> Unit
 ) {
     BackHandler(onBack = onPause)
+
+    // Sauvegarde automatique quand l'activité passe en arrière-plan (bouton Accueil,
+    // changement d'app, écran éteint) : l'examen survit à une mort du processus.
+    val lifecycleOwner = LocalLifecycleOwner.current
+    DisposableEffect(lifecycleOwner) {
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_STOP) onAutoSave()
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
+    }
 
     if (uiState.isLoading) {
         Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {

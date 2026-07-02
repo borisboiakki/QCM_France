@@ -100,7 +100,8 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
                 onPause      = {
                     viewModel.pauseQuiz()
                     navController.popBackStack(ROUTE_HOME, inclusive = false)
-                }
+                },
+                onAutoSave   = viewModel::saveSnapshot
             )
         }
 
