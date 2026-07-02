@@ -148,6 +148,7 @@ fun HelpScreen(onBack: () -> Unit) {
                 HelpSectionTitle("Mode examen")
                 Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                     HelpFeatureRow("Chronomètre", "Décompte de 45 min, affiché en rouge dans les 5 dernières minutes. Soumission automatique à 00:00.")
+                    HelpFeatureRow("Rotation des questions", "Pour chaque thème, l'application fait tourner l'ensemble des questions disponibles : toutes sont utilisées une fois avant qu'une répétition ne survienne d'un examen à l'autre.")
                     HelpFeatureRow("Pause et reprise", "Mettez l'examen en pause via le bouton Pause ou la touche Retour. L'état est sauvegardé et vous pouvez reprendre plus tard, même après avoir fermé l'application.")
                     HelpFeatureRow("Historique", "Consultez tous vos examens passés avec le score, la durée et la mention obtenue.")
                     HelpFeatureRow("Export des résultats", "Partagez le détail de votre examen (question par question) via les applications installées sur votre téléphone.")
@@ -176,6 +177,7 @@ fun HelpScreen(onBack: () -> Unit) {
                     HelpFeatureRow("Thème visuel", "Choisissez entre le thème du système, clair ou sombre — persisté entre les sessions.")
                     HelpFeatureRow("Son de sélection", "Activez ou désactivez le bip joué lors de la sélection d'une réponse en examen.")
                     HelpFeatureRow("Réinitialiser l'entraînement", "Efface la progression de tous les thèmes du mode S'entraîner (action irréversible, avec confirmation).")
+                    HelpFeatureRow("Réinitialiser le cycle de l'examen", "Relance depuis le début la rotation anti-répétition des questions de l'examen, pour chaque thème (action irréversible, avec confirmation).")
                 }
             }
 

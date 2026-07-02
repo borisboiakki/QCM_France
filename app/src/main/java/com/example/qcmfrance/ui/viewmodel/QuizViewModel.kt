@@ -125,6 +125,11 @@ class QuizViewModel @Inject constructor(
         _uiState.value = QuizUiState()
     }
 
+    /** Réinitialise le cycle de tirage de l'examen (depuis les Paramètres). */
+    fun resetExamCycle() {
+        viewModelScope.launch { repository.resetExamCycle() }
+    }
+
     private fun runTimer() {
         timerJob = viewModelScope.launch {
             while (_uiState.value.remainingSeconds > 0 && !_uiState.value.isFinished) {

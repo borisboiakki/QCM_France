@@ -41,11 +41,7 @@ val themeCounts = mapOf(
 // Total = 40. Dernière thème ajustée si arrondi != 40.
 ```
 
-Requête DAO par thème :
-```kotlin
-@Query("SELECT * FROM questions WHERE theme = :theme ORDER BY RANDOM() LIMIT :count")
-suspend fun getRandomByTheme(theme: String, count: Int): List<Question>
-```
+**Anti-répétition entre examens :** le tirage n'utilise pas `ORDER BY RANDOM()` à chaque appel (ce qui permettrait à un thème de retirer les mêmes questions d'un examen à l'autre). À la place, chaque thème a une permutation persistée de ses ids (table `exam_cycle`) et un curseur ; chaque examen consomme la suite de la permutation. Toutes les questions d'un thème sont donc utilisées une fois avant qu'une répétition ne survienne ; quand un thème boucle, une nouvelle permutation est générée pour le tour suivant. Voir `QuestionRepository.drawIdsFromCycle()` et la section « Cycle de tirage de l'examen » plus bas.
 
 ### Chronomètre
 
@@ -104,19 +100,21 @@ QCM_France/
 │   │   ├── java/com/example/qcmfrance/
 │   │   │   ├── data/
 │   │   │   │   ├── db/
-│   │   │   │   │   ├── AppDatabase.kt           Room @Database v5 + migrations 1→2→3→4→5
+│   │   │   │   │   ├── AppDatabase.kt           Room @Database v6 + migrations 1→2→3→4→5→6
 │   │   │   │   │   ├── Converters.kt            @TypeConverter List<String> ↔ JSON String
-│   │   │   │   │   ├── QuestionDao.kt           @Dao : getRandomByTheme, getAllByTheme, countByTheme, insertAll, count
+│   │   │   │   │   ├── QuestionDao.kt           @Dao : getAllByTheme, getIdsByTheme, getByIds, countByTheme, insertAll, count
 │   │   │   │   │   ├── QuizResultDao.kt         @Dao : getAll (Flow), insert, deleteAll
 │   │   │   │   │   ├── PausedQuizDao.kt         @Dao : save (REPLACE), get, delete
-│   │   │   │   │   └── TrainingProgressDao.kt   @Dao : save (REPLACE), get, observeAll (Flow), clear
+│   │   │   │   │   ├── TrainingProgressDao.kt   @Dao : save (REPLACE), get, observeAll (Flow), clear
+│   │   │   │   │   └── ExamCycleDao.kt          @Dao : save (REPLACE), get, clear
 │   │   │   │   ├── model/
 │   │   │   │   │   ├── Question.kt              @Entity Room
 │   │   │   │   │   ├── QuizResult.kt            @Entity Room : id, date, score, passed, duration
 │   │   │   │   │   ├── PausedQuiz.kt            @Entity Room : singleton (PK=1), état sérialisé JSON
-│   │   │   │   │   └── TrainingProgress.kt      @Entity Room : PK=theme, currentIndex (point de reprise)
+│   │   │   │   │   ├── TrainingProgress.kt      @Entity Room : PK=theme, currentIndex (point de reprise)
+│   │   │   │   │   └── ExamCycle.kt             @Entity Room : PK=theme, permutation d'ids (JSON) + curseur
 │   │   │   │   └── repository/
-│   │   │   │       ├── QuestionRepository.kt    seedIfNeeded + tirage stratifié 6-9-6-13-6, themes
+│   │   │   │       ├── QuestionRepository.kt    seedIfNeeded + tirage stratifié 6-9-6-13-6 cyclé (exam_cycle), themes
 │   │   │   │       ├── HistoryRepository.kt     sauvegarde et récupération de l'historique
 │   │   │   │       ├── SettingsRepository.kt    DataStore : ThemeMode + soundEnabled
 │   │   │   │       ├── PausedQuizRepository.kt  save/load/clear + PausedQuizState (Gson)
@@ -131,14 +129,14 @@ QCM_France/
 │   │   │   │   │   ├── QuizScreen.kt            question N/40, options, timer, bouton Pause, BackHandler, son
 │   │   │   │   │   ├── ResultScreen.kt          score, RÉUSSI/ÉCHOUÉ, temps, filtre erreurs (FilterChip), détail, export, musique de fin (MediaPlayer)
 │   │   │   │   │   ├── HistoryScreen.kt         liste des résultats, export par résultat, vider
-│   │   │   │   │   ├── SettingsScreen.kt        thème (Système/Clair/Sombre), toggle son, réinitialiser l'entraînement
+│   │   │   │   │   ├── SettingsScreen.kt        thème (Système/Clair/Sombre), toggle son, réinitialiser l'entraînement, réinitialiser le cycle de l'examen
 │   │   │   │   │   ├── HelpScreen.kt            guide utilisateur + 7 liens officiels cliquables
 │   │   │   │   │   ├── TrainingThemesScreen.kt  sélection du thème + barre d'avancement X/total par thème
 │   │   │   │   │   └── TrainingScreen.kt        question du thème, feedback immédiat (vert/rouge), explication + lien source
 │   │   │   │   ├── utils/
 │   │   │   │   │   └── ResultExporter.kt        partage texte via Intent.ACTION_SEND
 │   │   │   │   ├── viewmodel/
-│   │   │   │   │   ├── QuizViewModel.kt         QuizUiState, timerJob (cancellable), pauseQuiz/resumeQuiz, scoring
+│   │   │   │   │   ├── QuizViewModel.kt         QuizUiState, timerJob (cancellable), pauseQuiz/resumeQuiz, scoring, resetExamCycle
 │   │   │   │   │   ├── TrainingViewModel.kt     TrainingUiState, themeProgress, startTheme/selectAnswer/confirmAnswer/next/restart/reset
 │   │   │   │   │   ├── QuestionExt.kt           helper partagé withShuffledOptions() (examen + entraînement)
 │   │   │   │   │   ├── HomeViewModel.kt         hasPausedQuiz : StateFlow<Boolean>
@@ -225,6 +223,30 @@ data class TrainingProgress(
 
 Avancement du **mode entraînement**. `currentIndex` sert de point de reprise et de valeur « X » de la barre `X/total`. Thème terminé quand `currentIndex >= total`. La table est créée par `MIGRATION_4_5` (BDD passée en v5). Réinitialisation globale via `TrainingProgressDao.clear()` (bouton dans les Paramètres).
 
+### Entité Room — `ExamCycle`
+
+```kotlin
+@Entity(tableName = "exam_cycle")
+data class ExamCycle(
+    @PrimaryKey val theme: String,   // un des 5 thèmes officiels — une ligne par thème
+    val orderJson: String,           // Gson List<Int> — permutation des ids du thème
+    val cursor: Int                  // index de la prochaine question à tirer dans la permutation
+)
+```
+
+Cycle de tirage de l'**examen** (pas l'entraînement). Voir « Cycle de tirage de l'examen » ci-dessous pour la logique complète. La table est créée par `MIGRATION_5_6` (BDD passée en v6). Réinitialisation via `QuestionRepository.resetExamCycle()` → `ExamCycleDao.clear()` (bouton « Réinitialiser le cycle de l'examen » dans les Paramètres).
+
+### Cycle de tirage de l'examen
+
+`QuestionRepository.drawIdsFromCycle(theme, count)` remplace l'ancien tirage `ORDER BY RANDOM()` :
+
+1. Charge la permutation persistée (`exam_cycle.orderJson`) et son curseur pour le thème ; si absente, ou si l'ensemble des ids ne correspond plus (questions ajoutées/supprimées), génère une nouvelle permutation aléatoire et repart du curseur 0.
+2. Prend les `count` ids suivants à partir du curseur, en avançant le curseur.
+3. Si la permutation est épuisée avant d'avoir pris `count` ids (fin d'un tour), génère une nouvelle permutation de l'ensemble des ids du thème pour le tour suivant — en plaçant les ids déjà pris dans ce tirage en fin de liste, pour ne pas les retirer immédiatement dans le même examen.
+4. Persiste la permutation (éventuellement renouvelée) et le nouveau curseur.
+
+Résultat : toutes les questions d'un thème sont utilisées une fois avant qu'une répétition ne survienne d'un examen à l'autre. Indépendant du flux pause/reprise (`PausedQuiz`) : le cycle n'avance qu'au lancement d'un nouvel examen (`QuizViewModel.startQuiz()` → `drawStratifiedQuestions()`), jamais pendant une reprise.
+
 ---
 
 ## Mode « S'entraîner » (entraînement)
@@ -279,8 +301,14 @@ Mode complémentaire à l'examen, orienté apprentissage — l'inverse UX de l'e
 ```kotlin
 @Dao
 interface QuestionDao {
-    @Query("SELECT * FROM questions WHERE theme = :theme ORDER BY RANDOM() LIMIT :count")
-    suspend fun getRandomByTheme(theme: String, count: Int): List<Question>
+    @Query("SELECT * FROM questions WHERE theme = :theme ORDER BY id")
+    suspend fun getAllByTheme(theme: String): List<Question>
+
+    @Query("SELECT id FROM questions WHERE theme = :theme ORDER BY id")
+    suspend fun getIdsByTheme(theme: String): List<Int>
+
+    @Query("SELECT * FROM questions WHERE id IN (:ids)")
+    suspend fun getByIds(ids: List<Int>): List<Question>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(questions: List<Question>)
@@ -367,7 +395,7 @@ fun submitQuiz() {
 | `quiz` | Examen | Question N/40, 4 options, chrono MM:SS, bouton Pause, BackHandler, barre de progression, son |
 | `result` | Résultat | Score X/40, temps utilisé, mention Réussi/Échoué, détail, export |
 | `history` | Historique | Liste des résultats passés, export individuel, vider l'historique |
-| `settings` | Paramètres | Thème (Système/Clair/Sombre), toggle son, réinitialiser la progression d'entraînement |
+| `settings` | Paramètres | Thème (Système/Clair/Sombre), toggle son, réinitialiser la progression d'entraînement, réinitialiser le cycle de l'examen |
 | `help` | Aide | Guide utilisateur, règles de l'examen, thèmes, fonctionnalités, 7 liens officiels cliquables |
 | `training_themes` | Entraînement (thèmes) | Liste des 5 thèmes + barre d'avancement `X/total`, retour Accueil |
 | `training` | Entraînement (question) | Question d'un thème, feedback immédiat (vert/rouge), explication + lien source, "Suivant"/"Terminer" |
@@ -492,7 +520,9 @@ ksp                    = { id = "com.google.devtools.ksp",              version 
   │                     └─ "Vider l'historique" (avec confirmation)
   ├─ "Paramètres" ──► [SettingsScreen]
   │                     ├─ Thème : Système / Clair / Sombre (persisté DataStore)
-  │                     └─ Son de sélection : activé/désactivé (persisté DataStore)
+  │                     ├─ Son de sélection : activé/désactivé (persisté DataStore)
+  │                     ├─ "Réinitialiser la progression" → TrainingProgressDao.clear()
+  │                     └─ "Réinitialiser le cycle de l'examen" → ExamCycleDao.clear()
   └─ Icône Aide (Info) ──► [HelpScreen]
                             ├─ Règles de l'examen, thèmes, fonctionnalités
                             └─ 7 liens officiels cliquables (gouvernement, Légifrance, etc.)
