@@ -28,8 +28,8 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.example.qcmfrance.data.ExamConstants
 import com.example.qcmfrance.ui.viewmodel.QuizUiState
 
 @Composable
@@ -54,7 +54,10 @@ fun QuizScreen(
     val selectedAnswer = uiState.answers[question.id]
     val isLastQuestion = uiState.currentIndex == uiState.questions.lastIndex
     val progress = (uiState.currentIndex + 1).toFloat() / uiState.questions.size
-    val timerColor = if (uiState.remainingSeconds < 300) Color.Red else MaterialTheme.colorScheme.onSurface
+    val timerColor = if (uiState.remainingSeconds < ExamConstants.TIMER_WARNING_SECONDS)
+        MaterialTheme.colorScheme.error
+    else
+        MaterialTheme.colorScheme.onSurface
     val minutes = uiState.remainingSeconds / 60
     val seconds = uiState.remainingSeconds % 60
 

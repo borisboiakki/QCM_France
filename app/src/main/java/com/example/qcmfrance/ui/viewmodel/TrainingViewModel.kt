@@ -109,13 +109,15 @@ class TrainingViewModel @Inject constructor(
         }
     }
 
-    /** Revient à la question précédente et réinitialise la sélection. */
+    /**
+     * Revient à la question précédente et réinitialise la sélection.
+     * N'écrit pas l'avancement : revoir une question ne doit pas faire régresser
+     * la progression persistée (barre X/total et point de reprise).
+     */
     fun previous() {
         val state = _uiState.value
         if (state.currentIndex <= 0 || state.isFinished) return
-        val prevIndex = state.currentIndex - 1
-        _uiState.update { it.copy(currentIndex = prevIndex, selectedAnswer = null, revealed = false) }
-        viewModelScope.launch { repository.saveProgress(state.theme, prevIndex) }
+        _uiState.update { it.copy(currentIndex = state.currentIndex - 1, selectedAnswer = null, revealed = false) }
     }
 
     /** Rejoue un thème depuis le début. */

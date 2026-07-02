@@ -39,10 +39,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.qcmfrance.ui.theme.FailureRed
+import com.example.qcmfrance.ui.theme.SuccessGreen
 import com.example.qcmfrance.ui.viewmodel.TrainingUiState
-
-private val CorrectGreen = Color(0xFF2E7D32)
-private val WrongRed = Color(0xFFC62828)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -210,8 +209,8 @@ private fun TrainingOptionRow(
     // rouge pour une mauvaise réponse sélectionnée.
     val accent: Color? = when {
         !revealed -> null
-        isCorrectOption -> CorrectGreen
-        selected -> WrongRed
+        isCorrectOption -> SuccessGreen
+        selected -> FailureRed
         else -> null
     }
     val border = accent?.let { BorderStroke(2.dp, it) } ?: CardDefaults.outlinedCardBorder()
@@ -241,13 +240,13 @@ private fun TrainingOptionRow(
                 Icon(
                     imageVector = Icons.Default.CheckCircle,
                     contentDescription = "Bonne réponse",
-                    tint = CorrectGreen
+                    tint = SuccessGreen
                 )
             } else if (revealed && selected) {
                 Icon(
                     imageVector = Icons.Default.Close,
                     contentDescription = "Réponse incorrecte",
-                    tint = WrongRed
+                    tint = FailureRed
                 )
             }
         }
@@ -272,7 +271,7 @@ private fun FeedbackBlock(
                 text = if (isCorrect) "Bonne réponse !" else "Mauvaise réponse",
                 style = MaterialTheme.typography.titleSmall,
                 fontWeight = FontWeight.Bold,
-                color = if (isCorrect) CorrectGreen else WrongRed
+                color = if (isCorrect) SuccessGreen else FailureRed
             )
 
             if (explanation.isNotBlank()) {
@@ -308,7 +307,7 @@ private fun ThemeCompleted(
         Icon(
             imageVector = Icons.Default.CheckCircle,
             contentDescription = null,
-            tint = CorrectGreen
+            tint = SuccessGreen
         )
         Spacer(modifier = Modifier.height(16.dp))
         Text(

@@ -2,6 +2,7 @@ package com.example.qcmfrance.ui.utils
 
 import android.content.Context
 import android.content.Intent
+import com.example.qcmfrance.data.ExamConstants
 import com.example.qcmfrance.data.model.QuizResult
 import com.example.qcmfrance.ui.viewmodel.QuizUiState
 import java.text.SimpleDateFormat
@@ -11,7 +12,7 @@ import java.util.Locale
 object ResultExporter {
 
     fun shareFullResult(context: Context, uiState: QuizUiState) {
-        val durationSeconds = 2700 - uiState.remainingSeconds
+        val durationSeconds = ExamConstants.EXAM_DURATION_SECONDS - uiState.remainingSeconds
         val durationStr = "%02d:%02d".format(durationSeconds / 60, durationSeconds % 60)
         val dateStr = SimpleDateFormat("dd/MM/yyyy à HH:mm", Locale.FRANCE).format(Date())
         val passLabel = if (uiState.passed) "RÉUSSI" else "ÉCHOUÉ"

@@ -209,10 +209,11 @@ fun HomeScreen(
             Button(
                 onClick = onStartTraining,
                 modifier = Modifier.fillMaxWidth().height(56.dp),
-                border = BorderStroke(1.dp, FlagBlue),
+                border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Color.White,
-                    contentColor = FlagBlue
+                    // « Blanc » du drapeau : surface du thème pour rester lisible en mode sombre
+                    containerColor = MaterialTheme.colorScheme.surface,
+                    contentColor = MaterialTheme.colorScheme.primary
                 )
             ) {
                 Text(text = "S'entraîner par thème", style = MaterialTheme.typography.titleMedium)

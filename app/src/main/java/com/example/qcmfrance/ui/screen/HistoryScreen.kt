@@ -33,11 +33,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.qcmfrance.data.model.QuizResult
+import com.example.qcmfrance.ui.theme.SuccessGreen
 import com.example.qcmfrance.ui.utils.ResultExporter
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -179,7 +179,7 @@ private fun ResultHistoryCard(result: QuizResult) {
                 text = if (result.passed) "RÉUSSI" else "ÉCHOUÉ",
                 style = MaterialTheme.typography.labelLarge,
                 fontWeight = FontWeight.Bold,
-                color = if (result.passed) Color(0xFF2E7D32) else MaterialTheme.colorScheme.error
+                color = if (result.passed) SuccessGreen else MaterialTheme.colorScheme.error
             )
 
             IconButton(onClick = { ResultExporter.shareHistoryResult(context, result) }) {

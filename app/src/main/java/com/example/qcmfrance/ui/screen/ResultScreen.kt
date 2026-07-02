@@ -25,10 +25,10 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.SpanStyle
@@ -38,22 +38,24 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import com.example.qcmfrance.R
+import com.example.qcmfrance.data.ExamConstants
 import com.example.qcmfrance.data.model.Question
+import com.example.qcmfrance.ui.theme.FailureRed
+import com.example.qcmfrance.ui.theme.SuccessGreen
 import com.example.qcmfrance.ui.utils.ResultExporter
 import com.example.qcmfrance.ui.viewmodel.QuizUiState
-
-private val GreenOk = Color(0xFF2E7D32)
-private val RedFail = Color(0xFFC62828)
 
 @Composable
 fun ResultScreen(uiState: QuizUiState, soundEnabled: Boolean, onRestart: () -> Unit) {
     val context = LocalContext.current
 
     // Musique de fin d'examen : La Marseillaise si réussi, marche funèbre si échoué.
-    // Jouée une fois à l'ouverture de l'écran, uniquement si le son est activé.
-    // Libérée quand on quitte l'écran pour éviter toute fuite ou lecture résiduelle.
+    // Jouée une seule fois par résultat (rememberSaveable : pas de relecture après une
+    // rotation), uniquement si le son est activé. Libérée quand on quitte l'écran.
+    var musicPlayed by rememberSaveable { mutableStateOf(false) }
     DisposableEffect(soundEnabled, uiState.passed) {
-        val player: MediaPlayer? = if (soundEnabled) {
+        val player: MediaPlayer? = if (soundEnabled && !musicPlayed) {
+            musicPlayed = true
             val resId = if (uiState.passed) R.raw.marseillaise else R.raw.marche_funebre
             runCatching { MediaPlayer.create(context, resId)?.apply { start() } }.getOrNull()
         } else {
@@ -67,9 +69,9 @@ fun ResultScreen(uiState: QuizUiState, soundEnabled: Boolean, onRestart: () -> U
         }
     }
 
-    val passColor = if (uiState.passed) GreenOk else RedFail
+    val passColor = if (uiState.passed) SuccessGreen else FailureRed
     val passLabel = if (uiState.passed) "RÉUSSI" else "ÉCHOUÉ"
-    val durationSeconds = 2700 - uiState.remainingSeconds
+    val durationSeconds = ExamConstants.EXAM_DURATION_SECONDS - uiState.remainingSeconds
     val durationStr = "%02d:%02d".format(durationSeconds / 60, durationSeconds % 60)
 
     var showOnlyWrong by remember { mutableStateOf(false) }
@@ -117,7 +119,7 @@ fun ResultScreen(uiState: QuizUiState, soundEnabled: Boolean, onRestart: () -> U
                             Text(
                                 text = "Temps écoulé — soumission automatique",
                                 style = MaterialTheme.typography.bodySmall,
-                                color = RedFail
+                                color = FailureRed
                             )
                         }
                     }
@@ -148,7 +150,7 @@ fun ResultScreen(uiState: QuizUiState, soundEnabled: Boolean, onRestart: () -> U
                     Text(
                         text = "Aucune erreur — score parfait !",
                         style = MaterialTheme.typography.bodyMedium,
-                        color = GreenOk,
+                        color = SuccessGreen,
                         modifier = Modifier.padding(vertical = 8.dp)
                     )
                 }
@@ -191,8 +193,8 @@ private fun QuestionResultItem(index: Int, question: Question, givenAnswer: Stri
     val correct = givenAnswer == question.correctAnswer
     val answerColor = when {
         givenAnswer == null -> MaterialTheme.colorScheme.onSurfaceVariant
-        correct             -> GreenOk
-        else                -> RedFail
+        correct             -> SuccessGreen
+        else                -> FailureRed
     }
     val uriHandler = LocalUriHandler.current
 
@@ -216,7 +218,7 @@ private fun QuestionResultItem(index: Int, question: Question, givenAnswer: Stri
                 Text(
                     text = "Bonne réponse : ${question.correctAnswer}",
                     style = MaterialTheme.typography.bodySmall,
-                    color = GreenOk
+                    color = SuccessGreen
                 )
             }
             Spacer(modifier = Modifier.height(4.dp))
@@ -229,7 +231,7 @@ private fun QuestionResultItem(index: Int, question: Question, givenAnswer: Stri
             Text(
                 text = correctText,
                 style = MaterialTheme.typography.bodyMedium,
-                color = GreenOk,
+                color = SuccessGreen,
                 fontWeight = FontWeight.Bold
             )
             if (question.source.isNotBlank()) {

@@ -2,6 +2,7 @@ package com.example.qcmfrance.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.qcmfrance.data.ExamConstants
 import com.example.qcmfrance.data.model.Question
 import com.example.qcmfrance.data.model.QuizResult
 import com.example.qcmfrance.data.repository.HistoryRepository
@@ -24,7 +25,7 @@ data class QuizUiState(
     val isFinished: Boolean = false,
     val score: Int = 0,
     val passed: Boolean = false,
-    val remainingSeconds: Int = 2700,             // 45 min
+    val remainingSeconds: Int = ExamConstants.EXAM_DURATION_SECONDS,
     val timerExpired: Boolean = false,
     val isLoading: Boolean = true
 )
@@ -108,11 +109,12 @@ class QuizViewModel @Inject constructor(
         val state = _uiState.value
         if (state.isFinished) return   // évite un double envoi (double tap ou course avec le timer)
         val score = state.questions.count { q -> state.answers[q.id] == q.correctAnswer }
+        val passed = score >= ExamConstants.PASS_THRESHOLD
         _uiState.update {
             it.copy(
                 isFinished = true,
                 score = score,
-                passed = score >= 32
+                passed = passed
             )
         }
         viewModelScope.launch {
@@ -120,8 +122,8 @@ class QuizViewModel @Inject constructor(
                 QuizResult(
                     date            = System.currentTimeMillis(),
                     score           = score,
-                    passed          = score >= 32,
-                    durationSeconds = 2700 - state.remainingSeconds
+                    passed          = passed,
+                    durationSeconds = ExamConstants.EXAM_DURATION_SECONDS - state.remainingSeconds
                 )
             )
         }
