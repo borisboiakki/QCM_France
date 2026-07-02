@@ -11,7 +11,10 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.qcmfrance"
+        // Pas de préfixe com.example : refusé par le Play Store, et l'applicationId
+        // ne peut plus changer après la première publication. Le namespace (packages
+        // du code) reste com.example.qcmfrance — seul l'identifiant publié change.
+        applicationId = "com.borisboiakki.qcmfrance"
         minSdk        = 26
         targetSdk     = 35
         versionCode   = 2
@@ -20,7 +23,8 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -40,6 +44,12 @@ android {
     buildFeatures {
         compose = true
     }
+}
+
+ksp {
+    // Export du schéma Room (exportSchema = true) : les JSON versionnés dans app/schemas
+    // documentent chaque version de la BDD et permettent de tester les migrations.
+    arg("room.schemaLocation", "$projectDir/schemas")
 }
 
 dependencies {

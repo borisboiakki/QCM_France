@@ -15,7 +15,7 @@ import com.example.qcmfrance.data.model.TrainingProgress
 @Database(
     entities = [Question::class, QuizResult::class, PausedQuiz::class, TrainingProgress::class, ExamCycle::class],
     version = 7,
-    exportSchema = false
+    exportSchema = true
 )
 abstract class AppDatabase : RoomDatabase() {
 
