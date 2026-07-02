@@ -25,35 +25,39 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.text.withLink
 import androidx.compose.ui.unit.dp
 import com.example.qcmfrance.R
+import com.example.qcmfrance.data.ExamConstants
 import com.example.qcmfrance.data.model.Question
+import com.example.qcmfrance.ui.theme.FailureRed
+import com.example.qcmfrance.ui.theme.SuccessGreen
 import com.example.qcmfrance.ui.utils.ResultExporter
 import com.example.qcmfrance.ui.viewmodel.QuizUiState
-
-private val GreenOk = Color(0xFF2E7D32)
-private val RedFail = Color(0xFFC62828)
 
 @Composable
 fun ResultScreen(uiState: QuizUiState, soundEnabled: Boolean, onRestart: () -> Unit) {
     val context = LocalContext.current
 
     // Musique de fin d'examen : La Marseillaise si réussi, marche funèbre si échoué.
-    // Jouée une fois à l'ouverture de l'écran, uniquement si le son est activé.
-    // Libérée quand on quitte l'écran pour éviter toute fuite ou lecture résiduelle.
+    // Jouée une seule fois par résultat (rememberSaveable : pas de relecture après une
+    // rotation), uniquement si le son est activé. Libérée quand on quitte l'écran.
+    var musicPlayed by rememberSaveable { mutableStateOf(false) }
     DisposableEffect(soundEnabled, uiState.passed) {
-        val player: MediaPlayer? = if (soundEnabled) {
+        val player: MediaPlayer? = if (soundEnabled && !musicPlayed) {
+            musicPlayed = true
             val resId = if (uiState.passed) R.raw.marseillaise else R.raw.marche_funebre
             runCatching { MediaPlayer.create(context, resId)?.apply { start() } }.getOrNull()
         } else {
@@ -67,9 +71,9 @@ fun ResultScreen(uiState: QuizUiState, soundEnabled: Boolean, onRestart: () -> U
         }
     }
 
-    val passColor = if (uiState.passed) GreenOk else RedFail
-    val passLabel = if (uiState.passed) "RÉUSSI" else "ÉCHOUÉ"
-    val durationSeconds = 2700 - uiState.remainingSeconds
+    val passColor = if (uiState.passed) SuccessGreen else FailureRed
+    val passLabel = stringResource(if (uiState.passed) R.string.result_passed else R.string.result_failed)
+    val durationSeconds = ExamConstants.EXAM_DURATION_SECONDS - uiState.remainingSeconds
     val durationStr = "%02d:%02d".format(durationSeconds / 60, durationSeconds % 60)
 
     var showOnlyWrong by remember { mutableStateOf(false) }
@@ -103,21 +107,21 @@ fun ResultScreen(uiState: QuizUiState, soundEnabled: Boolean, onRestart: () -> U
                         )
                         Spacer(modifier = Modifier.height(8.dp))
                         Text(
-                            text = "${uiState.score} / ${uiState.questions.size}",
+                            text = stringResource(R.string.result_score, uiState.score, uiState.questions.size),
                             style = MaterialTheme.typography.headlineMedium
                         )
                         Spacer(modifier = Modifier.height(8.dp))
                         Text(
-                            text = "Temps utilisé : $durationStr",
+                            text = stringResource(R.string.result_time_used, durationStr),
                             style = MaterialTheme.typography.bodyMedium,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                         if (uiState.timerExpired) {
                             Spacer(modifier = Modifier.height(4.dp))
                             Text(
-                                text = "Temps écoulé — soumission automatique",
+                                text = stringResource(R.string.result_timer_expired),
                                 style = MaterialTheme.typography.bodySmall,
-                                color = RedFail
+                                color = FailureRed
                             )
                         }
                     }
@@ -131,13 +135,13 @@ fun ResultScreen(uiState: QuizUiState, soundEnabled: Boolean, onRestart: () -> U
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = "Détail des réponses",
+                        text = stringResource(R.string.result_details),
                         style = MaterialTheme.typography.titleMedium
                     )
                     FilterChip(
                         selected = showOnlyWrong,
                         onClick = { showOnlyWrong = !showOnlyWrong },
-                        label = { Text("Erreurs (${wrongQuestions.size})") }
+                        label = { Text(stringResource(R.string.result_errors_chip, wrongQuestions.size)) }
                     )
                 }
                 HorizontalDivider()
@@ -146,9 +150,9 @@ fun ResultScreen(uiState: QuizUiState, soundEnabled: Boolean, onRestart: () -> U
             if (displayedQuestions.isEmpty()) {
                 item {
                     Text(
-                        text = "Aucune erreur — score parfait !",
+                        text = stringResource(R.string.result_no_errors),
                         style = MaterialTheme.typography.bodyMedium,
-                        color = GreenOk,
+                        color = SuccessGreen,
                         modifier = Modifier.padding(vertical = 8.dp)
                     )
                 }
@@ -169,7 +173,7 @@ fun ResultScreen(uiState: QuizUiState, soundEnabled: Boolean, onRestart: () -> U
                         .fillMaxWidth()
                         .height(52.dp)
                 ) {
-                    Text(text = "Recommencer", style = MaterialTheme.typography.titleMedium)
+                    Text(text = stringResource(R.string.result_restart), style = MaterialTheme.typography.titleMedium)
                 }
                 Spacer(modifier = Modifier.height(8.dp))
                 OutlinedButton(
@@ -178,7 +182,7 @@ fun ResultScreen(uiState: QuizUiState, soundEnabled: Boolean, onRestart: () -> U
                         .fillMaxWidth()
                         .height(52.dp)
                 ) {
-                    Text(text = "Exporter les résultats", style = MaterialTheme.typography.titleMedium)
+                    Text(text = stringResource(R.string.result_export), style = MaterialTheme.typography.titleMedium)
                 }
                 Spacer(modifier = Modifier.height(16.dp))
             }
@@ -191,10 +195,9 @@ private fun QuestionResultItem(index: Int, question: Question, givenAnswer: Stri
     val correct = givenAnswer == question.correctAnswer
     val answerColor = when {
         givenAnswer == null -> MaterialTheme.colorScheme.onSurfaceVariant
-        correct             -> GreenOk
-        else                -> RedFail
+        correct             -> SuccessGreen
+        else                -> FailureRed
     }
-    val uriHandler = LocalUriHandler.current
 
     Card(modifier = Modifier.fillMaxWidth()) {
         Column(modifier = Modifier.padding(12.dp)) {
@@ -209,14 +212,17 @@ private fun QuestionResultItem(index: Int, question: Question, givenAnswer: Stri
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
-                    text = "Votre réponse : ${givenAnswer ?: "—"}",
+                    text = stringResource(
+                        R.string.result_your_answer,
+                        givenAnswer ?: stringResource(R.string.result_no_answer)
+                    ),
                     style = MaterialTheme.typography.bodySmall,
                     color = answerColor
                 )
                 Text(
-                    text = "Bonne réponse : ${question.correctAnswer}",
+                    text = stringResource(R.string.result_correct_answer, question.correctAnswer),
                     style = MaterialTheme.typography.bodySmall,
-                    color = GreenOk
+                    color = SuccessGreen
                 )
             }
             Spacer(modifier = Modifier.height(4.dp))
@@ -229,34 +235,30 @@ private fun QuestionResultItem(index: Int, question: Question, givenAnswer: Stri
             Text(
                 text = correctText,
                 style = MaterialTheme.typography.bodyMedium,
-                color = GreenOk,
+                color = SuccessGreen,
                 fontWeight = FontWeight.Bold
             )
             if (question.source.isNotBlank()) {
                 Spacer(modifier = Modifier.height(4.dp))
-                val annotated = buildAnnotatedString {
-                    append("Source : ")
-                    pushStringAnnotation(tag = "URL", annotation = question.source)
-                    withStyle(
-                        SpanStyle(
-                            color = MaterialTheme.colorScheme.primary,
-                            textDecoration = TextDecoration.Underline
-                        )
-                    ) {
-                        append(question.source)
-                    }
-                    pop()
-                }
-                androidx.compose.foundation.text.ClickableText(
-                    text = annotated,
+                // LinkAnnotation.Url remplace ClickableText (déprécié) : le lien est ouvert
+                // par le gestionnaire d'URI par défaut et annoncé comme lien par TalkBack.
+                val sourceLabel = stringResource(R.string.result_source_prefix)
+                val linkStyles = TextLinkStyles(
+                    style = SpanStyle(
+                        color = MaterialTheme.colorScheme.primary,
+                        textDecoration = TextDecoration.Underline
+                    )
+                )
+                Text(
+                    text = buildAnnotatedString {
+                        append(sourceLabel)
+                        withLink(LinkAnnotation.Url(question.source, linkStyles)) {
+                            append(question.source)
+                        }
+                    },
                     style = MaterialTheme.typography.bodySmall.copy(
                         color = MaterialTheme.colorScheme.onSurfaceVariant
-                    ),
-                    onClick = { offset ->
-                        annotated.getStringAnnotations("URL", offset, offset)
-                            .firstOrNull()
-                            ?.let { uriHandler.openUri(it.item) }
-                    }
+                    )
                 )
             }
         }

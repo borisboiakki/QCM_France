@@ -13,7 +13,6 @@ data class Question(
     val optionC: String,
     val optionD: String,
     val correctAnswer: String,            // "A", "B", "C" ou "D"
-    val correctAnswers: List<String>,     // toutes les réponses acceptées
     val explanation: String = "",
     val source: String = ""
 )

@@ -52,7 +52,5 @@ class PausedQuizRepository @Inject constructor(private val dao: PausedQuizDao) {
 
     fun observeHasPaused(): Flow<Boolean> = dao.observe().map { it != null }
 
-    suspend fun hasPaused(): Boolean = dao.get() != null
-
     suspend fun clear() = dao.delete()
 }

@@ -45,10 +45,12 @@ val themeCounts = mapOf(
 
 ### Chronomètre
 
-- Durée : 45 minutes = 2 700 secondes
-- Le timer tourne en continu dans le ViewModel avec `viewModelScope`
-- Affichage `MM:SS` en rouge dans les 5 dernières minutes
+- Durée : 45 minutes = 2 700 secondes (`ExamConstants.EXAM_DURATION_SECONDS`)
+- Décompte basé sur une **échéance `SystemClock.elapsedRealtime()`** (pas un cumul de `delay(1000)`) : aucune dérive sur 45 min, le temps continue de s'écouler en arrière-plan
+- Le timer tourne dans le ViewModel avec `viewModelScope`
+- Affichage `MM:SS` en rouge (couleur `error` du thème) dans les 5 dernières minutes (`TIMER_WARNING_SECONDS`)
 - À 00:00 : soumission automatique des réponses données, les non-répondues comptent comme fausses
+- L'écran d'examen sauvegarde l'état à chaque `ON_STOP` (`QuizViewModel.saveSnapshot()`) : un examen en cours survit à une mort du processus
 
 ---
 
@@ -71,12 +73,16 @@ val themeCounts = mapOf(
 
 ```kotlin
 // app/build.gradle.kts
+applicationId = "com.borisboiakki.qcmfrance"   // identifiant publié (le namespace du code reste com.example.qcmfrance)
 compileSdk = 35
 minSdk     = 26          // Android 8 — couvre >95 % des devices actifs
 targetSdk  = 35
 ```
 
 Kotlin : `2.0.21` | AGP : `8.13.2` | KSP : `2.0.21-1.0.27` | Gradle : `8.13`
+
+Build **release** : R8 activé (`isMinifyEnabled = true`) + `shrinkResources` ; règles Gson dans
+`proguard-rules.pro` (signatures génériques TypeToken + champs des modèles sérialisés).
 
 ---
 
@@ -99,12 +105,12 @@ QCM_France/
 │   │   ├── AndroidManifest.xml
 │   │   ├── java/com/example/qcmfrance/
 │   │   │   ├── data/
+│   │   │   │   ├── ExamConstants.kt             Constantes officielles : durée 2700 s, seuil 32, alerte chrono 300 s
 │   │   │   │   ├── db/
-│   │   │   │   │   ├── AppDatabase.kt           Room @Database v6 + migrations 1→2→3→4→5→6
-│   │   │   │   │   ├── Converters.kt            @TypeConverter List<String> ↔ JSON String
+│   │   │   │   │   ├── AppDatabase.kt           Room @Database v7 (exportSchema) + migrations 1→2→3→4→5→6→7
 │   │   │   │   │   ├── QuestionDao.kt           @Dao : getAllByTheme, getIdsByTheme, getByIds, countByTheme, insertAll, count
 │   │   │   │   │   ├── QuizResultDao.kt         @Dao : getAll (Flow), insert, deleteAll
-│   │   │   │   │   ├── PausedQuizDao.kt         @Dao : save (REPLACE), get, delete
+│   │   │   │   │   ├── PausedQuizDao.kt         @Dao : save (REPLACE), get, observe (Flow), delete
 │   │   │   │   │   ├── TrainingProgressDao.kt   @Dao : save (REPLACE), get, observeAll (Flow), clear
 │   │   │   │   │   └── ExamCycleDao.kt          @Dao : save (REPLACE), get, clear
 │   │   │   │   ├── model/
@@ -116,7 +122,7 @@ QCM_France/
 │   │   │   │   └── repository/
 │   │   │   │       ├── QuestionRepository.kt    seedIfNeeded + tirage stratifié 6-9-6-13-6 cyclé (exam_cycle), themes
 │   │   │   │       ├── HistoryRepository.kt     sauvegarde et récupération de l'historique
-│   │   │   │       ├── SettingsRepository.kt    DataStore : ThemeMode + soundEnabled
+│   │   │   │       ├── SettingsRepository.kt    DataStore : ThemeMode + soundEnabled + TextSizeMode
 │   │   │   │       ├── PausedQuizRepository.kt  save/load/clear + PausedQuizState (Gson)
 │   │   │   │       └── TrainingRepository.kt    questions par thème (ordre stable), avancement par thème
 │   │   │   ├── di/
@@ -129,41 +135,47 @@ QCM_France/
 │   │   │   │   │   ├── QuizScreen.kt            question N/40, options, timer, bouton Pause, BackHandler, son
 │   │   │   │   │   ├── ResultScreen.kt          score, RÉUSSI/ÉCHOUÉ, temps, filtre erreurs (FilterChip), détail, export, musique de fin (MediaPlayer)
 │   │   │   │   │   ├── HistoryScreen.kt         liste des résultats, export par résultat, vider
-│   │   │   │   │   ├── SettingsScreen.kt        thème (Système/Clair/Sombre), toggle son, réinitialiser l'entraînement, réinitialiser le cycle de l'examen
+│   │   │   │   │   ├── SettingsScreen.kt        thème (Système/Clair/Sombre), taille du texte (slider), toggle son, réinitialiser l'entraînement, réinitialiser le cycle de l'examen
 │   │   │   │   │   ├── HelpScreen.kt            guide utilisateur + 7 liens officiels cliquables
 │   │   │   │   │   ├── TrainingThemesScreen.kt  sélection du thème + barre d'avancement X/total par thème
 │   │   │   │   │   └── TrainingScreen.kt        question du thème, feedback immédiat (vert/rouge), explication + lien source
 │   │   │   │   ├── utils/
 │   │   │   │   │   └── ResultExporter.kt        partage texte via Intent.ACTION_SEND
 │   │   │   │   ├── viewmodel/
-│   │   │   │   │   ├── QuizViewModel.kt         QuizUiState, timerJob (cancellable), pauseQuiz/resumeQuiz, scoring, resetExamCycle
+│   │   │   │   │   ├── QuizViewModel.kt         QuizUiState, timer à échéance (cancellable), pauseQuiz/resumeQuiz/saveSnapshot, scoring, resetExamCycle
 │   │   │   │   │   ├── TrainingViewModel.kt     TrainingUiState, themeProgress, startTheme/selectAnswer/confirmAnswer/next/restart/reset
 │   │   │   │   │   ├── QuestionExt.kt           helper partagé withShuffledOptions() (examen + entraînement)
 │   │   │   │   │   ├── HomeViewModel.kt         hasPausedQuiz : StateFlow<Boolean>
 │   │   │   │   │   ├── HistoryViewModel.kt      Flow<List<QuizResult>>, clearHistory()
-│   │   │   │   │   └── SettingsViewModel.kt     themeMode + soundEnabled StateFlow
+│   │   │   │   │   └── SettingsViewModel.kt     themeMode + soundEnabled + textSizeMode StateFlow
 │   │   │   │   └── theme/
-│   │   │   │       ├── Theme.kt                 Material 3 dynamique, accepte ThemeMode
-│   │   │   │       ├── Color.kt
+│   │   │   │       ├── Theme.kt                 Material 3 dynamique, accepte ThemeMode + TextSizeMode (échelle typo)
+│   │   │   │       ├── Color.kt                 palette + SuccessGreen/FailureRed partagées
 │   │   │   │       └── Type.kt
 │   │   │   ├── QcmFranceApplication.kt          @HiltAndroidApp
-│   │   │   └── MainActivity.kt                  @AndroidEntryPoint, collecte ThemeMode
+│   │   │   └── MainActivity.kt                  @AndroidEntryPoint, collecte ThemeMode + TextSizeMode
 │   │   └── res/
 │   │       ├── mipmap-*/                        Icônes adaptatives (fond bleu tricolore)
 │   │       ├── raw/
 │   │       │   ├── questions.json               258 questions (seed)
 │   │       │   ├── marseillaise.ogg             musique si examen réussi (domaine public — voir AUDIO_CREDITS.md)
 │   │       │   └── marche_funebre.ogg           musique si examen échoué (domaine public — voir AUDIO_CREDITS.md)
-│   │       └── values/
-│   │           ├── strings.xml
-│   │           ├── themes.xml
-│   │           └── colors.xml
-│   ├── build.gradle.kts
-│   └── proguard-rules.pro
+│   │       ├── values/
+│   │       │   ├── strings.xml                  Toutes les chaînes UI (~140) — aucun texte codé en dur dans les composables
+│   │       │   ├── themes.xml                   Thème plateforme Material (clair)
+│   │       │   └── colors.xml
+│   │       ├── values-night/
+│   │       │   └── themes.xml                   Variante sombre du thème plateforme
+│   │       └── xml/
+│   │           ├── backup_rules.xml             fullBackupContent (Android ≤ 11)
+│   │           └── data_extraction_rules.xml    dataExtractionRules (Android 12+)
+│   ├── schemas/                                 Schémas Room exportés (générés au build, à versionner)
+│   ├── build.gradle.kts                         R8 + shrinkResources en release, room.schemaLocation
+│   └── proguard-rules.pro                       Règles Gson (TypeToken, champs des modèles)
 ├── build.gradle.kts
 ├── gradle.properties                            android.useAndroidX=true, android.nonTransitiveRClass=true, org.gradle.jvmargs=-Xmx4g
 ├── settings.gradle.kts
-├── gradlew / gradlew.bat                        Gradle wrapper 8.11.1
+├── gradlew / gradlew.bat                        Gradle wrapper 8.13
 └── gradle/
     ├── libs.versions.toml                       Version catalog complet
     └── wrapper/
@@ -187,12 +199,14 @@ data class Question(
     val optionC: String,
     val optionD: String,
     val correctAnswer: String,      // "A", "B", "C" ou "D"
-    val correctAnswers: List<String>, // toutes les réponses officiellement acceptées
-    val explanation: String = ""      // stocké en JSON String dans Room via Converters.kt
+    val explanation: String = "",
+    val source: String = ""         // URL de la source officielle (lien cliquable)
 )
 ```
 
-`correctAnswers` est sérialisé en JSON String dans SQLite par `Converters.kt` (`@TypeConverter`).
+> Le champ `correctAnswers` du JSON n'est **pas** chargé par l'app (le scoring n'utilise que
+> `correctAnswer`) : la colonne a été supprimée en v7 (`MIGRATION_6_7`, recréation de table)
+> et Gson ignore la clé lors du seed.
 
 ### Entité Room — `PausedQuiz`
 
@@ -291,8 +305,8 @@ Mode complémentaire à l'examen, orienté apprentissage — l'inverse UX de l'e
 ]
 ```
 
-> `correctAnswers` est un **tableau JSON** dans le fichier — Gson le désérialise en `List<String>`,
-> Room le stocke en chaîne JSON via `Converters.kt`.
+> `correctAnswers` reste présent dans le fichier JSON (donnée de référence) mais n'est **pas**
+> chargé par l'app : le champ n'existe plus dans l'entité Room et Gson ignore les clés inconnues.
 
 ---
 
@@ -329,59 +343,76 @@ data class QuizUiState(
     val answers: Map<Int, String> = emptyMap(),    // questionId → lettre choisie ("A".."D")
     val isFinished: Boolean = false,
     val score: Int = 0,                            // calculé à la fin
-    val passed: Boolean = false,                   // score >= 32
+    val passed: Boolean = false,                   // score >= ExamConstants.PASS_THRESHOLD
     // Timer
-    val remainingSeconds: Int = 2700,              // 45 min = 2700 s
+    val remainingSeconds: Int = ExamConstants.EXAM_DURATION_SECONDS,
     val timerExpired: Boolean = false,
     val isLoading: Boolean = true                  // spinner pendant le chargement des questions
 )
 ```
 
-**Événements :** `SelectAnswer(letter)`, `NextQuestion`, `SubmitQuiz`, `RestartQuiz`, `PauseQuiz`, `ResumeQuiz`
+**Événements :** `SelectAnswer(letter)`, `NextQuestion`, `SubmitQuiz`, `RestartQuiz`, `PauseQuiz`, `ResumeQuiz`, `SaveSnapshot` (auto-sauvegarde `ON_STOP`)
 
-**Logique du timer :**
+**Logique du timer** (échéance `elapsedRealtime`, pas de dérive) :
 ```kotlin
 private var timerJob: Job? = null   // stocké pour permettre l'annulation (pause)
 
 private fun runTimer() {
+    timerJob?.cancel()
+    val deadline = SystemClock.elapsedRealtime() + _uiState.value.remainingSeconds * 1000L
     timerJob = viewModelScope.launch {
-        while (_uiState.value.remainingSeconds > 0 && !_uiState.value.isFinished) {
-            delay(1000L)
-            _uiState.update { it.copy(remainingSeconds = it.remainingSeconds - 1) }
+        while (!_uiState.value.isFinished) {
+            val remaining = ((deadline - SystemClock.elapsedRealtime() + 999) / 1000)
+                .coerceAtLeast(0).toInt()
+            if (remaining != _uiState.value.remainingSeconds)
+                _uiState.update { it.copy(remainingSeconds = remaining) }
+            if (remaining == 0) break
+            delay(250L)
         }
-        if (_uiState.value.remainingSeconds == 0 && !_uiState.value.isFinished) submitQuiz()
+        if (_uiState.value.remainingSeconds == 0 && !_uiState.value.isFinished) {
+            _uiState.update { it.copy(timerExpired = true) }
+            submitQuiz()
+        }
     }
 }
 ```
 
-**Pause / Reprise :**
+**Pause / Reprise / Auto-sauvegarde :**
 ```kotlin
 fun pauseQuiz() {
-    timerJob?.cancel()                    // arrêt immédiat du timer
-    viewModelScope.launch {
-        pausedQuizRepository.save(...)    // sérialisation Gson → Room
-    }
+    timerJob?.cancel()          // arrêt immédiat du timer
+    saveSnapshot()              // sérialisation Gson → Room
+}
+
+fun saveSnapshot() {            // appelé aussi à chaque ON_STOP de QuizScreen (timer non arrêté)
+    // garde isLoading/isFinished/questions vides, puis pausedQuizRepository.save(...)
 }
 
 fun resumeQuiz() {
+    timerJob?.cancel()
+    _uiState.value = QuizUiState()          // reset synchrone (anti état périmé)
     viewModelScope.launch {
         val saved = pausedQuizRepository.load() ?: return@launch
-        pausedQuizRepository.clear()
+        // la sauvegarde n'est PAS effacée ici : filet de sécurité jusqu'à la soumission
         _uiState.value = QuizUiState(restored state)
-        runTimer()                        // reprise du timer depuis remainingSeconds sauvegardé
+        runTimer()
     }
 }
 ```
 
-`startQuiz()` appelle `pausedQuizRepository.clear()` avant de tirer de nouvelles questions.
+`startQuiz()` réinitialise l'état de façon **synchrone** (un `isFinished=true` résiduel déclencherait
+la navigation immédiate vers l'ancien résultat), puis appelle `pausedQuizRepository.clear()` avant de
+tirer de nouvelles questions. `submitQuiz()` est **idempotent** (garde `isFinished`) et efface la
+sauvegarde de pause.
 
 **Mélange des options :** au chargement, `QuizViewModel` mélange aléatoirement les 4 options de chaque question (via `withShuffledOptions()`) et met à jour `correctAnswer` en conséquence, pour que la bonne réponse ne soit jamais toujours à la même position.
 
 **Logique de scoring :**
 ```kotlin
 fun submitQuiz() {
+    if (_uiState.value.isFinished) return   // idempotent (double tap / course avec le timer)
     val score = questions.count { q -> answers[q.id] == q.correctAnswer }
-    _uiState.update { it.copy(isFinished = true, score = score, passed = score >= 32) }
+    _uiState.update { it.copy(isFinished = true, score = score, passed = score >= ExamConstants.PASS_THRESHOLD) }
 }
 ```
 
@@ -448,10 +479,8 @@ datastore         = "1.1.1"
 compose-bom            = { group = "androidx.compose", name = "compose-bom",                    version.ref = "compose-bom" }
 compose-ui             = { group = "androidx.compose.ui", name = "ui" }
 compose-material3      = { group = "androidx.compose.material3", name = "material3" }
-compose-ui-tooling     = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 compose-ui-tooling-debug = { group = "androidx.compose.ui", name = "ui-tooling" }
 activity-compose       = { group = "androidx.activity", name = "activity-compose",               version = "1.9.3" }
-appcompat              = { group = "androidx.appcompat", name = "appcompat",                     version = "1.7.0" }
 room-runtime           = { group = "androidx.room", name = "room-runtime",                       version.ref = "room" }
 room-ktx               = { group = "androidx.room", name = "room-ktx",                          version.ref = "room" }
 room-compiler          = { group = "androidx.room", name = "room-compiler",                      version.ref = "room" }
@@ -486,6 +515,9 @@ ksp                    = { id = "com.google.devtools.ksp",              version 
 8. **Pas de feedback immédiat** sur les réponses pendant l'examen — seulement à l'écran résultat.
 9. Le timer tourne en continu même si on change de question ; il est géré dans le ViewModel.
 10. Pas de permissions Android nécessaires (app 100 % offline).
+11. **Toutes les chaînes UI dans `res/values/strings.xml`** — aucun texte codé en dur dans les composables.
+12. **Constantes de l'examen** (durée, seuil, alerte chrono) uniquement via `ExamConstants` — pas de littéraux 2700/32/300.
+13. **Accessibilité** : lignes d'option via `Modifier.selectable(role = RadioButton)` + `RadioButton(onClick = null)` dans un `selectableGroup()` ; interrupteurs via `Modifier.toggleable(role = Switch)`.
 
 ---
 
@@ -520,6 +552,7 @@ ksp                    = { id = "com.google.devtools.ksp",              version 
   │                     └─ "Vider l'historique" (avec confirmation)
   ├─ "Paramètres" ──► [SettingsScreen]
   │                     ├─ Thème : Système / Clair / Sombre (persisté DataStore)
+  │                     ├─ Taille du texte : Petit / Moyen / Grand (slider, persisté DataStore)
   │                     ├─ Son de sélection : activé/désactivé (persisté DataStore)
   │                     ├─ "Réinitialiser la progression" → TrainingProgressDao.clear()
   │                     └─ "Réinitialiser le cycle de l'examen" → ExamCycleDao.clear()

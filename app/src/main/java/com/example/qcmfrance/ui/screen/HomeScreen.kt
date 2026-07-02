@@ -38,9 +38,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.example.qcmfrance.R
 
 // Couleurs du drapeau français
 private val FlagBlue = Color(0xFF002395)
@@ -64,19 +66,19 @@ fun HomeScreen(
     if (showConfirmDialog) {
         AlertDialog(
             onDismissRequest = { showConfirmDialog = false },
-            title = { Text("Commencer un nouvel examen ?") },
-            text = { Text("Un examen en pause sera définitivement perdu. Continuer ?") },
+            title = { Text(stringResource(R.string.home_dialog_new_exam_title)) },
+            text = { Text(stringResource(R.string.home_dialog_new_exam_text)) },
             confirmButton = {
                 TextButton(onClick = {
                     showConfirmDialog = false
                     onStartExam()
                 }) {
-                    Text("Commencer")
+                    Text(stringResource(R.string.home_dialog_new_exam_confirm))
                 }
             },
             dismissButton = {
                 TextButton(onClick = { showConfirmDialog = false }) {
-                    Text("Annuler")
+                    Text(stringResource(R.string.common_cancel))
                 }
             }
         )
@@ -90,13 +92,13 @@ fun HomeScreen(
                     IconButton(onClick = onShowHelp) {
                         Icon(
                             imageVector = Icons.Default.Info,
-                            contentDescription = "Aide"
+                            contentDescription = stringResource(R.string.cd_help)
                         )
                     }
                     IconButton(onClick = onShowSettings) {
                         Icon(
                             imageVector = Icons.Default.Settings,
-                            contentDescription = "Paramètres"
+                            contentDescription = stringResource(R.string.cd_settings)
                         )
                     }
                 }
@@ -127,7 +129,7 @@ fun HomeScreen(
                     verticalArrangement = Arrangement.spacedBy(14.dp)
                 ) {
                     Text(
-                        text = "QCM France",
+                        text = stringResource(R.string.app_name),
                         style = MaterialTheme.typography.displayMedium.copy(
                             fontWeight = FontWeight.Bold
                         ),
@@ -149,7 +151,7 @@ fun HomeScreen(
             Spacer(modifier = Modifier.height(12.dp))
 
             Text(
-                text = "Préparation à l'examen civique de naturalisation",
+                text = stringResource(R.string.home_subtitle),
                 style = MaterialTheme.typography.bodyMedium,
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
@@ -167,11 +169,26 @@ fun HomeScreen(
                     modifier = Modifier.padding(16.dp),
                     verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    RuleRow(label = "Nombre de questions", value = "40")
-                    RuleRow(label = "Seuil de réussite",   value = "32 / 40 (80 %)")
-                    RuleRow(label = "Durée maximale",      value = "45 minutes")
-                    RuleRow(label = "Format",              value = "1 bonne réponse parmi 4")
-                    RuleRow(label = "Résultats",           value = "Affichés à la fin uniquement")
+                    RuleRow(
+                        label = stringResource(R.string.home_rule_questions_label),
+                        value = stringResource(R.string.home_rule_questions_value)
+                    )
+                    RuleRow(
+                        label = stringResource(R.string.home_rule_pass_label),
+                        value = stringResource(R.string.home_rule_pass_value)
+                    )
+                    RuleRow(
+                        label = stringResource(R.string.home_rule_duration_label),
+                        value = stringResource(R.string.home_rule_duration_value)
+                    )
+                    RuleRow(
+                        label = stringResource(R.string.home_rule_format_label),
+                        value = stringResource(R.string.home_rule_format_value)
+                    )
+                    RuleRow(
+                        label = stringResource(R.string.home_rule_results_label),
+                        value = stringResource(R.string.home_rule_results_value)
+                    )
                 }
             }
 
@@ -186,7 +203,7 @@ fun HomeScreen(
                     contentColor = Color.White
                 )
             ) {
-                Text(text = "Commencer l'examen", style = MaterialTheme.typography.titleMedium)
+                Text(text = stringResource(R.string.home_start_exam), style = MaterialTheme.typography.titleMedium)
             }
 
             if (hasPausedQuiz) {
@@ -200,7 +217,7 @@ fun HomeScreen(
                         contentColor = Color.White
                     )
                 ) {
-                    Text(text = "Reprendre l'examen", style = MaterialTheme.typography.titleMedium)
+                    Text(text = stringResource(R.string.home_resume_exam), style = MaterialTheme.typography.titleMedium)
                 }
             }
 
@@ -209,13 +226,14 @@ fun HomeScreen(
             Button(
                 onClick = onStartTraining,
                 modifier = Modifier.fillMaxWidth().height(56.dp),
-                border = BorderStroke(1.dp, FlagBlue),
+                border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Color.White,
-                    contentColor = FlagBlue
+                    // « Blanc » du drapeau : surface du thème pour rester lisible en mode sombre
+                    containerColor = MaterialTheme.colorScheme.surface,
+                    contentColor = MaterialTheme.colorScheme.primary
                 )
             ) {
-                Text(text = "S'entraîner par thème", style = MaterialTheme.typography.titleMedium)
+                Text(text = stringResource(R.string.home_training), style = MaterialTheme.typography.titleMedium)
             }
 
             Spacer(modifier = Modifier.height(12.dp))
@@ -228,7 +246,7 @@ fun HomeScreen(
                     contentColor = Color.White
                 )
             ) {
-                Text(text = "Historique des examens", style = MaterialTheme.typography.titleMedium)
+                Text(text = stringResource(R.string.home_history), style = MaterialTheme.typography.titleMedium)
             }
         }
     }

@@ -1,6 +1,5 @@
 package com.example.qcmfrance.ui.screen
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -9,6 +8,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.selection.selectableGroup
+import androidx.compose.foundation.selection.toggleable
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.AlertDialog
@@ -32,7 +34,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
+import com.example.qcmfrance.R
 import com.example.qcmfrance.data.repository.TextSizeMode
 import com.example.qcmfrance.data.repository.ThemeMode
 import kotlin.math.roundToInt
@@ -56,19 +61,19 @@ fun SettingsScreen(
     if (showResetDialog) {
         AlertDialog(
             onDismissRequest = { showResetDialog = false },
-            title = { Text("Réinitialiser la progression ?") },
-            text = { Text("Toute votre progression du mode entraînement (tous les thèmes) sera effacée. Cette action est irréversible.") },
+            title = { Text(stringResource(R.string.settings_dialog_reset_training_title)) },
+            text = { Text(stringResource(R.string.settings_dialog_reset_training_text)) },
             confirmButton = {
                 TextButton(onClick = {
                     showResetDialog = false
                     onResetTraining()
                 }) {
-                    Text("Réinitialiser")
+                    Text(stringResource(R.string.settings_dialog_reset_confirm))
                 }
             },
             dismissButton = {
                 TextButton(onClick = { showResetDialog = false }) {
-                    Text("Annuler")
+                    Text(stringResource(R.string.common_cancel))
                 }
             }
         )
@@ -77,19 +82,19 @@ fun SettingsScreen(
     if (showResetExamCycleDialog) {
         AlertDialog(
             onDismissRequest = { showResetExamCycleDialog = false },
-            title = { Text("Réinitialiser le cycle de l'examen ?") },
-            text = { Text("Le tirage des questions de l'examen blanc recommencera à zéro pour chaque thème. Cette action est irréversible.") },
+            title = { Text(stringResource(R.string.settings_dialog_reset_cycle_title)) },
+            text = { Text(stringResource(R.string.settings_dialog_reset_cycle_text)) },
             confirmButton = {
                 TextButton(onClick = {
                     showResetExamCycleDialog = false
                     onResetExamCycle()
                 }) {
-                    Text("Réinitialiser")
+                    Text(stringResource(R.string.settings_dialog_reset_confirm))
                 }
             },
             dismissButton = {
                 TextButton(onClick = { showResetExamCycleDialog = false }) {
-                    Text("Annuler")
+                    Text(stringResource(R.string.common_cancel))
                 }
             }
         )
@@ -98,12 +103,12 @@ fun SettingsScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Paramètres") },
+                title = { Text(stringResource(R.string.settings_title)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Retour"
+                            contentDescription = stringResource(R.string.common_back)
                         )
                     }
                 }
@@ -119,7 +124,7 @@ fun SettingsScreen(
             Spacer(modifier = Modifier.height(8.dp))
 
             Text(
-                text = "Apparence",
+                text = stringResource(R.string.settings_appearance),
                 style = MaterialTheme.typography.labelLarge,
                 color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.padding(vertical = 8.dp)
@@ -127,32 +132,31 @@ fun SettingsScreen(
             HorizontalDivider()
             Spacer(modifier = Modifier.height(4.dp))
 
-            ThemeOption(
-                label = "Système (par défaut)",
-                description = "Suit le thème du téléphone",
-                mode = ThemeMode.SYSTEM,
-                selected = currentTheme == ThemeMode.SYSTEM,
-                onSelect = { onThemeChange(ThemeMode.SYSTEM) }
-            )
-            ThemeOption(
-                label = "Clair",
-                description = "Fond blanc, texte sombre",
-                mode = ThemeMode.LIGHT,
-                selected = currentTheme == ThemeMode.LIGHT,
-                onSelect = { onThemeChange(ThemeMode.LIGHT) }
-            )
-            ThemeOption(
-                label = "Sombre",
-                description = "Fond noir, texte clair",
-                mode = ThemeMode.DARK,
-                selected = currentTheme == ThemeMode.DARK,
-                onSelect = { onThemeChange(ThemeMode.DARK) }
-            )
+            Column(modifier = Modifier.selectableGroup()) {
+                ThemeOption(
+                    label = stringResource(R.string.settings_theme_system),
+                    description = stringResource(R.string.settings_theme_system_desc),
+                    selected = currentTheme == ThemeMode.SYSTEM,
+                    onSelect = { onThemeChange(ThemeMode.SYSTEM) }
+                )
+                ThemeOption(
+                    label = stringResource(R.string.settings_theme_light),
+                    description = stringResource(R.string.settings_theme_light_desc),
+                    selected = currentTheme == ThemeMode.LIGHT,
+                    onSelect = { onThemeChange(ThemeMode.LIGHT) }
+                )
+                ThemeOption(
+                    label = stringResource(R.string.settings_theme_dark),
+                    description = stringResource(R.string.settings_theme_dark_desc),
+                    selected = currentTheme == ThemeMode.DARK,
+                    onSelect = { onThemeChange(ThemeMode.DARK) }
+                )
+            }
 
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "Taille du texte",
+                text = stringResource(R.string.settings_text_size),
                 style = MaterialTheme.typography.labelLarge,
                 color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.padding(vertical = 8.dp)
@@ -186,15 +190,15 @@ fun SettingsScreen(
                     .padding(horizontal = 8.dp),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Text("Petit", style = MaterialTheme.typography.bodySmall)
-                Text("Moyen", style = MaterialTheme.typography.bodySmall)
-                Text("Grand", style = MaterialTheme.typography.bodySmall)
+                Text(stringResource(R.string.settings_text_size_small), style = MaterialTheme.typography.bodySmall)
+                Text(stringResource(R.string.settings_text_size_medium), style = MaterialTheme.typography.bodySmall)
+                Text(stringResource(R.string.settings_text_size_large), style = MaterialTheme.typography.bodySmall)
             }
 
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "Son",
+                text = stringResource(R.string.settings_sound),
                 style = MaterialTheme.typography.labelLarge,
                 color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.padding(vertical = 8.dp)
@@ -202,31 +206,40 @@ fun SettingsScreen(
             HorizontalDivider()
             Spacer(modifier = Modifier.height(4.dp))
 
+            // Modifier.toggleable sur la ligne + Switch sans onCheckedChange : une seule
+            // cible de focus pour TalkBack, annoncée comme interrupteur.
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .clickable { onSoundChange(!soundEnabled) }
+                    .toggleable(
+                        value = soundEnabled,
+                        role = Role.Switch,
+                        onValueChange = onSoundChange
+                    )
                     .padding(vertical = 8.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Column(modifier = Modifier.weight(1f)) {
-                    Text(text = "Son de sélection", style = MaterialTheme.typography.bodyLarge)
                     Text(
-                        text = "Bip lors de la sélection d'une réponse",
+                        text = stringResource(R.string.settings_sound_label),
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                    Text(
+                        text = stringResource(R.string.settings_sound_desc),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
                 Switch(
                     checked = soundEnabled,
-                    onCheckedChange = onSoundChange
+                    onCheckedChange = null
                 )
             }
 
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "Entraînement",
+                text = stringResource(R.string.settings_training),
                 style = MaterialTheme.typography.labelLarge,
                 color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.padding(vertical = 8.dp)
@@ -235,7 +248,7 @@ fun SettingsScreen(
             Spacer(modifier = Modifier.height(8.dp))
 
             Text(
-                text = "Réinitialiser votre progression dans tous les thèmes du mode entraînement.",
+                text = stringResource(R.string.settings_training_desc),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
@@ -244,13 +257,13 @@ fun SettingsScreen(
                 onClick = { showResetDialog = true },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Réinitialiser la progression")
+                Text(stringResource(R.string.settings_reset_training))
             }
 
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "Examen blanc",
+                text = stringResource(R.string.settings_exam),
                 style = MaterialTheme.typography.labelLarge,
                 color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.padding(vertical = 8.dp)
@@ -259,7 +272,7 @@ fun SettingsScreen(
             Spacer(modifier = Modifier.height(8.dp))
 
             Text(
-                text = "Les questions de l'examen blanc sont tirées en évitant les répétitions d'un examen à l'autre. Réinitialisez ce cycle pour recommencer le tirage à zéro.",
+                text = stringResource(R.string.settings_exam_desc),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
@@ -268,7 +281,7 @@ fun SettingsScreen(
                 onClick = { showResetExamCycleDialog = true },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Réinitialiser le cycle de l'examen")
+                Text(stringResource(R.string.settings_reset_cycle))
             }
         }
     }
@@ -278,18 +291,19 @@ fun SettingsScreen(
 private fun ThemeOption(
     label: String,
     description: String,
-    mode: ThemeMode,
     selected: Boolean,
     onSelect: () -> Unit
 ) {
+    // Modifier.selectable sur la ligne + RadioButton sans onClick : une seule cible
+    // de focus par option pour TalkBack, avec le rôle « bouton radio » annoncé.
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable(onClick = onSelect)
+            .selectable(selected = selected, role = Role.RadioButton, onClick = onSelect)
             .padding(vertical = 4.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        RadioButton(selected = selected, onClick = onSelect)
+        RadioButton(selected = selected, onClick = null)
         Column(modifier = Modifier.padding(start = 8.dp)) {
             Text(text = label, style = MaterialTheme.typography.bodyLarge)
             Text(

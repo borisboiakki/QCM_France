@@ -1,5 +1,6 @@
 package com.example.qcmfrance.ui.screen
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -27,39 +28,41 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.qcmfrance.R
 
-private data class ExternalLink(val label: String, val url: String)
+private data class ExternalLink(@StringRes val labelRes: Int, val url: String)
 
 private val OFFICIAL_LINKS = listOf(
     ExternalLink(
-        label = "Informations générales sur l'examen civique",
-        url   = "https://formation-civique.interieur.gouv.fr/examen-civique/informations-g%C3%A9n%C3%A9rales-sur-lexamen-civique/"
+        labelRes = R.string.help_link_general,
+        url = "https://formation-civique.interieur.gouv.fr/examen-civique/informations-g%C3%A9n%C3%A9rales-sur-lexamen-civique/"
     ),
     ExternalLink(
-        label = "Tests complémentaires en ligne (Ensemble en France)",
-        url   = "https://www.ensemble-en-france.org/quiz-examen-civique-gratuit-debutant/"
+        labelRes = R.string.help_link_quiz,
+        url = "https://www.ensemble-en-france.org/quiz-examen-civique-gratuit-debutant/"
     ),
     ExternalLink(
-        label = "Fiche d'information sur l'examen",
-        url   = "https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/lexamen-civique-pour-demande-de-naturalisation-ou-de-reintegration-dans-nationalite-francaise.html"
+        labelRes = R.string.help_link_factsheet,
+        url = "https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/lexamen-civique-pour-demande-de-naturalisation-ou-de-reintegration-dans-nationalite-francaise.html"
     ),
     ExternalLink(
-        label = "Livret du citoyen",
-        url   = "https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/livret-du-citoyen.html"
+        labelRes = R.string.help_link_citizen_booklet,
+        url = "https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/livret-du-citoyen.html"
     ),
     ExternalLink(
-        label = "Charte des droits et devoirs du citoyen français",
-        url   = "https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/charte-des-droits-et-devoirs-du-citoyen-francais.html"
+        labelRes = R.string.help_link_charter,
+        url = "https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/charte-des-droits-et-devoirs-du-citoyen-francais.html"
     ),
     ExternalLink(
-        label = "Déclaration des droits de l'homme et du citoyen (1789)",
-        url   = "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789"
+        labelRes = R.string.help_link_declaration,
+        url = "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789"
     ),
     ExternalLink(
-        label = "Constitution française (1958)",
-        url   = "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000571356/"
+        labelRes = R.string.help_link_constitution,
+        url = "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000571356/"
     ),
 )
 
@@ -71,12 +74,12 @@ fun HelpScreen(onBack: () -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Aide") },
+                title = { Text(stringResource(R.string.help_title)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Retour"
+                            contentDescription = stringResource(R.string.common_back)
                         )
                     }
                 }
@@ -92,18 +95,15 @@ fun HelpScreen(onBack: () -> Unit) {
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             item {
-                HelpSectionTitle("À propos")
+                HelpSectionTitle(stringResource(R.string.help_about_title))
                 Text(
-                    text = "QCM France vous aide à préparer l'examen civique de naturalisation française. " +
-                        "L'application propose deux modes complémentaires :\n\n" +
-                        "• Mode examen : 40 questions tirées aléatoirement, 45 minutes au chronomètre, sans correction immédiate — comme dans les conditions officielles.\n\n" +
-                        "• Mode S'entraîner : parcourez toutes les questions d'un thème, une par une, avec correction immédiate, explication et lien vers la source après chaque réponse confirmée.",
+                    text = stringResource(R.string.help_about_text),
                     style = MaterialTheme.typography.bodyMedium
                 )
             }
 
             item {
-                HelpSectionTitle("Règles de l'examen officiel")
+                HelpSectionTitle(stringResource(R.string.help_rules_title))
                 Card(
                     modifier = Modifier.fillMaxWidth(),
                     colors = CardDefaults.cardColors(
@@ -114,17 +114,32 @@ fun HelpScreen(onBack: () -> Unit) {
                         modifier = Modifier.padding(16.dp),
                         verticalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
-                        HelpRuleRow("Nombre de questions", "40")
-                        HelpRuleRow("Seuil de réussite",   "32 / 40 (80 %)")
-                        HelpRuleRow("Durée maximale",       "45 minutes")
-                        HelpRuleRow("Format",               "1 bonne réponse parmi 4")
-                        HelpRuleRow("Résultats",            "Affichés à la fin uniquement")
+                        HelpRuleRow(
+                            stringResource(R.string.home_rule_questions_label),
+                            stringResource(R.string.home_rule_questions_value)
+                        )
+                        HelpRuleRow(
+                            stringResource(R.string.home_rule_pass_label),
+                            stringResource(R.string.home_rule_pass_value)
+                        )
+                        HelpRuleRow(
+                            stringResource(R.string.home_rule_duration_label),
+                            stringResource(R.string.home_rule_duration_value)
+                        )
+                        HelpRuleRow(
+                            stringResource(R.string.home_rule_format_label),
+                            stringResource(R.string.home_rule_format_value)
+                        )
+                        HelpRuleRow(
+                            stringResource(R.string.home_rule_results_label),
+                            stringResource(R.string.home_rule_results_value)
+                        )
                     }
                 }
             }
 
             item {
-                HelpSectionTitle("Thèmes couverts")
+                HelpSectionTitle(stringResource(R.string.help_themes_title))
                 Card(
                     modifier = Modifier.fillMaxWidth(),
                     colors = CardDefaults.cardColors(
@@ -135,63 +150,108 @@ fun HelpScreen(onBack: () -> Unit) {
                         modifier = Modifier.padding(16.dp),
                         verticalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
-                        HelpRuleRow("Principes et valeurs de la République",   "6 questions")
-                        HelpRuleRow("Système institutionnel et politique",      "9 questions")
-                        HelpRuleRow("Droits et devoirs",                        "6 questions")
-                        HelpRuleRow("Histoire, géographie et culture",          "13 questions")
-                        HelpRuleRow("Vivre dans la société française",          "6 questions")
+                        HelpRuleRow(stringResource(R.string.help_theme_1), stringResource(R.string.help_theme_count, 6))
+                        HelpRuleRow(stringResource(R.string.help_theme_2), stringResource(R.string.help_theme_count, 9))
+                        HelpRuleRow(stringResource(R.string.help_theme_3), stringResource(R.string.help_theme_count, 6))
+                        HelpRuleRow(stringResource(R.string.help_theme_4), stringResource(R.string.help_theme_count, 13))
+                        HelpRuleRow(stringResource(R.string.help_theme_5), stringResource(R.string.help_theme_count, 6))
                     }
                 }
             }
 
             item {
-                HelpSectionTitle("Mode examen")
+                HelpSectionTitle(stringResource(R.string.help_exam_title))
                 Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                    HelpFeatureRow("Chronomètre", "Décompte de 45 min, affiché en rouge dans les 5 dernières minutes. Soumission automatique à 00:00.")
-                    HelpFeatureRow("Rotation des questions", "Pour chaque thème, l'application fait tourner l'ensemble des questions disponibles : toutes sont utilisées une fois avant qu'une répétition ne survienne d'un examen à l'autre.")
-                    HelpFeatureRow("Pause et reprise", "Mettez l'examen en pause via le bouton Pause ou la touche Retour. L'état est sauvegardé et vous pouvez reprendre plus tard, même après avoir fermé l'application.")
-                    HelpFeatureRow("Historique", "Consultez tous vos examens passés avec le score, la durée et la mention obtenue.")
-                    HelpFeatureRow("Export des résultats", "Partagez le détail de votre examen (question par question) via les applications installées sur votre téléphone.")
+                    HelpFeatureRow(
+                        stringResource(R.string.help_exam_timer_title),
+                        stringResource(R.string.help_exam_timer_desc)
+                    )
+                    HelpFeatureRow(
+                        stringResource(R.string.help_exam_rotation_title),
+                        stringResource(R.string.help_exam_rotation_desc)
+                    )
+                    HelpFeatureRow(
+                        stringResource(R.string.help_exam_pause_title),
+                        stringResource(R.string.help_exam_pause_desc)
+                    )
+                    HelpFeatureRow(
+                        stringResource(R.string.help_exam_history_title),
+                        stringResource(R.string.help_exam_history_desc)
+                    )
+                    HelpFeatureRow(
+                        stringResource(R.string.help_exam_export_title),
+                        stringResource(R.string.help_exam_export_desc)
+                    )
                 }
             }
 
             item {
-                HelpSectionTitle("Mode S'entraîner")
+                HelpSectionTitle(stringResource(R.string.help_training_title))
                 Text(
-                    text = "Un mode d'apprentissage complémentaire à l'examen, sans chronomètre et avec correction immédiate.",
+                    text = stringResource(R.string.help_training_intro),
                     style = MaterialTheme.typography.bodyMedium
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                    HelpFeatureRow("Choix du thème", "Sélectionnez l'un des 5 thèmes officiels. Une barre de progression indique combien de questions vous avez déjà vues dans ce thème.")
-                    HelpFeatureRow("Confirmer pour révéler", "Choisissez une réponse — vous pouvez la modifier tant que vous n'avez pas appuyé sur « Confirmer ». Une fois confirmée, la bonne réponse apparaît en vert et une mauvaise sélection en rouge.")
-                    HelpFeatureRow("Explication et source", "Après confirmation, une explication est affichée (si disponible) ainsi qu'un lien vers la source officielle, ouvrant votre navigateur.")
-                    HelpFeatureRow("Avancement persisté", "Votre progression est sauvegardée question par question. Revenir en arrière ou fermer l'application ne fait pas perdre votre avancement — le thème reprend exactement là où vous vous étiez arrêté.")
-                    HelpFeatureRow("Réinitialisation", "Depuis les Paramètres, réinitialisez la progression de tous les thèmes en une seule action.")
+                    HelpFeatureRow(
+                        stringResource(R.string.help_training_theme_title),
+                        stringResource(R.string.help_training_theme_desc)
+                    )
+                    HelpFeatureRow(
+                        stringResource(R.string.help_training_confirm_title),
+                        stringResource(R.string.help_training_confirm_desc)
+                    )
+                    HelpFeatureRow(
+                        stringResource(R.string.help_training_source_title),
+                        stringResource(R.string.help_training_source_desc)
+                    )
+                    HelpFeatureRow(
+                        stringResource(R.string.help_training_progress_title),
+                        stringResource(R.string.help_training_progress_desc)
+                    )
+                    HelpFeatureRow(
+                        stringResource(R.string.help_training_reset_title),
+                        stringResource(R.string.help_training_reset_desc)
+                    )
                 }
             }
 
             item {
-                HelpSectionTitle("Paramètres")
+                HelpSectionTitle(stringResource(R.string.help_settings_title))
                 Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                    HelpFeatureRow("Thème visuel", "Choisissez entre le thème du système, clair ou sombre — persisté entre les sessions.")
-                    HelpFeatureRow("Son de sélection", "Activez ou désactivez le bip joué lors de la sélection d'une réponse en examen.")
-                    HelpFeatureRow("Réinitialiser l'entraînement", "Efface la progression de tous les thèmes du mode S'entraîner (action irréversible, avec confirmation).")
-                    HelpFeatureRow("Réinitialiser le cycle de l'examen", "Relance depuis le début la rotation anti-répétition des questions de l'examen, pour chaque thème (action irréversible, avec confirmation).")
+                    HelpFeatureRow(
+                        stringResource(R.string.help_settings_theme_title),
+                        stringResource(R.string.help_settings_theme_desc)
+                    )
+                    HelpFeatureRow(
+                        stringResource(R.string.help_settings_sound_title),
+                        stringResource(R.string.help_settings_sound_desc)
+                    )
+                    HelpFeatureRow(
+                        stringResource(R.string.help_settings_reset_training_title),
+                        stringResource(R.string.help_settings_reset_training_desc)
+                    )
+                    HelpFeatureRow(
+                        stringResource(R.string.help_settings_reset_cycle_title),
+                        stringResource(R.string.help_settings_reset_cycle_desc)
+                    )
                 }
             }
 
             item {
-                HelpSectionTitle("Ressources officielles")
+                HelpSectionTitle(stringResource(R.string.help_links_title))
                 Text(
-                    text = "Appuyez sur un lien pour l'ouvrir dans votre navigateur.",
+                    text = stringResource(R.string.help_links_hint),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                     OFFICIAL_LINKS.forEach { link ->
-                        LinkCard(label = link.label, onClick = { uriHandler.openUri(link.url) })
+                        LinkCard(
+                            label = stringResource(link.labelRes),
+                            onClick = { uriHandler.openUri(link.url) }
+                        )
                     }
                 }
             }

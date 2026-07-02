@@ -27,8 +27,10 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.qcmfrance.R
 import com.example.qcmfrance.ui.viewmodel.ThemeProgress
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -41,12 +43,12 @@ fun TrainingThemesScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("S'entraîner") },
+                title = { Text(stringResource(R.string.themes_title)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Retour"
+                            contentDescription = stringResource(R.string.common_back)
                         )
                     }
                 }
@@ -63,8 +65,7 @@ fun TrainingThemesScreen(
         ) {
             item {
                 Text(
-                    text = "Choisissez un thème et parcourez toutes ses questions à votre rythme, " +
-                        "avec correction immédiate. Votre progression est enregistrée automatiquement.",
+                    text = stringResource(R.string.themes_intro),
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -101,7 +102,8 @@ private fun ThemeCard(theme: ThemeProgress, onClick: () -> Unit) {
                     modifier = Modifier.weight(1f)
                 )
                 Text(
-                    text = if (theme.isComplete) "Terminé" else "${theme.done} / ${theme.total}",
+                    text = if (theme.isComplete) stringResource(R.string.themes_done)
+                           else stringResource(R.string.themes_progress, theme.done, theme.total),
                     style = MaterialTheme.typography.labelLarge,
                     color = if (theme.isComplete) MaterialTheme.colorScheme.primary
                             else MaterialTheme.colorScheme.onSurfaceVariant,
