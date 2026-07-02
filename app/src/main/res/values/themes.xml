@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.QcmFrance" parent="Theme.AppCompat.DayNight.NoActionBar" />
+    <!-- Thème plateforme (pas AppCompat) : Compose dessine toute l'UI, le thème ne sert
+         qu'à la première frame. Variante sombre dans values-night/themes.xml. -->
+    <style name="Theme.QcmFrance" parent="android:Theme.Material.Light.NoActionBar" />
 </resources>

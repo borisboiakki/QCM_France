@@ -130,21 +130,18 @@ fun SettingsScreen(
             ThemeOption(
                 label = "Système (par défaut)",
                 description = "Suit le thème du téléphone",
-                mode = ThemeMode.SYSTEM,
                 selected = currentTheme == ThemeMode.SYSTEM,
                 onSelect = { onThemeChange(ThemeMode.SYSTEM) }
             )
             ThemeOption(
                 label = "Clair",
                 description = "Fond blanc, texte sombre",
-                mode = ThemeMode.LIGHT,
                 selected = currentTheme == ThemeMode.LIGHT,
                 onSelect = { onThemeChange(ThemeMode.LIGHT) }
             )
             ThemeOption(
                 label = "Sombre",
                 description = "Fond noir, texte clair",
-                mode = ThemeMode.DARK,
                 selected = currentTheme == ThemeMode.DARK,
                 onSelect = { onThemeChange(ThemeMode.DARK) }
             )
@@ -278,7 +275,6 @@ fun SettingsScreen(
 private fun ThemeOption(
     label: String,
     description: String,
-    mode: ThemeMode,
     selected: Boolean,
     onSelect: () -> Unit
 ) {

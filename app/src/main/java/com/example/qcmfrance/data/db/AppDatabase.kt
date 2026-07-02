@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.qcmfrance.data.model.ExamCycle
@@ -15,10 +14,9 @@ import com.example.qcmfrance.data.model.TrainingProgress
 
 @Database(
     entities = [Question::class, QuizResult::class, PausedQuiz::class, TrainingProgress::class, ExamCycle::class],
-    version = 6,
+    version = 7,
     exportSchema = false
 )
-@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun questionDao(): QuestionDao
@@ -98,9 +96,41 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
 
+        // Suppression de la colonne correctAnswers (jamais lue par l'app). SQLite ne supporte
+        // pas DROP COLUMN sur toutes les versions d'Android : recréation de la table.
+        private val MIGRATION_6_7 = object : Migration(6, 7) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS questions_new (
+                        id INTEGER NOT NULL,
+                        theme TEXT NOT NULL,
+                        text TEXT NOT NULL,
+                        optionA TEXT NOT NULL,
+                        optionB TEXT NOT NULL,
+                        optionC TEXT NOT NULL,
+                        optionD TEXT NOT NULL,
+                        correctAnswer TEXT NOT NULL,
+                        explanation TEXT NOT NULL,
+                        source TEXT NOT NULL,
+                        PRIMARY KEY(id)
+                    )
+                    """.trimIndent()
+                )
+                database.execSQL(
+                    """
+                    INSERT INTO questions_new (id, theme, text, optionA, optionB, optionC, optionD, correctAnswer, explanation, source)
+                    SELECT id, theme, text, optionA, optionB, optionC, optionD, correctAnswer, explanation, source FROM questions
+                    """.trimIndent()
+                )
+                database.execSQL("DROP TABLE questions")
+                database.execSQL("ALTER TABLE questions_new RENAME TO questions")
+            }
+        }
+
         fun build(context: Context): AppDatabase =
             Room.databaseBuilder(context, AppDatabase::class.java, "qcm_france.db")
-                .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5, MIGRATION_5_6)
+                .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5, MIGRATION_5_6, MIGRATION_6_7)
                 .build()
     }
 }
