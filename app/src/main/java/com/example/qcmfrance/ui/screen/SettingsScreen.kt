@@ -47,9 +47,11 @@ fun SettingsScreen(
     textSizeMode: TextSizeMode,
     onTextSizeModeChange: (TextSizeMode) -> Unit,
     onResetTraining: () -> Unit,
+    onResetExamCycle: () -> Unit,
     onBack: () -> Unit
 ) {
     var showResetDialog by remember { mutableStateOf(false) }
+    var showResetExamCycleDialog by remember { mutableStateOf(false) }
 
     if (showResetDialog) {
         AlertDialog(
@@ -66,6 +68,27 @@ fun SettingsScreen(
             },
             dismissButton = {
                 TextButton(onClick = { showResetDialog = false }) {
+                    Text("Annuler")
+                }
+            }
+        )
+    }
+
+    if (showResetExamCycleDialog) {
+        AlertDialog(
+            onDismissRequest = { showResetExamCycleDialog = false },
+            title = { Text("Réinitialiser le cycle de l'examen ?") },
+            text = { Text("Le tirage des questions de l'examen blanc recommencera à zéro pour chaque thème. Cette action est irréversible.") },
+            confirmButton = {
+                TextButton(onClick = {
+                    showResetExamCycleDialog = false
+                    onResetExamCycle()
+                }) {
+                    Text("Réinitialiser")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showResetExamCycleDialog = false }) {
                     Text("Annuler")
                 }
             }
@@ -222,6 +245,30 @@ fun SettingsScreen(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text("Réinitialiser la progression")
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Text(
+                text = "Examen blanc",
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.padding(vertical = 8.dp)
+            )
+            HorizontalDivider()
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Text(
+                text = "Les questions de l'examen blanc sont tirées en évitant les répétitions d'un examen à l'autre. Réinitialisez ce cycle pour recommencer le tirage à zéro.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            OutlinedButton(
+                onClick = { showResetExamCycleDialog = true },
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text("Réinitialiser le cycle de l'examen")
             }
         }
     }

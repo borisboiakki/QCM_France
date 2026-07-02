@@ -2,6 +2,7 @@ package com.example.qcmfrance.di
 
 import android.content.Context
 import com.example.qcmfrance.data.db.AppDatabase
+import com.example.qcmfrance.data.db.ExamCycleDao
 import com.example.qcmfrance.data.db.PausedQuizDao
 import com.example.qcmfrance.data.db.QuestionDao
 import com.example.qcmfrance.data.db.QuizResultDao
@@ -37,4 +38,8 @@ object AppModule {
     @Provides
     @Singleton
     fun provideTrainingProgressDao(db: AppDatabase): TrainingProgressDao = db.trainingProgressDao()
+
+    @Provides
+    @Singleton
+    fun provideExamCycleDao(db: AppDatabase): ExamCycleDao = db.examCycleDao()
 }

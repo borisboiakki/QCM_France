@@ -136,6 +136,7 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
                 textSizeMode         = textSizeMode,
                 onTextSizeModeChange = settingsViewModel::setTextSizeMode,
                 onResetTraining      = trainingViewModel::resetTraining,
+                onResetExamCycle     = viewModel::resetExamCycle,
                 onBack               = { navController.popBackStack() }
             )
         }
