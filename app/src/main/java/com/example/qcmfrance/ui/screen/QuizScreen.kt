@@ -203,7 +203,7 @@ private fun OptionRow(
             Text(
                 text = "$letter.  $text",
                 style = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier.padding(end = 8.dp)
+                modifier = Modifier.padding(start = 8.dp, end = 8.dp)
             )
         }
     }

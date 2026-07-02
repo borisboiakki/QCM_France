@@ -258,7 +258,7 @@ private fun TrainingOptionRow(
                 text = "$letter.  $text",
                 style = MaterialTheme.typography.bodyMedium,
                 color = accent ?: MaterialTheme.colorScheme.onSurface,
-                modifier = Modifier.weight(1f).padding(end = 8.dp)
+                modifier = Modifier.weight(1f).padding(start = 8.dp, end = 8.dp)
             )
             if (revealed && isCorrectOption) {
                 Icon(
