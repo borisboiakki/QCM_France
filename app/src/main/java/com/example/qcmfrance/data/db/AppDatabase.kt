@@ -14,7 +14,7 @@ import com.example.qcmfrance.data.model.TrainingProgress
 
 @Database(
     entities = [Question::class, QuizResult::class, PausedQuiz::class, TrainingProgress::class, ExamCycle::class],
-    version = 7,
+    version = 8,
     exportSchema = true
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -128,9 +128,18 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
 
+        // Ajout des questions de mise en situation (colonne isSituation) : wipe pour reseed
+        // complet depuis questions.json + situational_questions.json (même pattern que 2->3).
+        private val MIGRATION_7_8 = object : Migration(7, 8) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("ALTER TABLE questions ADD COLUMN isSituation INTEGER NOT NULL DEFAULT 0")
+                database.execSQL("DELETE FROM questions")
+            }
+        }
+
         fun build(context: Context): AppDatabase =
             Room.databaseBuilder(context, AppDatabase::class.java, "qcm_france.db")
-                .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5, MIGRATION_5_6, MIGRATION_6_7)
+                .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5, MIGRATION_5_6, MIGRATION_6_7, MIGRATION_7_8)
                 .build()
     }
 }

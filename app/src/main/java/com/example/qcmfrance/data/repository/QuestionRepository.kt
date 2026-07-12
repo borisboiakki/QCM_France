@@ -20,50 +20,72 @@ class QuestionRepository @Inject constructor(
     private val examCycleDao: ExamCycleDao,
     @ApplicationContext private val context: Context
 ) {
-    private val themeCounts = mapOf(
-        "Principes et valeurs de la République" to 6,
-        "Système institutionnel et politique"   to 9,
-        "Droits et devoirs"                     to 6,
+    /** Questions de connaissances par thème : 28 au total. */
+    private val connaissanceCounts = mapOf(
+        "Principes et valeurs de la République" to 3,
+        "Système institutionnel et politique"   to 6,
+        "Droits et devoirs"                     to 3,
         "Histoire, géographie et culture"       to 13,
-        "Vivre dans la société française"       to 6
+        "Vivre dans la société française"       to 3
+    )
+
+    /**
+     * Questions de mise en situation par thème : 12 au total. Le thème « Histoire, géographie
+     * et culture » n'en a pas (aucune question de mise en situation adaptée à ce thème).
+     */
+    private val situationCounts = mapOf(
+        "Principes et valeurs de la République" to 3,
+        "Système institutionnel et politique"   to 3,
+        "Droits et devoirs"                     to 3,
+        "Histoire, géographie et culture"       to 0,
+        "Vivre dans la société française"       to 3
     )
 
     /** Les 5 thèmes officiels, dans l'ordre, pour l'écran de sélection de l'entraînement. */
-    val themes: List<String> = themeCounts.keys.toList()
+    val themes: List<String> = connaissanceCounts.keys.toList()
 
     private val gson = Gson()
     private val idListType = object : TypeToken<List<Int>>() {}.type
 
     /**
-     * Amorce la base depuis [R.raw.questions] au tout premier accès. Séquentiel dans la
-     * coroutine appelante — pas de race condition. Réutilisé par l'examen et l'entraînement
-     * (un utilisateur peut ouvrir l'entraînement avant d'avoir lancé un examen).
+     * Amorce la base depuis [R.raw.questions] (connaissances) et [R.raw.situational_questions]
+     * (mises en situation) au tout premier accès. Séquentiel dans la coroutine appelante — pas
+     * de race condition. Réutilisé par l'examen et l'entraînement (un utilisateur peut ouvrir
+     * l'entraînement avant d'avoir lancé un examen).
      */
     suspend fun seedIfNeeded() {
         if (dao.count() == 0) {
             val questions: List<Question> = withContext(Dispatchers.IO) {
-                val json = context.resources.openRawResource(R.raw.questions)
-                    .bufferedReader().readText()
                 val type = object : TypeToken<List<Question>>() {}.type
-                Gson().fromJson(json, type)
+                val connaissance: List<Question> = gson.fromJson(
+                    context.resources.openRawResource(R.raw.questions).bufferedReader().readText(), type
+                )
+                val situation: List<Question> = gson.fromJson(
+                    context.resources.openRawResource(R.raw.situational_questions).bufferedReader().readText(), type
+                )
+                connaissance + situation
             }
             dao.insertAll(questions)
         }
     }
 
     /**
-     * Tirage stratifié 6-9-6-13-6, en cyclant par thème sur une permutation persistée
-     * (table `exam_cycle`) plutôt qu'un tirage aléatoire indépendant à chaque appel : chaque
-     * question d'un thème est utilisée une fois avant qu'une répétition ne survienne d'un
-     * examen à l'autre. Quand un thème boucle (toutes ses questions utilisées), une nouvelle
-     * permutation est générée pour le tour suivant.
+     * Tirage stratifié 28 connaissances + 12 mises en situation (6-9-6-13-6 par thème au
+     * total, cf. [connaissanceCounts] / [situationCounts]), en cyclant par thème **et par
+     * type** sur une permutation persistée (table `exam_cycle`) plutôt qu'un tirage aléatoire
+     * indépendant à chaque appel : chaque question d'un thème/type est utilisée une fois avant
+     * qu'une répétition ne survienne d'un examen à l'autre. Quand un cycle boucle (toutes ses
+     * questions utilisées), une nouvelle permutation est générée pour le tour suivant.
      */
     suspend fun drawStratifiedQuestions(): List<Question> {
         seedIfNeeded()
 
         val ids = mutableListOf<Int>()
-        for ((theme, count) in themeCounts) {
-            ids += drawIdsFromCycle(theme, count)
+        for ((theme, count) in connaissanceCounts) {
+            ids += drawIdsFromCycle(theme, count, isSituation = false)
+        }
+        for ((theme, count) in situationCounts) {
+            ids += drawIdsFromCycle(theme, count, isSituation = true)
         }
         return dao.getByIds(ids).shuffled()
     }
@@ -71,11 +93,16 @@ class QuestionRepository @Inject constructor(
     /** Réinitialise le cycle de tirage de l'examen : chaque thème repart d'une permutation neuve. */
     suspend fun resetExamCycle() = examCycleDao.clear()
 
-    private suspend fun drawIdsFromCycle(theme: String, count: Int): List<Int> {
-        val allIds = dao.getIdsByTheme(theme)
+    private suspend fun drawIdsFromCycle(theme: String, count: Int, isSituation: Boolean): List<Int> {
+        if (count == 0) return emptyList()
+        val allIds = dao.getIdsByTheme(theme, isSituation)
         if (allIds.isEmpty()) return emptyList()
 
-        val saved = examCycleDao.get(theme)
+        // Clé de cycle distincte pour les mises en situation : la table exam_cycle est indexée
+        // par une chaîne libre, pas nécessairement le nom exact du thème, ce qui évite toute
+        // migration de son schéma pour séparer les deux cycles d'un même thème.
+        val cycleKey = if (isSituation) "$theme::situation" else theme
+        val saved = examCycleDao.get(cycleKey)
         val savedOrder = saved?.let { runCatching { gson.fromJson<List<Int>>(it.orderJson, idListType) }.getOrNull() }
         val reusable = savedOrder != null && savedOrder.toSet() == allIds.toSet()
         var order = if (reusable) savedOrder!! else allIds.shuffled()
@@ -94,7 +121,7 @@ class QuestionRepository @Inject constructor(
             cursor++
         }
 
-        examCycleDao.save(ExamCycle(theme = theme, orderJson = gson.toJson(order), cursor = cursor))
+        examCycleDao.save(ExamCycle(theme = cycleKey, orderJson = gson.toJson(order), cursor = cursor))
         return picked
     }
 }

@@ -12,6 +12,9 @@ from datetime import date
 QUESTIONS_JSON = os.path.join(
     os.path.dirname(__file__), "..", "app", "src", "main", "res", "raw", "questions.json"
 )
+SITUATIONAL_QUESTIONS_JSON = os.path.join(
+    os.path.dirname(__file__), "..", "app", "src", "main", "res", "raw", "situational_questions.json"
+)
 OUTPUT_MD = os.path.join(os.path.dirname(__file__), "..", "QUESTIONS.md")
 
 THEME_ORDER = [
@@ -39,6 +42,8 @@ def source_cell(source: str) -> str:
 def main():
     with open(QUESTIONS_JSON, encoding="utf-8") as f:
         questions = json.load(f)
+    with open(SITUATIONAL_QUESTIONS_JSON, encoding="utf-8") as f:
+        questions += json.load(f)
 
     by_theme = defaultdict(list)
     for q in questions:
@@ -73,20 +78,24 @@ def main():
         if not qs:
             continue
 
+        situation_count = sum(1 for q in qs if q.get("isSituation"))
+        note = f" (dont {situation_count} mises en situation)" if situation_count else ""
         lines += [
             f"## {theme}",
             "",
-            f"*{len(qs)} questions dans la base*",
+            f"*{len(qs)} questions dans la base{note}*",
             "",
-            "| # | Question | A | B | C | D | Bonne réponse | Source |",
-            "|---|---|---|---|---|---|---|---|",
+            "| # | Type | Question | A | B | C | D | Bonne réponse | Source |",
+            "|---|---|---|---|---|---|---|---|---|",
         ]
 
         for q in sorted(qs, key=lambda x: x["id"]):
             correct_letter = q["correctAnswer"]
             correct_text = q.get(LETTER_TO_FIELD.get(correct_letter, ""), "")
-            row = "| {} | {} | {} | {} | {} | {} | **{}** — {} | {} |".format(
+            q_type = "Mise en situation" if q.get("isSituation") else "Connaissances"
+            row = "| {} | {} | {} | {} | {} | {} | {} | **{}** — {} | {} |".format(
                 q["id"],
+                q_type,
                 escape_md(q["text"]),
                 escape_md(q["optionA"]),
                 escape_md(q["optionB"]),

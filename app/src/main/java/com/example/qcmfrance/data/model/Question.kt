@@ -14,5 +14,6 @@ data class Question(
     val optionD: String,
     val correctAnswer: String,            // "A", "B", "C" ou "D"
     val explanation: String = "",
-    val source: String = ""
+    val source: String = "",
+    val isSituation: Boolean = false      // true = question de mise en situation
 )
