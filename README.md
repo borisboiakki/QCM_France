@@ -7,9 +7,10 @@ Application Android de préparation à l'examen civique de naturalisation franç
 ## Fonctionnalités
 
 ### Examen simulé
-- **40 questions** tirées aléatoirement dans une base de 258 questions officielles
-- **Tirage proportionnel** par thème pour respecter la répartition de l'examen réel
-- **Anti-répétition entre examens** — chaque thème cycle sur toutes ses questions (ordre mélangé et persisté) avant qu'une question ne puisse revenir, au lieu d'un tirage aléatoire indépendant à chaque examen
+- **40 questions** tirées aléatoirement : **28 questions de connaissances** + **12 questions de mise en situation**, dans une base de 318 questions officielles (258 connaissances + 60 mises en situation)
+- **Questions de mise en situation** — cas concrets de la vie quotidienne (voisinage, travail, discrimination, urgence…) où il faut choisir la réaction la plus appropriée, en plus des questions de connaissances classiques
+- **Tirage proportionnel** par thème pour respecter la répartition de l'examen réel, séparément pour les questions de connaissances et de mise en situation
+- **Anti-répétition entre examens** — chaque couple thème/type cycle sur toutes ses questions (ordre mélangé et persisté) avant qu'une question ne puisse revenir, au lieu d'un tirage aléatoire indépendant à chaque examen
 - **Chronomètre décompte 45 minutes** — affiché en rouge dans les 5 dernières minutes
 - **Soumission automatique** à 00:00 si l'examen n'est pas terminé manuellement
 - **Aucun feedback pendant l'examen** (règle officielle) — les réponses correctes ne sont révélées qu'à la fin
@@ -79,14 +80,18 @@ Accessible via l'icône Info (barre du haut de l'accueil) :
 
 ### Répartition des thèmes (tirage stratifié)
 
-| Thème | Questions dans la base | Tirées à l'examen |
-|---|---|---|
-| Principes et valeurs de la République | 39 | 6 |
-| Système institutionnel et politique | 55 | 9 |
-| Droits et devoirs | 37 | 6 |
-| Histoire, géographie et culture | 83 | 13 |
-| Vivre dans la société française | 44 | 6 |
-| **Total** | **258** | **40** |
+Le total par thème correspond à l'examen officiel (6/9/6/13/6 = 40) ; seule sa composition
+interne change entre questions de connaissances et de mise en situation. Le thème « Histoire,
+géographie et culture » reste 100 % connaissances (aucune mise en situation adaptée à ce thème).
+
+| Thème | Connaissances (base) | Mise en situation (base) | Tirées à l'examen |
+|---|---|---|---|
+| Principes et valeurs de la République | 39 | 15 | 3 + 3 = 6 |
+| Système institutionnel et politique | 55 | 15 | 6 + 3 = 9 |
+| Droits et devoirs | 37 | 15 | 3 + 3 = 6 |
+| Histoire, géographie et culture | 83 | 0 | 13 + 0 = 13 |
+| Vivre dans la société française | 44 | 15 | 3 + 3 = 6 |
+| **Total** | **258** | **60** | **28 + 12 = 40** |
 
 ---
 
@@ -107,21 +112,21 @@ app/src/main/java/com/example/qcmfrance/
 ├── data/                          Couche données (indépendante de l'UI)
 │   ├── model/
 │   │   ├── Question.kt            Entité Room : id, theme, text, optionA-D,
-│   │   │                          correctAnswer, correctAnswers (JSON), explanation, source
+│   │   │                          correctAnswer, explanation, source, isSituation
 │   │   ├── QuizResult.kt          Entité Room : id, date, score, passed, duration
 │   │   ├── PausedQuiz.kt          Entité Room singleton : état sérialisé (questions, réponses, timer)
 │   │   ├── TrainingProgress.kt    Entité Room : PK=theme, currentIndex (point de reprise par thème)
 │   │   └── ExamCycle.kt           Entité Room : PK=theme, permutation d'ids (JSON) + curseur (anti-répétition examen)
 │   ├── db/
-│   │   ├── QuestionDao.kt         DAO Room : getAllByTheme, getIdsByTheme, getByIds, countByTheme, insertAll, count
+│   │   ├── QuestionDao.kt         DAO Room : getAllByTheme, getIdsByTheme(theme, isSituation), getByIds, countByTheme, insertAll, count
 │   │   ├── QuizResultDao.kt       DAO Room : getAll (Flow), insert, deleteAll
 │   │   ├── PausedQuizDao.kt       DAO Room : save (REPLACE), get, observe (Flow), delete
 │   │   ├── TrainingProgressDao.kt DAO Room : save (REPLACE), get, observeAll (Flow), clear
 │   │   ├── ExamCycleDao.kt        DAO Room : save (REPLACE), get, clear
 │   │   ├── Converters.kt          @TypeConverter List<String> ↔ JSON String
-│   │   └── AppDatabase.kt         Base Room v6 + migrations 1→2→3→4→5→6
+│   │   └── AppDatabase.kt         Base Room v8 + migrations 1→2→3→4→5→6→7→8
 │   └── repository/
-│       ├── QuestionRepository.kt  seedIfNeeded + tirage stratifié 6-9-6-13-6 cyclé par thème (exam_cycle), liste des thèmes
+│       ├── QuestionRepository.kt  seedIfNeeded (2 fichiers JSON) + tirage stratifié 28 connaissances + 12 mise en situation, cyclé par thème/type (exam_cycle), liste des thèmes
 │       ├── TrainingRepository.kt  Questions par thème (ordre stable), avancement par thème
 │       ├── HistoryRepository.kt   Sauvegarde et récupération de l'historique des résultats
 │       ├── SettingsRepository.kt  DataStore : ThemeMode + soundEnabled
@@ -191,11 +196,15 @@ startQuiz()
 
 ### Seed de la base de données
 
-Les 258 questions sont embarquées dans `res/raw/questions.json` et insérées dans Room **une seule fois**, au premier lancement, directement dans `QuestionRepository.drawStratifiedQuestions()` (vérification `count() == 0`). Les lancements suivants utilisent directement la base SQLite.
+Les 258 questions de connaissances (`res/raw/questions.json`) et les 60 questions de mise en
+situation (`res/raw/situational_questions.json`) sont insérées dans Room **une seule fois**, au
+premier lancement, dans `QuestionRepository.seedIfNeeded()` (vérification `count() == 0`),
+appelée par le mode examen comme par le mode entraînement. Les lancements suivants utilisent
+directement la base SQLite.
 
 ### Cycle de tirage de l'examen (anti-répétition)
 
-Le tirage n'utilise pas `ORDER BY RANDOM()` à chaque examen (ce qui permettrait de retirer les mêmes questions d'un examen à l'autre). Chaque thème a une permutation persistée de ses ids (table `exam_cycle`) et un curseur : chaque nouvel examen consomme la suite de la permutation, garantissant que toutes les questions d'un thème sont utilisées une fois avant qu'une répétition ne survienne. Quand un thème boucle, une nouvelle permutation est générée pour le tour suivant. Ce cycle est indépendant de la pause/reprise : il n'avance qu'au lancement d'un nouvel examen.
+Le tirage n'utilise pas `ORDER BY RANDOM()` à chaque examen (ce qui permettrait de retirer les mêmes questions d'un examen à l'autre). Chaque **couple thème + type** (connaissances ou mise en situation) a une permutation persistée de ses ids (table `exam_cycle`) et un curseur : chaque nouvel examen consomme la suite de la permutation, garantissant que toutes les questions d'un thème/type sont utilisées une fois avant qu'une répétition ne survienne. Quand un cycle boucle, une nouvelle permutation est générée pour le tour suivant. Ce cycle est indépendant de la pause/reprise : il n'avance qu'au lancement d'un nouvel examen.
 
 ### Navigation
 
@@ -276,7 +285,7 @@ L'APK debug se trouve dans `app/build/outputs/apk/debug/`.
 
 ## Sources officielles
 
-Les 258 questions sont issues des documents officiels du Ministère de l'Intérieur :
+Les 258 questions de connaissances sont issues des documents officiels du Ministère de l'Intérieur :
 
 | Document | Description |
 |---|---|
@@ -284,6 +293,11 @@ Les 258 questions sont issues des documents officiels du Ministère de l'Intéri
 | **Charte des droits et devoirs du citoyen français** | Document signé lors de la cérémonie de naturalisation |
 | **Questions officielles de l'examen de naturalisation 2025** | Base de questions publiée par les services de l'État |
 | **Jeu de données data.gouv.fr** | Dataset public officiel des QCM de naturalisation |
+
+Les 60 questions de mise en situation sont sourcées individuellement vers les textes de référence
+correspondants (Code pénal et Code du travail via Légifrance, Défenseur des droits,
+service-public.fr, education.gouv.fr, Assurance Maladie, etc.) — voir le champ « Source » de
+chaque question dans `QUESTIONS.md`.
 
 ---
 
@@ -311,9 +325,9 @@ QCM_France/
 │   ├── build.yml              CI — build APK debug sur push/PR vers main
 │   └── release.yml            Release — build + publication sur tag v.N.N.N
 ├── scripts/
-│   └── generate_questions_md.py   Génère QUESTIONS.md depuis questions.json
+│   └── generate_questions_md.py   Génère QUESTIONS.md depuis questions.json + situational_questions.json
 ├── LICENSE                    Licence MIT
-├── QUESTIONS.md               Liste des 258 questions (généré automatiquement)
+├── QUESTIONS.md               Liste des 318 questions : 258 connaissances + 60 mise en situation (généré automatiquement)
 ├── app/
 │   ├── build.gradle.kts
 │   └── src/main/
@@ -322,7 +336,7 @@ QCM_France/
 │       │   ├── MainActivity.kt
 │       │   ├── QcmFranceApplication.kt
 │       │   ├── data/
-│       │   │   ├── db/        AppDatabase.kt (v6)  QuestionDao.kt  QuizResultDao.kt
+│       │   │   ├── db/        AppDatabase.kt (v8)  QuestionDao.kt  QuizResultDao.kt
 │       │   │   │              PausedQuizDao.kt  TrainingProgressDao.kt  ExamCycleDao.kt  Converters.kt
 │       │   │   ├── model/     Question.kt  QuizResult.kt  PausedQuiz.kt  TrainingProgress.kt  ExamCycle.kt
 │       │   │   └── repository/QuestionRepository.kt  TrainingRepository.kt
@@ -339,7 +353,7 @@ QCM_France/
 │       │       └── theme/     Theme.kt  Color.kt  Type.kt
 │       └── res/
 │           ├── mipmap-*/      Icônes adaptatives (fond bleu tricolore, texte QCM)
-│           ├── raw/           questions.json (258 questions, seed)
+│           ├── raw/           questions.json (258, seed)  situational_questions.json (60, seed)
 │           └── values/        strings.xml  themes.xml  colors.xml
 ├── build.gradle.kts
 ├── settings.gradle.kts
