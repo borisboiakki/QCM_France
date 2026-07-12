@@ -16,32 +16,45 @@ Application Android de préparation à l'examen civique de naturalisation franç
 
 ### Les 5 thèmes officiels et leur répartition dans la base
 
-| # | Thème officiel | Questions dans la base | Tirage proportionnel sur 40 |
-|---|---|---|---|
-| 1 | Principes et valeurs de la République | 39 | ~6 |
-| 2 | Système institutionnel et politique | 55 | ~9 |
-| 3 | Droits et devoirs | 37 | ~6 |
-| 4 | Histoire, géographie et culture | 83 | ~13 |
-| 5 | Vivre dans la société française | 44 | 6 |
-| | **Total** | **258** | **40 (arrondi au plus proche, ajusté à 40)** |
+Chaque examen tire **28 questions de connaissances + 12 questions de mise en situation = 40**,
+conformément à l'examen officiel. Le total par thème reste le même qu'avant l'introduction des
+mises en situation (6/9/6/13/6) ; seule sa composition interne change. Le thème « Histoire,
+géographie et culture » ne comporte aucune mise en situation (aucun scénario adapté à ce thème) :
+il reste 100 % connaissances.
 
-**Stratégie de tirage :** tirage proportionnel par thème (stratified sampling) pour garantir que chaque thème est représenté, puis ajustement pour atteindre exactement 40. L'ordre des questions est ensuite mélangé.
+| # | Thème officiel | Connaissances (base) | Mise en situation (base) | Tirage / examen (connaissances + situation) |
+|---|---|---|---|---|
+| 1 | Principes et valeurs de la République | 39 | 15 | 3 + 3 = 6 |
+| 2 | Système institutionnel et politique | 55 | 15 | 6 + 3 = 9 |
+| 3 | Droits et devoirs | 37 | 15 | 3 + 3 = 6 |
+| 4 | Histoire, géographie et culture | 83 | 0 | 13 + 0 = 13 |
+| 5 | Vivre dans la société française | 44 | 15 | 3 + 3 = 6 |
+| | **Total** | **258** | **60** | **28 + 12 = 40** |
+
+**Stratégie de tirage :** tirage proportionnel par thème (stratified sampling) pour garantir que chaque thème est représenté, séparément pour le pool « connaissances » et le pool « mise en situation », puis ajustement pour atteindre exactement 28 et 12. L'ordre final des 40 questions est ensuite mélangé.
 
 ### Calcul du tirage (implémentation)
 
 ```kotlin
-val TOTAL_QUESTIONS = 40
-val themeCounts = mapOf(
-    "Principes et valeurs de la République" to 6,
-    "Système institutionnel et politique"   to 9,
-    "Droits et devoirs"                     to 6,
+val TOTAL_QUESTIONS = 40   // 28 connaissances + 12 mise en situation
+val connaissanceCounts = mapOf(
+    "Principes et valeurs de la République" to 3,
+    "Système institutionnel et politique"   to 6,
+    "Droits et devoirs"                     to 3,
     "Histoire, géographie et culture"       to 13,
-    "Vivre dans la société française"       to 6,
+    "Vivre dans la société française"       to 3,
 )
-// Total = 40. Dernière thème ajustée si arrondi != 40.
+val situationCounts = mapOf(
+    "Principes et valeurs de la République" to 3,
+    "Système institutionnel et politique"   to 3,
+    "Droits et devoirs"                     to 3,
+    "Histoire, géographie et culture"       to 0,
+    "Vivre dans la société française"       to 3,
+)
+// connaissanceCounts.sum() = 28, situationCounts.sum() = 12, total = 40.
 ```
 
-**Anti-répétition entre examens :** le tirage n'utilise pas `ORDER BY RANDOM()` à chaque appel (ce qui permettrait à un thème de retirer les mêmes questions d'un examen à l'autre). À la place, chaque thème a une permutation persistée de ses ids (table `exam_cycle`) et un curseur ; chaque examen consomme la suite de la permutation. Toutes les questions d'un thème sont donc utilisées une fois avant qu'une répétition ne survienne ; quand un thème boucle, une nouvelle permutation est générée pour le tour suivant. Voir `QuestionRepository.drawIdsFromCycle()` et la section « Cycle de tirage de l'examen » plus bas.
+**Anti-répétition entre examens :** le tirage n'utilise pas `ORDER BY RANDOM()` à chaque appel (ce qui permettrait à un thème de retirer les mêmes questions d'un examen à l'autre). À la place, chaque **couple thème + type** (connaissances ou mise en situation) a une permutation persistée de ses ids (table `exam_cycle`, clé `theme` pour les connaissances, `"$theme::situation"` pour les mises en situation — une simple chaîne libre, pas de migration de schéma nécessaire) et un curseur ; chaque examen consomme la suite de la permutation. Toutes les questions d'un thème/type sont donc utilisées une fois avant qu'une répétition ne survienne ; quand un cycle boucle, une nouvelle permutation est générée pour le tour suivant. Voir `QuestionRepository.drawIdsFromCycle()` et la section « Cycle de tirage de l'examen » plus bas.
 
 ### Chronomètre
 
@@ -96,9 +109,9 @@ QCM_France/
 │       └── release.yml                          Release — build + publication sur tag v.N.N.N
 │                                                (supporte aussi workflow_dispatch avec input version)
 ├── scripts/
-│   └── generate_questions_md.py                 Génère QUESTIONS.md depuis questions.json
+│   └── generate_questions_md.py                 Génère QUESTIONS.md depuis questions.json + situational_questions.json
 ├── LICENSE                                      Licence MIT
-├── QUESTIONS.md                                 Liste des 258 questions (généré par release)
+├── QUESTIONS.md                                 Liste des 318 questions : 258 connaissances + 60 mise en situation (généré par release)
 ├── AUDIO_CREDITS.md                             Sources/licences audio + remplacement des placeholders
 ├── app/
 │   ├── src/main/
@@ -107,8 +120,8 @@ QCM_France/
 │   │   │   ├── data/
 │   │   │   │   ├── ExamConstants.kt             Constantes officielles : durée 2700 s, seuil 32, alerte chrono 300 s
 │   │   │   │   ├── db/
-│   │   │   │   │   ├── AppDatabase.kt           Room @Database v7 (exportSchema) + migrations 1→2→3→4→5→6→7
-│   │   │   │   │   ├── QuestionDao.kt           @Dao : getAllByTheme, getIdsByTheme, getByIds, countByTheme, insertAll, count
+│   │   │   │   │   ├── AppDatabase.kt           Room @Database v8 (exportSchema) + migrations 1→2→3→4→5→6→7→8
+│   │   │   │   │   ├── QuestionDao.kt           @Dao : getAllByTheme, getIdsByTheme(theme, isSituation), getByIds, countByTheme, insertAll, count
 │   │   │   │   │   ├── QuizResultDao.kt         @Dao : getAll (Flow), insert, deleteAll
 │   │   │   │   │   ├── PausedQuizDao.kt         @Dao : save (REPLACE), get, observe (Flow), delete
 │   │   │   │   │   ├── TrainingProgressDao.kt   @Dao : save (REPLACE), get, observeAll (Flow), clear
@@ -120,7 +133,7 @@ QCM_France/
 │   │   │   │   │   ├── TrainingProgress.kt      @Entity Room : PK=theme, currentIndex (point de reprise)
 │   │   │   │   │   └── ExamCycle.kt             @Entity Room : PK=theme, permutation d'ids (JSON) + curseur
 │   │   │   │   └── repository/
-│   │   │   │       ├── QuestionRepository.kt    seedIfNeeded + tirage stratifié 6-9-6-13-6 cyclé (exam_cycle), themes
+│   │   │   │       ├── QuestionRepository.kt    seedIfNeeded (2 fichiers JSON) + tirage stratifié 28 connaissances + 12 mise en situation, cyclé (exam_cycle), themes
 │   │   │   │       ├── HistoryRepository.kt     sauvegarde et récupération de l'historique
 │   │   │   │       ├── SettingsRepository.kt    DataStore : ThemeMode + soundEnabled + TextSizeMode
 │   │   │   │       ├── PausedQuizRepository.kt  save/load/clear + PausedQuizState (Gson)
@@ -157,7 +170,8 @@ QCM_France/
 │   │   └── res/
 │   │       ├── mipmap-*/                        Icônes adaptatives (fond bleu tricolore)
 │   │       ├── raw/
-│   │       │   ├── questions.json               258 questions (seed)
+│   │       │   ├── questions.json               258 questions de connaissances (seed)
+│   │       │   ├── situational_questions.json   60 questions de mise en situation (seed), isSituation: true
 │   │       │   ├── marseillaise.ogg             musique si examen réussi (domaine public — voir AUDIO_CREDITS.md)
 │   │       │   └── marche_funebre.ogg           musique si examen échoué (domaine public — voir AUDIO_CREDITS.md)
 │   │       ├── values/
@@ -200,13 +214,19 @@ data class Question(
     val optionD: String,
     val correctAnswer: String,      // "A", "B", "C" ou "D"
     val explanation: String = "",
-    val source: String = ""         // URL de la source officielle (lien cliquable)
+    val source: String = "",        // URL de la source officielle (lien cliquable)
+    val isSituation: Boolean = false // true = question de mise en situation (situational_questions.json)
 )
 ```
 
 > Le champ `correctAnswers` du JSON n'est **pas** chargé par l'app (le scoring n'utilise que
 > `correctAnswer`) : la colonne a été supprimée en v7 (`MIGRATION_6_7`, recréation de table)
 > et Gson ignore la clé lors du seed.
+>
+> `isSituation` (colonne ajoutée en v8, `MIGRATION_7_8`) distingue les questions de connaissances
+> (`questions.json`, valeur par défaut `false`) des questions de mise en situation
+> (`situational_questions.json`, `isSituation: true`). Les deux fichiers sont chargés dans la
+> même table `questions` par `QuestionRepository.seedIfNeeded()`.
 
 ### Entité Room — `PausedQuiz`
 
@@ -242,24 +262,31 @@ Avancement du **mode entraînement**. `currentIndex` sert de point de reprise et
 ```kotlin
 @Entity(tableName = "exam_cycle")
 data class ExamCycle(
-    @PrimaryKey val theme: String,   // un des 5 thèmes officiels — une ligne par thème
-    val orderJson: String,           // Gson List<Int> — permutation des ids du thème
+    @PrimaryKey val theme: String,   // clé de cycle : un thème officiel, ou "<thème>::situation"
+    val orderJson: String,           // Gson List<Int> — permutation des ids du thème/type
     val cursor: Int                  // index de la prochaine question à tirer dans la permutation
 )
 ```
 
 Cycle de tirage de l'**examen** (pas l'entraînement). Voir « Cycle de tirage de l'examen » ci-dessous pour la logique complète. La table est créée par `MIGRATION_5_6` (BDD passée en v6). Réinitialisation via `QuestionRepository.resetExamCycle()` → `ExamCycleDao.clear()` (bouton « Réinitialiser le cycle de l'examen » dans les Paramètres).
+>
+> Le champ `theme` (PK) est une clé de cycle libre, pas nécessairement le nom exact du thème :
+> pour séparer le cycle des connaissances de celui des mises en situation sur un même thème sans
+> migrer le schéma de cette table, les mises en situation utilisent la clé `"<thème>::situation"`
+> (cf. `QuestionRepository.drawIdsFromCycle()`).
 
 ### Cycle de tirage de l'examen
 
-`QuestionRepository.drawIdsFromCycle(theme, count)` remplace l'ancien tirage `ORDER BY RANDOM()` :
+`QuestionRepository.drawIdsFromCycle(theme, count, isSituation)` remplace l'ancien tirage `ORDER BY RANDOM()` :
 
-1. Charge la permutation persistée (`exam_cycle.orderJson`) et son curseur pour le thème ; si absente, ou si l'ensemble des ids ne correspond plus (questions ajoutées/supprimées), génère une nouvelle permutation aléatoire et repart du curseur 0.
+1. Calcule la clé de cycle (`theme` pour les connaissances, `"$theme::situation"` pour les mises en situation) et charge la permutation persistée (`exam_cycle.orderJson`) et son curseur pour cette clé ; si absente, ou si l'ensemble des ids ne correspond plus (questions ajoutées/supprimées), génère une nouvelle permutation aléatoire et repart du curseur 0.
 2. Prend les `count` ids suivants à partir du curseur, en avançant le curseur.
-3. Si la permutation est épuisée avant d'avoir pris `count` ids (fin d'un tour), génère une nouvelle permutation de l'ensemble des ids du thème pour le tour suivant — en plaçant les ids déjà pris dans ce tirage en fin de liste, pour ne pas les retirer immédiatement dans le même examen.
-4. Persiste la permutation (éventuellement renouvelée) et le nouveau curseur.
+3. Si la permutation est épuisée avant d'avoir pris `count` ids (fin d'un tour), génère une nouvelle permutation de l'ensemble des ids du thème/type pour le tour suivant — en plaçant les ids déjà pris dans ce tirage en fin de liste, pour ne pas les retirer immédiatement dans le même examen.
+4. Persiste la permutation (éventuellement renouvelée) et le nouveau curseur, sous la clé de cycle.
 
-Résultat : toutes les questions d'un thème sont utilisées une fois avant qu'une répétition ne survienne d'un examen à l'autre. Indépendant du flux pause/reprise (`PausedQuiz`) : le cycle n'avance qu'au lancement d'un nouvel examen (`QuizViewModel.startQuiz()` → `drawStratifiedQuestions()`), jamais pendant une reprise.
+`drawStratifiedQuestions()` appelle cette fonction une fois par thème pour `connaissanceCounts` (28 au total, `isSituation = false`) puis une fois par thème pour `situationCounts` (12 au total, `isSituation = true`), avant de concaténer et mélanger les 40 ids obtenus.
+
+Résultat : toutes les questions d'un thème/type sont utilisées une fois avant qu'une répétition ne survienne d'un examen à l'autre. Indépendant du flux pause/reprise (`PausedQuiz`) : le cycle n'avance qu'au lancement d'un nouvel examen (`QuizViewModel.startQuiz()` → `drawStratifiedQuestions()`), jamais pendant une reprise.
 
 ---
 
@@ -280,12 +307,16 @@ Mode complémentaire à l'examen, orienté apprentissage — l'inverse UX de l'e
 - **Persistance** : `TrainingViewModel.next()` enregistre `currentIndex` après chaque question via `TrainingRepository.saveProgress(theme, index)`. Aucun mécanisme « pause » nécessaire : un simple retour ne perd rien.
 - **Feedback** : sélection (`selectAnswer`, modifiable) → bouton **« Confirmer »** (`confirmAnswer`) → `revealed=true`, l'option correcte passe en vert, une mauvaise réponse sélectionnée en rouge ; bloc « Bonne/Mauvaise réponse » + `explanation` (si non vide) + bouton « Voir la source » (`LocalUriHandler.openUri`). Tant que la réponse n'est pas confirmée, la correction reste cachée et la sélection peut être changée. Après confirmation, le bouton bas devient « Suivant »/« Terminer ».
 - **Seed partagé** : `QuestionRepository.seedIfNeeded()` (extrait de `drawStratifiedQuestions()`) est appelé aussi par le chemin entraînement, pour le cas où l'utilisateur ouvre l'entraînement avant tout examen.
+- **Mises en situation incluses** : `TrainingRepository.questionsForTheme()`/`totalForTheme()` s'appuient sur `QuestionDao.getAllByTheme()`/`countByTheme()`, qui ne filtrent pas sur `isSituation` : les questions de mise en situation d'un thème apparaissent donc naturellement dans son entraînement, sans code de filtrage dédié.
 - **Option shuffling** : réutilise `withShuffledOptions()` (déplacé dans `ui/viewmodel/QuestionExt.kt`, partagé par les deux ViewModels).
 - **Réinitialisation** : Paramètres → « Réinitialiser la progression » (AlertDialog de confirmation) → `TrainingViewModel.resetTraining()` → `TrainingRepository.resetAll()`.
 
 ---
 
-### Format JSON de seed (`res/raw/questions.json`)
+### Format JSON de seed (`res/raw/questions.json`, `res/raw/situational_questions.json`)
+
+Même schéma dans les deux fichiers ; seul `situational_questions.json` renseigne
+`"isSituation": true` sur chaque entrée (absent de `questions.json`, donc `false` par défaut).
 
 ```json
 [
@@ -305,8 +336,28 @@ Mode complémentaire à l'examen, orienté apprentissage — l'inverse UX de l'e
 ]
 ```
 
-> `correctAnswers` reste présent dans le fichier JSON (donnée de référence) mais n'est **pas**
+```json
+[
+  {
+    "id": 1001,
+    "theme": "Principes et valeurs de la République",
+    "text": "Un parent d'élève demande que son enfant soit dispensé du cours de sciences de la vie pour un motif religieux. Que répond l'école publique ?",
+    "optionA": "Elle accorde la dispense sans discussion",
+    "optionB": "Elle rappelle que les programmes scolaires nationaux s'appliquent à tous les élèves, sans dispense pour motif religieux",
+    "optionC": "Elle exclut l'enfant de l'école",
+    "optionD": "Elle organise un cours séparé selon la religion de chaque élève",
+    "correctAnswer": "B",
+    "explanation": "L'école publique est laïque : les programmes nationaux s'imposent à tous les élèves. Une dispense n'est possible que pour des motifs médicaux, jamais religieux.",
+    "source": "https://www.education.gouv.fr/",
+    "isSituation": true
+  }
+]
+```
+
+> `correctAnswers` reste présent dans `questions.json` (donnée de référence) mais n'est **pas**
 > chargé par l'app : le champ n'existe plus dans l'entité Room et Gson ignore les clés inconnues.
+> Les ids de `situational_questions.json` démarrent à **1001** pour ne jamais entrer en collision
+> avec ceux de `questions.json` (1 à 258, avec de la marge pour de futurs ajouts).
 
 ---
 
@@ -318,8 +369,8 @@ interface QuestionDao {
     @Query("SELECT * FROM questions WHERE theme = :theme ORDER BY id")
     suspend fun getAllByTheme(theme: String): List<Question>
 
-    @Query("SELECT id FROM questions WHERE theme = :theme ORDER BY id")
-    suspend fun getIdsByTheme(theme: String): List<Int>
+    @Query("SELECT id FROM questions WHERE theme = :theme AND isSituation = :isSituation ORDER BY id")
+    suspend fun getIdsByTheme(theme: String, isSituation: Boolean): List<Int>
 
     @Query("SELECT * FROM questions WHERE id IN (:ids)")
     suspend fun getByIds(ids: List<Int>): List<Question>
@@ -437,21 +488,23 @@ fun submitQuiz() {
 
 ## Pré-peuplement de la base de données
 
-La BDD est peuplée **au premier lancement** depuis `questions.json`, directement dans
-`QuestionRepository.drawStratifiedQuestions()` :
+La BDD est peuplée **au premier lancement** depuis `questions.json` **et**
+`situational_questions.json`, directement dans `QuestionRepository.seedIfNeeded()` (appelée par
+`drawStratifiedQuestions()` et par le chemin entraînement) :
 
 ```kotlin
 // QuestionRepository.kt
-suspend fun drawStratifiedQuestions(): List<Question> {
-    if (dao.count() == 0) {                        // premier lancement uniquement
-        val json = context.resources.openRawResource(R.raw.questions)
-            .bufferedReader().readText()
+suspend fun seedIfNeeded() {
+    if (dao.count() == 0) {                         // premier lancement uniquement
         val type = object : TypeToken<List<Question>>() {}.type
-        val questions: List<Question> = Gson().fromJson(json, type)
-        dao.insertAll(questions)
+        val connaissance: List<Question> = gson.fromJson(
+            context.resources.openRawResource(R.raw.questions).bufferedReader().readText(), type
+        )
+        val situation: List<Question> = gson.fromJson(
+            context.resources.openRawResource(R.raw.situational_questions).bufferedReader().readText(), type
+        )
+        dao.insertAll(connaissance + situation)
     }
-    // tirage stratifié après seed garanti
-    ...
 }
 ```
 

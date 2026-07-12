@@ -12,8 +12,8 @@ interface QuestionDao {
     @Query("SELECT * FROM questions WHERE theme = :theme ORDER BY id")
     suspend fun getAllByTheme(theme: String): List<Question>
 
-    @Query("SELECT id FROM questions WHERE theme = :theme ORDER BY id")
-    suspend fun getIdsByTheme(theme: String): List<Int>
+    @Query("SELECT id FROM questions WHERE theme = :theme AND isSituation = :isSituation ORDER BY id")
+    suspend fun getIdsByTheme(theme: String, isSituation: Boolean): List<Int>
 
     @Query("SELECT * FROM questions WHERE id IN (:ids)")
     suspend fun getByIds(ids: List<Int>): List<Question>

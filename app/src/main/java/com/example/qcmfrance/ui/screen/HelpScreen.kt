@@ -167,6 +167,10 @@ fun HelpScreen(onBack: () -> Unit) {
                         stringResource(R.string.help_exam_timer_desc)
                     )
                     HelpFeatureRow(
+                        stringResource(R.string.help_exam_situation_title),
+                        stringResource(R.string.help_exam_situation_desc)
+                    )
+                    HelpFeatureRow(
                         stringResource(R.string.help_exam_rotation_title),
                         stringResource(R.string.help_exam_rotation_desc)
                     )

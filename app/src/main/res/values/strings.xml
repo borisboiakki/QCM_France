@@ -110,7 +110,7 @@
     <!-- Aide -->
     <string name="help_title">Aide</string>
     <string name="help_about_title">À propos</string>
-    <string name="help_about_text">QCM France vous aide à préparer l\'examen civique de naturalisation française. L\'application propose deux modes complémentaires :\n\n• Mode examen : 40 questions tirées aléatoirement, 45 minutes au chronomètre, sans correction immédiate — comme dans les conditions officielles.\n\n• Mode S\'entraîner : parcourez toutes les questions d\'un thème, une par une, avec correction immédiate, explication et lien vers la source après chaque réponse confirmée.</string>
+    <string name="help_about_text">QCM France vous aide à préparer l\'examen civique de naturalisation française. L\'application propose deux modes complémentaires :\n\n• Mode examen : 40 questions tirées aléatoirement (28 questions de connaissances + 12 questions de mise en situation), 45 minutes au chronomètre, sans correction immédiate — comme dans les conditions officielles.\n\n• Mode S\'entraîner : parcourez toutes les questions d\'un thème, une par une, avec correction immédiate, explication et lien vers la source après chaque réponse confirmée.</string>
     <string name="help_rules_title">Règles de l\'examen officiel</string>
     <string name="help_themes_title">Thèmes couverts</string>
     <string name="help_theme_1">Principes et valeurs de la République</string>
@@ -122,6 +122,8 @@
     <string name="help_exam_title">Mode examen</string>
     <string name="help_exam_timer_title">Chronomètre</string>
     <string name="help_exam_timer_desc">Décompte de 45 min, affiché en rouge dans les 5 dernières minutes. Soumission automatique à 00:00.</string>
+    <string name="help_exam_situation_title">Questions de mise en situation</string>
+    <string name="help_exam_situation_desc">12 des 40 questions décrivent un cas concret de la vie quotidienne (voisinage, travail, discrimination, urgence…) et vous demandent de choisir la réaction la plus appropriée, en plus des 28 questions de connaissances classiques.</string>
     <string name="help_exam_rotation_title">Rotation des questions</string>
     <string name="help_exam_rotation_desc">Pour chaque thème, l\'application fait tourner l\'ensemble des questions disponibles : toutes sont utilisées une fois avant qu\'une répétition ne survienne d\'un examen à l\'autre.</string>
     <string name="help_exam_pause_title">Pause et reprise</string>
