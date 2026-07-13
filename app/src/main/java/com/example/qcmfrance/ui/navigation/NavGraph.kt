@@ -1,15 +1,24 @@
 package com.example.qcmfrance.ui.navigation
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.qcmfrance.data.model.Achievement
+import com.example.qcmfrance.ui.components.AchievementUnlockedBanner
 import com.example.qcmfrance.ui.screen.AboutScreen
+import com.example.qcmfrance.ui.screen.AchievementsScreen
 import com.example.qcmfrance.ui.screen.HelpScreen
 import com.example.qcmfrance.ui.screen.HistoryScreen
 import com.example.qcmfrance.ui.screen.HomeScreen
@@ -18,6 +27,7 @@ import com.example.qcmfrance.ui.screen.ResultScreen
 import com.example.qcmfrance.ui.screen.SettingsScreen
 import com.example.qcmfrance.ui.screen.TrainingScreen
 import com.example.qcmfrance.ui.screen.TrainingThemesScreen
+import com.example.qcmfrance.ui.viewmodel.AchievementsViewModel
 import com.example.qcmfrance.ui.viewmodel.HistoryViewModel
 import com.example.qcmfrance.ui.viewmodel.HomeViewModel
 import com.example.qcmfrance.ui.viewmodel.QuizViewModel
@@ -33,6 +43,7 @@ private const val ROUTE_HELP            = "help"
 private const val ROUTE_TRAINING_THEMES = "training_themes"
 private const val ROUTE_TRAINING        = "training"
 private const val ROUTE_ABOUT           = "about"
+private const val ROUTE_ACHIEVEMENTS    = "achievements"
 
 @Composable
 fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
@@ -44,19 +55,29 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
 
     val trainingViewModel: TrainingViewModel = hiltViewModel()
 
+    // Popup global de déblocage : collecté au-dessus de la navigation pour s'afficher quel que
+    // soit l'écran courant. File d'attente si plusieurs succès tombent en même temps.
+    val achievementsViewModel: AchievementsViewModel = hiltViewModel()
+    val bannerQueue = remember { mutableStateListOf<Achievement>() }
+    LaunchedEffect(Unit) {
+        achievementsViewModel.newlyUnlocked.collect { bannerQueue.add(it) }
+    }
+
+    Box(modifier = Modifier.fillMaxSize()) {
     NavHost(navController = navController, startDestination = ROUTE_HOME) {
 
         composable(ROUTE_HOME) {
             val homeViewModel: HomeViewModel = hiltViewModel()
             val hasPausedQuiz by homeViewModel.hasPausedQuiz.collectAsStateWithLifecycle()
             HomeScreen(
-                onStartExam     = { viewModel.startQuiz(); navController.navigate(ROUTE_QUIZ) },
-                onResumeExam    = { viewModel.resumeQuiz(); navController.navigate(ROUTE_QUIZ) },
-                onStartTraining = { navController.navigate(ROUTE_TRAINING_THEMES) },
-                onShowHistory   = { navController.navigate(ROUTE_HISTORY) },
-                onShowSettings  = { navController.navigate(ROUTE_SETTINGS) },
-                onShowHelp      = { navController.navigate(ROUTE_HELP) },
-                hasPausedQuiz   = hasPausedQuiz
+                onStartExam        = { viewModel.startQuiz(); navController.navigate(ROUTE_QUIZ) },
+                onResumeExam       = { viewModel.resumeQuiz(); navController.navigate(ROUTE_QUIZ) },
+                onStartTraining    = { navController.navigate(ROUTE_TRAINING_THEMES) },
+                onShowHistory      = { navController.navigate(ROUTE_HISTORY) },
+                onShowAchievements = { navController.navigate(ROUTE_ACHIEVEMENTS) },
+                onShowSettings     = { navController.navigate(ROUTE_SETTINGS) },
+                onShowHelp         = { navController.navigate(ROUTE_HELP) },
+                hasPausedQuiz      = hasPausedQuiz
             )
         }
 
@@ -140,6 +161,7 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
                 onTextSizeModeChange = settingsViewModel::setTextSizeMode,
                 onResetTraining      = trainingViewModel::resetTraining,
                 onResetExamCycle     = viewModel::resetExamCycle,
+                onResetAchievements  = achievementsViewModel::resetAchievements,
                 onShowAbout          = { navController.navigate(ROUTE_ABOUT) },
                 onBack               = { navController.popBackStack() }
             )
@@ -152,5 +174,21 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
         composable(ROUTE_ABOUT) {
             AboutScreen(onBack = { navController.popBackStack() })
         }
+
+        composable(ROUTE_ACHIEVEMENTS) {
+            val states by achievementsViewModel.achievements.collectAsStateWithLifecycle()
+            AchievementsScreen(
+                states = states,
+                onBack = { navController.popBackStack() }
+            )
+        }
+    }
+
+        // Overlay du popup de déblocage, au-dessus de tous les écrans.
+        AchievementUnlockedBanner(
+            achievement = bannerQueue.firstOrNull(),
+            onDismiss = { if (bannerQueue.isNotEmpty()) bannerQueue.removeAt(0) },
+            modifier = Modifier.align(Alignment.TopCenter)
+        )
     }
 }

@@ -12,3 +12,6 @@ val Green40  = Color(0xFF006E22)
 // Couleurs sémantiques partagées (résultat, entraînement, historique)
 val SuccessGreen = Color(0xFF2E7D32)
 val FailureRed   = Color(0xFFC62828)
+
+// Accent doré des succès rares (page « Succès » + popup)
+val AchievementGold = Color(0xFFFFB300)

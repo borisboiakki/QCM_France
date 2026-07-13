@@ -57,6 +57,7 @@ fun HomeScreen(
     onResumeExam: () -> Unit,
     onStartTraining: () -> Unit,
     onShowHistory: () -> Unit,
+    onShowAchievements: () -> Unit,
     onShowSettings: () -> Unit,
     onShowHelp: () -> Unit,
     hasPausedQuiz: Boolean = false
@@ -247,6 +248,19 @@ fun HomeScreen(
                 )
             ) {
                 Text(text = stringResource(R.string.home_history), style = MaterialTheme.typography.titleMedium)
+            }
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            Button(
+                onClick = onShowAchievements,
+                modifier = Modifier.fillMaxWidth().height(56.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                    contentColor = MaterialTheme.colorScheme.onSecondaryContainer
+                )
+            ) {
+                Text(text = stringResource(R.string.home_achievements), style = MaterialTheme.typography.titleMedium)
             }
         }
     }

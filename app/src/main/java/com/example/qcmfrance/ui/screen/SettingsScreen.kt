@@ -55,11 +55,13 @@ fun SettingsScreen(
     onTextSizeModeChange: (TextSizeMode) -> Unit,
     onResetTraining: () -> Unit,
     onResetExamCycle: () -> Unit,
+    onResetAchievements: () -> Unit,
     onShowAbout: () -> Unit,
     onBack: () -> Unit
 ) {
     var showResetDialog by remember { mutableStateOf(false) }
     var showResetExamCycleDialog by remember { mutableStateOf(false) }
+    var showResetAchievementsDialog by remember { mutableStateOf(false) }
 
     if (showResetDialog) {
         AlertDialog(
@@ -97,6 +99,27 @@ fun SettingsScreen(
             },
             dismissButton = {
                 TextButton(onClick = { showResetExamCycleDialog = false }) {
+                    Text(stringResource(R.string.common_cancel))
+                }
+            }
+        )
+    }
+
+    if (showResetAchievementsDialog) {
+        AlertDialog(
+            onDismissRequest = { showResetAchievementsDialog = false },
+            title = { Text(stringResource(R.string.settings_dialog_reset_achievements_title)) },
+            text = { Text(stringResource(R.string.settings_dialog_reset_achievements_text)) },
+            confirmButton = {
+                TextButton(onClick = {
+                    showResetAchievementsDialog = false
+                    onResetAchievements()
+                }) {
+                    Text(stringResource(R.string.settings_dialog_reset_confirm))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showResetAchievementsDialog = false }) {
                     Text(stringResource(R.string.common_cancel))
                 }
             }
@@ -286,6 +309,30 @@ fun SettingsScreen(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(stringResource(R.string.settings_reset_cycle))
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Text(
+                text = stringResource(R.string.settings_achievements),
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.padding(vertical = 8.dp)
+            )
+            HorizontalDivider()
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Text(
+                text = stringResource(R.string.settings_achievements_desc),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            OutlinedButton(
+                onClick = { showResetAchievementsDialog = true },
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(stringResource(R.string.settings_reset_achievements))
             }
 
             Spacer(modifier = Modifier.height(16.dp))

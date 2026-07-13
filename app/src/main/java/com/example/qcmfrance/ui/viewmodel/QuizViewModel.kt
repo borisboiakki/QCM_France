@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.qcmfrance.data.ExamConstants
 import com.example.qcmfrance.data.model.Question
 import com.example.qcmfrance.data.model.QuizResult
+import com.example.qcmfrance.data.repository.AchievementRepository
 import com.example.qcmfrance.data.repository.HistoryRepository
 import com.example.qcmfrance.data.repository.PausedQuizRepository
 import com.example.qcmfrance.data.repository.QuestionRepository
@@ -35,7 +36,8 @@ data class QuizUiState(
 class QuizViewModel @Inject constructor(
     private val repository: QuestionRepository,
     private val historyRepository: HistoryRepository,
-    private val pausedQuizRepository: PausedQuizRepository
+    private val pausedQuizRepository: PausedQuizRepository,
+    private val achievementRepository: AchievementRepository
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(QuizUiState())
@@ -138,6 +140,11 @@ class QuizViewModel @Inject constructor(
                     passed          = passed,
                     durationSeconds = ExamConstants.EXAM_DURATION_SECONDS - state.remainingSeconds
                 )
+            )
+            achievementRepository.onExamCompleted(
+                passed      = passed,
+                perfect     = score == state.questions.size,
+                questionIds = state.questions.map { it.id }
             )
         }
     }
