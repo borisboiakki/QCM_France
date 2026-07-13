@@ -142,14 +142,15 @@ QCM_France/
 │   │   │   │   └── AppModule.kt                 Hilt @Module (AppDatabase, DAOs)
 │   │   │   ├── ui/
 │   │   │   │   ├── navigation/
-│   │   │   │   │   └── NavGraph.kt              8 routes : home/quiz/result/history/settings/help/training_themes/training
+│   │   │   │   │   └── NavGraph.kt              9 routes : home/quiz/result/history/settings/help/training_themes/training/about
 │   │   │   │   ├── screen/
 │   │   │   │   │   ├── HomeScreen.kt            titre, règles, Reprendre (si pause), S'entraîner par thème, AlertDialog, icône Aide
 │   │   │   │   │   ├── QuizScreen.kt            question N/40, options, timer, bouton Pause, BackHandler, son
 │   │   │   │   │   ├── ResultScreen.kt          score, RÉUSSI/ÉCHOUÉ, temps, filtre erreurs (FilterChip), détail, export, musique de fin (MediaPlayer)
 │   │   │   │   │   ├── HistoryScreen.kt         liste des résultats, export par résultat, vider
-│   │   │   │   │   ├── SettingsScreen.kt        thème (Système/Clair/Sombre), taille du texte (slider), toggle son, réinitialiser l'entraînement, réinitialiser le cycle de l'examen
+│   │   │   │   │   ├── SettingsScreen.kt        thème (Système/Clair/Sombre), taille du texte (slider), toggle son, réinitialiser l'entraînement, réinitialiser le cycle de l'examen, À propos (défilable)
 │   │   │   │   │   ├── HelpScreen.kt            guide utilisateur + 7 liens officiels cliquables
+│   │   │   │   │   ├── AboutScreen.kt           version installée (PackageManager) + bouton vers les releases GitHub (téléchargement APK, sans permission)
 │   │   │   │   │   ├── TrainingThemesScreen.kt  sélection du thème + barre d'avancement X/total par thème
 │   │   │   │   │   └── TrainingScreen.kt        question du thème, feedback immédiat (vert/rouge), explication + lien source
 │   │   │   │   ├── utils/
@@ -477,8 +478,9 @@ fun submitQuiz() {
 | `quiz` | Examen | Question N/40, 4 options, chrono MM:SS, bouton Pause, BackHandler, barre de progression, son |
 | `result` | Résultat | Score X/40, temps utilisé, mention Réussi/Échoué, détail, export |
 | `history` | Historique | Liste des résultats passés, export individuel, vider l'historique |
-| `settings` | Paramètres | Thème (Système/Clair/Sombre), toggle son, réinitialiser la progression d'entraînement, réinitialiser le cycle de l'examen |
+| `settings` | Paramètres | Thème (Système/Clair/Sombre), toggle son, réinitialiser la progression d'entraînement, réinitialiser le cycle de l'examen, accès « À propos » |
 | `help` | Aide | Guide utilisateur, règles de l'examen, thèmes, fonctionnalités, 7 liens officiels cliquables |
+| `about` | À propos / Mises à jour | Version installée (lue via `PackageManager`, sans réseau) + bouton ouvrant `github.com/borisboiakki/qcm_france/releases/latest` dans le navigateur pour télécharger l'APK — aucune permission ajoutée |
 | `training_themes` | Entraînement (thèmes) | Liste des 5 thèmes + barre d'avancement `X/total`, retour Accueil |
 | `training` | Entraînement (question) | Question d'un thème, feedback immédiat (vert/rouge), explication + lien source, "Suivant"/"Terminer" |
 
@@ -608,7 +610,10 @@ ksp                    = { id = "com.google.devtools.ksp",              version 
   │                     ├─ Taille du texte : Petit / Moyen / Grand (slider, persisté DataStore)
   │                     ├─ Son de sélection : activé/désactivé (persisté DataStore)
   │                     ├─ "Réinitialiser la progression" → TrainingProgressDao.clear()
-  │                     └─ "Réinitialiser le cycle de l'examen" → ExamCycleDao.clear()
+  │                     ├─ "Réinitialiser le cycle de l'examen" → ExamCycleDao.clear()
+  │                     └─ "Mises à jour et à propos" ──► [AboutScreen]
+  │                                                        ├─ Version installée (PackageManager)
+  │                                                        └─ "Télécharger la dernière version sur GitHub" → navigateur (releases/latest)
   └─ Icône Aide (Info) ──► [HelpScreen]
                             ├─ Règles de l'examen, thèmes, fonctionnalités
                             └─ 7 liens officiels cliquables (gouvernement, Légifrance, etc.)
