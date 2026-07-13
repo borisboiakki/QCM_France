@@ -221,6 +221,29 @@ fun HelpScreen(onBack: () -> Unit) {
             }
 
             item {
+                HelpSectionTitle(stringResource(R.string.help_achievements_title))
+                Text(
+                    text = stringResource(R.string.help_achievements_intro),
+                    style = MaterialTheme.typography.bodyMedium
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                    HelpFeatureRow(
+                        stringResource(R.string.help_achievements_exam_title),
+                        stringResource(R.string.help_achievements_exam_desc)
+                    )
+                    HelpFeatureRow(
+                        stringResource(R.string.help_achievements_training_title),
+                        stringResource(R.string.help_achievements_training_desc)
+                    )
+                    HelpFeatureRow(
+                        stringResource(R.string.help_achievements_page_title),
+                        stringResource(R.string.help_achievements_page_desc)
+                    )
+                }
+            }
+
+            item {
                 HelpSectionTitle(stringResource(R.string.help_settings_title))
                 Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                     HelpFeatureRow(
@@ -238,6 +261,10 @@ fun HelpScreen(onBack: () -> Unit) {
                     HelpFeatureRow(
                         stringResource(R.string.help_settings_reset_cycle_title),
                         stringResource(R.string.help_settings_reset_cycle_desc)
+                    )
+                    HelpFeatureRow(
+                        stringResource(R.string.help_settings_reset_achievements_title),
+                        stringResource(R.string.help_settings_reset_achievements_desc)
                     )
                 }
             }

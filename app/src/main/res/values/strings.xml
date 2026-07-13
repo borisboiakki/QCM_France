@@ -161,6 +161,14 @@
     <string name="help_training_progress_desc">Votre progression est sauvegardée question par question. Revenir en arrière ou fermer l\'application ne fait pas perdre votre avancement — le thème reprend exactement là où vous vous étiez arrêté.</string>
     <string name="help_training_reset_title">Réinitialisation</string>
     <string name="help_training_reset_desc">Depuis les Paramètres, réinitialisez la progression de tous les thèmes en une seule action.</string>
+    <string name="help_achievements_title">Succès</string>
+    <string name="help_achievements_intro">Débloquez des succès en progressant dans l\'application, comme des trophées de jeu vidéo. Un bandeau apparaît à chaque déblocage.</string>
+    <string name="help_achievements_exam_title">Succès d\'examen</string>
+    <string name="help_achievements_exam_desc">Terminer votre premier examen, en réussir un (≥ 32/40), obtenir un score parfait (40/40) et voir passer toutes les questions de la base au moins une fois.</string>
+    <string name="help_achievements_training_title">Succès d\'entraînement</string>
+    <string name="help_achievements_training_desc">Un succès pour chaque thème d\'entraînement terminé, plus un succès spécial une fois les 5 thèmes complétés.</string>
+    <string name="help_achievements_page_title">Page « Succès »</string>
+    <string name="help_achievements_page_desc">Accessible depuis l\'accueil : consultez les succès débloqués, la progression des succès en cours (barre X/total) et la date de déblocage. Les succès non obtenus restent verrouillés.</string>
     <string name="help_settings_title">Paramètres</string>
     <string name="help_settings_theme_title">Thème visuel</string>
     <string name="help_settings_theme_desc">Choisissez entre le thème du système, clair ou sombre — persisté entre les sessions.</string>
@@ -170,6 +178,8 @@
     <string name="help_settings_reset_training_desc">Efface la progression de tous les thèmes du mode S\'entraîner (action irréversible, avec confirmation).</string>
     <string name="help_settings_reset_cycle_title">Réinitialiser le cycle de l\'examen</string>
     <string name="help_settings_reset_cycle_desc">Relance depuis le début la rotation anti-répétition des questions de l\'examen, pour chaque thème (action irréversible, avec confirmation).</string>
+    <string name="help_settings_reset_achievements_title">Réinitialiser les succès</string>
+    <string name="help_settings_reset_achievements_desc">Efface tous les succès débloqués et leur progression (action irréversible, avec confirmation).</string>
     <string name="help_links_title">Ressources officielles</string>
     <string name="help_links_hint">Appuyez sur un lien pour l\'ouvrir dans votre navigateur.</string>
     <string name="help_link_general">Informations générales sur l\'examen civique</string>

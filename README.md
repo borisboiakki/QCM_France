@@ -27,9 +27,18 @@ Application Android de préparation à l'examen civique de naturalisation franç
 - **Écran de fin de thème** avec bouton « Recommencer ce thème »
 - **Réinitialisation globale** de la progression depuis les Paramètres
 
+### Succès (achievements)
+Système de gamification inspiré des trophées de jeux vidéo, pour rendre la préparation plus motivante.
+- **10 succès** répartis en deux catégories :
+  - *Examen* — premier examen terminé, premier examen réussi (≥ 32/40), score parfait 40/40 *(rare)*, et « Tour complet » quand toutes les questions de la base ont été vues au moins une fois (progression `X/318`)
+  - *Entraînement* — un succès par thème terminé, plus « Élève modèle » *(rare)* une fois les 5 thèmes complétés (progression `X/5`)
+- **Popup au déblocage** — un bandeau « Succès débloqué ! » glisse depuis le haut de l'écran quel que soit l'endroit où l'on se trouve, avec un liseré doré pour les succès rares
+- **Page dédiée** accessible depuis l'accueil — compteur `X/10`, succès groupés par catégorie, succès verrouillés grisés, barres de progression et date de déblocage
+- **Réinitialisation** des succès depuis les Paramètres
+
 ### Écran d'accueil
 Rappel des règles officielles avant de commencer : nombre de questions, seuil de réussite, durée, format.  
-Accès rapide à l'historique, aux paramètres et à l'aide (icône Info dans la barre du haut).  
+Accès rapide aux succès, à l'historique, aux paramètres et à l'aide (icône Info dans la barre du haut).  
 Si un examen est en pause, bouton **Reprendre l'examen** (couleur secondaire). Démarrer un nouvel examen affiche une confirmation pour éviter d'écraser l'état sauvegardé.
 
 ### Écran de quiz
@@ -59,11 +68,12 @@ Si un examen est en pause, bouton **Reprendre l'examen** (couleur secondaire). D
 - **Son de sélection** : activé/désactivé — persisté entre les sessions
 - **Réinitialiser la progression** : efface l'avancement de tous les thèmes du mode entraînement (avec confirmation)
 - **Réinitialiser le cycle de l'examen** : relance le tirage anti-répétition à zéro pour chaque thème (avec confirmation)
+- **Réinitialiser les succès** : efface tous les succès débloqués et leur progression (avec confirmation)
 
 ### Écran d'aide
 Accessible via l'icône Info (barre du haut de l'accueil) :
 - Rappel des règles officielles et de la répartition des thèmes
-- Description des fonctionnalités de l'application
+- Description des fonctionnalités de l'application (examen, entraînement, succès, paramètres)
 - 7 liens cliquables vers les ressources officielles (gouvernement, Légifrance, Conseil constitutionnel)
 
 ---
@@ -116,21 +126,26 @@ app/src/main/java/com/example/qcmfrance/
 │   │   ├── QuizResult.kt          Entité Room : id, date, score, passed, duration
 │   │   ├── PausedQuiz.kt          Entité Room singleton : état sérialisé (questions, réponses, timer)
 │   │   ├── TrainingProgress.kt    Entité Room : PK=theme, currentIndex (point de reprise par thème)
-│   │   └── ExamCycle.kt           Entité Room : PK=theme, permutation d'ids (JSON) + curseur (anti-répétition examen)
+│   │   ├── ExamCycle.kt           Entité Room : PK=theme, permutation d'ids (JSON) + curseur (anti-répétition examen)
+│   │   ├── Achievement.kt         Catalogue statique (Achievements.ALL) + AchievementRecord (Entité Room) + AchievementState
+│   │   └── SeenQuestion.kt        Entité Room : PK=questionId (questions déjà vues en examen, pour « Tour complet »)
 │   ├── db/
 │   │   ├── QuestionDao.kt         DAO Room : getAllByTheme, getIdsByTheme(theme, isSituation), getByIds, countByTheme, insertAll, count
 │   │   ├── QuizResultDao.kt       DAO Room : getAll (Flow), insert, deleteAll
 │   │   ├── PausedQuizDao.kt       DAO Room : save (REPLACE), get, observe (Flow), delete
 │   │   ├── TrainingProgressDao.kt DAO Room : save (REPLACE), get, observeAll (Flow), clear
 │   │   ├── ExamCycleDao.kt        DAO Room : save (REPLACE), get, clear
+│   │   ├── AchievementDao.kt      DAO Room : observeAll (Flow), get, upsert (REPLACE), clear
+│   │   ├── SeenQuestionDao.kt     DAO Room : insertAll (IGNORE), count, clear
 │   │   ├── Converters.kt          @TypeConverter List<String> ↔ JSON String
-│   │   └── AppDatabase.kt         Base Room v8 + migrations 1→2→3→4→5→6→7→8
+│   │   └── AppDatabase.kt         Base Room v9 + migrations 1→2→…→8→9
 │   └── repository/
 │       ├── QuestionRepository.kt  seedIfNeeded (2 fichiers JSON) + tirage stratifié 28 connaissances + 12 mise en situation, cyclé par thème/type (exam_cycle), liste des thèmes
 │       ├── TrainingRepository.kt  Questions par thème (ordre stable), avancement par thème
 │       ├── HistoryRepository.kt   Sauvegarde et récupération de l'historique des résultats
-│       ├── SettingsRepository.kt  DataStore : ThemeMode + soundEnabled
-│       └── PausedQuizRepository.kt  Sérialisation Gson : save / load / clear / observeHasPaused
+│       ├── SettingsRepository.kt  DataStore : ThemeMode + soundEnabled + TextSizeMode
+│       ├── PausedQuizRepository.kt  Sérialisation Gson : save / load / clear / observeHasPaused
+│       └── AchievementRepository.kt  Moteur de déblocage (unlock / onExamCompleted / onThemeCompleted), newlyUnlocked (SharedFlow), observe
 │
 ├── di/
 │   └── AppModule.kt               Module Hilt : fournit AppDatabase et tous les DAOs
@@ -142,18 +157,23 @@ app/src/main/java/com/example/qcmfrance/
     │   ├── QuestionExt.kt         Helper partagé withShuffledOptions() (examen + entraînement)
     │   ├── HomeViewModel.kt       hasPausedQuiz : StateFlow<Boolean> (Flow réactif depuis Room)
     │   ├── HistoryViewModel.kt    Flow<List<QuizResult>>, clearHistory()
-    │   └── SettingsViewModel.kt   themeMode + soundEnabled StateFlow
+    │   ├── SettingsViewModel.kt   themeMode + soundEnabled + textSizeMode StateFlow
+    │   └── AchievementsViewModel.kt  achievements (StateFlow), newlyUnlocked (SharedFlow), resetAchievements()
     ├── navigation/
-    │   └── NavGraph.kt            8 routes : home / quiz / result / history / settings / help / training_themes / training
+    │   └── NavGraph.kt            10 routes : home / quiz / result / history / settings / help / training_themes / training / about / achievements (+ overlay popup succès)
     ├── screen/
-    │   ├── HomeScreen.kt          Accueil : règles, boutons (examen + entraînement), icône Aide
+    │   ├── HomeScreen.kt          Accueil : règles, boutons (examen + entraînement + succès), icône Aide
     │   ├── QuizScreen.kt          Examen : question N/40, options, timer, Pause, BackHandler, son
     │   ├── ResultScreen.kt        Résultat : score, mention, filtre erreurs, export
     │   ├── HistoryScreen.kt       Historique : liste, export par résultat, vider
-    │   ├── SettingsScreen.kt      Paramètres : thème, toggle son, réinitialiser entraînement, réinitialiser cycle examen
+    │   ├── SettingsScreen.kt      Paramètres : thème, taille du texte, toggle son, réinitialiser entraînement / cycle examen / succès, À propos
     │   ├── HelpScreen.kt          Aide : guide utilisateur + 7 liens officiels cliquables
+    │   ├── AboutScreen.kt         À propos / mises à jour : version installée + lien releases GitHub
     │   ├── TrainingThemesScreen.kt  Sélection du thème + barre X/total par thème
-    │   └── TrainingScreen.kt      Question d'entraînement, feedback immédiat, explication + lien source
+    │   ├── TrainingScreen.kt      Question d'entraînement, feedback immédiat, explication + lien source
+    │   └── AchievementsScreen.kt  Succès : liste groupée par catégorie, verrouillés grisés, barres X/target
+    ├── components/
+    │   └── AchievementUnlockedBanner.kt  Bandeau animé « Succès débloqué ! » (overlay global)
     ├── utils/
     │   └── ResultExporter.kt      Partage texte via Intent.ACTION_SEND
     └── theme/
@@ -213,9 +233,11 @@ Le tirage n'utilise pas `ORDER BY RANDOM()` à chaque examen (ce qui permettrait
      │  "Commencer l'examen" → startQuiz() + navigate(quiz)
      │  "Reprendre l'examen" → resumeQuiz() + navigate(quiz)   (visible si pause sauvegardée)
      │  "S'entraîner par thème" → navigate(training_themes)
+     │  "🏆 Succès" → navigate(achievements)
      │  Icône Historique → navigate(history)
      │  Icône Paramètres → navigate(settings)
      │  Icône Aide → navigate(help)
+     │  (popup « Succès débloqué ! » affiché en overlay quel que soit l'écran)
      │
      ├──► [TrainingThemesScreen]   Liste des 5 thèmes + barre X/total
      │         │  Choisir un thème → startTheme() + navigate(training)
@@ -336,20 +358,23 @@ QCM_France/
 │       │   ├── MainActivity.kt
 │       │   ├── QcmFranceApplication.kt
 │       │   ├── data/
-│       │   │   ├── db/        AppDatabase.kt (v8)  QuestionDao.kt  QuizResultDao.kt
-│       │   │   │              PausedQuizDao.kt  TrainingProgressDao.kt  ExamCycleDao.kt  Converters.kt
+│       │   │   ├── db/        AppDatabase.kt (v9)  QuestionDao.kt  QuizResultDao.kt
+│       │   │   │              PausedQuizDao.kt  TrainingProgressDao.kt  ExamCycleDao.kt
+│       │   │   │              AchievementDao.kt  SeenQuestionDao.kt  Converters.kt
 │       │   │   ├── model/     Question.kt  QuizResult.kt  PausedQuiz.kt  TrainingProgress.kt  ExamCycle.kt
-│       │   │   └── repository/QuestionRepository.kt  TrainingRepository.kt
+│       │   │   │              Achievement.kt  SeenQuestion.kt
+│       │   │   └── repository/QuestionRepository.kt  TrainingRepository.kt  AchievementRepository.kt
 │       │   │                  HistoryRepository.kt  SettingsRepository.kt  PausedQuizRepository.kt
 │       │   ├── di/            AppModule.kt
 │       │   └── ui/
 │       │       ├── navigation/NavGraph.kt
 │       │       ├── screen/    HomeScreen.kt  QuizScreen.kt  ResultScreen.kt
-│       │       │              HistoryScreen.kt  SettingsScreen.kt  HelpScreen.kt
-│       │       │              TrainingThemesScreen.kt  TrainingScreen.kt
+│       │       │              HistoryScreen.kt  SettingsScreen.kt  HelpScreen.kt  AboutScreen.kt
+│       │       │              TrainingThemesScreen.kt  TrainingScreen.kt  AchievementsScreen.kt
+│       │       ├── components/AchievementUnlockedBanner.kt
 │       │       ├── utils/     ResultExporter.kt
 │       │       ├── viewmodel/ QuizViewModel.kt  TrainingViewModel.kt  QuestionExt.kt
-│       │       │              HomeViewModel.kt  HistoryViewModel.kt  SettingsViewModel.kt
+│       │       │              HomeViewModel.kt  HistoryViewModel.kt  SettingsViewModel.kt  AchievementsViewModel.kt
 │       │       └── theme/     Theme.kt  Color.kt  Type.kt
 │       └── res/
 │           ├── mipmap-*/      Icônes adaptatives (fond bleu tricolore, texte QCM)
