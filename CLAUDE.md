@@ -120,39 +120,47 @@ QCM_France/
 │   │   │   ├── data/
 │   │   │   │   ├── ExamConstants.kt             Constantes officielles : durée 2700 s, seuil 32, alerte chrono 300 s
 │   │   │   │   ├── db/
-│   │   │   │   │   ├── AppDatabase.kt           Room @Database v8 (exportSchema) + migrations 1→2→3→4→5→6→7→8
+│   │   │   │   │   ├── AppDatabase.kt           Room @Database v9 (exportSchema) + migrations 1→2→…→8→9
 │   │   │   │   │   ├── QuestionDao.kt           @Dao : getAllByTheme, getIdsByTheme(theme, isSituation), getByIds, countByTheme, insertAll, count
 │   │   │   │   │   ├── QuizResultDao.kt         @Dao : getAll (Flow), insert, deleteAll
 │   │   │   │   │   ├── PausedQuizDao.kt         @Dao : save (REPLACE), get, observe (Flow), delete
 │   │   │   │   │   ├── TrainingProgressDao.kt   @Dao : save (REPLACE), get, observeAll (Flow), clear
-│   │   │   │   │   └── ExamCycleDao.kt          @Dao : save (REPLACE), get, clear
+│   │   │   │   │   ├── ExamCycleDao.kt          @Dao : save (REPLACE), get, clear
+│   │   │   │   │   ├── AchievementDao.kt        @Dao : observeAll (Flow), get, upsert (REPLACE), clear
+│   │   │   │   │   └── SeenQuestionDao.kt       @Dao : insertAll (IGNORE), count, clear
 │   │   │   │   ├── model/
 │   │   │   │   │   ├── Question.kt              @Entity Room
 │   │   │   │   │   ├── QuizResult.kt            @Entity Room : id, date, score, passed, duration
 │   │   │   │   │   ├── PausedQuiz.kt            @Entity Room : singleton (PK=1), état sérialisé JSON
 │   │   │   │   │   ├── TrainingProgress.kt      @Entity Room : PK=theme, currentIndex (point de reprise)
-│   │   │   │   │   └── ExamCycle.kt             @Entity Room : PK=theme, permutation d'ids (JSON) + curseur
+│   │   │   │   │   ├── ExamCycle.kt             @Entity Room : PK=theme, permutation d'ids (JSON) + curseur
+│   │   │   │   │   ├── Achievement.kt           Catalogue statique (Achievements.ALL) + AchievementRecord (@Entity) + AchievementState
+│   │   │   │   │   └── SeenQuestion.kt          @Entity Room : PK=questionId (questions déjà vues en examen)
 │   │   │   │   └── repository/
 │   │   │   │       ├── QuestionRepository.kt    seedIfNeeded (2 fichiers JSON) + tirage stratifié 28 connaissances + 12 mise en situation, cyclé (exam_cycle), themes
 │   │   │   │       ├── HistoryRepository.kt     sauvegarde et récupération de l'historique
 │   │   │   │       ├── SettingsRepository.kt    DataStore : ThemeMode + soundEnabled + TextSizeMode
 │   │   │   │       ├── PausedQuizRepository.kt  save/load/clear + PausedQuizState (Gson)
-│   │   │   │       └── TrainingRepository.kt    questions par thème (ordre stable), avancement par thème
+│   │   │   │       ├── TrainingRepository.kt    questions par thème (ordre stable), avancement par thème
+│   │   │   │       └── AchievementRepository.kt moteur de déblocage (unlock/onExamCompleted/onThemeCompleted), newlyUnlocked (SharedFlow), observe
 │   │   │   ├── di/
 │   │   │   │   └── AppModule.kt                 Hilt @Module (AppDatabase, DAOs)
 │   │   │   ├── ui/
 │   │   │   │   ├── navigation/
-│   │   │   │   │   └── NavGraph.kt              9 routes : home/quiz/result/history/settings/help/training_themes/training/about
+│   │   │   │   │   └── NavGraph.kt              10 routes : home/quiz/result/history/settings/help/training_themes/training/about/achievements + overlay popup succès
 │   │   │   │   ├── screen/
-│   │   │   │   │   ├── HomeScreen.kt            titre, règles, Reprendre (si pause), S'entraîner par thème, AlertDialog, icône Aide
+│   │   │   │   │   ├── HomeScreen.kt            titre, règles, Reprendre (si pause), S'entraîner par thème, Succès, AlertDialog, icône Aide
 │   │   │   │   │   ├── QuizScreen.kt            question N/40, options, timer, bouton Pause, BackHandler, son
 │   │   │   │   │   ├── ResultScreen.kt          score, RÉUSSI/ÉCHOUÉ, temps, filtre erreurs (FilterChip), détail, export, musique de fin (MediaPlayer)
 │   │   │   │   │   ├── HistoryScreen.kt         liste des résultats, export par résultat, vider
-│   │   │   │   │   ├── SettingsScreen.kt        thème (Système/Clair/Sombre), taille du texte (slider), toggle son, réinitialiser l'entraînement, réinitialiser le cycle de l'examen, À propos (défilable)
+│   │   │   │   │   ├── SettingsScreen.kt        thème (Système/Clair/Sombre), taille du texte (slider), toggle son, réinitialiser l'entraînement, réinitialiser le cycle de l'examen, réinitialiser les succès, À propos (défilable)
 │   │   │   │   │   ├── HelpScreen.kt            guide utilisateur + 7 liens officiels cliquables
 │   │   │   │   │   ├── AboutScreen.kt           version installée (PackageManager) + bouton vers les releases GitHub (téléchargement APK, sans permission)
 │   │   │   │   │   ├── TrainingThemesScreen.kt  sélection du thème + barre d'avancement X/total par thème
-│   │   │   │   │   └── TrainingScreen.kt        question du thème, feedback immédiat (vert/rouge), explication + lien source
+│   │   │   │   │   ├── TrainingScreen.kt        question du thème, feedback immédiat (vert/rouge), explication + lien source
+│   │   │   │   │   └── AchievementsScreen.kt    liste des succès groupés (Examen/Entraînement), verrouillés grisés, barres X/target
+│   │   │   │   ├── components/
+│   │   │   │   │   └── AchievementUnlockedBanner.kt  bandeau animé « Succès débloqué ! » (overlay global, slide-in, auto-dismiss)
 │   │   │   │   ├── utils/
 │   │   │   │   │   └── ResultExporter.kt        partage texte via Intent.ACTION_SEND
 │   │   │   │   ├── viewmodel/
@@ -161,10 +169,11 @@ QCM_France/
 │   │   │   │   │   ├── QuestionExt.kt           helper partagé withShuffledOptions() (examen + entraînement)
 │   │   │   │   │   ├── HomeViewModel.kt         hasPausedQuiz : StateFlow<Boolean>
 │   │   │   │   │   ├── HistoryViewModel.kt      Flow<List<QuizResult>>, clearHistory()
-│   │   │   │   │   └── SettingsViewModel.kt     themeMode + soundEnabled + textSizeMode StateFlow
+│   │   │   │   │   ├── SettingsViewModel.kt     themeMode + soundEnabled + textSizeMode StateFlow
+│   │   │   │   │   └── AchievementsViewModel.kt achievements (StateFlow<List<AchievementState>>), newlyUnlocked (SharedFlow), resetAchievements()
 │   │   │   │   └── theme/
 │   │   │   │       ├── Theme.kt                 Material 3 dynamique, accepte ThemeMode + TextSizeMode (échelle typo)
-│   │   │   │       ├── Color.kt                 palette + SuccessGreen/FailureRed partagées
+│   │   │   │       ├── Color.kt                 palette + SuccessGreen/FailureRed + AchievementGold partagées
 │   │   │   │       └── Type.kt
 │   │   │   ├── QcmFranceApplication.kt          @HiltAndroidApp
 │   │   │   └── MainActivity.kt                  @AndroidEntryPoint, collecte ThemeMode + TextSizeMode
@@ -311,6 +320,50 @@ Mode complémentaire à l'examen, orienté apprentissage — l'inverse UX de l'e
 - **Mises en situation incluses** : `TrainingRepository.questionsForTheme()`/`totalForTheme()` s'appuient sur `QuestionDao.getAllByTheme()`/`countByTheme()`, qui ne filtrent pas sur `isSituation` : les questions de mise en situation d'un thème apparaissent donc naturellement dans son entraînement, sans code de filtrage dédié.
 - **Option shuffling** : réutilise `withShuffledOptions()` (déplacé dans `ui/viewmodel/QuestionExt.kt`, partagé par les deux ViewModels).
 - **Réinitialisation** : Paramètres → « Réinitialiser la progression » (AlertDialog de confirmation) → `TrainingViewModel.resetTraining()` → `TrainingRepository.resetAll()`.
+
+---
+
+## Système de succès (« Achievements »)
+
+Système de gamification inspiré des trophées de jeux vidéo. Catalogue statique en code, état débloqué persisté en Room, popup au déblocage, page dédiée depuis l'accueil.
+
+### Catalogue (10 succès, `Achievements.ALL`)
+
+| id | Titre | Condition | Cible |
+|---|---|---|---|
+| `exam_first_completed` | Premier pas républicain | Terminer un 1er examen | — |
+| `exam_first_passed` | Reçu ! | Réussir un examen (≥ 32/40) | — |
+| `exam_perfect` *(rare)* | Sans-faute | Score parfait 40/40 | — |
+| `exam_all_seen` | Tour complet | Toutes les questions vues ≥ 1 fois en examen | X/318 |
+| `train_principes` | Valeurs acquises | Finir l'entraînement du thème 1 | — |
+| `train_institutions` | Rouages de l'État | Finir l'entraînement du thème 2 | — |
+| `train_droits` | Droits & devoirs | Finir l'entraînement du thème 3 | — |
+| `train_histoire` | Mémoire de France | Finir l'entraînement du thème 4 | — |
+| `train_societe` | Bien vivre ensemble | Finir l'entraînement du thème 5 | — |
+| `train_all` *(rare)* | Élève modèle | Finir les 5 thèmes d'entraînement | X/5 |
+
+Chaque succès : `id`, `titleRes`/`descriptionRes` (strings.xml), `emoji`, `category` (EXAM/TRAINING),
+`rarity` (COMMON/RARE — les rares ont un liseré doré et une description masquée « secret » tant que
+verrouillés), `target` (>1 ⇒ succès à progression, barre `X/target`).
+
+### Architecture
+
+- **`AchievementRecord`** (`@Entity` `achievements`, PK=`id`) : `unlockedAt` (nullable — null = non débloqué) + `progress`.
+- **`SeenQuestion`** (`@Entity` `seen_question`, PK=`questionId`) : ids des questions déjà vues en examen ; `COUNT(*)` = progression de `exam_all_seen`.
+- **`MIGRATION_8_9`** (BDD v8 → v9) crée ces deux tables.
+- **`AchievementRepository`** (`@Singleton`) : point d'entrée idempotent.
+  - `unlock(id)` : débloque un succès tout-ou-rien, sans ré-émettre si déjà débloqué.
+  - `onExamCompleted(passed, perfect, questionIds)` : appelé par `QuizViewModel.submitQuiz()`. Débloque `exam_first_completed`, et conditionnellement `exam_first_passed` / `exam_perfect` ; insère les ids vus (`seen_question`) et met à jour `exam_all_seen` (cible = `questionDao.count()`).
+  - `onThemeCompleted(theme)` : appelé par `TrainingViewModel` à la fin d'un thème (`next()`) **et** au rattrapage à l'ouverture d'un thème déjà terminé (`startTheme`). Débloque le succès du thème puis met à jour `train_all` (progression = nombre de thèmes terminés).
+  - `newlyUnlocked: SharedFlow<Achievement>` : émet chaque nouveau déblocage.
+  - `observe(): Flow<List<AchievementState>>` : catalogue + état persisté, pour la page.
+  - `resetAll()` : vide `achievements` + `seen_question` (bouton Paramètres).
+- **Popup** : `AchievementUnlockedBanner` (overlay dans `QcmNavGraph`, au-dessus du `NavHost`) collecte `newlyUnlocked` dans une file ; bandeau qui glisse du haut (`AnimatedVisibility`), liseré doré si rare, auto-dismiss ~4 s ou au clic.
+- **Page** : `AchievementsScreen` (route `achievements`, bouton « 🏆 Succès » sur l'accueil) : compteur `X/10`, succès groupés par catégorie, verrouillés grisés (🔒), barres de progression.
+
+> **Rattrapage** : les succès de thème d'entraînement se débloquent aussi en rouvrant un thème déjà
+> terminé avant l'ajout de la fonctionnalité (`onThemeCompleted` idempotent dans `startTheme`).
+> En revanche `exam_all_seen` ne compte que les examens soumis **après** la mise à jour.
 
 ---
 
@@ -478,11 +531,12 @@ fun submitQuiz() {
 | `quiz` | Examen | Question N/40, 4 options, chrono MM:SS, bouton Pause, BackHandler, barre de progression, son |
 | `result` | Résultat | Score X/40, temps utilisé, mention Réussi/Échoué, détail, export |
 | `history` | Historique | Liste des résultats passés, export individuel, vider l'historique |
-| `settings` | Paramètres | Thème (Système/Clair/Sombre), toggle son, réinitialiser la progression d'entraînement, réinitialiser le cycle de l'examen, accès « À propos » |
+| `settings` | Paramètres | Thème (Système/Clair/Sombre), toggle son, réinitialiser la progression d'entraînement, réinitialiser le cycle de l'examen, réinitialiser les succès, accès « À propos » |
 | `help` | Aide | Guide utilisateur, règles de l'examen, thèmes, fonctionnalités, 7 liens officiels cliquables |
 | `about` | À propos / Mises à jour | Version installée (lue via `PackageManager`, sans réseau) + bouton ouvrant `github.com/borisboiakki/qcm_france/releases/latest` dans le navigateur pour télécharger l'APK — aucune permission ajoutée |
 | `training_themes` | Entraînement (thèmes) | Liste des 5 thèmes + barre d'avancement `X/total`, retour Accueil |
 | `training` | Entraînement (question) | Question d'un thème, feedback immédiat (vert/rouge), explication + lien source, "Suivant"/"Terminer" |
+| `achievements` | Succès | Liste des succès groupés par catégorie (Examen / Entraînement), verrouillés grisés, barres de progression `X/target`, dates de déblocage |
 
 **Règle UX importante :** sur l'écran quiz, **aucun feedback immédiat** sur la bonne/mauvaise réponse (c'est un examen, pas un entraînement). Le feedback n'est affiché qu'à l'écran résultat.
 
@@ -605,12 +659,18 @@ ksp                    = { id = "com.google.devtools.ksp",              version 
   │                     ├─ Liste des résultats (date, score, durée, mention)
   │                     ├─ Icône partage sur chaque résultat → Intent.ACTION_SEND
   │                     └─ "Vider l'historique" (avec confirmation)
+  ├─ "🏆 Succès" ──► [AchievementsScreen]
+  │                     ├─ Compteur X/10 + barre globale
+  │                     ├─ Succès groupés (Examen / Entraînement), verrouillés grisés (🔒)
+  │                     └─ Barres de progression X/target (exam_all_seen, train_all)
+  │   (popup « Succès débloqué ! » affiché en overlay quel que soit l'écran)
   ├─ "Paramètres" ──► [SettingsScreen]
   │                     ├─ Thème : Système / Clair / Sombre (persisté DataStore)
   │                     ├─ Taille du texte : Petit / Moyen / Grand (slider, persisté DataStore)
   │                     ├─ Son de sélection : activé/désactivé (persisté DataStore)
   │                     ├─ "Réinitialiser la progression" → TrainingProgressDao.clear()
   │                     ├─ "Réinitialiser le cycle de l'examen" → ExamCycleDao.clear()
+  │                     ├─ "Réinitialiser les succès" → AchievementRepository.resetAll()
   │                     └─ "Mises à jour et à propos" ──► [AboutScreen]
   │                                                        ├─ Version installée (PackageManager)
   │                                                        └─ "Télécharger la dernière version sur GitHub" → navigateur (releases/latest)

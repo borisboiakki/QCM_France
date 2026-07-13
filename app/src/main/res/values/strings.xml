@@ -26,6 +26,7 @@
     <string name="home_resume_exam">Reprendre l\'examen</string>
     <string name="home_training">S\'entraîner par thème</string>
     <string name="home_history">Historique des examens</string>
+    <string name="home_achievements">🏆 Succès</string>
     <string name="home_dialog_new_exam_title">Commencer un nouvel examen ?</string>
     <string name="home_dialog_new_exam_text">Un examen en pause sera définitivement perdu. Continuer ?</string>
     <string name="home_dialog_new_exam_confirm">Commencer</string>
@@ -87,6 +88,11 @@
     <string name="settings_dialog_reset_cycle_title">Réinitialiser le cycle de l\'examen ?</string>
     <string name="settings_dialog_reset_cycle_text">Le tirage des questions de l\'examen blanc recommencera à zéro pour chaque thème. Cette action est irréversible.</string>
     <string name="settings_dialog_reset_confirm">Réinitialiser</string>
+    <string name="settings_achievements">Succès</string>
+    <string name="settings_achievements_desc">Réinitialiser tous les succès débloqués et leur progression.</string>
+    <string name="settings_reset_achievements">Réinitialiser les succès</string>
+    <string name="settings_dialog_reset_achievements_title">Réinitialiser les succès ?</string>
+    <string name="settings_dialog_reset_achievements_text">Tous vos succès débloqués et leur progression seront effacés. Cette action est irréversible.</string>
     <string name="settings_about">À propos</string>
     <string name="settings_about_desc">Version de l\'application et téléchargement de la dernière version.</string>
     <string name="settings_about_open">Mises à jour et à propos</string>
@@ -173,6 +179,38 @@
     <string name="help_link_charter">Charte des droits et devoirs du citoyen français</string>
     <string name="help_link_declaration">Déclaration des droits de l\'homme et du citoyen (1789)</string>
     <string name="help_link_constitution">Constitution française (1958)</string>
+
+    <!-- Succès (achievements) -->
+    <string name="achievements_title">Succès</string>
+    <string name="achievements_header_count">%1$d / %2$d débloqués</string>
+    <string name="achievements_category_exam">Examen</string>
+    <string name="achievements_category_training">Entraînement</string>
+    <string name="achievements_locked">Verrouillé</string>
+    <string name="achievements_unlocked_on">Débloqué le %1$s</string>
+    <string name="achievements_progress">%1$d / %2$d</string>
+    <string name="achievements_secret_desc">Succès secret — continuez pour le découvrir.</string>
+    <string name="achievements_banner_title">Succès débloqué !</string>
+
+    <string name="ach_exam_first_completed_title">Premier pas républicain</string>
+    <string name="ach_exam_first_completed_desc">Terminer votre premier examen blanc.</string>
+    <string name="ach_exam_first_passed_title">Reçu !</string>
+    <string name="ach_exam_first_passed_desc">Réussir un examen avec au moins 32/40.</string>
+    <string name="ach_exam_perfect_title">Sans-faute</string>
+    <string name="ach_exam_perfect_desc">Obtenir un score parfait de 40/40 à un examen.</string>
+    <string name="ach_exam_all_seen_title">Tour complet</string>
+    <string name="ach_exam_all_seen_desc">Voir passer toutes les questions de la base au moins une fois en examen.</string>
+    <string name="ach_train_principes_title">Valeurs acquises</string>
+    <string name="ach_train_principes_desc">Terminer l\'entraînement « Principes et valeurs de la République ».</string>
+    <string name="ach_train_institutions_title">Rouages de l\'État</string>
+    <string name="ach_train_institutions_desc">Terminer l\'entraînement « Système institutionnel et politique ».</string>
+    <string name="ach_train_droits_title">Droits &amp; devoirs</string>
+    <string name="ach_train_droits_desc">Terminer l\'entraînement « Droits et devoirs ».</string>
+    <string name="ach_train_histoire_title">Mémoire de France</string>
+    <string name="ach_train_histoire_desc">Terminer l\'entraînement « Histoire, géographie et culture ».</string>
+    <string name="ach_train_societe_title">Bien vivre ensemble</string>
+    <string name="ach_train_societe_desc">Terminer l\'entraînement « Vivre dans la société française ».</string>
+    <string name="ach_train_all_title">Élève modèle</string>
+    <string name="ach_train_all_desc">Terminer l\'entraînement des 5 thèmes.</string>
 
     <!-- Export / partage -->
     <string name="export_subject">Résultats QCM France</string>

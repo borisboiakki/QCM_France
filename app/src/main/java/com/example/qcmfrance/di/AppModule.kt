@@ -1,11 +1,13 @@
 package com.example.qcmfrance.di
 
 import android.content.Context
+import com.example.qcmfrance.data.db.AchievementDao
 import com.example.qcmfrance.data.db.AppDatabase
 import com.example.qcmfrance.data.db.ExamCycleDao
 import com.example.qcmfrance.data.db.PausedQuizDao
 import com.example.qcmfrance.data.db.QuestionDao
 import com.example.qcmfrance.data.db.QuizResultDao
+import com.example.qcmfrance.data.db.SeenQuestionDao
 import com.example.qcmfrance.data.db.TrainingProgressDao
 import dagger.Module
 import dagger.Provides
@@ -42,4 +44,12 @@ object AppModule {
     @Provides
     @Singleton
     fun provideExamCycleDao(db: AppDatabase): ExamCycleDao = db.examCycleDao()
+
+    @Provides
+    @Singleton
+    fun provideAchievementDao(db: AppDatabase): AchievementDao = db.achievementDao()
+
+    @Provides
+    @Singleton
+    fun provideSeenQuestionDao(db: AppDatabase): SeenQuestionDao = db.seenQuestionDao()
 }

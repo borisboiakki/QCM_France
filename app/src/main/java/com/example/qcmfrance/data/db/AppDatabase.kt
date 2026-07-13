@@ -6,15 +6,17 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.example.qcmfrance.data.model.AchievementRecord
 import com.example.qcmfrance.data.model.ExamCycle
 import com.example.qcmfrance.data.model.PausedQuiz
 import com.example.qcmfrance.data.model.Question
 import com.example.qcmfrance.data.model.QuizResult
+import com.example.qcmfrance.data.model.SeenQuestion
 import com.example.qcmfrance.data.model.TrainingProgress
 
 @Database(
-    entities = [Question::class, QuizResult::class, PausedQuiz::class, TrainingProgress::class, ExamCycle::class],
-    version = 8,
+    entities = [Question::class, QuizResult::class, PausedQuiz::class, TrainingProgress::class, ExamCycle::class, AchievementRecord::class, SeenQuestion::class],
+    version = 9,
     exportSchema = true
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -24,6 +26,8 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun pausedQuizDao(): PausedQuizDao
     abstract fun trainingProgressDao(): TrainingProgressDao
     abstract fun examCycleDao(): ExamCycleDao
+    abstract fun achievementDao(): AchievementDao
+    abstract fun seenQuestionDao(): SeenQuestionDao
 
     companion object {
         private val MIGRATION_1_2 = object : Migration(1, 2) {
@@ -137,9 +141,32 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
 
+        // Ajout du système de succès : tables achievements + seen_question (questions déjà vues
+        // en examen, pour le succès « Tour complet »).
+        private val MIGRATION_8_9 = object : Migration(8, 9) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS achievements (
+                        id TEXT PRIMARY KEY NOT NULL,
+                        unlockedAt INTEGER,
+                        progress INTEGER NOT NULL DEFAULT 0
+                    )
+                    """.trimIndent()
+                )
+                database.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS seen_question (
+                        questionId INTEGER PRIMARY KEY NOT NULL
+                    )
+                    """.trimIndent()
+                )
+            }
+        }
+
         fun build(context: Context): AppDatabase =
             Room.databaseBuilder(context, AppDatabase::class.java, "qcm_france.db")
-                .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5, MIGRATION_5_6, MIGRATION_6_7, MIGRATION_7_8)
+                .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5, MIGRATION_5_6, MIGRATION_6_7, MIGRATION_7_8, MIGRATION_8_9)
                 .build()
     }
 }

@@ -3,6 +3,7 @@ package com.example.qcmfrance.ui.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.qcmfrance.data.model.Question
+import com.example.qcmfrance.data.repository.AchievementRepository
 import com.example.qcmfrance.data.repository.TrainingRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -37,7 +38,8 @@ data class TrainingUiState(
 
 @HiltViewModel
 class TrainingViewModel @Inject constructor(
-    private val repository: TrainingRepository
+    private val repository: TrainingRepository,
+    private val achievementRepository: AchievementRepository
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(TrainingUiState())
@@ -66,14 +68,16 @@ class TrainingViewModel @Inject constructor(
             _uiState.value = TrainingUiState(theme = theme, isLoading = true)
             val questions = repository.questionsForTheme(theme).map { it.withShuffledOptions() }
             val savedIndex = repository.progressFor(theme)
-            val finished = questions.isEmpty() || savedIndex >= questions.size
+            val alreadyDone = questions.isNotEmpty() && savedIndex >= questions.size
             _uiState.value = TrainingUiState(
                 theme = theme,
                 questions = questions,
                 currentIndex = savedIndex.coerceIn(0, (questions.size - 1).coerceAtLeast(0)),
                 isLoading = false,
-                isFinished = finished
+                isFinished = questions.isEmpty() || alreadyDone
             )
+            // Rattrapage : un thème déjà terminé avant l'ajout des succès débloque le sien à l'ouverture.
+            if (alreadyDone) achievementRepository.onThemeCompleted(theme)
         }
     }
 
@@ -100,7 +104,10 @@ class TrainingViewModel @Inject constructor(
         val nextIndex = state.currentIndex + 1
         if (nextIndex >= state.questions.size) {
             _uiState.update { it.copy(isFinished = true, selectedAnswer = null, revealed = false) }
-            viewModelScope.launch { repository.saveProgress(state.theme, state.questions.size) }
+            viewModelScope.launch {
+                repository.saveProgress(state.theme, state.questions.size)
+                achievementRepository.onThemeCompleted(state.theme)
+            }
         } else {
             _uiState.update {
                 it.copy(currentIndex = nextIndex, selectedAnswer = null, revealed = false)
