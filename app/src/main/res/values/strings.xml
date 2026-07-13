@@ -87,6 +87,17 @@
     <string name="settings_dialog_reset_cycle_title">Réinitialiser le cycle de l\'examen ?</string>
     <string name="settings_dialog_reset_cycle_text">Le tirage des questions de l\'examen blanc recommencera à zéro pour chaque thème. Cette action est irréversible.</string>
     <string name="settings_dialog_reset_confirm">Réinitialiser</string>
+    <string name="settings_about">À propos</string>
+    <string name="settings_about_desc">Version de l\'application et téléchargement de la dernière version.</string>
+    <string name="settings_about_open">Mises à jour et à propos</string>
+
+    <!-- À propos / Mises à jour -->
+    <string name="about_title">Mises à jour</string>
+    <string name="about_installed_version_label">Version installée</string>
+    <string name="about_update_section">Dernière version</string>
+    <string name="about_update_intro">Les nouvelles versions de l\'application sont publiées sur GitHub. Appuyez ci-dessous pour ouvrir la page des versions et télécharger le dernier fichier APK.</string>
+    <string name="about_download_button">Télécharger la dernière version sur GitHub</string>
+    <string name="about_download_hint">Ouvre la page des versions dans votre navigateur.</string>
 
     <!-- Entraînement : choix du thème -->
     <string name="themes_title">S\'entraîner</string>

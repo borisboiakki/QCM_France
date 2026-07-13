@@ -9,6 +9,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.qcmfrance.ui.screen.AboutScreen
 import com.example.qcmfrance.ui.screen.HelpScreen
 import com.example.qcmfrance.ui.screen.HistoryScreen
 import com.example.qcmfrance.ui.screen.HomeScreen
@@ -31,6 +32,7 @@ private const val ROUTE_SETTINGS        = "settings"
 private const val ROUTE_HELP            = "help"
 private const val ROUTE_TRAINING_THEMES = "training_themes"
 private const val ROUTE_TRAINING        = "training"
+private const val ROUTE_ABOUT           = "about"
 
 @Composable
 fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
@@ -138,12 +140,17 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
                 onTextSizeModeChange = settingsViewModel::setTextSizeMode,
                 onResetTraining      = trainingViewModel::resetTraining,
                 onResetExamCycle     = viewModel::resetExamCycle,
+                onShowAbout          = { navController.navigate(ROUTE_ABOUT) },
                 onBack               = { navController.popBackStack() }
             )
         }
 
         composable(ROUTE_HELP) {
             HelpScreen(onBack = { navController.popBackStack() })
+        }
+
+        composable(ROUTE_ABOUT) {
+            AboutScreen(onBack = { navController.popBackStack() })
         }
     }
 }
