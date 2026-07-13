@@ -3912,7 +3912,7 @@
     "text": "Est-il possible de licencier une femme enceinte ou en congé maternité, en raison de sa grossesse ?",
     "optionA": "Non, cela est interdit par la loi",
     "optionB": "Seulement avec accord médical",
-    "optionC": "Uniquement en cas de faute grave",
+    "optionC": "Oui, si l'employeur respecte un préavis de deux mois",
     "optionD": "Oui",
     "correctAnswer": "A",
     "correctAnswers": [
@@ -4003,13 +4003,13 @@
     "id": 252,
     "theme": "Vivre dans la société française",
     "text": "À quel âge commence l'instruction obligatoire des enfants ?",
-    "optionA": "À 3 ans",
+    "optionA": "3 ans",
     "optionB": "4 ans",
     "optionC": "5 ans",
     "optionD": "6 ans",
     "correctAnswer": "A",
     "correctAnswers": [
-      "À 3 ans"
+      "3 ans"
     ],
     "explanation": "Depuis la loi du 26 juillet 2019, l'instruction est obligatoire à partir de 3 ans en France (et non plus 6 ans). Cette réforme vise à réduire les inégalités éducatives dès le plus jeune âge. Les enfants de 3 à 6 ans sont accueillis à l'école maternelle, qui est obligatoire depuis cette loi.",
     "source": "https://fr.wikipedia.org/wiki/Instruction_obligatoire_en_France"
