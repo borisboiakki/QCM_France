@@ -16,6 +16,9 @@ interface AchievementDao {
     @Query("SELECT * FROM achievements WHERE id = :id")
     suspend fun get(id: String): AchievementRecord?
 
+    @Query("SELECT COUNT(*) FROM achievements WHERE id IN (:ids) AND unlockedAt IS NOT NULL")
+    suspend fun countUnlockedIn(ids: List<String>): Int
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(record: AchievementRecord)
 

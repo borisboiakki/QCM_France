@@ -176,8 +176,7 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
         }
 
         composable(ROUTE_ACHIEVEMENTS) {
-            val achievementsScreenViewModel: AchievementsViewModel = hiltViewModel()
-            val states by achievementsScreenViewModel.achievements.collectAsStateWithLifecycle()
+            val states by achievementsViewModel.achievements.collectAsStateWithLifecycle()
             AchievementsScreen(
                 states = states,
                 onBack = { navController.popBackStack() }

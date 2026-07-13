@@ -89,8 +89,8 @@ class AchievementRepository @Inject constructor(
     suspend fun onThemeCompleted(theme: String) {
         val id = Achievements.TRAINING_BY_THEME[theme] ?: return
         unlock(id)
-        // « Élève modèle » : progression = nombre de thèmes terminés.
-        val done = Achievements.TRAINING_BY_THEME.values.count { dao.get(it)?.unlockedAt != null }
+        // « Élève modèle » : progression = nombre de thèmes terminés (une seule requête).
+        val done = dao.countUnlockedIn(Achievements.TRAINING_BY_THEME.values.toList())
         setProgress(Achievements.TRAIN_ALL, done, Achievements.TRAINING_BY_THEME.size)
     }
 
