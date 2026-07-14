@@ -73,6 +73,31 @@ private val LINK_SECTIONS = listOf(
             ),
         )
     ),
+    LinkSection(
+        titleRes = R.string.resources_section_sheets,
+        links = listOf(
+            ExternalLink(
+                labelRes = R.string.help_link_sheet_droits,
+                url = "https://formation-civique.interieur.gouv.fr/fiches-par-thematiques/droits-et-devoirs/"
+            ),
+            ExternalLink(
+                labelRes = R.string.help_link_sheet_histoire,
+                url = "https://formation-civique.interieur.gouv.fr/fiches-par-thematiques/histoire-geographie-et-culture/"
+            ),
+            ExternalLink(
+                labelRes = R.string.help_link_sheet_principes,
+                url = "https://formation-civique.interieur.gouv.fr/fiches-par-thematiques/principes-et-valeurs-de-la-republique/"
+            ),
+            ExternalLink(
+                labelRes = R.string.help_link_sheet_systeme,
+                url = "https://formation-civique.interieur.gouv.fr/fiches-par-thematiques/systeme-institutionnel-et-politique/"
+            ),
+            ExternalLink(
+                labelRes = R.string.help_link_sheet_societe,
+                url = "https://formation-civique.interieur.gouv.fr/fiches-par-thematiques/vivre-dans-la-societe-fran%C3%A7aise/"
+            ),
+        )
+    ),
 )
 
 @OptIn(ExperimentalMaterial3Api::class)

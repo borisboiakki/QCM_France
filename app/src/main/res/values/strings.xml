@@ -40,6 +40,7 @@
     <string name="resources_hint">Appuyez sur un lien pour l\'ouvrir dans votre navigateur.</string>
     <string name="resources_section_texts">Textes officiels</string>
     <string name="resources_section_exam">Examen civique et tests</string>
+    <string name="resources_section_sheets">Fiches thématiques officielles</string>
 
     <!-- Examen -->
     <string name="quiz_question_counter">Question %1$d / %2$d</string>
@@ -195,6 +196,11 @@
     <string name="help_link_charter">Charte des droits et devoirs du citoyen français</string>
     <string name="help_link_declaration">Déclaration des droits de l\'homme et du citoyen (1789)</string>
     <string name="help_link_constitution">Constitution française (1958)</string>
+    <string name="help_link_sheet_droits">Droits et devoirs</string>
+    <string name="help_link_sheet_histoire">Histoire, géographie et culture</string>
+    <string name="help_link_sheet_principes">Principes et valeurs de la République</string>
+    <string name="help_link_sheet_systeme">Système institutionnel et politique</string>
+    <string name="help_link_sheet_societe">Vivre dans la société française</string>
 
     <!-- Succès (achievements) -->
     <string name="achievements_title">Succès</string>
