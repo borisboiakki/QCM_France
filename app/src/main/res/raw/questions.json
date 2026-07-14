@@ -3274,9 +3274,9 @@
     "id": 205,
     "theme": "Histoire, géographie et culture",
     "text": "Quelle est la population approximative de la France en 2025 ?",
-    "optionA": "100 millions",
-    "optionB": "65 millions",
-    "optionC": "80 millions",
+    "optionA": "Environ 100 millions d'habitants",
+    "optionB": "Environ 65 millions d'habitants",
+    "optionC": "Environ 80 millions d'habitants",
     "optionD": "Environ 70 millions d'habitants",
     "correctAnswer": "D",
     "correctAnswers": [
