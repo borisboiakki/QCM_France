@@ -2583,10 +2583,10 @@
     "id": 162,
     "theme": "Histoire, géographie et culture",
     "text": "Quelle organisation a été créée en 1945 après la Seconde Guerre mondiale ?",
-    "optionA": "L'UE",
+    "optionA": "L'Union européenne (UE)",
     "optionB": "L'Organisation des Nations Unies (ONU)",
-    "optionC": "L'UNESCO",
-    "optionD": "L'OTAN",
+    "optionC": "L'Organisation des Nations Unies pour l'éducation, la science et la culture (UNESCO)",
+    "optionD": "L'Organisation du traité de l'Atlantique Nord (OTAN)",
     "correctAnswer": "B",
     "correctAnswers": [
       "L'Organisation des Nations Unies (ONU)"
