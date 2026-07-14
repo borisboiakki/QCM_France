@@ -113,11 +113,11 @@
     "text": "Lequel de ces symboles représente la République française ?",
     "optionA": "La croix de Lorraine",
     "optionB": "Le soleil",
-    "optionC": "Le drapeau tricolore (Bleu, Blanc, Rouge)",
+    "optionC": "Le drapeau tricolore",
     "optionD": "Le lion",
     "correctAnswer": "C",
     "correctAnswers": [
-      "Le drapeau tricolore (Bleu, Blanc, Rouge)",
+      "Le drapeau tricolore",
       "L'hymne national (La Marseillaise)",
       "Marianne",
       "Le 14 juillet (Fête nationale)",
@@ -1016,10 +1016,10 @@
     "optionA": "La préfecture de département",
     "optionB": "Le maire de la commune",
     "optionC": "La police nationale",
-    "optionD": "Le Juge (ou le Tribunal)",
+    "optionD": "Le juge",
     "correctAnswer": "D",
     "correctAnswers": [
-      "Le Juge (ou le Tribunal)",
+      "Le juge",
       "Le pouvoir judiciaire",
       "Le Tribunal correctionnel"
     ],
@@ -1033,10 +1033,10 @@
     "optionA": "La région",
     "optionB": "L'État directement via le rectorat",
     "optionC": "La commune",
-    "optionD": "Le Département (ou Conseil départemental)",
+    "optionD": "Le département",
     "correctAnswer": "D",
     "correctAnswers": [
-      "Le Département (ou Conseil départemental)",
+      "Le département",
       "La collectivité départementale"
     ],
     "explanation": "La répartition des compétences en France prévoit que les collèges (établissements du second degré, de la 6e à la 3e) sont sous la responsabilité des conseils départementaux. Ces derniers financent la construction, la rénovation et l'entretien des collèges. Les lycées, eux, relèvent des régions ; les écoles primaires relèvent des communes.",
@@ -1046,13 +1046,13 @@
     "id": 66,
     "theme": "Système institutionnel et politique",
     "text": "Qui gère les écoles primaires et maternelles publiques ?",
-    "optionA": "La Commune (ou la Mairie)",
+    "optionA": "La commune",
     "optionB": "L'État directement via l'inspection académique",
     "optionC": "La région",
     "optionD": "Le département",
     "correctAnswer": "A",
     "correctAnswers": [
-      "La Commune (ou la Mairie)",
+      "La commune",
       "La municipalité"
     ],
     "explanation": "Les écoles primaires (maternelles et élémentaires) publiques sont sous la responsabilité des communes. C'est la mairie qui finance leur construction, leur entretien et leur fonctionnement (chauffage, fournitures, personnel non enseignant). L'État, via l'Éducation nationale, est responsable des enseignants et des programmes.",
@@ -1255,11 +1255,11 @@
     "text": "En quelle année la citoyenneté européenne a-t-elle été créée ?",
     "optionA": "1957",
     "optionB": "1985",
-    "optionC": "1992 (Traité de Maastricht)",
+    "optionC": "1992",
     "optionD": "2000",
     "correctAnswer": "C",
     "correctAnswers": [
-      "1992 (Traité de Maastricht)"
+      "1992"
     ],
     "explanation": "La citoyenneté européenne a été créée par le Traité de Maastricht, signé le 7 février 1992 et entré en vigueur le 1er novembre 1993. Elle s'ajoute à la citoyenneté nationale et confère notamment le droit de circuler et de résider librement dans l'UE, de voter et d'être élu aux élections municipales et européennes dans tout État membre.",
     "source": "https://fr.wikipedia.org/wiki/Trait%C3%A9_de_Maastricht"
@@ -1300,11 +1300,11 @@
     "text": "Quand est célébrée la journée de l'Europe ?",
     "optionA": "1er janvier",
     "optionB": "14 juillet",
-    "optionC": "Le 9 mai",
+    "optionC": "9 mai",
     "optionD": "25 décembre",
     "correctAnswer": "C",
     "correctAnswers": [
-      "Le 9 mai"
+      "9 mai"
     ],
     "explanation": "La Journée de l'Europe est célébrée le 9 mai de chaque année. Cette date commémore la Déclaration Schuman du 9 mai 1950, dans laquelle le ministre français des Affaires étrangères Robert Schuman proposa la création d'une Europe unie par la mise en commun des ressources en charbon et en acier, ce qui donna naissance à la CECA.",
     "source": "https://fr.wikipedia.org/wiki/Journ%C3%A9e_de_l%27Europe"
@@ -1421,13 +1421,13 @@
     "id": 90,
     "theme": "Système institutionnel et politique",
     "text": "Quel État a quitté l'Union Européenne en 2020 ?",
-    "optionA": "Le Royaume-Uni",
+    "optionA": "Royaume-Uni",
     "optionB": "France",
     "optionC": "Italie",
     "optionD": "Allemagne",
     "correctAnswer": "A",
     "correctAnswers": [
-      "Le Royaume-Uni"
+      "Royaume-Uni"
     ],
     "explanation": "Le Royaume-Uni a quitté l'Union européenne à la suite du référendum du 23 juin 2016 (« Brexit ») au cours duquel 51,9 % des Britanniques ont voté pour la sortie. Le retrait formel a eu lieu le 31 janvier 2020, et la période de transition s'est terminée le 31 décembre 2020. C'est le seul État membre à avoir quitté l'UE.",
     "source": "https://fr.wikipedia.org/wiki/Brexit"
@@ -1535,11 +1535,11 @@
     "text": "Laquelle de ces citations est inscrite dans la Déclaration des Droits de l'Homme et du Citoyen de 1789 ?",
     "optionA": "La France est une République",
     "optionB": "La propriété est un vol",
-    "optionC": "\"Les hommes naissent et demeurent libres et égaux en droits.\" (Article 1)",
+    "optionC": "\"Les hommes naissent et demeurent libres et égaux en droits.\"",
     "optionD": "Le roi est le chef de l'État",
     "correctAnswer": "C",
     "correctAnswers": [
-      "\"Les hommes naissent et demeurent libres et égaux en droits.\" (Article 1)",
+      "\"Les hommes naissent et demeurent libres et égaux en droits.\"",
       "\"La liberté consiste à pouvoir faire tout ce qui ne nuit pas à autrui.\" (Article 4)",
       "\"La loi est l'expression de la volonté générale.\" (Article 6)",
       "\"Nul ne doit être inquiété pour ses opinions, même religieuses.\" (Article 10)",
@@ -1654,11 +1654,11 @@
     "text": "Quel droit protège une personne contre une arrestation arbitraire ?",
     "optionA": "Droit de fuite",
     "optionB": "Droit de se taire",
-    "optionC": "Le droit à la sûreté",
+    "optionC": "Droit à la sûreté",
     "optionD": "Droit de résistance",
     "correctAnswer": "C",
     "correctAnswers": [
-      "Le droit à la sûreté"
+      "Droit à la sûreté"
     ],
     "explanation": "Le droit à la sûreté, proclamé par l'article 7 de la DDHC de 1789, protège les individus contre les arrestations et détentions arbitraires. Toute arrestation doit reposer sur un motif légal. En France, la garde à vue est strictement encadrée : durée maximale, droit à un avocat, droit à un médecin et droit d'informer un proche.",
     "source": "https://fr.wikipedia.org/wiki/D%C3%A9claration_des_droits_de_l%27homme_et_du_citoyen_de_1789"
@@ -2189,11 +2189,11 @@
     "text": "Lequel de ces pays est un pays fondateur de l'Union Européenne ?",
     "optionA": "Norvège",
     "optionB": "Suisse",
-    "optionC": "L'Italie",
+    "optionC": "Italie",
     "optionD": "Royaume-Uni",
     "correctAnswer": "C",
     "correctAnswers": [
-      "L'Italie",
+      "Italie",
       "La France",
       "L'Allemagne",
       "La Belgique",
@@ -2223,13 +2223,13 @@
     "id": 139,
     "theme": "Histoire, géographie et culture",
     "text": "Dans quelle région est située une partie des plages du débarquement ayant permis d'engager la libération de la France ?",
-    "optionA": "La Normandie",
+    "optionA": "Normandie",
     "optionB": "Bretagne",
     "optionC": "Alsace",
     "optionD": "Provence",
     "correctAnswer": "A",
     "correctAnswers": [
-      "La Normandie"
+      "Normandie"
     ],
     "explanation": "Le débarquement de Normandie du 6 juin 1944 (« Jour J ») est l'une des plus grandes opérations militaires de l'histoire. Les troupes alliées ont débarqué sur cinq plages normandes : Utah, Omaha, Gold, Juno et Sword. Cette opération a permis d'ouvrir un second front et a constitué le début de la libération de la France occupée.",
     "source": "https://fr.wikipedia.org/wiki/D%C3%A9barquement_de_Normandie"
@@ -2301,10 +2301,10 @@
     "optionA": "Napoléon III",
     "optionB": "Charlemagne",
     "optionC": "Louis XIV",
-    "optionD": "Jules Ferry (L'école)",
+    "optionD": "Jules Ferry",
     "correctAnswer": "D",
     "correctAnswers": [
-      "Jules Ferry (L'école)",
+      "Jules Ferry",
       "Victor Hugo (L'écrivain engagé)",
       "Jean Jaurès (Le défenseur des ouvriers)",
       "Charles de Gaulle (Le libérateur)"
@@ -2350,11 +2350,11 @@
     "text": "Quel pays a été une colonie française ?",
     "optionA": "Espagne",
     "optionB": "Suisse",
-    "optionC": "Le Sénégal",
+    "optionC": "Sénégal",
     "optionD": "Portugal",
     "correctAnswer": "C",
     "correctAnswers": [
-      "Le Sénégal",
+      "Sénégal",
       "L'Algérie",
       "Le Mali",
       "La Côte d'Ivoire",
@@ -2583,10 +2583,10 @@
     "id": 162,
     "theme": "Histoire, géographie et culture",
     "text": "Quelle organisation a été créée en 1945 après la Seconde Guerre mondiale ?",
-    "optionA": "L'UE",
+    "optionA": "L'Union européenne (UE)",
     "optionB": "L'Organisation des Nations Unies (ONU)",
-    "optionC": "L'UNESCO",
-    "optionD": "L'OTAN",
+    "optionC": "L'Organisation des Nations Unies pour l'éducation, la science et la culture (UNESCO)",
+    "optionD": "L'Organisation du traité de l'Atlantique Nord (OTAN)",
     "correctAnswer": "B",
     "correctAnswers": [
       "L'Organisation des Nations Unies (ONU)"
@@ -2613,13 +2613,13 @@
     "id": 164,
     "theme": "Histoire, géographie et culture",
     "text": "Lors de la seconde guerre mondiale, à quelle date la ville de Paris a-t-elle été libérée ?",
-    "optionA": "Le 25 août 1944",
+    "optionA": "25 août 1944",
     "optionB": "6 juin 1944",
     "optionC": "1er septembre 1939",
     "optionD": "8 mai 1945",
     "correctAnswer": "A",
     "correctAnswers": [
-      "Le 25 août 1944"
+      "25 août 1944"
     ],
     "explanation": "Paris a été libérée de l'occupation allemande le 25 août 1944, après cinq jours de combats dans la capitale (19-25 août 1944). La 2e Division blindée française du général Leclerc, en coordination avec des unités américaines, a pénétré dans Paris. Le général de Gaulle a alors prononcé son célèbre discours de l'Hôtel de Ville, célébrant « Paris libéré, Paris martyrisé ».",
     "source": "https://fr.wikipedia.org/wiki/Lib%C3%A9ration_de_Paris"
@@ -2643,17 +2643,15 @@
     "id": 166,
     "theme": "Histoire, géographie et culture",
     "text": "Quel célèbre philosophe des Lumières a dénoncé l'esclavage ?",
-    "optionA": "Voltaire",
+    "optionA": "Montesquieu",
     "optionB": "Bossuet",
     "optionC": "Malebranche",
     "optionD": "Rousseau",
     "correctAnswer": "A",
     "correctAnswers": [
-      "Voltaire",
-      "Montesquieu",
-      "Condorcet"
+      "Montesquieu"
     ],
-    "explanation": "Voltaire a dénoncé l'esclavage et la traite négrière dans son conte « Candide » (1759), notamment dans le célèbre passage du nègre de Surinam. Montesquieu avait déjà critiqué l'esclavage dans « De l'Esprit des lois » (1748). Condorcet était également un abolitionniste convaincu. Ces philosophes des Lumières ont influencé le mouvement abolitionniste.",
+    "explanation": "Montesquieu a dénoncé l'esclavage dans « De l'Esprit des lois » (1748), notamment au chapitre ironique « De l'esclavage des nègres » (livre XV), où il tourne en dérision les justifications de la traite négrière. Bossuet et Malebranche ne sont pas connus pour un tel engagement, et Rousseau, bien qu'ayant critiqué l'esclavage politique, n'a pas centré sa réflexion sur la traite. À noter que Voltaire a lui aussi condamné l'esclavage (dans « Candide »), mais il ne figure pas ici parmi les propositions.",
     "source": "https://fr.wikipedia.org/wiki/Montesquieu"
   },
   {
@@ -2698,11 +2696,11 @@
     "text": "Quel plat est une spécialité de la cuisine française ?",
     "optionA": "Paella",
     "optionB": "Pizza",
-    "optionC": "Le Coq au vin",
+    "optionC": "Coq au vin",
     "optionD": "Sushi",
     "correctAnswer": "C",
     "correctAnswers": [
-      "Le Coq au vin",
+      "Coq au vin",
       "Le Bœuf bourguignon",
       "La Blanquette de veau",
       "Le Pot-au-feu"
@@ -2747,12 +2745,12 @@
     "theme": "Histoire, géographie et culture",
     "text": "Dans quel grand musée parisien est exposée la Joconde ?",
     "optionA": "Centre Pompidou",
-    "optionB": "Le Louvre",
+    "optionB": "Louvre",
     "optionC": "Musée d'Orsay",
     "optionD": "Grand Palais",
     "correctAnswer": "B",
     "correctAnswers": [
-      "Le Louvre"
+      "Louvre"
     ],
     "explanation": "La Joconde (portrait de Lisa Gherardini, épouse de Francesco del Giocondo), peinte par Léonard de Vinci entre 1503 et 1519, est le tableau le plus visité au monde. Elle est exposée dans la salle des États du musée du Louvre à Paris, où elle est protégée par un verre spécial. Le Louvre est le musée le plus visité du monde.",
     "source": "https://fr.wikipedia.org/wiki/Mus%C3%A9e_du_Louvre"
@@ -2762,12 +2760,12 @@
     "theme": "Histoire, géographie et culture",
     "text": "Quel château célèbre se trouve près de Paris et symbolise le pouvoir royal de Louis XIV ?",
     "optionA": "Chambord",
-    "optionB": "Le Château de Versailles",
+    "optionB": "Versailles",
     "optionC": "Fontainebleau",
     "optionD": "Chenonceau",
     "correctAnswer": "B",
     "correctAnswers": [
-      "Le Château de Versailles"
+      "Versailles"
     ],
     "explanation": "Le château de Versailles, situé à 20 km au sud-ouest de Paris, a été construit et agrandi sous Louis XIV (le Roi-Soleil). Il est devenu la résidence royale principale de 1682 jusqu'à la Révolution de 1789. Symbole de la puissance de la monarchie absolue, il accueille aujourd'hui des millions de visiteurs et abrite des assemblées du Parlement réuni en Congrès.",
     "source": "https://fr.wikipedia.org/wiki/Ch%C3%A2teau_de_Versailles"
@@ -2777,12 +2775,12 @@
     "theme": "Histoire, géographie et culture",
     "text": "Où peut-on voir des peintures préhistoriques en France ?",
     "optionA": "Le Mont-Saint-Michel",
-    "optionB": "Dans la grotte de Lascaux",
+    "optionB": "La grotte de Lascaux",
     "optionC": "Notre-Dame",
     "optionD": "Le Louvre",
     "correctAnswer": "B",
     "correctAnswers": [
-      "Dans la grotte de Lascaux"
+      "La grotte de Lascaux"
     ],
     "explanation": "La grotte de Lascaux, découverte en 1940 en Dordogne (Périgord), contient des peintures rupestres vieilles d'environ 17 000 ans, représentant des animaux (taureaux, chevaux, cerfs). Fermée au public en 1963 pour préserver les œuvres, une réplique exacte (Lascaux IV) est accessible aux visiteurs depuis 2016 à Montignac.",
     "source": "https://fr.wikipedia.org/wiki/Grotte_de_Lascaux"
@@ -2808,11 +2806,11 @@
     "text": "Pendant quelles journées peut-on visiter gratuitement des lieux culturels en France ?",
     "optionA": "Pâques",
     "optionB": "1er mai",
-    "optionC": "Les Journées européennes du patrimoine",
+    "optionC": "Journées européennes du patrimoine",
     "optionD": "Noël",
     "correctAnswer": "C",
     "correctAnswers": [
-      "Les Journées européennes du patrimoine"
+      "Journées européennes du patrimoine"
     ],
     "explanation": "Les Journées européennes du patrimoine ont lieu chaque année le troisième week-end de septembre. Pendant ce week-end, de nombreux monuments historiques, musées et institutions publics généralement fermés ouvrent leurs portes gratuitement ou à prix réduit. Créées en France en 1984 par Jack Lang, elles ont été étendues à toute l'Europe en 1991.",
     "source": "https://fr.wikipedia.org/wiki/Journ%C3%A9es_europ%C3%A9ennes_du_patrimoine"
@@ -2823,11 +2821,11 @@
     "text": "Que symbolise le 1er mai ?",
     "optionA": "Fête nationale",
     "optionB": "Fête de la Musique",
-    "optionC": "La Fête du Travail",
+    "optionC": "Fête du Travail",
     "optionD": "Armistice",
     "correctAnswer": "C",
     "correctAnswers": [
-      "La Fête du Travail"
+      "Fête du Travail"
     ],
     "explanation": "Le 1er mai est la Fête internationale des travailleurs, célébrée dans de nombreux pays du monde. En France, c'est un jour férié depuis 1947. Cette date commémore les manifestations de Chicago en 1886 pour la journée de 8 heures de travail. C'est aussi la tradition d'offrir du muguet, symbole de bonheur et de printemps.",
     "source": "https://fr.wikipedia.org/wiki/F%C3%AAte_du_Travail"
@@ -2944,11 +2942,11 @@
     "text": "Qui était Simone de Beauvoir ?",
     "optionA": "Chanteuse",
     "optionB": "Sportive",
-    "optionC": "Une philosophe, romancière et féministe française",
+    "optionC": "Philosophe, romancière et féministe française",
     "optionD": "Actrice",
     "correctAnswer": "C",
     "correctAnswers": [
-      "Une philosophe, romancière et féministe française"
+      "Philosophe, romancière et féministe française"
     ],
     "explanation": "Simone de Beauvoir (1908-1986) est une philosophe existentialiste et romancière française. Son essai « Le Deuxième Sexe » (1949) est un texte fondateur du féminisme moderne, analysant la condition des femmes dans la société. Elle était la compagne de Jean-Paul Sartre et a milité toute sa vie pour l'émancipation des femmes.",
     "source": "https://fr.wikipedia.org/wiki/Simone_de_Beauvoir"
@@ -2973,13 +2971,13 @@
     "id": 187,
     "theme": "Histoire, géographie et culture",
     "text": "Qui était Marguerite Yourcenar ?",
-    "optionA": "Une écrivaine et académicienne française",
+    "optionA": "Écrivaine et académicienne française",
     "optionB": "Danseuse",
     "optionC": "Astronome",
-    "optionD": "Médicine",
+    "optionD": "Médecin",
     "correctAnswer": "A",
     "correctAnswers": [
-      "Une écrivaine et académicienne française",
+      "Écrivaine et académicienne française",
       "La première femme élue à l'Académie française"
     ],
     "explanation": "Marguerite Yourcenar (1903-1987), de son vrai nom Marguerite Cleenewerck de Crayencour, est une romancière française (anagramme de son nom). En 1980, elle est devenue la première femme élue à l'Académie française, fondée en 1635. Elle est célèbre pour « Mémoires d'Hadrien » (1951) et « L'Œuvre au noir » (1968).",
@@ -2991,11 +2989,11 @@
     "text": "Qui était Paul Cézanne ?",
     "optionA": "Architecte",
     "optionB": "Compositeur",
-    "optionC": "Un peintre post-impressionniste français",
+    "optionC": "Peintre post-impressionniste français",
     "optionD": "Sculpteur",
     "correctAnswer": "C",
     "correctAnswers": [
-      "Un peintre post-impressionniste français",
+      "Peintre post-impressionniste français",
       "Un peintre français"
     ],
     "explanation": "Paul Cézanne (1839-1906) est un peintre post-impressionniste français originaire d'Aix-en-Provence. Son travail, centré sur la structure géométrique des formes et des volumes (Les Grandes Baigneuses, les séries sur la Montagne Sainte-Victoire), a influencé l'art moderne et notamment le cubisme de Picasso et Braque.",
@@ -3008,10 +3006,10 @@
     "optionA": "Peintre",
     "optionB": "Musicien",
     "optionC": "Écrivain",
-    "optionD": "Un sculpteur français",
+    "optionD": "Sculpteur français",
     "correctAnswer": "D",
     "correctAnswers": [
-      "Un sculpteur français"
+      "Sculpteur français"
     ],
     "explanation": "Auguste Rodin (1840-1917) est considéré comme le père de la sculpture moderne. Ses œuvres les plus connues incluent Le Penseur, Le Baiser, La Porte de l'Enfer et Les Bourgeois de Calais. Le musée Rodin, à Paris, conserve l'essentiel de son œuvre. Il a transformé la sculpture en lui donnant une dimension émotionnelle et humaine inégalée.",
     "source": "https://fr.wikipedia.org/wiki/Auguste_Rodin"
@@ -3039,11 +3037,11 @@
     "text": "Qui était Auguste Renoir ?",
     "optionA": "Poète",
     "optionB": "Philosophe",
-    "optionC": "Un peintre impressionniste français",
+    "optionC": "Peintre impressionniste français",
     "optionD": "Scientifique",
     "correctAnswer": "C",
     "correctAnswers": [
-      "Un peintre impressionniste français"
+      "Peintre impressionniste français"
     ],
     "explanation": "Auguste Renoir (1841-1919) est l'un des grands maîtres de l'impressionnisme français. Ses tableaux, souvent joyeux et colorés, représentent des scènes de la vie quotidienne, des portraits et des nus. Ses œuvres les plus célèbres incluent Le Déjeuner des canotiers, Bal du moulin de la Galette et Les Grandes Baigneuses.",
     "source": "https://fr.wikipedia.org/wiki/Auguste_Renoir"
@@ -3111,7 +3109,7 @@
     "theme": "Histoire, géographie et culture",
     "text": "Quelle île fait partie des Antilles françaises ?",
     "optionA": "La Réunion",
-    "optionB": "Saint-vincent",
+    "optionB": "Saint-Vincent",
     "optionC": "La Corse",
     "optionD": "La Martinique",
     "correctAnswer": "D",
@@ -3181,11 +3179,11 @@
     "text": "Quel département français a une frontière avec le Brésil ?",
     "optionA": "La Martinique",
     "optionB": "La Réunion",
-    "optionC": "Guyane",
+    "optionC": "La Guyane",
     "optionD": "La Guadeloupe",
     "correctAnswer": "C",
     "correctAnswers": [
-      "Guyane"
+      "La Guyane"
     ],
     "explanation": "La Guyane française est le seul département français situé sur le continent américain, en Amérique du Sud. Elle partage sa frontière avec le Brésil (au sud et à l'est) et le Suriname (à l'ouest). Son chef-lieu est Cayenne. C'est depuis Kourou, en Guyane, que décollent les fusées Ariane du Centre spatial guyanais.",
     "source": "https://fr.wikipedia.org/wiki/Guyane"
@@ -3209,13 +3207,13 @@
     "id": 201,
     "theme": "Histoire, géographie et culture",
     "text": "Quelle mer ou océan borde la France métropolitaine ?",
-    "optionA": "La Mer Méditerranée",
+    "optionA": "Mer Méditerranée",
     "optionB": "Mer Baltique",
     "optionC": "Océan Pacifique",
     "optionD": "Mer Noir",
     "correctAnswer": "A",
     "correctAnswers": [
-      "La Mer Méditerranée",
+      "Mer Méditerranée",
       "L'Océan Atlantique",
       "La Manche",
       "La Mer du Nord"
@@ -3276,9 +3274,9 @@
     "id": 205,
     "theme": "Histoire, géographie et culture",
     "text": "Quelle est la population approximative de la France en 2025 ?",
-    "optionA": "100 millions",
-    "optionB": "65 millions",
-    "optionC": "80 millions",
+    "optionA": "Environ 100 millions d'habitants",
+    "optionB": "Environ 65 millions d'habitants",
+    "optionC": "Environ 80 millions d'habitants",
     "optionD": "Environ 70 millions d'habitants",
     "correctAnswer": "D",
     "correctAnswers": [
@@ -3293,11 +3291,11 @@
     "text": "Quel est le principal port maritime de France ?",
     "optionA": "Nice",
     "optionB": "Brest",
-    "optionC": "Le port de Marseille",
-    "optionD": "Marseille",
+    "optionC": "Marseille",
+    "optionD": "Le Havre",
     "correctAnswer": "C",
     "correctAnswers": [
-      "Le port de Marseille"
+      "Marseille"
     ],
     "explanation": "Le Grand Port maritime de Marseille (GPMM) est le premier port français et le deuxième port méditerranéen. Il traite principalement des marchandises en vrac (pétrole, céréales, minerais) et des conteneurs. Marseille est aussi un important port de croisière. Le Havre est le premier port français pour les conteneurs.",
     "source": "https://fr.wikipedia.org/wiki/Port_de_Marseille"
@@ -3382,9 +3380,9 @@
     "id": 212,
     "theme": "Histoire, géographie et culture",
     "text": "Quel est le 101ème département français depuis 2011 ?",
-    "optionA": "La Guadeloupe",
-    "optionB": "La Réunion",
-    "optionC": "La Martinique",
+    "optionA": "Guadeloupe",
+    "optionB": "Réunion",
+    "optionC": "Martinique",
     "optionD": "Mayotte",
     "correctAnswer": "D",
     "correctAnswers": [
@@ -3397,10 +3395,10 @@
     "id": 213,
     "theme": "Histoire, géographie et culture",
     "text": "Quelle région française est réputée pour ses stations de ski ?",
-    "optionA": "La Normandie",
-    "optionB": "La Bretagne",
+    "optionA": "Normandie",
+    "optionB": "Bretagne",
     "optionC": "Auvergne-Rhône-Alpes",
-    "optionD": "La Provence",
+    "optionD": "Provence",
     "correctAnswer": "C",
     "correctAnswers": [
       "Auvergne-Rhône-Alpes"
@@ -3538,11 +3536,11 @@
     "text": "Quel numéro d'urgence permet d'appeler la police ?",
     "optionA": "115",
     "optionB": "18",
-    "optionC": "Le 17 (Police Secours)",
+    "optionC": "17",
     "optionD": "15",
     "correctAnswer": "C",
     "correctAnswers": [
-      "Le 17 (Police Secours)",
+      "17",
       "Le 112 (Numéro d'urgence européen)"
     ],
     "explanation": "En France, les numéros d'urgence sont : 15 (SAMU - urgences médicales), 17 (Police Secours), 18 (Pompiers) et 112 (numéro d'urgence européen, accessible depuis tout pays de l'UE). Pour appeler la police, c'est donc le 17. Le 112 peut aussi rediriger vers la police selon la situation.",
@@ -3569,11 +3567,11 @@
     "text": "Auprès de quelle institution les parents peuvent inscrire leurs enfants à l'école publique ?",
     "optionA": "À la région",
     "optionB": "Au département",
-    "optionC": "La mairie",
+    "optionC": "À la mairie",
     "optionD": "À l'école",
     "correctAnswer": "C",
     "correctAnswers": [
-      "La mairie"
+      "À la mairie"
     ],
     "explanation": "Pour inscrire un enfant à l'école publique primaire (maternelle ou élémentaire), les parents doivent s'adresser à la mairie de leur commune, qui gère la carte scolaire et désigne l'école de secteur. La mairie délivre un certificat d'inscription que les parents présentent ensuite à l'école. L'inscription est gratuite et obligatoire dès 3 ans.",
     "source": "https://fr.wikipedia.org/wiki/%C3%89cole_primaire_en_France"
@@ -3973,10 +3971,10 @@
     "optionA": "Visite chez des amis",
     "optionB": "Vacances en famille",
     "optionC": "Shopping",
-    "optionD": "La maladie de l'enfant",
+    "optionD": "Maladie de l'enfant",
     "correctAnswer": "D",
     "correctAnswers": [
-      "La maladie de l'enfant",
+      "Maladie de l'enfant",
       "Une maladie contagieuse d'un membre de la famille",
       "Une réunion solennelle de famille (mariage, enterrement)",
       "Un empêchement lié aux transports (grève, intempéries)"
