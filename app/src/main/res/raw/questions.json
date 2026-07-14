@@ -2643,17 +2643,15 @@
     "id": 166,
     "theme": "Histoire, géographie et culture",
     "text": "Quel célèbre philosophe des Lumières a dénoncé l'esclavage ?",
-    "optionA": "Voltaire",
+    "optionA": "Montesquieu",
     "optionB": "Bossuet",
     "optionC": "Malebranche",
     "optionD": "Rousseau",
     "correctAnswer": "A",
     "correctAnswers": [
-      "Voltaire",
-      "Montesquieu",
-      "Condorcet"
+      "Montesquieu"
     ],
-    "explanation": "Voltaire a dénoncé l'esclavage et la traite négrière dans son conte « Candide » (1759), notamment dans le célèbre passage du nègre de Surinam. Montesquieu avait déjà critiqué l'esclavage dans « De l'Esprit des lois » (1748). Condorcet était également un abolitionniste convaincu. Ces philosophes des Lumières ont influencé le mouvement abolitionniste.",
+    "explanation": "Montesquieu a dénoncé l'esclavage dans « De l'Esprit des lois » (1748), notamment au chapitre ironique « De l'esclavage des nègres » (livre XV), où il tourne en dérision les justifications de la traite négrière. Bossuet et Malebranche ne sont pas connus pour un tel engagement, et Rousseau, bien qu'ayant critiqué l'esclavage politique, n'a pas centré sa réflexion sur la traite. À noter que Voltaire a lui aussi condamné l'esclavage (dans « Candide »), mais il ne figure pas ici parmi les propositions.",
     "source": "https://fr.wikipedia.org/wiki/Montesquieu"
   },
   {

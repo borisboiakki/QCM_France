@@ -1,6 +1,6 @@
 # QCM France — Liste des questions et réponses
 
-> Généré automatiquement le 2026-07-13 à partir de `app/src/main/res/raw/questions.json`  
+> Généré automatiquement le 2026-07-14 à partir de `app/src/main/res/raw/questions.json`  
 > **318 questions** réparties en 5 thèmes.
 
 > **Note :** dans l'application, l'ordre des propositions (A, B, C, D) est mélangé aléatoirement à chaque examen. L'ordre affiché dans ce tableau correspond à l'ordre original du fichier de données et peut donc différer de celui présenté lors du test.
@@ -260,7 +260,7 @@
 | 163 | Connaissances | En quelle année l'euro est-il devenu la monnaie officielle de la France ? | 2005 | 2001 | 1995 | 2002 | **D** — 2002 | [source](https://fr.wikipedia.org/wiki/Euro) |
 | 164 | Connaissances | Lors de la seconde guerre mondiale, à quelle date la ville de Paris a-t-elle été libérée ? | Le 25 août 1944 | 6 juin 1944 | 1er septembre 1939 | 8 mai 1945 | **A** — Le 25 août 1944 | [source](https://fr.wikipedia.org/wiki/Lib%C3%A9ration_de_Paris) |
 | 165 | Connaissances | Quel était le principal port français impliqué dans la traite négrière au XVIIIe siècle ? | Le Havre | Bordeaux | Nantes | Marseille | **C** — Nantes | [source](https://fr.wikipedia.org/wiki/Traite_n%C3%A9gri%C3%A8re_fran%C3%A7aise) |
-| 166 | Connaissances | Quel célèbre philosophe des Lumières a dénoncé l'esclavage ? | Voltaire | Bossuet | Malebranche | Rousseau | **A** — Voltaire | [source](https://fr.wikipedia.org/wiki/Montesquieu) |
+| 166 | Connaissances | Quel célèbre philosophe des Lumières a dénoncé l'esclavage ? | Montesquieu | Bossuet | Malebranche | Rousseau | **A** — Montesquieu | [source](https://fr.wikipedia.org/wiki/Montesquieu) |
 | 167 | Connaissances | Quelle oeuvre a été écrite par Victor Hugo ? | Germinal | Les Misérables | Le Rouge et le Noir | La Comédie humaine | **B** — Les Misérables | [source](https://fr.wikipedia.org/wiki/Victor_Hugo) |
 | 168 | Connaissances | Quel peintre est français ? | Claude Monet | Van Gogh | Rembrandt | Picasso | **A** — Claude Monet | [source](https://fr.wikipedia.org/wiki/Claude_Monet) |
 | 169 | Connaissances | Quel plat est une spécialité de la cuisine française ? | Paella | Pizza | Le Coq au vin | Sushi | **C** — Le Coq au vin | [source](https://fr.wikipedia.org/wiki/Cuisine_fran%C3%A7aise) |
