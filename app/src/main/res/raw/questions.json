@@ -2301,10 +2301,10 @@
     "optionA": "Napoléon III",
     "optionB": "Charlemagne",
     "optionC": "Louis XIV",
-    "optionD": "Jules Ferry (L'école)",
+    "optionD": "Jules Ferry",
     "correctAnswer": "D",
     "correctAnswers": [
-      "Jules Ferry (L'école)",
+      "Jules Ferry",
       "Victor Hugo (L'écrivain engagé)",
       "Jean Jaurès (Le défenseur des ouvriers)",
       "Charles de Gaulle (Le libérateur)"
