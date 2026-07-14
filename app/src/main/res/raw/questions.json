@@ -2223,13 +2223,13 @@
     "id": 139,
     "theme": "Histoire, géographie et culture",
     "text": "Dans quelle région est située une partie des plages du débarquement ayant permis d'engager la libération de la France ?",
-    "optionA": "La Normandie",
+    "optionA": "Normandie",
     "optionB": "Bretagne",
     "optionC": "Alsace",
     "optionD": "Provence",
     "correctAnswer": "A",
     "correctAnswers": [
-      "La Normandie"
+      "Normandie"
     ],
     "explanation": "Le débarquement de Normandie du 6 juin 1944 (« Jour J ») est l'une des plus grandes opérations militaires de l'histoire. Les troupes alliées ont débarqué sur cinq plages normandes : Utah, Omaha, Gold, Juno et Sword. Cette opération a permis d'ouvrir un second front et a constitué le début de la libération de la France occupée.",
     "source": "https://fr.wikipedia.org/wiki/D%C3%A9barquement_de_Normandie"
@@ -3207,13 +3207,13 @@
     "id": 201,
     "theme": "Histoire, géographie et culture",
     "text": "Quelle mer ou océan borde la France métropolitaine ?",
-    "optionA": "La Mer Méditerranée",
+    "optionA": "Mer Méditerranée",
     "optionB": "Mer Baltique",
     "optionC": "Océan Pacifique",
     "optionD": "Mer Noir",
     "correctAnswer": "A",
     "correctAnswers": [
-      "La Mer Méditerranée",
+      "Mer Méditerranée",
       "L'Océan Atlantique",
       "La Manche",
       "La Mer du Nord"
