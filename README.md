@@ -76,8 +76,9 @@ Accessible via l'icône Info (barre du haut de l'accueil) :
 - Description des fonctionnalités de l'application (examen, entraînement, succès, paramètres)
 
 ### Écran ressources complémentaires
-Accessible via l'icône liste (barre du haut de l'accueil), dans un menu dédié :
-- 7 liens cliquables vers les ressources officielles (gouvernement, Légifrance, Conseil constitutionnel), ouverts dans le navigateur
+Accessible via l'icône liste (barre du haut de l'accueil), dans un menu dédié. 7 liens cliquables vers les ressources officielles, ouverts dans le navigateur, groupés en deux sections :
+- **Textes officiels** : Livret du citoyen, Charte des droits et devoirs, Déclaration des droits de l'homme (1789), Constitution française (1958)
+- **Examen civique et tests** : informations générales sur l'examen, fiche d'information, tests complémentaires en ligne
 
 ---
 
@@ -330,17 +331,24 @@ chaque question dans `QUESTIONS.md`.
 
 ## Ressources utiles pour les utilisateurs
 
-Liens disponibles depuis l'écran **Ressources complémentaires** de l'application (icône liste sur l'accueil) :
+Liens disponibles depuis l'écran **Ressources complémentaires** de l'application (icône liste sur l'accueil), groupés en deux sections.
+
+**Textes officiels**
 
 | Ressource | Lien |
 |---|---|
-| Informations générales sur l'examen civique | https://formation-civique.interieur.gouv.fr/examen-civique/informations-g%C3%A9n%C3%A9rales-sur-lexamen-civique/ |
-| Tests complémentaires en ligne (Ensemble en France) | https://www.ensemble-en-france.org/quiz-examen-civique-gratuit-debutant/ |
-| Fiche d'information sur l'examen | https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/lexamen-civique-pour-demande-de-naturalisation-ou-de-reintegration-dans-nationalite-francaise.html |
 | Livret du citoyen | https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/livret-du-citoyen.html |
 | Charte des droits et devoirs du citoyen français | https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/charte-des-droits-et-devoirs-du-citoyen-francais.html |
 | Déclaration des droits de l'homme et du citoyen (1789) | https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789 |
 | Constitution française (1958) | https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000571356/ |
+
+**Examen civique et tests**
+
+| Ressource | Lien |
+|---|---|
+| Informations générales sur l'examen civique | https://formation-civique.interieur.gouv.fr/examen-civique/informations-g%C3%A9n%C3%A9rales-sur-lexamen-civique/ |
+| Fiche d'information sur l'examen | https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/lexamen-civique-pour-demande-de-naturalisation-ou-de-reintegration-dans-nationalite-francaise.html |
+| Tests complémentaires en ligne (Ensemble en France) | https://www.ensemble-en-france.org/quiz-examen-civique-gratuit-debutant/ |
 
 ---
 

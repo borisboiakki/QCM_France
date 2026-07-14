@@ -155,7 +155,7 @@ QCM_France/
 │   │   │   │   │   ├── HistoryScreen.kt         liste des résultats, export par résultat, vider
 │   │   │   │   │   ├── SettingsScreen.kt        thème (Système/Clair/Sombre), taille du texte (slider), toggle son, réinitialiser l'entraînement, réinitialiser le cycle de l'examen, réinitialiser les succès, À propos (défilable)
 │   │   │   │   │   ├── HelpScreen.kt            guide utilisateur (règles, thèmes, fonctionnalités) — les liens officiels sont dans ResourcesScreen
-│   │   │   │   │   ├── ResourcesScreen.kt       ressources complémentaires : 7 liens officiels cliquables (déplacés depuis HelpScreen)
+│   │   │   │   │   ├── ResourcesScreen.kt       ressources complémentaires : 7 liens officiels cliquables en 2 sections (Textes officiels / Examen civique et tests) — déplacés depuis HelpScreen
 │   │   │   │   │   ├── AboutScreen.kt           version installée (PackageManager) + bouton vers les releases GitHub (téléchargement APK, sans permission)
 │   │   │   │   │   ├── TrainingThemesScreen.kt  sélection du thème + barre d'avancement X/total par thème
 │   │   │   │   │   ├── TrainingScreen.kt        question du thème, feedback immédiat (vert/rouge), explication + lien source
@@ -534,7 +534,7 @@ fun submitQuiz() {
 | `history` | Historique | Liste des résultats passés, export individuel, vider l'historique |
 | `settings` | Paramètres | Thème (Système/Clair/Sombre), toggle son, réinitialiser la progression d'entraînement, réinitialiser le cycle de l'examen, réinitialiser les succès, accès « À propos » |
 | `help` | Aide | Guide utilisateur, règles de l'examen, thèmes, fonctionnalités (les liens officiels sont désormais sur `resources`) |
-| `resources` | Ressources complémentaires | 7 liens officiels cliquables (gouvernement, Légifrance, Conseil constitutionnel) ouverts dans le navigateur — accès par l'icône « liste » de l'accueil |
+| `resources` | Ressources complémentaires | 7 liens officiels cliquables ouverts dans le navigateur, groupés en 2 sections (« Textes officiels » : livret, charte, Déclaration 1789, Constitution 1958 ; « Examen civique et tests » : infos générales, fiche, tests complémentaires) — accès par l'icône « liste » de l'accueil |
 | `about` | À propos / Mises à jour | Version installée (lue via `PackageManager`, sans réseau) + bouton ouvrant `github.com/borisboiakki/qcm_france/releases/latest` dans le navigateur pour télécharger l'APK — aucune permission ajoutée |
 | `training_themes` | Entraînement (thèmes) | Liste des 5 thèmes + barre d'avancement `X/total`, retour Accueil |
 | `training` | Entraînement (question) | Question d'un thème, feedback immédiat (vert/rouge), explication + lien source, "Suivant"/"Terminer" |

@@ -32,34 +32,46 @@ import com.example.qcmfrance.R
 
 private data class ExternalLink(@StringRes val labelRes: Int, val url: String)
 
-private val OFFICIAL_LINKS = listOf(
-    ExternalLink(
-        labelRes = R.string.help_link_general,
-        url = "https://formation-civique.interieur.gouv.fr/examen-civique/informations-g%C3%A9n%C3%A9rales-sur-lexamen-civique/"
+private data class LinkSection(@StringRes val titleRes: Int, val links: List<ExternalLink>)
+
+private val LINK_SECTIONS = listOf(
+    LinkSection(
+        titleRes = R.string.resources_section_texts,
+        links = listOf(
+            ExternalLink(
+                labelRes = R.string.help_link_citizen_booklet,
+                url = "https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/livret-du-citoyen.html"
+            ),
+            ExternalLink(
+                labelRes = R.string.help_link_charter,
+                url = "https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/charte-des-droits-et-devoirs-du-citoyen-francais.html"
+            ),
+            ExternalLink(
+                labelRes = R.string.help_link_declaration,
+                url = "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789"
+            ),
+            ExternalLink(
+                labelRes = R.string.help_link_constitution,
+                url = "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000571356/"
+            ),
+        )
     ),
-    ExternalLink(
-        labelRes = R.string.help_link_quiz,
-        url = "https://www.ensemble-en-france.org/quiz-examen-civique-gratuit-debutant/"
-    ),
-    ExternalLink(
-        labelRes = R.string.help_link_factsheet,
-        url = "https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/lexamen-civique-pour-demande-de-naturalisation-ou-de-reintegration-dans-nationalite-francaise.html"
-    ),
-    ExternalLink(
-        labelRes = R.string.help_link_citizen_booklet,
-        url = "https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/livret-du-citoyen.html"
-    ),
-    ExternalLink(
-        labelRes = R.string.help_link_charter,
-        url = "https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/charte-des-droits-et-devoirs-du-citoyen-francais.html"
-    ),
-    ExternalLink(
-        labelRes = R.string.help_link_declaration,
-        url = "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789"
-    ),
-    ExternalLink(
-        labelRes = R.string.help_link_constitution,
-        url = "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000571356/"
+    LinkSection(
+        titleRes = R.string.resources_section_exam,
+        links = listOf(
+            ExternalLink(
+                labelRes = R.string.help_link_general,
+                url = "https://formation-civique.interieur.gouv.fr/examen-civique/informations-g%C3%A9n%C3%A9rales-sur-lexamen-civique/"
+            ),
+            ExternalLink(
+                labelRes = R.string.help_link_factsheet,
+                url = "https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/lexamen-civique-pour-demande-de-naturalisation-ou-de-reintegration-dans-nationalite-francaise.html"
+            ),
+            ExternalLink(
+                labelRes = R.string.help_link_quiz,
+                url = "https://www.ensemble-en-france.org/quiz-examen-civique-gratuit-debutant/"
+            ),
+        )
     ),
 )
 
@@ -102,14 +114,23 @@ fun ResourcesScreen(onBack: () -> Unit) {
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
-                Spacer(modifier = Modifier.height(8.dp))
             }
 
-            items(OFFICIAL_LINKS) { link ->
-                LinkCard(
-                    label = stringResource(link.labelRes),
-                    onClick = { uriHandler.openUri(link.url) }
-                )
+            LINK_SECTIONS.forEach { section ->
+                item {
+                    Text(
+                        text = stringResource(section.titleRes),
+                        style = MaterialTheme.typography.titleSmall,
+                        color = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.padding(top = 8.dp)
+                    )
+                }
+                items(section.links) { link ->
+                    LinkCard(
+                        label = stringResource(link.labelRes),
+                        onClick = { uriHandler.openUri(link.url) }
+                    )
+                }
             }
         }
     }

@@ -38,6 +38,8 @@
     <string name="resources_title">Ressources complémentaires</string>
     <string name="resources_intro">Liens officiels pour approfondir votre préparation à l\'examen civique.</string>
     <string name="resources_hint">Appuyez sur un lien pour l\'ouvrir dans votre navigateur.</string>
+    <string name="resources_section_texts">Textes officiels</string>
+    <string name="resources_section_exam">Examen civique et tests</string>
 
     <!-- Examen -->
     <string name="quiz_question_counter">Question %1$d / %2$d</string>
