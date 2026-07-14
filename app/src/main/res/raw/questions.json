@@ -1535,11 +1535,11 @@
     "text": "Laquelle de ces citations est inscrite dans la Déclaration des Droits de l'Homme et du Citoyen de 1789 ?",
     "optionA": "La France est une République",
     "optionB": "La propriété est un vol",
-    "optionC": "\"Les hommes naissent et demeurent libres et égaux en droits.\" (Article 1)",
+    "optionC": "\"Les hommes naissent et demeurent libres et égaux en droits.\"",
     "optionD": "Le roi est le chef de l'État",
     "correctAnswer": "C",
     "correctAnswers": [
-      "\"Les hommes naissent et demeurent libres et égaux en droits.\" (Article 1)",
+      "\"Les hommes naissent et demeurent libres et égaux en droits.\"",
       "\"La liberté consiste à pouvoir faire tout ce qui ne nuit pas à autrui.\" (Article 4)",
       "\"La loi est l'expression de la volonté générale.\" (Article 6)",
       "\"Nul ne doit être inquiété pour ses opinions, même religieuses.\" (Article 10)",
