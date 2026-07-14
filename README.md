@@ -38,7 +38,7 @@ Système de gamification inspiré des trophées de jeux vidéo, pour rendre la p
 
 ### Écran d'accueil
 Rappel des règles officielles avant de commencer : nombre de questions, seuil de réussite, durée, format.  
-Accès rapide aux succès, à l'historique, aux paramètres et à l'aide (icône Info dans la barre du haut).  
+Accès rapide aux succès, à l'historique, aux paramètres, aux **ressources complémentaires** (icône liste) et à l'aide (icône Info) depuis la barre du haut.  
 Si un examen est en pause, bouton **Reprendre l'examen** (couleur secondaire). Démarrer un nouvel examen affiche une confirmation pour éviter d'écraser l'état sauvegardé.
 
 ### Écran de quiz
@@ -74,7 +74,11 @@ Si un examen est en pause, bouton **Reprendre l'examen** (couleur secondaire). D
 Accessible via l'icône Info (barre du haut de l'accueil) :
 - Rappel des règles officielles et de la répartition des thèmes
 - Description des fonctionnalités de l'application (examen, entraînement, succès, paramètres)
-- 7 liens cliquables vers les ressources officielles (gouvernement, Légifrance, Conseil constitutionnel)
+
+### Écran ressources complémentaires
+Accessible via l'icône liste (barre du haut de l'accueil), dans un menu dédié. 7 liens cliquables vers les ressources officielles, ouverts dans le navigateur, groupés en deux sections :
+- **Textes officiels** : Livret du citoyen, Charte des droits et devoirs, Déclaration des droits de l'homme (1789), Constitution française (1958)
+- **Examen civique et tests** : informations générales sur l'examen, fiche d'information, tests complémentaires en ligne
 
 ---
 
@@ -160,14 +164,15 @@ app/src/main/java/com/example/qcmfrance/
     │   ├── SettingsViewModel.kt   themeMode + soundEnabled + textSizeMode StateFlow
     │   └── AchievementsViewModel.kt  achievements (StateFlow), newlyUnlocked (SharedFlow), resetAchievements()
     ├── navigation/
-    │   └── NavGraph.kt            10 routes : home / quiz / result / history / settings / help / training_themes / training / about / achievements (+ overlay popup succès)
+    │   └── NavGraph.kt            11 routes : home / quiz / result / history / settings / help / resources / training_themes / training / about / achievements (+ overlay popup succès)
     ├── screen/
     │   ├── HomeScreen.kt          Accueil : règles, boutons (examen + entraînement + succès), icône Aide
     │   ├── QuizScreen.kt          Examen : question N/40, options, timer, Pause, BackHandler, son
     │   ├── ResultScreen.kt        Résultat : score, mention, filtre erreurs, export
     │   ├── HistoryScreen.kt       Historique : liste, export par résultat, vider
     │   ├── SettingsScreen.kt      Paramètres : thème, taille du texte, toggle son, réinitialiser entraînement / cycle examen / succès, À propos
-    │   ├── HelpScreen.kt          Aide : guide utilisateur + 7 liens officiels cliquables
+    │   ├── HelpScreen.kt          Aide : guide utilisateur (règles, thèmes, fonctionnalités)
+    │   ├── ResourcesScreen.kt     Ressources complémentaires : 7 liens officiels cliquables
     │   ├── AboutScreen.kt         À propos / mises à jour : version installée + lien releases GitHub
     │   ├── TrainingThemesScreen.kt  Sélection du thème + barre X/total par thème
     │   ├── TrainingScreen.kt      Question d'entraînement, feedback immédiat, explication + lien source
@@ -236,6 +241,7 @@ Le tirage n'utilise pas `ORDER BY RANDOM()` à chaque examen (ce qui permettrait
      │  "🏆 Succès" → navigate(achievements)
      │  Icône Historique → navigate(history)
      │  Icône Paramètres → navigate(settings)
+     │  Icône Ressources → navigate(resources)
      │  Icône Aide → navigate(help)
      │  (popup « Succès débloqué ! » affiché en overlay quel que soit l'écran)
      │
@@ -325,17 +331,24 @@ chaque question dans `QUESTIONS.md`.
 
 ## Ressources utiles pour les utilisateurs
 
-Liens disponibles depuis l'écran **Aide** de l'application :
+Liens disponibles depuis l'écran **Ressources complémentaires** de l'application (icône liste sur l'accueil), groupés en deux sections.
+
+**Textes officiels**
 
 | Ressource | Lien |
 |---|---|
-| Informations générales sur l'examen civique | https://formation-civique.interieur.gouv.fr/examen-civique/informations-g%C3%A9n%C3%A9rales-sur-lexamen-civique/ |
-| Tests complémentaires en ligne (Ensemble en France) | https://www.ensemble-en-france.org/quiz-examen-civique-gratuit-debutant/ |
-| Fiche d'information sur l'examen | https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/lexamen-civique-pour-demande-de-naturalisation-ou-de-reintegration-dans-nationalite-francaise.html |
 | Livret du citoyen | https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/livret-du-citoyen.html |
 | Charte des droits et devoirs du citoyen français | https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/charte-des-droits-et-devoirs-du-citoyen-francais.html |
 | Déclaration des droits de l'homme et du citoyen (1789) | https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789 |
 | Constitution française (1958) | https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000571356/ |
+
+**Examen civique et tests**
+
+| Ressource | Lien |
+|---|---|
+| Informations générales sur l'examen civique | https://formation-civique.interieur.gouv.fr/examen-civique/informations-g%C3%A9n%C3%A9rales-sur-lexamen-civique/ |
+| Fiche d'information sur l'examen | https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/lexamen-civique-pour-demande-de-naturalisation-ou-de-reintegration-dans-nationalite-francaise.html |
+| Tests complémentaires en ligne (Ensemble en France) | https://www.ensemble-en-france.org/quiz-examen-civique-gratuit-debutant/ |
 
 ---
 
@@ -369,7 +382,7 @@ QCM_France/
 │       │   └── ui/
 │       │       ├── navigation/NavGraph.kt
 │       │       ├── screen/    HomeScreen.kt  QuizScreen.kt  ResultScreen.kt
-│       │       │              HistoryScreen.kt  SettingsScreen.kt  HelpScreen.kt  AboutScreen.kt
+│       │       │              HistoryScreen.kt  SettingsScreen.kt  HelpScreen.kt  ResourcesScreen.kt  AboutScreen.kt
 │       │       │              TrainingThemesScreen.kt  TrainingScreen.kt  AchievementsScreen.kt
 │       │       ├── components/AchievementUnlockedBanner.kt
 │       │       ├── utils/     ResultExporter.kt

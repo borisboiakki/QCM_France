@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.AlertDialog
@@ -58,6 +59,7 @@ fun HomeScreen(
     onStartTraining: () -> Unit,
     onShowHistory: () -> Unit,
     onShowAchievements: () -> Unit,
+    onShowResources: () -> Unit,
     onShowSettings: () -> Unit,
     onShowHelp: () -> Unit,
     hasPausedQuiz: Boolean = false
@@ -90,6 +92,12 @@ fun HomeScreen(
             TopAppBar(
                 title = {},
                 actions = {
+                    IconButton(onClick = onShowResources) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.List,
+                            contentDescription = stringResource(R.string.cd_resources)
+                        )
+                    }
                     IconButton(onClick = onShowHelp) {
                         Icon(
                             imageVector = Icons.Default.Info,

@@ -32,6 +32,14 @@
     <string name="home_dialog_new_exam_confirm">Commencer</string>
     <string name="cd_help">Aide</string>
     <string name="cd_settings">Paramètres</string>
+    <string name="cd_resources">Ressources complémentaires</string>
+
+    <!-- Ressources complémentaires -->
+    <string name="resources_title">Ressources complémentaires</string>
+    <string name="resources_intro">Liens officiels pour approfondir votre préparation à l\'examen civique.</string>
+    <string name="resources_hint">Appuyez sur un lien pour l\'ouvrir dans votre navigateur.</string>
+    <string name="resources_section_texts">Textes officiels</string>
+    <string name="resources_section_exam">Examen civique et tests</string>
 
     <!-- Examen -->
     <string name="quiz_question_counter">Question %1$d / %2$d</string>
@@ -180,8 +188,6 @@
     <string name="help_settings_reset_cycle_desc">Relance depuis le début la rotation anti-répétition des questions de l\'examen, pour chaque thème (action irréversible, avec confirmation).</string>
     <string name="help_settings_reset_achievements_title">Réinitialiser les succès</string>
     <string name="help_settings_reset_achievements_desc">Efface tous les succès débloqués et leur progression (action irréversible, avec confirmation).</string>
-    <string name="help_links_title">Ressources officielles</string>
-    <string name="help_links_hint">Appuyez sur un lien pour l\'ouvrir dans votre navigateur.</string>
     <string name="help_link_general">Informations générales sur l\'examen civique</string>
     <string name="help_link_quiz">Tests complémentaires en ligne (Ensemble en France)</string>
     <string name="help_link_factsheet">Fiche d\'information sur l\'examen</string>
