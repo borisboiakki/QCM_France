@@ -1,7 +1,5 @@
 package com.example.qcmfrance.ui.screen
 
-import androidx.annotation.StringRes
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -27,50 +25,14 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.qcmfrance.R
 
-private data class ExternalLink(@StringRes val labelRes: Int, val url: String)
-
-private val OFFICIAL_LINKS = listOf(
-    ExternalLink(
-        labelRes = R.string.help_link_general,
-        url = "https://formation-civique.interieur.gouv.fr/examen-civique/informations-g%C3%A9n%C3%A9rales-sur-lexamen-civique/"
-    ),
-    ExternalLink(
-        labelRes = R.string.help_link_quiz,
-        url = "https://www.ensemble-en-france.org/quiz-examen-civique-gratuit-debutant/"
-    ),
-    ExternalLink(
-        labelRes = R.string.help_link_factsheet,
-        url = "https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/lexamen-civique-pour-demande-de-naturalisation-ou-de-reintegration-dans-nationalite-francaise.html"
-    ),
-    ExternalLink(
-        labelRes = R.string.help_link_citizen_booklet,
-        url = "https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/livret-du-citoyen.html"
-    ),
-    ExternalLink(
-        labelRes = R.string.help_link_charter,
-        url = "https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/charte-des-droits-et-devoirs-du-citoyen-francais.html"
-    ),
-    ExternalLink(
-        labelRes = R.string.help_link_declaration,
-        url = "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789"
-    ),
-    ExternalLink(
-        labelRes = R.string.help_link_constitution,
-        url = "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000571356/"
-    ),
-)
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HelpScreen(onBack: () -> Unit) {
-    val uriHandler = LocalUriHandler.current
-
     Scaffold(
         topBar = {
             TopAppBar(
@@ -268,24 +230,6 @@ fun HelpScreen(onBack: () -> Unit) {
                     )
                 }
             }
-
-            item {
-                HelpSectionTitle(stringResource(R.string.help_links_title))
-                Text(
-                    text = stringResource(R.string.help_links_hint),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-                Spacer(modifier = Modifier.height(8.dp))
-                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    OFFICIAL_LINKS.forEach { link ->
-                        LinkCard(
-                            label = stringResource(link.labelRes),
-                            onClick = { uriHandler.openUri(link.url) }
-                        )
-                    }
-                }
-            }
         }
     }
 }
@@ -344,24 +288,5 @@ private fun HelpFeatureRow(title: String, description: String) {
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
-    }
-}
-
-@Composable
-private fun LinkCard(label: String, onClick: () -> Unit) {
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable(onClick = onClick),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer
-        )
-    ) {
-        Text(
-            text = label,
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onPrimaryContainer,
-            modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp)
-        )
     }
 }

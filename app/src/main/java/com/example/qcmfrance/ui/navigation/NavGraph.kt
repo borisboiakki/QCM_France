@@ -23,6 +23,7 @@ import com.example.qcmfrance.ui.screen.HelpScreen
 import com.example.qcmfrance.ui.screen.HistoryScreen
 import com.example.qcmfrance.ui.screen.HomeScreen
 import com.example.qcmfrance.ui.screen.QuizScreen
+import com.example.qcmfrance.ui.screen.ResourcesScreen
 import com.example.qcmfrance.ui.screen.ResultScreen
 import com.example.qcmfrance.ui.screen.SettingsScreen
 import com.example.qcmfrance.ui.screen.TrainingScreen
@@ -40,6 +41,7 @@ private const val ROUTE_RESULT          = "result"
 private const val ROUTE_HISTORY         = "history"
 private const val ROUTE_SETTINGS        = "settings"
 private const val ROUTE_HELP            = "help"
+private const val ROUTE_RESOURCES       = "resources"
 private const val ROUTE_TRAINING_THEMES = "training_themes"
 private const val ROUTE_TRAINING        = "training"
 private const val ROUTE_ABOUT           = "about"
@@ -75,6 +77,7 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
                 onStartTraining    = { navController.navigate(ROUTE_TRAINING_THEMES) },
                 onShowHistory      = { navController.navigate(ROUTE_HISTORY) },
                 onShowAchievements = { navController.navigate(ROUTE_ACHIEVEMENTS) },
+                onShowResources    = { navController.navigate(ROUTE_RESOURCES) },
                 onShowSettings     = { navController.navigate(ROUTE_SETTINGS) },
                 onShowHelp         = { navController.navigate(ROUTE_HELP) },
                 hasPausedQuiz      = hasPausedQuiz
@@ -169,6 +172,10 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
 
         composable(ROUTE_HELP) {
             HelpScreen(onBack = { navController.popBackStack() })
+        }
+
+        composable(ROUTE_RESOURCES) {
+            ResourcesScreen(onBack = { navController.popBackStack() })
         }
 
         composable(ROUTE_ABOUT) {

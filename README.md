@@ -38,7 +38,7 @@ Système de gamification inspiré des trophées de jeux vidéo, pour rendre la p
 
 ### Écran d'accueil
 Rappel des règles officielles avant de commencer : nombre de questions, seuil de réussite, durée, format.  
-Accès rapide aux succès, à l'historique, aux paramètres et à l'aide (icône Info dans la barre du haut).  
+Accès rapide aux succès, à l'historique, aux paramètres, aux **ressources complémentaires** (icône liste) et à l'aide (icône Info) depuis la barre du haut.  
 Si un examen est en pause, bouton **Reprendre l'examen** (couleur secondaire). Démarrer un nouvel examen affiche une confirmation pour éviter d'écraser l'état sauvegardé.
 
 ### Écran de quiz
@@ -74,7 +74,10 @@ Si un examen est en pause, bouton **Reprendre l'examen** (couleur secondaire). D
 Accessible via l'icône Info (barre du haut de l'accueil) :
 - Rappel des règles officielles et de la répartition des thèmes
 - Description des fonctionnalités de l'application (examen, entraînement, succès, paramètres)
-- 7 liens cliquables vers les ressources officielles (gouvernement, Légifrance, Conseil constitutionnel)
+
+### Écran ressources complémentaires
+Accessible via l'icône liste (barre du haut de l'accueil), dans un menu dédié :
+- 7 liens cliquables vers les ressources officielles (gouvernement, Légifrance, Conseil constitutionnel), ouverts dans le navigateur
 
 ---
 
@@ -160,14 +163,15 @@ app/src/main/java/com/example/qcmfrance/
     │   ├── SettingsViewModel.kt   themeMode + soundEnabled + textSizeMode StateFlow
     │   └── AchievementsViewModel.kt  achievements (StateFlow), newlyUnlocked (SharedFlow), resetAchievements()
     ├── navigation/
-    │   └── NavGraph.kt            10 routes : home / quiz / result / history / settings / help / training_themes / training / about / achievements (+ overlay popup succès)
+    │   └── NavGraph.kt            11 routes : home / quiz / result / history / settings / help / resources / training_themes / training / about / achievements (+ overlay popup succès)
     ├── screen/
     │   ├── HomeScreen.kt          Accueil : règles, boutons (examen + entraînement + succès), icône Aide
     │   ├── QuizScreen.kt          Examen : question N/40, options, timer, Pause, BackHandler, son
     │   ├── ResultScreen.kt        Résultat : score, mention, filtre erreurs, export
     │   ├── HistoryScreen.kt       Historique : liste, export par résultat, vider
     │   ├── SettingsScreen.kt      Paramètres : thème, taille du texte, toggle son, réinitialiser entraînement / cycle examen / succès, À propos
-    │   ├── HelpScreen.kt          Aide : guide utilisateur + 7 liens officiels cliquables
+    │   ├── HelpScreen.kt          Aide : guide utilisateur (règles, thèmes, fonctionnalités)
+    │   ├── ResourcesScreen.kt     Ressources complémentaires : 7 liens officiels cliquables
     │   ├── AboutScreen.kt         À propos / mises à jour : version installée + lien releases GitHub
     │   ├── TrainingThemesScreen.kt  Sélection du thème + barre X/total par thème
     │   ├── TrainingScreen.kt      Question d'entraînement, feedback immédiat, explication + lien source
@@ -236,6 +240,7 @@ Le tirage n'utilise pas `ORDER BY RANDOM()` à chaque examen (ce qui permettrait
      │  "🏆 Succès" → navigate(achievements)
      │  Icône Historique → navigate(history)
      │  Icône Paramètres → navigate(settings)
+     │  Icône Ressources → navigate(resources)
      │  Icône Aide → navigate(help)
      │  (popup « Succès débloqué ! » affiché en overlay quel que soit l'écran)
      │
@@ -325,7 +330,7 @@ chaque question dans `QUESTIONS.md`.
 
 ## Ressources utiles pour les utilisateurs
 
-Liens disponibles depuis l'écran **Aide** de l'application :
+Liens disponibles depuis l'écran **Ressources complémentaires** de l'application (icône liste sur l'accueil) :
 
 | Ressource | Lien |
 |---|---|
@@ -369,7 +374,7 @@ QCM_France/
 │       │   └── ui/
 │       │       ├── navigation/NavGraph.kt
 │       │       ├── screen/    HomeScreen.kt  QuizScreen.kt  ResultScreen.kt
-│       │       │              HistoryScreen.kt  SettingsScreen.kt  HelpScreen.kt  AboutScreen.kt
+│       │       │              HistoryScreen.kt  SettingsScreen.kt  HelpScreen.kt  ResourcesScreen.kt  AboutScreen.kt
 │       │       │              TrainingThemesScreen.kt  TrainingScreen.kt  AchievementsScreen.kt
 │       │       ├── components/AchievementUnlockedBanner.kt
 │       │       ├── utils/     ResultExporter.kt
