@@ -544,27 +544,50 @@ fun submitQuiz() {
 
 ---
 
-## Pré-peuplement de la base de données
+## Pré-peuplement et synchronisation de la base de données
 
 La BDD est peuplée **au premier lancement** depuis `questions.json` **et**
 `situational_questions.json`, directement dans `QuestionRepository.seedIfNeeded()` (appelée par
-`drawStratifiedQuestions()` et par le chemin entraînement) :
+`drawStratifiedQuestions()` et par le chemin entraînement). La même fonction **resynchronise**
+aussi le contenu quand le JSON a été corrigé, sans réinstallation ni migration Room :
 
 ```kotlin
 // QuestionRepository.kt
+companion object {
+    const val CONTENT_VERSION = 1          // à incrémenter à CHAQUE correction du JSON
+    private const val CONTENT_PREFS = "question_content"
+    private const val KEY_CONTENT_VERSION = "content_version"
+}
+
 suspend fun seedIfNeeded() {
-    if (dao.count() == 0) {                         // premier lancement uniquement
-        val type = object : TypeToken<List<Question>>() {}.type
-        val connaissance: List<Question> = gson.fromJson(
-            context.resources.openRawResource(R.raw.questions).bufferedReader().readText(), type
-        )
-        val situation: List<Question> = gson.fromJson(
-            context.resources.openRawResource(R.raw.situational_questions).bufferedReader().readText(), type
-        )
-        dao.insertAll(connaissance + situation)
-    }
+    val prefs = context.getSharedPreferences(CONTENT_PREFS, Context.MODE_PRIVATE)
+    val appliedVersion = prefs.getInt(KEY_CONTENT_VERSION, 0)
+    val isEmpty = dao.count() == 0
+    if (!isEmpty && appliedVersion >= CONTENT_VERSION) return   // à jour → rien à faire
+
+    val type = object : TypeToken<List<Question>>() {}.type
+    val connaissance: List<Question> = gson.fromJson(
+        context.resources.openRawResource(R.raw.questions).bufferedReader().readText(), type
+    )
+    val situation: List<Question> = gson.fromJson(
+        context.resources.openRawResource(R.raw.situational_questions).bufferedReader().readText(), type
+    )
+    dao.insertAll(connaissance + situation)   // REPLACE : upsert par id (seed OU resynchro)
+    prefs.edit().putInt(KEY_CONTENT_VERSION, CONTENT_VERSION).apply()
 }
 ```
+
+> **Seed vs resynchro.** Premier lancement (`count() == 0`) → insertion complète. Contenu obsolète
+> (version appliquée < `CONTENT_VERSION`) → ré-application du JSON en `INSERT OR REPLACE` (upsert par
+> id) : les libellés corrigés et les nouvelles questions arrivent, **sans toucher** aux tables
+> `quiz_result`, `achievements`, `training_progress`, `exam_cycle`… Les installs antérieures à cette
+> fonctionnalité n'ont pas de version stockée (défaut `0`) → resynchronisation unique automatique.
+>
+> **Workflow de correction de contenu :** modifier le(s) fichier(s) JSON **puis incrémenter
+> `CONTENT_VERSION`**. Sans ce bump, les apps déjà installées ne verraient pas le changement (la BDD
+> Room n'est plus relue depuis le JSON après le seed initial). La version appliquée est stockée en
+> `SharedPreferences` (`question_content` / `content_version`), donc aucune migration Room n'est
+> nécessaire pour une simple correction de contenu.
 
 > Seed et tirage sont **séquentiels** dans la même coroutine `suspend` — aucune race condition
 > possible. L'ancienne approche (`RoomDatabase.Callback` async) causait un écran noir au premier
