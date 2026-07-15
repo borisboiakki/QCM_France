@@ -75,6 +75,8 @@ USER_AGENT = (
 )
 REQUEST_DELAY_S = 1.0          # politesse entre deux requêtes
 TIMEOUT_S = 30
+MAX_DEPTH = 6                  # garde-fou de profondeur du crawl par thème
+MAX_PAGES = 400               # garde-fou du nombre de pages visitées par thème
 
 _session = requests.Session()
 _session.headers.update({"User-Agent": USER_AGENT})
@@ -105,11 +107,6 @@ def fetch_html(url: str) -> str:
     return resp.text
 
 
-def slug_from_url(url: str) -> str:
-    path = urlparse(url).path.strip("/")
-    return path.split("/")[-1] if path else ""
-
-
 def _norm_slug(s: str) -> str:
     """Décode l'URL, retire les accents, ne garde que [a-z0-9-] pour comparer des slugs."""
     s = unquote(s)
@@ -117,34 +114,80 @@ def _norm_slug(s: str) -> str:
     return re.sub(r"[^a-z0-9-]", "", s.lower())
 
 
-def is_subfiche_url(href_abs: str, theme_slug: str) -> bool:
-    """True si `href_abs` est une sous-page (fiche) du thème `theme_slug`."""
-    p = urlparse(href_abs)
-    if p.netloc and p.netloc != urlparse(BASE).netloc:
-        return False
-    parts = [seg for seg in p.path.split("/") if seg]
-    # attend : fiches-par-thematiques / <slug-thème> / <slug-fiche>[/...]
-    if len(parts) < 3 or parts[0] != "fiches-par-thematiques":
-        return False
-    # le 2e segment doit correspondre au thème (tolère accents encodés dans l'URL)
-    return _norm_slug(parts[1]) == _norm_slug(theme_slug)
+def _norm_url(base: str, href: str) -> str:
+    """URL absolue normalisée : sans fragment ni query, avec un slash final."""
+    u = urljoin(base, href).split("#")[0].split("?")[0]
+    return u.rstrip("/") + "/"
 
 
-def discover_fiche_urls(index_html: str, index_url: str, theme_slug: str) -> list[str]:
-    soup = BeautifulSoup(index_html, "html.parser")
-    urls: list[str] = []
+def _seg_keys(url: str) -> list[str]:
+    """Segments de chemin normalisés (décodés, sans accents) pour comparer des URLs."""
+    return [_norm_slug(s) for s in urlparse(url).path.split("/") if s]
+
+
+def direct_child_urls(html: str, page_url: str) -> list[str]:
+    """Liens « enfants directs » : exactement un segment plus bas que `page_url`, même sous-arbre.
+
+    Sert à distinguer une page **intermédiaire** (qui liste des sous-pages) d'une **feuille** de
+    contenu (sans enfant). La comparaison se fait sur des segments normalisés pour tolérer les
+    accents encodés dans les URLs (ex. « société-fran%C3%A7aise »).
+    """
+    base_keys = _seg_keys(page_url)
+    base_host = urlparse(BASE).netloc
+    children: list[str] = []
     seen: set[str] = set()
+    soup = BeautifulSoup(html, "html.parser")
     for a in soup.find_all("a", href=True):
-        href_abs = urljoin(index_url, a["href"]).split("#")[0].rstrip("/") + "/"
-        if href_abs.rstrip("/") == index_url.rstrip("/"):
-            continue  # l'index lui-même
-        if not is_subfiche_url(href_abs, theme_slug):
+        cu = _norm_url(page_url, a["href"])
+        p = urlparse(cu)
+        if p.netloc and p.netloc != base_host:
             continue
-        if href_abs in seen:
+        keys = _seg_keys(cu)
+        # exactement un cran plus bas ET dans le sous-arbre de page_url
+        if len(keys) != len(base_keys) + 1 or keys[:len(base_keys)] != base_keys:
             continue
-        seen.add(href_abs)
-        urls.append(href_abs)
-    return urls
+        if cu in seen:
+            continue
+        seen.add(cu)
+        children.append(cu)
+    return children
+
+
+def crawl_theme_leaves(theme_slug: str, dump_dir: str | None) -> list[tuple[str, str]]:
+    """Parcourt récursivement le sous-arbre du thème et renvoie les **feuilles** `(url, html)`.
+
+    Une page ayant des enfants directs est une page intermédiaire (index de thème ou de catégorie,
+    listant des liens « Pages ») : on descend sans l'émettre. Une page sans enfant est une vraie
+    fiche de contenu : on l'émet. Résultat : uniquement le contenu réel, sans les pages de liens.
+    """
+    index_url = theme_index_url(theme_slug)
+    visited: set[str] = set()
+    leaves: list[tuple[str, str]] = []
+
+    def visit(url: str, depth: int) -> None:
+        key = "/".join(_seg_keys(url))
+        if key in visited or len(visited) >= MAX_PAGES:
+            return
+        visited.add(key)
+        try:
+            html = fetch_html(url)
+        except Exception as exc:  # noqa: BLE001
+            sys.stderr.write(f"  ! échec {url} ({exc})\n")
+            return
+        if dump_dir:
+            _write_dump(dump_dir, url, html)
+        time.sleep(REQUEST_DELAY_S)
+
+        children = [] if depth >= MAX_DEPTH else direct_child_urls(html, url)
+        children = [c for c in children if "/".join(_seg_keys(c)) not in visited]
+        if children:
+            for c in children:
+                visit(c, depth + 1)
+        else:
+            leaves.append((url, html))
+
+    visit(index_url, 0)
+    return leaves
 
 
 def extract_main_html(page_html: str) -> tuple[str, str]:
@@ -186,21 +229,21 @@ def html_to_markdown(content_html: str) -> str:
     return text
 
 
-def build_fiche(url: str, theme_slug: str, dump_dir: str | None) -> dict | None:
-    html = fetch_html(url)
-    if dump_dir:
-        _write_dump(dump_dir, url, html)
+def build_fiche(url: str, html: str, theme_slug: str) -> dict | None:
+    """Construit l'entrée fiche à partir du HTML déjà téléchargé (feuille de contenu)."""
     title, content_html = extract_main_html(html)
     markdown = html_to_markdown(content_html)
     if not markdown:
         sys.stderr.write(f"  ! contenu vide pour {url}\n")
         return None
-    fiche_slug = _norm_slug(slug_from_url(url)) or "fiche"
+    # id unique sur tout le dataset : slug du thème + chemin relatif (sous fiches-par-thematiques/
+    # <thème>) normalisé en ASCII → pas de collision entre catégories, sûr comme argument de
+    # navigation dans l'app.
+    rel = _seg_keys(url)[2:]  # segments sous « fiches-par-thematiques / <thème> »
+    fiche_key = "__".join(rel) if rel else "index"
     return {
-        # id unique sur tout le dataset : préfixé par le slug du thème. Slug normalisé en
-        # ASCII (pas de % ni d'accent) → sûr comme argument de navigation dans l'app.
-        "id": f"{theme_slug}__{fiche_slug}",
-        "title": title or fiche_slug.replace("-", " ").capitalize(),
+        "id": f"{theme_slug}__{fiche_key}",
+        "title": title or (rel[-1].replace("-", " ").capitalize() if rel else theme_slug),
         "url": url,
         "markdown": markdown,
     }
@@ -227,35 +270,17 @@ def main() -> int:
     total_fiches = 0
     for slug, theme_name in THEMES:
         index_url = theme_index_url(slug)
-        sys.stderr.write(f"[{theme_name}] index {index_url}\n")
-        try:
-            index_html = fetch_html(index_url)
-        except Exception as exc:  # noqa: BLE001
-            sys.stderr.write(f"  ! échec index ({exc})\n")
-            index_html = ""
-        if args.dump_html and index_html:
-            _write_dump(args.dump_html, index_url, index_html)
+        sys.stderr.write(f"[{theme_name}] crawl {index_url}\n")
 
-        fiche_urls = discover_fiche_urls(index_html, index_url, slug) if index_html else []
-        sys.stderr.write(f"  {len(fiche_urls)} fiche(s) découverte(s)\n")
+        # Descend récursivement jusqu'aux feuilles de contenu (pages sans sous-pages) : les pages
+        # intermédiaires (index du thème, pages de catégorie listant des liens) ne sont pas émises.
+        leaves = crawl_theme_leaves(slug, args.dump_html)
+        sys.stderr.write(f"  {len(leaves)} fiche(s) de contenu trouvée(s)\n")
 
         fiches = []
-        # Inclure la page d'index elle-même comme première « fiche » (aperçu du thème).
-        if index_html:
-            idx_title, idx_content = extract_main_html(index_html)
-            idx_md = html_to_markdown(idx_content)
-            if idx_md:
-                fiches.append({
-                    "id": f"{slug}__index",
-                    "title": idx_title or theme_name,
-                    "url": index_url,
-                    "markdown": idx_md,
-                })
-
-        for f_url in fiche_urls:
-            time.sleep(REQUEST_DELAY_S)
+        for f_url, f_html in leaves:
             try:
-                fiche = build_fiche(f_url, slug, args.dump_html)
+                fiche = build_fiche(f_url, f_html, slug)
             except Exception as exc:  # noqa: BLE001
                 sys.stderr.write(f"  ! échec fiche {f_url} ({exc})\n")
                 continue

@@ -394,8 +394,11 @@ consultable **sans réseau ni permission** (règle 10). Complète les liens exte
   (« 📖 Consulter les fiches hors-ligne »). Le contenu markdown est rendu **nativement** en Compose par
   `MarkdownText` (titres, paragraphes, listes, gras/italique, liens) — aucune WebView ni dépendance ajoutée.
 - **Génération du contenu** : `scripts/fetch_fiches.py` (Python : `requests` + `beautifulsoup4` +
-  `markdownify`) scrape les 5 index, découvre toutes les sous-fiches, extrait le contenu principal
-  (heuristique générique `<main>`/`<article>`) et écrit `fiches.json`.
+  `markdownify`) parcourt **récursivement** le sous-arbre de chaque thème (`crawl_theme_leaves`) et ne
+  retient que les **feuilles de contenu** : une page ayant des sous-pages (index de thème, pages de
+  catégorie listant des liens « Pages ») est traversée mais **pas émise** ; seules les pages sans
+  enfant (vrai contenu) deviennent des fiches. Extrait le contenu principal (heuristique générique
+  `<main>`/`<article>`) → markdown, `id` = `"<thème>__<chemin-relatif>"`, et écrit `fiches.json`.
   > ⚠️ Le domaine gouvernemental est **bloqué par la politique réseau** des sessions Claude Code : le
   > scraping ne tourne **que** dans la pipeline GitHub Actions (runners non bloqués).
 - **Pipeline** : `.github/workflows/update-fiches.yml` — **manuelle** (`workflow_dispatch`). Lance le
