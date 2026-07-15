@@ -47,26 +47,54 @@ class QuestionRepository @Inject constructor(
     private val gson = Gson()
     private val idListType = object : TypeToken<List<Int>>() {}.type
 
+    companion object {
+        /**
+         * Version du contenu des questions (fichiers JSON de seed). À **incrémenter** dès qu'une
+         * question est corrigée/ajoutée pour que [seedIfNeeded] resynchronise la base des apps
+         * déjà installées. Historique : v1 = corrections libellés (guillemets q. 97, « 17 » q. 222…).
+         */
+        const val CONTENT_VERSION = 1
+        private const val CONTENT_PREFS = "question_content"
+        private const val KEY_CONTENT_VERSION = "content_version"
+    }
+
     /**
-     * Amorce la base depuis [R.raw.questions] (connaissances) et [R.raw.situational_questions]
-     * (mises en situation) au tout premier accès. Séquentiel dans la coroutine appelante — pas
-     * de race condition. Réutilisé par l'examen et l'entraînement (un utilisateur peut ouvrir
+     * Amorce **ou synchronise** la base depuis [R.raw.questions] (connaissances) et
+     * [R.raw.situational_questions] (mises en situation). Séquentiel dans la coroutine appelante —
+     * pas de race condition. Réutilisé par l'examen et l'entraînement (un utilisateur peut ouvrir
      * l'entraînement avant d'avoir lancé un examen).
+     *
+     * Deux cas déclenchent une (ré)écriture :
+     *  - **Premier lancement** (`count() == 0`) : insertion complète.
+     *  - **Contenu obsolète** : la version de contenu appliquée (stockée en [SharedPreferences],
+     *    donc sans migration Room) est inférieure à [CONTENT_VERSION]. Le JSON est alors ré-appliqué
+     *    en `INSERT OR REPLACE` (upsert par id, cf. [QuestionDao.insertAll]), ce qui met à jour les
+     *    libellés/corrections des questions existantes et ajoute les nouvelles, **sans toucher** aux
+     *    autres tables (historique, succès, progression d'entraînement, cycle d'examen). Les installs
+     *    antérieures à cette fonctionnalité n'ont pas de version stockée (défaut 0 < [CONTENT_VERSION])
+     *    et bénéficient donc d'une resynchronisation unique.
+     *
+     * Bump [CONTENT_VERSION] à **chaque** modification de `questions.json` /
+     * `situational_questions.json` pour propager le changement aux apps déjà installées.
      */
     suspend fun seedIfNeeded() {
-        if (dao.count() == 0) {
-            val questions: List<Question> = withContext(Dispatchers.IO) {
-                val type = object : TypeToken<List<Question>>() {}.type
-                val connaissance: List<Question> = gson.fromJson(
-                    context.resources.openRawResource(R.raw.questions).bufferedReader().readText(), type
-                )
-                val situation: List<Question> = gson.fromJson(
-                    context.resources.openRawResource(R.raw.situational_questions).bufferedReader().readText(), type
-                )
-                connaissance + situation
-            }
-            dao.insertAll(questions)
+        val prefs = context.getSharedPreferences(CONTENT_PREFS, Context.MODE_PRIVATE)
+        val appliedVersion = prefs.getInt(KEY_CONTENT_VERSION, 0)
+        val isEmpty = dao.count() == 0
+        if (!isEmpty && appliedVersion >= CONTENT_VERSION) return
+
+        val questions: List<Question> = withContext(Dispatchers.IO) {
+            val type = object : TypeToken<List<Question>>() {}.type
+            val connaissance: List<Question> = gson.fromJson(
+                context.resources.openRawResource(R.raw.questions).bufferedReader().readText(), type
+            )
+            val situation: List<Question> = gson.fromJson(
+                context.resources.openRawResource(R.raw.situational_questions).bufferedReader().readText(), type
+            )
+            connaissance + situation
         }
+        dao.insertAll(questions)   // REPLACE : upsert par id (seed initial comme resynchro)
+        prefs.edit().putInt(KEY_CONTENT_VERSION, CONTENT_VERSION).apply()
     }
 
     /**

@@ -219,13 +219,24 @@ startQuiz()
                                                 └─ navigate(result)
 ```
 
-### Seed de la base de données
+### Seed et synchronisation de la base de données
 
 Les 258 questions de connaissances (`res/raw/questions.json`) et les 60 questions de mise en
-situation (`res/raw/situational_questions.json`) sont insérées dans Room **une seule fois**, au
-premier lancement, dans `QuestionRepository.seedIfNeeded()` (vérification `count() == 0`),
-appelée par le mode examen comme par le mode entraînement. Les lancements suivants utilisent
-directement la base SQLite.
+situation (`res/raw/situational_questions.json`) sont insérées dans Room au premier lancement,
+dans `QuestionRepository.seedIfNeeded()`, appelée par le mode examen comme par le mode
+entraînement. Les lancements suivants utilisent directement la base SQLite.
+
+La même fonction assure aussi une **resynchronisation du contenu** sans réinstallation : une
+constante `CONTENT_VERSION` est comparée à la version appliquée, stockée en `SharedPreferences`
+(pas de migration Room). Si le contenu est obsolète (`count() != 0` mais version stockée <
+`CONTENT_VERSION`), le JSON est ré-appliqué en `INSERT OR REPLACE` (upsert par id), ce qui met à
+jour les libellés corrigés et ajoute les nouvelles questions **sans toucher** à l'historique, aux
+succès, à la progression d'entraînement ni au cycle d'examen. Les installs antérieures à cette
+fonctionnalité n'ont pas de version stockée (défaut `0`) et sont donc resynchronisées une fois
+automatiquement.
+
+> **À chaque correction du JSON, incrémenter `CONTENT_VERSION`** pour propager le changement aux
+> apps déjà installées (la base Room n'est plus relue depuis le JSON après le seed initial).
 
 ### Cycle de tirage de l'examen (anti-répétition)
 
