@@ -7,18 +7,20 @@ name: Update fiches
 # Les runners GitHub ne sont pas soumis à la politique réseau qui bloque le
 # domaine gouvernemental depuis les sessions Claude Code.
 #
-# Le résultat est proposé sous forme de Pull Request (relecture avant merge).
+# Le résultat est poussé sur la branche `chore/update-fiches` (pas de PR créée par
+# Actions — bloqué par le réglage « Allow GitHub Actions to create and approve pull
+# requests »). Le résumé du run fournit un lien direct pour ouvrir la PR
+# manuellement (relecture avant merge).
 
 on:
   workflow_dispatch:
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   fetch:
-    name: Fetch fiches → PR
+    name: Fetch fiches → push branch
     runs-on: ubuntu-latest
 
     steps:
@@ -50,20 +52,31 @@ jobs:
           retention-days: 7
           if-no-files-found: ignore
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7
-        with:
-          branch: chore/update-fiches
-          title: "Contenu : mise à jour des fiches thématiques hors-ligne"
-          commit-message: "Contenu : régénération de res/raw/fiches.json"
-          body: |
-            Régénération automatique de `app/src/main/res/raw/fiches.json` depuis
-            le site officiel `formation-civique.interieur.gouv.fr`.
-
-            **À vérifier avant merge :**
-            - nombre de fiches par thème cohérent ;
-            - markdown lisible (pas de coquille vide → rendu JavaScript ?).
-
-            En cas de contenu vide, consulter l'artifact `fiches-raw-html` et,
-            si besoin, activer le fallback Playwright dans `scripts/fetch_fiches.py`.
-          labels: content
+      # Pousse le fiches.json régénéré sur une branche dédiée, sans créer de PR
+      # (le token Actions n'y est pas autorisé). Le run affiche un lien « compare »
+      # pour ouvrir la PR en un clic.
+      - name: Commit & push updated fiches
+        env:
+          BRANCH: chore/update-fiches
+        run: |
+          if git diff --quiet -- app/src/main/res/raw/fiches.json; then
+            echo "### Update fiches — aucun changement" >> "$GITHUB_STEP_SUMMARY"
+            echo "\`fiches.json\` est déjà à jour, rien à pousser." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$BRANCH"
+          git add app/src/main/res/raw/fiches.json
+          git commit -m "Contenu : régénération de res/raw/fiches.json"
+          git push --force origin "$BRANCH"
+          {
+            echo "### Fiches mises à jour ✅"
+            echo ""
+            echo "Branche poussée : \`$BRANCH\`"
+            echo ""
+            echo "👉 [Ouvrir la Pull Request](https://github.com/${GITHUB_REPOSITORY}/compare/main...${BRANCH}?expand=1)"
+            echo ""
+            echo "**À vérifier avant merge :** nombre de fiches par thème cohérent, markdown lisible."
+            echo "Si contenu vide → voir l'artifact \`fiches-raw-html\` (rendu JS ? fallback Playwright)."
+          } >> "$GITHUB_STEP_SUMMARY"
