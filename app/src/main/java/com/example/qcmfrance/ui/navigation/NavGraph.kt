@@ -17,8 +17,12 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.qcmfrance.data.model.Achievement
 import com.example.qcmfrance.ui.components.AchievementUnlockedBanner
+import android.net.Uri
 import com.example.qcmfrance.ui.screen.AboutScreen
 import com.example.qcmfrance.ui.screen.AchievementsScreen
+import com.example.qcmfrance.ui.screen.FicheDetailScreen
+import com.example.qcmfrance.ui.screen.FichesListScreen
+import com.example.qcmfrance.ui.screen.FichesThemesScreen
 import com.example.qcmfrance.ui.screen.HelpScreen
 import com.example.qcmfrance.ui.screen.HistoryScreen
 import com.example.qcmfrance.ui.screen.HomeScreen
@@ -29,6 +33,7 @@ import com.example.qcmfrance.ui.screen.SettingsScreen
 import com.example.qcmfrance.ui.screen.TrainingScreen
 import com.example.qcmfrance.ui.screen.TrainingThemesScreen
 import com.example.qcmfrance.ui.viewmodel.AchievementsViewModel
+import com.example.qcmfrance.ui.viewmodel.FichesViewModel
 import com.example.qcmfrance.ui.viewmodel.HistoryViewModel
 import com.example.qcmfrance.ui.viewmodel.HomeViewModel
 import com.example.qcmfrance.ui.viewmodel.QuizViewModel
@@ -46,6 +51,9 @@ private const val ROUTE_TRAINING_THEMES = "training_themes"
 private const val ROUTE_TRAINING        = "training"
 private const val ROUTE_ABOUT           = "about"
 private const val ROUTE_ACHIEVEMENTS    = "achievements"
+private const val ROUTE_FICHES_THEMES   = "fiches_themes"
+private const val ROUTE_FICHES_LIST     = "fiches_list"
+private const val ROUTE_FICHE_DETAIL    = "fiche_detail"
 
 @Composable
 fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
@@ -56,6 +64,8 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
     val soundEnabled by settingsViewModel.soundEnabled.collectAsStateWithLifecycle()
 
     val trainingViewModel: TrainingViewModel = hiltViewModel()
+
+    val fichesViewModel: FichesViewModel = hiltViewModel()
 
     // Popup global de déblocage : collecté au-dessus de la navigation pour s'afficher quel que
     // soit l'écran courant. File d'attente si plusieurs succès tombent en même temps.
@@ -175,7 +185,47 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
         }
 
         composable(ROUTE_RESOURCES) {
-            ResourcesScreen(onBack = { navController.popBackStack() })
+            ResourcesScreen(
+                onShowFiches = { navController.navigate(ROUTE_FICHES_THEMES) },
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        composable(ROUTE_FICHES_THEMES) {
+            val themes by fichesViewModel.themes.collectAsStateWithLifecycle()
+            FichesThemesScreen(
+                themes = themes,
+                onSelectTheme = { theme ->
+                    navController.navigate("$ROUTE_FICHES_LIST/${Uri.encode(theme)}")
+                },
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        composable("$ROUTE_FICHES_LIST/{theme}") { backStackEntry ->
+            val allThemes by fichesViewModel.themes.collectAsStateWithLifecycle()
+            // Navigation Compose décode déjà les arguments de chemin ; pas de décodage manuel.
+            val theme = backStackEntry.arguments?.getString("theme").orEmpty()
+            FichesListScreen(
+                theme = theme,
+                fiches = allThemes.firstOrNull { it.theme == theme }?.fiches.orEmpty(),
+                onSelectFiche = { ficheId ->
+                    navController.navigate("$ROUTE_FICHE_DETAIL/${Uri.encode(ficheId)}")
+                },
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        composable("$ROUTE_FICHE_DETAIL/{ficheId}") { backStackEntry ->
+            val allThemes by fichesViewModel.themes.collectAsStateWithLifecycle()
+            val ficheId = backStackEntry.arguments?.getString("ficheId").orEmpty()
+            val fiche = allThemes.asSequence()
+                .flatMap { it.fiches.asSequence() }
+                .firstOrNull { it.id == ficheId }
+            FicheDetailScreen(
+                fiche = fiche,
+                onBack = { navController.popBackStack() }
+            )
         }
 
         composable(ROUTE_ABOUT) {

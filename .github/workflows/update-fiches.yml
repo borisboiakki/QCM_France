@@ -1,0 +1,69 @@
+name: Update fiches
+
+# Rafraîchit le dump hors-ligne des fiches thématiques officielles
+# (app/src/main/res/raw/fiches.json) depuis formation-civique.interieur.gouv.fr.
+#
+# Déclenchement MANUEL uniquement : Actions → « Update fiches » → Run workflow.
+# Les runners GitHub ne sont pas soumis à la politique réseau qui bloque le
+# domaine gouvernemental depuis les sessions Claude Code.
+#
+# Le résultat est proposé sous forme de Pull Request (relecture avant merge).
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  fetch:
+    name: Fetch fiches → PR
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4 markdownify
+
+      - name: Fetch fiches
+        run: |
+          python scripts/fetch_fiches.py \
+            --out app/src/main/res/raw/fiches.json \
+            --dump-html /tmp/fiches-html
+
+      # Archive le HTML brut : utile pour affiner l'extraction si la structure
+      # du site a changé (sélecteurs / rendu JavaScript).
+      - name: Upload raw HTML (debug)
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: fiches-raw-html
+          path: /tmp/fiches-html
+          retention-days: 7
+          if-no-files-found: ignore
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: chore/update-fiches
+          title: "Contenu : mise à jour des fiches thématiques hors-ligne"
+          commit-message: "Contenu : régénération de res/raw/fiches.json"
+          body: |
+            Régénération automatique de `app/src/main/res/raw/fiches.json` depuis
+            le site officiel `formation-civique.interieur.gouv.fr`.
+
+            **À vérifier avant merge :**
+            - nombre de fiches par thème cohérent ;
+            - markdown lisible (pas de coquille vide → rendu JavaScript ?).
+
+            En cas de contenu vide, consulter l'artifact `fiches-raw-html` et,
+            si besoin, activer le fallback Playwright dans `scripts/fetch_fiches.py`.
+          labels: content

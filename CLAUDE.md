@@ -106,10 +106,12 @@ QCM_France/
 ├── .github/
 │   └── workflows/
 │       ├── build.yml                            CI — build APK debug sur push/PR vers main
-│       └── release.yml                          Release — build + publication sur tag v.N.N.N
-│                                                (supporte aussi workflow_dispatch avec input version)
+│       ├── release.yml                          Release — build + publication sur tag v.N.N.N
+│       │                                        (supporte aussi workflow_dispatch avec input version)
+│       └── update-fiches.yml                    Manuel (workflow_dispatch) — régénère res/raw/fiches.json + ouvre une PR
 ├── scripts/
-│   └── generate_questions_md.py                 Génère QUESTIONS.md depuis questions.json + situational_questions.json
+│   ├── generate_questions_md.py                 Génère QUESTIONS.md depuis questions.json + situational_questions.json
+│   └── fetch_fiches.py                          Scrape les fiches thématiques officielles → res/raw/fiches.json (offline)
 ├── LICENSE                                      Licence MIT
 ├── QUESTIONS.md                                 Liste des 318 questions : 258 connaissances + 60 mise en situation (généré par release)
 ├── AUDIO_CREDITS.md                             Sources/licences audio + remplacement des placeholders
@@ -135,19 +137,21 @@ QCM_France/
 │   │   │   │   │   ├── TrainingProgress.kt      @Entity Room : PK=theme, currentIndex (point de reprise)
 │   │   │   │   │   ├── ExamCycle.kt             @Entity Room : PK=theme, permutation d'ids (JSON) + curseur
 │   │   │   │   │   ├── Achievement.kt           Catalogue statique (Achievements.ALL) + AchievementRecord (@Entity) + AchievementState
-│   │   │   │   │   └── SeenQuestion.kt          @Entity Room : PK=questionId (questions déjà vues en examen)
+│   │   │   │   │   ├── SeenQuestion.kt          @Entity Room : PK=questionId (questions déjà vues en examen)
+│   │   │   │   │   └── Fiche.kt                 Modèles Gson (FichesData/FicheTheme/Fiche) — fiches offline, PAS de Room
 │   │   │   │   └── repository/
 │   │   │   │       ├── QuestionRepository.kt    seedIfNeeded (2 fichiers JSON) + tirage stratifié 28 connaissances + 12 mise en situation, cyclé (exam_cycle), themes
 │   │   │   │       ├── HistoryRepository.kt     sauvegarde et récupération de l'historique
 │   │   │   │       ├── SettingsRepository.kt    DataStore : ThemeMode + soundEnabled + TextSizeMode
 │   │   │   │       ├── PausedQuizRepository.kt  save/load/clear + PausedQuizState (Gson)
 │   │   │   │       ├── TrainingRepository.kt    questions par thème (ordre stable), avancement par thème
-│   │   │   │       └── AchievementRepository.kt moteur de déblocage (unlock/onExamCompleted/onThemeCompleted), newlyUnlocked (SharedFlow), observe
+│   │   │   │       ├── AchievementRepository.kt moteur de déblocage (unlock/onExamCompleted/onThemeCompleted), newlyUnlocked (SharedFlow), observe
+│   │   │   │       └── FichesRepository.kt      lit res/raw/fiches.json (Gson, cache mémoire) — themes/fichesForTheme/fiche, sans Room
 │   │   │   ├── di/
 │   │   │   │   └── AppModule.kt                 Hilt @Module (AppDatabase, DAOs)
 │   │   │   ├── ui/
 │   │   │   │   ├── navigation/
-│   │   │   │   │   └── NavGraph.kt              11 routes : home/quiz/result/history/settings/help/resources/training_themes/training/about/achievements + overlay popup succès
+│   │   │   │   │   └── NavGraph.kt              14 routes : home/quiz/result/history/settings/help/resources/training_themes/training/about/achievements/fiches_themes/fiches_list/fiche_detail + overlay popup succès
 │   │   │   │   ├── screen/
 │   │   │   │   │   ├── HomeScreen.kt            titre, règles, Reprendre (si pause), S'entraîner par thème, Succès, AlertDialog, icônes Ressources / Aide / Paramètres
 │   │   │   │   │   ├── QuizScreen.kt            question N/40, options, timer, bouton Pause, BackHandler, son
@@ -159,9 +163,13 @@ QCM_France/
 │   │   │   │   │   ├── AboutScreen.kt           version installée (PackageManager) + bouton vers les releases GitHub (téléchargement APK, sans permission)
 │   │   │   │   │   ├── TrainingThemesScreen.kt  sélection du thème + barre d'avancement X/total par thème
 │   │   │   │   │   ├── TrainingScreen.kt        question du thème, feedback immédiat (vert/rouge), explication + lien source
-│   │   │   │   │   └── AchievementsScreen.kt    liste des succès groupés (Examen/Entraînement), verrouillés grisés, barres X/target
+│   │   │   │   │   ├── AchievementsScreen.kt    liste des succès groupés (Examen/Entraînement), verrouillés grisés, barres X/target
+│   │   │   │   │   ├── FichesThemesScreen.kt    fiches offline : liste des 5 thèmes + nb de fiches
+│   │   │   │   │   ├── FichesListScreen.kt      fiches offline : liste des fiches d'un thème
+│   │   │   │   │   └── FicheDetailScreen.kt     fiches offline : rendu markdown + « Voir en ligne » + source
 │   │   │   │   ├── components/
-│   │   │   │   │   └── AchievementUnlockedBanner.kt  bandeau animé « Succès débloqué ! » (overlay global, slide-in, auto-dismiss)
+│   │   │   │   │   ├── AchievementUnlockedBanner.kt  bandeau animé « Succès débloqué ! » (overlay global, slide-in, auto-dismiss)
+│   │   │   │   │   └── MarkdownText.kt          rendu markdown minimal en Compose (titres/listes/gras/liens), sans dépendance
 │   │   │   │   ├── utils/
 │   │   │   │   │   └── ResultExporter.kt        partage texte via Intent.ACTION_SEND
 │   │   │   │   ├── viewmodel/
@@ -171,7 +179,8 @@ QCM_France/
 │   │   │   │   │   ├── HomeViewModel.kt         hasPausedQuiz : StateFlow<Boolean>
 │   │   │   │   │   ├── HistoryViewModel.kt      Flow<List<QuizResult>>, clearHistory()
 │   │   │   │   │   ├── SettingsViewModel.kt     themeMode + soundEnabled + textSizeMode StateFlow
-│   │   │   │   │   └── AchievementsViewModel.kt achievements (StateFlow<List<AchievementState>>), newlyUnlocked (SharedFlow), resetAchievements()
+│   │   │   │   │   ├── AchievementsViewModel.kt achievements (StateFlow<List<AchievementState>>), newlyUnlocked (SharedFlow), resetAchievements()
+│   │   │   │   │   └── FichesViewModel.kt       themes : StateFlow<List<FicheTheme>> (fiches chargées une fois)
 │   │   │   │   └── theme/
 │   │   │   │       ├── Theme.kt                 Material 3 dynamique, accepte ThemeMode + TextSizeMode (échelle typo)
 │   │   │   │       ├── Color.kt                 palette + SuccessGreen/FailureRed + AchievementGold partagées
@@ -183,6 +192,7 @@ QCM_France/
 │   │       ├── raw/
 │   │       │   ├── questions.json               258 questions de connaissances (seed)
 │   │       │   ├── situational_questions.json   60 questions de mise en situation (seed), isSituation: true
+│   │       │   ├── fiches.json                  Fiches thématiques officielles offline (généré par fetch_fiches.py)
 │   │       │   ├── marseillaise.ogg             musique si examen réussi (domaine public — voir AUDIO_CREDITS.md)
 │   │       │   └── marche_funebre.ogg           musique si examen échoué (domaine public — voir AUDIO_CREDITS.md)
 │   │       ├── values/
@@ -368,6 +378,35 @@ verrouillés), `target` (>1 ⇒ succès à progression, barre `X/target`).
 
 ---
 
+## Fiches thématiques officielles (consultation hors-ligne)
+
+Dump embarqué des **fiches par thématiques** officielles de
+`formation-civique.interieur.gouv.fr` (les 5 thèmes → arborescence complète des sous-fiches),
+consultable **sans réseau ni permission** (règle 10). Complète les liens externes de `ResourcesScreen`.
+
+- **Données** : `res/raw/fiches.json` (schéma `FichesData` → `FicheTheme` → `Fiche{id,title,url,markdown}`),
+  lu par `FichesRepository` via Gson + **cache mémoire**. Pas de Room, pas de migration, **pas de
+  `CONTENT_VERSION`** : les fiches sont relues du raw à chaque lancement, donc le fichier bundlé est
+  toujours la source de vérité (une nouvelle version arrive avec un nouvel APK). `id` unique sur tout le
+  dataset : `"<slug-thème>__<slug-fiche>"` (ASCII, sûr comme argument de navigation).
+- **UI** : `FichesThemesScreen` (5 thèmes) → `FichesListScreen` (fiches du thème) → `FicheDetailScreen`
+  (rendu markdown + « Voir la fiche en ligne » + mention source). Entrée depuis `ResourcesScreen`
+  (« 📖 Consulter les fiches hors-ligne »). Le contenu markdown est rendu **nativement** en Compose par
+  `MarkdownText` (titres, paragraphes, listes, gras/italique, liens) — aucune WebView ni dépendance ajoutée.
+- **Génération du contenu** : `scripts/fetch_fiches.py` (Python : `requests` + `beautifulsoup4` +
+  `markdownify`) scrape les 5 index, découvre toutes les sous-fiches, extrait le contenu principal
+  (heuristique générique `<main>`/`<article>`) et écrit `fiches.json`.
+  > ⚠️ Le domaine gouvernemental est **bloqué par la politique réseau** des sessions Claude Code : le
+  > scraping ne tourne **que** dans la pipeline GitHub Actions (runners non bloqués).
+- **Pipeline** : `.github/workflows/update-fiches.yml` — **manuelle** (`workflow_dispatch`). Lance le
+  script, archive le HTML brut en artifact (debug sélecteurs), puis **ouvre une PR** avec le `fiches.json`
+  régénéré (relecture avant merge). Si 0 fiche extraite → site probablement rendu en JS → activer le
+  fallback Playwright documenté dans `fetch_fiches.py`.
+- **Attribution** : contenu ministère de l'Intérieur (information publique, Licence Ouverte/Etalab).
+  Lien source + mention affichés sur chaque fiche.
+
+---
+
 ### Format JSON de seed (`res/raw/questions.json`, `res/raw/situational_questions.json`)
 
 Même schéma dans les deux fichiers ; seul `situational_questions.json` renseigne
@@ -534,11 +573,14 @@ fun submitQuiz() {
 | `history` | Historique | Liste des résultats passés, export individuel, vider l'historique |
 | `settings` | Paramètres | Thème (Système/Clair/Sombre), toggle son, réinitialiser la progression d'entraînement, réinitialiser le cycle de l'examen, réinitialiser les succès, accès « À propos » |
 | `help` | Aide | Guide utilisateur, règles de l'examen, thèmes, fonctionnalités (les liens officiels sont désormais sur `resources`) |
-| `resources` | Ressources complémentaires | 7 liens officiels cliquables ouverts dans le navigateur, groupés en 2 sections (« Textes officiels » : livret, charte, Déclaration 1789, Constitution 1958 ; « Examen civique et tests » : infos générales, fiche, tests complémentaires) — accès par l'icône « liste » de l'accueil |
+| `resources` | Ressources complémentaires | Liens officiels cliquables (navigateur) en 3 sections (« Textes officiels », « Examen civique et tests », « Fiches thématiques officielles ») + carte « 📖 Consulter les fiches hors-ligne » → `fiches_themes` — accès par l'icône « liste » de l'accueil |
 | `about` | À propos / Mises à jour | Version installée (lue via `PackageManager`, sans réseau) + bouton ouvrant `github.com/borisboiakki/qcm_france/releases/latest` dans le navigateur pour télécharger l'APK — aucune permission ajoutée |
 | `training_themes` | Entraînement (thèmes) | Liste des 5 thèmes + barre d'avancement `X/total`, retour Accueil |
 | `training` | Entraînement (question) | Question d'un thème, feedback immédiat (vert/rouge), explication + lien source, "Suivant"/"Terminer" |
 | `achievements` | Succès | Liste des succès groupés par catégorie (Examen / Entraînement), verrouillés grisés, barres de progression `X/target`, dates de déblocage |
+| `fiches_themes` | Fiches (thèmes) | Fiches officielles hors-ligne : liste des 5 thèmes + nombre de fiches |
+| `fiches_list/{theme}` | Fiches (liste) | Liste des fiches d'un thème (argument `theme` encodé) |
+| `fiche_detail/{ficheId}` | Fiche (détail) | Rendu markdown de la fiche (`MarkdownText`) + bouton « Voir en ligne » + mention source |
 
 **Règle UX importante :** sur l'écran quiz, **aucun feedback immédiat** sur la bonne/mauvaise réponse (c'est un examen, pas un entraînement). Le feedback n'est affiché qu'à l'écran résultat.
 

@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "generatedAt": "2026-07-15",
+  "source": "https://formation-civique.interieur.gouv.fr/fiches-par-thematiques/",
+  "themes": [
+    {
+      "theme": "Principes et valeurs de la République",
+      "url": "https://formation-civique.interieur.gouv.fr/fiches-par-thematiques/principes-et-valeurs-de-la-republique/",
+      "fiches": [
+        {
+          "id": "principes-et-valeurs-de-la-republique__index",
+          "title": "Principes et valeurs de la République",
+          "url": "https://formation-civique.interieur.gouv.fr/fiches-par-thematiques/principes-et-valeurs-de-la-republique/",
+          "markdown": "## Contenu à générer\n\nLes fiches officielles de ce thème seront intégrées automatiquement par la pipeline **update-fiches** (GitHub Actions).\n\nEn attendant, ouvrez la fiche en ligne via le bouton ci-dessous."
+        }
+      ]
+    },
+    {
+      "theme": "Système institutionnel et politique",
+      "url": "https://formation-civique.interieur.gouv.fr/fiches-par-thematiques/systeme-institutionnel-et-politique/",
+      "fiches": [
+        {
+          "id": "systeme-institutionnel-et-politique__index",
+          "title": "Système institutionnel et politique",
+          "url": "https://formation-civique.interieur.gouv.fr/fiches-par-thematiques/systeme-institutionnel-et-politique/",
+          "markdown": "## Contenu à générer\n\nLes fiches officielles de ce thème seront intégrées automatiquement par la pipeline **update-fiches** (GitHub Actions).\n\nEn attendant, ouvrez la fiche en ligne via le bouton ci-dessous."
+        }
+      ]
+    },
+    {
+      "theme": "Droits et devoirs",
+      "url": "https://formation-civique.interieur.gouv.fr/fiches-par-thematiques/droits-et-devoirs/",
+      "fiches": [
+        {
+          "id": "droits-et-devoirs__index",
+          "title": "Droits et devoirs",
+          "url": "https://formation-civique.interieur.gouv.fr/fiches-par-thematiques/droits-et-devoirs/",
+          "markdown": "## Contenu à générer\n\nLes fiches officielles de ce thème seront intégrées automatiquement par la pipeline **update-fiches** (GitHub Actions).\n\nEn attendant, ouvrez la fiche en ligne via le bouton ci-dessous."
+        }
+      ]
+    },
+    {
+      "theme": "Histoire, géographie et culture",
+      "url": "https://formation-civique.interieur.gouv.fr/fiches-par-thematiques/histoire-geographie-et-culture/",
+      "fiches": [
+        {
+          "id": "histoire-geographie-et-culture__index",
+          "title": "Histoire, géographie et culture",
+          "url": "https://formation-civique.interieur.gouv.fr/fiches-par-thematiques/histoire-geographie-et-culture/",
+          "markdown": "## Contenu à générer\n\nLes fiches officielles de ce thème seront intégrées automatiquement par la pipeline **update-fiches** (GitHub Actions).\n\nEn attendant, ouvrez la fiche en ligne via le bouton ci-dessous."
+        }
+      ]
+    },
+    {
+      "theme": "Vivre dans la société française",
+      "url": "https://formation-civique.interieur.gouv.fr/fiches-par-thematiques/vivre-dans-la-societe-fran%C3%A7aise/",
+      "fiches": [
+        {
+          "id": "vivre-dans-la-societe-francaise__index",
+          "title": "Vivre dans la société française",
+          "url": "https://formation-civique.interieur.gouv.fr/fiches-par-thematiques/vivre-dans-la-societe-fran%C3%A7aise/",
+          "markdown": "## Contenu à générer\n\nLes fiches officielles de ce thème seront intégrées automatiquement par la pipeline **update-fiches** (GitHub Actions).\n\nEn attendant, ouvrez la fiche en ligne via le bouton ci-dessous."
+        }
+      ]
+    }
+  ]
+}
