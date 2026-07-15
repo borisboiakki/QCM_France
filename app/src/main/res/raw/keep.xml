@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Empêche le resource shrinker (isShrinkResources) de supprimer les ressources du
+  navigateur de fiches hors-ligne. Elles ne sont référencées que par du code (via
+  R.raw / R.string, valeurs inlinées par R8) ; sans ce keep, la build release peut
+  les retirer → Resources$NotFoundException au premier affichage de l'écran fiches.
+  tools:shrinkMode reste "safe" (défaut), on force juste la conservation.
+-->
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@raw/fiches,@string/resources_fiches_offline,@string/fiches_themes_title,@string/fiches_themes_intro,@string/fiches_count,@string/fiches_list_empty,@string/fiche_view_online,@string/fiche_source,@string/fiche_not_found" />
