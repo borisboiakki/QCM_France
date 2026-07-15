@@ -9,3 +9,7 @@
 .cxx
 local.properties
 references/
+
+# Python (scripts/)
+__pycache__/
+*.pyc

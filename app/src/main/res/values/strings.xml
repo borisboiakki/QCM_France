@@ -41,6 +41,16 @@
     <string name="resources_section_texts">Textes officiels</string>
     <string name="resources_section_exam">Examen civique et tests</string>
     <string name="resources_section_sheets">Fiches thématiques officielles</string>
+    <string name="resources_fiches_offline">📖 Consulter les fiches hors-ligne</string>
+
+    <!-- Fiches thématiques hors-ligne -->
+    <string name="fiches_themes_title">Fiches thématiques</string>
+    <string name="fiches_themes_intro">Fiches officielles consultables hors-ligne. Choisissez un thème.</string>
+    <string name="fiches_count">%1$d fiche(s)</string>
+    <string name="fiches_list_empty">Aucune fiche disponible pour ce thème.</string>
+    <string name="fiche_view_online">Voir la fiche en ligne</string>
+    <string name="fiche_source">Source : ministère de l\'Intérieur — formation-civique.interieur.gouv.fr</string>
+    <string name="fiche_not_found">Fiche introuvable.</string>
 
     <!-- Examen -->
     <string name="quiz_question_counter">Question %1$d / %2$d</string>
