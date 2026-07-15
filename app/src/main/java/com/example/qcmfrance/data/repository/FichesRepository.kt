@@ -33,9 +33,13 @@ class FichesRepository @Inject constructor(
         cache?.let { return it }
         return mutex.withLock {
             cache ?: withContext(Dispatchers.IO) {
-                val json = context.resources.openRawResource(R.raw.fiches)
-                    .bufferedReader().use { it.readText() }
-                (gson.fromJson(json, FichesData::class.java) ?: FichesData())
+                // Défensif : toute erreur de lecture/parse (ressource absente si mal shrinkée en
+                // release, JSON malformé…) renvoie un dataset vide plutôt que de crasher l'app.
+                runCatching {
+                    val json = context.resources.openRawResource(R.raw.fiches)
+                        .bufferedReader().use { it.readText() }
+                    gson.fromJson(json, FichesData::class.java)
+                }.getOrNull() ?: FichesData()
             }.also { cache = it }
         }
     }
