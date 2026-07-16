@@ -133,6 +133,7 @@
     <!-- Entraînement : questions -->
     <string name="training_confirm">Confirmer</string>
     <string name="training_previous">Précédent</string>
+    <string name="training_variant_counter">Jeu de réponses %1$d sur %2$d</string>
     <string name="training_good_answer">Bonne réponse !</string>
     <string name="training_bad_answer">Mauvaise réponse</string>
     <string name="training_see_source">Voir la source</string>

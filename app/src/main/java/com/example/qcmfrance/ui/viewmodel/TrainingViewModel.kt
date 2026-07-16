@@ -66,7 +66,11 @@ class TrainingViewModel @Inject constructor(
     fun startTheme(theme: String) {
         viewModelScope.launch {
             _uiState.value = TrainingUiState(theme = theme, isLoading = true)
-            val questions = repository.questionsForTheme(theme).map { it.pickVariant().withShuffledOptions() }
+            // Contrairement à l'examen (un jeu tiré au hasard), l'entraînement déroule TOUS les
+            // jeux de réponses d'une question à variantes, à la suite les uns des autres.
+            val questions = repository.questionsForTheme(theme)
+                .flatMap { it.allAnswerSets() }
+                .map { it.withShuffledOptions() }
             val savedIndex = repository.progressFor(theme)
             val alreadyDone = questions.isNotEmpty() && savedIndex >= questions.size
             _uiState.value = TrainingUiState(
