@@ -3299,7 +3299,23 @@
       "Saint-Pierre-et-Miquelon"
     ],
     "explanation": "La Corse est une île française de la mer Méditerranée, constituée de deux départements (Haute-Corse et Corse-du-Sud) regroupés en une collectivité unique. La France possède aussi de nombreux territoires d'outre-mer insulaires : la Martinique, la Guadeloupe, La Réunion, Mayotte, la Nouvelle-Calédonie, Tahiti (Polynésie française), etc.",
-    "source": "https://fr.wikipedia.org/wiki/France_d%27outre-mer"
+    "source": "https://fr.wikipedia.org/wiki/France_d%27outre-mer",
+    "variants": [
+      {
+        "optionA": "La Sicile",
+        "optionB": "La Guadeloupe",
+        "optionC": "Malte",
+        "optionD": "Rhodes",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Ibiza",
+        "optionB": "La Crète",
+        "optionC": "L'île de Ré",
+        "optionD": "La Sardaigne",
+        "correctAnswer": "C"
+      }
+    ]
   },
   {
     "id": 197,
@@ -4164,7 +4180,23 @@
       "Un empêchement lié aux transports (grève, intempéries)"
     ],
     "explanation": "En France, l'assiduité scolaire est obligatoire. Les seules absences justifiées à l'école sont : la maladie de l'enfant (avec certificat médical si demandé), une fête religieuse propre à la famille (dans la limite d'une journée), une réunion familiale solennelle (mariage, enterrement) ou un empêchement résultant de difficultés de transport. Les simples vacances familiales ne sont pas des motifs valables.",
-    "source": "https://fr.wikipedia.org/wiki/Obligation_scolaire_en_France"
+    "source": "https://fr.wikipedia.org/wiki/Obligation_scolaire_en_France",
+    "variants": [
+      {
+        "optionA": "Un anniversaire entre amis",
+        "optionB": "Un rendez-vous médical",
+        "optionC": "Un départ en vacances anticipé",
+        "optionD": "Une sortie shopping",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Un week-end prolongé",
+        "optionB": "Une compétition de jeux vidéo",
+        "optionC": "Une réunion solennelle de famille (mariage, deuil)",
+        "optionD": "Une grasse matinée",
+        "correctAnswer": "C"
+      }
+    ]
   },
   {
     "id": 251,
