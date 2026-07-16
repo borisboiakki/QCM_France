@@ -1405,16 +1405,15 @@
     "id": 89,
     "theme": "Système institutionnel et politique",
     "text": "Quel traité concerne la construction de l'Union européenne ?",
-    "optionA": "Le traité de Maastricht (1992) pour la création de l'Union européenne",
-    "optionB": "Traité de Rome",
-    "optionC": "Traité de Paris",
-    "optionD": "Traité de Versailles",
+    "optionA": "Traité de Maastricht",
+    "optionB": "Traité de Versailles",
+    "optionC": "Traité de Vienne",
+    "optionD": "Traité de Westphalie",
     "correctAnswer": "A",
     "correctAnswers": [
-      "Le traité de Maastricht (1992) pour la création de l'Union européenne",
-      "Le traité de Rome (1957) pour la création de la CEE"
+      "Traité de Maastricht"
     ],
-    "explanation": "Le Traité de Maastricht (1992) est le texte fondateur de l'Union européenne telle qu'on la connaît aujourd'hui. Mais la construction européenne a commencé plus tôt avec le Traité de Rome (1957), qui a créé la Communauté économique européenne (CEE) entre six pays fondateurs. La CECA (1951) est encore plus ancienne.",
+    "explanation": "Le Traité de Maastricht, signé en 1992, est le texte fondateur de l'Union européenne telle qu'on la connaît aujourd'hui : il a transformé la Communauté économique européenne en Union européenne et créé la citoyenneté européenne. Le Traité de Versailles (1919) a mis fin à la Première Guerre mondiale, le Traité de Vienne (1815) a réorganisé l'Europe après Napoléon, et le Traité de Westphalie (1648) a mis fin à la guerre de Trente Ans : aucun de ces trois ne concerne la construction européenne.",
     "source": "https://fr.wikipedia.org/wiki/Trait%C3%A9_de_Maastricht"
   },
   {
