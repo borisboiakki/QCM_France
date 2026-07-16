@@ -14,8 +14,13 @@ class Converters {
     private val gson = Gson()
     private val variantListType = object : TypeToken<List<QuestionVariant>>() {}.type
 
+    // Paramètre nullable obligatoire : Gson instancie les Question du seed sans passer par le
+    // constructeur Kotlin (allocation Unsafe), donc `variants` est null en mémoire pour toute
+    // question dont le JSON n'a pas de clé "variants", malgré le type non-null de l'entité.
+    // Sans cette tolérance, l'insertAll du seed plante en NullPointerException.
     @TypeConverter
-    fun fromVariants(variants: List<QuestionVariant>): String = gson.toJson(variants)
+    fun fromVariants(variants: List<QuestionVariant>?): String =
+        if (variants == null) "[]" else gson.toJson(variants)
 
     @TypeConverter
     fun toVariants(json: String): List<QuestionVariant> =
