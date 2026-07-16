@@ -52,8 +52,11 @@ class QuestionRepository @Inject constructor(
          * Version du contenu des questions (fichiers JSON de seed). À **incrémenter** dès qu'une
          * question est corrigée/ajoutée pour que [seedIfNeeded] resynchronise la base des apps
          * déjà installées. Historique : v1 = corrections libellés (guillemets q. 97, « 17 » q. 222…).
+         * v2 = q. 89 (traité UE) : bonne réponse simplifiée en « Traité de Maastricht » et
+         * distracteurs Rome/Paris (eux-mêmes fondateurs de la construction européenne) remplacés
+         * par Versailles/Vienne/Westphalie pour lever l'ambiguïté.
          */
-        const val CONTENT_VERSION = 1
+        const val CONTENT_VERSION = 2
         private const val CONTENT_PREFS = "question_content"
         private const val KEY_CONTENT_VERSION = "content_version"
     }
