@@ -61,7 +61,8 @@ class QuestionRepository @Inject constructor(
          * correction de 3 distracteurs eux-mêmes défendables comme bonnes réponses : q. 139
          * (Provence → Aquitaine, débarquement de Provence d'août 1944), q. 162 (UNESCO → Conseil
          * de l'Europe, l'UNESCO datant aussi de 1945), q. 166 (Rousseau → Colbert, Rousseau ayant
-         * aussi dénoncé l'esclavage).
+         * aussi dénoncé l'esclavage). Inclut enfin 20 mises en situation supplémentaires
+         * (ids 1061-1080, +5 par thème concerné : 80 au total).
          */
         const val CONTENT_VERSION = 3
         private const val CONTENT_PREFS = "question_content"
