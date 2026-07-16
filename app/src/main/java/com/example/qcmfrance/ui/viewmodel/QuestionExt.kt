@@ -3,16 +3,16 @@ package com.example.qcmfrance.ui.viewmodel
 import com.example.qcmfrance.data.model.Question
 
 /**
- * Choisit au hasard un jeu de réponses parmi { question de base } ∪ [Question.variants] et renvoie
- * une copie matérialisée (options + [Question.correctAnswer] du jeu retenu, `variants` vidées).
- * L'id ne change pas : une question à variantes reste tirée une seule fois par examen ; c'est
- * seulement le jeu de réponses affiché qui tourne d'un tirage à l'autre. À appeler **avant**
- * [withShuffledOptions]. Partagé par l'examen ([QuizViewModel]) et l'entraînement ([TrainingViewModel]).
+ * Tous les jeux de réponses d'une question : { question de base } ∪ [Question.variants], chacun
+ * matérialisé dans une copie (options + [Question.correctAnswer] du jeu, `variants` vidées pour
+ * éviter toute ré-expansion). L'id est le même pour toutes les copies. À appeler **avant**
+ * [withShuffledOptions]. Utilisé tel quel par l'entraînement ([TrainingViewModel]), qui déroule
+ * tous les jeux séquentiellement, et via [pickVariant] par l'examen.
  */
-internal fun Question.pickVariant(): Question {
-    if (variants.isEmpty()) return this
-    val sets = buildList {
-        add(this@pickVariant.copy(variants = emptyList()))
+internal fun Question.allAnswerSets(): List<Question> {
+    if (variants.isEmpty()) return listOf(this)
+    return buildList {
+        add(this@allAnswerSets.copy(variants = emptyList()))
         addAll(variants.map { v ->
             copy(
                 optionA = v.optionA,
@@ -24,7 +24,17 @@ internal fun Question.pickVariant(): Question {
             )
         })
     }
-    return sets.random()
+}
+
+/**
+ * Choisit au hasard un jeu de réponses parmi [allAnswerSets] et renvoie sa copie matérialisée.
+ * L'id ne change pas : une question à variantes reste tirée une seule fois par examen ; c'est
+ * seulement le jeu de réponses affiché qui tourne d'un tirage à l'autre. Utilisé par l'examen
+ * ([QuizViewModel]) uniquement — l'entraînement montre tous les jeux via [allAnswerSets].
+ */
+internal fun Question.pickVariant(): Question {
+    if (variants.isEmpty()) return this
+    return allAnswerSets().random()
 }
 
 /**

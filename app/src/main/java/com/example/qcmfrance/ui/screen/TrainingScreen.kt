@@ -122,6 +122,20 @@ fun TrainingScreen(
                         style = MaterialTheme.typography.titleSmall
                     )
 
+                    // Une question à variantes apparaît une fois par jeu de réponses (items
+                    // consécutifs de même id) : on situe le jeu courant pour lever l'ambiguïté.
+                    val setCount = uiState.questions.count { it.id == question.id }
+                    if (setCount > 1) {
+                        val setIndex = uiState.questions
+                            .take(uiState.currentIndex + 1)
+                            .count { it.id == question.id }
+                        Text(
+                            text = stringResource(R.string.training_variant_counter, setIndex, setCount),
+                            style = MaterialTheme.typography.labelMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+
                     Spacer(modifier = Modifier.height(8.dp))
 
                     LinearProgressIndicator(

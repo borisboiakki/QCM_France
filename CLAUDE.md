@@ -126,7 +126,7 @@ QCM_France/
 │   │   │   │   ├── db/
 │   │   │   │   │   ├── AppDatabase.kt           Room @Database v10 (exportSchema) + migrations 1→2→…→9→10 + @TypeConverters(Converters)
 │   │   │   │   │   ├── Converters.kt            TypeConverter Room : List<QuestionVariant> ↔ JSON (colonne `variants`)
-│   │   │   │   │   ├── QuestionDao.kt           @Dao : getAllByTheme, getIdsByTheme(theme, isSituation), getByIds, countByTheme, insertAll, count
+│   │   │   │   │   ├── QuestionDao.kt           @Dao : getAllByTheme, getIdsByTheme(theme, isSituation), getByIds, insertAll, count
 │   │   │   │   │   ├── QuizResultDao.kt         @Dao : getAll (Flow), insert, deleteAll
 │   │   │   │   │   ├── PausedQuizDao.kt         @Dao : save (REPLACE), get, observe (Flow), delete
 │   │   │   │   │   ├── TrainingProgressDao.kt   @Dao : save (REPLACE), get, observeAll (Flow), clear
@@ -178,7 +178,7 @@ QCM_France/
 │   │   │   │   ├── viewmodel/
 │   │   │   │   │   ├── QuizViewModel.kt         QuizUiState, timer à échéance (cancellable), pauseQuiz/resumeQuiz/saveSnapshot, scoring, resetExamCycle
 │   │   │   │   │   ├── TrainingViewModel.kt     TrainingUiState, themeProgress, startTheme/selectAnswer/confirmAnswer/next/restart/reset
-│   │   │   │   │   ├── QuestionExt.kt           helpers partagés pickVariant() + withShuffledOptions() (examen + entraînement)
+│   │   │   │   │   ├── QuestionExt.kt           helpers partagés allAnswerSets() + pickVariant() + withShuffledOptions() (examen + entraînement)
 │   │   │   │   │   ├── HomeViewModel.kt         hasPausedQuiz : StateFlow<Boolean>
 │   │   │   │   │   ├── HistoryViewModel.kt      Flow<List<QuizResult>>, clearHistory()
 │   │   │   │   │   ├── SettingsViewModel.kt     themeMode + soundEnabled + textSizeMode StateFlow
@@ -261,18 +261,23 @@ data class Question(
 ### Variantes de réponses (rotation des jeux de réponses)
 
 Certaines questions de connaissances admettent **plusieurs bonnes réponses valides** (« Quel musée
-est situé à Paris ? » → Louvre, mais aussi Orsay, Pompidou…). Pour ces questions, on fait **tourner
-aléatoirement** le jeu de réponses affiché (chaque jeu = 1 bonne réponse + 3 distracteurs).
+est situé à Paris ? » → Louvre, mais aussi Orsay, Pompidou…). Chaque jeu de réponses = 1 bonne
+réponse + 3 distracteurs. En **examen**, le jeu affiché **tourne aléatoirement** ; en
+**entraînement**, **tous** les jeux sont déroulés séquentiellement (chaque jeu = un item).
 
 - **Modèle** : `QuestionVariant(optionA..optionD, correctAnswer)` (POJO, pas d'entité). Les variantes
   d'une question sont stockées dans sa colonne `variants` (rattachées à l'**id de base**), pas comme
   des lignes séparées : une question à variantes **n'est donc jamais tirée plus d'une fois par examen**.
 - **Seed** : champ optionnel `"variants": [ … ]` dans `questions.json` (Gson mappe le tableau imbriqué).
   Uniquement sur les questions de connaissances (les mises en situation n'en ont pas).
-- **Rotation** : `Question.pickVariant()` (`ui/viewmodel/QuestionExt.kt`) choisit au hasard un jeu
-  parmi { base } ∪ `variants`, matérialise ses options dans une copie (id inchangé), **puis**
-  `withShuffledOptions()`. Appelé au chargement de l'examen (`QuizViewModel.startQuiz`) **et** de
-  l'entraînement (`TrainingViewModel.startTheme`).
+- **Matérialisation** : `Question.allAnswerSets()` (`ui/viewmodel/QuestionExt.kt`) renvoie la liste
+  { base } ∪ `variants`, chaque jeu matérialisé dans une copie (id inchangé, `variants` vidées).
+  - **Examen** : `pickVariant()` (= `allAnswerSets().random()`) choisit un jeu au hasard, **puis**
+    `withShuffledOptions()`. Appelé au chargement (`QuizViewModel.startQuiz`).
+  - **Entraînement** : `TrainingViewModel.startTheme` fait `flatMap { allAnswerSets() }` — tous les
+    jeux apparaissent à la suite (ordre stable pour la reprise), chacun compté dans le total du
+    thème (`TrainingRepository.totalForTheme` = `Σ (1 + variants.size)`). `TrainingScreen` affiche
+    « Jeu de réponses X sur Y » (`training_variant_counter`) quand la question a plusieurs jeux.
 - **Transparent pour le reste** : le jeu retenu est matérialisé dans l'état UI, donc scoring, écran
   résultat, pause/reprise (`PausedQuiz` sérialise l'état déjà matérialisé) et succès `exam_all_seen`
   (compté par id de base) restent corrects sans code dédié.
@@ -358,7 +363,8 @@ Mode complémentaire à l'examen, orienté apprentissage — l'inverse UX de l'e
 - **Persistance** : `TrainingViewModel.next()` enregistre `currentIndex` après chaque question via `TrainingRepository.saveProgress(theme, index)`. Aucun mécanisme « pause » nécessaire : un simple retour ne perd rien.
 - **Feedback** : sélection (`selectAnswer`, modifiable) → bouton **« Confirmer »** (`confirmAnswer`) → `revealed=true`, l'option correcte passe en vert, une mauvaise réponse sélectionnée en rouge ; bloc « Bonne/Mauvaise réponse » + `explanation` (si non vide) + bouton « Voir la source » (`LocalUriHandler.openUri`). Tant que la réponse n'est pas confirmée, la correction reste cachée et la sélection peut être changée. Après confirmation, le bouton bas devient « Suivant »/« Terminer ».
 - **Seed partagé** : `QuestionRepository.seedIfNeeded()` (extrait de `drawStratifiedQuestions()`) est appelé aussi par le chemin entraînement, pour le cas où l'utilisateur ouvre l'entraînement avant tout examen.
-- **Mises en situation incluses** : `TrainingRepository.questionsForTheme()`/`totalForTheme()` s'appuient sur `QuestionDao.getAllByTheme()`/`countByTheme()`, qui ne filtrent pas sur `isSituation` : les questions de mise en situation d'un thème apparaissent donc naturellement dans son entraînement, sans code de filtrage dédié.
+- **Mises en situation incluses** : `TrainingRepository.questionsForTheme()`/`totalForTheme()` s'appuient sur `QuestionDao.getAllByTheme()`, qui ne filtre pas sur `isSituation` : les questions de mise en situation d'un thème apparaissent donc naturellement dans son entraînement, sans code de filtrage dédié.
+- **Variantes déroulées** : chaque question à variantes apparaît une fois **par jeu de réponses** (items consécutifs de même id, libellé « Jeu de réponses X sur Y ») ; `totalForTheme()` compte `Σ (1 + variants.size)` pour rester cohérent avec cette expansion (barre `X/total` et complétion).
 - **Option shuffling** : réutilise `withShuffledOptions()` (déplacé dans `ui/viewmodel/QuestionExt.kt`, partagé par les deux ViewModels).
 - **Réinitialisation** : Paramètres → « Réinitialiser la progression » (AlertDialog de confirmation) → `TrainingViewModel.resetTraining()` → `TrainingRepository.resetAll()`.
 

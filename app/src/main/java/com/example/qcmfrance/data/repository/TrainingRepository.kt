@@ -28,9 +28,14 @@ class TrainingRepository @Inject constructor(
         return questionDao.getAllByTheme(theme)
     }
 
+    /**
+     * Total d'items d'entraînement d'un thème : chaque question compte pour 1 + son nombre de
+     * jeux de réponses alternatifs (`variants`), puisque l'entraînement déroule tous les jeux.
+     * Doit rester cohérent avec l'expansion faite par TrainingViewModel.startTheme().
+     */
     suspend fun totalForTheme(theme: String): Int {
         questionRepository.seedIfNeeded()
-        return questionDao.countByTheme(theme)
+        return questionDao.getAllByTheme(theme).sumOf { 1 + it.variants.size }
     }
 
     /** Index de reprise sauvegardé pour un thème (0 si jamais commencé). */

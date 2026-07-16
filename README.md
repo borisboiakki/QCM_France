@@ -20,6 +20,7 @@ Application Android de préparation à l'examen civique de naturalisation franç
 ### Mode S'entraîner
 - **Choix du thème** parmi les 5 thèmes officiels — barre de progression `X/total` par thème
 - **Toutes les questions du thème**, une par une, dans un ordre stable et cohérent
+- **Toutes les variantes** : une question à plusieurs bonnes réponses valides est présentée une fois par jeu de réponses (libellé « Jeu de réponses X sur Y »), pour réviser toutes les réponses possibles
 - **Avancement persisté** : reprendre un thème interrompu reprend exactement là où on s'était arrêté, même après fermeture de l'application
 - **Feedback immédiat** : sélectionner une réponse puis cliquer **Confirmer** révèle la correction — la bonne réponse passe en vert, une mauvaise sélection en rouge
 - **Explication** affichée après confirmation (si disponible)
@@ -158,7 +159,7 @@ app/src/main/java/com/example/qcmfrance/
     ├── viewmodel/
     │   ├── QuizViewModel.kt       QuizUiState, timerJob (cancellable), pauseQuiz/resumeQuiz
     │   ├── TrainingViewModel.kt   TrainingUiState + themeProgress, startTheme/confirmAnswer/next/restart/reset
-    │   ├── QuestionExt.kt         Helpers partagés pickVariant() + withShuffledOptions() (examen + entraînement)
+    │   ├── QuestionExt.kt         Helpers partagés allAnswerSets() + pickVariant() + withShuffledOptions() (examen + entraînement)
     │   ├── HomeViewModel.kt       hasPausedQuiz : StateFlow<Boolean> (Flow réactif depuis Room)
     │   ├── HistoryViewModel.kt    Flow<List<QuizResult>>, clearHistory()
     │   ├── SettingsViewModel.kt   themeMode + soundEnabled + textSizeMode StateFlow
