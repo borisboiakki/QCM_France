@@ -123,7 +123,7 @@
       "Le 14 juillet (Fête nationale)",
       "Le Coq (Symbole culturel et sportif, parfois accepté)"
     ],
-    "explanation": "Les symboles officiels de la République française sont définis par l'article 2 de la Constitution : le drapeau tricolore bleu, blanc, rouge ; l'hymne national La Marseillaise ; la devise « Liberté, Égalité, Fraternité » ; l'emblème Marianne ; et le 14 juillet comme fête nationale. Ces symboles rappellent les valeurs fondatrices de la République nées de la Révolution de 1789.",
+    "explanation": "Les symboles officiels de la République française sont définis par l'article 2 de la Constitution : le drapeau tricolore bleu, blanc, rouge ; l'hymne national La Marseillaise ; la devise « Liberté, Égalité, Fraternité » ; l'emblème Marianne ; et le 14 juillet comme fête nationale. Ces symboles rappellent les valeurs fondatrices de la République nées de la Révolution de 1789. Le bonnet phrygien, coiffe portée par Marianne, et le coq gaulois sont également des symboles traditionnels de la République.",
     "source": "https://fr.wikipedia.org/wiki/Symboles_de_la_R%C3%A9publique_fran%C3%A7aise",
     "variants": [
       {
@@ -157,7 +157,23 @@
       "Sur les timbres"
     ],
     "explanation": "La devise de la République française, « Liberté, Égalité, Fraternité », est inscrite sur les frontons des bâtiments publics tels que les mairies, les écoles et les palais de justice. On la retrouve aussi sur les pièces de monnaie, les timbres et les documents officiels. Cette devise rappelle que les institutions de la République sont au service de tous les citoyens.",
-    "source": "https://fr.wikipedia.org/wiki/Libert%C3%A9%2C_%C3%89galit%C3%A9%2C_Fraternit%C3%A9"
+    "source": "https://fr.wikipedia.org/wiki/Libert%C3%A9%2C_%C3%89galit%C3%A9%2C_Fraternit%C3%A9",
+    "variants": [
+      {
+        "optionA": "Sur les tickets de métro",
+        "optionB": "Sur les cartes bancaires",
+        "optionC": "Sur les pièces de monnaie françaises (1 € et 2 €)",
+        "optionD": "Sur les plaques d'immatriculation",
+        "correctAnswer": "C"
+      },
+      {
+        "optionA": "Sur les documents officiels de l'État (logo de la République)",
+        "optionB": "Sur les billets d'avion",
+        "optionC": "Sur les enseignes des commerces",
+        "optionD": "Sur les cartes de vœux",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 10,
@@ -433,7 +449,23 @@
       "Déclarer une naissance ou un décès (État civil)"
     ],
     "explanation": "La mairie est le service public de proximité où les citoyens peuvent accomplir de nombreuses démarches administratives : demander un passeport ou une carte nationale d'identité, s'inscrire sur les listes électorales, déclarer une naissance ou un décès, se marier civilement. Elle est aussi le lieu où s'exercent les fonctions d'état civil, gérées par le maire en tant qu'officier d'état civil.",
-    "source": "https://fr.wikipedia.org/wiki/Mairie_(France)"
+    "source": "https://fr.wikipedia.org/wiki/Mairie_(France)",
+    "variants": [
+      {
+        "optionA": "S'inscrire sur les listes électorales",
+        "optionB": "Obtenir un permis de conduire",
+        "optionC": "Porter plainte",
+        "optionD": "Payer ses impôts",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "Se marier civilement",
+        "optionB": "Demander un titre de séjour",
+        "optionC": "Passer le permis de conduire",
+        "optionD": "Ouvrir un compte bancaire",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 27,
@@ -771,8 +803,24 @@
       "Le Sénateur",
       "Le Conseiller régional ou départemental"
     ],
-    "explanation": "Le maire est le seul parmi les propositions à être élu : il est désigné par le conseil municipal au suffrage indirect. Le procureur de la République est nommé par décret du Président, le préfet est nommé en Conseil des ministres, et le directeur général des finances publiques est un fonctionnaire nommé par l'exécutif. L'élection est le mode de désignation propre aux représentants politiques.",
-    "source": "https://fr.wikipedia.org/wiki/Maire_(France)"
+    "explanation": "Parmi les propositions, une seule autorité est élue. Le maire est élu par le conseil municipal (suffrage indirect), les députés et le Président de la République le sont au suffrage universel direct. À l'inverse, les préfets, procureurs, recteurs, ambassadeurs et directeurs d'administration sont nommés par l'exécutif. L'élection est le mode de désignation propre aux représentants politiques.",
+    "source": "https://fr.wikipedia.org/wiki/Maire_(France)",
+    "variants": [
+      {
+        "optionA": "Le député",
+        "optionB": "Le préfet de région",
+        "optionC": "Le recteur d'académie",
+        "optionD": "Le commissaire de police",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "Le Président de la République",
+        "optionB": "L'ambassadeur",
+        "optionC": "Le directeur d'hôpital public",
+        "optionD": "Le procureur général",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 48,
@@ -1804,8 +1852,17 @@
     "correctAnswers": [
       "Dans un lieu privé. (domicile par exemple)"
     ],
-    "explanation": "La loi du 10 janvier 1991 (loi Évin) a progressivement restreint le tabagisme dans les espaces publics. La loi du 1er février 2007 l'a généralisé à tous les lieux fermés et couverts accueillant du public, y compris les restaurants et les bars. Il est interdit de fumer dans ces espaces. Seuls les lieux privés (domicile) restent autorisés.",
-    "source": "https://fr.wikipedia.org/wiki/L%C3%A9gislation_sur_le_tabac_en_France"
+    "explanation": "La loi du 10 janvier 1991 (loi Évin) a progressivement restreint le tabagisme dans les espaces publics. La loi du 1er février 2007 l'a généralisé à tous les lieux fermés et couverts accueillant du public, y compris les restaurants et les bars. Il est interdit de fumer dans ces espaces. Restent autorisés les lieux privés (domicile) et certains espaces de plein air comme les terrasses ouvertes des cafés — avec, depuis le 1er juillet 2025, de nouvelles interdictions dans les parcs, sur les plages et aux abords des écoles.",
+    "source": "https://fr.wikipedia.org/wiki/L%C3%A9gislation_sur_le_tabac_en_France",
+    "variants": [
+      {
+        "optionA": "Sur la terrasse ouverte d'un café",
+        "optionB": "Dans un cinéma",
+        "optionC": "Dans une gare (espaces intérieurs)",
+        "optionD": "Dans un bureau partagé",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 113,
@@ -2148,7 +2205,30 @@
       "Emmanuel Macron"
     ],
     "explanation": "La Ve République a connu à ce jour (2025) huit présidents : Charles de Gaulle (1959-1969), Georges Pompidou (1969-1974), Valéry Giscard d'Estaing (1974-1981), François Mitterrand (1981-1995), Jacques Chirac (1995-2007), Nicolas Sarkozy (2007-2012), François Hollande (2012-2017) et Emmanuel Macron (depuis 2017).",
-    "source": "https://fr.wikipedia.org/wiki/Liste_des_pr%C3%A9sidents_de_la_R%C3%A9publique_fran%C3%A7aise"
+    "source": "https://fr.wikipedia.org/wiki/Liste_des_pr%C3%A9sidents_de_la_R%C3%A9publique_fran%C3%A7aise",
+    "variants": [
+      {
+        "optionA": "Jacques Chirac",
+        "optionB": "Georges Clemenceau",
+        "optionC": "René Coty",
+        "optionD": "Napoléon III",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "François Mitterrand",
+        "optionB": "Léon Blum",
+        "optionC": "Adolphe Thiers",
+        "optionD": "Philippe Pétain",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "Charles de Gaulle",
+        "optionB": "Raymond Poincaré",
+        "optionC": "Jules Ferry",
+        "optionD": "Louis XVIII",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 134,
@@ -2264,7 +2344,7 @@
     "optionA": "Normandie",
     "optionB": "Bretagne",
     "optionC": "Alsace",
-    "optionD": "Provence",
+    "optionD": "Aquitaine",
     "correctAnswer": "A",
     "correctAnswers": [
       "Normandie"
@@ -2347,8 +2427,24 @@
       "Jean Jaurès (Le défenseur des ouvriers)",
       "Charles de Gaulle (Le libérateur)"
     ],
-    "explanation": "Jules Ferry (1832-1893) est associé à la République pour avoir créé l'école publique, gratuite et laïque. Victor Hugo est le grand écrivain républicain (Les Misérables, Notre-Dame de Paris). Jean Jaurès est le défenseur des travailleurs et pacifiste. Charles de Gaulle est le libérateur de la France en 1944. Ces figures incarnent des valeurs républicaines fondamentales.",
-    "source": "https://fr.wikipedia.org/wiki/Jules_Ferry"
+    "explanation": "Jules Ferry (1832-1893) est associé à la République pour avoir créé l'école publique, gratuite et laïque. Victor Hugo est le grand écrivain républicain (Les Misérables, Notre-Dame de Paris). Jean Jaurès est le défenseur des travailleurs et pacifiste. Charles de Gaulle est le libérateur de la France en 1944. Ces figures incarnent des valeurs républicaines fondamentales. Léon Gambetta a proclamé la IIIe République en 1870, et Victor Schoelcher a fait abolir l'esclavage sous la IIe République en 1848.",
+    "source": "https://fr.wikipedia.org/wiki/Jules_Ferry",
+    "variants": [
+      {
+        "optionA": "Léon Gambetta",
+        "optionB": "François Ier",
+        "optionC": "Charlemagne",
+        "optionD": "Louis XVI",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "Victor Schoelcher",
+        "optionB": "Henri IV",
+        "optionC": "Napoléon III",
+        "optionD": "Clovis",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 145,
@@ -2560,8 +2656,24 @@
       "Jean Moulin",
       "De Gaulle (France Libre)"
     ],
-    "explanation": "Jean Moulin (1899-1943) est la grande figure de la Résistance intérieure française. Préfet révoqué par Vichy, il a rallié de Gaulle à Londres en 1941 et a été chargé d'unifier les mouvements de Résistance. Il a fondé le Conseil national de la Résistance (CNR) en mai 1943. Arrêté par la Gestapo, il est mort sous la torture en juillet 1943.",
-    "source": "https://fr.wikipedia.org/wiki/Jean_Moulin"
+    "explanation": "Jean Moulin (1899-1943) est la grande figure de la Résistance intérieure française. Préfet révoqué par Vichy, il a rallié de Gaulle à Londres en 1941 et a été chargé d'unifier les mouvements de Résistance. Il a fondé le Conseil national de la Résistance (CNR) en mai 1943. Arrêté par la Gestapo, il est mort sous la torture en juillet 1943. D'autres grandes figures de la Résistance : le général de Gaulle (chef de la France libre depuis Londres), Lucie Aubrac, Germaine Tillion ou Missak Manouchian.",
+    "source": "https://fr.wikipedia.org/wiki/Jean_Moulin",
+    "variants": [
+      {
+        "optionA": "Lucie Aubrac",
+        "optionB": "Philippe Pétain",
+        "optionC": "Pierre Laval",
+        "optionD": "L'amiral Darlan",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "Le général de Gaulle",
+        "optionB": "Philippe Pétain",
+        "optionC": "Pierre Laval",
+        "optionD": "Albert Lebrun",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 157,
@@ -2646,7 +2758,7 @@
     "text": "Quelle organisation a été créée en 1945 après la Seconde Guerre mondiale ?",
     "optionA": "L'Union européenne (UE)",
     "optionB": "L'Organisation des Nations Unies (ONU)",
-    "optionC": "L'Organisation des Nations Unies pour l'éducation, la science et la culture (UNESCO)",
+    "optionC": "Le Conseil de l'Europe",
     "optionD": "L'Organisation du traité de l'Atlantique Nord (OTAN)",
     "correctAnswer": "B",
     "correctAnswers": [
@@ -2707,13 +2819,22 @@
     "optionA": "Montesquieu",
     "optionB": "Bossuet",
     "optionC": "Malebranche",
-    "optionD": "Rousseau",
+    "optionD": "Colbert",
     "correctAnswer": "A",
     "correctAnswers": [
       "Montesquieu"
     ],
-    "explanation": "Montesquieu a dénoncé l'esclavage dans « De l'Esprit des lois » (1748), notamment au chapitre ironique « De l'esclavage des nègres » (livre XV), où il tourne en dérision les justifications de la traite négrière. Bossuet et Malebranche ne sont pas connus pour un tel engagement, et Rousseau, bien qu'ayant critiqué l'esclavage politique, n'a pas centré sa réflexion sur la traite. À noter que Voltaire a lui aussi condamné l'esclavage (dans « Candide »), mais il ne figure pas ici parmi les propositions.",
-    "source": "https://fr.wikipedia.org/wiki/Montesquieu"
+    "explanation": "Montesquieu a dénoncé l'esclavage dans « De l'Esprit des lois » (1748), notamment au chapitre ironique « De l'esclavage des nègres » (livre XV), où il tourne en dérision les justifications de la traite négrière. D'autres penseurs des Lumières, comme Condorcet (« Réflexions sur l'esclavage des nègres », 1781) ou Voltaire (« Candide »), l'ont également condamné. En revanche, Bossuet, Malebranche ou Richelieu ne sont pas connus pour un tel engagement, et Colbert est au contraire à l'origine du Code noir (1685), qui organisait l'esclavage dans les colonies.",
+    "source": "https://fr.wikipedia.org/wiki/Montesquieu",
+    "variants": [
+      {
+        "optionA": "Condorcet",
+        "optionB": "Bossuet",
+        "optionC": "Colbert",
+        "optionD": "Richelieu",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 167,
@@ -2930,8 +3051,17 @@
     "correctAnswers": [
       "Journées européennes du patrimoine"
     ],
-    "explanation": "Les Journées européennes du patrimoine ont lieu chaque année le troisième week-end de septembre. Pendant ce week-end, de nombreux monuments historiques, musées et institutions publics généralement fermés ouvrent leurs portes gratuitement ou à prix réduit. Créées en France en 1984 par Jack Lang, elles ont été étendues à toute l'Europe en 1991.",
-    "source": "https://fr.wikipedia.org/wiki/Journ%C3%A9es_europ%C3%A9ennes_du_patrimoine"
+    "explanation": "Les Journées européennes du patrimoine ont lieu chaque année le troisième week-end de septembre. Pendant ce week-end, de nombreux monuments historiques, musées et institutions publics généralement fermés ouvrent leurs portes gratuitement ou à prix réduit. Créées en France en 1984 par Jack Lang, elles ont été étendues à toute l'Europe en 1991. La Nuit européenne des musées, organisée chaque année en mai, permet également de visiter gratuitement de nombreux musées en soirée.",
+    "source": "https://fr.wikipedia.org/wiki/Journ%C3%A9es_europ%C3%A9ennes_du_patrimoine",
+    "variants": [
+      {
+        "optionA": "La Nuit européenne des musées",
+        "optionB": "Le lundi de Pâques",
+        "optionC": "La Chandeleur",
+        "optionD": "La Saint-Jean",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 177,
@@ -3252,7 +3382,23 @@
       "Lille"
     ],
     "explanation": "Paris est la plus grande ville et la capitale de la France, avec plus de 2,1 millions d'habitants intra-muros et environ 12 millions en Île-de-France. C'est aussi la métropole la plus peuplée. Les autres grandes métropoles françaises sont Marseille, Lyon, Toulouse, Nice, Nantes, Montpellier, Strasbourg, Bordeaux et Lille.",
-    "source": "https://fr.wikipedia.org/wiki/D%C3%A9mographie_de_la_France"
+    "source": "https://fr.wikipedia.org/wiki/D%C3%A9mographie_de_la_France",
+    "variants": [
+      {
+        "optionA": "Lyon",
+        "optionB": "Pau",
+        "optionC": "Bayonne",
+        "optionD": "Annecy",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "Marseille",
+        "optionB": "Nîmes",
+        "optionC": "Limoges",
+        "optionD": "La Rochelle",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 195,
@@ -3402,8 +3548,31 @@
       "La Manche",
       "La Mer du Nord"
     ],
-    "explanation": "La France métropolitaine est bordée par trois mers et océans : la mer Méditerranée au sud, l'océan Atlantique à l'ouest, et la Manche au nord (qui sépare la France de l'Angleterre). La mer du Nord borde une petite partie du nord de la France. Ces façades maritimes font de la France le pays disposant du deuxième espace maritime mondial (ZEE).",
-    "source": "https://fr.wikipedia.org/wiki/G%C3%A9ographie_de_la_France"
+    "explanation": "La France métropolitaine est bordée par quatre façades maritimes : la mer du Nord et la Manche au nord (cette dernière sépare la France de l'Angleterre), l'océan Atlantique à l'ouest et la mer Méditerranée au sud. Ces façades maritimes font de la France le pays disposant du deuxième espace maritime mondial (ZEE).",
+    "source": "https://fr.wikipedia.org/wiki/G%C3%A9ographie_de_la_France",
+    "variants": [
+      {
+        "optionA": "L'océan Atlantique",
+        "optionB": "La mer Caspienne",
+        "optionC": "La mer Rouge",
+        "optionD": "L'océan Indien",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "La Manche",
+        "optionB": "La mer Baltique",
+        "optionC": "La mer Adriatique",
+        "optionD": "La mer Égée",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "La mer du Nord",
+        "optionB": "L'océan Pacifique",
+        "optionC": "La mer Ionienne",
+        "optionD": "La mer de Chine",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 202,
@@ -4070,8 +4239,17 @@
     "correctAnswers": [
       "Le Code du travail"
     ],
-    "explanation": "Le Code du travail est le texte de référence qui réglemente les relations entre employeurs et salariés en France. Il fixe notamment les règles sur la durée du travail, le salaire minimum (SMIC), les congés payés, les contrats de travail, les conditions de licenciement et la représentation des salariés. Il est régulièrement modifié par le Parlement.",
-    "source": "https://fr.wikipedia.org/wiki/Code_du_travail_(France)"
+    "explanation": "Le Code du travail est le texte de référence qui réglemente les relations entre employeurs et salariés en France. Il fixe notamment les règles sur la durée du travail, le salaire minimum (SMIC), les congés payés, les contrats de travail, les conditions de licenciement et la représentation des salariés. Il est régulièrement modifié par le Parlement. Les conventions collectives, négociées par branche professionnelle, complètent le Code du travail en adaptant ses règles à chaque secteur d'activité.",
+    "source": "https://fr.wikipedia.org/wiki/Code_du_travail_(France)",
+    "variants": [
+      {
+        "optionA": "Les conventions collectives",
+        "optionB": "Le Code de la route",
+        "optionC": "Le Code de l'urbanisme",
+        "optionD": "Le Code électoral",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 244,
@@ -4179,7 +4357,7 @@
       "Une réunion solennelle de famille (mariage, enterrement)",
       "Un empêchement lié aux transports (grève, intempéries)"
     ],
-    "explanation": "En France, l'assiduité scolaire est obligatoire. Les seules absences justifiées à l'école sont : la maladie de l'enfant (avec certificat médical si demandé), une fête religieuse propre à la famille (dans la limite d'une journée), une réunion familiale solennelle (mariage, enterrement) ou un empêchement résultant de difficultés de transport. Les simples vacances familiales ne sont pas des motifs valables.",
+    "explanation": "En France, l'assiduité scolaire est obligatoire. Les seules absences justifiées à l'école sont : la maladie de l'enfant ou un rendez-vous médical (avec certificat si demandé), une fête religieuse propre à la famille (dans la limite d'une journée), une réunion familiale solennelle (mariage, enterrement) ou un empêchement résultant de difficultés de transport. Les simples vacances familiales, sorties ou loisirs ne sont pas des motifs valables.",
     "source": "https://fr.wikipedia.org/wiki/Obligation_scolaire_en_France",
     "variants": [
       {
@@ -4259,7 +4437,16 @@
       "Rencontrer les professeurs lors des réunions régulières"
     ],
     "explanation": "Les parents d'élèves sont représentés dans les instances de gouvernance des établissements scolaires. Ils élisent leurs représentants pour siéger au conseil d'école (primaire) ou au conseil d'administration (collège et lycée). Ils peuvent aussi adhérer à des associations de parents d'élèves reconnues (FCPE, PEEP) et rencontrer les enseignants lors des réunions.",
-    "source": "https://fr.wikipedia.org/wiki/Association_de_parents_d%27%C3%A9l%C3%A8ves"
+    "source": "https://fr.wikipedia.org/wiki/Association_de_parents_d%27%C3%A9l%C3%A8ves",
+    "variants": [
+      {
+        "optionA": "Se présenter comme représentant des parents d'élèves",
+        "optionB": "Choisir les enseignants de son enfant",
+        "optionC": "Modifier les programmes scolaires",
+        "optionD": "Noter les professeurs",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 255,
