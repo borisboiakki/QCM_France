@@ -95,7 +95,9 @@ targetSdk  = 35
 Kotlin : `2.0.21` | AGP : `8.13.2` | KSP : `2.0.21-1.0.27` | Gradle : `8.13`
 
 Build **release** : R8 activé (`isMinifyEnabled = true`) + `shrinkResources` ; règles Gson dans
-`proguard-rules.pro` (signatures génériques TypeToken + champs des modèles sérialisés).
+`proguard-rules.pro` (signatures génériques TypeToken + **keep complet des modèles Gson** —
+R8 full mode traite une classe créée uniquement par réflexion, comme `QuestionVariant` ou
+`Fiche`, comme jamais instanciée si on ne garde que ses champs).
 
 ---
 
@@ -207,7 +209,7 @@ QCM_France/
 │   │           └── data_extraction_rules.xml    dataExtractionRules (Android 12+)
 │   ├── schemas/                                 Schémas Room exportés (générés au build, à versionner)
 │   ├── build.gradle.kts                         R8 + shrinkResources en release, room.schemaLocation
-│   └── proguard-rules.pro                       Règles Gson (TypeToken, champs des modèles)
+│   └── proguard-rules.pro                       Règles Gson (TypeToken + keep complet des modèles, requis par R8 full mode)
 ├── build.gradle.kts
 ├── gradle.properties                            android.useAndroidX=true, android.nonTransitiveRClass=true, org.gradle.jvmargs=-Xmx4g
 ├── settings.gradle.kts

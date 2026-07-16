@@ -22,8 +22,20 @@ class Converters {
     fun fromVariants(variants: List<QuestionVariant>?): String =
         if (variants == null) "[]" else gson.toJson(variants)
 
+    // Filtre défensif : Gson crée les éléments par réflexion, donc un jeu incomplet ou mal
+    // désérialisé peut porter des champs null malgré leurs types non-null (voire un mauvais type
+    // d'élément si la signature générique manque). On écarte ces jeux — la question retombe alors
+    // sur son jeu de base — plutôt que de crasher plus loin dans pickVariant().
+    @Suppress("SENSELESS_COMPARISON", "USELESS_IS_CHECK")
     @TypeConverter
     fun toVariants(json: String): List<QuestionVariant> =
         if (json.isBlank()) emptyList()
-        else runCatching { gson.fromJson<List<QuestionVariant>>(json, variantListType) }.getOrNull() ?: emptyList()
+        else runCatching {
+            val parsed: List<QuestionVariant> = gson.fromJson(json, variantListType)
+            parsed.filter { v ->
+                (v as Any?) is QuestionVariant &&
+                    v.optionA != null && v.optionB != null && v.optionC != null &&
+                    v.optionD != null && v.correctAnswer != null
+            }
+        }.getOrNull() ?: emptyList()
 }
