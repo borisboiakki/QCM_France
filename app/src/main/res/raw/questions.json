@@ -123,8 +123,24 @@
       "Le 14 juillet (Fête nationale)",
       "Le Coq (Symbole culturel et sportif, parfois accepté)"
     ],
-    "explanation": "Les symboles officiels de la République française sont définis par l'article 2 de la Constitution : le drapeau tricolore bleu, blanc, rouge ; l'hymne national La Marseillaise ; la devise « Liberté, Égalité, Fraternité » ; l'emblème Marianne ; et le 14 juillet comme fête nationale. Ces symboles rappellent les valeurs fondatrices de la République nées de la Révolution de 1789.",
-    "source": "https://fr.wikipedia.org/wiki/Symboles_de_la_R%C3%A9publique_fran%C3%A7aise"
+    "explanation": "Les symboles officiels de la République française sont définis par l'article 2 de la Constitution : le drapeau tricolore bleu, blanc, rouge ; l'hymne national La Marseillaise ; la devise « Liberté, Égalité, Fraternité » ; l'emblème Marianne ; et le 14 juillet comme fête nationale. Ces symboles rappellent les valeurs fondatrices de la République nées de la Révolution de 1789. Le bonnet phrygien, coiffe portée par Marianne, et le coq gaulois sont également des symboles traditionnels de la République.",
+    "source": "https://fr.wikipedia.org/wiki/Symboles_de_la_R%C3%A9publique_fran%C3%A7aise",
+    "variants": [
+      {
+        "optionA": "Le sphinx",
+        "optionB": "Marianne",
+        "optionC": "L'aigle impérial",
+        "optionD": "La fleur de lys",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "La couronne royale",
+        "optionB": "Le sceptre",
+        "optionC": "Le bonnet phrygien",
+        "optionD": "Le blason à fleurs de lys",
+        "correctAnswer": "C"
+      }
+    ]
   },
   {
     "id": 9,
@@ -141,7 +157,23 @@
       "Sur les timbres"
     ],
     "explanation": "La devise de la République française, « Liberté, Égalité, Fraternité », est inscrite sur les frontons des bâtiments publics tels que les mairies, les écoles et les palais de justice. On la retrouve aussi sur les pièces de monnaie, les timbres et les documents officiels. Cette devise rappelle que les institutions de la République sont au service de tous les citoyens.",
-    "source": "https://fr.wikipedia.org/wiki/Libert%C3%A9%2C_%C3%89galit%C3%A9%2C_Fraternit%C3%A9"
+    "source": "https://fr.wikipedia.org/wiki/Libert%C3%A9%2C_%C3%89galit%C3%A9%2C_Fraternit%C3%A9",
+    "variants": [
+      {
+        "optionA": "Sur les tickets de métro",
+        "optionB": "Sur les cartes bancaires",
+        "optionC": "Sur les pièces de monnaie françaises (1 € et 2 €)",
+        "optionD": "Sur les plaques d'immatriculation",
+        "correctAnswer": "C"
+      },
+      {
+        "optionA": "Sur les documents officiels de l'État (logo de la République)",
+        "optionB": "Sur les billets d'avion",
+        "optionC": "Sur les enseignes des commerces",
+        "optionD": "Sur les cartes de vœux",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 10,
@@ -417,7 +449,23 @@
       "Déclarer une naissance ou un décès (État civil)"
     ],
     "explanation": "La mairie est le service public de proximité où les citoyens peuvent accomplir de nombreuses démarches administratives : demander un passeport ou une carte nationale d'identité, s'inscrire sur les listes électorales, déclarer une naissance ou un décès, se marier civilement. Elle est aussi le lieu où s'exercent les fonctions d'état civil, gérées par le maire en tant qu'officier d'état civil.",
-    "source": "https://fr.wikipedia.org/wiki/Mairie_(France)"
+    "source": "https://fr.wikipedia.org/wiki/Mairie_(France)",
+    "variants": [
+      {
+        "optionA": "S'inscrire sur les listes électorales",
+        "optionB": "Obtenir un permis de conduire",
+        "optionC": "Porter plainte",
+        "optionD": "Payer ses impôts",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "Se marier civilement",
+        "optionB": "Demander un titre de séjour",
+        "optionC": "Passer le permis de conduire",
+        "optionD": "Ouvrir un compte bancaire",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 27,
@@ -755,8 +803,24 @@
       "Le Sénateur",
       "Le Conseiller régional ou départemental"
     ],
-    "explanation": "Le maire est le seul parmi les propositions à être élu : il est désigné par le conseil municipal au suffrage indirect. Le procureur de la République est nommé par décret du Président, le préfet est nommé en Conseil des ministres, et le directeur général des finances publiques est un fonctionnaire nommé par l'exécutif. L'élection est le mode de désignation propre aux représentants politiques.",
-    "source": "https://fr.wikipedia.org/wiki/Maire_(France)"
+    "explanation": "Parmi les propositions, une seule autorité est élue. Le maire est élu par le conseil municipal (suffrage indirect), les députés et le Président de la République le sont au suffrage universel direct. À l'inverse, les préfets, procureurs, recteurs, ambassadeurs et directeurs d'administration sont nommés par l'exécutif. L'élection est le mode de désignation propre aux représentants politiques.",
+    "source": "https://fr.wikipedia.org/wiki/Maire_(France)",
+    "variants": [
+      {
+        "optionA": "Le député",
+        "optionB": "Le préfet de région",
+        "optionC": "Le recteur d'académie",
+        "optionD": "Le commissaire de police",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "Le Président de la République",
+        "optionB": "L'ambassadeur",
+        "optionC": "Le directeur d'hôpital public",
+        "optionD": "Le procureur général",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 48,
@@ -1788,8 +1852,17 @@
     "correctAnswers": [
       "Dans un lieu privé. (domicile par exemple)"
     ],
-    "explanation": "La loi du 10 janvier 1991 (loi Évin) a progressivement restreint le tabagisme dans les espaces publics. La loi du 1er février 2007 l'a généralisé à tous les lieux fermés et couverts accueillant du public, y compris les restaurants et les bars. Il est interdit de fumer dans ces espaces. Seuls les lieux privés (domicile) restent autorisés.",
-    "source": "https://fr.wikipedia.org/wiki/L%C3%A9gislation_sur_le_tabac_en_France"
+    "explanation": "La loi du 10 janvier 1991 (loi Évin) a progressivement restreint le tabagisme dans les espaces publics. La loi du 1er février 2007 l'a généralisé à tous les lieux fermés et couverts accueillant du public, y compris les restaurants et les bars. Il est interdit de fumer dans ces espaces. Restent autorisés les lieux privés (domicile) et certains espaces de plein air comme les terrasses ouvertes des cafés — avec, depuis le 1er juillet 2025, de nouvelles interdictions dans les parcs, sur les plages et aux abords des écoles.",
+    "source": "https://fr.wikipedia.org/wiki/L%C3%A9gislation_sur_le_tabac_en_France",
+    "variants": [
+      {
+        "optionA": "Sur la terrasse ouverte d'un café",
+        "optionB": "Dans un cinéma",
+        "optionC": "Dans une gare (espaces intérieurs)",
+        "optionD": "Dans un bureau partagé",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 113,
@@ -2132,7 +2205,30 @@
       "Emmanuel Macron"
     ],
     "explanation": "La Ve République a connu à ce jour (2025) huit présidents : Charles de Gaulle (1959-1969), Georges Pompidou (1969-1974), Valéry Giscard d'Estaing (1974-1981), François Mitterrand (1981-1995), Jacques Chirac (1995-2007), Nicolas Sarkozy (2007-2012), François Hollande (2012-2017) et Emmanuel Macron (depuis 2017).",
-    "source": "https://fr.wikipedia.org/wiki/Liste_des_pr%C3%A9sidents_de_la_R%C3%A9publique_fran%C3%A7aise"
+    "source": "https://fr.wikipedia.org/wiki/Liste_des_pr%C3%A9sidents_de_la_R%C3%A9publique_fran%C3%A7aise",
+    "variants": [
+      {
+        "optionA": "Jacques Chirac",
+        "optionB": "Georges Clemenceau",
+        "optionC": "René Coty",
+        "optionD": "Napoléon III",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "François Mitterrand",
+        "optionB": "Léon Blum",
+        "optionC": "Adolphe Thiers",
+        "optionD": "Philippe Pétain",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "Charles de Gaulle",
+        "optionB": "Raymond Poincaré",
+        "optionC": "Jules Ferry",
+        "optionD": "Louis XVIII",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 134,
@@ -2200,7 +2296,30 @@
       "Le Luxembourg"
     ],
     "explanation": "Les six pays fondateurs de la Communauté économique européenne (CEE), créée par le Traité de Rome du 25 mars 1957, sont : la France, l'Allemagne (alors RFA), l'Italie, la Belgique, les Pays-Bas et le Luxembourg. Ces six nations avaient déjà fondé la CECA en 1951. La CEE est devenue l'Union européenne par le Traité de Maastricht (1992).",
-    "source": "https://fr.wikipedia.org/wiki/Communaut%C3%A9_%C3%A9conomique_europ%C3%A9enne"
+    "source": "https://fr.wikipedia.org/wiki/Communaut%C3%A9_%C3%A9conomique_europ%C3%A9enne",
+    "variants": [
+      {
+        "optionA": "Norvège",
+        "optionB": "Belgique",
+        "optionC": "Autriche",
+        "optionD": "Suède",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Danemark",
+        "optionB": "Pays-Bas",
+        "optionC": "Royaume-Uni",
+        "optionD": "Espagne",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Suisse",
+        "optionB": "Irlande",
+        "optionC": "Luxembourg",
+        "optionD": "Portugal",
+        "correctAnswer": "C"
+      }
+    ]
   },
   {
     "id": 138,
@@ -2225,7 +2344,7 @@
     "optionA": "Normandie",
     "optionB": "Bretagne",
     "optionC": "Alsace",
-    "optionD": "Provence",
+    "optionD": "Aquitaine",
     "correctAnswer": "A",
     "correctAnswers": [
       "Normandie"
@@ -2308,8 +2427,24 @@
       "Jean Jaurès (Le défenseur des ouvriers)",
       "Charles de Gaulle (Le libérateur)"
     ],
-    "explanation": "Jules Ferry (1832-1893) est associé à la République pour avoir créé l'école publique, gratuite et laïque. Victor Hugo est le grand écrivain républicain (Les Misérables, Notre-Dame de Paris). Jean Jaurès est le défenseur des travailleurs et pacifiste. Charles de Gaulle est le libérateur de la France en 1944. Ces figures incarnent des valeurs républicaines fondamentales.",
-    "source": "https://fr.wikipedia.org/wiki/Jules_Ferry"
+    "explanation": "Jules Ferry (1832-1893) est associé à la République pour avoir créé l'école publique, gratuite et laïque. Victor Hugo est le grand écrivain républicain (Les Misérables, Notre-Dame de Paris). Jean Jaurès est le défenseur des travailleurs et pacifiste. Charles de Gaulle est le libérateur de la France en 1944. Ces figures incarnent des valeurs républicaines fondamentales. Léon Gambetta a proclamé la IIIe République en 1870, et Victor Schoelcher a fait abolir l'esclavage sous la IIe République en 1848.",
+    "source": "https://fr.wikipedia.org/wiki/Jules_Ferry",
+    "variants": [
+      {
+        "optionA": "Léon Gambetta",
+        "optionB": "François Ier",
+        "optionC": "Charlemagne",
+        "optionD": "Louis XVI",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "Victor Schoelcher",
+        "optionB": "Henri IV",
+        "optionC": "Napoléon III",
+        "optionD": "Clovis",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 145,
@@ -2360,7 +2495,30 @@
       "L'Indochine"
     ],
     "explanation": "La France a possédé un vaste empire colonial, le deuxième mondial après l'Empire britannique. En Afrique, elle colonisait notamment le Sénégal, l'Algérie, le Mali, la Côte d'Ivoire, le Maroc, la Tunisie. En Asie, l'Indochine (Vietnam, Cambodge, Laos). Ces territoires ont acquis leur indépendance principalement dans les années 1950-1960.",
-    "source": "https://fr.wikipedia.org/wiki/Empire_colonial_fran%C3%A7ais"
+    "source": "https://fr.wikipedia.org/wiki/Empire_colonial_fran%C3%A7ais",
+    "variants": [
+      {
+        "optionA": "Espagne",
+        "optionB": "Algérie",
+        "optionC": "Suède",
+        "optionD": "Norvège",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Éthiopie",
+        "optionB": "Mali",
+        "optionC": "Portugal",
+        "optionD": "Grèce",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Madagascar",
+        "optionB": "Espagne",
+        "optionC": "Autriche",
+        "optionD": "Japon",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 148,
@@ -2498,8 +2656,24 @@
       "Jean Moulin",
       "De Gaulle (France Libre)"
     ],
-    "explanation": "Jean Moulin (1899-1943) est la grande figure de la Résistance intérieure française. Préfet révoqué par Vichy, il a rallié de Gaulle à Londres en 1941 et a été chargé d'unifier les mouvements de Résistance. Il a fondé le Conseil national de la Résistance (CNR) en mai 1943. Arrêté par la Gestapo, il est mort sous la torture en juillet 1943.",
-    "source": "https://fr.wikipedia.org/wiki/Jean_Moulin"
+    "explanation": "Jean Moulin (1899-1943) est la grande figure de la Résistance intérieure française. Préfet révoqué par Vichy, il a rallié de Gaulle à Londres en 1941 et a été chargé d'unifier les mouvements de Résistance. Il a fondé le Conseil national de la Résistance (CNR) en mai 1943. Arrêté par la Gestapo, il est mort sous la torture en juillet 1943. D'autres grandes figures de la Résistance : le général de Gaulle (chef de la France libre depuis Londres), Lucie Aubrac, Germaine Tillion ou Missak Manouchian.",
+    "source": "https://fr.wikipedia.org/wiki/Jean_Moulin",
+    "variants": [
+      {
+        "optionA": "Lucie Aubrac",
+        "optionB": "Philippe Pétain",
+        "optionC": "Pierre Laval",
+        "optionD": "L'amiral Darlan",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "Le général de Gaulle",
+        "optionB": "Philippe Pétain",
+        "optionC": "Pierre Laval",
+        "optionD": "Albert Lebrun",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 157,
@@ -2584,7 +2758,7 @@
     "text": "Quelle organisation a été créée en 1945 après la Seconde Guerre mondiale ?",
     "optionA": "L'Union européenne (UE)",
     "optionB": "L'Organisation des Nations Unies (ONU)",
-    "optionC": "L'Organisation des Nations Unies pour l'éducation, la science et la culture (UNESCO)",
+    "optionC": "Le Conseil de l'Europe",
     "optionD": "L'Organisation du traité de l'Atlantique Nord (OTAN)",
     "correctAnswer": "B",
     "correctAnswers": [
@@ -2645,13 +2819,22 @@
     "optionA": "Montesquieu",
     "optionB": "Bossuet",
     "optionC": "Malebranche",
-    "optionD": "Rousseau",
+    "optionD": "Colbert",
     "correctAnswer": "A",
     "correctAnswers": [
       "Montesquieu"
     ],
-    "explanation": "Montesquieu a dénoncé l'esclavage dans « De l'Esprit des lois » (1748), notamment au chapitre ironique « De l'esclavage des nègres » (livre XV), où il tourne en dérision les justifications de la traite négrière. Bossuet et Malebranche ne sont pas connus pour un tel engagement, et Rousseau, bien qu'ayant critiqué l'esclavage politique, n'a pas centré sa réflexion sur la traite. À noter que Voltaire a lui aussi condamné l'esclavage (dans « Candide »), mais il ne figure pas ici parmi les propositions.",
-    "source": "https://fr.wikipedia.org/wiki/Montesquieu"
+    "explanation": "Montesquieu a dénoncé l'esclavage dans « De l'Esprit des lois » (1748), notamment au chapitre ironique « De l'esclavage des nègres » (livre XV), où il tourne en dérision les justifications de la traite négrière. D'autres penseurs des Lumières, comme Condorcet (« Réflexions sur l'esclavage des nègres », 1781) ou Voltaire (« Candide »), l'ont également condamné. En revanche, Bossuet, Malebranche ou Richelieu ne sont pas connus pour un tel engagement, et Colbert est au contraire à l'origine du Code noir (1685), qui organisait l'esclavage dans les colonies.",
+    "source": "https://fr.wikipedia.org/wiki/Montesquieu",
+    "variants": [
+      {
+        "optionA": "Condorcet",
+        "optionB": "Bossuet",
+        "optionC": "Colbert",
+        "optionD": "Richelieu",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 167,
@@ -2668,7 +2851,23 @@
       "Les Contemplations"
     ],
     "explanation": "Victor Hugo (1802-1885) est l'un des plus grands écrivains français. Parmi ses œuvres majeures figurent « Les Misérables » (1862), roman social dénonçant la misère et l'injustice, « Notre-Dame de Paris » (1831), et le recueil de poésie « Les Contemplations » (1856). Il était aussi un homme politique républicain engagé.",
-    "source": "https://fr.wikipedia.org/wiki/Victor_Hugo"
+    "source": "https://fr.wikipedia.org/wiki/Victor_Hugo",
+    "variants": [
+      {
+        "optionA": "Madame Bovary",
+        "optionB": "Notre-Dame de Paris",
+        "optionC": "Germinal",
+        "optionD": "Le Comte de Monte-Cristo",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Les Fleurs du mal",
+        "optionB": "Les Contemplations",
+        "optionC": "Le Rouge et le Noir",
+        "optionD": "Bel-Ami",
+        "correctAnswer": "B"
+      }
+    ]
   },
   {
     "id": 168,
@@ -2687,7 +2886,23 @@
       "Henri Matisse"
     ],
     "explanation": "Claude Monet (1840-1926) est l'un des fondateurs du mouvement impressionniste français. Il est célèbre pour ses séries de tableaux (les Nymphéas, les Cathédrales de Rouen, les Meules). Vincent van Gogh était néerlandais, Rembrandt était néerlandais, et Pablo Picasso était espagnol (bien qu'il ait vécu à Paris).",
-    "source": "https://fr.wikipedia.org/wiki/Claude_Monet"
+    "source": "https://fr.wikipedia.org/wiki/Claude_Monet",
+    "variants": [
+      {
+        "optionA": "Auguste Renoir",
+        "optionB": "Vermeer",
+        "optionC": "Goya",
+        "optionD": "Gustav Klimt",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "Michel-Ange",
+        "optionB": "Eugène Delacroix",
+        "optionC": "Rubens",
+        "optionD": "William Turner",
+        "correctAnswer": "B"
+      }
+    ]
   },
   {
     "id": 169,
@@ -2705,7 +2920,23 @@
       "Le Pot-au-feu"
     ],
     "explanation": "Le Coq au vin est l'un des grands classiques de la cuisine française traditionnelle, à base de poulet mijoté dans du vin rouge avec des lardons, des champignons et des oignons. La cuisine française est reconnue par l'UNESCO comme patrimoine culturel immatériel de l'humanité depuis 2010. D'autres spécialités incluent le bœuf bourguignon, la blanquette de veau et la bouillabaisse.",
-    "source": "https://fr.wikipedia.org/wiki/Cuisine_fran%C3%A7aise"
+    "source": "https://fr.wikipedia.org/wiki/Cuisine_fran%C3%A7aise",
+    "variants": [
+      {
+        "optionA": "Couscous",
+        "optionB": "Bœuf bourguignon",
+        "optionC": "Hamburger",
+        "optionD": "Curry",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Goulash",
+        "optionB": "Cassoulet",
+        "optionC": "Fish and chips",
+        "optionD": "Falafel",
+        "correctAnswer": "B"
+      }
+    ]
   },
   {
     "id": 170,
@@ -2782,7 +3013,16 @@
       "La grotte de Lascaux"
     ],
     "explanation": "La grotte de Lascaux, découverte en 1940 en Dordogne (Périgord), contient des peintures rupestres vieilles d'environ 17 000 ans, représentant des animaux (taureaux, chevaux, cerfs). Fermée au public en 1963 pour préserver les œuvres, une réplique exacte (Lascaux IV) est accessible aux visiteurs depuis 2016 à Montignac.",
-    "source": "https://fr.wikipedia.org/wiki/Grotte_de_Lascaux"
+    "source": "https://fr.wikipedia.org/wiki/Grotte_de_Lascaux",
+    "variants": [
+      {
+        "optionA": "Le château de Chambord",
+        "optionB": "La grotte Chauvet",
+        "optionC": "La cathédrale de Reims",
+        "optionD": "Le pont du Gard",
+        "correctAnswer": "B"
+      }
+    ]
   },
   {
     "id": 175,
@@ -2811,8 +3051,17 @@
     "correctAnswers": [
       "Journées européennes du patrimoine"
     ],
-    "explanation": "Les Journées européennes du patrimoine ont lieu chaque année le troisième week-end de septembre. Pendant ce week-end, de nombreux monuments historiques, musées et institutions publics généralement fermés ouvrent leurs portes gratuitement ou à prix réduit. Créées en France en 1984 par Jack Lang, elles ont été étendues à toute l'Europe en 1991.",
-    "source": "https://fr.wikipedia.org/wiki/Journ%C3%A9es_europ%C3%A9ennes_du_patrimoine"
+    "explanation": "Les Journées européennes du patrimoine ont lieu chaque année le troisième week-end de septembre. Pendant ce week-end, de nombreux monuments historiques, musées et institutions publics généralement fermés ouvrent leurs portes gratuitement ou à prix réduit. Créées en France en 1984 par Jack Lang, elles ont été étendues à toute l'Europe en 1991. La Nuit européenne des musées, organisée chaque année en mai, permet également de visiter gratuitement de nombreux musées en soirée.",
+    "source": "https://fr.wikipedia.org/wiki/Journ%C3%A9es_europ%C3%A9ennes_du_patrimoine",
+    "variants": [
+      {
+        "optionA": "La Nuit européenne des musées",
+        "optionB": "Le lundi de Pâques",
+        "optionC": "La Chandeleur",
+        "optionD": "La Saint-Jean",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 177,
@@ -3028,7 +3277,23 @@
       "Hector Berlioz"
     ],
     "explanation": "Claude Debussy (1862-1918) est le compositeur français qui a le plus influencé la musique du XXe siècle. Inventeur du style impressionniste en musique, il est connu pour La Mer, Clair de Lune, Prélude à l'après-midi d'un faune. Maurice Ravel (Boléro) et Hector Berlioz (Symphonie fantastique) sont aussi des compositeurs français majeurs.",
-    "source": "https://fr.wikipedia.org/wiki/Claude_Debussy"
+    "source": "https://fr.wikipedia.org/wiki/Claude_Debussy",
+    "variants": [
+      {
+        "optionA": "Émile Zola",
+        "optionB": "Louis Pasteur",
+        "optionC": "Maurice Ravel",
+        "optionD": "Auguste Rodin",
+        "correctAnswer": "C"
+      },
+      {
+        "optionA": "Gustave Eiffel",
+        "optionB": "Molière",
+        "optionC": "Georges Bizet",
+        "optionD": "Édouard Manet",
+        "correctAnswer": "C"
+      }
+    ]
   },
   {
     "id": 191,
@@ -3062,7 +3327,23 @@
       "Le Musée de l'Orangerie"
     ],
     "explanation": "Le musée du Louvre, situé dans le palais royal du Louvre à Paris, est le plus grand musée d'art du monde et le plus visité. Il abrite notamment la Joconde de Léonard de Vinci, La Vénus de Milo et La Victoire de Samothrace. Les autres grands musées parisiens sont le musée d'Orsay (art du XIXe siècle) et le Centre Pompidou (art contemporain).",
-    "source": "https://fr.wikipedia.org/wiki/Mus%C3%A9e_du_Louvre"
+    "source": "https://fr.wikipedia.org/wiki/Mus%C3%A9e_du_Louvre",
+    "variants": [
+      {
+        "optionA": "Le musée d'Orsay",
+        "optionB": "Le Rijksmuseum",
+        "optionC": "La galerie des Offices",
+        "optionD": "Le Metropolitan Museum",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "La National Gallery",
+        "optionB": "Le Centre Pompidou",
+        "optionC": "Les musées du Vatican",
+        "optionD": "Le musée Guggenheim de Bilbao",
+        "correctAnswer": "B"
+      }
+    ]
   },
   {
     "id": 193,
@@ -3101,7 +3382,23 @@
       "Lille"
     ],
     "explanation": "Paris est la plus grande ville et la capitale de la France, avec plus de 2,1 millions d'habitants intra-muros et environ 12 millions en Île-de-France. C'est aussi la métropole la plus peuplée. Les autres grandes métropoles françaises sont Marseille, Lyon, Toulouse, Nice, Nantes, Montpellier, Strasbourg, Bordeaux et Lille.",
-    "source": "https://fr.wikipedia.org/wiki/D%C3%A9mographie_de_la_France"
+    "source": "https://fr.wikipedia.org/wiki/D%C3%A9mographie_de_la_France",
+    "variants": [
+      {
+        "optionA": "Lyon",
+        "optionB": "Pau",
+        "optionC": "Bayonne",
+        "optionD": "Annecy",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "Marseille",
+        "optionB": "Nîmes",
+        "optionC": "Limoges",
+        "optionD": "La Rochelle",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 195,
@@ -3117,7 +3414,16 @@
       "La Guadeloupe"
     ],
     "explanation": "Les Antilles françaises sont composées de la Martinique et de la Guadeloupe, deux départements et régions d'outre-mer (DROM) situés dans la mer des Caraïbes. Elles font partie des « DROM-COM » (départements, régions et collectivités d'outre-mer). La Martinique est chef-lieu Fort-de-France, la Guadeloupe Basse-Terre.",
-    "source": "https://fr.wikipedia.org/wiki/Antilles_fran%C3%A7aises"
+    "source": "https://fr.wikipedia.org/wiki/Antilles_fran%C3%A7aises",
+    "variants": [
+      {
+        "optionA": "La Réunion",
+        "optionB": "La Guadeloupe",
+        "optionC": "La Barbade",
+        "optionD": "La Sardaigne",
+        "correctAnswer": "B"
+      }
+    ]
   },
   {
     "id": 196,
@@ -3139,7 +3445,23 @@
       "Saint-Pierre-et-Miquelon"
     ],
     "explanation": "La Corse est une île française de la mer Méditerranée, constituée de deux départements (Haute-Corse et Corse-du-Sud) regroupés en une collectivité unique. La France possède aussi de nombreux territoires d'outre-mer insulaires : la Martinique, la Guadeloupe, La Réunion, Mayotte, la Nouvelle-Calédonie, Tahiti (Polynésie française), etc.",
-    "source": "https://fr.wikipedia.org/wiki/France_d%27outre-mer"
+    "source": "https://fr.wikipedia.org/wiki/France_d%27outre-mer",
+    "variants": [
+      {
+        "optionA": "La Sicile",
+        "optionB": "La Guadeloupe",
+        "optionC": "Malte",
+        "optionD": "Rhodes",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Ibiza",
+        "optionB": "La Crète",
+        "optionC": "L'île de Ré",
+        "optionD": "La Sardaigne",
+        "correctAnswer": "C"
+      }
+    ]
   },
   {
     "id": 197,
@@ -3170,7 +3492,16 @@
       "Mayotte"
     ],
     "explanation": "La Réunion est un département et région d'outre-mer (DROM) français situé dans l'océan Indien, au large de Madagascar. Son chef-lieu est Saint-Denis. Mayotte est aussi un département français dans l'océan Indien. À ne pas confondre avec La Martinique et La Guadeloupe, situées dans les Caraïbes.",
-    "source": "https://fr.wikipedia.org/wiki/La_R%C3%A9union"
+    "source": "https://fr.wikipedia.org/wiki/La_R%C3%A9union",
+    "variants": [
+      {
+        "optionA": "La Guadeloupe",
+        "optionB": "Mayotte",
+        "optionC": "La Martinique",
+        "optionD": "La Corse",
+        "correctAnswer": "B"
+      }
+    ]
   },
   {
     "id": 199,
@@ -3217,8 +3548,31 @@
       "La Manche",
       "La Mer du Nord"
     ],
-    "explanation": "La France métropolitaine est bordée par trois mers et océans : la mer Méditerranée au sud, l'océan Atlantique à l'ouest, et la Manche au nord (qui sépare la France de l'Angleterre). La mer du Nord borde une petite partie du nord de la France. Ces façades maritimes font de la France le pays disposant du deuxième espace maritime mondial (ZEE).",
-    "source": "https://fr.wikipedia.org/wiki/G%C3%A9ographie_de_la_France"
+    "explanation": "La France métropolitaine est bordée par quatre façades maritimes : la mer du Nord et la Manche au nord (cette dernière sépare la France de l'Angleterre), l'océan Atlantique à l'ouest et la mer Méditerranée au sud. Ces façades maritimes font de la France le pays disposant du deuxième espace maritime mondial (ZEE).",
+    "source": "https://fr.wikipedia.org/wiki/G%C3%A9ographie_de_la_France",
+    "variants": [
+      {
+        "optionA": "L'océan Atlantique",
+        "optionB": "La mer Caspienne",
+        "optionC": "La mer Rouge",
+        "optionD": "L'océan Indien",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "La Manche",
+        "optionB": "La mer Baltique",
+        "optionC": "La mer Adriatique",
+        "optionD": "La mer Égée",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "La mer du Nord",
+        "optionB": "L'océan Pacifique",
+        "optionC": "La mer Ionienne",
+        "optionD": "La mer de Chine",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 202,
@@ -3251,7 +3605,23 @@
       "Mayotte"
     ],
     "explanation": "La Guadeloupe est un département et région d'outre-mer (DROM) français situé dans les Antilles (mer des Caraïbes). Elle est composée de plusieurs îles dont Grande-Terre et Basse-Terre. Son chef-lieu est Basse-Terre. La Martinique, La Réunion et Mayotte sont également des DROM. La Corse est une île française en Méditerranée mais ne constitue pas un DROM.",
-    "source": "https://fr.wikipedia.org/wiki/D%C3%A9partement_et_r%C3%A9gion_d%27outre-mer"
+    "source": "https://fr.wikipedia.org/wiki/D%C3%A9partement_et_r%C3%A9gion_d%27outre-mer",
+    "variants": [
+      {
+        "optionA": "La Sardaigne",
+        "optionB": "Chypre",
+        "optionC": "La Martinique",
+        "optionD": "La Corse",
+        "correctAnswer": "C"
+      },
+      {
+        "optionA": "La Crète",
+        "optionB": "Malte",
+        "optionC": "La Réunion",
+        "optionD": "La Corse",
+        "correctAnswer": "C"
+      }
+    ]
   },
   {
     "id": 204,
@@ -3869,8 +4239,17 @@
     "correctAnswers": [
       "Le Code du travail"
     ],
-    "explanation": "Le Code du travail est le texte de référence qui réglemente les relations entre employeurs et salariés en France. Il fixe notamment les règles sur la durée du travail, le salaire minimum (SMIC), les congés payés, les contrats de travail, les conditions de licenciement et la représentation des salariés. Il est régulièrement modifié par le Parlement.",
-    "source": "https://fr.wikipedia.org/wiki/Code_du_travail_(France)"
+    "explanation": "Le Code du travail est le texte de référence qui réglemente les relations entre employeurs et salariés en France. Il fixe notamment les règles sur la durée du travail, le salaire minimum (SMIC), les congés payés, les contrats de travail, les conditions de licenciement et la représentation des salariés. Il est régulièrement modifié par le Parlement. Les conventions collectives, négociées par branche professionnelle, complètent le Code du travail en adaptant ses règles à chaque secteur d'activité.",
+    "source": "https://fr.wikipedia.org/wiki/Code_du_travail_(France)",
+    "variants": [
+      {
+        "optionA": "Les conventions collectives",
+        "optionB": "Le Code de la route",
+        "optionC": "Le Code de l'urbanisme",
+        "optionD": "Le Code électoral",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 244,
@@ -3978,8 +4357,24 @@
       "Une réunion solennelle de famille (mariage, enterrement)",
       "Un empêchement lié aux transports (grève, intempéries)"
     ],
-    "explanation": "En France, l'assiduité scolaire est obligatoire. Les seules absences justifiées à l'école sont : la maladie de l'enfant (avec certificat médical si demandé), une fête religieuse propre à la famille (dans la limite d'une journée), une réunion familiale solennelle (mariage, enterrement) ou un empêchement résultant de difficultés de transport. Les simples vacances familiales ne sont pas des motifs valables.",
-    "source": "https://fr.wikipedia.org/wiki/Obligation_scolaire_en_France"
+    "explanation": "En France, l'assiduité scolaire est obligatoire. Les seules absences justifiées à l'école sont : la maladie de l'enfant ou un rendez-vous médical (avec certificat si demandé), une fête religieuse propre à la famille (dans la limite d'une journée), une réunion familiale solennelle (mariage, enterrement) ou un empêchement résultant de difficultés de transport. Les simples vacances familiales, sorties ou loisirs ne sont pas des motifs valables.",
+    "source": "https://fr.wikipedia.org/wiki/Obligation_scolaire_en_France",
+    "variants": [
+      {
+        "optionA": "Un anniversaire entre amis",
+        "optionB": "Un rendez-vous médical",
+        "optionC": "Un départ en vacances anticipé",
+        "optionD": "Une sortie shopping",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Un week-end prolongé",
+        "optionB": "Une compétition de jeux vidéo",
+        "optionC": "Une réunion solennelle de famille (mariage, deuil)",
+        "optionD": "Une grasse matinée",
+        "correctAnswer": "C"
+      }
+    ]
   },
   {
     "id": 251,
@@ -4042,7 +4437,16 @@
       "Rencontrer les professeurs lors des réunions régulières"
     ],
     "explanation": "Les parents d'élèves sont représentés dans les instances de gouvernance des établissements scolaires. Ils élisent leurs représentants pour siéger au conseil d'école (primaire) ou au conseil d'administration (collège et lycée). Ils peuvent aussi adhérer à des associations de parents d'élèves reconnues (FCPE, PEEP) et rencontrer les enseignants lors des réunions.",
-    "source": "https://fr.wikipedia.org/wiki/Association_de_parents_d%27%C3%A9l%C3%A8ves"
+    "source": "https://fr.wikipedia.org/wiki/Association_de_parents_d%27%C3%A9l%C3%A8ves",
+    "variants": [
+      {
+        "optionA": "Se présenter comme représentant des parents d'élèves",
+        "optionB": "Choisir les enseignants de son enfant",
+        "optionC": "Modifier les programmes scolaires",
+        "optionD": "Noter les professeurs",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 255,

@@ -15,5 +15,6 @@ data class Question(
     val correctAnswer: String,            // "A", "B", "C" ou "D"
     val explanation: String = "",
     val source: String = "",
-    val isSituation: Boolean = false      // true = question de mise en situation
+    val isSituation: Boolean = false,     // true = question de mise en situation
+    val variants: List<QuestionVariant> = emptyList()  // jeux de réponses alternatifs (rotation)
 )

@@ -158,7 +158,7 @@ app/src/main/java/com/example/qcmfrance/
     ├── viewmodel/
     │   ├── QuizViewModel.kt       QuizUiState, timerJob (cancellable), pauseQuiz/resumeQuiz
     │   ├── TrainingViewModel.kt   TrainingUiState + themeProgress, startTheme/confirmAnswer/next/restart/reset
-    │   ├── QuestionExt.kt         Helper partagé withShuffledOptions() (examen + entraînement)
+    │   ├── QuestionExt.kt         Helpers partagés pickVariant() + withShuffledOptions() (examen + entraînement)
     │   ├── HomeViewModel.kt       hasPausedQuiz : StateFlow<Boolean> (Flow réactif depuis Room)
     │   ├── HistoryViewModel.kt    Flow<List<QuizResult>>, clearHistory()
     │   ├── SettingsViewModel.kt   themeMode + soundEnabled + textSizeMode StateFlow

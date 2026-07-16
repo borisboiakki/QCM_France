@@ -122,7 +122,8 @@ QCM_France/
 │   │   │   ├── data/
 │   │   │   │   ├── ExamConstants.kt             Constantes officielles : durée 2700 s, seuil 32, alerte chrono 300 s
 │   │   │   │   ├── db/
-│   │   │   │   │   ├── AppDatabase.kt           Room @Database v9 (exportSchema) + migrations 1→2→…→8→9
+│   │   │   │   │   ├── AppDatabase.kt           Room @Database v10 (exportSchema) + migrations 1→2→…→9→10 + @TypeConverters(Converters)
+│   │   │   │   │   ├── Converters.kt            TypeConverter Room : List<QuestionVariant> ↔ JSON (colonne `variants`)
 │   │   │   │   │   ├── QuestionDao.kt           @Dao : getAllByTheme, getIdsByTheme(theme, isSituation), getByIds, countByTheme, insertAll, count
 │   │   │   │   │   ├── QuizResultDao.kt         @Dao : getAll (Flow), insert, deleteAll
 │   │   │   │   │   ├── PausedQuizDao.kt         @Dao : save (REPLACE), get, observe (Flow), delete
@@ -175,7 +176,7 @@ QCM_France/
 │   │   │   │   ├── viewmodel/
 │   │   │   │   │   ├── QuizViewModel.kt         QuizUiState, timer à échéance (cancellable), pauseQuiz/resumeQuiz/saveSnapshot, scoring, resetExamCycle
 │   │   │   │   │   ├── TrainingViewModel.kt     TrainingUiState, themeProgress, startTheme/selectAnswer/confirmAnswer/next/restart/reset
-│   │   │   │   │   ├── QuestionExt.kt           helper partagé withShuffledOptions() (examen + entraînement)
+│   │   │   │   │   ├── QuestionExt.kt           helpers partagés pickVariant() + withShuffledOptions() (examen + entraînement)
 │   │   │   │   │   ├── HomeViewModel.kt         hasPausedQuiz : StateFlow<Boolean>
 │   │   │   │   │   ├── HistoryViewModel.kt      Flow<List<QuizResult>>, clearHistory()
 │   │   │   │   │   ├── SettingsViewModel.kt     themeMode + soundEnabled + textSizeMode StateFlow
@@ -236,7 +237,8 @@ data class Question(
     val correctAnswer: String,      // "A", "B", "C" ou "D"
     val explanation: String = "",
     val source: String = "",        // URL de la source officielle (lien cliquable)
-    val isSituation: Boolean = false // true = question de mise en situation (situational_questions.json)
+    val isSituation: Boolean = false, // true = question de mise en situation (situational_questions.json)
+    val variants: List<QuestionVariant> = emptyList() // jeux de réponses alternatifs (rotation, cf. plus bas)
 )
 ```
 
@@ -248,6 +250,32 @@ data class Question(
 > (`questions.json`, valeur par défaut `false`) des questions de mise en situation
 > (`situational_questions.json`, `isSituation: true`). Les deux fichiers sont chargés dans la
 > même table `questions` par `QuestionRepository.seedIfNeeded()`.
+>
+> `variants` (colonne `variants` ajoutée en v10, `MIGRATION_9_10`, défaut `'[]'`) porte des **jeux
+> de réponses alternatifs** pour les questions de connaissances à plusieurs bonnes réponses valides.
+> Room la (dé)sérialise en JSON via `Converters` (`@TypeConverters`). Voir « Variantes de réponses »
+> ci-dessous.
+
+### Variantes de réponses (rotation des jeux de réponses)
+
+Certaines questions de connaissances admettent **plusieurs bonnes réponses valides** (« Quel musée
+est situé à Paris ? » → Louvre, mais aussi Orsay, Pompidou…). Pour ces questions, on fait **tourner
+aléatoirement** le jeu de réponses affiché (chaque jeu = 1 bonne réponse + 3 distracteurs).
+
+- **Modèle** : `QuestionVariant(optionA..optionD, correctAnswer)` (POJO, pas d'entité). Les variantes
+  d'une question sont stockées dans sa colonne `variants` (rattachées à l'**id de base**), pas comme
+  des lignes séparées : une question à variantes **n'est donc jamais tirée plus d'une fois par examen**.
+- **Seed** : champ optionnel `"variants": [ … ]` dans `questions.json` (Gson mappe le tableau imbriqué).
+  Uniquement sur les questions de connaissances (les mises en situation n'en ont pas).
+- **Rotation** : `Question.pickVariant()` (`ui/viewmodel/QuestionExt.kt`) choisit au hasard un jeu
+  parmi { base } ∪ `variants`, matérialise ses options dans une copie (id inchangé), **puis**
+  `withShuffledOptions()`. Appelé au chargement de l'examen (`QuizViewModel.startQuiz`) **et** de
+  l'entraînement (`TrainingViewModel.startTheme`).
+- **Transparent pour le reste** : le jeu retenu est matérialisé dans l'état UI, donc scoring, écran
+  résultat, pause/reprise (`PausedQuiz` sérialise l'état déjà matérialisé) et succès `exam_all_seen`
+  (compté par id de base) restent corrects sans code dédié.
+- **Ajout/correction** : éditer `questions.json` **puis** incrémenter `CONTENT_VERSION` (comme toute
+  correction de contenu). `QUESTIONS.md` liste les bonnes réponses alternatives *(variantes : …)*.
 
 ### Entité Room — `PausedQuiz`
 

@@ -92,6 +92,12 @@ def main():
         for q in sorted(qs, key=lambda x: x["id"]):
             correct_letter = q["correctAnswer"]
             correct_text = q.get(LETTER_TO_FIELD.get(correct_letter, ""), "")
+            # Questions à plusieurs bonnes réponses valides : le jeu de réponses affiché tourne
+            # aléatoirement. On liste ici les bonnes réponses alternatives à titre de référence.
+            variants = q.get("variants", [])
+            if variants:
+                alts = [v.get(LETTER_TO_FIELD.get(v["correctAnswer"], ""), "") for v in variants]
+                correct_text += " *(variantes : " + ", ".join(alts) + ")*"
             q_type = "Mise en situation" if q.get("isSituation") else "Connaissances"
             row = "| {} | {} | {} | {} | {} | {} | {} | **{}** — {} | {} |".format(
                 q["id"],
