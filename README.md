@@ -7,7 +7,7 @@ Application Android de préparation à l'examen civique de naturalisation franç
 ## Fonctionnalités
 
 ### Examen simulé
-- **40 questions** tirées aléatoirement : **28 questions de connaissances** + **12 questions de mise en situation**, dans une base de 318 questions officielles (258 connaissances + 60 mises en situation)
+- **40 questions** tirées aléatoirement : **28 questions de connaissances** + **12 questions de mise en situation**, dans une base de 338 questions officielles (258 connaissances + 80 mises en situation)
 - **Questions de mise en situation** — cas concrets de la vie quotidienne (voisinage, travail, discrimination, urgence…) où il faut choisir la réaction la plus appropriée, en plus des questions de connaissances classiques
 - **Tirage proportionnel** par thème pour respecter la répartition de l'examen réel, séparément pour les questions de connaissances et de mise en situation
 - **Anti-répétition entre examens** — chaque couple thème/type cycle sur toutes ses questions (ordre mélangé et persisté) avant qu'une question ne puisse revenir, au lieu d'un tirage aléatoire indépendant à chaque examen
@@ -30,7 +30,7 @@ Application Android de préparation à l'examen civique de naturalisation franç
 ### Succès (achievements)
 Système de gamification inspiré des trophées de jeux vidéo, pour rendre la préparation plus motivante.
 - **10 succès** répartis en deux catégories :
-  - *Examen* — premier examen terminé, premier examen réussi (≥ 32/40), score parfait 40/40 *(rare)*, et « Tour complet » quand toutes les questions de la base ont été vues au moins une fois (progression `X/318`)
+  - *Examen* — premier examen terminé, premier examen réussi (≥ 32/40), score parfait 40/40 *(rare)*, et « Tour complet » quand toutes les questions de la base ont été vues au moins une fois (progression `X/338`)
   - *Entraînement* — un succès par thème terminé, plus « Élève modèle » *(rare)* une fois les 5 thèmes complétés (progression `X/5`)
 - **Popup au déblocage** — un bandeau « Succès débloqué ! » glisse depuis le haut de l'écran quel que soit l'endroit où l'on se trouve, avec un liseré doré pour les succès rares
 - **Page dédiée** accessible depuis l'accueil — compteur `X/10`, succès groupés par catégorie, succès verrouillés grisés, barres de progression et date de déblocage
@@ -100,12 +100,12 @@ géographie et culture » reste 100 % connaissances (aucune mise en situation ad
 
 | Thème | Connaissances (base) | Mise en situation (base) | Tirées à l'examen |
 |---|---|---|---|
-| Principes et valeurs de la République | 39 | 15 | 3 + 3 = 6 |
-| Système institutionnel et politique | 55 | 15 | 6 + 3 = 9 |
-| Droits et devoirs | 37 | 15 | 3 + 3 = 6 |
+| Principes et valeurs de la République | 39 | 20 | 3 + 3 = 6 |
+| Système institutionnel et politique | 55 | 20 | 6 + 3 = 9 |
+| Droits et devoirs | 37 | 20 | 3 + 3 = 6 |
 | Histoire, géographie et culture | 83 | 0 | 13 + 0 = 13 |
-| Vivre dans la société française | 44 | 15 | 3 + 3 = 6 |
-| **Total** | **258** | **60** | **28 + 12 = 40** |
+| Vivre dans la société française | 44 | 20 | 3 + 3 = 6 |
+| **Total** | **258** | **80** | **28 + 12 = 40** |
 
 ---
 
@@ -221,7 +221,7 @@ startQuiz()
 
 ### Seed et synchronisation de la base de données
 
-Les 258 questions de connaissances (`res/raw/questions.json`) et les 60 questions de mise en
+Les 258 questions de connaissances (`res/raw/questions.json`) et les 80 questions de mise en
 situation (`res/raw/situational_questions.json`) sont insérées dans Room au premier lancement,
 dans `QuestionRepository.seedIfNeeded()`, appelée par le mode examen comme par le mode
 entraînement. Les lancements suivants utilisent directement la base SQLite.
@@ -333,7 +333,7 @@ Les 258 questions de connaissances sont issues des documents officiels du Minist
 | **Questions officielles de l'examen de naturalisation 2025** | Base de questions publiée par les services de l'État |
 | **Jeu de données data.gouv.fr** | Dataset public officiel des QCM de naturalisation |
 
-Les 60 questions de mise en situation sont sourcées individuellement vers les textes de référence
+Les 80 questions de mise en situation sont sourcées individuellement vers les textes de référence
 correspondants (Code pénal et Code du travail via Légifrance, Défenseur des droits,
 service-public.fr, education.gouv.fr, Assurance Maladie, etc.) — voir le champ « Source » de
 chaque question dans `QUESTIONS.md`.
@@ -373,7 +373,7 @@ QCM_France/
 ├── scripts/
 │   └── generate_questions_md.py   Génère QUESTIONS.md depuis questions.json + situational_questions.json
 ├── LICENSE                    Licence MIT
-├── QUESTIONS.md               Liste des 318 questions : 258 connaissances + 60 mise en situation (généré automatiquement)
+├── QUESTIONS.md               Liste des 338 questions : 258 connaissances + 80 mise en situation (généré automatiquement)
 ├── app/
 │   ├── build.gradle.kts
 │   └── src/main/

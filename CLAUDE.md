@@ -24,12 +24,12 @@ il reste 100 % connaissances.
 
 | # | Thème officiel | Connaissances (base) | Mise en situation (base) | Tirage / examen (connaissances + situation) |
 |---|---|---|---|---|
-| 1 | Principes et valeurs de la République | 39 | 15 | 3 + 3 = 6 |
-| 2 | Système institutionnel et politique | 55 | 15 | 6 + 3 = 9 |
-| 3 | Droits et devoirs | 37 | 15 | 3 + 3 = 6 |
+| 1 | Principes et valeurs de la République | 39 | 20 | 3 + 3 = 6 |
+| 2 | Système institutionnel et politique | 55 | 20 | 6 + 3 = 9 |
+| 3 | Droits et devoirs | 37 | 20 | 3 + 3 = 6 |
 | 4 | Histoire, géographie et culture | 83 | 0 | 13 + 0 = 13 |
-| 5 | Vivre dans la société française | 44 | 15 | 3 + 3 = 6 |
-| | **Total** | **258** | **60** | **28 + 12 = 40** |
+| 5 | Vivre dans la société française | 44 | 20 | 3 + 3 = 6 |
+| | **Total** | **258** | **80** | **28 + 12 = 40** |
 
 **Stratégie de tirage :** tirage proportionnel par thème (stratified sampling) pour garantir que chaque thème est représenté, séparément pour le pool « connaissances » et le pool « mise en situation », puis ajustement pour atteindre exactement 28 et 12. L'ordre final des 40 questions est ensuite mélangé.
 
@@ -113,7 +113,7 @@ QCM_France/
 │   ├── generate_questions_md.py                 Génère QUESTIONS.md depuis questions.json + situational_questions.json
 │   └── fetch_fiches.py                          Scrape les fiches thématiques officielles → res/raw/fiches.json (offline)
 ├── LICENSE                                      Licence MIT
-├── QUESTIONS.md                                 Liste des 318 questions : 258 connaissances + 60 mise en situation (généré par release)
+├── QUESTIONS.md                                 Liste des 338 questions : 258 connaissances + 80 mise en situation (généré par release)
 ├── AUDIO_CREDITS.md                             Sources/licences audio + remplacement des placeholders
 ├── app/
 │   ├── src/main/
@@ -192,7 +192,7 @@ QCM_France/
 │   │       ├── mipmap-*/                        Icônes adaptatives (fond bleu tricolore)
 │   │       ├── raw/
 │   │       │   ├── questions.json               258 questions de connaissances (seed)
-│   │       │   ├── situational_questions.json   60 questions de mise en situation (seed), isSituation: true
+│   │       │   ├── situational_questions.json   80 questions de mise en situation (seed), isSituation: true
 │   │       │   ├── fiches.json                  Fiches thématiques officielles offline (généré par fetch_fiches.py)
 │   │       │   ├── marseillaise.ogg             musique si examen réussi (domaine public — voir AUDIO_CREDITS.md)
 │   │       │   └── marche_funebre.ogg           musique si examen échoué (domaine public — voir AUDIO_CREDITS.md)
@@ -373,7 +373,7 @@ Système de gamification inspiré des trophées de jeux vidéo. Catalogue statiq
 | `exam_first_completed` | Premier pas républicain | Terminer un 1er examen | — |
 | `exam_first_passed` | Reçu ! | Réussir un examen (≥ 32/40) | — |
 | `exam_perfect` *(rare)* | Sans-faute | Score parfait 40/40 | — |
-| `exam_all_seen` | Tour complet | Toutes les questions vues ≥ 1 fois en examen | X/318 |
+| `exam_all_seen` | Tour complet | Toutes les questions vues ≥ 1 fois en examen | X/338 |
 | `train_principes` | Valeurs acquises | Finir l'entraînement du thème 1 | — |
 | `train_institutions` | Rouages de l'État | Finir l'entraînement du thème 2 | — |
 | `train_droits` | Droits & devoirs | Finir l'entraînement du thème 3 | — |
