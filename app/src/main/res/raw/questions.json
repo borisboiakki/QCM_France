@@ -124,7 +124,23 @@
       "Le Coq (Symbole culturel et sportif, parfois accepté)"
     ],
     "explanation": "Les symboles officiels de la République française sont définis par l'article 2 de la Constitution : le drapeau tricolore bleu, blanc, rouge ; l'hymne national La Marseillaise ; la devise « Liberté, Égalité, Fraternité » ; l'emblème Marianne ; et le 14 juillet comme fête nationale. Ces symboles rappellent les valeurs fondatrices de la République nées de la Révolution de 1789.",
-    "source": "https://fr.wikipedia.org/wiki/Symboles_de_la_R%C3%A9publique_fran%C3%A7aise"
+    "source": "https://fr.wikipedia.org/wiki/Symboles_de_la_R%C3%A9publique_fran%C3%A7aise",
+    "variants": [
+      {
+        "optionA": "Le sphinx",
+        "optionB": "Marianne",
+        "optionC": "L'aigle impérial",
+        "optionD": "La fleur de lys",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "La couronne royale",
+        "optionB": "Le sceptre",
+        "optionC": "Le bonnet phrygien",
+        "optionD": "Le blason à fleurs de lys",
+        "correctAnswer": "C"
+      }
+    ]
   },
   {
     "id": 9,
@@ -2200,7 +2216,30 @@
       "Le Luxembourg"
     ],
     "explanation": "Les six pays fondateurs de la Communauté économique européenne (CEE), créée par le Traité de Rome du 25 mars 1957, sont : la France, l'Allemagne (alors RFA), l'Italie, la Belgique, les Pays-Bas et le Luxembourg. Ces six nations avaient déjà fondé la CECA en 1951. La CEE est devenue l'Union européenne par le Traité de Maastricht (1992).",
-    "source": "https://fr.wikipedia.org/wiki/Communaut%C3%A9_%C3%A9conomique_europ%C3%A9enne"
+    "source": "https://fr.wikipedia.org/wiki/Communaut%C3%A9_%C3%A9conomique_europ%C3%A9enne",
+    "variants": [
+      {
+        "optionA": "Norvège",
+        "optionB": "Belgique",
+        "optionC": "Autriche",
+        "optionD": "Suède",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Danemark",
+        "optionB": "Pays-Bas",
+        "optionC": "Royaume-Uni",
+        "optionD": "Espagne",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Suisse",
+        "optionB": "Irlande",
+        "optionC": "Luxembourg",
+        "optionD": "Portugal",
+        "correctAnswer": "C"
+      }
+    ]
   },
   {
     "id": 138,
@@ -2360,7 +2399,30 @@
       "L'Indochine"
     ],
     "explanation": "La France a possédé un vaste empire colonial, le deuxième mondial après l'Empire britannique. En Afrique, elle colonisait notamment le Sénégal, l'Algérie, le Mali, la Côte d'Ivoire, le Maroc, la Tunisie. En Asie, l'Indochine (Vietnam, Cambodge, Laos). Ces territoires ont acquis leur indépendance principalement dans les années 1950-1960.",
-    "source": "https://fr.wikipedia.org/wiki/Empire_colonial_fran%C3%A7ais"
+    "source": "https://fr.wikipedia.org/wiki/Empire_colonial_fran%C3%A7ais",
+    "variants": [
+      {
+        "optionA": "Espagne",
+        "optionB": "Algérie",
+        "optionC": "Suède",
+        "optionD": "Norvège",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Éthiopie",
+        "optionB": "Mali",
+        "optionC": "Portugal",
+        "optionD": "Grèce",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Madagascar",
+        "optionB": "Espagne",
+        "optionC": "Autriche",
+        "optionD": "Japon",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 148,
@@ -2668,7 +2730,23 @@
       "Les Contemplations"
     ],
     "explanation": "Victor Hugo (1802-1885) est l'un des plus grands écrivains français. Parmi ses œuvres majeures figurent « Les Misérables » (1862), roman social dénonçant la misère et l'injustice, « Notre-Dame de Paris » (1831), et le recueil de poésie « Les Contemplations » (1856). Il était aussi un homme politique républicain engagé.",
-    "source": "https://fr.wikipedia.org/wiki/Victor_Hugo"
+    "source": "https://fr.wikipedia.org/wiki/Victor_Hugo",
+    "variants": [
+      {
+        "optionA": "Madame Bovary",
+        "optionB": "Notre-Dame de Paris",
+        "optionC": "Germinal",
+        "optionD": "Le Comte de Monte-Cristo",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Les Fleurs du mal",
+        "optionB": "Les Contemplations",
+        "optionC": "Le Rouge et le Noir",
+        "optionD": "Bel-Ami",
+        "correctAnswer": "B"
+      }
+    ]
   },
   {
     "id": 168,
@@ -2687,7 +2765,23 @@
       "Henri Matisse"
     ],
     "explanation": "Claude Monet (1840-1926) est l'un des fondateurs du mouvement impressionniste français. Il est célèbre pour ses séries de tableaux (les Nymphéas, les Cathédrales de Rouen, les Meules). Vincent van Gogh était néerlandais, Rembrandt était néerlandais, et Pablo Picasso était espagnol (bien qu'il ait vécu à Paris).",
-    "source": "https://fr.wikipedia.org/wiki/Claude_Monet"
+    "source": "https://fr.wikipedia.org/wiki/Claude_Monet",
+    "variants": [
+      {
+        "optionA": "Auguste Renoir",
+        "optionB": "Vermeer",
+        "optionC": "Goya",
+        "optionD": "Gustav Klimt",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "Michel-Ange",
+        "optionB": "Eugène Delacroix",
+        "optionC": "Rubens",
+        "optionD": "William Turner",
+        "correctAnswer": "B"
+      }
+    ]
   },
   {
     "id": 169,
@@ -2705,7 +2799,23 @@
       "Le Pot-au-feu"
     ],
     "explanation": "Le Coq au vin est l'un des grands classiques de la cuisine française traditionnelle, à base de poulet mijoté dans du vin rouge avec des lardons, des champignons et des oignons. La cuisine française est reconnue par l'UNESCO comme patrimoine culturel immatériel de l'humanité depuis 2010. D'autres spécialités incluent le bœuf bourguignon, la blanquette de veau et la bouillabaisse.",
-    "source": "https://fr.wikipedia.org/wiki/Cuisine_fran%C3%A7aise"
+    "source": "https://fr.wikipedia.org/wiki/Cuisine_fran%C3%A7aise",
+    "variants": [
+      {
+        "optionA": "Couscous",
+        "optionB": "Bœuf bourguignon",
+        "optionC": "Hamburger",
+        "optionD": "Curry",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Goulash",
+        "optionB": "Cassoulet",
+        "optionC": "Fish and chips",
+        "optionD": "Falafel",
+        "correctAnswer": "B"
+      }
+    ]
   },
   {
     "id": 170,
@@ -2782,7 +2892,16 @@
       "La grotte de Lascaux"
     ],
     "explanation": "La grotte de Lascaux, découverte en 1940 en Dordogne (Périgord), contient des peintures rupestres vieilles d'environ 17 000 ans, représentant des animaux (taureaux, chevaux, cerfs). Fermée au public en 1963 pour préserver les œuvres, une réplique exacte (Lascaux IV) est accessible aux visiteurs depuis 2016 à Montignac.",
-    "source": "https://fr.wikipedia.org/wiki/Grotte_de_Lascaux"
+    "source": "https://fr.wikipedia.org/wiki/Grotte_de_Lascaux",
+    "variants": [
+      {
+        "optionA": "Le château de Chambord",
+        "optionB": "La grotte Chauvet",
+        "optionC": "La cathédrale de Reims",
+        "optionD": "Le pont du Gard",
+        "correctAnswer": "B"
+      }
+    ]
   },
   {
     "id": 175,
@@ -3028,7 +3147,23 @@
       "Hector Berlioz"
     ],
     "explanation": "Claude Debussy (1862-1918) est le compositeur français qui a le plus influencé la musique du XXe siècle. Inventeur du style impressionniste en musique, il est connu pour La Mer, Clair de Lune, Prélude à l'après-midi d'un faune. Maurice Ravel (Boléro) et Hector Berlioz (Symphonie fantastique) sont aussi des compositeurs français majeurs.",
-    "source": "https://fr.wikipedia.org/wiki/Claude_Debussy"
+    "source": "https://fr.wikipedia.org/wiki/Claude_Debussy",
+    "variants": [
+      {
+        "optionA": "Émile Zola",
+        "optionB": "Louis Pasteur",
+        "optionC": "Maurice Ravel",
+        "optionD": "Auguste Rodin",
+        "correctAnswer": "C"
+      },
+      {
+        "optionA": "Gustave Eiffel",
+        "optionB": "Molière",
+        "optionC": "Georges Bizet",
+        "optionD": "Édouard Manet",
+        "correctAnswer": "C"
+      }
+    ]
   },
   {
     "id": 191,
@@ -3062,7 +3197,23 @@
       "Le Musée de l'Orangerie"
     ],
     "explanation": "Le musée du Louvre, situé dans le palais royal du Louvre à Paris, est le plus grand musée d'art du monde et le plus visité. Il abrite notamment la Joconde de Léonard de Vinci, La Vénus de Milo et La Victoire de Samothrace. Les autres grands musées parisiens sont le musée d'Orsay (art du XIXe siècle) et le Centre Pompidou (art contemporain).",
-    "source": "https://fr.wikipedia.org/wiki/Mus%C3%A9e_du_Louvre"
+    "source": "https://fr.wikipedia.org/wiki/Mus%C3%A9e_du_Louvre",
+    "variants": [
+      {
+        "optionA": "Le musée d'Orsay",
+        "optionB": "Le Rijksmuseum",
+        "optionC": "La galerie des Offices",
+        "optionD": "Le Metropolitan Museum",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "La National Gallery",
+        "optionB": "Le Centre Pompidou",
+        "optionC": "Les musées du Vatican",
+        "optionD": "Le musée Guggenheim de Bilbao",
+        "correctAnswer": "B"
+      }
+    ]
   },
   {
     "id": 193,
@@ -3117,7 +3268,16 @@
       "La Guadeloupe"
     ],
     "explanation": "Les Antilles françaises sont composées de la Martinique et de la Guadeloupe, deux départements et régions d'outre-mer (DROM) situés dans la mer des Caraïbes. Elles font partie des « DROM-COM » (départements, régions et collectivités d'outre-mer). La Martinique est chef-lieu Fort-de-France, la Guadeloupe Basse-Terre.",
-    "source": "https://fr.wikipedia.org/wiki/Antilles_fran%C3%A7aises"
+    "source": "https://fr.wikipedia.org/wiki/Antilles_fran%C3%A7aises",
+    "variants": [
+      {
+        "optionA": "La Réunion",
+        "optionB": "La Guadeloupe",
+        "optionC": "La Barbade",
+        "optionD": "La Sardaigne",
+        "correctAnswer": "B"
+      }
+    ]
   },
   {
     "id": 196,
@@ -3170,7 +3330,16 @@
       "Mayotte"
     ],
     "explanation": "La Réunion est un département et région d'outre-mer (DROM) français situé dans l'océan Indien, au large de Madagascar. Son chef-lieu est Saint-Denis. Mayotte est aussi un département français dans l'océan Indien. À ne pas confondre avec La Martinique et La Guadeloupe, situées dans les Caraïbes.",
-    "source": "https://fr.wikipedia.org/wiki/La_R%C3%A9union"
+    "source": "https://fr.wikipedia.org/wiki/La_R%C3%A9union",
+    "variants": [
+      {
+        "optionA": "La Guadeloupe",
+        "optionB": "Mayotte",
+        "optionC": "La Martinique",
+        "optionD": "La Corse",
+        "correctAnswer": "B"
+      }
+    ]
   },
   {
     "id": 199,
@@ -3251,7 +3420,23 @@
       "Mayotte"
     ],
     "explanation": "La Guadeloupe est un département et région d'outre-mer (DROM) français situé dans les Antilles (mer des Caraïbes). Elle est composée de plusieurs îles dont Grande-Terre et Basse-Terre. Son chef-lieu est Basse-Terre. La Martinique, La Réunion et Mayotte sont également des DROM. La Corse est une île française en Méditerranée mais ne constitue pas un DROM.",
-    "source": "https://fr.wikipedia.org/wiki/D%C3%A9partement_et_r%C3%A9gion_d%27outre-mer"
+    "source": "https://fr.wikipedia.org/wiki/D%C3%A9partement_et_r%C3%A9gion_d%27outre-mer",
+    "variants": [
+      {
+        "optionA": "La Sardaigne",
+        "optionB": "Chypre",
+        "optionC": "La Martinique",
+        "optionD": "La Corse",
+        "correctAnswer": "C"
+      },
+      {
+        "optionA": "La Crète",
+        "optionB": "Malte",
+        "optionC": "La Réunion",
+        "optionD": "La Corse",
+        "correctAnswer": "C"
+      }
+    ]
   },
   {
     "id": 204,

@@ -66,7 +66,7 @@ class TrainingViewModel @Inject constructor(
     fun startTheme(theme: String) {
         viewModelScope.launch {
             _uiState.value = TrainingUiState(theme = theme, isLoading = true)
-            val questions = repository.questionsForTheme(theme).map { it.withShuffledOptions() }
+            val questions = repository.questionsForTheme(theme).map { it.pickVariant().withShuffledOptions() }
             val savedIndex = repository.progressFor(theme)
             val alreadyDone = questions.isNotEmpty() && savedIndex >= questions.size
             _uiState.value = TrainingUiState(

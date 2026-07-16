@@ -52,7 +52,7 @@ class QuizViewModel @Inject constructor(
         _uiState.value = QuizUiState()
         viewModelScope.launch {
             pausedQuizRepository.clear()
-            val questions = repository.drawStratifiedQuestions().map { it.withShuffledOptions() }
+            val questions = repository.drawStratifiedQuestions().map { it.pickVariant().withShuffledOptions() }
             _uiState.update {
                 QuizUiState(
                     questions = questions,

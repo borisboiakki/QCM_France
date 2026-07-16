@@ -55,8 +55,11 @@ class QuestionRepository @Inject constructor(
          * v2 = q. 89 (traité UE) : bonne réponse simplifiée en « Traité de Maastricht » et
          * distracteurs Rome/Paris (eux-mêmes fondateurs de la construction européenne) remplacés
          * par Versailles/Vienne/Westphalie pour lever l'ambiguïté.
+         * v3 = ajout de variantes de réponses (champ `variants`) sur les questions à plusieurs
+         * bonnes réponses valides (musées de Paris, peintres français, colonies…) : le jeu de
+         * réponses affiché tourne aléatoirement à chaque examen/entraînement.
          */
-        const val CONTENT_VERSION = 2
+        const val CONTENT_VERSION = 3
         private const val CONTENT_PREFS = "question_content"
         private const val KEY_CONTENT_VERSION = "content_version"
     }

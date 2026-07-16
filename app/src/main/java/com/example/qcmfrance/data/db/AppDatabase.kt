@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.qcmfrance.data.model.AchievementRecord
@@ -16,9 +17,10 @@ import com.example.qcmfrance.data.model.TrainingProgress
 
 @Database(
     entities = [Question::class, QuizResult::class, PausedQuiz::class, TrainingProgress::class, ExamCycle::class, AchievementRecord::class, SeenQuestion::class],
-    version = 9,
+    version = 10,
     exportSchema = true
 )
+@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun questionDao(): QuestionDao
@@ -164,9 +166,17 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
 
+        // Ajout des variantes de réponses : nouvelle colonne `variants` (JSON) sur `questions`.
+        // Défaut '[]' ; le seed la peuple ensuite via CONTENT_VERSION (INSERT OR REPLACE).
+        private val MIGRATION_9_10 = object : Migration(9, 10) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("ALTER TABLE questions ADD COLUMN variants TEXT NOT NULL DEFAULT '[]'")
+            }
+        }
+
         fun build(context: Context): AppDatabase =
             Room.databaseBuilder(context, AppDatabase::class.java, "qcm_france.db")
-                .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5, MIGRATION_5_6, MIGRATION_6_7, MIGRATION_7_8, MIGRATION_8_9)
+                .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5, MIGRATION_5_6, MIGRATION_6_7, MIGRATION_7_8, MIGRATION_8_9, MIGRATION_9_10)
                 .build()
     }
 }
