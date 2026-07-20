@@ -7,4 +7,4 @@
   tools:shrinkMode reste "safe" (défaut), on force juste la conservation.
 -->
 <resources xmlns:tools="http://schemas.android.com/tools"
-    tools:keep="@raw/fiches,@string/resources_fiches_offline,@string/fiches_themes_title,@string/fiches_themes_intro,@string/fiches_count,@string/fiches_list_empty,@string/fiche_view_online,@string/fiche_source,@string/fiche_not_found" />
+    tools:keep="@raw/fiches,@string/fiches_list_empty,@string/fiche_view_online,@string/fiche_source,@string/fiche_not_found" />

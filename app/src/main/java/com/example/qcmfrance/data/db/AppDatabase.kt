@@ -12,12 +12,13 @@ import com.example.qcmfrance.data.model.ExamCycle
 import com.example.qcmfrance.data.model.PausedQuiz
 import com.example.qcmfrance.data.model.Question
 import com.example.qcmfrance.data.model.QuizResult
+import com.example.qcmfrance.data.model.ReadFiche
 import com.example.qcmfrance.data.model.SeenQuestion
 import com.example.qcmfrance.data.model.TrainingProgress
 
 @Database(
-    entities = [Question::class, QuizResult::class, PausedQuiz::class, TrainingProgress::class, ExamCycle::class, AchievementRecord::class, SeenQuestion::class],
-    version = 10,
+    entities = [Question::class, QuizResult::class, PausedQuiz::class, TrainingProgress::class, ExamCycle::class, AchievementRecord::class, SeenQuestion::class, ReadFiche::class],
+    version = 11,
     exportSchema = true
 )
 @TypeConverters(Converters::class)
@@ -30,6 +31,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun examCycleDao(): ExamCycleDao
     abstract fun achievementDao(): AchievementDao
     abstract fun seenQuestionDao(): SeenQuestionDao
+    abstract fun readFicheDao(): ReadFicheDao
 
     companion object {
         private val MIGRATION_1_2 = object : Migration(1, 2) {
@@ -174,9 +176,23 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
 
+        // Suivi de lecture des fiches thématiques hors-ligne : table read_fiche (id de fiche déjà
+        // consultée) — barre d'avancement par thème + succès « Fiches officielles ».
+        private val MIGRATION_10_11 = object : Migration(10, 11) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS read_fiche (
+                        ficheId TEXT PRIMARY KEY NOT NULL
+                    )
+                    """.trimIndent()
+                )
+            }
+        }
+
         fun build(context: Context): AppDatabase =
             Room.databaseBuilder(context, AppDatabase::class.java, "qcm_france.db")
-                .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5, MIGRATION_5_6, MIGRATION_6_7, MIGRATION_7_8, MIGRATION_8_9, MIGRATION_9_10)
+                .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5, MIGRATION_5_6, MIGRATION_6_7, MIGRATION_7_8, MIGRATION_8_9, MIGRATION_9_10, MIGRATION_10_11)
                 .build()
     }
 }

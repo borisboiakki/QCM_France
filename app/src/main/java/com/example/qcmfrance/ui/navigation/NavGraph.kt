@@ -22,7 +22,6 @@ import com.example.qcmfrance.ui.screen.AboutScreen
 import com.example.qcmfrance.ui.screen.AchievementsScreen
 import com.example.qcmfrance.ui.screen.FicheDetailScreen
 import com.example.qcmfrance.ui.screen.FichesListScreen
-import com.example.qcmfrance.ui.screen.FichesThemesScreen
 import com.example.qcmfrance.ui.screen.HelpScreen
 import com.example.qcmfrance.ui.screen.HistoryScreen
 import com.example.qcmfrance.ui.screen.HomeScreen
@@ -51,7 +50,6 @@ private const val ROUTE_TRAINING_THEMES = "training_themes"
 private const val ROUTE_TRAINING        = "training"
 private const val ROUTE_ABOUT           = "about"
 private const val ROUTE_ACHIEVEMENTS    = "achievements"
-private const val ROUTE_FICHES_THEMES   = "fiches_themes"
 private const val ROUTE_FICHES_LIST     = "fiches_list"
 private const val ROUTE_FICHE_DETAIL    = "fiche_detail"
 
@@ -96,11 +94,16 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
 
         composable(ROUTE_TRAINING_THEMES) {
             val themes by trainingViewModel.themeProgress.collectAsStateWithLifecycle()
+            val ficheThemes by fichesViewModel.ficheThemeProgress.collectAsStateWithLifecycle()
             TrainingThemesScreen(
                 themes = themes,
+                ficheThemes = ficheThemes,
                 onSelectTheme = { theme ->
                     trainingViewModel.startTheme(theme)
                     navController.navigate(ROUTE_TRAINING)
+                },
+                onSelectFicheTheme = { theme ->
+                    navController.navigate("$ROUTE_FICHES_LIST/${Uri.encode(theme)}")
                 },
                 onBack = { navController.popBackStack() }
             )
@@ -172,7 +175,10 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
                 onSoundChange        = settingsViewModel::setSoundEnabled,
                 textSizeMode         = textSizeMode,
                 onTextSizeModeChange = settingsViewModel::setTextSizeMode,
-                onResetTraining      = trainingViewModel::resetTraining,
+                onResetTraining      = {
+                    trainingViewModel.resetTraining()
+                    fichesViewModel.resetReadFiches()
+                },
                 onResetExamCycle     = viewModel::resetExamCycle,
                 onResetAchievements  = achievementsViewModel::resetAchievements,
                 onShowAbout          = { navController.navigate(ROUTE_ABOUT) },
@@ -186,18 +192,6 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
 
         composable(ROUTE_RESOURCES) {
             ResourcesScreen(
-                onShowFiches = { navController.navigate(ROUTE_FICHES_THEMES) },
-                onBack = { navController.popBackStack() }
-            )
-        }
-
-        composable(ROUTE_FICHES_THEMES) {
-            val themes by fichesViewModel.themes.collectAsStateWithLifecycle()
-            FichesThemesScreen(
-                themes = themes,
-                onSelectTheme = { theme ->
-                    navController.navigate("$ROUTE_FICHES_LIST/${Uri.encode(theme)}")
-                },
                 onBack = { navController.popBackStack() }
             )
         }
@@ -222,6 +216,12 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
             val fiche = allThemes.asSequence()
                 .flatMap { it.fiches.asSequence() }
                 .firstOrNull { it.id == ficheId }
+            // Consulter une fiche la marque comme lue (avancement par thème + succès fiches).
+            // On attend que la fiche soit résolue dans le dataset (les thèmes se chargent en
+            // asynchrone) pour ne jamais compter un id inexistant.
+            LaunchedEffect(fiche?.id) {
+                fiche?.let { fichesViewModel.markRead(it.id) }
+            }
             FicheDetailScreen(
                 fiche = fiche,
                 onBack = { navController.popBackStack() }

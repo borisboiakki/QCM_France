@@ -24,7 +24,7 @@
     <string name="home_rule_results_value">Affichés à la fin uniquement</string>
     <string name="home_start_exam">Commencer l\'examen</string>
     <string name="home_resume_exam">Reprendre l\'examen</string>
-    <string name="home_training">S\'entraîner par thème</string>
+    <string name="home_training">S\'entraîner</string>
     <string name="home_history">Historique des examens</string>
     <string name="home_achievements">🏆 Succès</string>
     <string name="home_dialog_new_exam_title">Commencer un nouvel examen ?</string>
@@ -41,12 +41,8 @@
     <string name="resources_section_texts">Textes officiels</string>
     <string name="resources_section_exam">Examen civique et tests</string>
     <string name="resources_section_sheets">Fiches thématiques officielles</string>
-    <string name="resources_fiches_offline">📖 Consulter les fiches hors-ligne</string>
 
     <!-- Fiches thématiques hors-ligne -->
-    <string name="fiches_themes_title">Fiches thématiques</string>
-    <string name="fiches_themes_intro">Fiches officielles consultables hors-ligne. Choisissez un thème.</string>
-    <string name="fiches_count">%1$d fiche(s)</string>
     <string name="fiches_list_empty">Aucune fiche disponible pour ce thème.</string>
     <string name="fiche_view_online">Voir la fiche en ligne</string>
     <string name="fiche_source">Source : ministère de l\'Intérieur — formation-civique.interieur.gouv.fr</string>
@@ -103,7 +99,7 @@
     <string name="settings_exam_desc">Les questions de l\'examen blanc sont tirées en évitant les répétitions d\'un examen à l\'autre. Réinitialisez ce cycle pour recommencer le tirage à zéro.</string>
     <string name="settings_reset_cycle">Réinitialiser le cycle de l\'examen</string>
     <string name="settings_dialog_reset_training_title">Réinitialiser la progression ?</string>
-    <string name="settings_dialog_reset_training_text">Toute votre progression du mode entraînement (tous les thèmes) sera effacée. Cette action est irréversible.</string>
+    <string name="settings_dialog_reset_training_text">Toute votre progression du mode S\'entraîner sera effacée : les questions parcourues de tous les thèmes ainsi que la lecture des fiches officielles. Cette action est irréversible.</string>
     <string name="settings_dialog_reset_cycle_title">Réinitialiser le cycle de l\'examen ?</string>
     <string name="settings_dialog_reset_cycle_text">Le tirage des questions de l\'examen blanc recommencera à zéro pour chaque thème. Cette action est irréversible.</string>
     <string name="settings_dialog_reset_confirm">Réinitialiser</string>
@@ -129,6 +125,8 @@
     <string name="themes_intro">Choisissez un thème et parcourez toutes ses questions à votre rythme, avec correction immédiate. Votre progression est enregistrée automatiquement.</string>
     <string name="themes_done">Terminé</string>
     <string name="themes_progress">%1$d / %2$d</string>
+    <string name="training_official_sources_title">S\'entraîner avec les sources officielles</string>
+    <string name="training_official_sources_intro">Consultez les fiches thématiques officielles hors-ligne. Votre lecture est suivie par thème.</string>
 
     <!-- Entraînement : questions -->
     <string name="training_confirm">Confirmer</string>
@@ -179,14 +177,18 @@
     <string name="help_training_source_desc">Après confirmation, une explication est affichée (si disponible) ainsi qu\'un lien vers la source officielle, ouvrant votre navigateur.</string>
     <string name="help_training_progress_title">Avancement persisté</string>
     <string name="help_training_progress_desc">Votre progression est sauvegardée question par question. Revenir en arrière ou fermer l\'application ne fait pas perdre votre avancement — le thème reprend exactement là où vous vous étiez arrêté.</string>
+    <string name="help_training_fiches_title">Sources officielles</string>
+    <string name="help_training_fiches_desc">En bas de l\'écran « S\'entraîner », la section « S\'entraîner avec les sources officielles » donne accès aux fiches thématiques officielles, consultables hors-ligne. Une barre de progression indique combien de fiches vous avez déjà lues dans chaque thème.</string>
     <string name="help_training_reset_title">Réinitialisation</string>
-    <string name="help_training_reset_desc">Depuis les Paramètres, réinitialisez la progression de tous les thèmes en une seule action.</string>
+    <string name="help_training_reset_desc">Depuis les Paramètres, « Réinitialiser la progression » remet à zéro en une seule action les questions parcourues de tous les thèmes et la lecture des fiches officielles.</string>
     <string name="help_achievements_title">Succès</string>
     <string name="help_achievements_intro">Débloquez des succès en progressant dans l\'application, comme des trophées de jeu vidéo. Un bandeau apparaît à chaque déblocage.</string>
     <string name="help_achievements_exam_title">Succès d\'examen</string>
     <string name="help_achievements_exam_desc">Terminer votre premier examen, en réussir un (≥ 32/40), obtenir un score parfait (40/40) et voir passer toutes les questions de la base au moins une fois.</string>
     <string name="help_achievements_training_title">Succès d\'entraînement</string>
     <string name="help_achievements_training_desc">Un succès pour chaque thème d\'entraînement terminé, plus un succès spécial une fois les 5 thèmes complétés.</string>
+    <string name="help_achievements_fiches_title">Succès des fiches</string>
+    <string name="help_achievements_fiches_desc">Consulter votre première fiche officielle, en lire 30, puis les lire toutes.</string>
     <string name="help_achievements_page_title">Page « Succès »</string>
     <string name="help_achievements_page_desc">Accessible depuis l\'accueil : consultez les succès débloqués, la progression des succès en cours (barre X/total) et la date de déblocage. Les succès non obtenus restent verrouillés.</string>
     <string name="help_settings_title">Paramètres</string>
@@ -195,7 +197,7 @@
     <string name="help_settings_sound_title">Son de sélection</string>
     <string name="help_settings_sound_desc">Activez ou désactivez le bip joué lors de la sélection d\'une réponse en examen.</string>
     <string name="help_settings_reset_training_title">Réinitialiser l\'entraînement</string>
-    <string name="help_settings_reset_training_desc">Efface la progression de tous les thèmes du mode S\'entraîner (action irréversible, avec confirmation).</string>
+    <string name="help_settings_reset_training_desc">Efface la progression du mode S\'entraîner : questions parcourues de tous les thèmes et lecture des fiches officielles (action irréversible, avec confirmation).</string>
     <string name="help_settings_reset_cycle_title">Réinitialiser le cycle de l\'examen</string>
     <string name="help_settings_reset_cycle_desc">Relance depuis le début la rotation anti-répétition des questions de l\'examen, pour chaque thème (action irréversible, avec confirmation).</string>
     <string name="help_settings_reset_achievements_title">Réinitialiser les succès</string>
@@ -218,6 +220,7 @@
     <string name="achievements_header_count">%1$d / %2$d débloqués</string>
     <string name="achievements_category_exam">Examen</string>
     <string name="achievements_category_training">Entraînement</string>
+    <string name="achievements_category_fiches">Fiches officielles</string>
     <string name="achievements_locked">Verrouillé</string>
     <string name="achievements_unlocked_on">Débloqué le %1$s</string>
     <string name="achievements_progress">%1$d / %2$d</string>
@@ -244,6 +247,12 @@
     <string name="ach_train_societe_desc">Terminer l\'entraînement « Vivre dans la société française ».</string>
     <string name="ach_train_all_title">Élève modèle</string>
     <string name="ach_train_all_desc">Terminer l\'entraînement des 5 thèmes.</string>
+    <string name="ach_fiche_first_read_title">Première lecture</string>
+    <string name="ach_fiche_first_read_desc">Consulter votre première fiche thématique officielle.</string>
+    <string name="ach_fiche_30_read_title">Lecteur assidu</string>
+    <string name="ach_fiche_30_read_desc">Consulter 30 fiches thématiques, tous thèmes confondus.</string>
+    <string name="ach_fiche_all_read_title">Bibliothèque complète</string>
+    <string name="ach_fiche_all_read_desc">Consulter toutes les fiches thématiques officielles.</string>
 
     <!-- Export / partage -->
     <string name="export_subject">Résultats QCM France</string>

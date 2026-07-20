@@ -176,6 +176,10 @@ fun HelpScreen(onBack: () -> Unit) {
                         stringResource(R.string.help_training_progress_desc)
                     )
                     HelpFeatureRow(
+                        stringResource(R.string.help_training_fiches_title),
+                        stringResource(R.string.help_training_fiches_desc)
+                    )
+                    HelpFeatureRow(
                         stringResource(R.string.help_training_reset_title),
                         stringResource(R.string.help_training_reset_desc)
                     )
@@ -197,6 +201,10 @@ fun HelpScreen(onBack: () -> Unit) {
                     HelpFeatureRow(
                         stringResource(R.string.help_achievements_training_title),
                         stringResource(R.string.help_achievements_training_desc)
+                    )
+                    HelpFeatureRow(
+                        stringResource(R.string.help_achievements_fiches_title),
+                        stringResource(R.string.help_achievements_fiches_desc)
                     )
                     HelpFeatureRow(
                         stringResource(R.string.help_achievements_page_title),

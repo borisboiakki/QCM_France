@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import com.example.qcmfrance.R
 
 /** Catégorie d'un succès, pour le regroupement à l'écran « Succès ». */
-enum class AchievementCategory { EXAM, TRAINING }
+enum class AchievementCategory { EXAM, TRAINING, FICHES }
 
 /** Rareté d'un succès (inspiration jeux vidéo) : les succès rares ont un rendu doré + « secret » tant que verrouillés. */
 enum class AchievementRarity { COMMON, RARE }
@@ -69,6 +69,9 @@ object Achievements {
     const val TRAIN_HISTOIRE       = "train_histoire"
     const val TRAIN_SOCIETE        = "train_societe"
     const val TRAIN_ALL            = "train_all"
+    const val FICHE_FIRST_READ     = "fiche_first_read"
+    const val FICHE_30_READ        = "fiche_30_read"
+    const val FICHE_ALL_READ       = "fiche_all_read"
 
     // --- noms officiels des thèmes (doivent correspondre à QuestionRepository) ---
     private const val THEME_PRINCIPES    = "Principes et valeurs de la République"
@@ -162,6 +165,31 @@ object Achievements {
             category = AchievementCategory.TRAINING,
             rarity = AchievementRarity.RARE,
             target = 5
+        ),
+        // Fiches officielles (consultation hors-ligne)
+        Achievement(
+            id = FICHE_FIRST_READ,
+            titleRes = R.string.ach_fiche_first_read_title,
+            descriptionRes = R.string.ach_fiche_first_read_desc,
+            emoji = "📖",
+            category = AchievementCategory.FICHES
+        ),
+        Achievement(
+            id = FICHE_30_READ,
+            titleRes = R.string.ach_fiche_30_read_title,
+            descriptionRes = R.string.ach_fiche_30_read_desc,
+            emoji = "📚",
+            category = AchievementCategory.FICHES,
+            target = 30
+        ),
+        Achievement(
+            id = FICHE_ALL_READ,
+            titleRes = R.string.ach_fiche_all_read_title,
+            descriptionRes = R.string.ach_fiche_all_read_desc,
+            emoji = "🧠",
+            category = AchievementCategory.FICHES,
+            rarity = AchievementRarity.RARE,
+            target = 100   // cible par défaut ; résolue dynamiquement au runtime (nombre de fiches)
         )
     )
 

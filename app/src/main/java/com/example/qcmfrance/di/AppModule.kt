@@ -7,6 +7,7 @@ import com.example.qcmfrance.data.db.ExamCycleDao
 import com.example.qcmfrance.data.db.PausedQuizDao
 import com.example.qcmfrance.data.db.QuestionDao
 import com.example.qcmfrance.data.db.QuizResultDao
+import com.example.qcmfrance.data.db.ReadFicheDao
 import com.example.qcmfrance.data.db.SeenQuestionDao
 import com.example.qcmfrance.data.db.TrainingProgressDao
 import dagger.Module
@@ -52,4 +53,8 @@ object AppModule {
     @Provides
     @Singleton
     fun provideSeenQuestionDao(db: AppDatabase): SeenQuestionDao = db.seenQuestionDao()
+
+    @Provides
+    @Singleton
+    fun provideReadFicheDao(db: AppDatabase): ReadFicheDao = db.readFicheDao()
 }

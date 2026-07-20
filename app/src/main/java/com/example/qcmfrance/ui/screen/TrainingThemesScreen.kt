@@ -37,7 +37,9 @@ import com.example.qcmfrance.ui.viewmodel.ThemeProgress
 @Composable
 fun TrainingThemesScreen(
     themes: List<ThemeProgress>,
+    ficheThemes: List<ThemeProgress>,
     onSelectTheme: (String) -> Unit,
+    onSelectFicheTheme: (String) -> Unit,
     onBack: () -> Unit
 ) {
     Scaffold(
@@ -73,6 +75,28 @@ fun TrainingThemesScreen(
 
             items(themes, key = { it.theme }) { theme ->
                 ThemeCard(theme = theme, onClick = { onSelectTheme(theme.theme) })
+            }
+
+            if (ficheThemes.isNotEmpty()) {
+                item {
+                    Text(
+                        text = stringResource(R.string.training_official_sources_title),
+                        style = MaterialTheme.typography.titleSmall,
+                        fontWeight = FontWeight.SemiBold,
+                        color = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.padding(top = 12.dp)
+                    )
+                }
+                item {
+                    Text(
+                        text = stringResource(R.string.training_official_sources_intro),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+                items(ficheThemes, key = { "fiche_${it.theme}" }) { theme ->
+                    ThemeCard(theme = theme, onClick = { onSelectFicheTheme(theme.theme) })
+                }
             }
         }
     }
