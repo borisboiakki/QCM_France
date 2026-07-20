@@ -198,11 +198,13 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
 
         composable("$ROUTE_FICHES_LIST/{theme}") { backStackEntry ->
             val allThemes by fichesViewModel.themes.collectAsStateWithLifecycle()
+            val readIds by fichesViewModel.readFicheIds.collectAsStateWithLifecycle()
             // Navigation Compose décode déjà les arguments de chemin ; pas de décodage manuel.
             val theme = backStackEntry.arguments?.getString("theme").orEmpty()
             FichesListScreen(
                 theme = theme,
                 fiches = allThemes.firstOrNull { it.theme == theme }?.fiches.orEmpty(),
+                readIds = readIds,
                 onSelectFiche = { ficheId ->
                     navController.navigate("$ROUTE_FICHE_DETAIL/${Uri.encode(ficheId)}")
                 },

@@ -44,6 +44,7 @@
 
     <!-- Fiches thématiques hors-ligne -->
     <string name="fiches_list_empty">Aucune fiche disponible pour ce thème.</string>
+    <string name="fiche_read_cd">Fiche déjà lue</string>
     <string name="fiche_view_online">Voir la fiche en ligne</string>
     <string name="fiche_source">Source : ministère de l\'Intérieur — formation-civique.interieur.gouv.fr</string>
     <string name="fiche_not_found">Fiche introuvable.</string>

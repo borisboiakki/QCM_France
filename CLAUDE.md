@@ -169,7 +169,7 @@ QCM_France/
 │   │   │   │   │   ├── TrainingThemesScreen.kt  écran « S'entraîner » : cartes X/total par thème de questions + section « sources officielles » (5 cartes de fiches, avancement de lecture X/total)
 │   │   │   │   │   ├── TrainingScreen.kt        question du thème, feedback immédiat (vert/rouge), explication + lien source
 │   │   │   │   │   ├── AchievementsScreen.kt    liste des succès groupés (Examen/Entraînement/Fiches), verrouillés grisés, barres X/target
-│   │   │   │   │   ├── FichesListScreen.kt      fiches offline : liste des fiches d'un thème
+│   │   │   │   │   ├── FichesListScreen.kt      fiches offline : liste des fiches d'un thème (lu/non lu : carte atténuée + coche verte)
 │   │   │   │   │   └── FicheDetailScreen.kt     fiches offline : rendu markdown + « Voir en ligne » + source
 │   │   │   │   ├── components/
 │   │   │   │   │   ├── AchievementUnlockedBanner.kt  bandeau animé « Succès débloqué ! » (overlay global, slide-in, auto-dismiss)
@@ -439,8 +439,10 @@ consultable **sans réseau ni permission** (règle 10). Intégré au mode **S'en
   (titres, paragraphes, listes, gras/italique, liens) — aucune WebView ni dépendance ajoutée.
 - **Suivi de lecture** : ouvrir `FicheDetailScreen` marque la fiche lue (`FichesViewModel.markRead()`
   → `read_fiche`, INSERT IGNORE — comptée une seule fois). Alimente la barre `X/total` par thème
-  (`FichesViewModel.ficheThemeProgress`) et les 3 succès « Fiches officielles ». Remise à zéro par
-  « Réinitialiser la progression » (Paramètres), avec la progression d'entraînement.
+  (`FichesViewModel.ficheThemeProgress`), la **distinction lu/non lu** dans `FichesListScreen`
+  (`FichesViewModel.readFicheIds` : carte atténuée `surfaceVariant` + coche verte pour une fiche lue,
+  carte `primaryContainer` pour une fiche à lire) et les 3 succès « Fiches officielles ». Remise à
+  zéro par « Réinitialiser la progression » (Paramètres), avec la progression d'entraînement.
 - **Génération du contenu** : `scripts/fetch_fiches.py` (Python : `requests` + `beautifulsoup4` +
   `markdownify`) parcourt **récursivement** le sous-arbre de chaque thème (`crawl_theme_leaves`) et ne
   retient que les **feuilles de contenu** : une page ayant des sous-pages (index de thème, pages de

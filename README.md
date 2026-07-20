@@ -27,7 +27,7 @@ Application Android de préparation à l'examen civique de naturalisation franç
 - **Lien vers la source officielle** cliquable après confirmation, ouvrant le navigateur
 - **Écran de fin de thème** avec bouton « Recommencer ce thème »
 - **S'entraîner avec les sources officielles** — sous les thèmes de questions, une section dédiée donne accès aux **fiches thématiques officielles** (ministère de l'Intérieur), consultables **hors-ligne**, une carte par thème
-- **Suivi de lecture des fiches** — une barre `X/total` par thème indique combien de fiches ont été consultées ; une fiche est comptée comme lue dès son ouverture, et l'avancement est persisté
+- **Suivi de lecture des fiches** — une barre `X/total` par thème indique combien de fiches ont été consultées ; une fiche est comptée comme lue dès son ouverture, et l'avancement est persisté. Dans la liste d'un thème, les fiches **déjà lues** sont visuellement distinguées (carte atténuée + coche verte) des fiches **à lire** (carte mise en avant)
 - **Réinitialisation globale** de la progression (questions parcourues **et** lecture des fiches) depuis les Paramètres
 
 ### Succès (achievements)
@@ -189,7 +189,7 @@ app/src/main/java/com/example/qcmfrance/
     │   ├── TrainingThemesScreen.kt  "S'entraîner" : thèmes de questions (X/total) + section fiches officielles (lecture X/total)
     │   ├── TrainingScreen.kt      Question d'entraînement, feedback immédiat, explication + lien source
     │   ├── AchievementsScreen.kt  Succès : liste groupée par catégorie (Examen / Entraînement / Fiches), verrouillés grisés, barres X/target
-    │   ├── FichesListScreen.kt    Fiches offline : liste des fiches d'un thème
+    │   ├── FichesListScreen.kt    Fiches offline : liste des fiches d'un thème (lu/non lu : carte atténuée + coche verte)
     │   └── FicheDetailScreen.kt   Fiches offline : rendu markdown + "Voir en ligne" + source
     ├── components/
     │   └── AchievementUnlockedBanner.kt  Bandeau animé « Succès débloqué ! » (overlay global)
