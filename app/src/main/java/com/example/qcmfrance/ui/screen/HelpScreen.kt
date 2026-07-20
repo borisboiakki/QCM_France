@@ -176,6 +176,10 @@ fun HelpScreen(onBack: () -> Unit) {
                         stringResource(R.string.help_training_progress_desc)
                     )
                     HelpFeatureRow(
+                        stringResource(R.string.help_training_fiches_title),
+                        stringResource(R.string.help_training_fiches_desc)
+                    )
+                    HelpFeatureRow(
                         stringResource(R.string.help_training_reset_title),
                         stringResource(R.string.help_training_reset_desc)
                     )

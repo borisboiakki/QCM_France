@@ -24,7 +24,7 @@
     <string name="home_rule_results_value">Affichés à la fin uniquement</string>
     <string name="home_start_exam">Commencer l\'examen</string>
     <string name="home_resume_exam">Reprendre l\'examen</string>
-    <string name="home_training">S\'entraîner par thème</string>
+    <string name="home_training">S\'entraîner</string>
     <string name="home_history">Historique des examens</string>
     <string name="home_achievements">🏆 Succès</string>
     <string name="home_dialog_new_exam_title">Commencer un nouvel examen ?</string>
@@ -177,8 +177,10 @@
     <string name="help_training_source_desc">Après confirmation, une explication est affichée (si disponible) ainsi qu\'un lien vers la source officielle, ouvrant votre navigateur.</string>
     <string name="help_training_progress_title">Avancement persisté</string>
     <string name="help_training_progress_desc">Votre progression est sauvegardée question par question. Revenir en arrière ou fermer l\'application ne fait pas perdre votre avancement — le thème reprend exactement là où vous vous étiez arrêté.</string>
+    <string name="help_training_fiches_title">Sources officielles</string>
+    <string name="help_training_fiches_desc">En bas de l\'écran « S\'entraîner », la section « S\'entraîner avec les sources officielles » donne accès aux fiches thématiques officielles, consultables hors-ligne. Une barre de progression indique combien de fiches vous avez déjà lues dans chaque thème.</string>
     <string name="help_training_reset_title">Réinitialisation</string>
-    <string name="help_training_reset_desc">Depuis les Paramètres, réinitialisez la progression de tous les thèmes en une seule action.</string>
+    <string name="help_training_reset_desc">Depuis les Paramètres, « Réinitialiser la progression » remet à zéro en une seule action les questions parcourues de tous les thèmes et la lecture des fiches officielles.</string>
     <string name="help_achievements_title">Succès</string>
     <string name="help_achievements_intro">Débloquez des succès en progressant dans l\'application, comme des trophées de jeu vidéo. Un bandeau apparaît à chaque déblocage.</string>
     <string name="help_achievements_exam_title">Succès d\'examen</string>

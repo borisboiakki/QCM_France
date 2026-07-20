@@ -26,15 +26,18 @@ Application Android de préparation à l'examen civique de naturalisation franç
 - **Explication** affichée après confirmation (si disponible)
 - **Lien vers la source officielle** cliquable après confirmation, ouvrant le navigateur
 - **Écran de fin de thème** avec bouton « Recommencer ce thème »
-- **Réinitialisation globale** de la progression depuis les Paramètres
+- **S'entraîner avec les sources officielles** — sous les thèmes de questions, une section dédiée donne accès aux **fiches thématiques officielles** (ministère de l'Intérieur), consultables **hors-ligne**, une carte par thème
+- **Suivi de lecture des fiches** — une barre `X/total` par thème indique combien de fiches ont été consultées ; une fiche est comptée comme lue dès son ouverture, et l'avancement est persisté
+- **Réinitialisation globale** de la progression (questions parcourues **et** lecture des fiches) depuis les Paramètres
 
 ### Succès (achievements)
 Système de gamification inspiré des trophées de jeux vidéo, pour rendre la préparation plus motivante.
-- **10 succès** répartis en deux catégories :
+- **13 succès** répartis en trois catégories :
   - *Examen* — premier examen terminé, premier examen réussi (≥ 32/40), score parfait 40/40 *(rare)*, et « Tour complet » quand toutes les questions de la base ont été vues au moins une fois (progression `X/338`)
   - *Entraînement* — un succès par thème terminé, plus « Élève modèle » *(rare)* une fois les 5 thèmes complétés (progression `X/5`)
+  - *Fiches officielles* — « Première lecture » (première fiche consultée), « Lecteur assidu » (30 fiches consultées, progression `X/30`) et « Bibliothèque complète » *(rare, secret)* une fois toutes les fiches consultées (progression `X/total`)
 - **Popup au déblocage** — un bandeau « Succès débloqué ! » glisse depuis le haut de l'écran quel que soit l'endroit où l'on se trouve, avec un liseré doré pour les succès rares
-- **Page dédiée** accessible depuis l'accueil — compteur `X/10`, succès groupés par catégorie, succès verrouillés grisés, barres de progression et date de déblocage
+- **Page dédiée** accessible depuis l'accueil — compteur `X/13`, succès groupés par catégorie, succès verrouillés grisés, barres de progression et date de déblocage
 - **Réinitialisation** des succès depuis les Paramètres
 
 ### Écran d'accueil
@@ -67,19 +70,22 @@ Si un examen est en pause, bouton **Reprendre l'examen** (couleur secondaire). D
 ### Paramètres
 - **Thème** : Système (par défaut) / Clair / Sombre — persisté entre les sessions
 - **Son de sélection** : activé/désactivé — persisté entre les sessions
-- **Réinitialiser la progression** : efface l'avancement de tous les thèmes du mode entraînement (avec confirmation)
+- **Réinitialiser la progression** : efface l'avancement du mode entraînement — questions parcourues de tous les thèmes **et** lecture des fiches officielles (avec confirmation)
 - **Réinitialiser le cycle de l'examen** : relance le tirage anti-répétition à zéro pour chaque thème (avec confirmation)
 - **Réinitialiser les succès** : efface tous les succès débloqués et leur progression (avec confirmation)
 
 ### Écran d'aide
 Accessible via l'icône Info (barre du haut de l'accueil) :
 - Rappel des règles officielles et de la répartition des thèmes
-- Description des fonctionnalités de l'application (examen, entraînement, succès, paramètres)
+- Description des fonctionnalités de l'application (examen, entraînement, fiches officielles, succès, paramètres)
 
 ### Écran ressources complémentaires
-Accessible via l'icône liste (barre du haut de l'accueil), dans un menu dédié. 7 liens cliquables vers les ressources officielles, ouverts dans le navigateur, groupés en deux sections :
+Accessible via l'icône liste (barre du haut de l'accueil), dans un menu dédié. Liens cliquables vers les ressources officielles **en ligne**, ouverts dans le navigateur, groupés en trois sections :
 - **Textes officiels** : Livret du citoyen, Charte des droits et devoirs, Déclaration des droits de l'homme (1789), Constitution française (1958)
 - **Examen civique et tests** : informations générales sur l'examen, fiche d'information, tests complémentaires en ligne
+- **Fiches thématiques officielles** : lien vers la page de chacun des 5 thèmes sur le site du ministère
+
+> La **consultation hors-ligne** des fiches thématiques a été déplacée dans le mode **S'entraîner** (voir plus haut).
 
 ---
 
@@ -133,7 +139,9 @@ app/src/main/java/com/example/qcmfrance/
 │   │   ├── TrainingProgress.kt    Entité Room : PK=theme, currentIndex (point de reprise par thème)
 │   │   ├── ExamCycle.kt           Entité Room : PK=theme, permutation d'ids (JSON) + curseur (anti-répétition examen)
 │   │   ├── Achievement.kt         Catalogue statique (Achievements.ALL) + AchievementRecord (Entité Room) + AchievementState
-│   │   └── SeenQuestion.kt        Entité Room : PK=questionId (questions déjà vues en examen, pour « Tour complet »)
+│   │   ├── SeenQuestion.kt        Entité Room : PK=questionId (questions déjà vues en examen, pour « Tour complet »)
+│   │   ├── ReadFiche.kt           Entité Room : PK=ficheId (fiches déjà consultées : avancement de lecture + succès fiches)
+│   │   └── Fiche.kt               Modèles Gson (FichesData / FicheTheme / Fiche) — fiches officielles hors-ligne, sans Room
 │   ├── db/
 │   │   ├── QuestionDao.kt         DAO Room : getAllByTheme, getIdsByTheme(theme, isSituation), getByIds, countByTheme, insertAll, count
 │   │   ├── QuizResultDao.kt       DAO Room : getAll (Flow), insert, deleteAll
@@ -142,15 +150,17 @@ app/src/main/java/com/example/qcmfrance/
 │   │   ├── ExamCycleDao.kt        DAO Room : save (REPLACE), get, clear
 │   │   ├── AchievementDao.kt      DAO Room : observeAll (Flow), get, upsert (REPLACE), clear
 │   │   ├── SeenQuestionDao.kt     DAO Room : insertAll (IGNORE), count, clear
+│   │   ├── ReadFicheDao.kt        DAO Room : insert (IGNORE), observeReadIds (Flow), count, clear
 │   │   ├── Converters.kt          @TypeConverter List<String> ↔ JSON String
-│   │   └── AppDatabase.kt         Base Room v9 + migrations 1→2→…→8→9
+│   │   └── AppDatabase.kt         Base Room v11 + migrations 1→2→…→10→11
 │   └── repository/
 │       ├── QuestionRepository.kt  seedIfNeeded (2 fichiers JSON) + tirage stratifié 28 connaissances + 12 mise en situation, cyclé par thème/type (exam_cycle), liste des thèmes
 │       ├── TrainingRepository.kt  Questions par thème (ordre stable), avancement par thème
 │       ├── HistoryRepository.kt   Sauvegarde et récupération de l'historique des résultats
 │       ├── SettingsRepository.kt  DataStore : ThemeMode + soundEnabled + TextSizeMode
 │       ├── PausedQuizRepository.kt  Sérialisation Gson : save / load / clear / observeHasPaused
-│       └── AchievementRepository.kt  Moteur de déblocage (unlock / onExamCompleted / onThemeCompleted), newlyUnlocked (SharedFlow), observe
+│       ├── FichesRepository.kt   Fiches officielles hors-ligne (Gson res/raw/fiches.json, cache) + suivi de lecture (read_fiche)
+│       └── AchievementRepository.kt  Moteur de déblocage (unlock / onExamCompleted / onThemeCompleted / onFicheRead), newlyUnlocked (SharedFlow), observe
 │
 ├── di/
 │   └── AppModule.kt               Module Hilt : fournit AppDatabase et tous les DAOs
@@ -163,9 +173,10 @@ app/src/main/java/com/example/qcmfrance/
     │   ├── HomeViewModel.kt       hasPausedQuiz : StateFlow<Boolean> (Flow réactif depuis Room)
     │   ├── HistoryViewModel.kt    Flow<List<QuizResult>>, clearHistory()
     │   ├── SettingsViewModel.kt   themeMode + soundEnabled + textSizeMode StateFlow
-    │   └── AchievementsViewModel.kt  achievements (StateFlow), newlyUnlocked (SharedFlow), resetAchievements()
+    │   ├── AchievementsViewModel.kt  achievements (StateFlow), newlyUnlocked (SharedFlow), resetAchievements()
+    │   └── FichesViewModel.kt     themes + ficheThemeProgress (StateFlow, lecture X/total par thème) + markRead / resetReadFiches
     ├── navigation/
-    │   └── NavGraph.kt            11 routes : home / quiz / result / history / settings / help / resources / training_themes / training / about / achievements (+ overlay popup succès)
+    │   └── NavGraph.kt            13 routes : home / quiz / result / history / settings / help / resources / training_themes / training / about / achievements / fiches_list / fiche_detail (+ overlay popup succès)
     ├── screen/
     │   ├── HomeScreen.kt          Accueil : règles, boutons (examen + entraînement + succès), icône Aide
     │   ├── QuizScreen.kt          Examen : question N/40, options, timer, Pause, BackHandler, son
@@ -173,11 +184,13 @@ app/src/main/java/com/example/qcmfrance/
     │   ├── HistoryScreen.kt       Historique : liste, export par résultat, vider
     │   ├── SettingsScreen.kt      Paramètres : thème, taille du texte, toggle son, réinitialiser entraînement / cycle examen / succès, À propos
     │   ├── HelpScreen.kt          Aide : guide utilisateur (règles, thèmes, fonctionnalités)
-    │   ├── ResourcesScreen.kt     Ressources complémentaires : 7 liens officiels cliquables
+    │   ├── ResourcesScreen.kt     Ressources complémentaires : liens officiels en ligne (3 sections)
     │   ├── AboutScreen.kt         À propos / mises à jour : version installée + lien releases GitHub
-    │   ├── TrainingThemesScreen.kt  Sélection du thème + barre X/total par thème
+    │   ├── TrainingThemesScreen.kt  "S'entraîner" : thèmes de questions (X/total) + section fiches officielles (lecture X/total)
     │   ├── TrainingScreen.kt      Question d'entraînement, feedback immédiat, explication + lien source
-    │   └── AchievementsScreen.kt  Succès : liste groupée par catégorie, verrouillés grisés, barres X/target
+    │   ├── AchievementsScreen.kt  Succès : liste groupée par catégorie (Examen / Entraînement / Fiches), verrouillés grisés, barres X/target
+    │   ├── FichesListScreen.kt    Fiches offline : liste des fiches d'un thème
+    │   └── FicheDetailScreen.kt   Fiches offline : rendu markdown + "Voir en ligne" + source
     ├── components/
     │   └── AchievementUnlockedBanner.kt  Bandeau animé « Succès débloqué ! » (overlay global)
     ├── utils/
@@ -249,7 +262,7 @@ Le tirage n'utilise pas `ORDER BY RANDOM()` à chaque examen (ce qui permettrait
 [HomeScreen]
      │  "Commencer l'examen" → startQuiz() + navigate(quiz)
      │  "Reprendre l'examen" → resumeQuiz() + navigate(quiz)   (visible si pause sauvegardée)
-     │  "S'entraîner par thème" → navigate(training_themes)
+     │  "S'entraîner" → navigate(training_themes)
      │  "🏆 Succès" → navigate(achievements)
      │  Icône Historique → navigate(history)
      │  Icône Paramètres → navigate(settings)
@@ -257,14 +270,18 @@ Le tirage n'utilise pas `ORDER BY RANDOM()` à chaque examen (ce qui permettrait
      │  Icône Aide → navigate(help)
      │  (popup « Succès débloqué ! » affiché en overlay quel que soit l'écran)
      │
-     ├──► [TrainingThemesScreen]   Liste des 5 thèmes + barre X/total
-     │         │  Choisir un thème → startTheme() + navigate(training)
+     ├──► [TrainingThemesScreen]   "S'entraîner" : thèmes de questions (barre X/total)
+     │         │                    + section "sources officielles" : 5 fiches (barre lecture X/total)
+     │         │  Choisir un thème de questions → startTheme() + navigate(training)
+     │         │  Choisir un thème de fiches → navigate(fiches_list/{theme})
      │         ▼
      │    [TrainingScreen]   Question d'entraînement, feedback immédiat
      │         │  Sélectionner → "Confirmer" → révèle vert/rouge + explication + source
      │         │  "Suivant" → question suivante (avancement persisté)
      │         │  "Terminer" (dernière question) → écran de fin → retour aux thèmes
      │         │  Retour → popBackStack(training_themes)
+     │    [FichesListScreen] → [FicheDetailScreen]   Fiche en markdown + "Voir en ligne"
+     │         │  Ouvrir une fiche la marque comme lue (avancement + succès fiches)
      │
      ▼
 [QuizScreen]  ←── timer démarre (ou reprend)
@@ -383,27 +400,28 @@ QCM_France/
 │       │   ├── MainActivity.kt
 │       │   ├── QcmFranceApplication.kt
 │       │   ├── data/
-│       │   │   ├── db/        AppDatabase.kt (v9)  QuestionDao.kt  QuizResultDao.kt
+│       │   │   ├── db/        AppDatabase.kt (v11)  QuestionDao.kt  QuizResultDao.kt
 │       │   │   │              PausedQuizDao.kt  TrainingProgressDao.kt  ExamCycleDao.kt
-│       │   │   │              AchievementDao.kt  SeenQuestionDao.kt  Converters.kt
+│       │   │   │              AchievementDao.kt  SeenQuestionDao.kt  ReadFicheDao.kt  Converters.kt
 │       │   │   ├── model/     Question.kt  QuizResult.kt  PausedQuiz.kt  TrainingProgress.kt  ExamCycle.kt
-│       │   │   │              Achievement.kt  SeenQuestion.kt
+│       │   │   │              Achievement.kt  SeenQuestion.kt  ReadFiche.kt  Fiche.kt
 │       │   │   └── repository/QuestionRepository.kt  TrainingRepository.kt  AchievementRepository.kt
-│       │   │                  HistoryRepository.kt  SettingsRepository.kt  PausedQuizRepository.kt
+│       │   │                  HistoryRepository.kt  SettingsRepository.kt  PausedQuizRepository.kt  FichesRepository.kt
 │       │   ├── di/            AppModule.kt
 │       │   └── ui/
 │       │       ├── navigation/NavGraph.kt
 │       │       ├── screen/    HomeScreen.kt  QuizScreen.kt  ResultScreen.kt
 │       │       │              HistoryScreen.kt  SettingsScreen.kt  HelpScreen.kt  ResourcesScreen.kt  AboutScreen.kt
 │       │       │              TrainingThemesScreen.kt  TrainingScreen.kt  AchievementsScreen.kt
-│       │       ├── components/AchievementUnlockedBanner.kt
+│       │       │              FichesListScreen.kt  FicheDetailScreen.kt
+│       │       ├── components/AchievementUnlockedBanner.kt  MarkdownText.kt
 │       │       ├── utils/     ResultExporter.kt
 │       │       ├── viewmodel/ QuizViewModel.kt  TrainingViewModel.kt  QuestionExt.kt
-│       │       │              HomeViewModel.kt  HistoryViewModel.kt  SettingsViewModel.kt  AchievementsViewModel.kt
+│       │       │              HomeViewModel.kt  HistoryViewModel.kt  SettingsViewModel.kt  AchievementsViewModel.kt  FichesViewModel.kt
 │       │       └── theme/     Theme.kt  Color.kt  Type.kt
 │       └── res/
 │           ├── mipmap-*/      Icônes adaptatives (fond bleu tricolore, texte QCM)
-│           ├── raw/           questions.json (258, seed)  situational_questions.json (60, seed)
+│           ├── raw/           questions.json (258, seed)  situational_questions.json (80, seed)  fiches.json (fiches officielles hors-ligne)
 │           └── values/        strings.xml  themes.xml  colors.xml
 ├── build.gradle.kts
 ├── settings.gradle.kts

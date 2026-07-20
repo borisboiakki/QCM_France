@@ -217,8 +217,10 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
                 .flatMap { it.fiches.asSequence() }
                 .firstOrNull { it.id == ficheId }
             // Consulter une fiche la marque comme lue (avancement par thème + succès fiches).
-            LaunchedEffect(ficheId) {
-                if (ficheId.isNotEmpty()) fichesViewModel.markRead(ficheId)
+            // On attend que la fiche soit résolue dans le dataset (les thèmes se chargent en
+            // asynchrone) pour ne jamais compter un id inexistant.
+            LaunchedEffect(fiche?.id) {
+                fiche?.let { fichesViewModel.markRead(it.id) }
             }
             FicheDetailScreen(
                 fiche = fiche,
