@@ -2,12 +2,15 @@ package com.example.qcmfrance.data.repository
 
 import android.content.Context
 import com.example.qcmfrance.R
+import com.example.qcmfrance.data.db.ReadFicheDao
 import com.example.qcmfrance.data.model.Fiche
 import com.example.qcmfrance.data.model.FicheTheme
 import com.example.qcmfrance.data.model.FichesData
+import com.example.qcmfrance.data.model.ReadFiche
 import com.google.gson.Gson
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
@@ -23,7 +26,8 @@ import javax.inject.Singleton
  */
 @Singleton
 class FichesRepository @Inject constructor(
-    @ApplicationContext private val context: Context
+    @ApplicationContext private val context: Context,
+    private val readFicheDao: ReadFicheDao
 ) {
     private val gson = Gson()
     private val mutex = Mutex()
@@ -54,4 +58,21 @@ class FichesRepository @Inject constructor(
     /** Résout une fiche par son id unique, sur tout le dataset. */
     suspend fun fiche(id: String): Fiche? =
         data().themes.asSequence().flatMap { it.fiches.asSequence() }.firstOrNull { it.id == id }
+
+    // --- Suivi de lecture des fiches (table read_fiche) ---
+
+    /** Ids des fiches déjà consultées (pour la barre d'avancement par thème). */
+    fun observeReadIds(): Flow<List<String>> = readFicheDao.observeReadIds()
+
+    /** Marque une fiche comme consultée (idempotent). */
+    suspend fun markRead(id: String) = readFicheDao.insert(ReadFiche(id))
+
+    /** Nombre de fiches distinctes déjà consultées (progression des succès). */
+    suspend fun readCount(): Int = readFicheDao.count()
+
+    /** Nombre total de fiches sur tout le dataset (cible du succès « toutes les fiches »). */
+    suspend fun totalFichesCount(): Int = data().themes.sumOf { it.fiches.size }
+
+    /** Réinitialise le suivi de lecture (bouton « Réinitialiser la progression »). */
+    suspend fun clearRead() = readFicheDao.clear()
 }

@@ -124,7 +124,7 @@ QCM_France/
 │   │   │   ├── data/
 │   │   │   │   ├── ExamConstants.kt             Constantes officielles : durée 2700 s, seuil 32, alerte chrono 300 s
 │   │   │   │   ├── db/
-│   │   │   │   │   ├── AppDatabase.kt           Room @Database v10 (exportSchema) + migrations 1→2→…→9→10 + @TypeConverters(Converters)
+│   │   │   │   │   ├── AppDatabase.kt           Room @Database v11 (exportSchema) + migrations 1→2→…→10→11 + @TypeConverters(Converters)
 │   │   │   │   │   ├── Converters.kt            TypeConverter Room : List<QuestionVariant> ↔ JSON (colonne `variants`)
 │   │   │   │   │   ├── QuestionDao.kt           @Dao : getAllByTheme, getIdsByTheme(theme, isSituation), getByIds, insertAll, count
 │   │   │   │   │   ├── QuizResultDao.kt         @Dao : getAll (Flow), insert, deleteAll
@@ -132,7 +132,8 @@ QCM_France/
 │   │   │   │   │   ├── TrainingProgressDao.kt   @Dao : save (REPLACE), get, observeAll (Flow), clear
 │   │   │   │   │   ├── ExamCycleDao.kt          @Dao : save (REPLACE), get, clear
 │   │   │   │   │   ├── AchievementDao.kt        @Dao : observeAll (Flow), get, upsert (REPLACE), clear
-│   │   │   │   │   └── SeenQuestionDao.kt       @Dao : insertAll (IGNORE), count, clear
+│   │   │   │   │   ├── SeenQuestionDao.kt       @Dao : insertAll (IGNORE), count, clear
+│   │   │   │   │   └── ReadFicheDao.kt          @Dao : insert (IGNORE), observeReadIds (Flow), count, clear
 │   │   │   │   ├── model/
 │   │   │   │   │   ├── Question.kt              @Entity Room
 │   │   │   │   │   ├── QuizResult.kt            @Entity Room : id, date, score, passed, duration
@@ -141,6 +142,7 @@ QCM_France/
 │   │   │   │   │   ├── ExamCycle.kt             @Entity Room : PK=theme, permutation d'ids (JSON) + curseur
 │   │   │   │   │   ├── Achievement.kt           Catalogue statique (Achievements.ALL) + AchievementRecord (@Entity) + AchievementState
 │   │   │   │   │   ├── SeenQuestion.kt          @Entity Room : PK=questionId (questions déjà vues en examen)
+│   │   │   │   │   ├── ReadFiche.kt             @Entity Room : PK=ficheId (fiches déjà consultées — avancement de lecture + succès fiches)
 │   │   │   │   │   └── Fiche.kt                 Modèles Gson (FichesData/FicheTheme/Fiche) — fiches offline, PAS de Room
 │   │   │   │   └── repository/
 │   │   │   │       ├── QuestionRepository.kt    seedIfNeeded (2 fichiers JSON) + tirage stratifié 28 connaissances + 12 mise en situation, cyclé (exam_cycle), themes
@@ -149,12 +151,12 @@ QCM_France/
 │   │   │   │       ├── PausedQuizRepository.kt  save/load/clear + PausedQuizState (Gson)
 │   │   │   │       ├── TrainingRepository.kt    questions par thème (ordre stable), avancement par thème
 │   │   │   │       ├── AchievementRepository.kt moteur de déblocage (unlock/onExamCompleted/onThemeCompleted), newlyUnlocked (SharedFlow), observe
-│   │   │   │       └── FichesRepository.kt      lit res/raw/fiches.json (Gson, cache mémoire) — themes/fichesForTheme/fiche, sans Room
+│   │   │   │       └── FichesRepository.kt      lit res/raw/fiches.json (Gson, cache mémoire) — themes/fichesForTheme/fiche + suivi de lecture (observeReadIds/markRead/readCount/totalFichesCount/clearRead via read_fiche)
 │   │   │   ├── di/
 │   │   │   │   └── AppModule.kt                 Hilt @Module (AppDatabase, DAOs)
 │   │   │   ├── ui/
 │   │   │   │   ├── navigation/
-│   │   │   │   │   └── NavGraph.kt              14 routes : home/quiz/result/history/settings/help/resources/training_themes/training/about/achievements/fiches_themes/fiches_list/fiche_detail + overlay popup succès
+│   │   │   │   │   └── NavGraph.kt              13 routes : home/quiz/result/history/settings/help/resources/training_themes/training/about/achievements/fiches_list/fiche_detail + overlay popup succès
 │   │   │   │   ├── screen/
 │   │   │   │   │   ├── HomeScreen.kt            titre, règles, Reprendre (si pause), S'entraîner par thème, Succès, AlertDialog, icônes Ressources / Aide / Paramètres
 │   │   │   │   │   ├── QuizScreen.kt            question N/40, options, timer, bouton Pause, BackHandler, son
@@ -162,12 +164,11 @@ QCM_France/
 │   │   │   │   │   ├── HistoryScreen.kt         liste des résultats, export par résultat, vider
 │   │   │   │   │   ├── SettingsScreen.kt        thème (Système/Clair/Sombre), taille du texte (slider), toggle son, réinitialiser l'entraînement, réinitialiser le cycle de l'examen, réinitialiser les succès, À propos (défilable)
 │   │   │   │   │   ├── HelpScreen.kt            guide utilisateur (règles, thèmes, fonctionnalités) — les liens officiels sont dans ResourcesScreen
-│   │   │   │   │   ├── ResourcesScreen.kt       ressources complémentaires : 7 liens officiels cliquables en 2 sections (Textes officiels / Examen civique et tests) — déplacés depuis HelpScreen
+│   │   │   │   │   ├── ResourcesScreen.kt       ressources complémentaires : liens officiels cliquables en 3 sections (Textes officiels / Examen civique et tests / Fiches thématiques) — liens en ligne uniquement
 │   │   │   │   │   ├── AboutScreen.kt           version installée (PackageManager) + bouton vers les releases GitHub (téléchargement APK, sans permission)
-│   │   │   │   │   ├── TrainingThemesScreen.kt  sélection du thème + barre d'avancement X/total par thème
+│   │   │   │   │   ├── TrainingThemesScreen.kt  écran « S'entraîner » : cartes X/total par thème de questions + section « sources officielles » (5 cartes de fiches, avancement de lecture X/total)
 │   │   │   │   │   ├── TrainingScreen.kt        question du thème, feedback immédiat (vert/rouge), explication + lien source
-│   │   │   │   │   ├── AchievementsScreen.kt    liste des succès groupés (Examen/Entraînement), verrouillés grisés, barres X/target
-│   │   │   │   │   ├── FichesThemesScreen.kt    fiches offline : liste des 5 thèmes + nb de fiches
+│   │   │   │   │   ├── AchievementsScreen.kt    liste des succès groupés (Examen/Entraînement/Fiches), verrouillés grisés, barres X/target
 │   │   │   │   │   ├── FichesListScreen.kt      fiches offline : liste des fiches d'un thème
 │   │   │   │   │   └── FicheDetailScreen.kt     fiches offline : rendu markdown + « Voir en ligne » + source
 │   │   │   │   ├── components/
@@ -183,7 +184,7 @@ QCM_France/
 │   │   │   │   │   ├── HistoryViewModel.kt      Flow<List<QuizResult>>, clearHistory()
 │   │   │   │   │   ├── SettingsViewModel.kt     themeMode + soundEnabled + textSizeMode StateFlow
 │   │   │   │   │   ├── AchievementsViewModel.kt achievements (StateFlow<List<AchievementState>>), newlyUnlocked (SharedFlow), resetAchievements()
-│   │   │   │   │   └── FichesViewModel.kt       themes : StateFlow<List<FicheTheme>> (fiches chargées une fois)
+│   │   │   │   │   └── FichesViewModel.kt       themes + ficheThemeProgress (StateFlow, avancement lecture X/total par thème) + markRead/resetReadFiches
 │   │   │   │   └── theme/
 │   │   │   │       ├── Theme.kt                 Material 3 dynamique, accepte ThemeMode + TextSizeMode (échelle typo)
 │   │   │   │       ├── Color.kt                 palette + SuccessGreen/FailureRed + AchievementGold partagées
@@ -374,7 +375,7 @@ Mode complémentaire à l'examen, orienté apprentissage — l'inverse UX de l'e
 
 Système de gamification inspiré des trophées de jeux vidéo. Catalogue statique en code, état débloqué persisté en Room, popup au déblocage, page dédiée depuis l'accueil.
 
-### Catalogue (10 succès, `Achievements.ALL`)
+### Catalogue (13 succès, `Achievements.ALL`)
 
 | id | Titre | Condition | Cible |
 |---|---|---|---|
@@ -388,20 +389,26 @@ Système de gamification inspiré des trophées de jeux vidéo. Catalogue statiq
 | `train_histoire` | Mémoire de France | Finir l'entraînement du thème 4 | — |
 | `train_societe` | Bien vivre ensemble | Finir l'entraînement du thème 5 | — |
 | `train_all` *(rare)* | Élève modèle | Finir les 5 thèmes d'entraînement | X/5 |
+| `fiche_first_read` | Première lecture | Consulter une 1re fiche officielle | — |
+| `fiche_30_read` | Lecteur assidu | Consulter 30 fiches (tous thèmes) | X/30 |
+| `fiche_all_read` *(rare)* | Bibliothèque complète | Consulter toutes les fiches | X/total (dynamique) |
 
-Chaque succès : `id`, `titleRes`/`descriptionRes` (strings.xml), `emoji`, `category` (EXAM/TRAINING),
-`rarity` (COMMON/RARE — les rares ont un liseré doré et une description masquée « secret » tant que
-verrouillés), `target` (>1 ⇒ succès à progression, barre `X/target`).
+Chaque succès : `id`, `titleRes`/`descriptionRes` (strings.xml), `emoji`, `category`
+(EXAM/TRAINING/FICHES), `rarity` (COMMON/RARE — les rares ont un liseré doré et une description
+masquée « secret » tant que verrouillés), `target` (>1 ⇒ succès à progression, barre `X/target`).
 
 ### Architecture
 
 - **`AchievementRecord`** (`@Entity` `achievements`, PK=`id`) : `unlockedAt` (nullable — null = non débloqué) + `progress`.
 - **`SeenQuestion`** (`@Entity` `seen_question`, PK=`questionId`) : ids des questions déjà vues en examen ; `COUNT(*)` = progression de `exam_all_seen`.
-- **`MIGRATION_8_9`** (BDD v8 → v9) crée ces deux tables.
-- **`AchievementRepository`** (`@Singleton`) : point d'entrée idempotent.
+- **`ReadFiche`** (`@Entity` `read_fiche`, PK=`ficheId`) : ids des fiches déjà consultées ; `COUNT(*)` = progression des succès fiches (et source de la barre X/total de lecture par thème). Table créée par `MIGRATION_10_11` (BDD v10 → v11).
+- **`MIGRATION_8_9`** (BDD v8 → v9) crée les tables `achievements` + `seen_question`.
+- **`AchievementRepository`** (`@Singleton`, injecte aussi `FichesRepository`) : point d'entrée idempotent.
   - `unlock(id)` : débloque un succès tout-ou-rien, sans ré-émettre si déjà débloqué.
   - `onExamCompleted(passed, perfect, questionIds)` : appelé par `QuizViewModel.submitQuiz()`. Débloque `exam_first_completed`, et conditionnellement `exam_first_passed` / `exam_perfect` ; insère les ids vus (`seen_question`) et met à jour `exam_all_seen` (cible = `questionDao.count()`).
   - `onThemeCompleted(theme)` : appelé par `TrainingViewModel` à la fin d'un thème (`next()`) **et** au rattrapage à l'ouverture d'un thème déjà terminé (`startTheme`). Débloque le succès du thème puis met à jour `train_all` (progression = nombre de thèmes terminés).
+  - `onFicheRead(readCount, totalFiches)` : appelé par `FichesViewModel.markRead()` à l'ouverture d'une fiche. Débloque `fiche_first_read`, met à jour `fiche_30_read` (cible 30) et `fiche_all_read` (cible = `fichesRepository.totalFichesCount()`, résolue dynamiquement dans `observe()` comme `exam_all_seen`).
+  - `resetAll()` (bouton « Réinitialiser les succès ») vide `achievements` + `seen_question` ; il **ne** touche **pas** `read_fiche` (remis à zéro par « Réinitialiser la progression », cf. mode S'entraîner).
   - `newlyUnlocked: SharedFlow<Achievement>` : émet chaque nouveau déblocage.
   - `observe(): Flow<List<AchievementState>>` : catalogue + état persisté, pour la page.
   - `resetAll()` : vide `achievements` + `seen_question` (bouton Paramètres).
@@ -418,17 +425,22 @@ verrouillés), `target` (>1 ⇒ succès à progression, barre `X/target`).
 
 Dump embarqué des **fiches par thématiques** officielles de
 `formation-civique.interieur.gouv.fr` (les 5 thèmes → arborescence complète des sous-fiches),
-consultable **sans réseau ni permission** (règle 10). Complète les liens externes de `ResourcesScreen`.
+consultable **sans réseau ni permission** (règle 10). Intégré au mode **S'entraîner**.
 
 - **Données** : `res/raw/fiches.json` (schéma `FichesData` → `FicheTheme` → `Fiche{id,title,url,markdown}`),
-  lu par `FichesRepository` via Gson + **cache mémoire**. Pas de Room, pas de migration, **pas de
-  `CONTENT_VERSION`** : les fiches sont relues du raw à chaque lancement, donc le fichier bundlé est
-  toujours la source de vérité (une nouvelle version arrive avec un nouvel APK). `id` unique sur tout le
-  dataset : `"<slug-thème>__<slug-fiche>"` (ASCII, sûr comme argument de navigation).
-- **UI** : `FichesThemesScreen` (5 thèmes) → `FichesListScreen` (fiches du thème) → `FicheDetailScreen`
-  (rendu markdown + « Voir la fiche en ligne » + mention source). Entrée depuis `ResourcesScreen`
-  (« 📖 Consulter les fiches hors-ligne »). Le contenu markdown est rendu **nativement** en Compose par
-  `MarkdownText` (titres, paragraphes, listes, gras/italique, liens) — aucune WebView ni dépendance ajoutée.
+  lu par `FichesRepository` via Gson + **cache mémoire**. Le contenu des fiches n'est pas persisté en
+  Room (**pas de `CONTENT_VERSION`**, relu du raw à chaque lancement) ; seul le **suivi de lecture**
+  l'est (table `read_fiche`, cf. plus bas). `id` unique sur tout le dataset :
+  `"<slug-thème>__<slug-fiche>"` (ASCII, sûr comme argument de navigation).
+- **UI** : entrée depuis l'écran **« S'entraîner »** (`TrainingThemesScreen`, section « S'entraîner
+  avec les sources officielles » : 5 cartes de thèmes avec barre de lecture `X/total`) →
+  `FichesListScreen` (fiches du thème) → `FicheDetailScreen` (rendu markdown + « Voir la fiche en
+  ligne » + mention source). Le contenu markdown est rendu **nativement** en Compose par `MarkdownText`
+  (titres, paragraphes, listes, gras/italique, liens) — aucune WebView ni dépendance ajoutée.
+- **Suivi de lecture** : ouvrir `FicheDetailScreen` marque la fiche lue (`FichesViewModel.markRead()`
+  → `read_fiche`, INSERT IGNORE — comptée une seule fois). Alimente la barre `X/total` par thème
+  (`FichesViewModel.ficheThemeProgress`) et les 3 succès « Fiches officielles ». Remise à zéro par
+  « Réinitialiser la progression » (Paramètres), avec la progression d'entraînement.
 - **Génération du contenu** : `scripts/fetch_fiches.py` (Python : `requests` + `beautifulsoup4` +
   `markdownify`) parcourt **récursivement** le sous-arbre de chaque thème (`crawl_theme_leaves`) et ne
   retient que les **feuilles de contenu** : une page ayant des sous-pages (index de thème, pages de
@@ -612,12 +624,11 @@ fun submitQuiz() {
 | `history` | Historique | Liste des résultats passés, export individuel, vider l'historique |
 | `settings` | Paramètres | Thème (Système/Clair/Sombre), toggle son, réinitialiser la progression d'entraînement, réinitialiser le cycle de l'examen, réinitialiser les succès, accès « À propos » |
 | `help` | Aide | Guide utilisateur, règles de l'examen, thèmes, fonctionnalités (les liens officiels sont désormais sur `resources`) |
-| `resources` | Ressources complémentaires | Liens officiels cliquables (navigateur) en 3 sections (« Textes officiels », « Examen civique et tests », « Fiches thématiques officielles ») + carte « 📖 Consulter les fiches hors-ligne » → `fiches_themes` — accès par l'icône « liste » de l'accueil |
+| `resources` | Ressources complémentaires | Liens officiels cliquables (navigateur) en 3 sections (« Textes officiels », « Examen civique et tests », « Fiches thématiques officielles ») — liens en ligne uniquement (l'accès hors-ligne est passé sur `training_themes`) — accès par l'icône « liste » de l'accueil |
 | `about` | À propos / Mises à jour | Version installée (lue via `PackageManager`, sans réseau) + bouton ouvrant `github.com/borisboiakki/qcm_france/releases/latest` dans le navigateur pour télécharger l'APK — aucune permission ajoutée |
-| `training_themes` | Entraînement (thèmes) | Liste des 5 thèmes + barre d'avancement `X/total`, retour Accueil |
+| `training_themes` | S'entraîner | Cartes `X/total` des 5 thèmes de questions, puis section « S'entraîner avec les sources officielles » : 5 cartes de fiches avec barre de lecture `X/total` → `fiches_list/{theme}` |
 | `training` | Entraînement (question) | Question d'un thème, feedback immédiat (vert/rouge), explication + lien source, "Suivant"/"Terminer" |
-| `achievements` | Succès | Liste des succès groupés par catégorie (Examen / Entraînement), verrouillés grisés, barres de progression `X/target`, dates de déblocage |
-| `fiches_themes` | Fiches (thèmes) | Fiches officielles hors-ligne : liste des 5 thèmes + nombre de fiches |
+| `achievements` | Succès | Liste des succès groupés par catégorie (Examen / Entraînement / Fiches), verrouillés grisés, barres de progression `X/target`, dates de déblocage |
 | `fiches_list/{theme}` | Fiches (liste) | Liste des fiches d'un thème (argument `theme` encodé) |
 | `fiche_detail/{ficheId}` | Fiche (détail) | Rendu markdown de la fiche (`MarkdownText`) + bouton « Voir en ligne » + mention source |
 
@@ -766,22 +777,22 @@ ksp                    = { id = "com.google.devtools.ksp",              version 
   │                     ├─ Icône partage sur chaque résultat → Intent.ACTION_SEND
   │                     └─ "Vider l'historique" (avec confirmation)
   ├─ "🏆 Succès" ──► [AchievementsScreen]
-  │                     ├─ Compteur X/10 + barre globale
-  │                     ├─ Succès groupés (Examen / Entraînement), verrouillés grisés (🔒)
-  │                     └─ Barres de progression X/target (exam_all_seen, train_all)
+  │                     ├─ Compteur X/13 + barre globale
+  │                     ├─ Succès groupés (Examen / Entraînement / Fiches), verrouillés grisés (🔒)
+  │                     └─ Barres de progression X/target (exam_all_seen, train_all, fiche_30_read, fiche_all_read)
   │   (popup « Succès débloqué ! » affiché en overlay quel que soit l'écran)
   ├─ "Paramètres" ──► [SettingsScreen]
   │                     ├─ Thème : Système / Clair / Sombre (persisté DataStore)
   │                     ├─ Taille du texte : Petit / Moyen / Grand (slider, persisté DataStore)
   │                     ├─ Son de sélection : activé/désactivé (persisté DataStore)
-  │                     ├─ "Réinitialiser la progression" → TrainingProgressDao.clear()
+  │                     ├─ "Réinitialiser la progression" → TrainingProgressDao.clear() + read_fiche (lecture des fiches)
   │                     ├─ "Réinitialiser le cycle de l'examen" → ExamCycleDao.clear()
   │                     ├─ "Réinitialiser les succès" → AchievementRepository.resetAll()
   │                     └─ "Mises à jour et à propos" ──► [AboutScreen]
   │                                                        ├─ Version installée (PackageManager)
   │                                                        └─ "Télécharger la dernière version sur GitHub" → navigateur (releases/latest)
   ├─ Icône Ressources (liste) ──► [ResourcesScreen]
-  │                            └─ 7 liens officiels cliquables (gouvernement, Légifrance, etc.)
+  │                            └─ liens officiels en ligne cliquables (gouvernement, Légifrance, etc.)
   └─ Icône Aide (Info) ──► [HelpScreen]
                             └─ Règles de l'examen, thèmes, fonctionnalités
 ```

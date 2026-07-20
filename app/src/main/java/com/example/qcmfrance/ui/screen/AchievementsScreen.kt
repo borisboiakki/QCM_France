@@ -67,6 +67,7 @@ fun AchievementsScreen(
         val unlocked = states.count { it.isUnlocked }
         val examStates = states.filter { it.achievement.category == AchievementCategory.EXAM }
         val trainingStates = states.filter { it.achievement.category == AchievementCategory.TRAINING }
+        val fichesStates = states.filter { it.achievement.category == AchievementCategory.FICHES }
 
         LazyColumn(
             modifier = Modifier
@@ -86,6 +87,11 @@ fun AchievementsScreen(
             if (trainingStates.isNotEmpty()) {
                 item { CategoryHeader(stringResource(R.string.achievements_category_training)) }
                 items(trainingStates, key = { it.achievement.id }) { AchievementCard(it) }
+            }
+
+            if (fichesStates.isNotEmpty()) {
+                item { CategoryHeader(stringResource(R.string.achievements_category_fiches)) }
+                items(fichesStates, key = { it.achievement.id }) { AchievementCard(it) }
             }
         }
     }

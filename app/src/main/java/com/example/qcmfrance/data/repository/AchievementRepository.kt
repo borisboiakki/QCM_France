@@ -25,7 +25,8 @@ import javax.inject.Singleton
 class AchievementRepository @Inject constructor(
     private val dao: AchievementDao,
     private val seenDao: SeenQuestionDao,
-    private val questionDao: QuestionDao
+    private val questionDao: QuestionDao,
+    private val fichesRepository: FichesRepository
 ) {
     // Buffer suffisant pour absorber plusieurs déblocages simultanés (ex. dernier thème + « Élève modèle »).
     private val _newlyUnlocked = MutableSharedFlow<Achievement>(extraBufferCapacity = 16)
@@ -36,11 +37,14 @@ class AchievementRepository @Inject constructor(
         dao.observeAll().map { records ->
             val byId = records.associateBy { it.id }
             val totalQuestions = questionDao.count()
+            val totalFiches = fichesRepository.totalFichesCount()
             Achievements.ALL.map { a ->
                 val record = byId[a.id]
-                val target =
-                    if (a.id == Achievements.EXAM_ALL_SEEN && totalQuestions > 0) totalQuestions
-                    else a.target
+                val target = when {
+                    a.id == Achievements.EXAM_ALL_SEEN && totalQuestions > 0 -> totalQuestions
+                    a.id == Achievements.FICHE_ALL_READ && totalFiches > 0    -> totalFiches
+                    else                                                       -> a.target
+                }
                 AchievementState(
                     achievement = a,
                     unlockedAt = record?.unlockedAt,
@@ -92,6 +96,17 @@ class AchievementRepository @Inject constructor(
         // « Élève modèle » : progression = nombre de thèmes terminés (une seule requête).
         val done = dao.countUnlockedIn(Achievements.TRAINING_BY_THEME.values.toList())
         setProgress(Achievements.TRAIN_ALL, done, Achievements.TRAINING_BY_THEME.size)
+    }
+
+    /**
+     * Appelé à l'ouverture d'une fiche (une fiche déjà marquée lue n'est comptée qu'une fois grâce
+     * à `read_fiche`). Débloque « première fiche », progresse vers « 30 fiches » et « toutes les
+     * fiches » (cible = nombre total de fiches).
+     */
+    suspend fun onFicheRead(readCount: Int, totalFiches: Int) {
+        unlock(Achievements.FICHE_FIRST_READ)
+        setProgress(Achievements.FICHE_30_READ, readCount, 30)
+        if (totalFiches > 0) setProgress(Achievements.FICHE_ALL_READ, readCount, totalFiches)
     }
 
     /** Réinitialise tous les succès et leur progression (depuis les Paramètres). */

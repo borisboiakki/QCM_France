@@ -103,7 +103,6 @@ private val LINK_SECTIONS = listOf(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ResourcesScreen(
-    onShowFiches: () -> Unit,
     onBack: () -> Unit
 ) {
     val uriHandler = LocalUriHandler.current
@@ -152,15 +151,6 @@ fun ResourcesScreen(
                         color = MaterialTheme.colorScheme.primary,
                         modifier = Modifier.padding(top = 8.dp)
                     )
-                }
-                // Accès au navigateur hors-ligne, en tête de la section des fiches thématiques.
-                if (section.titleRes == R.string.resources_section_sheets) {
-                    item {
-                        LinkCard(
-                            label = stringResource(R.string.resources_fiches_offline),
-                            onClick = onShowFiches
-                        )
-                    }
                 }
                 items(section.links) { link ->
                     LinkCard(
