@@ -84,8 +84,10 @@ class QuestionRepository @Inject constructor(
          * v10 = lot 6 : « Système institutionnel et politique » de la carte de séjour pluriannuelle
          * (thème complet : 46/46), dont 29 questions dont le libellé était déjà rédigé pour un
          * autre QCM et dont le jeu de réponses est repris à l'identique.
+         * v11 = lot 7 : « Principes et valeurs de la République » de la carte de séjour
+         * pluriannuelle (thème complet : 37/37).
          */
-        const val CONTENT_VERSION = 10
+        const val CONTENT_VERSION = 11
         private const val CONTENT_PREFS = "question_content"
         private const val KEY_CONTENT_VERSION = "content_version"
     }

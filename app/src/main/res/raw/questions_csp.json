@@ -1,5 +1,69 @@
 [
   {
+    "id": 3001,
+    "theme": "Principes et valeurs de la République",
+    "text": "À quoi correspond la date du 14 juillet ?",
+    "optionA": "À la fête nationale française",
+    "optionB": "À la fête du travail",
+    "optionC": "À l'armistice de 1918",
+    "optionD": "À la fête de la musique",
+    "correctAnswer": "A",
+    "explanation": "Le 14 Juillet est la fête nationale française depuis 1880. Elle commémore la prise de la Bastille du 14 juillet 1789 et la Fête de la Fédération de 1790. La fête du travail est le 1er mai et l'armistice de 1918 est commémoré le 11 novembre.",
+    "source": "https://fr.wikipedia.org/wiki/F%C3%AAte_nationale_fran%C3%A7aise"
+  },
+  {
+    "id": 3002,
+    "theme": "Principes et valeurs de la République",
+    "text": "Quel est l’un des symboles de la République française ?",
+    "optionA": "La couronne royale",
+    "optionB": "Le drapeau tricolore bleu-blanc-rouge",
+    "optionC": "L'aigle impérial",
+    "optionD": "Le drapeau bleu à douze étoiles",
+    "correctAnswer": "B",
+    "explanation": "Les symboles de la République sont le drapeau tricolore, l'hymne national (la Marseillaise), la devise « Liberté, Égalité, Fraternité », Marianne, le 14 Juillet et le coq. Le drapeau bleu à douze étoiles est celui de l'Union européenne.",
+    "source": "https://www.elysee.fr/la-presidence/les-symboles-de-la-republique-francaise",
+    "variants": [
+      {
+        "optionA": "La Marseillaise",
+        "optionB": "La couronne royale",
+        "optionC": "L'aigle impérial",
+        "optionD": "La fleur de lys",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "Le sceptre",
+        "optionB": "Le blason des rois de France",
+        "optionC": "Marianne",
+        "optionD": "L'étoile jaune",
+        "correctAnswer": "C"
+      }
+    ]
+  },
+  {
+    "id": 3003,
+    "theme": "Principes et valeurs de la République",
+    "text": "Le principe d’égalité signifie que :",
+    "optionA": "Tout le monde doit gagner le même salaire",
+    "optionB": "Tous les citoyens ont les mêmes droits et les mêmes devoirs devant la loi",
+    "optionC": "Chacun doit avoir le même logement",
+    "optionD": "Chacun doit avoir les mêmes opinions",
+    "correctAnswer": "B",
+    "explanation": "L'égalité signifie que la loi est la même pour tous : mêmes droits, mêmes devoirs, sans distinction d'origine, de sexe, de religion ou de fortune. Ce n'est pas l'uniformité des conditions de vie, mais l'égalité devant la loi et l'égalité des chances.",
+    "source": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789"
+  },
+  {
+    "id": 3004,
+    "theme": "Principes et valeurs de la République",
+    "text": "\"Liberté, égalité, fraternité\", c’est :",
+    "optionA": "La devise de la République française",
+    "optionB": "Le titre de l'hymne national",
+    "optionC": "Le nom d'un parti politique",
+    "optionD": "Le préambule du traité de Maastricht",
+    "correctAnswer": "A",
+    "explanation": "« Liberté, Égalité, Fraternité » est la devise de la République française, héritée de la Révolution. Elle est inscrite à l'article 2 de la Constitution et figure sur les frontons des bâtiments publics et sur les pièces de monnaie.",
+    "source": "https://www.elysee.fr/la-presidence/les-symboles-de-la-republique-francaise"
+  },
+  {
     "id": 3005,
     "theme": "Principes et valeurs de la République",
     "text": "A-t-on le droit d'insulter publiquement quelqu’un parce qu’il est différent (handicap, apparence physique, sexe…) ?",
@@ -12,6 +76,30 @@
     "source": "https://www.service-public.fr/particuliers/vosdroits/F32079"
   },
   {
+    "id": 3006,
+    "theme": "Principes et valeurs de la République",
+    "text": "Certains métiers peuvent-ils être réservés aux hommes ?",
+    "optionA": "Oui, les métiers physiques",
+    "optionB": "Oui, si l'employeur le décide",
+    "optionC": "Non : réserver un emploi à un sexe est une discrimination interdite",
+    "optionD": "Oui, dans les entreprises de moins de dix salariés",
+    "correctAnswer": "C",
+    "explanation": "Tous les métiers sont ouverts aux femmes comme aux hommes. Refuser un emploi en raison du sexe est une discrimination punie de 3 ans d'emprisonnement et 45 000 euros d'amende. Seules de très rares exceptions existent, comme le mannequinat ou le comédien pour un rôle déterminé.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1642"
+  },
+  {
+    "id": 3007,
+    "theme": "Principes et valeurs de la République",
+    "text": "De quand date la Constitution de la Ve République ?",
+    "optionA": "1789",
+    "optionB": "1946",
+    "optionC": "1958",
+    "optionD": "1981",
+    "correctAnswer": "C",
+    "explanation": "La Constitution de la Ve République a été adoptée par référendum le 28 septembre 1958 et promulguée le 4 octobre 1958. Elle a été élaborée sous l'impulsion du général de Gaulle et a depuis fait l'objet de nombreuses révisions.",
+    "source": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000571356/"
+  },
+  {
     "id": 3008,
     "theme": "Principes et valeurs de la République",
     "text": "Le régime de la France est :",
@@ -22,6 +110,18 @@
     "correctAnswer": "B",
     "explanation": "La France est une République : le pouvoir n'appartient ni à un roi ni à une autorité religieuse, mais au peuple, qui l'exerce par ses représentants élus et par la voie du référendum. C'est la Ve République depuis 1958.",
     "source": "https://fr.wikipedia.org/wiki/Cinqui%C3%A8me_R%C3%A9publique_(France)"
+  },
+  {
+    "id": 3009,
+    "theme": "Principes et valeurs de la République",
+    "text": "Lequel de ces symboles représente officiellement la République française ?",
+    "optionA": "Marianne",
+    "optionB": "La fleur de lys",
+    "optionC": "L'aigle impérial",
+    "optionD": "La croix de Bourgogne",
+    "correctAnswer": "A",
+    "explanation": "Marianne, coiffée du bonnet phrygien, est la figure allégorique de la République française. Son buste est présent dans les mairies et son effigie figure sur les timbres et les pièces. La fleur de lys et l'aigle sont des symboles de la monarchie et de l'Empire.",
+    "source": "https://www.elysee.fr/la-presidence/les-symboles-de-la-republique-francaise"
   },
   {
     "id": 3010,
@@ -64,6 +164,30 @@
     "source": "https://www.elysee.fr/la-presidence/les-symboles-de-la-republique-francaise"
   },
   {
+    "id": 3012,
+    "theme": "Principes et valeurs de la République",
+    "text": "Qu’est-ce que l’égalité ?",
+    "optionA": "Le fait que chacun dispose des mêmes droits et des mêmes devoirs devant la loi",
+    "optionB": "Le fait que chacun possède les mêmes biens",
+    "optionC": "Le fait que chacun exerce le même métier",
+    "optionD": "Le fait que chacun ait les mêmes convictions religieuses",
+    "correctAnswer": "A",
+    "explanation": "L'égalité est l'un des trois termes de la devise républicaine. Elle garantit que la loi est la même pour tous et que nul ne peut être privilégié ou défavorisé en raison de son origine, de son sexe, de sa religion ou de sa fortune.",
+    "source": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789"
+  },
+  {
+    "id": 3013,
+    "theme": "Principes et valeurs de la République",
+    "text": "Que signifie la liberté ?",
+    "optionA": "Faire tout ce que l'on veut, sans aucune limite",
+    "optionB": "Pouvoir faire tout ce qui ne nuit pas à autrui, dans les limites fixées par la loi",
+    "optionC": "Ne pas avoir à respecter les décisions de justice",
+    "optionD": "Un privilège accordé à certains citoyens",
+    "correctAnswer": "B",
+    "explanation": "L'article 4 de la Déclaration des droits de l'homme et du citoyen de 1789 définit la liberté comme le fait de « pouvoir faire tout ce qui ne nuit pas à autrui ». Ses limites sont fixées par la loi, la même pour tous.",
+    "source": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789"
+  },
+  {
     "id": 3014,
     "theme": "Principes et valeurs de la République",
     "text": "Que signifie le mot \"fraternité\" dans la devise française ?",
@@ -74,6 +198,66 @@
     "correctAnswer": "A",
     "explanation": "La fraternité, troisième terme de la devise républicaine, exprime la solidarité entre tous les membres de la Nation. Elle rappelle que les citoyens ne sont pas seulement liés par des droits et des lois, mais aussi par un esprit d'entraide et de soutien mutuel. Ce principe se traduit concrètement dans les politiques sociales (protection sociale, aide aux plus démunis) et dans des valeurs comme le bénévolat et la solidarité nationale.",
     "source": "https://fr.wikipedia.org/wiki/Fraternit%C3%A9"
+  },
+  {
+    "id": 3015,
+    "theme": "Principes et valeurs de la République",
+    "text": "Quel animal est un symbole de la France ?",
+    "optionA": "Le coq",
+    "optionB": "L'ours",
+    "optionC": "Le lion",
+    "optionD": "L'aigle",
+    "correctAnswer": "A",
+    "explanation": "Le coq gaulois est un emblème traditionnel de la France, sans être un symbole officiel inscrit dans la Constitution. On le retrouve notamment sur les grilles du palais de l'Élysée et sur les maillots des équipes sportives françaises.",
+    "source": "https://www.elysee.fr/la-presidence/les-symboles-de-la-republique-francaise"
+  },
+  {
+    "id": 3016,
+    "theme": "Principes et valeurs de la République",
+    "text": "Quel est l’un des rôles des associations ?",
+    "optionA": "Voter les lois",
+    "optionB": "Permettre à des personnes de se regrouper autour d'un projet commun, sportif, culturel ou solidaire",
+    "optionC": "Rendre la justice",
+    "optionD": "Collecter les impôts",
+    "correctAnswer": "B",
+    "explanation": "La loi du 1er juillet 1901 garantit la liberté d'association : chacun peut créer une association ou y adhérer librement. Les associations animent la vie sportive, culturelle, sociale et solidaire ; elles sont un lieu majeur d'engagement citoyen.",
+    "source": "https://www.service-public.fr/associations/vosdroits/F1120"
+  },
+  {
+    "id": 3017,
+    "theme": "Principes et valeurs de la République",
+    "text": "Quel est le nom de l'hymne national ?",
+    "optionA": "Le Chant du départ",
+    "optionB": "La Marseillaise",
+    "optionC": "L'Ode à la joie",
+    "optionD": "Le Temps des cerises",
+    "correctAnswer": "B",
+    "explanation": "L'hymne national français est La Marseillaise, composée par Rouget de Lisle à Strasbourg en 1792 et devenue hymne national en 1879. L'Ode à la joie est l'hymne de l'Union européenne.",
+    "source": "https://fr.wikipedia.org/wiki/La_Marseillaise"
+  },
+  {
+    "id": 3018,
+    "theme": "Principes et valeurs de la République",
+    "text": "Quel symbole de la République française est tricolore ?",
+    "optionA": "Le drapeau",
+    "optionB": "L'hymne national",
+    "optionC": "La devise",
+    "optionD": "Le coq",
+    "correctAnswer": "A",
+    "explanation": "Le drapeau français est tricolore : bleu, blanc et rouge. Né de la Révolution française, il associe les couleurs de Paris (bleu et rouge) à la couleur du roi (blanc). Il figure à l'article 2 de la Constitution.",
+    "source": "https://www.elysee.fr/la-presidence/les-symboles-de-la-republique-francaise"
+  },
+  {
+    "id": 3019,
+    "theme": "Principes et valeurs de la République",
+    "text": "Quelle est la date de la fête nationale française ?",
+    "optionA": "Le 1er mai",
+    "optionB": "Le 8 mai",
+    "optionC": "Le 14 juillet",
+    "optionD": "Le 11 novembre",
+    "correctAnswer": "C",
+    "explanation": "La fête nationale française est le 14 Juillet. Le 1er mai est la fête du travail, le 8 mai commémore la victoire de 1945 et le 11 novembre l'armistice de 1918 : ce sont des jours fériés, mais pas la fête nationale.",
+    "source": "https://fr.wikipedia.org/wiki/F%C3%AAte_nationale_fran%C3%A7aise"
   },
   {
     "id": 3020,
@@ -88,6 +272,18 @@
     "source": "https://fr.wikipedia.org/wiki/Libert%C3%A9%2C_%C3%89galit%C3%A9%2C_Fraternit%C3%A9"
   },
   {
+    "id": 3021,
+    "theme": "Principes et valeurs de la République",
+    "text": "Quelle est la langue officielle de la République française ?",
+    "optionA": "L'anglais",
+    "optionB": "Le français",
+    "optionC": "Le latin",
+    "optionD": "Aucune langue n'est officielle",
+    "correctAnswer": "B",
+    "explanation": "L'article 2 de la Constitution dispose que « la langue de la République est le français ». C'est la langue de l'administration, de la justice, de l'école et des services publics. Les langues régionales appartiennent au patrimoine de la France.",
+    "source": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000571356/"
+  },
+  {
     "id": 3022,
     "theme": "Principes et valeurs de la République",
     "text": "Quelle est la place de la langue française dans la République ?",
@@ -98,6 +294,42 @@
     "correctAnswer": "A",
     "explanation": "L'article 2 de la Constitution dispose que « la langue de la République est le français ». Le français est la langue de l'administration, de la justice, de l'école et des services publics. Les langues régionales appartiennent au patrimoine de la France.",
     "source": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000571356/"
+  },
+  {
+    "id": 3023,
+    "theme": "Principes et valeurs de la République",
+    "text": "Quelle liberté permet à chacun d’exprimer ses idées ?",
+    "optionA": "La liberté d'expression",
+    "optionB": "La liberté de circulation",
+    "optionC": "La liberté d'entreprendre",
+    "optionD": "La liberté de propriété",
+    "correctAnswer": "A",
+    "explanation": "La liberté d'expression, garantie par l'article 11 de la Déclaration de 1789, permet à chacun de dire, d'écrire et de publier ses opinions. Elle connaît des limites fixées par la loi : injure, diffamation, incitation à la haine et apologie du terrorisme sont punies.",
+    "source": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789"
+  },
+  {
+    "id": 3024,
+    "theme": "Principes et valeurs de la République",
+    "text": "Quelle proposition est correcte ? La liberté d'expression :",
+    "optionA": "Permet de tenir des propos racistes",
+    "optionB": "Permet d'exprimer ses opinions, dans les limites fixées par la loi",
+    "optionC": "Ne s'applique pas sur internet",
+    "optionD": "Est réservée aux journalistes et aux élus",
+    "correctAnswer": "B",
+    "explanation": "La liberté d'expression appartient à tous et s'exerce partout, y compris en ligne. Elle n'autorise cependant pas tout : l'injure, la diffamation, les propos racistes ou antisémites et l'incitation à la haine sont des délits punis par la loi.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F32079"
+  },
+  {
+    "id": 3025,
+    "theme": "Principes et valeurs de la République",
+    "text": "Quelles sont les couleurs du drapeau français ?",
+    "optionA": "Bleu, blanc, rouge",
+    "optionB": "Rouge, jaune, noir",
+    "optionC": "Vert, blanc, rouge",
+    "optionD": "Bleu, jaune, rouge",
+    "correctAnswer": "A",
+    "explanation": "Le drapeau français est composé de trois bandes verticales de largeur égale : bleu, blanc et rouge. Il est issu de la Révolution française et est le drapeau national depuis 1794.",
+    "source": "https://www.elysee.fr/la-presidence/les-symboles-de-la-republique-francaise"
   },
   {
     "id": 3026,
@@ -112,6 +344,54 @@
     "source": "https://fr.wikipedia.org/wiki/La_Marseillaise"
   },
   {
+    "id": 3027,
+    "theme": "Principes et valeurs de la République",
+    "text": "Qu'est ce qui est traditionnellement organisé sur les Champs Élysées le 14 juillet pour célébrer la fête nationale ?",
+    "optionA": "Un défilé militaire",
+    "optionB": "Une course cycliste",
+    "optionC": "Un marché de Noël",
+    "optionD": "Un carnaval",
+    "correctAnswer": "A",
+    "explanation": "Chaque 14 Juillet, un grand défilé militaire descend l'avenue des Champs-Élysées à Paris, en présence du président de la République. La journée se poursuit dans tout le pays par des bals populaires et des feux d'artifice.",
+    "source": "https://fr.wikipedia.org/wiki/D%C3%A9fil%C3%A9_militaire_du_14_Juillet"
+  },
+  {
+    "id": 3028,
+    "theme": "Principes et valeurs de la République",
+    "text": "Qui est Marianne ?",
+    "optionA": "Une ancienne reine de France",
+    "optionB": "La figure symbolique de la République française",
+    "optionC": "La première femme députée",
+    "optionD": "L'auteure de la Marseillaise",
+    "correctAnswer": "B",
+    "explanation": "Marianne est la figure allégorique de la République française. Coiffée du bonnet phrygien, symbole de liberté, elle en incarne les valeurs. Son buste est présent dans les mairies et son effigie figure sur les timbres et les pièces.",
+    "source": "https://www.elysee.fr/la-presidence/les-symboles-de-la-republique-francaise"
+  },
+  {
+    "id": 3029,
+    "theme": "Principes et valeurs de la République",
+    "text": "Une personne peut-elle changer librement de religion ?",
+    "optionA": "Oui : la liberté de conscience garantit ce droit",
+    "optionB": "Non, c'est interdit en France",
+    "optionC": "Oui, avec l'accord de sa famille",
+    "optionD": "Oui, après autorisation de la mairie",
+    "correctAnswer": "A",
+    "explanation": "La liberté de conscience, garantie par la loi de 1905, permet à chacun de croire, de changer de religion ou de n'en avoir aucune. Nul ne peut être contraint dans ses convictions, ni par l'État, ni par sa famille, ni par une communauté.",
+    "source": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000508749/"
+  },
+  {
+    "id": 3030,
+    "theme": "Principes et valeurs de la République",
+    "text": "\"La France est une République indivisible, ..., démocratique et sociale\". Complétez cette phrase extraite de l'article 1er de la Constitution :",
+    "optionA": "royale",
+    "optionB": "laïque",
+    "optionC": "fédérale",
+    "optionD": "militaire",
+    "correctAnswer": "B",
+    "explanation": "L'article 1er de la Constitution dispose : « La France est une République indivisible, laïque, démocratique et sociale. Elle assure l'égalité devant la loi de tous les citoyens sans distinction d'origine, de race ou de religion. Elle respecte toutes les croyances. »",
+    "source": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000571356/"
+  },
+  {
     "id": 3031,
     "theme": "Principes et valeurs de la République",
     "text": "En quelle année la loi de séparation des Églises et de l'État a-t-elle été votée ?",
@@ -122,6 +402,18 @@
     "correctAnswer": "B",
     "explanation": "La loi du 9 décembre 1905 concernant la séparation des Églises et de l'État a été votée sous la IIIe République. Elle établit le cadre de la laïcité française : l'État n'intervient plus dans les affaires religieuses et les Églises sont libres de s'organiser sans ingérence de l'État. Elle garantit aussi la liberté de conscience et le libre exercice du culte.",
     "source": "https://fr.wikipedia.org/wiki/Loi_du_9_d%C3%A9cembre_1905_concernant_la_s%C3%A9paration_des_%C3%89glises_et_de_l%27%C3%89tat"
+  },
+  {
+    "id": 3032,
+    "theme": "Principes et valeurs de la République",
+    "text": "Que permet le principe de laïcité ?",
+    "optionA": "D'interdire toutes les religions",
+    "optionB": "De garantir la liberté de conscience et l'égalité de tous devant le service public",
+    "optionC": "De reconnaître une religion officielle",
+    "optionD": "D'obliger chacun à déclarer sa religion",
+    "correctAnswer": "B",
+    "explanation": "La laïcité repose sur la séparation des Églises et de l'État, la neutralité de l'État et de ses agents, et la liberté de conscience. Elle permet à chacun de croire, de ne pas croire ou de changer de conviction, et garantit l'égalité de traitement de tous les usagers.",
+    "source": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000508749/"
   },
   {
     "id": 3033,
@@ -158,6 +450,18 @@
     "correctAnswer": "B",
     "explanation": "La laïcité, inscrite à l'article 1er de la Constitution française, est le principe de séparation entre l'État et les religions. Elle garantit la liberté de conscience (croire ou ne pas croire) et la neutralité totale de l'État face aux cultes. Elle ne signifie pas l'interdiction des religions, mais leur exclusion de la sphère publique et étatique. C'est un pilier du vivre-ensemble à la française.",
     "source": "https://fr.wikipedia.org/wiki/La%C3%AFcit%C3%A9_en_France"
+  },
+  {
+    "id": 3036,
+    "theme": "Principes et valeurs de la République",
+    "text": "Un enfant peut-il refuser d’aller à l’école pour une raison religieuse ?",
+    "optionA": "Oui, si ses parents l'y autorisent",
+    "optionB": "Oui, pendant les fêtes religieuses de son choix",
+    "optionC": "Non : l'instruction est obligatoire de 3 à 16 ans",
+    "optionD": "Oui, s'il suit des cours religieux par ailleurs",
+    "correctAnswer": "C",
+    "explanation": "L'instruction est obligatoire pour tous les enfants de 3 à 16 ans résidant en France, quelle que soit leur nationalité. Aucun motif religieux ne dispense de cette obligation ni ne permet de refuser un enseignement inscrit au programme.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1898"
   },
   {
     "id": 3037,
