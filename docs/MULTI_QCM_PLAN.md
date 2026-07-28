@@ -7,7 +7,7 @@ ce qui reste à faire, et les conventions à respecter pour chaque lot de conten
 | | |
 |---|---|
 | Branche | `claude/multi-qcm-expansion-m33wj9` |
-| Statut | Lots 0 et 1 livrés — rédaction du contenu CR/CSP en cours |
+| Statut | Lots 0 à 2 livrés — rédaction du contenu CR/CSP en cours |
 | Dernière mise à jour | 2026-07-28 |
 
 ---
@@ -165,7 +165,7 @@ déjà en place).
 | Lot | Examen | Thème(s) | À rédiger | Statut | Commit |
 |---|---|---|---|---|---|
 | 1 | CR | Histoire, géographie et culture | 31 | ☑ thème complet (49/49) | |
-| 2 | CR | Système institutionnel et politique | 35 | ☐ | |
+| 2 | CR | Système institutionnel et politique | 35 | ☑ thème complet (50/50) | |
 | 3 | CR | Principes et valeurs de la République | 30 | ☐ | |
 | 4 | CR | Droits et devoirs + Vivre dans la société française | 33 + 20 | ☐ | |
 | 5 | CSP | Histoire, géographie et culture | 30 | ☐ | |
@@ -173,7 +173,7 @@ déjà en place).
 | 7 | CSP | Principes et valeurs de la République | 32 | ☐ | |
 | 8 | CSP | Droits et devoirs + Vivre dans la société française | 28 + 21 | ☐ | |
 
-**Total à rédiger : 296 questions** (149 CR + 147 CSP) — **31 rédigées, 265 restantes**.
+**Total à rédiger : 296 questions** (149 CR + 147 CSP) — **66 rédigées, 230 restantes**.
 
 ### Après le dernier lot
 

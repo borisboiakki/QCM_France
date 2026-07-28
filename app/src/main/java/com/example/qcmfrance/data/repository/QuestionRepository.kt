@@ -73,8 +73,10 @@ class QuestionRepository @Inject constructor(
          * renseignement de la colonne `examMode` sur toutes les questions.
          * v5 = lot 1 : rédaction des 31 questions manquantes du thème « Histoire, géographie et
          * culture » de la carte de résident (thème complet : 49/49).
+         * v6 = lot 2 : rédaction des 35 questions manquantes du thème « Système institutionnel et
+         * politique » de la carte de résident (thème complet : 50/50).
          */
-        const val CONTENT_VERSION = 5
+        const val CONTENT_VERSION = 6
         private const val CONTENT_PREFS = "question_content"
         private const val KEY_CONTENT_VERSION = "content_version"
     }

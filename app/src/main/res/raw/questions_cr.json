@@ -148,6 +148,90 @@
     "source": "https://fr.wikipedia.org/wiki/%C3%89tat_de_droit"
   },
   {
+    "id": 2042,
+    "theme": "Système institutionnel et politique",
+    "text": "Le président de la République a commis un crime. Quelle proposition est correcte ?",
+    "optionA": "Il ne peut jamais être jugé, ni pendant ni après son mandat",
+    "optionB": "Il peut être destitué par le Parlement réuni en Haute Cour, et être jugé à la fin de son mandat",
+    "optionC": "Il est jugé immédiatement par le tribunal de police de Paris",
+    "optionD": "C'est le Premier ministre qui décide seul de le sanctionner",
+    "correctAnswer": "B",
+    "explanation": "Le président de la République bénéficie d'une immunité pendant son mandat, mais il n'est pas au-dessus des lois : le Parlement réuni en Haute Cour peut le destituer en cas de manquement grave (article 68 de la Constitution), et il redevient justiciable comme tout citoyen un mois après la fin de ses fonctions.",
+    "source": "https://fr.wikipedia.org/wiki/Responsabilit%C3%A9_p%C3%A9nale_du_pr%C3%A9sident_de_la_R%C3%A9publique_fran%C3%A7aise"
+  },
+  {
+    "id": 2043,
+    "theme": "Système institutionnel et politique",
+    "text": "La loi est l'expression de :",
+    "optionA": "La volonté générale",
+    "optionB": "La volonté du président de la République",
+    "optionC": "La volonté des entreprises les plus puissantes",
+    "optionD": "La volonté des autorités religieuses",
+    "correctAnswer": "A",
+    "explanation": "L'article 6 de la Déclaration des droits de l'homme et du citoyen de 1789 énonce que « la loi est l'expression de la volonté générale ». Elle est votée par le Parlement, composé de représentants élus par les citoyens, et s'applique à tous de la même façon.",
+    "source": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789"
+  },
+  {
+    "id": 2044,
+    "theme": "Système institutionnel et politique",
+    "text": "Quelle est la durée du mandat du conseil municipal et du maire ?",
+    "optionA": "3 ans",
+    "optionB": "5 ans",
+    "optionC": "6 ans",
+    "optionD": "10 ans",
+    "correctAnswer": "C",
+    "explanation": "Les conseillers municipaux sont élus pour 6 ans lors des élections municipales. Ce sont eux qui élisent ensuite le maire parmi leurs membres, pour la même durée.",
+    "source": "https://fr.wikipedia.org/wiki/%C3%89lections_municipales_en_France"
+  },
+  {
+    "id": 2045,
+    "theme": "Système institutionnel et politique",
+    "text": "Que garantit l’État de droit ?",
+    "optionA": "Que le gouvernement peut modifier la loi sans contrôle",
+    "optionB": "Que tous, gouvernants comme citoyens, sont soumis à la loi, sous le contrôle de juges indépendants",
+    "optionC": "Que les citoyens les plus riches bénéficient de règles particulières",
+    "optionD": "Que la police peut décider seule des sanctions",
+    "correctAnswer": "B",
+    "explanation": "Dans un État de droit, personne n'est au-dessus de la loi : les pouvoirs publics eux-mêmes doivent la respecter et leurs décisions peuvent être contestées devant des juges indépendants. C'est ce qui protège les libertés fondamentales contre l'arbitraire.",
+    "source": "https://fr.wikipedia.org/wiki/%C3%89tat_de_droit"
+  },
+  {
+    "id": 2046,
+    "theme": "Système institutionnel et politique",
+    "text": "Une personne peut-elle voter à la place d'une autre ?",
+    "optionA": "Oui, si elle connaît bien la personne",
+    "optionB": "Oui, sans aucune formalité, entre membres d'une même famille",
+    "optionC": "Non, sauf procuration établie officiellement par l'électeur empêché",
+    "optionD": "Oui, le maire peut l'y autoriser",
+    "correctAnswer": "C",
+    "explanation": "Le vote est personnel. Un électeur empêché peut toutefois donner procuration à un autre électeur, par une démarche officielle en ligne, en gendarmerie ou en commissariat. Voter à la place de quelqu'un sans procuration est un délit puni de deux ans de prison et 15 000 euros d'amende.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1604"
+  },
+  {
+    "id": 2047,
+    "theme": "Système institutionnel et politique",
+    "text": "Est-ce que le vote est obligatoire ?",
+    "optionA": "Non, le vote est un droit, mais c'est un devoir civique",
+    "optionB": "Oui, sous peine d'amende",
+    "optionC": "Oui, sous peine de perdre sa nationalité",
+    "optionD": "Oui, mais seulement pour l'élection présidentielle",
+    "correctAnswer": "A",
+    "explanation": "En France, le vote n'est pas obligatoire pour les élections politiques : c'est un droit et un devoir civique, mais s'abstenir n'est pas sanctionné. Seul le vote des sénateurs par les grands électeurs est obligatoire.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1943"
+  },
+  {
+    "id": 2048,
+    "theme": "Système institutionnel et politique",
+    "text": "À la fin de son mandat, le président de la République peut-il décider de rester au pouvoir ?",
+    "optionA": "Oui, s'il estime que le pays a besoin de lui",
+    "optionB": "Non : une nouvelle élection au suffrage universel est organisée",
+    "optionC": "Oui, s'il obtient l'accord du Premier ministre",
+    "optionD": "Oui, l'Assemblée nationale peut prolonger son mandat sans élection",
+    "correctAnswer": "B",
+    "explanation": "Le mandat présidentiel dure 5 ans et se termine à la date prévue. Une nouvelle élection au suffrage universel direct est alors organisée. Depuis 2008, nul ne peut exercer plus de deux mandats consécutifs. C'est un principe fondamental de la démocratie.",
+    "source": "https://fr.wikipedia.org/wiki/%C3%89lection_pr%C3%A9sidentielle_en_France"
+  },
+  {
     "id": 2049,
     "theme": "Système institutionnel et politique",
     "text": "Qui dirige l'action du Gouvernement ?",
@@ -158,6 +242,54 @@
     "correctAnswer": "A",
     "explanation": "En vertu de l'article 21 de la Constitution, le Premier ministre dirige l'action du gouvernement. Il coordonne les travaux des ministres, assure l'exécution des lois et dispose du pouvoir réglementaire général. Il est responsable devant l'Assemblée nationale, qui peut lui retirer sa confiance par une motion de censure.",
     "source": "https://fr.wikipedia.org/wiki/Premier_ministre_(France)"
+  },
+  {
+    "id": 2050,
+    "theme": "Système institutionnel et politique",
+    "text": "Qui nomme le Premier ministre ?",
+    "optionA": "Le président de la République",
+    "optionB": "Les citoyens, par un vote direct",
+    "optionC": "Le président du Sénat",
+    "optionD": "Le Conseil constitutionnel",
+    "correctAnswer": "A",
+    "explanation": "L'article 8 de la Constitution prévoit que le président de la République nomme le Premier ministre. Celui-ci doit toutefois disposer de la confiance de l'Assemblée nationale, qui peut le renverser par une motion de censure.",
+    "source": "https://fr.wikipedia.org/wiki/Premier_ministre_fran%C3%A7ais"
+  },
+  {
+    "id": 2051,
+    "theme": "Système institutionnel et politique",
+    "text": "Quelle est l'organisation administrative de la France ?",
+    "optionA": "Uniquement des communes",
+    "optionB": "Des communes, des départements et des régions",
+    "optionC": "Des provinces et des cantons uniquement",
+    "optionD": "Des États fédérés disposant de leur propre constitution",
+    "correctAnswer": "B",
+    "explanation": "La France est un État unitaire décentralisé, organisé en trois niveaux de collectivités territoriales : les communes, les départements et les régions. Chacune est administrée par un conseil élu et dispose de compétences propres.",
+    "source": "https://fr.wikipedia.org/wiki/Collectivit%C3%A9_territoriale_en_France"
+  },
+  {
+    "id": 2052,
+    "theme": "Système institutionnel et politique",
+    "text": "Qu'est-ce que le pouvoir législatif ? Le pouvoir :",
+    "optionA": "D'appliquer les lois et de diriger l'administration",
+    "optionB": "De juger et de sanctionner ceux qui ne respectent pas la loi",
+    "optionC": "De discuter et de voter les lois",
+    "optionD": "De nommer les préfets et les ambassadeurs",
+    "correctAnswer": "C",
+    "explanation": "Le pouvoir législatif est celui de discuter, d'amender et de voter la loi. En France, il est exercé par le Parlement, composé de l'Assemblée nationale et du Sénat. Le pouvoir exécutif applique les lois, le pouvoir judiciaire les fait respecter.",
+    "source": "https://fr.wikipedia.org/wiki/Pouvoir_l%C3%A9gislatif"
+  },
+  {
+    "id": 2053,
+    "theme": "Système institutionnel et politique",
+    "text": "Pourquoi séparer les trois pouvoirs dans une démocratie ?",
+    "optionA": "Pour éviter la concentration des pouvoirs et les abus, chaque pouvoir contrôlant les autres",
+    "optionB": "Pour permettre à chaque région d'avoir ses propres lois",
+    "optionC": "Pour accélérer le vote des lois",
+    "optionD": "Pour réduire le nombre de fonctionnaires",
+    "correctAnswer": "A",
+    "explanation": "La séparation des pouvoirs législatif, exécutif et judiciaire, théorisée par Montesquieu, empêche qu'une même personne ou un même organe concentre toute l'autorité. Chaque pouvoir limite les autres, ce qui protège les libertés des citoyens contre l'arbitraire.",
+    "source": "https://fr.wikipedia.org/wiki/S%C3%A9paration_des_pouvoirs"
   },
   {
     "id": 2054,
@@ -172,6 +304,66 @@
     "source": "https://fr.wikipedia.org/wiki/Tribunal_correctionnel_(France)"
   },
   {
+    "id": 2055,
+    "theme": "Système institutionnel et politique",
+    "text": "Quel est le rôle du gouvernement ?",
+    "optionA": "Juger les personnes accusées de crimes",
+    "optionB": "Déterminer et conduire la politique de la Nation, et appliquer les lois",
+    "optionC": "Voter les lois à la place du Parlement",
+    "optionD": "Contrôler la constitutionnalité des lois",
+    "correctAnswer": "B",
+    "explanation": "Selon l'article 20 de la Constitution, le Gouvernement détermine et conduit la politique de la Nation. Dirigé par le Premier ministre, il exerce le pouvoir exécutif : il applique les lois votées par le Parlement et dispose de l'administration.",
+    "source": "https://fr.wikipedia.org/wiki/Gouvernement_fran%C3%A7ais"
+  },
+  {
+    "id": 2056,
+    "theme": "Système institutionnel et politique",
+    "text": "Que se passe-t-il si un ministre ne respecte pas la loi ?",
+    "optionA": "Rien : les ministres ne sont pas soumis à la loi",
+    "optionB": "Seul le président de la République peut le punir, sans procès",
+    "optionC": "Il peut être poursuivi et jugé comme tout citoyen",
+    "optionD": "Il est automatiquement réélu à un autre poste",
+    "correctAnswer": "C",
+    "explanation": "Nul n'est au-dessus de la loi, y compris les membres du Gouvernement. Un ministre peut être poursuivi devant les juridictions ordinaires, et devant la Cour de justice de la République pour les actes commis dans l'exercice de ses fonctions.",
+    "source": "https://fr.wikipedia.org/wiki/Cour_de_justice_de_la_R%C3%A9publique"
+  },
+  {
+    "id": 2057,
+    "theme": "Système institutionnel et politique",
+    "text": "Combien de députés composent l’Assemblée nationale ?",
+    "optionA": "348",
+    "optionB": "577",
+    "optionC": "100",
+    "optionD": "925",
+    "correctAnswer": "B",
+    "explanation": "L'Assemblée nationale compte 577 députés, élus pour 5 ans au suffrage universel direct dans autant de circonscriptions. Le Sénat, lui, compte 348 sénateurs élus au suffrage indirect.",
+    "source": "https://fr.wikipedia.org/wiki/Assembl%C3%A9e_nationale_(France)"
+  },
+  {
+    "id": 2058,
+    "theme": "Système institutionnel et politique",
+    "text": "Qui peut voter aux élections en France ?",
+    "optionA": "Toute personne résidant en France, quelle que soit sa nationalité",
+    "optionB": "Uniquement les personnes payant des impôts",
+    "optionC": "Les citoyens français majeurs, inscrits sur les listes électorales et jouissant de leurs droits civiques",
+    "optionD": "Uniquement les personnes nées en France",
+    "correctAnswer": "C",
+    "explanation": "Le droit de vote appartient aux citoyens français âgés d'au moins 18 ans, inscrits sur les listes électorales et n'ayant pas été privés de leurs droits civiques. Les citoyens d'autres États de l'Union européenne résidant en France peuvent en outre voter aux élections municipales et européennes.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1965"
+  },
+  {
+    "id": 2059,
+    "theme": "Système institutionnel et politique",
+    "text": "Pour combien de temps sont élus les sénateurs ?",
+    "optionA": "3 ans",
+    "optionB": "5 ans",
+    "optionC": "6 ans",
+    "optionD": "9 ans",
+    "correctAnswer": "C",
+    "explanation": "Les sénateurs sont élus pour 6 ans au suffrage universel indirect, par un collège de grands électeurs composé notamment d'élus locaux. Le Sénat est renouvelé par moitié tous les 3 ans.",
+    "source": "https://fr.wikipedia.org/wiki/S%C3%A9nat_(France)"
+  },
+  {
     "id": 2060,
     "theme": "Système institutionnel et politique",
     "text": "La séparation des pouvoirs est un principe fondamental. Quels sont les trois pouvoirs concernés ?",
@@ -182,6 +374,90 @@
     "correctAnswer": "C",
     "explanation": "La séparation des pouvoirs, théorisée par Montesquieu dans « L'Esprit des lois » (1748), distingue trois pouvoirs distincts : le pouvoir exécutif (Président de la République, gouvernement), le pouvoir législatif (Parlement : Assemblée nationale et Sénat) et le pouvoir judiciaire (tribunaux et cours). Cette séparation vise à éviter toute concentration du pouvoir et à protéger les libertés.",
     "source": "https://fr.wikipedia.org/wiki/S%C3%A9paration_des_pouvoirs"
+  },
+  {
+    "id": 2061,
+    "theme": "Système institutionnel et politique",
+    "text": "Est-ce que le président de la République a tous les pouvoirs ?",
+    "optionA": "Non : ses pouvoirs sont définis et limités par la Constitution",
+    "optionB": "Oui, il décide seul de tout",
+    "optionC": "Oui, il peut modifier la Constitution quand il le souhaite",
+    "optionD": "Oui, il peut annuler une décision de justice",
+    "correctAnswer": "A",
+    "explanation": "Les pouvoirs du président de la République sont fixés et encadrés par la Constitution. Il partage l'exécutif avec le Gouvernement, ne vote pas les lois (rôle du Parlement) et ne peut pas intervenir dans les décisions de justice, l'autorité judiciaire étant indépendante.",
+    "source": "https://fr.wikipedia.org/wiki/Pr%C3%A9sident_de_la_R%C3%A9publique_fran%C3%A7aise"
+  },
+  {
+    "id": 2062,
+    "theme": "Système institutionnel et politique",
+    "text": "Qui est le préfet ?",
+    "optionA": "Le chef de la police municipale",
+    "optionB": "Le représentant de l'État dans le département ou la région, nommé par le président de la République",
+    "optionC": "L'élu à la tête du conseil départemental",
+    "optionD": "Le juge chargé des affaires administratives",
+    "correctAnswer": "B",
+    "explanation": "Le préfet est le représentant de l'État dans le département ou la région. Nommé en conseil des ministres par décret du président de la République, il n'est pas élu : il applique localement la politique du Gouvernement et veille au respect des lois.",
+    "source": "https://fr.wikipedia.org/wiki/Pr%C3%A9fet_(France)"
+  },
+  {
+    "id": 2063,
+    "theme": "Système institutionnel et politique",
+    "text": "Quelle condition est nécessaire pour voter aux élections ?",
+    "optionA": "Être propriétaire de son logement",
+    "optionB": "Être inscrit sur les listes électorales",
+    "optionC": "Appartenir à un parti politique",
+    "optionD": "Avoir effectué un service militaire",
+    "correctAnswer": "B",
+    "explanation": "Pour voter, il faut être inscrit sur les listes électorales de sa commune. Il faut aussi être majeur, avoir la nationalité française (ou celle d'un autre État de l'Union européenne pour les élections municipales et européennes) et jouir de ses droits civiques.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1965"
+  },
+  {
+    "id": 2064,
+    "theme": "Système institutionnel et politique",
+    "text": "Qui dirige la commune ?",
+    "optionA": "Le préfet",
+    "optionB": "Le maire",
+    "optionC": "Le président du conseil départemental",
+    "optionD": "Le député de la circonscription",
+    "correctAnswer": "B",
+    "explanation": "La commune est dirigée par le maire, élu par le conseil municipal parmi ses membres pour 6 ans. Il est à la fois l'exécutif de la commune et, pour certaines missions comme l'état civil, un représentant de l'État.",
+    "source": "https://fr.wikipedia.org/wiki/Maire_(France)"
+  },
+  {
+    "id": 2065,
+    "theme": "Système institutionnel et politique",
+    "text": "Quel est le régime politique de la France aujourd'hui ?",
+    "optionA": "Une monarchie constitutionnelle",
+    "optionB": "Une république démocratique et sociale, sous la Ve République",
+    "optionC": "Un empire",
+    "optionD": "Une fédération d'États autonomes",
+    "correctAnswer": "B",
+    "explanation": "La France est une République indivisible, laïque, démocratique et sociale (article 1er de la Constitution). Le régime actuel est celui de la Ve République, instaurée par la Constitution du 4 octobre 1958.",
+    "source": "https://fr.wikipedia.org/wiki/Cinqui%C3%A8me_R%C3%A9publique_(France)"
+  },
+  {
+    "id": 2066,
+    "theme": "Système institutionnel et politique",
+    "text": "Qu'est-ce que l'Hôtel de Matignon ?",
+    "optionA": "La résidence et le lieu de travail du Premier ministre",
+    "optionB": "La résidence du président de la République",
+    "optionC": "Le siège de l'Assemblée nationale",
+    "optionD": "Le siège du Conseil constitutionnel",
+    "correctAnswer": "A",
+    "explanation": "L'Hôtel de Matignon, à Paris, est la résidence officielle et le lieu de travail du Premier ministre. Le président de la République, lui, réside au palais de l'Élysée ; l'Assemblée nationale siège au Palais-Bourbon et le Sénat au palais du Luxembourg.",
+    "source": "https://fr.wikipedia.org/wiki/H%C3%B4tel_de_Matignon"
+  },
+  {
+    "id": 2067,
+    "theme": "Système institutionnel et politique",
+    "text": "Le Parlement est composé :",
+    "optionA": "De l'Assemblée nationale et du Sénat",
+    "optionB": "Du Gouvernement et du président de la République",
+    "optionC": "Du Conseil constitutionnel et de la Cour de cassation",
+    "optionD": "Des conseils municipaux de toutes les communes",
+    "correctAnswer": "A",
+    "explanation": "Le Parlement français est bicaméral : il réunit l'Assemblée nationale (577 députés élus au suffrage universel direct) et le Sénat (348 sénateurs élus au suffrage indirect). Ensemble, ils votent la loi et contrôlent l'action du Gouvernement.",
+    "source": "https://fr.wikipedia.org/wiki/Parlement_fran%C3%A7ais"
   },
   {
     "id": 2068,
@@ -208,6 +484,30 @@
     "source": "https://fr.wikipedia.org/wiki/Premier_ministre_(France)"
   },
   {
+    "id": 2070,
+    "theme": "Système institutionnel et politique",
+    "text": "Qui est le chef du Gouvernement ?",
+    "optionA": "Le président de la République",
+    "optionB": "Le Premier ministre",
+    "optionC": "Le président de l'Assemblée nationale",
+    "optionD": "Le ministre de l'Intérieur",
+    "correctAnswer": "B",
+    "explanation": "Le Premier ministre dirige l'action du Gouvernement (article 21 de la Constitution). Il est nommé par le président de la République, qui est quant à lui le chef de l'État et le chef des armées.",
+    "source": "https://fr.wikipedia.org/wiki/Premier_ministre_fran%C3%A7ais"
+  },
+  {
+    "id": 2071,
+    "theme": "Système institutionnel et politique",
+    "text": "Combien y a-t-il de régions en France ?",
+    "optionA": "13 régions métropolitaines et 5 régions d'outre-mer, soit 18",
+    "optionB": "22 régions",
+    "optionC": "101 régions",
+    "optionD": "5 régions",
+    "correctAnswer": "A",
+    "explanation": "Depuis la réforme entrée en vigueur en 2016, la France compte 13 régions métropolitaines (contre 22 auparavant) et 5 régions d'outre-mer : Guadeloupe, Martinique, Guyane, La Réunion et Mayotte.",
+    "source": "https://fr.wikipedia.org/wiki/R%C3%A9gion_fran%C3%A7aise"
+  },
+  {
     "id": 2072,
     "theme": "Système institutionnel et politique",
     "text": "Quel est le rôle du Défenseur des droits ?",
@@ -218,6 +518,54 @@
     "correctAnswer": "B",
     "explanation": "Le Défenseur des droits est une autorité constitutionnelle indépendante, créée en 2011. Il est chargé de veiller au respect des droits et libertés par les services publics et les organismes privés, de lutter contre les discriminations et de défendre les droits de l'enfant. Toute personne s'estimant victime peut le saisir gratuitement.",
     "source": "https://fr.wikipedia.org/wiki/D%C3%A9fenseur_des_droits_(France)"
+  },
+  {
+    "id": 2073,
+    "theme": "Système institutionnel et politique",
+    "text": "Depuis quand l'euro est-elle la monnaie unique ?",
+    "optionA": "Depuis 1981",
+    "optionB": "Depuis 1990",
+    "optionC": "Depuis 2002 pour les pièces et les billets",
+    "optionD": "Depuis 2015",
+    "correctAnswer": "C",
+    "explanation": "L'euro a été créé par le traité de Maastricht (1992) et est devenu monnaie de compte en 1999. Les pièces et les billets sont entrés en circulation le 1er janvier 2002, remplaçant le franc dans la vie quotidienne.",
+    "source": "https://fr.wikipedia.org/wiki/Euro"
+  },
+  {
+    "id": 2074,
+    "theme": "Système institutionnel et politique",
+    "text": "Quel est le rôle principal du département ?",
+    "optionA": "Voter les lois nationales",
+    "optionB": "L'action sociale et la solidarité, ainsi que la gestion des collèges et des routes départementales",
+    "optionC": "La délivrance des passeports et des visas",
+    "optionD": "La défense nationale",
+    "correctAnswer": "B",
+    "explanation": "Le département, administré par un conseil départemental élu, est la collectivité de la solidarité : il gère l'aide sociale à l'enfance, le revenu de solidarité active, l'aide aux personnes âgées et handicapées, ainsi que les collèges et les routes départementales.",
+    "source": "https://fr.wikipedia.org/wiki/D%C3%A9partement_fran%C3%A7ais"
+  },
+  {
+    "id": 2075,
+    "theme": "Système institutionnel et politique",
+    "text": "Quel est le rôle principal des communes ?",
+    "optionA": "Gérer les services de proximité : état civil, écoles primaires, urbanisme, voirie communale",
+    "optionB": "Rendre la justice pénale",
+    "optionC": "Fixer le montant de l'impôt sur le revenu",
+    "optionD": "Négocier les traités internationaux",
+    "correctAnswer": "A",
+    "explanation": "La commune est la collectivité territoriale la plus proche des habitants. Elle tient l'état civil, gère les écoles maternelles et élémentaires, l'urbanisme, la voirie communale, l'eau, les déchets et de nombreux équipements sportifs et culturels.",
+    "source": "https://fr.wikipedia.org/wiki/Commune_(France)"
+  },
+  {
+    "id": 2076,
+    "theme": "Système institutionnel et politique",
+    "text": "Combien de communes environ existe-t-il en France ?",
+    "optionA": "Environ 1 000",
+    "optionB": "Environ 35 000",
+    "optionC": "Environ 200 000",
+    "optionD": "Environ 100",
+    "correctAnswer": "B",
+    "explanation": "La France compte environ 35 000 communes, soit bien plus que ses voisins européens. Leur taille est très variable, de quelques habitants à plus de deux millions pour Paris.",
+    "source": "https://fr.wikipedia.org/wiki/Commune_(France)"
   },
   {
     "id": 2077,
@@ -280,6 +628,18 @@
     "source": "https://fr.wikipedia.org/wiki/Drapeau_europ%C3%A9en"
   },
   {
+    "id": 2082,
+    "theme": "Système institutionnel et politique",
+    "text": "De quelle couleur est le drapeau européen ?",
+    "optionA": "Vert avec des étoiles blanches",
+    "optionB": "Rouge avec un cercle doré",
+    "optionC": "Bleu avec douze étoiles dorées",
+    "optionD": "Blanc avec une croix bleue",
+    "correctAnswer": "C",
+    "explanation": "Le drapeau européen est bleu, orné d'un cercle de douze étoiles dorées à cinq branches. Le nombre douze symbolise la perfection et l'unité : il ne correspond pas au nombre d'États membres, qui sont 27.",
+    "source": "https://fr.wikipedia.org/wiki/Drapeau_europ%C3%A9en"
+  },
+  {
     "id": 2083,
     "theme": "Système institutionnel et politique",
     "text": "En quelle année le traité de Maastricht, qui marque la fondation de l'Union européenne, a-t-il été signé ?",
@@ -314,6 +674,105 @@
     "correctAnswer": "A",
     "explanation": "La Commission européenne a son siège principal à Bruxelles, en Belgique. C'est l'organe exécutif de l'UE : elle propose les législations européennes, applique les traités et gère le budget de l'Union. Elle est composée d'un commissaire par État membre, nommé pour 5 ans.",
     "source": "https://fr.wikipedia.org/wiki/Commission_europ%C3%A9enne"
+  },
+  {
+    "id": 2086,
+    "theme": "Système institutionnel et politique",
+    "text": "Quel État n'est pas membre de l'Union européenne ?",
+    "optionA": "La Suisse",
+    "optionB": "L'Italie",
+    "optionC": "Le Portugal",
+    "optionD": "La Grèce",
+    "correctAnswer": "A",
+    "explanation": "La Suisse n'a jamais adhéré à l'Union européenne : elle entretient avec elle des accords bilatéraux. La Norvège et l'Islande sont dans le même cas, et le Royaume-Uni est sorti de l'Union en 2020.",
+    "source": "https://fr.wikipedia.org/wiki/Union_europ%C3%A9enne",
+    "variants": [
+      {
+        "optionA": "L'Espagne",
+        "optionB": "La Norvège",
+        "optionC": "La Belgique",
+        "optionD": "La Pologne",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "L'Irlande",
+        "optionB": "La Suède",
+        "optionC": "Le Royaume-Uni",
+        "optionD": "L'Autriche",
+        "correctAnswer": "C"
+      }
+    ]
+  },
+  {
+    "id": 2087,
+    "theme": "Système institutionnel et politique",
+    "text": "Quand célèbre-t-on la journée de l'Europe ?",
+    "optionA": "Le 1er mai",
+    "optionB": "Le 9 mai",
+    "optionC": "Le 14 juillet",
+    "optionD": "Le 11 novembre",
+    "correctAnswer": "B",
+    "explanation": "La journée de l'Europe est célébrée chaque 9 mai, en souvenir de la déclaration de Robert Schuman du 9 mai 1950, considérée comme l'acte fondateur de la construction européenne.",
+    "source": "https://fr.wikipedia.org/wiki/Journ%C3%A9e_de_l%27Europe"
+  },
+  {
+    "id": 2088,
+    "theme": "Système institutionnel et politique",
+    "text": "À quelle fréquence les élections européennes sont-elles organisées ?",
+    "optionA": "Tous les ans",
+    "optionB": "Tous les 3 ans",
+    "optionC": "Tous les 5 ans",
+    "optionD": "Tous les 10 ans",
+    "correctAnswer": "C",
+    "explanation": "Les élections européennes ont lieu tous les 5 ans dans l'ensemble des États membres. Les citoyens y élisent au suffrage universel direct les députés du Parlement européen ; les dernières ont eu lieu en juin 2024.",
+    "source": "https://fr.wikipedia.org/wiki/%C3%89lections_europ%C3%A9ennes"
+  },
+  {
+    "id": 2089,
+    "theme": "Système institutionnel et politique",
+    "text": "Quelle condition est nécessaire pour voter aux élections européennes ?",
+    "optionA": "Être citoyen d'un État membre de l'Union européenne, majeur et inscrit sur les listes électorales",
+    "optionB": "Être né dans l'Union européenne",
+    "optionC": "Parler au moins deux langues européennes",
+    "optionD": "Être membre d'un parti politique européen",
+    "correctAnswer": "A",
+    "explanation": "Peuvent voter aux élections européennes en France les citoyens français et les citoyens des autres États membres résidant en France, à condition d'être majeurs, inscrits sur les listes électorales et de jouir de leurs droits civiques.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1937"
+  },
+  {
+    "id": 2090,
+    "theme": "Système institutionnel et politique",
+    "text": "Quel pays est un pays fondateur de l'Union européenne ?",
+    "optionA": "La Norvège",
+    "optionB": "La Suisse",
+    "optionC": "L'Italie",
+    "optionD": "Le Royaume-Uni",
+    "correctAnswer": "C",
+    "explanation": "Les six pays fondateurs de la Communauté économique européenne, créée par le traité de Rome du 25 mars 1957, sont la France, l'Allemagne, l'Italie, la Belgique, les Pays-Bas et le Luxembourg. La CEE est devenue l'Union européenne par le traité de Maastricht en 1992.",
+    "source": "https://fr.wikipedia.org/wiki/Communaut%C3%A9_%C3%A9conomique_europ%C3%A9enne",
+    "variants": [
+      {
+        "optionA": "La Norvège",
+        "optionB": "La Belgique",
+        "optionC": "L'Autriche",
+        "optionD": "La Suède",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Le Danemark",
+        "optionB": "Les Pays-Bas",
+        "optionC": "Le Royaume-Uni",
+        "optionD": "L'Espagne",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "La Pologne",
+        "optionB": "La Finlande",
+        "optionC": "La Grèce",
+        "optionD": "Le Luxembourg",
+        "correctAnswer": "D"
+      }
+    ]
   },
   {
     "id": 2092,
