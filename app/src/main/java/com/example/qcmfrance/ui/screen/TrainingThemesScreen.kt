@@ -31,14 +31,16 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.qcmfrance.R
+import com.example.qcmfrance.data.model.ExamMode
+import com.example.qcmfrance.ui.viewmodel.ModeProgress
 import com.example.qcmfrance.ui.viewmodel.ThemeProgress
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TrainingThemesScreen(
-    themes: List<ThemeProgress>,
+    modes: List<ModeProgress>,
     ficheThemes: List<ThemeProgress>,
-    onSelectTheme: (String) -> Unit,
+    onSelectTheme: (ExamMode, String) -> Unit,
     onSelectFicheTheme: (String) -> Unit,
     onBack: () -> Unit
 ) {
@@ -73,19 +75,25 @@ fun TrainingThemesScreen(
                 )
             }
 
-            items(themes, key = { it.theme }) { theme ->
-                ThemeCard(theme = theme, onClick = { onSelectTheme(theme.theme) })
+            // Une section par QCM : les mêmes 5 thèmes, avec une progression indépendante.
+            modes.forEach { modeProgress ->
+                item(key = "header_${modeProgress.mode.code}") {
+                    SectionHeader(stringResource(modeProgress.mode.labelRes))
+                }
+                items(
+                    modeProgress.themes,
+                    key = { "${modeProgress.mode.code}_${it.theme}" }
+                ) { theme ->
+                    ThemeCard(
+                        theme = theme,
+                        onClick = { onSelectTheme(modeProgress.mode, theme.theme) }
+                    )
+                }
             }
 
             if (ficheThemes.isNotEmpty()) {
                 item {
-                    Text(
-                        text = stringResource(R.string.training_official_sources_title),
-                        style = MaterialTheme.typography.titleSmall,
-                        fontWeight = FontWeight.SemiBold,
-                        color = MaterialTheme.colorScheme.primary,
-                        modifier = Modifier.padding(top = 12.dp)
-                    )
+                    SectionHeader(stringResource(R.string.training_official_sources_title))
                 }
                 item {
                     Text(
@@ -100,6 +108,17 @@ fun TrainingThemesScreen(
             }
         }
     }
+}
+
+@Composable
+private fun SectionHeader(title: String) {
+    Text(
+        text = title,
+        style = MaterialTheme.typography.titleSmall,
+        fontWeight = FontWeight.SemiBold,
+        color = MaterialTheme.colorScheme.primary,
+        modifier = Modifier.padding(top = 12.dp)
+    )
 }
 
 @Composable

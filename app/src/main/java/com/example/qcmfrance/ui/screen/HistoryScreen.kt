@@ -38,6 +38,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.qcmfrance.R
+import com.example.qcmfrance.data.model.ExamMode
 import com.example.qcmfrance.data.model.QuizResult
 import com.example.qcmfrance.ui.theme.SuccessGreen
 import com.example.qcmfrance.ui.utils.ResultExporter
@@ -164,6 +165,12 @@ private fun ResultHistoryCard(result: QuizResult) {
                     text = dateStr,
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                // QCM passé : les résultats antérieurs au multi-QCM sont des naturalisations.
+                Text(
+                    text = stringResource(ExamMode.fromCode(result.examMode).labelRes),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.primary
                 )
                 Text(
                     text = stringResource(R.string.result_score, result.score, result.totalQuestions),

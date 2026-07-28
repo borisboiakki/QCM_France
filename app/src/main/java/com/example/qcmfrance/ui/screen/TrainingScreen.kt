@@ -65,11 +65,20 @@ fun TrainingScreen(
         topBar = {
             TopAppBar(
                 title = {
-                    Text(
-                        text = uiState.theme,
-                        style = MaterialTheme.typography.titleMedium,
-                        maxLines = 1
-                    )
+                    // Le même thème existe dans les trois QCM : rappeler lequel est entraîné.
+                    Column {
+                        Text(
+                            text = uiState.theme,
+                            style = MaterialTheme.typography.titleMedium,
+                            maxLines = 1
+                        )
+                        Text(
+                            text = stringResource(uiState.mode.shortLabelRes),
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            maxLines = 1
+                        )
+                    }
                 },
                 navigationIcon = {
                     IconButton(onClick = onBack) {

@@ -1,6 +1,7 @@
 package com.example.qcmfrance.data.repository
 
 import com.example.qcmfrance.data.db.PausedQuizDao
+import com.example.qcmfrance.data.model.ExamMode
 import com.example.qcmfrance.data.model.PausedQuiz
 import com.example.qcmfrance.data.model.Question
 import com.google.gson.Gson
@@ -14,7 +15,9 @@ data class PausedQuizState(
     val questions: List<Question>,
     val answers: Map<Int, String>,
     val currentIndex: Int,
-    val remainingSeconds: Int
+    val remainingSeconds: Int,
+    /** QCM de l'examen mis en pause : la reprise se fait dans le même mode. */
+    val mode: ExamMode
 )
 
 @Singleton
@@ -28,14 +31,16 @@ class PausedQuizRepository @Inject constructor(private val dao: PausedQuizDao) {
         questions: List<Question>,
         answers: Map<Int, String>,
         currentIndex: Int,
-        remainingSeconds: Int
+        remainingSeconds: Int,
+        mode: ExamMode
     ) {
         dao.save(
             PausedQuiz(
                 questionsJson    = gson.toJson(questions),
                 answersJson      = gson.toJson(answers),
                 currentIndex     = currentIndex,
-                remainingSeconds = remainingSeconds
+                remainingSeconds = remainingSeconds,
+                examMode         = mode.code
             )
         )
     }
@@ -46,11 +51,16 @@ class PausedQuizRepository @Inject constructor(private val dao: PausedQuizDao) {
             questions        = gson.fromJson(row.questionsJson, questionListType),
             answers          = gson.fromJson(row.answersJson, answersMapType),
             currentIndex     = row.currentIndex,
-            remainingSeconds = row.remainingSeconds
+            remainingSeconds = row.remainingSeconds,
+            mode             = ExamMode.fromCode(row.examMode)
         )
     }
 
     fun observeHasPaused(): Flow<Boolean> = dao.observe().map { it != null }
+
+    /** QCM de l'examen en pause, ou null s'il n'y en a aucun (libellé du bouton « Reprendre »). */
+    fun observePausedMode(): Flow<ExamMode?> =
+        dao.observe().map { row -> row?.let { ExamMode.fromCode(it.examMode) } }
 
     suspend fun clear() = dao.delete()
 }

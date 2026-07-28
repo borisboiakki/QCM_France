@@ -79,8 +79,12 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
         composable(ROUTE_HOME) {
             val homeViewModel: HomeViewModel = hiltViewModel()
             val hasPausedQuiz by homeViewModel.hasPausedQuiz.collectAsStateWithLifecycle()
+            val pausedMode by homeViewModel.pausedMode.collectAsStateWithLifecycle()
+            val examMode by homeViewModel.examMode.collectAsStateWithLifecycle()
             HomeScreen(
-                onStartExam        = { viewModel.startQuiz(); navController.navigate(ROUTE_QUIZ) },
+                examMode           = examMode,
+                onExamModeChange   = homeViewModel::setExamMode,
+                onStartExam        = { viewModel.startQuiz(examMode); navController.navigate(ROUTE_QUIZ) },
                 onResumeExam       = { viewModel.resumeQuiz(); navController.navigate(ROUTE_QUIZ) },
                 onStartTraining    = { navController.navigate(ROUTE_TRAINING_THEMES) },
                 onShowHistory      = { navController.navigate(ROUTE_HISTORY) },
@@ -88,18 +92,19 @@ fun QcmNavGraph(navController: NavHostController = rememberNavController()) {
                 onShowResources    = { navController.navigate(ROUTE_RESOURCES) },
                 onShowSettings     = { navController.navigate(ROUTE_SETTINGS) },
                 onShowHelp         = { navController.navigate(ROUTE_HELP) },
-                hasPausedQuiz      = hasPausedQuiz
+                hasPausedQuiz      = hasPausedQuiz,
+                pausedMode         = pausedMode
             )
         }
 
         composable(ROUTE_TRAINING_THEMES) {
-            val themes by trainingViewModel.themeProgress.collectAsStateWithLifecycle()
+            val modes by trainingViewModel.modeProgress.collectAsStateWithLifecycle()
             val ficheThemes by fichesViewModel.ficheThemeProgress.collectAsStateWithLifecycle()
             TrainingThemesScreen(
-                themes = themes,
+                modes = modes,
                 ficheThemes = ficheThemes,
-                onSelectTheme = { theme ->
-                    trainingViewModel.startTheme(theme)
+                onSelectTheme = { mode, theme ->
+                    trainingViewModel.startTheme(mode, theme)
                     navController.navigate(ROUTE_TRAINING)
                 },
                 onSelectFicheTheme = { theme ->

@@ -1,0 +1,857 @@
+[
+  {
+    "id": 2007,
+    "theme": "Principes et valeurs de la République",
+    "text": "Complétez les paroles de la Marseillaise : \"Allons enfants de la patrie […]\"",
+    "optionA": "Le jour de gloire est arrivé",
+    "optionB": "Vive la France et la liberté !",
+    "optionC": "Aux armes, citoyens, formez vos bataillons !",
+    "optionD": "Contre nous, la tyrannie est vaincue !",
+    "correctAnswer": "A",
+    "explanation": "La Marseillaise débute par « Allons enfants de la Patrie, le jour de gloire est arrivé ! ». Composée en 1792 par Rouget de Lisle, elle est devenue l'hymne national français en 1795 puis officiellement réaffirmée par la Constitution de 1958. Ces premiers mots appellent les citoyens à défendre la nation face aux menaces extérieures.",
+    "source": "https://fr.wikipedia.org/wiki/La_Marseillaise"
+  },
+  {
+    "id": 2014,
+    "theme": "Principes et valeurs de la République",
+    "text": "Peut-on brûler publiquement un drapeau français ?",
+    "optionA": "Non, c'est interdit par la Constitution",
+    "optionB": "Oui, sans restriction",
+    "optionC": "Seulement le 14 juillet",
+    "optionD": "Non, l'outrage au drapeau est un délit puni par la loi",
+    "correctAnswer": "D",
+    "explanation": "Brûler publiquement un drapeau français est interdit par la loi française. L'article 433-5-1 du Code pénal sanctionne l'outrage au drapeau tricolore ou à l'hymne national lors d'une manifestation publique d'une amende pouvant aller jusqu'à 7 500 euros. Cet acte est considéré comme un outrage à l'autorité de l'État.",
+    "source": "https://fr.wikipedia.org/wiki/Drapeau_de_la_France"
+  },
+  {
+    "id": 2017,
+    "theme": "Principes et valeurs de la République",
+    "text": "Qu'est-ce que la liberté d'association ?",
+    "optionA": "Le droit de voter",
+    "optionB": "Le droit de se regrouper pour un projet commun sans but lucratif",
+    "optionC": "Le droit de porter une arme",
+    "optionD": "Le droit de manifester",
+    "correctAnswer": "B",
+    "explanation": "La liberté d'association, régie par la loi du 1er juillet 1901, est le droit de se regrouper librement pour poursuivre un objectif commun sans but lucratif. Il suffit de déposer une déclaration en préfecture : aucune autorisation préalable n'est nécessaire. Ce droit fondamental est distinct du droit de vote, du droit de manifester ou du droit de porter une arme.",
+    "source": "https://fr.wikipedia.org/wiki/Loi_du_1er_juillet_1901_relative_au_contrat_d%27association"
+  },
+  {
+    "id": 2020,
+    "theme": "Principes et valeurs de la République",
+    "text": "Sur quel document peut-on voir Marianne ?",
+    "optionA": "Sur les timbres",
+    "optionB": "Sur les billets de train",
+    "optionC": "Sur les passeports uniquement",
+    "optionD": "Dans les manuels scolaires",
+    "correctAnswer": "A",
+    "explanation": "Marianne, symbole de la République, est présente sur les timbres français depuis 1944. On la retrouve également sous forme de bustes dans toutes les mairies de France, sur les pièces de centimes d'euro et sur les documents officiels comme la carte nationale d'identité. C'est le visage officiel de la République.",
+    "source": "https://fr.wikipedia.org/wiki/Marianne_(symbole)"
+  },
+  {
+    "id": 2022,
+    "theme": "Principes et valeurs de la République",
+    "text": "Une des valeurs de la devise républicaine est l'égalité. Qu'est-ce que cela signifie ?",
+    "optionA": "L'égalité n'existe pas en France",
+    "optionB": "Tous les citoyens ont les mêmes droits et devoirs",
+    "optionC": "Tous les citoyens ont les mêmes revenus",
+    "optionD": "Seulement les hommes sont égaux",
+    "correctAnswer": "B",
+    "explanation": "L'égalité, au sens républicain, signifie que tous les citoyens ont les mêmes droits et les mêmes devoirs devant la loi, sans distinction d'origine, de race, de sexe ou de religion. Consacrée par l'article 6 de la Déclaration de 1789, elle s'exprime par le principe : « La loi est la même pour tous. » Elle interdit toute discrimination de la part de l'État.",
+    "source": "https://fr.wikipedia.org/wiki/%C3%89galit%C3%A9_devant_la_loi"
+  },
+  {
+    "id": 2028,
+    "theme": "Principes et valeurs de la République",
+    "text": "En quelle année la loi de séparation des Églises et de l'Etat a-t-elle été votée ?",
+    "optionA": "1945",
+    "optionB": "1905",
+    "optionC": "1968",
+    "optionD": "1870",
+    "correctAnswer": "B",
+    "explanation": "La loi du 9 décembre 1905 concernant la séparation des Églises et de l'État a été votée sous la IIIe République. Elle établit le cadre de la laïcité française : l'État n'intervient plus dans les affaires religieuses et les Églises sont libres de s'organiser sans ingérence de l'État. Elle garantit aussi la liberté de conscience et le libre exercice du culte.",
+    "source": "https://fr.wikipedia.org/wiki/Loi_du_9_d%C3%A9cembre_1905_concernant_la_s%C3%A9paration_des_%C3%89glises_et_de_l%27%C3%89tat"
+  },
+  {
+    "id": 2032,
+    "theme": "Principes et valeurs de la République",
+    "text": "Selon le principe de laïcité, que signifie la neutralité de l’État ?",
+    "optionA": "L'État interdit toute pratique religieuse",
+    "optionB": "L'État subventionne toutes les religions équitablement",
+    "optionC": "L'État impose une religion officielle",
+    "optionD": "L'État ne finance et ne favorise aucune religion",
+    "correctAnswer": "D",
+    "explanation": "Le principe de laïcité implique la stricte neutralité de l'État vis-à-vis de toutes les religions. Conformément à la loi du 9 décembre 1905, l'État ne reconnaît, ne salarie ni ne subventionne aucun culte. Il ne prend pas parti pour ou contre une religion. Cela garantit l'égalité de traitement de tous les citoyens, quelles que soient leurs croyances.",
+    "source": "https://fr.wikipedia.org/wiki/La%C3%AFcit%C3%A9_en_France"
+  },
+  {
+    "id": 2033,
+    "theme": "Principes et valeurs de la République",
+    "text": "Que peut faire un usager du service public dans une mairie ?",
+    "optionA": "Demander un passeport ou une carte d'identité",
+    "optionB": "Voter aux élections présidentielles",
+    "optionC": "Acheter un terrain",
+    "optionD": "Obtenir un passeport diplomatique",
+    "correctAnswer": "A",
+    "explanation": "La mairie est le service public de proximité où les citoyens peuvent accomplir de nombreuses démarches administratives : demander un passeport ou une carte nationale d'identité, s'inscrire sur les listes électorales, déclarer une naissance ou un décès, se marier civilement. Elle est aussi le lieu où s'exercent les fonctions d'état civil, gérées par le maire en tant qu'officier d'état civil.",
+    "source": "https://fr.wikipedia.org/wiki/Mairie_(France)",
+    "variants": [
+      {
+        "optionA": "S'inscrire sur les listes électorales",
+        "optionB": "Obtenir un permis de conduire",
+        "optionC": "Porter plainte",
+        "optionD": "Payer ses impôts",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "Se marier civilement",
+        "optionB": "Demander un titre de séjour",
+        "optionC": "Passer le permis de conduire",
+        "optionD": "Ouvrir un compte bancaire",
+        "correctAnswer": "A"
+      }
+    ]
+  },
+  {
+    "id": 2036,
+    "theme": "Principes et valeurs de la République",
+    "text": "Que garantit le principe de laïcité ?",
+    "optionA": "L'interdiction de toutes les religions",
+    "optionB": "La supériorité d'une religion",
+    "optionC": "La neutralité de l'État et la liberté de conscience",
+    "optionD": "Le financement des cultes par l'État",
+    "correctAnswer": "C",
+    "explanation": "Le principe de laïcité, inscrit à l'article 1er de la Constitution et fondé sur la loi de 1905, garantit deux choses : la neutralité de l'État vis-à-vis de toutes les religions, et la liberté de conscience de chaque citoyen. L'État ne favorise ni ne combat aucune religion. Chacun est libre de croire, de pratiquer ou de ne pas avoir de religion.",
+    "source": "https://fr.wikipedia.org/wiki/La%C3%AFcit%C3%A9_en_France"
+  },
+  {
+    "id": 2040,
+    "theme": "Principes et valeurs de la République",
+    "text": "Que dit l'article 1er de la Constitution française ?",
+    "optionA": "L'armée dirige le pays",
+    "optionB": "Le président est tout-puissant",
+    "optionC": "La monarchie est rétablie",
+    "optionD": "La France est une République indivisible, laïque, démocratique et sociale",
+    "correctAnswer": "D",
+    "explanation": "L'article 1er de la Constitution française de 1958 dispose : « La France est une République indivisible, laïque, démocratique et sociale. » Ces quatre qualificatifs définissent la nature de l'État français : une République une et indivisible (pas d'état fédéral), séparée des religions (laïque), fondée sur le vote populaire (démocratique) et soucieuse de réduire les inégalités (sociale).",
+    "source": "https://fr.wikipedia.org/wiki/Constitution_de_la_Cinqui%C3%A8me_R%C3%A9publique_fran%C3%A7aise"
+  },
+  {
+    "id": 2041,
+    "theme": "Système institutionnel et politique",
+    "text": "Qu'est-ce que l'État de droit ?",
+    "optionA": "Un système où la puissance publique (l'État) est soumise au droit",
+    "optionB": "Un État où les lois religieuses ont force de loi",
+    "optionC": "Un État dirigé exclusivement par des juristes",
+    "optionD": "Un État qui applique le droit international en priorité",
+    "correctAnswer": "A",
+    "explanation": "L'État de droit est un principe selon lequel toutes les personnes, y compris les gouvernants eux-mêmes, sont soumises au droit. Aucun individu ni aucune institution n'est au-dessus des lois. En France, le Conseil constitutionnel veille à la constitutionnalité des lois et le Conseil d'État contrôle la légalité des actes de l'administration.",
+    "source": "https://fr.wikipedia.org/wiki/%C3%89tat_de_droit"
+  },
+  {
+    "id": 2049,
+    "theme": "Système institutionnel et politique",
+    "text": "Qui dirige l'action du Gouvernement ?",
+    "optionA": "Le Premier ministre",
+    "optionB": "Le Ministre de l'Intérieur",
+    "optionC": "Le Président de la République",
+    "optionD": "Le Président de l'Assemblée nationale",
+    "correctAnswer": "A",
+    "explanation": "En vertu de l'article 21 de la Constitution, le Premier ministre dirige l'action du gouvernement. Il coordonne les travaux des ministres, assure l'exécution des lois et dispose du pouvoir réglementaire général. Il est responsable devant l'Assemblée nationale, qui peut lui retirer sa confiance par une motion de censure.",
+    "source": "https://fr.wikipedia.org/wiki/Premier_ministre_(France)"
+  },
+  {
+    "id": 2054,
+    "theme": "Système institutionnel et politique",
+    "text": "Qui sanctionne l'auteur d'un vol ?",
+    "optionA": "La préfecture de département",
+    "optionB": "Le maire de la commune",
+    "optionC": "La police nationale",
+    "optionD": "Le juge",
+    "correctAnswer": "D",
+    "explanation": "Dans le cadre de la séparation des pouvoirs, c'est le pouvoir judiciaire — les juges et tribunaux — qui est chargé de sanctionner les infractions à la loi. Pour un vol, c'est le tribunal correctionnel qui juge le prévenu. La police constate et signale les infractions, mais ne prononce pas les sanctions : ce rôle appartient exclusivement aux magistrats.",
+    "source": "https://fr.wikipedia.org/wiki/Tribunal_correctionnel_(France)"
+  },
+  {
+    "id": 2060,
+    "theme": "Système institutionnel et politique",
+    "text": "La séparation des pouvoirs est un principe fondamental. Quels sont les trois pouvoirs concernés ?",
+    "optionA": "Le pouvoir central, le pouvoir régional et le pouvoir local",
+    "optionB": "Le pouvoir militaire, le pouvoir civil et le pouvoir économique",
+    "optionC": "Le pouvoir exécutif, le pouvoir législatif et le pouvoir judiciaire",
+    "optionD": "Le pouvoir royal, le pouvoir ecclésiastique et le pouvoir du peuple",
+    "correctAnswer": "C",
+    "explanation": "La séparation des pouvoirs, théorisée par Montesquieu dans « L'Esprit des lois » (1748), distingue trois pouvoirs distincts : le pouvoir exécutif (Président de la République, gouvernement), le pouvoir législatif (Parlement : Assemblée nationale et Sénat) et le pouvoir judiciaire (tribunaux et cours). Cette séparation vise à éviter toute concentration du pouvoir et à protéger les libertés.",
+    "source": "https://fr.wikipedia.org/wiki/S%C3%A9paration_des_pouvoirs"
+  },
+  {
+    "id": 2068,
+    "theme": "Système institutionnel et politique",
+    "text": "Quel est le rôle du président de la République ?",
+    "optionA": "Chef du gouvernement",
+    "optionB": "Il est le chef de l'Etat",
+    "optionC": "Juge suprême",
+    "optionD": "Commandant en chef de la police",
+    "correctAnswer": "B",
+    "explanation": "Le Président de la République est le chef de l'État, conformément à l'article 5 de la Constitution. Il veille au respect de la Constitution, assure la continuité de l'État et est le garant de l'indépendance nationale et de l'intégrité du territoire. Il nomme le Premier ministre, préside le Conseil des ministres et est le chef des armées.",
+    "source": "https://fr.wikipedia.org/wiki/Pr%C3%A9sident_de_la_R%C3%A9publique_(France)"
+  },
+  {
+    "id": 2069,
+    "theme": "Système institutionnel et politique",
+    "text": "Quel est le rôle du Premier ministre ?",
+    "optionA": "Il dirige l'action du Gouvernement",
+    "optionB": "Chef de l'État",
+    "optionC": "Ministre des Finances",
+    "optionD": "Président du Sénat",
+    "correctAnswer": "A",
+    "explanation": "Le Premier ministre dirige l'action du gouvernement selon l'article 21 de la Constitution. Il coordonne le travail des ministres, assure l'exécution des lois et dispose du pouvoir réglementaire. Il est responsable devant l'Assemblée nationale. En cas de cohabitation (majorité différente du Président), il joue un rôle plus autonome.",
+    "source": "https://fr.wikipedia.org/wiki/Premier_ministre_(France)"
+  },
+  {
+    "id": 2072,
+    "theme": "Système institutionnel et politique",
+    "text": "Quel est le rôle du Défenseur des droits ?",
+    "optionA": "Gérer les prisons",
+    "optionB": "Veiller au respect des droits et libertés et lutter contre les discriminations",
+    "optionC": "Défendre les accusés",
+    "optionD": "Contrôler les médias",
+    "correctAnswer": "B",
+    "explanation": "Le Défenseur des droits est une autorité constitutionnelle indépendante, créée en 2011. Il est chargé de veiller au respect des droits et libertés par les services publics et les organismes privés, de lutter contre les discriminations et de défendre les droits de l'enfant. Toute personne s'estimant victime peut le saisir gratuitement.",
+    "source": "https://fr.wikipedia.org/wiki/D%C3%A9fenseur_des_droits_(France)"
+  },
+  {
+    "id": 2077,
+    "theme": "Système institutionnel et politique",
+    "text": "Quel traité concerne la construction de l'Union européenne ?",
+    "optionA": "Traité de Maastricht",
+    "optionB": "Traité de Versailles",
+    "optionC": "Traité de Vienne",
+    "optionD": "Traité de Westphalie",
+    "correctAnswer": "A",
+    "explanation": "Le Traité de Maastricht, signé en 1992, est le texte fondateur de l'Union européenne telle qu'on la connaît aujourd'hui : il a transformé la Communauté économique européenne en Union européenne et créé la citoyenneté européenne. Le Traité de Versailles (1919) a mis fin à la Première Guerre mondiale, le Traité de Vienne (1815) a réorganisé l'Europe après Napoléon, et le Traité de Westphalie (1648) a mis fin à la guerre de Trente Ans : aucun de ces trois ne concerne la construction européenne.",
+    "source": "https://fr.wikipedia.org/wiki/Trait%C3%A9_de_Maastricht"
+  },
+  {
+    "id": 2078,
+    "theme": "Système institutionnel et politique",
+    "text": "Quel État a quitté l'Union européenne en 2020 ?",
+    "optionA": "Royaume-Uni",
+    "optionB": "France",
+    "optionC": "Italie",
+    "optionD": "Allemagne",
+    "correctAnswer": "A",
+    "explanation": "Le Royaume-Uni a quitté l'Union européenne à la suite du référendum du 23 juin 2016 (« Brexit ») au cours duquel 51,9 % des Britanniques ont voté pour la sortie. Le retrait formel a eu lieu le 31 janvier 2020, et la période de transition s'est terminée le 31 décembre 2020. C'est le seul État membre à avoir quitté l'UE.",
+    "source": "https://fr.wikipedia.org/wiki/Brexit"
+  },
+  {
+    "id": 2079,
+    "theme": "Système institutionnel et politique",
+    "text": "Quelle est la devise de l’Union européenne ?",
+    "optionA": "Liberté, Égalité, Fraternité",
+    "optionB": "En avant ensemble",
+    "optionC": "Paix, Prospérité, Progrès",
+    "optionD": "Unie dans la diversité",
+    "correctAnswer": "D",
+    "explanation": "La devise de l'Union européenne est « Unie dans la diversité » (en anglais : United in diversity). Adoptée en 2000, elle souligne que les peuples européens, malgré leurs différences de cultures, de langues et de traditions, sont unis autour de valeurs communes : la paix, la démocratie, les droits fondamentaux. À ne pas confondre avec « Liberté, Égalité, Fraternité » qui est la devise française.",
+    "source": "https://fr.wikipedia.org/wiki/Union_europ%C3%A9enne"
+  },
+  {
+    "id": 2080,
+    "theme": "Système institutionnel et politique",
+    "text": "Quel est l'hymne de l'Union européenne ?",
+    "optionA": "L'Internationale",
+    "optionB": "L'Ode à la Joie",
+    "optionC": "God Save the Queen",
+    "optionD": "La Marseillaise",
+    "correctAnswer": "B",
+    "explanation": "L'hymne de l'Union européenne est « L'Ode à la Joie », adapté du dernier mouvement de la 9e Symphonie de Beethoven. Composée en 1823-1824, cette œuvre musicale universelle symbolise l'aspiration à la fraternité entre les peuples. L'hymne européen a été adopté en 1985 par le Conseil de l'Europe.",
+    "source": "https://fr.wikipedia.org/wiki/Hymne_europ%C3%A9en"
+  },
+  {
+    "id": 2081,
+    "theme": "Système institutionnel et politique",
+    "text": "De quoi est composé le drapeau européen ?",
+    "optionA": "Un aigle",
+    "optionB": "Un lion",
+    "optionC": "Un croissant",
+    "optionD": "12 étoiles dorées sur fond bleu",
+    "correctAnswer": "D",
+    "explanation": "Le drapeau européen se compose d'un cercle de 12 étoiles dorées sur fond bleu. Le nombre 12 est un symbole de perfection et d'unité (comme les 12 mois de l'année ou les 12 heures d'une horloge), et ne correspond pas au nombre d'États membres. Il a été créé en 1955 par le Conseil de l'Europe et adopté par l'UE en 1985.",
+    "source": "https://fr.wikipedia.org/wiki/Drapeau_europ%C3%A9en"
+  },
+  {
+    "id": 2083,
+    "theme": "Système institutionnel et politique",
+    "text": "En quelle année le traité de Maastricht, qui marque la fondation de l'Union européenne, a-t-il été signé ?",
+    "optionA": "1967",
+    "optionB": "2000",
+    "optionC": "1985",
+    "optionD": "1992",
+    "correctAnswer": "D",
+    "explanation": "Le Traité de Maastricht a été signé le 7 février 1992 aux Pays-Bas et est entré en vigueur le 1er novembre 1993. Il a transformé la Communauté économique européenne (CEE) en Union européenne, créé la citoyenneté européenne et posé les bases de l'union économique et monétaire (futur euro).",
+    "source": "https://fr.wikipedia.org/wiki/Trait%C3%A9_de_Maastricht"
+  },
+  {
+    "id": 2084,
+    "theme": "Système institutionnel et politique",
+    "text": "Où est le siège du Parlement européen ?",
+    "optionA": "Paris",
+    "optionB": "Strasbourg",
+    "optionC": "Bruxelles",
+    "optionD": "Luxembourg",
+    "correctAnswer": "B",
+    "explanation": "Le siège officiel du Parlement européen est à Strasbourg (France), où ont lieu les sessions plénières mensuelles. Cependant, les commissions parlementaires siègent à Bruxelles (Belgique) et le Secrétariat général se trouve à Luxembourg. Cette répartition trisite est souvent critiquée pour son coût.",
+    "source": "https://fr.wikipedia.org/wiki/Parlement_europ%C3%A9en"
+  },
+  {
+    "id": 2085,
+    "theme": "Système institutionnel et politique",
+    "text": "Où est le siège de la Commission européenne ?",
+    "optionA": "Bruxelles",
+    "optionB": "Luxembourg",
+    "optionC": "Strasbourg",
+    "optionD": "Amsterdam",
+    "correctAnswer": "A",
+    "explanation": "La Commission européenne a son siège principal à Bruxelles, en Belgique. C'est l'organe exécutif de l'UE : elle propose les législations européennes, applique les traités et gère le budget de l'Union. Elle est composée d'un commissaire par État membre, nommé pour 5 ans.",
+    "source": "https://fr.wikipedia.org/wiki/Commission_europ%C3%A9enne"
+  },
+  {
+    "id": 2092,
+    "theme": "Droits et devoirs",
+    "text": "Au nom de quoi l'État justifie-t-il la restriction des droits ?",
+    "optionA": "La volonté du président",
+    "optionB": "Pour l'intérêt général et la sécurité de tous",
+    "optionC": "Les demandes des entreprises",
+    "optionD": "Les traditions",
+    "correctAnswer": "B",
+    "explanation": "Dans un État de droit, les libertés individuelles ne sont pas absolues. L'État peut les restreindre, mais uniquement au nom de l'intérêt général (sécurité publique, ordre public, protection des droits d'autrui) et sous contrôle du juge. Par exemple, la liberté de manifester peut être limitée pour prévenir des troubles à l'ordre public.",
+    "source": "https://fr.wikipedia.org/wiki/Int%C3%A9r%C3%AAt_g%C3%A9n%C3%A9ral"
+  },
+  {
+    "id": 2096,
+    "theme": "Droits et devoirs",
+    "text": "Laquelle de ces citations est inscrite dans la Déclaration des Droits de l'homme et du Citoyen de 1789 ?",
+    "optionA": "La France est une République",
+    "optionB": "La propriété est un vol",
+    "optionC": "Les hommes naissent et demeurent libres et égaux en droits",
+    "optionD": "Le roi est le chef de l'État",
+    "correctAnswer": "C",
+    "explanation": "L'article 1er de la Déclaration des droits de l'homme et du citoyen de 1789 affirme : « Les hommes naissent et demeurent libres et égaux en droits ». Ce texte fondateur des droits et libertés en France a valeur constitutionnelle depuis 1971 (décision du Conseil constitutionnel). Il protège l'ensemble des libertés fondamentales.",
+    "source": "https://fr.wikipedia.org/wiki/D%C3%A9claration_des_droits_de_l%27homme_et_du_citoyen_de_1789"
+  },
+  {
+    "id": 2099,
+    "theme": "Droits et devoirs",
+    "text": "Que garantit la liberté de la presse ?",
+    "optionA": "Le droit de mentir",
+    "optionB": "Le droit de diffuser des secrets d'État",
+    "optionC": "Que les médias peuvent publier des informations sans censure préalable de l'État",
+    "optionD": "Le droit de censurer",
+    "correctAnswer": "C",
+    "explanation": "La liberté de la presse en France est garantie par la loi du 29 juillet 1881 sur la liberté de la presse. Cette loi permet aux journalistes et aux médias de publier des informations et des opinions sans censure préalable de l'État. Cependant, la presse reste soumise à des règles : elle ne peut pas diffamer, inciter à la haine ou divulguer des informations portant atteinte à la sécurité nationale.",
+    "source": "https://fr.wikipedia.org/wiki/Libert%C3%A9_de_la_presse_en_France"
+  },
+  {
+    "id": 2115,
+    "theme": "Droits et devoirs",
+    "text": "Pour quel motif peut-on limiter la liberté d'expression ?",
+    "optionA": "Pour promouvoir une religion",
+    "optionB": "Pour sanctionner un discours de haine",
+    "optionC": "Pour interdire les critiques du gouvernement",
+    "optionD": "Pour censurer les médias",
+    "correctAnswer": "B",
+    "explanation": "La liberté d'expression n'est pas absolue : elle connaît des limites fixées par la loi. Les discours de haine (incitation à la haine en raison de l'origine, de la religion, du sexe, de l'orientation sexuelle, etc.) sont sanctionnés par la loi Pleven de 1972 et ses successeurs. Ces limites visent à protéger la dignité des personnes et la cohésion sociale.",
+    "source": "https://fr.wikipedia.org/wiki/Discours_de_haine"
+  },
+  {
+    "id": 2123,
+    "theme": "Droits et devoirs",
+    "text": "Quelle est l'infraction la plus grave ?",
+    "optionA": "La contravention",
+    "optionB": "Le crime",
+    "optionC": "L'amende",
+    "optionD": "Le délit",
+    "correctAnswer": "B",
+    "explanation": "Le droit pénal français distingue trois catégories d'infractions selon leur gravité : les contraventions (les moins graves, jugées par le tribunal de police), les délits (gravité intermédiaire, jugés par le tribunal correctionnel) et les crimes (les plus graves : meurtre, viol, terrorisme, jugés par la cour d'assises).",
+    "source": "https://fr.wikipedia.org/wiki/Infraction_p%C3%A9nale"
+  },
+  {
+    "id": 2131,
+    "theme": "Histoire, géographie et culture",
+    "text": "En quelle année Napoléon Ier est-il devenu empereur ?",
+    "optionA": "1804",
+    "optionB": "1830",
+    "optionC": "1799",
+    "optionD": "1815",
+    "correctAnswer": "A",
+    "explanation": "Napoléon Bonaparte, Premier consul depuis 1799, s'est autoproclamé Napoléon Ier, Empereur des Français, le 2 décembre 1804 lors d'une cérémonie fastueuse à Notre-Dame de Paris en présence du pape Pie VII. Son règne a marqué l'Europe par ses conquêtes militaires et ses réformes institutionnelles (Code civil, légion d'honneur, etc.).",
+    "source": "https://fr.wikipedia.org/wiki/Napol%C3%A9on_Ier"
+  },
+  {
+    "id": 2132,
+    "theme": "Histoire, géographie et culture",
+    "text": "Lequel de ces personnages a un lien avec la République française ?",
+    "optionA": "Napoléon III",
+    "optionB": "Charlemagne",
+    "optionC": "Louis XIV",
+    "optionD": "Jules Ferry",
+    "correctAnswer": "D",
+    "explanation": "Jules Ferry (1832-1893) est associé à la République pour avoir créé l'école publique, gratuite et laïque. Victor Hugo est le grand écrivain républicain (Les Misérables, Notre-Dame de Paris). Jean Jaurès est le défenseur des travailleurs et pacifiste. Charles de Gaulle est le libérateur de la France en 1944. Ces figures incarnent des valeurs républicaines fondamentales. Léon Gambetta a proclamé la IIIe République en 1870, et Victor Schoelcher a fait abolir l'esclavage sous la IIe République en 1848.",
+    "source": "https://fr.wikipedia.org/wiki/Jules_Ferry",
+    "variants": [
+      {
+        "optionA": "Léon Gambetta",
+        "optionB": "François Ier",
+        "optionC": "Charlemagne",
+        "optionD": "Louis XVI",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "Victor Schoelcher",
+        "optionB": "Henri IV",
+        "optionC": "Napoléon III",
+        "optionD": "Clovis",
+        "correctAnswer": "A"
+      }
+    ]
+  },
+  {
+    "id": 2133,
+    "theme": "Histoire, géographie et culture",
+    "text": "De quand date l'appel à la résistance du général de Gaulle ?",
+    "optionA": "11 novembre 1918",
+    "optionB": "8 mai 1945",
+    "optionC": "14 juillet 1789",
+    "optionD": "18 juin 1940",
+    "correctAnswer": "D",
+    "explanation": "Le 18 juin 1940, depuis Londres, le général Charles de Gaulle a lancé par radio (BBC) un appel à ne pas accepter la défaite face à l'Allemagne nazie et à continuer le combat. Cet appel, qui est devenu le symbole de la Résistance française, marque la fondation de la France libre. De Gaulle est devenu le chef des Forces françaises libres.",
+    "source": "https://fr.wikipedia.org/wiki/Appel_du_18_Juin"
+  },
+  {
+    "id": 2136,
+    "theme": "Histoire, géographie et culture",
+    "text": "Depuis quand les Français élisent-ils le président de la République au suffrage universel direct ?",
+    "optionA": "2002",
+    "optionB": "1981",
+    "optionC": "1962",
+    "optionD": "1945",
+    "correctAnswer": "C",
+    "explanation": "Depuis 1962, les Français élisent leur Président au suffrage universel direct (vote de tous les citoyens). Avant cette réforme initiée par de Gaulle et approuvée par référendum, le Président était élu par un collège de grands électeurs. Ce changement a renforcé la légitimité populaire du Président et transformé les équilibres institutionnels de la Ve République.",
+    "source": "https://fr.wikipedia.org/wiki/%C3%89lection_pr%C3%A9sidentielle_en_France"
+  },
+  {
+    "id": 2137,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quelle est la première étape de la construction européenne en 1951 ?",
+    "optionA": "Traité de Rome",
+    "optionB": "Traité de Maastricht",
+    "optionC": "La création de la Communauté européenne du charbon et de l'acier (CECA)",
+    "optionD": "Création de l'euro",
+    "correctAnswer": "C",
+    "explanation": "La Communauté européenne du charbon et de l'acier (CECA) a été créée par le traité de Paris du 18 avril 1951, signé par six pays fondateurs. Inspirée par le plan Schuman, elle visait à mettre en commun la production de charbon et d'acier entre la France et l'Allemagne pour rendre la guerre entre elles « matériellement impossible ». C'est le premier pas vers la construction européenne.",
+    "source": "https://fr.wikipedia.org/wiki/Communaut%C3%A9_europ%C3%A9enne_du_charbon_et_de_l%27acier"
+  },
+  {
+    "id": 2140,
+    "theme": "Histoire, géographie et culture",
+    "text": "Qui était une figure de la Résistance française pendant la Seconde Guerre mondiale ?",
+    "optionA": "Napoléon",
+    "optionB": "Pétain",
+    "optionC": "Albert Lebrun",
+    "optionD": "Jean Moulin",
+    "correctAnswer": "D",
+    "explanation": "Jean Moulin (1899-1943) est la grande figure de la Résistance intérieure française. Préfet révoqué par Vichy, il a rallié de Gaulle à Londres en 1941 et a été chargé d'unifier les mouvements de Résistance. Il a fondé le Conseil national de la Résistance (CNR) en mai 1943. Arrêté par la Gestapo, il est mort sous la torture en juillet 1943. D'autres grandes figures de la Résistance : le général de Gaulle (chef de la France libre depuis Londres), Lucie Aubrac, Germaine Tillion ou Missak Manouchian.",
+    "source": "https://fr.wikipedia.org/wiki/Jean_Moulin",
+    "variants": [
+      {
+        "optionA": "Lucie Aubrac",
+        "optionB": "Philippe Pétain",
+        "optionC": "Pierre Laval",
+        "optionD": "L'amiral Darlan",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "Le général de Gaulle",
+        "optionB": "Philippe Pétain",
+        "optionC": "Pierre Laval",
+        "optionD": "Albert Lebrun",
+        "correctAnswer": "A"
+      }
+    ]
+  },
+  {
+    "id": 2141,
+    "theme": "Histoire, géographie et culture",
+    "text": "En 1944, qu'est-ce qui a changé pour les femmes ?",
+    "optionA": "Elles ont obtenu le droit de vote et le droit d'être élues (éligibilité)",
+    "optionB": "Droit de travailler",
+    "optionC": "Droit de conduire",
+    "optionD": "Droit de divorcer",
+    "correctAnswer": "A",
+    "explanation": "L'ordonnance du 21 avril 1944, signée par le général de Gaulle à Alger au nom du Gouvernement provisoire de la République française, a accordé le droit de vote et d'éligibilité aux femmes françaises. Pour la première fois, les femmes ont pu voter aux élections municipales d'avril-mai 1945, puis aux législatives d'octobre 1945.",
+    "source": "https://fr.wikipedia.org/wiki/Droit_de_vote_des_femmes_en_France"
+  },
+  {
+    "id": 2149,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quelle mer ou océan borde la France métropolitaine ?",
+    "optionA": "Mer Méditerranée",
+    "optionB": "Mer Baltique",
+    "optionC": "Océan Pacifique",
+    "optionD": "Mer Noir",
+    "correctAnswer": "A",
+    "explanation": "La France métropolitaine est bordée par quatre façades maritimes : la mer du Nord et la Manche au nord (cette dernière sépare la France de l'Angleterre), l'océan Atlantique à l'ouest et la mer Méditerranée au sud. Ces façades maritimes font de la France le pays disposant du deuxième espace maritime mondial (ZEE).",
+    "source": "https://fr.wikipedia.org/wiki/G%C3%A9ographie_de_la_France",
+    "variants": [
+      {
+        "optionA": "L'océan Atlantique",
+        "optionB": "La mer Caspienne",
+        "optionC": "La mer Rouge",
+        "optionD": "L'océan Indien",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "La Manche",
+        "optionB": "La mer Baltique",
+        "optionC": "La mer Adriatique",
+        "optionD": "La mer Égée",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "La mer du Nord",
+        "optionB": "L'océan Pacifique",
+        "optionC": "La mer Ionienne",
+        "optionD": "La mer de Chine",
+        "correctAnswer": "A"
+      }
+    ]
+  },
+  {
+    "id": 2152,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quelle mer se situe entre la France et l'Angleterre ?",
+    "optionA": "La mer du Nord",
+    "optionB": "La mer Méditerranée",
+    "optionC": "La mer des Caraïbes",
+    "optionD": "La Manche",
+    "correctAnswer": "D",
+    "explanation": "La Manche est le bras de mer qui sépare la France de l'Angleterre (Grande-Bretagne). Large de 34 à 240 km, elle est l'une des voies maritimes les plus fréquentées du monde. Le tunnel sous la Manche (Eurotunnel), long de 50 km dont 38 sous la mer, relie Coquelles (France) à Folkestone (Angleterre) depuis 1994.",
+    "source": "https://fr.wikipedia.org/wiki/Manche_(mer)"
+  },
+  {
+    "id": 2153,
+    "theme": "Histoire, géographie et culture",
+    "text": "Qu'est ce que la France d'outre-mer ?",
+    "optionA": "Les pays voisins",
+    "optionB": "Les régions autonomes",
+    "optionC": "Les colonies étrangères",
+    "optionD": "Les territoires français situés hors du continent européen",
+    "correctAnswer": "D",
+    "explanation": "La France d'outre-mer désigne l'ensemble des territoires français situés en dehors du continent européen. Elle comprend des départements et régions d'outre-mer (DROM : Guadeloupe, Martinique, Guyane, La Réunion, Mayotte), des collectivités d'outre-mer (COM) et des territoires à statut particulier. Au total, ils sont présents sur tous les océans du globe.",
+    "source": "https://fr.wikipedia.org/wiki/France_d%27outre-mer"
+  },
+  {
+    "id": 2156,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quelle est la population approximative de la France en 2025 ?",
+    "optionA": "Environ 100 millions d'habitants",
+    "optionB": "Environ 65 millions d'habitants",
+    "optionC": "Environ 80 millions d'habitants",
+    "optionD": "Environ 70 millions d'habitants",
+    "correctAnswer": "D",
+    "explanation": "La France comptait environ 68 millions d'habitants au 1er janvier 2024 selon l'INSEE, et les projections pour 2025 portent ce chiffre à environ 70 millions en incluant les territoires d'outre-mer. La France est le deuxième pays le plus peuplé de l'Union européenne, après l'Allemagne (environ 84 millions d'habitants).",
+    "source": "https://fr.wikipedia.org/wiki/D%C3%A9mographie_de_la_France"
+  },
+  {
+    "id": 2157,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quel fleuve traverse Paris ?",
+    "optionA": "La Loire",
+    "optionB": "La Seine",
+    "optionC": "Le Rhône",
+    "optionD": "La Garonne",
+    "correctAnswer": "B",
+    "explanation": "La Seine est le fleuve qui traverse Paris. Long de 775 km, il prend sa source en Côte-d'Or (Bourgogne) et se jette dans la Manche au Havre. Les autres grands fleuves français sont : la Loire (le plus long, 1 013 km), le Rhône, la Garonne et le Rhin. Paris est construite autour des îles de la Cité et de Saint-Louis, sur la Seine.",
+    "source": "https://fr.wikipedia.org/wiki/Seine"
+  },
+  {
+    "id": 2164,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quelle ville française fait partie des 10 plus grandes métropoles du pays ?",
+    "optionA": "Perpignan",
+    "optionB": "Paris",
+    "optionC": "Grenoble",
+    "optionD": "Avignon",
+    "correctAnswer": "B",
+    "explanation": "Paris est la plus grande ville et la capitale de la France, avec plus de 2,1 millions d'habitants intra-muros et environ 12 millions en Île-de-France. C'est aussi la métropole la plus peuplée. Les autres grandes métropoles françaises sont Marseille, Lyon, Toulouse, Nice, Nantes, Montpellier, Strasbourg, Bordeaux et Lille.",
+    "source": "https://fr.wikipedia.org/wiki/D%C3%A9mographie_de_la_France",
+    "variants": [
+      {
+        "optionA": "Lyon",
+        "optionB": "Pau",
+        "optionC": "Bayonne",
+        "optionD": "Annecy",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "Marseille",
+        "optionB": "Nîmes",
+        "optionC": "Limoges",
+        "optionD": "La Rochelle",
+        "correctAnswer": "A"
+      }
+    ]
+  },
+  {
+    "id": 2168,
+    "theme": "Histoire, géographie et culture",
+    "text": "Qui était Marguerite Yourcenar ?",
+    "optionA": "Écrivaine et académicienne française",
+    "optionB": "Danseuse",
+    "optionC": "Astronome",
+    "optionD": "Médecin",
+    "correctAnswer": "A",
+    "explanation": "Marguerite Yourcenar (1903-1987), de son vrai nom Marguerite Cleenewerck de Crayencour, est une romancière française (anagramme de son nom). En 1980, elle est devenue la première femme élue à l'Académie française, fondée en 1635. Elle est célèbre pour « Mémoires d'Hadrien » (1951) et « L'Œuvre au noir » (1968).",
+    "source": "https://fr.wikipedia.org/wiki/Marguerite_Yourcenar"
+  },
+  {
+    "id": 2169,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quel peintre est français ?",
+    "optionA": "Claude Monet",
+    "optionB": "Van Gogh",
+    "optionC": "Rembrandt",
+    "optionD": "Picasso",
+    "correctAnswer": "A",
+    "explanation": "Claude Monet (1840-1926) est l'un des fondateurs du mouvement impressionniste français. Il est célèbre pour ses séries de tableaux (les Nymphéas, les Cathédrales de Rouen, les Meules). Vincent van Gogh était néerlandais, Rembrandt était néerlandais, et Pablo Picasso était espagnol (bien qu'il ait vécu à Paris).",
+    "source": "https://fr.wikipedia.org/wiki/Claude_Monet",
+    "variants": [
+      {
+        "optionA": "Auguste Renoir",
+        "optionB": "Vermeer",
+        "optionC": "Goya",
+        "optionD": "Gustav Klimt",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "Michel-Ange",
+        "optionB": "Eugène Delacroix",
+        "optionC": "Rubens",
+        "optionD": "William Turner",
+        "correctAnswer": "B"
+      }
+    ]
+  },
+  {
+    "id": 2170,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quel musée est situé à Paris ?",
+    "optionA": "Le Musée du Louvre",
+    "optionB": "Le British Museum",
+    "optionC": "Le Prado",
+    "optionD": "L'Ermitage",
+    "correctAnswer": "A",
+    "explanation": "Le musée du Louvre, situé dans le palais royal du Louvre à Paris, est le plus grand musée d'art du monde et le plus visité. Il abrite notamment la Joconde de Léonard de Vinci, La Vénus de Milo et La Victoire de Samothrace. Les autres grands musées parisiens sont le musée d'Orsay (art du XIXe siècle) et le Centre Pompidou (art contemporain).",
+    "source": "https://fr.wikipedia.org/wiki/Mus%C3%A9e_du_Louvre",
+    "variants": [
+      {
+        "optionA": "Le musée d'Orsay",
+        "optionB": "Le Rijksmuseum",
+        "optionC": "La galerie des Offices",
+        "optionD": "Le Metropolitan Museum",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "La National Gallery",
+        "optionB": "Le Centre Pompidou",
+        "optionC": "Les musées du Vatican",
+        "optionD": "Le musée Guggenheim de Bilbao",
+        "correctAnswer": "B"
+      }
+    ]
+  },
+  {
+    "id": 2171,
+    "theme": "Histoire, géographie et culture",
+    "text": "Qui était Auguste Rodin ?",
+    "optionA": "Peintre",
+    "optionB": "Musicien",
+    "optionC": "Écrivain",
+    "optionD": "Sculpteur français",
+    "correctAnswer": "D",
+    "explanation": "Auguste Rodin (1840-1917) est considéré comme le père de la sculpture moderne. Ses œuvres les plus connues incluent Le Penseur, Le Baiser, La Porte de l'Enfer et Les Bourgeois de Calais. Le musée Rodin, à Paris, conserve l'essentiel de son œuvre. Il a transformé la sculpture en lui donnant une dimension émotionnelle et humaine inégalée.",
+    "source": "https://fr.wikipedia.org/wiki/Auguste_Rodin"
+  },
+  {
+    "id": 2176,
+    "theme": "Histoire, géographie et culture",
+    "text": "Qui était Auguste Renoir ?",
+    "optionA": "Poète",
+    "optionB": "Philosophe",
+    "optionC": "Peintre impressionniste français",
+    "optionD": "Scientifique",
+    "correctAnswer": "C",
+    "explanation": "Auguste Renoir (1841-1919) est l'un des grands maîtres de l'impressionnisme français. Ses tableaux, souvent joyeux et colorés, représentent des scènes de la vie quotidienne, des portraits et des nus. Ses œuvres les plus célèbres incluent Le Déjeuner des canotiers, Bal du moulin de la Galette et Les Grandes Baigneuses.",
+    "source": "https://fr.wikipedia.org/wiki/Auguste_Renoir"
+  },
+  {
+    "id": 2180,
+    "theme": "Vivre dans la société française",
+    "text": "En cas de divorce, qui exerce l'autorité parentale ?",
+    "optionA": "Les deux parents, sauf décision contraire du juge",
+    "optionB": "Le juge",
+    "optionC": "La mère uniquement",
+    "optionD": "Le père uniquement",
+    "correctAnswer": "A",
+    "explanation": "Depuis la loi du 4 mars 2002, l'autorité parentale est exercée conjointement par les deux parents, y compris après la séparation ou le divorce, sauf décision contraire du juge. Le juge aux affaires familiales peut exceptionnellement confier l'autorité parentale à un seul parent si l'intérêt de l'enfant l'exige.",
+    "source": "https://fr.wikipedia.org/wiki/Autorit%C3%A9_parentale_en_France"
+  },
+  {
+    "id": 2181,
+    "theme": "Vivre dans la société française",
+    "text": "Quelle aide permet aux personnes qui ont des difficultés financières d'avoir un avocat ?",
+    "optionA": "La sécurité sociale",
+    "optionB": "Le RSA",
+    "optionC": "L'assurance habitation",
+    "optionD": "L'aide juridictionnelle",
+    "correctAnswer": "D",
+    "explanation": "L'aide juridictionnelle permet aux personnes aux ressources insuffisantes d'accéder à la justice avec l'aide d'un avocat, en tout ou partie aux frais de l'État. Elle couvre les honoraires de l'avocat et les frais de justice. Pour en bénéficier, il faut déposer une demande auprès du bureau d'aide juridictionnelle du tribunal.",
+    "source": "https://fr.wikipedia.org/wiki/Aide_juridictionnelle"
+  },
+  {
+    "id": 2182,
+    "theme": "Vivre dans la société française",
+    "text": "Où faut-il déclarer la naissance d'un enfant ?",
+    "optionA": "À la mairie du lieu de naissance",
+    "optionB": "Au commissariat",
+    "optionC": "À la préfecture",
+    "optionD": "À l'hôpital",
+    "correctAnswer": "A",
+    "explanation": "En France, tout enfant qui naît doit être déclaré à la mairie du lieu de naissance (pas à la mairie du domicile des parents). Cette déclaration doit être faite dans les 5 jours suivant la naissance (article 55 du Code civil). Elle peut être effectuée par le père, la mère, un médecin, une sage-femme ou toute personne ayant assisté à l'accouchement.",
+    "source": "https://fr.wikipedia.org/wiki/%C3%89tat_civil_en_France"
+  },
+  {
+    "id": 2186,
+    "theme": "Vivre dans la société française",
+    "text": "Quel numéro d'urgence permet d'appeler la police ?",
+    "optionA": "115",
+    "optionB": "18",
+    "optionC": "17",
+    "optionD": "15",
+    "correctAnswer": "C",
+    "explanation": "En France, les numéros d'urgence sont : 15 (SAMU - urgences médicales), 17 (Police Secours), 18 (Pompiers) et 112 (numéro d'urgence européen, accessible depuis tout pays de l'UE). Pour appeler la police, c'est donc le 17. Le 112 peut aussi rediriger vers la police selon la situation.",
+    "source": "https://fr.wikipedia.org/wiki/Police_nationale_(France)"
+  },
+  {
+    "id": 2189,
+    "theme": "Vivre dans la société française",
+    "text": "Qu’est-ce que le principe de confidentialité dans le domaine de la santé ?",
+    "optionA": "Les médicaments peuvent être vendus sans ordonnance",
+    "optionB": "Le patient est obligé de garder secret son traitement médical",
+    "optionC": "Le médecin ne doit révéler aucune information sur son patient",
+    "optionD": "Les hôpitaux ne divulguent pas leurs tarifs aux patients",
+    "correctAnswer": "C",
+    "explanation": "Le secret médical est l'obligation pour tout professionnel de santé (médecin, infirmier, pharmacien, etc.) de ne divulguer aucune information sur la santé de ses patients à des tiers non autorisés. Ce principe est fondamental pour la relation de confiance entre le patient et son médecin. Sa violation est punie par le Code pénal.",
+    "source": "https://fr.wikipedia.org/wiki/Secret_m%C3%A9dical"
+  },
+  {
+    "id": 2190,
+    "theme": "Vivre dans la société française",
+    "text": "L'inscription à l'Assurance maladie est :",
+    "optionA": "Obligatoire pour tous les résidents réguliers en France",
+    "optionB": "Facultative",
+    "optionC": "Réservée aux riches",
+    "optionD": "Interdite aux étrangers",
+    "correctAnswer": "A",
+    "explanation": "L'affiliation à l'Assurance Maladie (Sécurité sociale) est obligatoire pour toute personne résidant régulièrement en France, qu'elle soit salariée, étudiante, retraitée ou sans emploi. La Protection universelle maladie (PUMA), instaurée en 2016, garantit à toute personne résidant de façon stable en France l'accès aux remboursements de soins.",
+    "source": "https://fr.wikipedia.org/wiki/Assurance_maladie_(France)"
+  },
+  {
+    "id": 2191,
+    "theme": "Vivre dans la société française",
+    "text": "Qui peut demander un congé parental d'éducation ?",
+    "optionA": "Les retraités",
+    "optionB": "Uniquement les hommes",
+    "optionC": "Le père ou la mère",
+    "optionD": "Uniquement les femmes",
+    "correctAnswer": "C",
+    "explanation": "Le congé parental d'éducation est ouvert à la mère comme au père, dans les mêmes conditions. Il permet à chacun d'arrêter ou de réduire son activité professionnelle pour s'occuper d'un enfant de moins de 3 ans. Ce congé est non rémunéré (sauf aide de la CAF : la prestation partagée d'éducation de l'enfant, PREPARE), mais l'emploi est protégé.",
+    "source": "https://fr.wikipedia.org/wiki/Cong%C3%A9_parental_d%27%C3%A9ducation"
+  },
+  {
+    "id": 2192,
+    "theme": "Vivre dans la société française",
+    "text": "Quelles sont les affaires traitées par le conseil de prud'hommes ?",
+    "optionA": "Les divorces",
+    "optionB": "Les contraventions",
+    "optionC": "Les crimes",
+    "optionD": "Les litiges (conflits) entre un employeur et un salarié",
+    "correctAnswer": "D",
+    "explanation": "Le conseil de prud'hommes est une juridiction spécialisée dans le règlement des litiges individuels entre employeurs et salariés découlant du contrat de travail : licenciement, salaires impayés, non-respect des congés, harcèlement moral, etc. Il est composé à parts égales de représentants des employeurs et des salariés.",
+    "source": "https://fr.wikipedia.org/wiki/Conseil_de_prud%27hommes_(France)"
+  },
+  {
+    "id": 2193,
+    "theme": "Vivre dans la société française",
+    "text": "Travailler sans être déclaré est :",
+    "optionA": "Légal",
+    "optionB": "Une infraction pénale appelée travail dissimulé",
+    "optionC": "Autorisé pour les étudiants",
+    "optionD": "Sans conséquence",
+    "correctAnswer": "B",
+    "explanation": "Le travail dissimulé (ou « travail au noir ») consiste à employer un salarié sans le déclarer aux organismes sociaux ou fiscaux. C'est un délit grave puni par le Code du travail : jusqu'à 3 ans d'emprisonnement et 45 000 euros d'amende pour l'employeur, et des sanctions pour le salarié. Cela prive le travailleur de ses droits sociaux (sécurité sociale, retraite, chômage).",
+    "source": "https://fr.wikipedia.org/wiki/Travail_dissimul%C3%A9"
+  },
+  {
+    "id": 2203,
+    "theme": "Vivre dans la société française",
+    "text": "À quel âge commence l'instruction obligatoire des enfants ?",
+    "optionA": "3 ans",
+    "optionB": "4 ans",
+    "optionC": "5 ans",
+    "optionD": "6 ans",
+    "correctAnswer": "A",
+    "explanation": "Depuis la loi du 26 juillet 2019, l'instruction est obligatoire à partir de 3 ans en France (et non plus 6 ans). Cette réforme vise à réduire les inégalités éducatives dès le plus jeune âge. Les enfants de 3 à 6 ans sont accueillis à l'école maternelle, qui est obligatoire depuis cette loi.",
+    "source": "https://fr.wikipedia.org/wiki/Instruction_obligatoire_en_France"
+  },
+  {
+    "id": 2206,
+    "theme": "Vivre dans la société française",
+    "text": "Quel motif d'absence est accepté par l'école ?",
+    "optionA": "Visite chez des amis",
+    "optionB": "Vacances en famille",
+    "optionC": "Shopping",
+    "optionD": "Maladie de l'enfant",
+    "correctAnswer": "D",
+    "explanation": "En France, l'assiduité scolaire est obligatoire. Les seules absences justifiées à l'école sont : la maladie de l'enfant ou un rendez-vous médical (avec certificat si demandé), une fête religieuse propre à la famille (dans la limite d'une journée), une réunion familiale solennelle (mariage, enterrement) ou un empêchement résultant de difficultés de transport. Les simples vacances familiales, sorties ou loisirs ne sont pas des motifs valables.",
+    "source": "https://fr.wikipedia.org/wiki/Obligation_scolaire_en_France",
+    "variants": [
+      {
+        "optionA": "Un anniversaire entre amis",
+        "optionB": "Un rendez-vous médical",
+        "optionC": "Un départ en vacances anticipé",
+        "optionD": "Une sortie shopping",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Un week-end prolongé",
+        "optionB": "Une compétition de jeux vidéo",
+        "optionC": "Une réunion solennelle de famille (mariage, deuil)",
+        "optionD": "Une grasse matinée",
+        "correctAnswer": "C"
+      }
+    ]
+  },
+  {
+    "id": 2207,
+    "theme": "Vivre dans la société française",
+    "text": "Des parents ne respectent pas l'obligation d'instruction pour leurs enfants. Quelle sanction maximale risquent-ils ?",
+    "optionA": "Une amende de 100 €",
+    "optionB": "Aucune sanction",
+    "optionC": "Un avertissement",
+    "optionD": "6 mois de prison et 7 500 euros d'amende",
+    "correctAnswer": "D",
+    "explanation": "Les parents qui ne respectent pas l'obligation d'instruction de leurs enfants s'exposent à des sanctions pénales. Depuis la loi du 26 juillet 2019, l'instruction à domicile est soumise à des conditions strictes. Le non-respect de l'obligation d'instruction peut être puni d'une amende pouvant aller jusqu'à 7 500 euros et 6 mois d'emprisonnement.",
+    "source": "https://fr.wikipedia.org/wiki/Instruction_obligatoire_en_France"
+  }
+]

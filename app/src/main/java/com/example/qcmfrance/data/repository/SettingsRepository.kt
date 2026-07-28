@@ -5,6 +5,7 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import com.example.qcmfrance.data.model.ExamMode
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -24,6 +25,7 @@ class SettingsRepository @Inject constructor(
     private val THEME_KEY     = stringPreferencesKey("theme_mode")
     private val SOUND_KEY     = booleanPreferencesKey("sound_enabled")
     private val TEXT_SIZE_KEY = stringPreferencesKey("text_size_mode")
+    private val EXAM_MODE_KEY = stringPreferencesKey("exam_mode")
 
     val themeMode: Flow<ThemeMode> = context.settingsDataStore.data
         .catch { emit(androidx.datastore.preferences.core.emptyPreferences()) }
@@ -53,5 +55,14 @@ class SettingsRepository @Inject constructor(
 
     suspend fun setTextSizeMode(mode: TextSizeMode) {
         context.settingsDataStore.edit { prefs -> prefs[TEXT_SIZE_KEY] = mode.name }
+    }
+
+    /** QCM sélectionné sur l'accueil (naturalisation par défaut), persisté entre deux lancements. */
+    val examMode: Flow<ExamMode> = context.settingsDataStore.data
+        .catch { emit(androidx.datastore.preferences.core.emptyPreferences()) }
+        .map { prefs -> ExamMode.fromCode(prefs[EXAM_MODE_KEY]) }
+
+    suspend fun setExamMode(mode: ExamMode) {
+        context.settingsDataStore.edit { prefs -> prefs[EXAM_MODE_KEY] = mode.code }
     }
 }

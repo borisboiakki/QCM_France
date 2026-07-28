@@ -10,5 +10,7 @@ data class PausedQuiz(
     val answersJson: String,
     val currentIndex: Int,
     val remainingSeconds: Int,
-    val savedAt: Long = System.currentTimeMillis()
+    val savedAt: Long = System.currentTimeMillis(),
+    /** QCM de l'examen en pause : code d'[ExamMode]. Restauré tel quel à la reprise. */
+    val examMode: String = ExamMode.NATURALISATION.code
 )

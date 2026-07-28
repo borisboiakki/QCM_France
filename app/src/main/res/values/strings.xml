@@ -10,20 +10,22 @@
     <string name="result_passed">RÉUSSI</string>
     <string name="result_failed">ÉCHOUÉ</string>
 
+    <!-- Les trois QCM officiels (ExamMode) -->
+    <string name="mode_nat_label">Naturalisation</string>
+    <string name="mode_nat_short">Naturalisation</string>
+    <string name="mode_nat_desc">Naturalisation française (décret ou déclaration).</string>
+    <string name="mode_cr_label">Carte de résident</string>
+    <string name="mode_cr_short">Carte de résident</string>
+    <string name="mode_cr_desc">Titre de séjour de 10 ans (CR).</string>
+    <string name="mode_csp_label">Carte de séjour pluriannuelle</string>
+    <string name="mode_csp_short">Séjour pluriannuel</string>
+    <string name="mode_csp_desc">Titre de séjour de plusieurs années (CSP).</string>
+
     <!-- Accueil -->
-    <string name="home_subtitle">Préparation à l\'examen civique de naturalisation</string>
-    <string name="home_rule_questions_label">Nombre de questions</string>
-    <string name="home_rule_questions_value">40</string>
-    <string name="home_rule_pass_label">Seuil de réussite</string>
-    <string name="home_rule_pass_value" formatted="false">32 / 40 (80 %)</string>
-    <string name="home_rule_duration_label">Durée maximale</string>
-    <string name="home_rule_duration_value">45 minutes</string>
-    <string name="home_rule_format_label">Format</string>
-    <string name="home_rule_format_value">1 bonne réponse parmi 4</string>
-    <string name="home_rule_results_label">Résultats</string>
-    <string name="home_rule_results_value">Affichés à la fin uniquement</string>
-    <string name="home_start_exam">Commencer l\'examen</string>
-    <string name="home_resume_exam">Reprendre l\'examen</string>
+    <string name="home_subtitle">Préparation aux examens civiques (naturalisation, carte de résident, carte de séjour pluriannuelle)</string>
+    <string name="home_mode_title">Quel examen préparez-vous ?</string>
+    <string name="home_start_exam">Commencer l\'examen — %1$s</string>
+    <string name="home_resume_exam">Reprendre l\'examen — %1$s</string>
     <string name="home_training">S\'entraîner</string>
     <string name="home_history">Historique des examens</string>
     <string name="home_achievements">🏆 Succès</string>
@@ -36,7 +38,7 @@
 
     <!-- Ressources complémentaires -->
     <string name="resources_title">Ressources complémentaires</string>
-    <string name="resources_intro">Liens officiels pour approfondir votre préparation à l\'examen civique.</string>
+    <string name="resources_intro">Liens officiels pour approfondir votre préparation aux examens civiques.</string>
     <string name="resources_hint">Appuyez sur un lien pour l\'ouvrir dans votre navigateur.</string>
     <string name="resources_section_texts">Textes officiels</string>
     <string name="resources_section_exam">Examen civique et tests</string>
@@ -123,7 +125,7 @@
 
     <!-- Entraînement : choix du thème -->
     <string name="themes_title">S\'entraîner</string>
-    <string name="themes_intro">Choisissez un thème et parcourez toutes ses questions à votre rythme, avec correction immédiate. Votre progression est enregistrée automatiquement.</string>
+    <string name="themes_intro">Choisissez un examen puis un thème, et parcourez toutes ses questions à votre rythme, avec correction immédiate. Chaque examen a sa propre progression, enregistrée automatiquement.</string>
     <string name="themes_done">Terminé</string>
     <string name="themes_progress">%1$d / %2$d</string>
     <string name="training_official_sources_title">S\'entraîner avec les sources officielles</string>
@@ -146,8 +148,21 @@
     <!-- Aide -->
     <string name="help_title">Aide</string>
     <string name="help_about_title">À propos</string>
-    <string name="help_about_text">QCM France vous aide à préparer l\'examen civique de naturalisation française. L\'application propose deux modes complémentaires :\n\n• Mode examen : 40 questions tirées aléatoirement (28 questions de connaissances + 12 questions de mise en situation), 45 minutes au chronomètre, sans correction immédiate — comme dans les conditions officielles.\n\n• Mode S\'entraîner : parcourez toutes les questions d\'un thème, une par une, avec correction immédiate, explication et lien vers la source après chaque réponse confirmée.</string>
+    <string name="help_about_text">QCM France vous aide à préparer les examens civiques français : naturalisation, carte de résident (CR) et carte de séjour pluriannuelle (CSP). L\'application propose deux modes complémentaires :\n\n• Mode examen : 40 questions tirées aléatoirement dans l\'examen choisi (28 questions de connaissances + 12 questions de mise en situation), 45 minutes au chronomètre, sans correction immédiate — comme dans les conditions officielles.\n\n• Mode S\'entraîner : parcourez toutes les questions d\'un thème, une par une, avec correction immédiate, explication et lien vers la source après chaque réponse confirmée.</string>
     <string name="help_rules_title">Règles de l\'examen officiel</string>
+    <string name="help_rules_intro">Identiques pour les trois examens (naturalisation, carte de résident, carte de séjour pluriannuelle) — seule la liste de questions de connaissances change.</string>
+    <string name="help_rule_questions_label">Nombre de questions</string>
+    <string name="help_rule_questions_value">40</string>
+    <string name="help_rule_pass_label">Seuil de réussite</string>
+    <string name="help_rule_pass_value" formatted="false">32 / 40 (80 %)</string>
+    <string name="help_rule_duration_label">Durée maximale</string>
+    <string name="help_rule_duration_value">45 minutes</string>
+    <string name="help_rule_format_label">Format</string>
+    <string name="help_rule_format_value">1 bonne réponse parmi 4</string>
+    <string name="help_rule_results_label">Résultats</string>
+    <string name="help_rule_results_value">Affichés à la fin uniquement</string>
+    <string name="help_modes_title">Les trois examens couverts</string>
+    <string name="help_modes_intro">Choisissez sur l\'écran d\'accueil l\'examen que vous préparez : les questions tirées, l\'entraînement et les succès s\'y adaptent. Les questions de mise en situation et les fiches thématiques officielles sont communes aux trois.</string>
     <string name="help_themes_title">Thèmes couverts</string>
     <string name="help_theme_1">Principes et valeurs de la République</string>
     <string name="help_theme_2">Système institutionnel et politique</string>
@@ -171,7 +186,7 @@
     <string name="help_training_title">Mode S\'entraîner</string>
     <string name="help_training_intro">Un mode d\'apprentissage complémentaire à l\'examen, sans chronomètre et avec correction immédiate.</string>
     <string name="help_training_theme_title">Choix du thème</string>
-    <string name="help_training_theme_desc">Sélectionnez l\'un des 5 thèmes officiels. Une barre de progression indique combien de questions vous avez déjà vues dans ce thème.</string>
+    <string name="help_training_theme_desc">L\'écran « S\'entraîner » présente une section par examen (naturalisation, carte de résident, carte de séjour pluriannuelle), chacune avec ses 5 thèmes officiels. Une barre de progression indique combien de questions vous avez déjà vues dans ce thème, indépendamment pour chaque examen.</string>
     <string name="help_training_confirm_title">Confirmer pour révéler</string>
     <string name="help_training_confirm_desc">Choisissez une réponse — vous pouvez la modifier tant que vous n\'avez pas appuyé sur « Confirmer ». Une fois confirmée, la bonne réponse apparaît en vert et une mauvaise sélection en rouge.</string>
     <string name="help_training_source_title">Explication et source</string>
@@ -204,6 +219,8 @@
     <string name="help_settings_reset_achievements_title">Réinitialiser les succès</string>
     <string name="help_settings_reset_achievements_desc">Efface tous les succès débloqués et leur progression (action irréversible, avec confirmation).</string>
     <string name="help_link_general">Informations générales sur l\'examen civique</string>
+    <string name="help_link_questions_cr">Liste officielle des questions — carte de résident (CR)</string>
+    <string name="help_link_questions_csp">Liste officielle des questions — carte de séjour pluriannuelle (CSP)</string>
     <string name="help_link_quiz">Tests complémentaires en ligne (Ensemble en France)</string>
     <string name="help_link_factsheet">Fiche d\'information sur l\'examen</string>
     <string name="help_link_citizen_booklet">Livret du citoyen</string>
@@ -220,7 +237,9 @@
     <string name="achievements_title">Succès</string>
     <string name="achievements_header_count">%1$d / %2$d débloqués</string>
     <string name="achievements_category_exam">Examen</string>
-    <string name="achievements_category_training">Entraînement</string>
+    <string name="achievements_category_training">Entraînement — naturalisation</string>
+    <string name="achievements_category_training_cr">Entraînement — carte de résident</string>
+    <string name="achievements_category_training_csp">Entraînement — séjour pluriannuel</string>
     <string name="achievements_category_fiches">Fiches officielles</string>
     <string name="achievements_locked">Verrouillé</string>
     <string name="achievements_unlocked_on">Débloqué le %1$s</string>
@@ -235,7 +254,11 @@
     <string name="ach_exam_perfect_title">Sans-faute</string>
     <string name="ach_exam_perfect_desc">Obtenir un score parfait de 40/40 à un examen.</string>
     <string name="ach_exam_all_seen_title">Tour complet</string>
-    <string name="ach_exam_all_seen_desc">Voir passer toutes les questions de la base au moins une fois en examen.</string>
+    <string name="ach_exam_all_seen_desc">Voir passer toutes les questions de la naturalisation au moins une fois en examen.</string>
+    <string name="ach_exam_all_seen_cr_title">Tour complet — carte de résident</string>
+    <string name="ach_exam_all_seen_cr_desc">Voir passer toutes les questions de la carte de résident au moins une fois en examen.</string>
+    <string name="ach_exam_all_seen_csp_title">Tour complet — séjour pluriannuel</string>
+    <string name="ach_exam_all_seen_csp_desc">Voir passer toutes les questions de la carte de séjour pluriannuelle au moins une fois en examen.</string>
     <string name="ach_train_principes_title">Valeurs acquises</string>
     <string name="ach_train_principes_desc">Terminer l\'entraînement « Principes et valeurs de la République ».</string>
     <string name="ach_train_institutions_title">Rouages de l\'État</string>
@@ -247,7 +270,35 @@
     <string name="ach_train_societe_title">Bien vivre ensemble</string>
     <string name="ach_train_societe_desc">Terminer l\'entraînement « Vivre dans la société française ».</string>
     <string name="ach_train_all_title">Élève modèle</string>
-    <string name="ach_train_all_desc">Terminer l\'entraînement des 5 thèmes.</string>
+    <string name="ach_train_all_desc">Terminer l\'entraînement des 5 thèmes de la naturalisation.</string>
+
+    <!-- Succès d\'entraînement — carte de résident -->
+    <string name="ach_train_cr_principes_title">Résident et citoyen</string>
+    <string name="ach_train_cr_principes_desc">Terminer l\'entraînement « Principes et valeurs de la République » de la carte de résident.</string>
+    <string name="ach_train_cr_institutions_title">Institutions maîtrisées</string>
+    <string name="ach_train_cr_institutions_desc">Terminer l\'entraînement « Système institutionnel et politique » de la carte de résident.</string>
+    <string name="ach_train_cr_droits_title">Installé dans ses droits</string>
+    <string name="ach_train_cr_droits_desc">Terminer l\'entraînement « Droits et devoirs » de la carte de résident.</string>
+    <string name="ach_train_cr_histoire_title">Racines françaises</string>
+    <string name="ach_train_cr_histoire_desc">Terminer l\'entraînement « Histoire, géographie et culture » de la carte de résident.</string>
+    <string name="ach_train_cr_societe_title">Voisin exemplaire</string>
+    <string name="ach_train_cr_societe_desc">Terminer l\'entraînement « Vivre dans la société française » de la carte de résident.</string>
+    <string name="ach_train_cr_all_title">Prêt pour la carte de résident</string>
+    <string name="ach_train_cr_all_desc">Terminer l\'entraînement des 5 thèmes de la carte de résident.</string>
+
+    <!-- Succès d\'entraînement — carte de séjour pluriannuelle -->
+    <string name="ach_train_csp_principes_title">Premiers repères</string>
+    <string name="ach_train_csp_principes_desc">Terminer l\'entraînement « Principes et valeurs de la République » de la carte de séjour pluriannuelle.</string>
+    <string name="ach_train_csp_institutions_title">Qui fait quoi ?</string>
+    <string name="ach_train_csp_institutions_desc">Terminer l\'entraînement « Système institutionnel et politique » de la carte de séjour pluriannuelle.</string>
+    <string name="ach_train_csp_droits_title">Droits en poche</string>
+    <string name="ach_train_csp_droits_desc">Terminer l\'entraînement « Droits et devoirs » de la carte de séjour pluriannuelle.</string>
+    <string name="ach_train_csp_histoire_title">Découverte de la France</string>
+    <string name="ach_train_csp_histoire_desc">Terminer l\'entraînement « Histoire, géographie et culture » de la carte de séjour pluriannuelle.</string>
+    <string name="ach_train_csp_societe_title">Bien démarrer</string>
+    <string name="ach_train_csp_societe_desc">Terminer l\'entraînement « Vivre dans la société française » de la carte de séjour pluriannuelle.</string>
+    <string name="ach_train_csp_all_title">Prêt pour le séjour pluriannuel</string>
+    <string name="ach_train_csp_all_desc">Terminer l\'entraînement des 5 thèmes de la carte de séjour pluriannuelle.</string>
     <string name="ach_fiche_first_read_title">Première lecture</string>
     <string name="ach_fiche_first_read_desc">Consulter votre première fiche thématique officielle.</string>
     <string name="ach_fiche_30_read_title">Lecteur assidu</string>
@@ -261,6 +312,7 @@
     <string name="export_full_header">QCM France — Résultats du %1$s</string>
     <string name="export_single_header">QCM France — Résultat du %1$s</string>
     <string name="export_score_line">Score : %1$d/%2$d (%3$d%%) — %4$s</string>
+    <string name="export_mode_line">Examen : %1$s</string>
     <string name="export_duration_line">Durée : %1$s</string>
     <string name="export_details_label">Détail des réponses :</string>
     <string name="export_your_answer">Votre réponse : %1$s</string>
