@@ -75,8 +75,10 @@ class QuestionRepository @Inject constructor(
          * culture » de la carte de résident (thème complet : 49/49).
          * v6 = lot 2 : rédaction des 35 questions manquantes du thème « Système institutionnel et
          * politique » de la carte de résident (thème complet : 50/50).
+         * v7 = lot 3 : rédaction des 30 questions manquantes du thème « Principes et valeurs de la
+         * République » de la carte de résident (thème complet : 40/40).
          */
-        const val CONTENT_VERSION = 6
+        const val CONTENT_VERSION = 7
         private const val CONTENT_PREFS = "question_content"
         private const val KEY_CONTENT_VERSION = "content_version"
     }

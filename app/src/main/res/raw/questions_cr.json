@@ -1,5 +1,77 @@
 [
   {
+    "id": 2001,
+    "theme": "Principes et valeurs de la République",
+    "text": "Parmi les propositions suivantes, laquelle constitue une participation citoyenne ?",
+    "optionA": "Voter aux élections ou s'engager dans une association",
+    "optionB": "Refuser de payer ses impôts pour protester",
+    "optionC": "Empêcher les autres de s'exprimer",
+    "optionD": "Décider soi-même des lois à appliquer",
+    "correctAnswer": "A",
+    "explanation": "La participation citoyenne consiste à prendre part à la vie de la société dans le respect des règles : voter, se porter candidat, adhérer à une association ou à un syndicat, participer à un conseil de quartier ou à une réunion publique.",
+    "source": "https://fr.wikipedia.org/wiki/Citoyennet%C3%A9"
+  },
+  {
+    "id": 2002,
+    "theme": "Principes et valeurs de la République",
+    "text": "Que garantit la liberté d’expression ?",
+    "optionA": "Le droit de dire absolument tout, sans aucune limite",
+    "optionB": "Le droit d'exprimer ses opinions, dans les limites fixées par la loi",
+    "optionC": "Le droit de s'exprimer uniquement en privé",
+    "optionD": "Le droit de s'exprimer réservé aux journalistes",
+    "correctAnswer": "B",
+    "explanation": "La liberté d'expression, garantie par l'article 11 de la Déclaration de 1789, permet à chacun de dire et d'écrire ce qu'il pense. Elle n'est pas absolue : la loi punit notamment l'injure, la diffamation, l'incitation à la haine et l'apologie du terrorisme.",
+    "source": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789"
+  },
+  {
+    "id": 2003,
+    "theme": "Principes et valeurs de la République",
+    "text": "À quoi sert un titre de séjour ?",
+    "optionA": "À prouver sa nationalité française",
+    "optionB": "À autoriser un étranger à résider régulièrement en France",
+    "optionC": "À remplacer le permis de conduire",
+    "optionD": "À obtenir automatiquement un emploi public",
+    "correctAnswer": "B",
+    "explanation": "Le titre de séjour est le document qui autorise une personne de nationalité étrangère à séjourner régulièrement en France. Selon sa catégorie (carte de séjour pluriannuelle, carte de résident…), il ouvre des droits différents, notamment en matière de travail.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/N110"
+  },
+  {
+    "id": 2004,
+    "theme": "Principes et valeurs de la République",
+    "text": "La liberté de circulation permet à toute personne de :",
+    "optionA": "Se déplacer librement sur le territoire, dans le respect de la loi",
+    "optionB": "Entrer dans les propriétés privées sans autorisation",
+    "optionC": "Circuler sans jamais présenter de document d'identité",
+    "optionD": "Ignorer les règles du code de la route",
+    "correctAnswer": "A",
+    "explanation": "La liberté d'aller et venir permet de se déplacer librement sur le territoire, d'y choisir son lieu de résidence et de quitter le pays. Elle s'exerce dans le respect de la loi : elle ne dispense ni des règles de circulation, ni du respect de la propriété privée.",
+    "source": "https://fr.wikipedia.org/wiki/Libert%C3%A9_d%27aller_et_venir"
+  },
+  {
+    "id": 2005,
+    "theme": "Principes et valeurs de la République",
+    "text": "Sur quel site internet peut-on retrouver le symbole de la République française ?",
+    "optionA": "Sur les réseaux sociaux privés uniquement",
+    "optionB": "Sur les sites officiels de l'État, en .gouv.fr",
+    "optionC": "Sur les sites de vente en ligne",
+    "optionD": "Sur les sites des partis politiques uniquement",
+    "correctAnswer": "B",
+    "explanation": "Les symboles de la République — Marianne, le drapeau tricolore, la devise « Liberté, Égalité, Fraternité » — figurent sur les sites officiels de l'État, dont l'adresse se termine par .gouv.fr, ainsi que sur les documents administratifs.",
+    "source": "https://www.elysee.fr/la-presidence/les-symboles-de-la-republique-francaise"
+  },
+  {
+    "id": 2006,
+    "theme": "Principes et valeurs de la République",
+    "text": "Complétez ces paroles de la Marseillaise : \"Aux armes […] ! Formez vos bataillons\"",
+    "optionA": "soldats",
+    "optionB": "citoyens",
+    "optionC": "Français",
+    "optionD": "camarades",
+    "correctAnswer": "B",
+    "explanation": "Le refrain de la Marseillaise est : « Aux armes, citoyens ! Formez vos bataillons ! Marchons, marchons, qu'un sang impur abreuve nos sillons ! ». Écrit par Rouget de Lisle en 1792, ce chant est l'hymne national français depuis 1879.",
+    "source": "https://fr.wikipedia.org/wiki/La_Marseillaise"
+  },
+  {
     "id": 2007,
     "theme": "Principes et valeurs de la République",
     "text": "Complétez les paroles de la Marseillaise : \"Allons enfants de la patrie […]\"",
@@ -10,6 +82,78 @@
     "correctAnswer": "A",
     "explanation": "La Marseillaise débute par « Allons enfants de la Patrie, le jour de gloire est arrivé ! ». Composée en 1792 par Rouget de Lisle, elle est devenue l'hymne national français en 1795 puis officiellement réaffirmée par la Constitution de 1958. Ces premiers mots appellent les citoyens à défendre la nation face aux menaces extérieures.",
     "source": "https://fr.wikipedia.org/wiki/La_Marseillaise"
+  },
+  {
+    "id": 2008,
+    "theme": "Principes et valeurs de la République",
+    "text": "En application de la liberté individuelle, quelle proposition est correcte ? Une personne peut :",
+    "optionA": "Choisir librement son conjoint, sa religion et son mode de vie, dans le respect de la loi",
+    "optionB": "Imposer sa religion aux membres de sa famille",
+    "optionC": "Empêcher son conjoint de travailler",
+    "optionD": "Décider de ne pas scolariser ses enfants",
+    "correctAnswer": "A",
+    "explanation": "La liberté individuelle garantit à chacun de disposer de lui-même : choisir son conjoint, sa religion ou son absence de religion, son travail et son mode de vie. Elle s'arrête là où commence la liberté d'autrui et où la loi fixe des obligations, comme l'instruction des enfants.",
+    "source": "https://fr.wikipedia.org/wiki/Libert%C3%A9s_fondamentales_en_France"
+  },
+  {
+    "id": 2009,
+    "theme": "Principes et valeurs de la République",
+    "text": "Concernant la pratique de la religion, quelle proposition est correcte ?",
+    "optionA": "Chacun est libre de pratiquer ou non une religion, dans le respect de l'ordre public",
+    "optionB": "Seules les religions reconnues par l'État sont autorisées",
+    "optionC": "La pratique religieuse est interdite en France",
+    "optionD": "Le maire décide des religions autorisées dans sa commune",
+    "correctAnswer": "A",
+    "explanation": "La loi de 1905 garantit la liberté de conscience et le libre exercice des cultes. Chacun peut croire, changer de croyance ou ne pas croire, et pratiquer sa religion dans le respect de l'ordre public. L'État ne reconnaît ni ne subventionne aucun culte.",
+    "source": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000508749/"
+  },
+  {
+    "id": 2010,
+    "theme": "Principes et valeurs de la République",
+    "text": "En tant que parent, peut-on refuser que son enfant participe aux cours de sport à l'école car ils sont mixtes ?",
+    "optionA": "Oui, en signant une décharge",
+    "optionB": "Oui, si l'on invoque un motif religieux",
+    "optionC": "Non : l'éducation physique et sportive est obligatoire, et la mixité est la règle",
+    "optionD": "Oui, mais uniquement au collège",
+    "correctAnswer": "C",
+    "explanation": "L'éducation physique et sportive fait partie des enseignements obligatoires, et la mixité est un principe de l'école publique. Seule une dispense médicale, délivrée par un médecin, peut exempter un élève. Aucun motif religieux ne le permet.",
+    "source": "https://www.education.gouv.fr/"
+  },
+  {
+    "id": 2011,
+    "theme": "Principes et valeurs de la République",
+    "text": "Quelle est la devise de la France ?",
+    "optionA": "Liberté, Égalité, Fraternité",
+    "optionB": "Travail, Famille, Patrie",
+    "optionC": "Union, Force, Vertu",
+    "optionD": "Honneur et Patrie",
+    "correctAnswer": "A",
+    "explanation": "La devise de la République française est « Liberté, Égalité, Fraternité ». Héritée de la Révolution française, elle est inscrite à l'article 2 de la Constitution et figure sur les frontons des bâtiments publics.",
+    "source": "https://www.elysee.fr/la-presidence/les-symboles-de-la-republique-francaise"
+  },
+  {
+    "id": 2012,
+    "theme": "Principes et valeurs de la République",
+    "text": "La répudiation de sa femme est :",
+    "optionA": "Autorisée si les deux époux sont d'accord",
+    "optionB": "Interdite en France : seul le divorce, encadré par la loi, met fin au mariage",
+    "optionC": "Autorisée après dix ans de mariage",
+    "optionD": "Autorisée si elle est prononcée devant témoins",
+    "correctAnswer": "B",
+    "explanation": "La répudiation, acte par lequel un mari renverrait unilatéralement son épouse, n'a aucune valeur en France : elle est contraire au principe d'égalité entre les femmes et les hommes. Seul le divorce, prononcé selon les procédures prévues par la loi, met fin au mariage.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/N142"
+  },
+  {
+    "id": 2013,
+    "theme": "Principes et valeurs de la République",
+    "text": "Les impôts permettent de financer les dépenses publiques. Quelle proposition est correcte ?",
+    "optionA": "Seuls les fonctionnaires paient des impôts",
+    "optionB": "Payer ses impôts est facultatif",
+    "optionC": "Chacun contribue selon ses facultés, et les impôts financent les services publics",
+    "optionD": "Les impôts financent uniquement la défense nationale",
+    "correctAnswer": "C",
+    "explanation": "L'article 13 de la Déclaration de 1789 prévoit une contribution commune « également répartie entre tous les citoyens, en raison de leurs facultés ». Les impôts financent l'école, la santé, la justice, la police, les transports et l'ensemble des services publics.",
+    "source": "https://www.impots.gouv.fr/"
   },
   {
     "id": 2014,
@@ -24,6 +168,30 @@
     "source": "https://fr.wikipedia.org/wiki/Drapeau_de_la_France"
   },
   {
+    "id": 2015,
+    "theme": "Principes et valeurs de la République",
+    "text": "Que fait l’État pour lutter contre les discriminations ?",
+    "optionA": "Rien : il s'agit d'affaires privées",
+    "optionB": "Il les interdit par la loi, les sanctionne pénalement et permet la saisine du Défenseur des droits",
+    "optionC": "Il se contente de recommandations sans valeur juridique",
+    "optionD": "Il autorise les discriminations à l'embauche",
+    "correctAnswer": "B",
+    "explanation": "La loi interdit et punit toute discrimination fondée notamment sur l'origine, le sexe, l'âge, le handicap, la religion ou l'orientation sexuelle. Les victimes peuvent porter plainte et saisir gratuitement le Défenseur des droits, autorité indépendante.",
+    "source": "https://www.defenseurdesdroits.fr/"
+  },
+  {
+    "id": 2016,
+    "theme": "Principes et valeurs de la République",
+    "text": "Que représente Marianne ?",
+    "optionA": "Une reine de France",
+    "optionB": "La République française et ses valeurs",
+    "optionC": "La patronne des armées",
+    "optionD": "La première présidente de la République",
+    "correctAnswer": "B",
+    "explanation": "Marianne est la figure allégorique de la République française. Coiffée du bonnet phrygien, symbole de liberté, elle incarne la République et ses valeurs. Son buste est présent dans les mairies et son effigie figure sur les timbres et les pièces.",
+    "source": "https://www.elysee.fr/la-presidence/les-symboles-de-la-republique-francaise"
+  },
+  {
     "id": 2017,
     "theme": "Principes et valeurs de la République",
     "text": "Qu'est-ce que la liberté d'association ?",
@@ -34,6 +202,30 @@
     "correctAnswer": "B",
     "explanation": "La liberté d'association, régie par la loi du 1er juillet 1901, est le droit de se regrouper librement pour poursuivre un objectif commun sans but lucratif. Il suffit de déposer une déclaration en préfecture : aucune autorisation préalable n'est nécessaire. Ce droit fondamental est distinct du droit de vote, du droit de manifester ou du droit de porter une arme.",
     "source": "https://fr.wikipedia.org/wiki/Loi_du_1er_juillet_1901_relative_au_contrat_d%27association"
+  },
+  {
+    "id": 2018,
+    "theme": "Principes et valeurs de la République",
+    "text": "Qu'est-ce que la liberté ?",
+    "optionA": "Le droit de faire tout ce que l'on veut, sans limite",
+    "optionB": "Le droit de faire tout ce qui ne nuit pas à autrui, dans les limites fixées par la loi",
+    "optionC": "Un privilège réservé à certains citoyens",
+    "optionD": "Le droit de désobéir aux lois que l'on désapprouve",
+    "correctAnswer": "B",
+    "explanation": "Selon l'article 4 de la Déclaration des droits de l'homme et du citoyen de 1789, « la liberté consiste à pouvoir faire tout ce qui ne nuit pas à autrui ». Ses bornes sont fixées par la loi, égale pour tous.",
+    "source": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789"
+  },
+  {
+    "id": 2019,
+    "theme": "Principes et valeurs de la République",
+    "text": "Qu'est-ce que la Marseillaise ?",
+    "optionA": "L'hymne national français",
+    "optionB": "La devise de la République",
+    "optionC": "Une région française",
+    "optionD": "Le nom du drapeau français",
+    "correctAnswer": "A",
+    "explanation": "La Marseillaise est l'hymne national français. Composée par Rouget de Lisle à Strasbourg en 1792, elle doit son nom aux volontaires marseillais qui la chantaient en arrivant à Paris. Elle est hymne national depuis 1879.",
+    "source": "https://fr.wikipedia.org/wiki/La_Marseillaise"
   },
   {
     "id": 2020,
@@ -48,6 +240,18 @@
     "source": "https://fr.wikipedia.org/wiki/Marianne_(symbole)"
   },
   {
+    "id": 2021,
+    "theme": "Principes et valeurs de la République",
+    "text": "Un employeur refuse d’embaucher des femmes dans son entreprise. Que dit la loi ?",
+    "optionA": "C'est autorisé si l'employeur invoque des raisons d'organisation",
+    "optionB": "C'est une discrimination interdite et punie par la loi",
+    "optionC": "C'est autorisé dans les entreprises de moins de dix salariés",
+    "optionD": "C'est autorisé si les clients le demandent",
+    "correctAnswer": "B",
+    "explanation": "Refuser d'embaucher une personne en raison de son sexe est une discrimination interdite par le code du travail et le code pénal, punie de 3 ans d'emprisonnement et 45 000 euros d'amende. La victime peut saisir le conseil de prud'hommes ou le Défenseur des droits.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1642"
+  },
+  {
     "id": 2022,
     "theme": "Principes et valeurs de la République",
     "text": "Une des valeurs de la devise républicaine est l'égalité. Qu'est-ce que cela signifie ?",
@@ -60,6 +264,66 @@
     "source": "https://fr.wikipedia.org/wiki/%C3%89galit%C3%A9_devant_la_loi"
   },
   {
+    "id": 2023,
+    "theme": "Principes et valeurs de la République",
+    "text": "Quelle est la place de la langue française dans la République ?",
+    "optionA": "C'est la langue de la République, selon l'article 2 de la Constitution",
+    "optionB": "C'est une langue parmi d'autres, sans statut particulier",
+    "optionC": "Elle n'est obligatoire que dans les écoles privées",
+    "optionD": "Elle est réservée aux documents diplomatiques",
+    "correctAnswer": "A",
+    "explanation": "L'article 2 de la Constitution dispose que « la langue de la République est le français ». Le français est la langue de l'administration, de la justice, de l'école et des services publics. Les langues régionales appartiennent au patrimoine de la France.",
+    "source": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000571356/"
+  },
+  {
+    "id": 2024,
+    "theme": "Principes et valeurs de la République",
+    "text": "Quels sont des symboles officiels de la République française ?",
+    "optionA": "Le drapeau tricolore, la Marseillaise et la devise « Liberté, Égalité, Fraternité »",
+    "optionB": "La couronne et le sceptre",
+    "optionC": "L'aigle impérial et la fleur de lys",
+    "optionD": "Le drapeau bleu à douze étoiles",
+    "correctAnswer": "A",
+    "explanation": "Les symboles de la République française sont le drapeau tricolore bleu-blanc-rouge, l'hymne national (la Marseillaise), la devise « Liberté, Égalité, Fraternité », Marianne, le 14 Juillet et le coq. Le drapeau bleu à douze étoiles est celui de l'Union européenne.",
+    "source": "https://www.elysee.fr/la-presidence/les-symboles-de-la-republique-francaise"
+  },
+  {
+    "id": 2025,
+    "theme": "Principes et valeurs de la République",
+    "text": "A-t-on le droit d'insulter publiquement quelqu’un parce qu’il est différent (handicap, apparence physique, sexe…) ?",
+    "optionA": "Oui, au nom de la liberté d'expression",
+    "optionB": "Oui, si c'est sur internet",
+    "optionC": "Non : l'injure publique à caractère discriminatoire est un délit puni par la loi",
+    "optionD": "Oui, si la personne ne porte pas plainte",
+    "correctAnswer": "C",
+    "explanation": "L'injure publique visant une personne en raison de son handicap, de son sexe, de son origine, de sa religion ou de son orientation sexuelle est un délit puni d'un an d'emprisonnement et 45 000 euros d'amende. Internet et les réseaux sociaux ne sont pas des zones de non-droit.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F32079"
+  },
+  {
+    "id": 2026,
+    "theme": "Principes et valeurs de la République",
+    "text": "Le régime de la France est :",
+    "optionA": "Une monarchie",
+    "optionB": "Une république",
+    "optionC": "Un empire",
+    "optionD": "Une théocratie",
+    "correctAnswer": "B",
+    "explanation": "La France est une République : le pouvoir n'appartient ni à un roi ni à une autorité religieuse, mais au peuple, qui l'exerce par ses représentants élus et par la voie du référendum. C'est la Ve République depuis 1958.",
+    "source": "https://fr.wikipedia.org/wiki/Cinqui%C3%A8me_R%C3%A9publique_(France)"
+  },
+  {
+    "id": 2027,
+    "theme": "Principes et valeurs de la République",
+    "text": "Pourquoi le principe de laïcité doit-il être respecté à l'école ?",
+    "optionA": "Pour interdire toute croyance aux élèves",
+    "optionB": "Pour favoriser la religion majoritaire",
+    "optionC": "Pour que chaque élève puisse apprendre librement, à l'abri de toute pression religieuse",
+    "optionD": "Pour réduire le nombre d'élèves par classe",
+    "correctAnswer": "C",
+    "explanation": "La laïcité à l'école protège la liberté de conscience de chaque élève et garantit l'égalité entre tous, quelles que soient leurs convictions. Elle met les élèves à l'abri du prosélytisme et permet un enseignement fondé sur le savoir et l'esprit critique.",
+    "source": "https://www.education.gouv.fr/"
+  },
+  {
     "id": 2028,
     "theme": "Principes et valeurs de la République",
     "text": "En quelle année la loi de séparation des Églises et de l'Etat a-t-elle été votée ?",
@@ -70,6 +334,42 @@
     "correctAnswer": "B",
     "explanation": "La loi du 9 décembre 1905 concernant la séparation des Églises et de l'État a été votée sous la IIIe République. Elle établit le cadre de la laïcité française : l'État n'intervient plus dans les affaires religieuses et les Églises sont libres de s'organiser sans ingérence de l'État. Elle garantit aussi la liberté de conscience et le libre exercice du culte.",
     "source": "https://fr.wikipedia.org/wiki/Loi_du_9_d%C3%A9cembre_1905_concernant_la_s%C3%A9paration_des_%C3%89glises_et_de_l%27%C3%89tat"
+  },
+  {
+    "id": 2029,
+    "theme": "Principes et valeurs de la République",
+    "text": "Une personne a-t-elle le droit de ne pas croire en une religion ?",
+    "optionA": "Oui : la liberté de conscience comprend le droit de ne croire en aucune religion",
+    "optionB": "Non, chacun doit déclarer une religion",
+    "optionC": "Oui, mais seulement si elle en informe la mairie",
+    "optionD": "Non, sauf autorisation d'un ministre du culte",
+    "correctAnswer": "A",
+    "explanation": "La liberté de conscience, garantie par l'article 1er de la loi de 1905, comprend le droit de croire, de ne pas croire et de changer de conviction. Personne ne peut être contraint d'adhérer à une religion ni d'en déclarer une.",
+    "source": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000508749/"
+  },
+  {
+    "id": 2030,
+    "theme": "Principes et valeurs de la République",
+    "text": "Quel droit est garanti par la laïcité ?",
+    "optionA": "Le droit de ne pas payer d'impôts",
+    "optionB": "La liberté de conscience : croire, ne pas croire ou changer de conviction",
+    "optionC": "Le droit d'imposer sa religion aux autres",
+    "optionD": "Le droit d'obtenir des jours fériés supplémentaires",
+    "correctAnswer": "B",
+    "explanation": "La laïcité garantit la liberté de conscience : chacun est libre de croire, de ne pas croire ou de changer de religion. Elle assure aussi l'égalité de tous devant le service public et la neutralité de l'État vis-à-vis des cultes.",
+    "source": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000508749/"
+  },
+  {
+    "id": 2031,
+    "theme": "Principes et valeurs de la République",
+    "text": "À l'école publique, qui peut porter des signes religieux très visibles ?",
+    "optionA": "Les élèves uniquement",
+    "optionB": "Les enseignants uniquement",
+    "optionC": "Personne : c'est interdit aux élèves comme aux personnels",
+    "optionD": "Toute personne, sans restriction",
+    "correctAnswer": "C",
+    "explanation": "La loi du 15 mars 2004 interdit aux élèves des écoles, collèges et lycées publics le port de signes religieux ostensibles. Les personnels, en tant qu'agents publics, sont eux tenus à une stricte neutralité religieuse dans l'exercice de leurs fonctions.",
+    "source": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000417977/"
   },
   {
     "id": 2032,
@@ -112,6 +412,30 @@
     ]
   },
   {
+    "id": 2034,
+    "theme": "Principes et valeurs de la République",
+    "text": "Qui doit respecter le principe de neutralité religieuse dans une préfecture ?",
+    "optionA": "Les usagers venant faire une démarche",
+    "optionB": "Les agents publics qui y travaillent",
+    "optionC": "Personne : la neutralité ne s'applique qu'à l'école",
+    "optionD": "Uniquement le préfet",
+    "correctAnswer": "B",
+    "explanation": "Le principe de neutralité s'impose aux agents publics, quel que soit le service : ils ne doivent manifester ni leurs convictions religieuses ni leurs opinions politiques dans l'exercice de leurs fonctions. Les usagers, eux, restent libres de leur tenue, dans le respect de l'ordre public.",
+    "source": "https://www.fonction-publique.gouv.fr/"
+  },
+  {
+    "id": 2035,
+    "theme": "Principes et valeurs de la République",
+    "text": "La laïcité impose-t-elle aux agents publics d'être neutres vis-à-vis des usagers ?",
+    "optionA": "Oui : ils doivent traiter tous les usagers de la même façon, sans manifester leurs convictions",
+    "optionB": "Non, ils peuvent afficher librement leurs convictions religieuses au travail",
+    "optionC": "Oui, mais seulement dans les écoles",
+    "optionD": "Non, la neutralité ne concerne que les élus",
+    "correctAnswer": "A",
+    "explanation": "La neutralité est une obligation pour tout agent public : il doit traiter chaque usager de manière égale, sans distinction d'origine, de sexe ou de religion, et ne peut manifester ses propres convictions dans l'exercice de ses fonctions.",
+    "source": "https://www.fonction-publique.gouv.fr/"
+  },
+  {
     "id": 2036,
     "theme": "Principes et valeurs de la République",
     "text": "Que garantit le principe de laïcité ?",
@@ -122,6 +446,42 @@
     "correctAnswer": "C",
     "explanation": "Le principe de laïcité, inscrit à l'article 1er de la Constitution et fondé sur la loi de 1905, garantit deux choses : la neutralité de l'État vis-à-vis de toutes les religions, et la liberté de conscience de chaque citoyen. L'État ne favorise ni ne combat aucune religion. Chacun est libre de croire, de pratiquer ou de ne pas avoir de religion.",
     "source": "https://fr.wikipedia.org/wiki/La%C3%AFcit%C3%A9_en_France"
+  },
+  {
+    "id": 2037,
+    "theme": "Principes et valeurs de la République",
+    "text": "A-t-on le droit de changer de religion ?",
+    "optionA": "Oui : la liberté de conscience inclut le droit de changer de religion",
+    "optionB": "Non, c'est interdit par la loi",
+    "optionC": "Oui, une seule fois dans sa vie",
+    "optionD": "Oui, avec l'autorisation de sa famille",
+    "correctAnswer": "A",
+    "explanation": "La liberté de conscience garantit à chacun le droit de choisir sa religion, d'en changer ou de n'en avoir aucune. Nul ne peut être contraint dans ses convictions, ni par l'État, ni par sa famille, ni par une communauté.",
+    "source": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000508749/"
+  },
+  {
+    "id": 2038,
+    "theme": "Principes et valeurs de la République",
+    "text": "Que représente la laïcité ?",
+    "optionA": "L'interdiction de toute religion en France",
+    "optionB": "La séparation des Églises et de l'État, la neutralité de l'État et la liberté de conscience",
+    "optionC": "La reconnaissance d'une religion officielle",
+    "optionD": "L'obligation pour chacun de déclarer sa religion",
+    "correctAnswer": "B",
+    "explanation": "La laïcité repose sur trois principes : la séparation des Églises et de l'État (loi de 1905), la neutralité de l'État et de ses agents, et la garantie de la liberté de conscience. Elle n'est pas hostile aux religions : elle en assure la coexistence pacifique.",
+    "source": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000508749/"
+  },
+  {
+    "id": 2039,
+    "theme": "Principes et valeurs de la République",
+    "text": "Qu'est ce qui est interdit par la Charte de la laïcité à l'école ?",
+    "optionA": "Toute discussion sur les religions en cours d'histoire",
+    "optionB": "Le prosélytisme et la contestation d'un enseignement au nom de convictions religieuses",
+    "optionC": "L'inscription des élèves de confession religieuse",
+    "optionD": "L'organisation de sorties scolaires",
+    "correctAnswer": "B",
+    "explanation": "La Charte de la laïcité à l'école, affichée dans tous les établissements publics depuis 2013, interdit le prosélytisme et rappelle qu'aucun élève ne peut invoquer ses convictions religieuses pour contester un enseignement ou refuser de se conformer aux règles de l'école.",
+    "source": "https://www.education.gouv.fr/"
   },
   {
     "id": 2040,
