@@ -1,5 +1,29 @@
 [
   {
+    "id": 3005,
+    "theme": "Principes et valeurs de la République",
+    "text": "A-t-on le droit d'insulter publiquement quelqu’un parce qu’il est différent (handicap, apparence physique, sexe…) ?",
+    "optionA": "Oui, au nom de la liberté d'expression",
+    "optionB": "Oui, si c'est sur internet",
+    "optionC": "Non : l'injure publique à caractère discriminatoire est un délit puni par la loi",
+    "optionD": "Oui, si la personne ne porte pas plainte",
+    "correctAnswer": "C",
+    "explanation": "L'injure publique visant une personne en raison de son handicap, de son sexe, de son origine, de sa religion ou de son orientation sexuelle est un délit puni d'un an d'emprisonnement et 45 000 euros d'amende. Internet et les réseaux sociaux ne sont pas des zones de non-droit.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F32079"
+  },
+  {
+    "id": 3008,
+    "theme": "Principes et valeurs de la République",
+    "text": "Le régime de la France est :",
+    "optionA": "Une monarchie",
+    "optionB": "Une république",
+    "optionC": "Un empire",
+    "optionD": "Une théocratie",
+    "correctAnswer": "B",
+    "explanation": "La France est une République : le pouvoir n'appartient ni à un roi ni à une autorité religieuse, mais au peuple, qui l'exerce par ses représentants élus et par la voie du référendum. C'est la Ve République depuis 1958.",
+    "source": "https://fr.wikipedia.org/wiki/Cinqui%C3%A8me_R%C3%A9publique_(France)"
+  },
+  {
     "id": 3010,
     "theme": "Principes et valeurs de la République",
     "text": "Où peut-on voir la devise de la République ?",
@@ -28,6 +52,18 @@
     ]
   },
   {
+    "id": 3011,
+    "theme": "Principes et valeurs de la République",
+    "text": "Quels sont des symboles officiels de la République française ?",
+    "optionA": "Le drapeau tricolore, la Marseillaise et la devise « Liberté, Égalité, Fraternité »",
+    "optionB": "La couronne et le sceptre",
+    "optionC": "L'aigle impérial et la fleur de lys",
+    "optionD": "Le drapeau bleu à douze étoiles",
+    "correctAnswer": "A",
+    "explanation": "Les symboles de la République française sont le drapeau tricolore bleu-blanc-rouge, l'hymne national (la Marseillaise), la devise « Liberté, Égalité, Fraternité », Marianne, le 14 Juillet et le coq. Le drapeau bleu à douze étoiles est celui de l'Union européenne.",
+    "source": "https://www.elysee.fr/la-presidence/les-symboles-de-la-republique-francaise"
+  },
+  {
     "id": 3014,
     "theme": "Principes et valeurs de la République",
     "text": "Que signifie le mot \"fraternité\" dans la devise française ?",
@@ -52,6 +88,30 @@
     "source": "https://fr.wikipedia.org/wiki/Libert%C3%A9%2C_%C3%89galit%C3%A9%2C_Fraternit%C3%A9"
   },
   {
+    "id": 3022,
+    "theme": "Principes et valeurs de la République",
+    "text": "Quelle est la place de la langue française dans la République ?",
+    "optionA": "C'est la langue de la République, selon l'article 2 de la Constitution",
+    "optionB": "C'est une langue parmi d'autres, sans statut particulier",
+    "optionC": "Elle n'est obligatoire que dans les écoles privées",
+    "optionD": "Elle est réservée aux documents diplomatiques",
+    "correctAnswer": "A",
+    "explanation": "L'article 2 de la Constitution dispose que « la langue de la République est le français ». Le français est la langue de l'administration, de la justice, de l'école et des services publics. Les langues régionales appartiennent au patrimoine de la France.",
+    "source": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000571356/"
+  },
+  {
+    "id": 3026,
+    "theme": "Principes et valeurs de la République",
+    "text": "Qu'est-ce que la Marseillaise ?",
+    "optionA": "L'hymne national français",
+    "optionB": "La devise de la République",
+    "optionC": "Une région française",
+    "optionD": "Le nom du drapeau français",
+    "correctAnswer": "A",
+    "explanation": "La Marseillaise est l'hymne national français. Composée par Rouget de Lisle à Strasbourg en 1792, elle doit son nom aux volontaires marseillais qui la chantaient en arrivant à Paris. Elle est hymne national depuis 1879.",
+    "source": "https://fr.wikipedia.org/wiki/La_Marseillaise"
+  },
+  {
     "id": 3031,
     "theme": "Principes et valeurs de la République",
     "text": "En quelle année la loi de séparation des Églises et de l'État a-t-elle été votée ?",
@@ -62,6 +122,30 @@
     "correctAnswer": "B",
     "explanation": "La loi du 9 décembre 1905 concernant la séparation des Églises et de l'État a été votée sous la IIIe République. Elle établit le cadre de la laïcité française : l'État n'intervient plus dans les affaires religieuses et les Églises sont libres de s'organiser sans ingérence de l'État. Elle garantit aussi la liberté de conscience et le libre exercice du culte.",
     "source": "https://fr.wikipedia.org/wiki/Loi_du_9_d%C3%A9cembre_1905_concernant_la_s%C3%A9paration_des_%C3%89glises_et_de_l%27%C3%89tat"
+  },
+  {
+    "id": 3033,
+    "theme": "Principes et valeurs de la République",
+    "text": "Quel droit est garanti par la laïcité ?",
+    "optionA": "Le droit de ne pas payer d'impôts",
+    "optionB": "La liberté de conscience : croire, ne pas croire ou changer de conviction",
+    "optionC": "Le droit d'imposer sa religion aux autres",
+    "optionD": "Le droit d'obtenir des jours fériés supplémentaires",
+    "correctAnswer": "B",
+    "explanation": "La laïcité garantit la liberté de conscience : chacun est libre de croire, de ne pas croire ou de changer de religion. Elle assure aussi l'égalité de tous devant le service public et la neutralité de l'État vis-à-vis des cultes.",
+    "source": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000508749/"
+  },
+  {
+    "id": 3034,
+    "theme": "Principes et valeurs de la République",
+    "text": "Pourquoi le principe de laïcité doit-il être respecté à l'école ?",
+    "optionA": "Pour interdire toute croyance aux élèves",
+    "optionB": "Pour favoriser la religion majoritaire",
+    "optionC": "Pour que chaque élève puisse apprendre librement, à l'abri de toute pression religieuse",
+    "optionD": "Pour réduire le nombre d'élèves par classe",
+    "correctAnswer": "C",
+    "explanation": "La laïcité à l'école protège la liberté de conscience de chaque élève et garantit l'égalité entre tous, quelles que soient leurs convictions. Elle met les élèves à l'abri du prosélytisme et permet un enseignement fondé sur le savoir et l'esprit critique.",
+    "source": "https://www.education.gouv.fr/"
   },
   {
     "id": 3035,
@@ -76,6 +160,66 @@
     "source": "https://fr.wikipedia.org/wiki/La%C3%AFcit%C3%A9_en_France"
   },
   {
+    "id": 3037,
+    "theme": "Principes et valeurs de la République",
+    "text": "Une personne a-t-elle le droit de ne pas croire en une religion ?",
+    "optionA": "Oui : la liberté de conscience comprend le droit de ne croire en aucune religion",
+    "optionB": "Non, chacun doit déclarer une religion",
+    "optionC": "Oui, mais seulement si elle en informe la mairie",
+    "optionD": "Non, sauf autorisation d'un ministre du culte",
+    "correctAnswer": "A",
+    "explanation": "La liberté de conscience, garantie par l'article 1er de la loi de 1905, comprend le droit de croire, de ne pas croire et de changer de conviction. Personne ne peut être contraint d'adhérer à une religion ni d'en déclarer une.",
+    "source": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000508749/"
+  },
+  {
+    "id": 3038,
+    "theme": "Système institutionnel et politique",
+    "text": "Qui nomme le Premier ministre ?",
+    "optionA": "Le président de la République",
+    "optionB": "Les citoyens, par un vote direct",
+    "optionC": "Le président du Sénat",
+    "optionD": "Le Conseil constitutionnel",
+    "correctAnswer": "A",
+    "explanation": "L'article 8 de la Constitution prévoit que le président de la République nomme le Premier ministre. Celui-ci doit toutefois disposer de la confiance de l'Assemblée nationale, qui peut le renverser par une motion de censure.",
+    "source": "https://fr.wikipedia.org/wiki/Premier_ministre_fran%C3%A7ais"
+  },
+  {
+    "id": 3039,
+    "theme": "Système institutionnel et politique",
+    "text": "Le Parlement est composé :",
+    "optionA": "De l'Assemblée nationale et du Sénat",
+    "optionB": "Du Gouvernement et du président de la République",
+    "optionC": "Du Conseil constitutionnel et de la Cour de cassation",
+    "optionD": "Des conseils municipaux de toutes les communes",
+    "correctAnswer": "A",
+    "explanation": "Le Parlement français est bicaméral : il réunit l'Assemblée nationale (577 députés élus au suffrage universel direct) et le Sénat (348 sénateurs élus au suffrage indirect). Ensemble, ils votent la loi et contrôlent l'action du Gouvernement.",
+    "source": "https://fr.wikipedia.org/wiki/Parlement_fran%C3%A7ais"
+  },
+  {
+    "id": 3040,
+    "theme": "Système institutionnel et politique",
+    "text": "Qu'est-ce que le pouvoir exécutif ? Le pouvoir :",
+    "optionA": "De voter les lois",
+    "optionB": "D'appliquer les lois et de conduire la politique de la Nation",
+    "optionC": "De juger les affaires civiles et pénales",
+    "optionD": "De réviser seul la Constitution",
+    "correctAnswer": "B",
+    "explanation": "Le pouvoir exécutif applique les lois et conduit la politique du pays. En France, il est partagé entre le président de la République, chef de l'État, et le Gouvernement dirigé par le Premier ministre. Voter la loi relève du Parlement, juger de l'autorité judiciaire.",
+    "source": "https://fr.wikipedia.org/wiki/Pouvoir_ex%C3%A9cutif"
+  },
+  {
+    "id": 3041,
+    "theme": "Système institutionnel et politique",
+    "text": "Les dirigeants sont élus par les citoyens dans :",
+    "optionA": "Une dictature",
+    "optionB": "Une monarchie absolue",
+    "optionC": "Une démocratie",
+    "optionD": "Une théocratie",
+    "correctAnswer": "C",
+    "explanation": "En démocratie, le pouvoir appartient au peuple, qui désigne ses dirigeants par des élections libres, pluralistes et régulières. Dans une dictature ou une monarchie absolue, les dirigeants ne sont pas choisis par les citoyens.",
+    "source": "https://fr.wikipedia.org/wiki/D%C3%A9mocratie"
+  },
+  {
     "id": 3042,
     "theme": "Système institutionnel et politique",
     "text": "A-t-on le droit de ne pas respecter une loi ?",
@@ -86,6 +230,66 @@
     "correctAnswer": "A",
     "explanation": "Le principe « nul n'est censé ignorer la loi » signifie que l'ignorance de la loi ne constitue pas une excuse valable pour s'y soustraire. Chacun est tenu de respecter les lois en vigueur, qu'il les connaisse ou non. Ce principe garantit la sécurité juridique et l'égalité de tous devant la loi.",
     "source": "https://fr.wikipedia.org/wiki/%C3%89tat_de_droit"
+  },
+  {
+    "id": 3043,
+    "theme": "Système institutionnel et politique",
+    "text": "Qui doit respecter la loi ?",
+    "optionA": "Uniquement les citoyens français",
+    "optionB": "Toute personne présente sur le territoire, y compris les gouvernants",
+    "optionC": "Uniquement les personnes majeures",
+    "optionD": "Uniquement les personnes condamnées auparavant",
+    "correctAnswer": "B",
+    "explanation": "La loi est la même pour tous. Elle s'impose à toute personne se trouvant sur le territoire français, quelle que soit sa nationalité, ainsi qu'aux responsables publics eux-mêmes : c'est le principe de l'État de droit.",
+    "source": "https://fr.wikipedia.org/wiki/%C3%89tat_de_droit"
+  },
+  {
+    "id": 3044,
+    "theme": "Système institutionnel et politique",
+    "text": "Quel est le rôle de l'autorité judiciaire ?",
+    "optionA": "Voter les lois",
+    "optionB": "Nommer les ministres",
+    "optionC": "Trancher les litiges, sanctionner les infractions et protéger les libertés individuelles",
+    "optionD": "Fixer le montant des impôts",
+    "correctAnswer": "C",
+    "explanation": "L'autorité judiciaire applique la loi aux cas particuliers : elle règle les litiges entre personnes, juge les auteurs d'infractions et veille au respect des libertés individuelles. La Constitution garantit son indépendance (article 64).",
+    "source": "https://www.justice.gouv.fr/"
+  },
+  {
+    "id": 3045,
+    "theme": "Système institutionnel et politique",
+    "text": "Quel pouvoir détient un juge ? Le pouvoir :",
+    "optionA": "Législatif",
+    "optionB": "Exécutif",
+    "optionC": "Judiciaire",
+    "optionD": "Constituant",
+    "correctAnswer": "C",
+    "explanation": "Le juge exerce le pouvoir judiciaire : il applique la loi aux situations qui lui sont soumises et rend des décisions de justice. Il ne vote pas les lois (pouvoir législatif) et n'appartient pas au Gouvernement (pouvoir exécutif).",
+    "source": "https://fr.wikipedia.org/wiki/S%C3%A9paration_des_pouvoirs"
+  },
+  {
+    "id": 3046,
+    "theme": "Système institutionnel et politique",
+    "text": "L'autorité judiciaire est exercée par :",
+    "optionA": "Les juges et les magistrats",
+    "optionB": "Les préfets",
+    "optionC": "Les maires",
+    "optionD": "Les députés",
+    "correctAnswer": "A",
+    "explanation": "L'autorité judiciaire est exercée par les magistrats : les juges du siège, qui rendent les décisions, et les magistrats du parquet, qui poursuivent les infractions au nom de la société. Leur indépendance est garantie par la Constitution.",
+    "source": "https://www.justice.gouv.fr/"
+  },
+  {
+    "id": 3047,
+    "theme": "Système institutionnel et politique",
+    "text": "Que se passe-t-il si un ministre ne respecte pas la loi ?",
+    "optionA": "Rien : les ministres ne sont pas soumis à la loi",
+    "optionB": "Seul le président de la République peut le punir, sans procès",
+    "optionC": "Il peut être poursuivi et jugé comme tout citoyen",
+    "optionD": "Il est automatiquement réélu à un autre poste",
+    "correctAnswer": "C",
+    "explanation": "Nul n'est au-dessus de la loi, y compris les membres du Gouvernement. Un ministre peut être poursuivi devant les juridictions ordinaires, et devant la Cour de justice de la République pour les actes commis dans l'exercice de ses fonctions.",
+    "source": "https://fr.wikipedia.org/wiki/Cour_de_justice_de_la_R%C3%A9publique"
   },
   {
     "id": 3048,
@@ -100,6 +304,30 @@
     "source": "https://fr.wikipedia.org/wiki/%C3%89lection_l%C3%A9gislative_fran%C3%A7aise"
   },
   {
+    "id": 3049,
+    "theme": "Système institutionnel et politique",
+    "text": "Combien de députés composent l’Assemblée nationale ?",
+    "optionA": "348",
+    "optionB": "577",
+    "optionC": "100",
+    "optionD": "925",
+    "correctAnswer": "B",
+    "explanation": "L'Assemblée nationale compte 577 députés, élus pour 5 ans au suffrage universel direct dans autant de circonscriptions. Le Sénat, lui, compte 348 sénateurs élus au suffrage indirect.",
+    "source": "https://fr.wikipedia.org/wiki/Assembl%C3%A9e_nationale_(France)"
+  },
+  {
+    "id": 3050,
+    "theme": "Système institutionnel et politique",
+    "text": "Quand sont élus les sénateurs ?",
+    "optionA": "Tous les ans",
+    "optionB": "Tous les 3 ans, pour la moitié d'entre eux",
+    "optionC": "Tous les 10 ans, pour la totalité d'entre eux",
+    "optionD": "Uniquement en cas de dissolution de l'Assemblée nationale",
+    "correctAnswer": "B",
+    "explanation": "Les sénateurs sont élus pour 6 ans au suffrage universel indirect, par des grands électeurs. Le Sénat est renouvelé par moitié tous les 3 ans, ce qui lui assure une continuité. Il ne peut pas être dissous.",
+    "source": "https://fr.wikipedia.org/wiki/S%C3%A9nat_(France)"
+  },
+  {
     "id": 3051,
     "theme": "Système institutionnel et politique",
     "text": "Qui est élu lors des élections municipales ?",
@@ -110,6 +338,138 @@
     "correctAnswer": "B",
     "explanation": "Les élections municipales permettent d'élire les conseillers municipaux pour un mandat de 6 ans. Ces conseillers composent le conseil municipal, qui vote le budget de la commune et prend les grandes décisions locales. Ils élisent ensuite le maire parmi eux. À Paris, Lyon et Marseille, des arrondissements ont leurs propres conseils d'arrondissement.",
     "source": "https://fr.wikipedia.org/wiki/%C3%89lection_municipale_fran%C3%A7aise"
+  },
+  {
+    "id": 3052,
+    "theme": "Système institutionnel et politique",
+    "text": "Qui est élu lors des élections présidentielles ?",
+    "optionA": "Le Premier ministre",
+    "optionB": "Le président de la République",
+    "optionC": "Les députés",
+    "optionD": "Les maires",
+    "correctAnswer": "B",
+    "explanation": "L'élection présidentielle désigne le président de la République, au suffrage universel direct et à deux tours, pour un mandat de 5 ans. Le Premier ministre, lui, est nommé par le président ; les députés et les maires sont élus lors d'autres scrutins.",
+    "source": "https://fr.wikipedia.org/wiki/%C3%89lection_pr%C3%A9sidentielle_en_France"
+  },
+  {
+    "id": 3053,
+    "theme": "Système institutionnel et politique",
+    "text": "À partir de quel âge a-t-on le droit de voter ?",
+    "optionA": "16 ans",
+    "optionB": "18 ans",
+    "optionC": "21 ans",
+    "optionD": "25 ans",
+    "correctAnswer": "B",
+    "explanation": "Le droit de vote s'acquiert à 18 ans, âge de la majorité en France depuis 1974. Il faut en outre être inscrit sur les listes électorales et jouir de ses droits civiques.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1965"
+  },
+  {
+    "id": 3054,
+    "theme": "Système institutionnel et politique",
+    "text": "Pour combien de temps est élu le président de la République française ?",
+    "optionA": "3 ans",
+    "optionB": "5 ans",
+    "optionC": "7 ans",
+    "optionD": "10 ans",
+    "correctAnswer": "B",
+    "explanation": "Le président de la République est élu pour 5 ans au suffrage universel direct. Ce quinquennat a remplacé le septennat après le référendum de 2000. Depuis 2008, nul ne peut exercer plus de deux mandats consécutifs.",
+    "source": "https://fr.wikipedia.org/wiki/%C3%89lection_pr%C3%A9sidentielle_en_France"
+  },
+  {
+    "id": 3055,
+    "theme": "Système institutionnel et politique",
+    "text": "Pour combien de temps sont élus les députés ?",
+    "optionA": "3 ans",
+    "optionB": "5 ans",
+    "optionC": "6 ans",
+    "optionD": "9 ans",
+    "correctAnswer": "B",
+    "explanation": "Les députés sont élus pour 5 ans au suffrage universel direct, lors des élections législatives. Leur mandat peut être écourté si le président de la République dissout l'Assemblée nationale.",
+    "source": "https://fr.wikipedia.org/wiki/Assembl%C3%A9e_nationale_(France)"
+  },
+  {
+    "id": 3056,
+    "theme": "Système institutionnel et politique",
+    "text": "Pour combien de temps sont élus les sénateurs ?",
+    "optionA": "3 ans",
+    "optionB": "5 ans",
+    "optionC": "6 ans",
+    "optionD": "9 ans",
+    "correctAnswer": "C",
+    "explanation": "Les sénateurs sont élus pour 6 ans au suffrage universel indirect, par un collège de grands électeurs composé notamment d'élus locaux. Le Sénat est renouvelé par moitié tous les 3 ans.",
+    "source": "https://fr.wikipedia.org/wiki/S%C3%A9nat_(France)"
+  },
+  {
+    "id": 3057,
+    "theme": "Système institutionnel et politique",
+    "text": "Qui possède le pouvoir exécutif ?",
+    "optionA": "Le président de la République et le Gouvernement",
+    "optionB": "L'Assemblée nationale et le Sénat",
+    "optionC": "La Cour de cassation",
+    "optionD": "Les conseils municipaux",
+    "correctAnswer": "A",
+    "explanation": "Le pouvoir exécutif est exercé par le président de la République, chef de l'État, et par le Gouvernement dirigé par le Premier ministre. Ensemble, ils conduisent la politique de la Nation et font appliquer les lois.",
+    "source": "https://fr.wikipedia.org/wiki/Pouvoir_ex%C3%A9cutif"
+  },
+  {
+    "id": 3058,
+    "theme": "Système institutionnel et politique",
+    "text": "Quelle condition est nécessaire pour voter aux élections ?",
+    "optionA": "Être propriétaire de son logement",
+    "optionB": "Être inscrit sur les listes électorales",
+    "optionC": "Appartenir à un parti politique",
+    "optionD": "Avoir effectué un service militaire",
+    "correctAnswer": "B",
+    "explanation": "Pour voter, il faut être inscrit sur les listes électorales de sa commune. Il faut aussi être majeur, avoir la nationalité française (ou celle d'un autre État de l'Union européenne pour les élections municipales et européennes) et jouir de ses droits civiques.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1965"
+  },
+  {
+    "id": 3059,
+    "theme": "Système institutionnel et politique",
+    "text": "Qui peut voter aux élections en France ?",
+    "optionA": "Toute personne résidant en France, quelle que soit sa nationalité",
+    "optionB": "Uniquement les personnes payant des impôts",
+    "optionC": "Les citoyens français majeurs, inscrits sur les listes électorales et jouissant de leurs droits civiques",
+    "optionD": "Uniquement les personnes nées en France",
+    "correctAnswer": "C",
+    "explanation": "Le droit de vote appartient aux citoyens français âgés d'au moins 18 ans, inscrits sur les listes électorales et n'ayant pas été privés de leurs droits civiques. Les citoyens d'autres États de l'Union européenne résidant en France peuvent en outre voter aux élections municipales et européennes.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1965"
+  },
+  {
+    "id": 3060,
+    "theme": "Système institutionnel et politique",
+    "text": "Que signifie « suffrage universel » ?",
+    "optionA": "Que seuls les propriétaires peuvent voter",
+    "optionB": "Que tous les citoyens majeurs ont le droit de vote, sans condition de fortune, de sexe ou d'origine",
+    "optionC": "Que le vote a lieu dans tous les pays du monde le même jour",
+    "optionD": "Que chaque citoyen dispose de plusieurs voix selon ses impôts",
+    "correctAnswer": "B",
+    "explanation": "Le suffrage universel signifie que le droit de vote appartient à tous les citoyens majeurs, sans condition de fortune, d'instruction, de sexe ou d'origine. Instauré pour les hommes en 1848, il a été étendu aux femmes en 1944.",
+    "source": "https://fr.wikipedia.org/wiki/Suffrage_universel"
+  },
+  {
+    "id": 3061,
+    "theme": "Système institutionnel et politique",
+    "text": "Concernant les partis politiques, quelle proposition est correcte ?",
+    "optionA": "Il n'existe qu'un seul parti autorisé",
+    "optionB": "Les partis sont interdits en France",
+    "optionC": "Chacun est libre d'adhérer au parti de son choix, ou à aucun",
+    "optionD": "L'adhésion à un parti est obligatoire pour voter",
+    "correctAnswer": "C",
+    "explanation": "L'article 4 de la Constitution garantit le pluralisme : les partis politiques se forment et exercent leur activité librement. Chacun est libre d'adhérer au parti de son choix ou de n'adhérer à aucun ; l'adhésion n'est jamais exigée pour voter.",
+    "source": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000571356/"
+  },
+  {
+    "id": 3062,
+    "theme": "Système institutionnel et politique",
+    "text": "Quel est le rôle des députés ?",
+    "optionA": "Voter la loi et contrôler l'action du Gouvernement",
+    "optionB": "Diriger les services de police",
+    "optionC": "Juger les affaires pénales",
+    "optionD": "Nommer le président de la République",
+    "correctAnswer": "A",
+    "explanation": "Les députés, élus au suffrage universel direct, votent la loi, votent le budget de l'État et contrôlent l'action du Gouvernement, notamment par les questions au Gouvernement et les commissions d'enquête. Ils peuvent le renverser par une motion de censure.",
+    "source": "https://fr.wikipedia.org/wiki/Assembl%C3%A9e_nationale_(France)"
   },
   {
     "id": 3063,
@@ -124,6 +484,18 @@
     "source": "https://fr.wikipedia.org/wiki/S%C3%A9paration_des_pouvoirs"
   },
   {
+    "id": 3064,
+    "theme": "Système institutionnel et politique",
+    "text": "Qui possède le pouvoir législatif ?",
+    "optionA": "Le président de la République",
+    "optionB": "Le Parlement, composé de l'Assemblée nationale et du Sénat",
+    "optionC": "Le Conseil d'État",
+    "optionD": "Les préfets",
+    "correctAnswer": "B",
+    "explanation": "Le pouvoir législatif appartient au Parlement, qui réunit l'Assemblée nationale et le Sénat. C'est lui qui discute, amende et vote la loi. Le Gouvernement peut proposer des textes, mais ne les vote pas.",
+    "source": "https://fr.wikipedia.org/wiki/Parlement_fran%C3%A7ais"
+  },
+  {
     "id": 3065,
     "theme": "Système institutionnel et politique",
     "text": "Qui sanctionne l'auteur d'un vol ?",
@@ -136,6 +508,18 @@
     "source": "https://fr.wikipedia.org/wiki/Tribunal_correctionnel_(France)"
   },
   {
+    "id": 3066,
+    "theme": "Système institutionnel et politique",
+    "text": "Qui élit les députés ?",
+    "optionA": "Les citoyens, au suffrage universel direct",
+    "optionB": "Le président de la République",
+    "optionC": "Les maires et les conseillers départementaux",
+    "optionD": "Les sénateurs",
+    "correctAnswer": "A",
+    "explanation": "Les 577 députés sont élus directement par les citoyens lors des élections législatives, au scrutin majoritaire à deux tours dans chaque circonscription. Les sénateurs, eux, sont élus au suffrage indirect par des grands électeurs.",
+    "source": "https://fr.wikipedia.org/wiki/%C3%89lections_l%C3%A9gislatives_en_France"
+  },
+  {
     "id": 3067,
     "theme": "Système institutionnel et politique",
     "text": "Qui vote les lois ?",
@@ -146,6 +530,18 @@
     "correctAnswer": "C",
     "explanation": "Le Parlement français, composé de l'Assemblée nationale (577 députés) et du Sénat (348 sénateurs), est titulaire du pouvoir législatif. C'est lui qui vote les lois. Le gouvernement peut aussi proposer des lois (projets de loi), et les parlementaires peuvent en déposer (propositions de loi), mais c'est le Parlement qui les adopte.",
     "source": "https://fr.wikipedia.org/wiki/Parlement_fran%C3%A7ais"
+  },
+  {
+    "id": 3068,
+    "theme": "Système institutionnel et politique",
+    "text": "Qui réside au palais de l'Élysée ?",
+    "optionA": "Le Premier ministre",
+    "optionB": "Le président de la République",
+    "optionC": "Le président du Sénat",
+    "optionD": "Le ministre de la Justice",
+    "correctAnswer": "B",
+    "explanation": "Le palais de l'Élysée, à Paris, est la résidence officielle et le lieu de travail du président de la République depuis 1848. Le Premier ministre réside à l'Hôtel de Matignon.",
+    "source": "https://fr.wikipedia.org/wiki/Palais_de_l%27%C3%89lys%C3%A9e"
   },
   {
     "id": 3069,
@@ -172,6 +568,66 @@
     "source": "https://fr.wikipedia.org/wiki/Pr%C3%A9fet_(France)"
   },
   {
+    "id": 3071,
+    "theme": "Système institutionnel et politique",
+    "text": "Qui dirige la commune ?",
+    "optionA": "Le préfet",
+    "optionB": "Le maire",
+    "optionC": "Le président du conseil départemental",
+    "optionD": "Le député de la circonscription",
+    "correctAnswer": "B",
+    "explanation": "La commune est dirigée par le maire, élu par le conseil municipal parmi ses membres pour 6 ans. Il est à la fois l'exécutif de la commune et, pour certaines missions comme l'état civil, un représentant de l'État.",
+    "source": "https://fr.wikipedia.org/wiki/Maire_(France)"
+  },
+  {
+    "id": 3072,
+    "theme": "Système institutionnel et politique",
+    "text": "Est-ce que le président de la République a tous les pouvoirs ?",
+    "optionA": "Non : ses pouvoirs sont définis et limités par la Constitution",
+    "optionB": "Oui, il décide seul de tout",
+    "optionC": "Oui, il peut modifier la Constitution quand il le souhaite",
+    "optionD": "Oui, il peut annuler une décision de justice",
+    "correctAnswer": "A",
+    "explanation": "Les pouvoirs du président de la République sont fixés et encadrés par la Constitution. Il partage l'exécutif avec le Gouvernement, ne vote pas les lois (rôle du Parlement) et ne peut pas intervenir dans les décisions de justice, l'autorité judiciaire étant indépendante.",
+    "source": "https://fr.wikipedia.org/wiki/Pr%C3%A9sident_de_la_R%C3%A9publique_fran%C3%A7aise"
+  },
+  {
+    "id": 3073,
+    "theme": "Système institutionnel et politique",
+    "text": "Qui est le préfet ?",
+    "optionA": "Le chef de la police municipale",
+    "optionB": "Le représentant de l'État dans le département ou la région, nommé par le président de la République",
+    "optionC": "L'élu à la tête du conseil départemental",
+    "optionD": "Le juge chargé des affaires administratives",
+    "correctAnswer": "B",
+    "explanation": "Le préfet est le représentant de l'État dans le département ou la région. Nommé en conseil des ministres par décret du président de la République, il n'est pas élu : il applique localement la politique du Gouvernement et veille au respect des lois.",
+    "source": "https://fr.wikipedia.org/wiki/Pr%C3%A9fet_(France)"
+  },
+  {
+    "id": 3074,
+    "theme": "Système institutionnel et politique",
+    "text": "Quel est le rôle du Parlement ?",
+    "optionA": "Voter la loi, voter le budget et contrôler l'action du Gouvernement",
+    "optionB": "Rendre la justice",
+    "optionC": "Nommer les préfets",
+    "optionD": "Diriger l'armée",
+    "correctAnswer": "A",
+    "explanation": "Le Parlement, formé de l'Assemblée nationale et du Sénat, vote la loi et le budget de l'État, et contrôle l'action du Gouvernement. L'Assemblée nationale peut le renverser par une motion de censure ; le président de la République est chef des armées.",
+    "source": "https://fr.wikipedia.org/wiki/Parlement_fran%C3%A7ais"
+  },
+  {
+    "id": 3075,
+    "theme": "Système institutionnel et politique",
+    "text": "Quel est le régime politique de la France aujourd'hui ?",
+    "optionA": "Une monarchie constitutionnelle",
+    "optionB": "Une république démocratique et sociale, sous la Ve République",
+    "optionC": "Un empire",
+    "optionD": "Une fédération d'États autonomes",
+    "correctAnswer": "B",
+    "explanation": "La France est une République indivisible, laïque, démocratique et sociale (article 1er de la Constitution). Le régime actuel est celui de la Ve République, instaurée par la Constitution du 4 octobre 1958.",
+    "source": "https://fr.wikipedia.org/wiki/Cinqui%C3%A8me_R%C3%A9publique_(France)"
+  },
+  {
     "id": 3076,
     "theme": "Système institutionnel et politique",
     "text": "Combien d'États font partie de l'Union européenne au 1er janvier 2025 ?",
@@ -182,6 +638,105 @@
     "correctAnswer": "A",
     "explanation": "Depuis le Brexit (sortie du Royaume-Uni effective le 31 janvier 2020 et fin de la période de transition le 31 décembre 2020), l'Union européenne compte 27 États membres. Avant le Brexit, l'UE comptait 28 membres. La Croatie, entrée en 2013, est le dernier État à avoir adhéré.",
     "source": "https://fr.wikipedia.org/wiki/Union_europ%C3%A9enne"
+  },
+  {
+    "id": 3077,
+    "theme": "Système institutionnel et politique",
+    "text": "Quel État n'est pas membre de l'Union européenne ?",
+    "optionA": "La Suisse",
+    "optionB": "L'Italie",
+    "optionC": "Le Portugal",
+    "optionD": "La Grèce",
+    "correctAnswer": "A",
+    "explanation": "La Suisse n'a jamais adhéré à l'Union européenne : elle entretient avec elle des accords bilatéraux. La Norvège et l'Islande sont dans le même cas, et le Royaume-Uni est sorti de l'Union en 2020.",
+    "source": "https://fr.wikipedia.org/wiki/Union_europ%C3%A9enne",
+    "variants": [
+      {
+        "optionA": "L'Espagne",
+        "optionB": "La Norvège",
+        "optionC": "La Belgique",
+        "optionD": "La Pologne",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "L'Irlande",
+        "optionB": "La Suède",
+        "optionC": "Le Royaume-Uni",
+        "optionD": "L'Autriche",
+        "correctAnswer": "C"
+      }
+    ]
+  },
+  {
+    "id": 3078,
+    "theme": "Système institutionnel et politique",
+    "text": "Quelle condition est nécessaire pour voter aux élections européennes ?",
+    "optionA": "Être citoyen d'un État membre de l'Union européenne, majeur et inscrit sur les listes électorales",
+    "optionB": "Être né dans l'Union européenne",
+    "optionC": "Parler au moins deux langues européennes",
+    "optionD": "Être membre d'un parti politique européen",
+    "correctAnswer": "A",
+    "explanation": "Peuvent voter aux élections européennes en France les citoyens français et les citoyens des autres États membres résidant en France, à condition d'être majeurs, inscrits sur les listes électorales et de jouir de leurs droits civiques.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1937"
+  },
+  {
+    "id": 3079,
+    "theme": "Système institutionnel et politique",
+    "text": "À quelle fréquence les élections européennes sont-elles organisées ?",
+    "optionA": "Tous les ans",
+    "optionB": "Tous les 3 ans",
+    "optionC": "Tous les 5 ans",
+    "optionD": "Tous les 10 ans",
+    "correctAnswer": "C",
+    "explanation": "Les élections européennes ont lieu tous les 5 ans dans l'ensemble des États membres. Les citoyens y élisent au suffrage universel direct les députés du Parlement européen ; les dernières ont eu lieu en juin 2024.",
+    "source": "https://fr.wikipedia.org/wiki/%C3%89lections_europ%C3%A9ennes"
+  },
+  {
+    "id": 3080,
+    "theme": "Système institutionnel et politique",
+    "text": "Quel pays est un pays fondateur de l'Union européenne ?",
+    "optionA": "La Norvège",
+    "optionB": "La Suisse",
+    "optionC": "L'Italie",
+    "optionD": "Le Royaume-Uni",
+    "correctAnswer": "C",
+    "explanation": "Les six pays fondateurs de la Communauté économique européenne, créée par le traité de Rome du 25 mars 1957, sont la France, l'Allemagne, l'Italie, la Belgique, les Pays-Bas et le Luxembourg. La CEE est devenue l'Union européenne par le traité de Maastricht en 1992.",
+    "source": "https://fr.wikipedia.org/wiki/Communaut%C3%A9_%C3%A9conomique_europ%C3%A9enne",
+    "variants": [
+      {
+        "optionA": "La Norvège",
+        "optionB": "La Belgique",
+        "optionC": "L'Autriche",
+        "optionD": "La Suède",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Le Danemark",
+        "optionB": "Les Pays-Bas",
+        "optionC": "Le Royaume-Uni",
+        "optionD": "L'Espagne",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "La Pologne",
+        "optionB": "La Finlande",
+        "optionC": "La Grèce",
+        "optionD": "Le Luxembourg",
+        "correctAnswer": "D"
+      }
+    ]
+  },
+  {
+    "id": 3081,
+    "theme": "Système institutionnel et politique",
+    "text": "Quelle est la monnaie utilisée en France ?",
+    "optionA": "Le franc",
+    "optionB": "L'euro",
+    "optionC": "La livre sterling",
+    "optionD": "Le dollar",
+    "correctAnswer": "B",
+    "explanation": "La monnaie de la France est l'euro depuis la mise en circulation des pièces et des billets, le 1er janvier 2002. Il a remplacé le franc et est partagé avec une vingtaine d'autres États de l'Union européenne.",
+    "source": "https://fr.wikipedia.org/wiki/Euro"
   },
   {
     "id": 3082,
@@ -196,6 +751,18 @@
     "source": "https://fr.wikipedia.org/wiki/Parlement_europ%C3%A9en"
   },
   {
+    "id": 3083,
+    "theme": "Système institutionnel et politique",
+    "text": "Quand célèbre-t-on la journée de l'Europe ?",
+    "optionA": "Le 1er mai",
+    "optionB": "Le 9 mai",
+    "optionC": "Le 14 juillet",
+    "optionD": "Le 11 novembre",
+    "correctAnswer": "B",
+    "explanation": "La journée de l'Europe est célébrée chaque 9 mai, en souvenir de la déclaration de Robert Schuman du 9 mai 1950, considérée comme l'acte fondateur de la construction européenne.",
+    "source": "https://fr.wikipedia.org/wiki/Journ%C3%A9e_de_l%27Europe"
+  },
+  {
     "id": 3090,
     "theme": "Droits et devoirs",
     "text": "Qu’est-ce que la liberté d’expression ?",
@@ -206,6 +773,54 @@
     "correctAnswer": "A",
     "explanation": "La liberté d'expression, garantie par l'article 11 de la DDHC de 1789, est le droit de communiquer ses pensées et opinions par tout moyen. Ce droit est précieux dans une démocratie, mais il n'est pas absolu : la loi interdit notamment la diffamation, les injures, les appels à la haine raciale ou religieuse, et la provocation à la violence.",
     "source": "https://fr.wikipedia.org/wiki/Libert%C3%A9_d%27expression"
+  },
+  {
+    "id": 3096,
+    "theme": "Droits et devoirs",
+    "text": "Est-il toujours possible de divorcer ?",
+    "optionA": "Non, le mariage est indissoluble",
+    "optionB": "Oui, mais seulement avec l'accord des deux époux",
+    "optionC": "Oui : chaque époux peut demander le divorce, même sans l'accord de l'autre",
+    "optionD": "Non, sauf après vingt ans de mariage",
+    "correctAnswer": "C",
+    "explanation": "Le divorce est un droit. Il peut être prononcé par consentement mutuel, mais aussi à la demande d'un seul époux, notamment pour altération définitive du lien conjugal ou pour faute. Nul ne peut être contraint de rester marié.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/N142"
+  },
+  {
+    "id": 3097,
+    "theme": "Droits et devoirs",
+    "text": "La peine de mort est :",
+    "optionA": "Abolie en France depuis 1981",
+    "optionB": "Appliquée pour les crimes les plus graves",
+    "optionC": "Suspendue, mais toujours inscrite dans la loi",
+    "optionD": "Décidée au cas par cas par le président de la République",
+    "correctAnswer": "A",
+    "explanation": "La peine de mort a été abolie par la loi du 9 octobre 1981, à l'initiative du garde des Sceaux Robert Badinter. Depuis 2007, l'abolition est inscrite dans la Constitution : « Nul ne peut être condamné à la peine de mort » (article 66-1).",
+    "source": "https://fr.wikipedia.org/wiki/Peine_de_mort_en_France"
+  },
+  {
+    "id": 3107,
+    "theme": "Droits et devoirs",
+    "text": "Quel est le rôle de la police ?",
+    "optionA": "Juger et condamner les personnes arrêtées",
+    "optionB": "Faire respecter la loi, protéger les personnes et les biens et constater les infractions",
+    "optionC": "Voter les lois relatives à la sécurité",
+    "optionD": "Fixer le montant des peines de prison",
+    "correctAnswer": "B",
+    "explanation": "La police et la gendarmerie assurent la sécurité des personnes et des biens, préviennent les troubles à l'ordre public, constatent les infractions et recherchent leurs auteurs. Elles ne jugent pas : ce rôle appartient aux juridictions, indépendantes.",
+    "source": "https://www.police-nationale.interieur.gouv.fr/"
+  },
+  {
+    "id": 3112,
+    "theme": "Droits et devoirs",
+    "text": "Que doit faire une victime de violences ?",
+    "optionA": "Se taire pour éviter les ennuis",
+    "optionB": "Se faire justice elle-même",
+    "optionC": "Porter plainte auprès de la police ou de la gendarmerie, et se faire soigner",
+    "optionD": "Attendre que la situation s'améliore d'elle-même",
+    "correctAnswer": "C",
+    "explanation": "Une victime de violences doit se mettre en sécurité, consulter un médecin pour faire constater les faits et porter plainte au commissariat, à la gendarmerie ou par courrier au procureur de la République. Des numéros gratuits existent, dont le 3919 pour les violences faites aux femmes.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1435"
   },
   {
     "id": 3113,
@@ -1038,6 +1653,18 @@
     "correctAnswer": "A",
     "explanation": "La Caisse primaire d'assurance maladie (CPAM) est l'organisme local de l'Assurance Maladie (Sécurité sociale). C'est elle qui rembourse les frais médicaux (consultations, médicaments, hospitalisations) dans les conditions fixées par la loi. La carte Vitale permet de transmettre électroniquement les feuilles de soins à la CPAM.",
     "source": "https://fr.wikipedia.org/wiki/Caisse_primaire_d%27assurance_maladie"
+  },
+  {
+    "id": 3177,
+    "theme": "Vivre dans la société française",
+    "text": "Concernant l'accès aux soins, quelle proposition est correcte ?",
+    "optionA": "Toute personne résidant régulièrement en France peut être affiliée à l'Assurance maladie",
+    "optionB": "Les soins sont réservés aux personnes de nationalité française",
+    "optionC": "Il faut payer l'intégralité des soins sans jamais être remboursé",
+    "optionD": "L'accès aux soins d'urgence est réservé aux personnes assurées",
+    "correctAnswer": "A",
+    "explanation": "Toute personne qui travaille ou réside en France de façon stable et régulière est affiliée à l'Assurance maladie et bénéficie d'une prise en charge de ses soins. Les urgences vitales, elles, sont prises en charge pour toute personne, quelle que soit sa situation.",
+    "source": "https://www.ameli.fr/"
   },
   {
     "id": 3182,

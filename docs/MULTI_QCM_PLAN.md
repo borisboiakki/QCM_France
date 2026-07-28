@@ -7,7 +7,7 @@ ce qui reste à faire, et les conventions à respecter pour chaque lot de conten
 | | |
 |---|---|
 | Branche | `claude/multi-qcm-expansion-m33wj9` |
-| Statut | Lots 0 à 5 livrés — **liste CR complète (209/209)**, rédaction CSP en cours |
+| Statut | Lots 0 à 6 livrés — **liste CR complète (209/209)**, rédaction CSP en cours |
 | Dernière mise à jour | 2026-07-28 |
 
 ---
@@ -45,7 +45,8 @@ l'explication, la source et les variantes sont rédigées pour l'application.
 ## 2. Décisions structurantes
 
 1. **Un fichier JSON par examen.** Chaque fichier reflète fidèlement sa liste officielle, y compris
-   les questions dont le libellé est identique dans deux examens (leurs réponses sont recopiées).
+   les questions dont le libellé est identique dans deux examens : leur jeu de réponses est alors
+   **recopié à l'identique** depuis le fichier où il a déjà été rédigé et validé, jamais réécrit.
    `scripts/check_questions_consistency.py` détecte toute divergence de bonne réponse entre
    fichiers. Le **thème** peut légitimement différer d'un examen à l'autre pour un même libellé :
    chaque fichier suit le classement de sa propre liste officielle (2 cas en CR).
@@ -169,11 +170,11 @@ déjà en place).
 | 3 | CR | Principes et valeurs de la République | 30 | ☑ thème complet (40/40) | |
 | 4 | CR | Droits et devoirs + Vivre dans la société française | 33 + 20 | ☑ **QCM CR complet (209/209)** | |
 | 5 | CSP | Histoire, géographie et culture | 30 | ☑ thème complet (47/47) | |
-| 6 | CSP | Système institutionnel et politique | 36 | ☐ | |
+| 6 | CSP | Système institutionnel et politique | 36 | ☑ thème complet (46/46) | |
 | 7 | CSP | Principes et valeurs de la République | 32 | ☐ | |
 | 8 | CSP | Droits et devoirs + Vivre dans la société française | 28 + 21 | ☐ | |
 
-**Total à rédiger : 296 questions** (149 CR + 147 CSP) — **179 rédigées (tout le CR + 30 CSP), 117 restantes (CSP)**.
+**Total à rédiger : 296 questions** (149 CR + 147 CSP) — **215 rédigées (tout le CR + 66 CSP), 68 restantes (CSP)**.
 
 ### Après le dernier lot
 

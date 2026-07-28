@@ -1,7 +1,7 @@
 # QCM France — Liste des questions et réponses
 
 > Généré automatiquement le 2026-07-28 à partir des fichiers de `app/src/main/res/raw/`  
-> **621 questions** au total, réparties entre les trois examens civiques.
+> **670 questions** au total, réparties entre les trois examens civiques.
 
 > **Note :** dans l'application, l'ordre des propositions (A, B, C, D) est mélangé aléatoirement à chaque examen. L'ordre affiché dans ce tableau correspond à l'ordre original du fichier de données et peut donc différer de celui présenté lors du test.
 
@@ -21,12 +21,12 @@
   - [Droits et devoirs](#carte-de-resident-cr-droits-et-devoirs) (38)
   - [Histoire, géographie et culture](#carte-de-resident-cr-histoire-géographie-et-culture) (49)
   - [Vivre dans la société française](#carte-de-resident-cr-vivre-dans-la-société-française) (32)
-- [Carte de séjour pluriannuelle (CSP)](#carte-de-sejour-pluriannuelle-csp) (74 questions)
-  - [Principes et valeurs de la République](#carte-de-sejour-pluriannuelle-csp-principes-et-valeurs-de-la-république) (5)
-  - [Système institutionnel et politique](#carte-de-sejour-pluriannuelle-csp-système-institutionnel-et-politique) (10)
-  - [Droits et devoirs](#carte-de-sejour-pluriannuelle-csp-droits-et-devoirs) (2)
+- [Carte de séjour pluriannuelle (CSP)](#carte-de-sejour-pluriannuelle-csp) (123 questions)
+  - [Principes et valeurs de la République](#carte-de-sejour-pluriannuelle-csp-principes-et-valeurs-de-la-république) (13)
+  - [Système institutionnel et politique](#carte-de-sejour-pluriannuelle-csp-système-institutionnel-et-politique) (46)
+  - [Droits et devoirs](#carte-de-sejour-pluriannuelle-csp-droits-et-devoirs) (6)
   - [Histoire, géographie et culture](#carte-de-sejour-pluriannuelle-csp-histoire-géographie-et-culture) (47)
-  - [Vivre dans la société française](#carte-de-sejour-pluriannuelle-csp-vivre-dans-la-société-française) (10)
+  - [Vivre dans la société française](#carte-de-sejour-pluriannuelle-csp-vivre-dans-la-société-française) (11)
 - [Mises en situation (communes aux trois examens)](#mises-en-situation-communes-aux-trois-examens) (80 questions)
   - [Principes et valeurs de la République](#mises-en-situation-communes-aux-trois-examens-principes-et-valeurs-de-la-république) (20)
   - [Système institutionnel et politique](#mises-en-situation-communes-aux-trois-examens-système-institutionnel-et-politique) (20)
@@ -592,44 +592,92 @@ Liste officielle des questions de connaissance de l'examen civique de niveau car
 
 Liste officielle des questions de connaissance de l'examen civique de niveau carte de séjour pluriannuelle.
 
-*74 questions — `app/src/main/res/raw/questions_csp.json`*
+*123 questions — `app/src/main/res/raw/questions_csp.json`*
 
 ### Principes et valeurs de la République
 
-*5 questions dans la base*
+*13 questions dans la base*
 
 | # | Type | Question | A | B | C | D | Bonne réponse | Source |
 |---|---|---|---|---|---|---|---|---|
+| 3005 | Connaissances | A-t-on le droit d'insulter publiquement quelqu’un parce qu’il est différent (handicap, apparence physique, sexe…) ? | Oui, au nom de la liberté d'expression | Oui, si c'est sur internet | Non : l'injure publique à caractère discriminatoire est un délit puni par la loi | Oui, si la personne ne porte pas plainte | **C** — Non : l'injure publique à caractère discriminatoire est un délit puni par la loi | [source](https://www.service-public.fr/particuliers/vosdroits/F32079) |
+| 3008 | Connaissances | Le régime de la France est : | Une monarchie | Une république | Un empire | Une théocratie | **B** — Une république | [source](https://fr.wikipedia.org/wiki/Cinqui%C3%A8me_R%C3%A9publique_(France)) |
 | 3010 | Connaissances | Où peut-on voir la devise de la République ? | Uniquement dans les églises | Dans les musées privés | Sur les billets de banque étrangers | Sur les frontons des bâtiments publics (Mairies, Écoles, Palais de Justice) | **D** — Sur les frontons des bâtiments publics (Mairies, Écoles, Palais de Justice) *(variantes : Sur les pièces de monnaie françaises (1 € et 2 €), Sur les documents officiels de l'État (logo de la République))* | [source](https://fr.wikipedia.org/wiki/Libert%C3%A9%2C_%C3%89galit%C3%A9%2C_Fraternit%C3%A9) |
+| 3011 | Connaissances | Quels sont des symboles officiels de la République française ? | Le drapeau tricolore, la Marseillaise et la devise « Liberté, Égalité, Fraternité » | La couronne et le sceptre | L'aigle impérial et la fleur de lys | Le drapeau bleu à douze étoiles | **A** — Le drapeau tricolore, la Marseillaise et la devise « Liberté, Égalité, Fraternité » | [source](https://www.elysee.fr/la-presidence/les-symboles-de-la-republique-francaise) |
 | 3014 | Connaissances | Que signifie le mot "fraternité" dans la devise française ? | La solidarité entre tous les citoyens | L'unité du territoire national | L'égalité de traitement entre les nations | La liberté de pensée et d'expression | **A** — La solidarité entre tous les citoyens | [source](https://fr.wikipedia.org/wiki/Fraternit%C3%A9) |
 | 3020 | Connaissances | Quelle est la devise de la République française ? | Paix, Justice, Liberté | Liberté, Égalité, Fraternité | Travail, Famille, Patrie | Unité, Diversité, Progrès | **B** — Liberté, Égalité, Fraternité | [source](https://fr.wikipedia.org/wiki/Libert%C3%A9%2C_%C3%89galit%C3%A9%2C_Fraternit%C3%A9) |
+| 3022 | Connaissances | Quelle est la place de la langue française dans la République ? | C'est la langue de la République, selon l'article 2 de la Constitution | C'est une langue parmi d'autres, sans statut particulier | Elle n'est obligatoire que dans les écoles privées | Elle est réservée aux documents diplomatiques | **A** — C'est la langue de la République, selon l'article 2 de la Constitution | [source](https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000571356/) |
+| 3026 | Connaissances | Qu'est-ce que la Marseillaise ? | L'hymne national français | La devise de la République | Une région française | Le nom du drapeau français | **A** — L'hymne national français | [source](https://fr.wikipedia.org/wiki/La_Marseillaise) |
 | 3031 | Connaissances | En quelle année la loi de séparation des Églises et de l'État a-t-elle été votée ? | 1945 | 1905 | 1968 | 1870 | **B** — 1905 | [source](https://fr.wikipedia.org/wiki/Loi_du_9_d%C3%A9cembre_1905_concernant_la_s%C3%A9paration_des_%C3%89glises_et_de_l%27%C3%89tat) |
+| 3033 | Connaissances | Quel droit est garanti par la laïcité ? | Le droit de ne pas payer d'impôts | La liberté de conscience : croire, ne pas croire ou changer de conviction | Le droit d'imposer sa religion aux autres | Le droit d'obtenir des jours fériés supplémentaires | **B** — La liberté de conscience : croire, ne pas croire ou changer de conviction | [source](https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000508749/) |
+| 3034 | Connaissances | Pourquoi le principe de laïcité doit-il être respecté à l'école ? | Pour interdire toute croyance aux élèves | Pour favoriser la religion majoritaire | Pour que chaque élève puisse apprendre librement, à l'abri de toute pression religieuse | Pour réduire le nombre d'élèves par classe | **C** — Pour que chaque élève puisse apprendre librement, à l'abri de toute pression religieuse | [source](https://www.education.gouv.fr/) |
 | 3035 | Connaissances | Qu'est-ce que la laïcité ? | L'obligation d'être athée dans les services publics | La séparation de l'État et des religions | L'interdiction de toute pratique religieuse en France | La primauté de l'Église catholique dans l'État | **B** — La séparation de l'État et des religions | [source](https://fr.wikipedia.org/wiki/La%C3%AFcit%C3%A9_en_France) |
+| 3037 | Connaissances | Une personne a-t-elle le droit de ne pas croire en une religion ? | Oui : la liberté de conscience comprend le droit de ne croire en aucune religion | Non, chacun doit déclarer une religion | Oui, mais seulement si elle en informe la mairie | Non, sauf autorisation d'un ministre du culte | **A** — Oui : la liberté de conscience comprend le droit de ne croire en aucune religion | [source](https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000508749/) |
 
 ### Système institutionnel et politique
 
-*10 questions dans la base*
+*46 questions dans la base*
 
 | # | Type | Question | A | B | C | D | Bonne réponse | Source |
 |---|---|---|---|---|---|---|---|---|
+| 3038 | Connaissances | Qui nomme le Premier ministre ? | Le président de la République | Les citoyens, par un vote direct | Le président du Sénat | Le Conseil constitutionnel | **A** — Le président de la République | [source](https://fr.wikipedia.org/wiki/Premier_ministre_fran%C3%A7ais) |
+| 3039 | Connaissances | Le Parlement est composé : | De l'Assemblée nationale et du Sénat | Du Gouvernement et du président de la République | Du Conseil constitutionnel et de la Cour de cassation | Des conseils municipaux de toutes les communes | **A** — De l'Assemblée nationale et du Sénat | [source](https://fr.wikipedia.org/wiki/Parlement_fran%C3%A7ais) |
+| 3040 | Connaissances | Qu'est-ce que le pouvoir exécutif ? Le pouvoir : | De voter les lois | D'appliquer les lois et de conduire la politique de la Nation | De juger les affaires civiles et pénales | De réviser seul la Constitution | **B** — D'appliquer les lois et de conduire la politique de la Nation | [source](https://fr.wikipedia.org/wiki/Pouvoir_ex%C3%A9cutif) |
+| 3041 | Connaissances | Les dirigeants sont élus par les citoyens dans : | Une dictature | Une monarchie absolue | Une démocratie | Une théocratie | **C** — Une démocratie | [source](https://fr.wikipedia.org/wiki/D%C3%A9mocratie) |
 | 3042 | Connaissances | A-t-on le droit de ne pas respecter une loi ? | Non, nul n'est censé ignorer la loi et chacun doit la respecter | Oui, si l'on prouve qu'on n'était pas au courant | Oui, si l'on est en désaccord avec elle | Oui, pour les lois jugées injustes par la majorité | **A** — Non, nul n'est censé ignorer la loi et chacun doit la respecter | [source](https://fr.wikipedia.org/wiki/%C3%89tat_de_droit) |
+| 3043 | Connaissances | Qui doit respecter la loi ? | Uniquement les citoyens français | Toute personne présente sur le territoire, y compris les gouvernants | Uniquement les personnes majeures | Uniquement les personnes condamnées auparavant | **B** — Toute personne présente sur le territoire, y compris les gouvernants | [source](https://fr.wikipedia.org/wiki/%C3%89tat_de_droit) |
+| 3044 | Connaissances | Quel est le rôle de l'autorité judiciaire ? | Voter les lois | Nommer les ministres | Trancher les litiges, sanctionner les infractions et protéger les libertés individuelles | Fixer le montant des impôts | **C** — Trancher les litiges, sanctionner les infractions et protéger les libertés individuelles | [source](https://www.justice.gouv.fr/) |
+| 3045 | Connaissances | Quel pouvoir détient un juge ? Le pouvoir : | Législatif | Exécutif | Judiciaire | Constituant | **C** — Judiciaire | [source](https://fr.wikipedia.org/wiki/S%C3%A9paration_des_pouvoirs) |
+| 3046 | Connaissances | L'autorité judiciaire est exercée par : | Les juges et les magistrats | Les préfets | Les maires | Les députés | **A** — Les juges et les magistrats | [source](https://www.justice.gouv.fr/) |
+| 3047 | Connaissances | Que se passe-t-il si un ministre ne respecte pas la loi ? | Rien : les ministres ne sont pas soumis à la loi | Seul le président de la République peut le punir, sans procès | Il peut être poursuivi et jugé comme tout citoyen | Il est automatiquement réélu à un autre poste | **C** — Il peut être poursuivi et jugé comme tout citoyen | [source](https://fr.wikipedia.org/wiki/Cour_de_justice_de_la_R%C3%A9publique) |
 | 3048 | Connaissances | Qui est élu lors des élections législatives ? | Les députés | Les conseillers régionaux | Les sénateurs | Les maires | **A** — Les députés | [source](https://fr.wikipedia.org/wiki/%C3%89lection_l%C3%A9gislative_fran%C3%A7aise) |
+| 3049 | Connaissances | Combien de députés composent l’Assemblée nationale ? | 348 | 577 | 100 | 925 | **B** — 577 | [source](https://fr.wikipedia.org/wiki/Assembl%C3%A9e_nationale_(France)) |
+| 3050 | Connaissances | Quand sont élus les sénateurs ? | Tous les ans | Tous les 3 ans, pour la moitié d'entre eux | Tous les 10 ans, pour la totalité d'entre eux | Uniquement en cas de dissolution de l'Assemblée nationale | **B** — Tous les 3 ans, pour la moitié d'entre eux | [source](https://fr.wikipedia.org/wiki/S%C3%A9nat_(France)) |
 | 3051 | Connaissances | Qui est élu lors des élections municipales ? | Les sénateurs | Les conseillers municipaux | Les préfets de département | Les députés à l'Assemblée nationale | **B** — Les conseillers municipaux | [source](https://fr.wikipedia.org/wiki/%C3%89lection_municipale_fran%C3%A7aise) |
+| 3052 | Connaissances | Qui est élu lors des élections présidentielles ? | Le Premier ministre | Le président de la République | Les députés | Les maires | **B** — Le président de la République | [source](https://fr.wikipedia.org/wiki/%C3%89lection_pr%C3%A9sidentielle_en_France) |
+| 3053 | Connaissances | À partir de quel âge a-t-on le droit de voter ? | 16 ans | 18 ans | 21 ans | 25 ans | **B** — 18 ans | [source](https://www.service-public.fr/particuliers/vosdroits/F1965) |
+| 3054 | Connaissances | Pour combien de temps est élu le président de la République française ? | 3 ans | 5 ans | 7 ans | 10 ans | **B** — 5 ans | [source](https://fr.wikipedia.org/wiki/%C3%89lection_pr%C3%A9sidentielle_en_France) |
+| 3055 | Connaissances | Pour combien de temps sont élus les députés ? | 3 ans | 5 ans | 6 ans | 9 ans | **B** — 5 ans | [source](https://fr.wikipedia.org/wiki/Assembl%C3%A9e_nationale_(France)) |
+| 3056 | Connaissances | Pour combien de temps sont élus les sénateurs ? | 3 ans | 5 ans | 6 ans | 9 ans | **C** — 6 ans | [source](https://fr.wikipedia.org/wiki/S%C3%A9nat_(France)) |
+| 3057 | Connaissances | Qui possède le pouvoir exécutif ? | Le président de la République et le Gouvernement | L'Assemblée nationale et le Sénat | La Cour de cassation | Les conseils municipaux | **A** — Le président de la République et le Gouvernement | [source](https://fr.wikipedia.org/wiki/Pouvoir_ex%C3%A9cutif) |
+| 3058 | Connaissances | Quelle condition est nécessaire pour voter aux élections ? | Être propriétaire de son logement | Être inscrit sur les listes électorales | Appartenir à un parti politique | Avoir effectué un service militaire | **B** — Être inscrit sur les listes électorales | [source](https://www.service-public.fr/particuliers/vosdroits/F1965) |
+| 3059 | Connaissances | Qui peut voter aux élections en France ? | Toute personne résidant en France, quelle que soit sa nationalité | Uniquement les personnes payant des impôts | Les citoyens français majeurs, inscrits sur les listes électorales et jouissant de leurs droits civiques | Uniquement les personnes nées en France | **C** — Les citoyens français majeurs, inscrits sur les listes électorales et jouissant de leurs droits civiques | [source](https://www.service-public.fr/particuliers/vosdroits/F1965) |
+| 3060 | Connaissances | Que signifie « suffrage universel » ? | Que seuls les propriétaires peuvent voter | Que tous les citoyens majeurs ont le droit de vote, sans condition de fortune, de sexe ou d'origine | Que le vote a lieu dans tous les pays du monde le même jour | Que chaque citoyen dispose de plusieurs voix selon ses impôts | **B** — Que tous les citoyens majeurs ont le droit de vote, sans condition de fortune, de sexe ou d'origine | [source](https://fr.wikipedia.org/wiki/Suffrage_universel) |
+| 3061 | Connaissances | Concernant les partis politiques, quelle proposition est correcte ? | Il n'existe qu'un seul parti autorisé | Les partis sont interdits en France | Chacun est libre d'adhérer au parti de son choix, ou à aucun | L'adhésion à un parti est obligatoire pour voter | **C** — Chacun est libre d'adhérer au parti de son choix, ou à aucun | [source](https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000571356/) |
+| 3062 | Connaissances | Quel est le rôle des députés ? | Voter la loi et contrôler l'action du Gouvernement | Diriger les services de police | Juger les affaires pénales | Nommer le président de la République | **A** — Voter la loi et contrôler l'action du Gouvernement | [source](https://fr.wikipedia.org/wiki/Assembl%C3%A9e_nationale_(France)) |
 | 3063 | Connaissances | La séparation des pouvoirs est un principe fondamental. Quels sont les trois pouvoirs concernés ? | Le pouvoir central, le pouvoir régional et le pouvoir local | Le pouvoir militaire, le pouvoir civil et le pouvoir économique | Le pouvoir exécutif, le pouvoir législatif et le pouvoir judiciaire | Le pouvoir royal, le pouvoir ecclésiastique et le pouvoir du peuple | **C** — Le pouvoir exécutif, le pouvoir législatif et le pouvoir judiciaire | [source](https://fr.wikipedia.org/wiki/S%C3%A9paration_des_pouvoirs) |
+| 3064 | Connaissances | Qui possède le pouvoir législatif ? | Le président de la République | Le Parlement, composé de l'Assemblée nationale et du Sénat | Le Conseil d'État | Les préfets | **B** — Le Parlement, composé de l'Assemblée nationale et du Sénat | [source](https://fr.wikipedia.org/wiki/Parlement_fran%C3%A7ais) |
 | 3065 | Connaissances | Qui sanctionne l'auteur d'un vol ? | La préfecture de département | Le maire de la commune | La police nationale | Le juge | **D** — Le juge | [source](https://fr.wikipedia.org/wiki/Tribunal_correctionnel_(France)) |
+| 3066 | Connaissances | Qui élit les députés ? | Les citoyens, au suffrage universel direct | Le président de la République | Les maires et les conseillers départementaux | Les sénateurs | **A** — Les citoyens, au suffrage universel direct | [source](https://fr.wikipedia.org/wiki/%C3%89lections_l%C3%A9gislatives_en_France) |
 | 3067 | Connaissances | Qui vote les lois ? | Le Président de la République | Le Conseil constitutionnel | Le Parlement | Le Conseil d'État | **C** — Le Parlement | [source](https://fr.wikipedia.org/wiki/Parlement_fran%C3%A7ais) |
+| 3068 | Connaissances | Qui réside au palais de l'Élysée ? | Le Premier ministre | Le président de la République | Le président du Sénat | Le ministre de la Justice | **B** — Le président de la République | [source](https://fr.wikipedia.org/wiki/Palais_de_l%27%C3%89lys%C3%A9e) |
 | 3069 | Connaissances | Combien y a-t-il de départements en France ? | 101 | 110 | 90 | 80 | **A** — 101 | [source](https://fr.wikipedia.org/wiki/D%C3%A9partement_fran%C3%A7ais) |
 | 3070 | Connaissances | Qui représente l'État dans un département ? | Le maire | Le député | Le sénateur | Le préfet | **D** — Le préfet | [source](https://fr.wikipedia.org/wiki/Pr%C3%A9fet_(France)) |
+| 3071 | Connaissances | Qui dirige la commune ? | Le préfet | Le maire | Le président du conseil départemental | Le député de la circonscription | **B** — Le maire | [source](https://fr.wikipedia.org/wiki/Maire_(France)) |
+| 3072 | Connaissances | Est-ce que le président de la République a tous les pouvoirs ? | Non : ses pouvoirs sont définis et limités par la Constitution | Oui, il décide seul de tout | Oui, il peut modifier la Constitution quand il le souhaite | Oui, il peut annuler une décision de justice | **A** — Non : ses pouvoirs sont définis et limités par la Constitution | [source](https://fr.wikipedia.org/wiki/Pr%C3%A9sident_de_la_R%C3%A9publique_fran%C3%A7aise) |
+| 3073 | Connaissances | Qui est le préfet ? | Le chef de la police municipale | Le représentant de l'État dans le département ou la région, nommé par le président de la République | L'élu à la tête du conseil départemental | Le juge chargé des affaires administratives | **B** — Le représentant de l'État dans le département ou la région, nommé par le président de la République | [source](https://fr.wikipedia.org/wiki/Pr%C3%A9fet_(France)) |
+| 3074 | Connaissances | Quel est le rôle du Parlement ? | Voter la loi, voter le budget et contrôler l'action du Gouvernement | Rendre la justice | Nommer les préfets | Diriger l'armée | **A** — Voter la loi, voter le budget et contrôler l'action du Gouvernement | [source](https://fr.wikipedia.org/wiki/Parlement_fran%C3%A7ais) |
+| 3075 | Connaissances | Quel est le régime politique de la France aujourd'hui ? | Une monarchie constitutionnelle | Une république démocratique et sociale, sous la Ve République | Un empire | Une fédération d'États autonomes | **B** — Une république démocratique et sociale, sous la Ve République | [source](https://fr.wikipedia.org/wiki/Cinqui%C3%A8me_R%C3%A9publique_(France)) |
 | 3076 | Connaissances | Combien d'États font partie de l'Union européenne au 1er janvier 2025 ? | 27 | 28 | 30 | 25 | **A** — 27 | [source](https://fr.wikipedia.org/wiki/Union_europ%C3%A9enne) |
+| 3077 | Connaissances | Quel État n'est pas membre de l'Union européenne ? | La Suisse | L'Italie | Le Portugal | La Grèce | **A** — La Suisse *(variantes : La Norvège, Le Royaume-Uni)* | [source](https://fr.wikipedia.org/wiki/Union_europ%C3%A9enne) |
+| 3078 | Connaissances | Quelle condition est nécessaire pour voter aux élections européennes ? | Être citoyen d'un État membre de l'Union européenne, majeur et inscrit sur les listes électorales | Être né dans l'Union européenne | Parler au moins deux langues européennes | Être membre d'un parti politique européen | **A** — Être citoyen d'un État membre de l'Union européenne, majeur et inscrit sur les listes électorales | [source](https://www.service-public.fr/particuliers/vosdroits/F1937) |
+| 3079 | Connaissances | À quelle fréquence les élections européennes sont-elles organisées ? | Tous les ans | Tous les 3 ans | Tous les 5 ans | Tous les 10 ans | **C** — Tous les 5 ans | [source](https://fr.wikipedia.org/wiki/%C3%89lections_europ%C3%A9ennes) |
+| 3080 | Connaissances | Quel pays est un pays fondateur de l'Union européenne ? | La Norvège | La Suisse | L'Italie | Le Royaume-Uni | **C** — L'Italie *(variantes : La Belgique, Les Pays-Bas, Le Luxembourg)* | [source](https://fr.wikipedia.org/wiki/Communaut%C3%A9_%C3%A9conomique_europ%C3%A9enne) |
+| 3081 | Connaissances | Quelle est la monnaie utilisée en France ? | Le franc | L'euro | La livre sterling | Le dollar | **B** — L'euro | [source](https://fr.wikipedia.org/wiki/Euro) |
 | 3082 | Connaissances | Qui élit les députés européens ? | Les gouvernements | Les partis politiques | Les entreprises | Les citoyens des États membres | **D** — Les citoyens des États membres | [source](https://fr.wikipedia.org/wiki/Parlement_europ%C3%A9en) |
+| 3083 | Connaissances | Quand célèbre-t-on la journée de l'Europe ? | Le 1er mai | Le 9 mai | Le 14 juillet | Le 11 novembre | **B** — Le 9 mai | [source](https://fr.wikipedia.org/wiki/Journ%C3%A9e_de_l%27Europe) |
 
 ### Droits et devoirs
 
-*2 questions dans la base*
+*6 questions dans la base*
 
 | # | Type | Question | A | B | C | D | Bonne réponse | Source |
 |---|---|---|---|---|---|---|---|---|
 | 3090 | Connaissances | Qu’est-ce que la liberté d’expression ? | Le droit de communiquer ses idées et opinions, dans le respect de la loi | Droit de dire n'importe quoi | Droit de critiquer le gouvernement uniquement | Droit réservé aux journalistes | **A** — Le droit de communiquer ses idées et opinions, dans le respect de la loi | [source](https://fr.wikipedia.org/wiki/Libert%C3%A9_d%27expression) |
+| 3096 | Connaissances | Est-il toujours possible de divorcer ? | Non, le mariage est indissoluble | Oui, mais seulement avec l'accord des deux époux | Oui : chaque époux peut demander le divorce, même sans l'accord de l'autre | Non, sauf après vingt ans de mariage | **C** — Oui : chaque époux peut demander le divorce, même sans l'accord de l'autre | [source](https://www.service-public.fr/particuliers/vosdroits/N142) |
+| 3097 | Connaissances | La peine de mort est : | Abolie en France depuis 1981 | Appliquée pour les crimes les plus graves | Suspendue, mais toujours inscrite dans la loi | Décidée au cas par cas par le président de la République | **A** — Abolie en France depuis 1981 | [source](https://fr.wikipedia.org/wiki/Peine_de_mort_en_France) |
+| 3107 | Connaissances | Quel est le rôle de la police ? | Juger et condamner les personnes arrêtées | Faire respecter la loi, protéger les personnes et les biens et constater les infractions | Voter les lois relatives à la sécurité | Fixer le montant des peines de prison | **B** — Faire respecter la loi, protéger les personnes et les biens et constater les infractions | [source](https://www.police-nationale.interieur.gouv.fr/) |
+| 3112 | Connaissances | Que doit faire une victime de violences ? | Se taire pour éviter les ennuis | Se faire justice elle-même | Porter plainte auprès de la police ou de la gendarmerie, et se faire soigner | Attendre que la situation s'améliore d'elle-même | **C** — Porter plainte auprès de la police ou de la gendarmerie, et se faire soigner | [source](https://www.service-public.fr/particuliers/vosdroits/F1435) |
 | 3113 | Connaissances | Quelle est l'infraction la plus grave ? | La contravention | Le crime | L'amende | Le délit | **B** — Le crime | [source](https://fr.wikipedia.org/wiki/Infraction_p%C3%A9nale) |
 
 ### Histoire, géographie et culture
@@ -688,7 +736,7 @@ Liste officielle des questions de connaissance de l'examen civique de niveau car
 
 ### Vivre dans la société française
 
-*10 questions dans la base*
+*11 questions dans la base*
 
 | # | Type | Question | A | B | C | D | Bonne réponse | Source |
 |---|---|---|---|---|---|---|---|---|
@@ -699,6 +747,7 @@ Liste officielle des questions de connaissance de l'examen civique de niveau car
 | 3172 | Connaissances | Une personne étrangère en situation régulière peut créer son entreprise : | Uniquement dans certains secteurs | Oui, sous réserve d'avoir un titre de séjour qui l'autorise | Seulement avec un partenaire français | Non | **B** — Oui, sous réserve d'avoir un titre de séjour qui l'autorise | [source](https://fr.wikipedia.org/wiki/Cr%C3%A9ation_d%27entreprise_en_France) |
 | 3173 | Connaissances | Une femme peut-elle créer son entreprise ? | Oui, sans aucune restriction | Seulement avec l'accord de son mari | Non | Uniquement dans des secteurs féminins | **A** — Oui, sans aucune restriction | [source](https://fr.wikipedia.org/wiki/%C3%89galit%C3%A9_professionnelle_entre_les_femmes_et_les_hommes_en_France) |
 | 3175 | Connaissances | Auprès de quel organisme faut-il demander le remboursement des frais de santé ? | La CPAM | La mairie | Le médecin | La préfecture | **A** — La CPAM | [source](https://fr.wikipedia.org/wiki/Caisse_primaire_d%27assurance_maladie) |
+| 3177 | Connaissances | Concernant l'accès aux soins, quelle proposition est correcte ? | Toute personne résidant régulièrement en France peut être affiliée à l'Assurance maladie | Les soins sont réservés aux personnes de nationalité française | Il faut payer l'intégralité des soins sans jamais être remboursé | L'accès aux soins d'urgence est réservé aux personnes assurées | **A** — Toute personne résidant régulièrement en France peut être affiliée à l'Assurance maladie | [source](https://www.ameli.fr/) |
 | 3182 | Connaissances | À quoi sert la carte Vitale ? | Conduire | Voter | À simplifier le remboursement des frais de santé | Payer les impôts | **C** — À simplifier le remboursement des frais de santé | [source](https://fr.wikipedia.org/wiki/Carte_Vitale) |
 | 3183 | Connaissances | À quoi sert une mutuelle santé ? | Payer les loyers | À compléter les remboursements de la Sécurité sociale (ticket modérateur) | Remplacer l'Assurance Maladie | Acheter des médicaments | **B** — À compléter les remboursements de la Sécurité sociale (ticket modérateur) | [source](https://fr.wikipedia.org/wiki/Mutuelle_(assurance)) |
 | 3184 | Connaissances | Jusqu'à quel âge l'école est-elle obligatoire ? | 14 ans | 18 ans | 12 ans | 16 ans | **D** — 16 ans | [source](https://fr.wikipedia.org/wiki/Instruction_obligatoire_en_France) |

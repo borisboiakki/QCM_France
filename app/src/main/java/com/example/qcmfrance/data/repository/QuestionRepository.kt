@@ -81,8 +81,11 @@ class QuestionRepository @Inject constructor(
          * devoirs » et « Vivre dans la société française »). **Liste CR complète : 209/209.**
          * v9 = lot 5 : rédaction des 30 questions manquantes du thème « Histoire, géographie et
          * culture » de la carte de séjour pluriannuelle (thème complet : 47/47).
+         * v10 = lot 6 : « Système institutionnel et politique » de la carte de séjour pluriannuelle
+         * (thème complet : 46/46), dont 29 questions dont le libellé était déjà rédigé pour un
+         * autre QCM et dont le jeu de réponses est repris à l'identique.
          */
-        const val CONTENT_VERSION = 9
+        const val CONTENT_VERSION = 10
         private const val CONTENT_PREFS = "question_content"
         private const val KEY_CONTENT_VERSION = "content_version"
     }
