@@ -29,6 +29,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.qcmfrance.R
+import com.example.qcmfrance.data.model.ExamMode
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -65,7 +66,29 @@ fun HelpScreen(onBack: () -> Unit) {
             }
 
             item {
+                HelpSectionTitle(stringResource(R.string.help_modes_title))
+                Text(
+                    text = stringResource(R.string.help_modes_intro),
+                    style = MaterialTheme.typography.bodyMedium
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                    ExamMode.entries.forEach { mode ->
+                        HelpFeatureRow(
+                            stringResource(mode.labelRes),
+                            stringResource(mode.descriptionRes)
+                        )
+                    }
+                }
+            }
+
+            item {
                 HelpSectionTitle(stringResource(R.string.help_rules_title))
+                Text(
+                    text = stringResource(R.string.help_rules_intro),
+                    style = MaterialTheme.typography.bodyMedium
+                )
+                Spacer(modifier = Modifier.height(8.dp))
                 Card(
                     modifier = Modifier.fillMaxWidth(),
                     colors = CardDefaults.cardColors(
@@ -77,24 +100,24 @@ fun HelpScreen(onBack: () -> Unit) {
                         verticalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
                         HelpRuleRow(
-                            stringResource(R.string.home_rule_questions_label),
-                            stringResource(R.string.home_rule_questions_value)
+                            stringResource(R.string.help_rule_questions_label),
+                            stringResource(R.string.help_rule_questions_value)
                         )
                         HelpRuleRow(
-                            stringResource(R.string.home_rule_pass_label),
-                            stringResource(R.string.home_rule_pass_value)
+                            stringResource(R.string.help_rule_pass_label),
+                            stringResource(R.string.help_rule_pass_value)
                         )
                         HelpRuleRow(
-                            stringResource(R.string.home_rule_duration_label),
-                            stringResource(R.string.home_rule_duration_value)
+                            stringResource(R.string.help_rule_duration_label),
+                            stringResource(R.string.help_rule_duration_value)
                         )
                         HelpRuleRow(
-                            stringResource(R.string.home_rule_format_label),
-                            stringResource(R.string.home_rule_format_value)
+                            stringResource(R.string.help_rule_format_label),
+                            stringResource(R.string.help_rule_format_value)
                         )
                         HelpRuleRow(
-                            stringResource(R.string.home_rule_results_label),
-                            stringResource(R.string.home_rule_results_value)
+                            stringResource(R.string.help_rule_results_label),
+                            stringResource(R.string.help_rule_results_value)
                         )
                     }
                 }

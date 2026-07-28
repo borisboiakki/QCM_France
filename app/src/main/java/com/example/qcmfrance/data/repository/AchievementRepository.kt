@@ -7,6 +7,7 @@ import com.example.qcmfrance.data.model.Achievement
 import com.example.qcmfrance.data.model.AchievementRecord
 import com.example.qcmfrance.data.model.AchievementState
 import com.example.qcmfrance.data.model.Achievements
+import com.example.qcmfrance.data.model.ExamMode
 import com.example.qcmfrance.data.model.SeenQuestion
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -36,15 +37,19 @@ class AchievementRepository @Inject constructor(
     fun observe(): Flow<List<AchievementState>> =
         dao.observeAll().map { records ->
             val byId = records.associateBy { it.id }
-            val totalQuestions = questionDao.count()
-            val totalFiches = fichesRepository.totalFichesCount()
+            // Cibles résolues au runtime : nombre de questions de chaque QCM (« Tour complet ») et
+            // nombre total de fiches (« Bibliothèque complète »).
+            val dynamicTargets = buildMap {
+                Achievements.EXAM_ALL_SEEN_BY_MODE.forEach { (mode, id) ->
+                    val total = questionDao.countForMode(mode.code)
+                    if (total > 0) put(id, total)
+                }
+                val totalFiches = fichesRepository.totalFichesCount()
+                if (totalFiches > 0) put(Achievements.FICHE_ALL_READ, totalFiches)
+            }
             Achievements.ALL.map { a ->
                 val record = byId[a.id]
-                val target = when {
-                    a.id == Achievements.EXAM_ALL_SEEN && totalQuestions > 0 -> totalQuestions
-                    a.id == Achievements.FICHE_ALL_READ && totalFiches > 0    -> totalFiches
-                    else                                                       -> a.target
-                }
+                val target = dynamicTargets[a.id] ?: a.target
                 AchievementState(
                     achievement = a,
                     unlockedAt = record?.unlockedAt,
@@ -77,25 +82,37 @@ class AchievementRepository @Inject constructor(
         if (reached) Achievements.byId(id)?.let { _newlyUnlocked.tryEmit(it) }
     }
 
-    /** Appelé à la soumission d'un examen. */
-    suspend fun onExamCompleted(passed: Boolean, perfect: Boolean, questionIds: List<Int>) {
+    /**
+     * Appelé à la soumission d'un examen. Les succès « premier examen », « reçu » et « sans-faute »
+     * sont communs aux trois QCM ; « Tour complet » est propre au QCM passé.
+     */
+    suspend fun onExamCompleted(
+        mode: ExamMode,
+        passed: Boolean,
+        perfect: Boolean,
+        questionIds: List<Int>
+    ) {
         unlock(Achievements.EXAM_FIRST_COMPLETED)
         if (passed) unlock(Achievements.EXAM_FIRST_PASSED)
         if (perfect) unlock(Achievements.EXAM_PERFECT)
 
-        // « Tour complet » : accumule les ids vus, débloque quand toutes les questions ont été vues.
+        // « Tour complet » : accumule les ids vus (tous QCM confondus, les ids étant uniques), puis
+        // ne compte pour ce QCM que les questions qui lui sont tirables (les siennes + les mises en
+        // situation, communes). Un examen CR ne fait donc pas progresser le succès naturalisation.
         seenDao.insertAll(questionIds.map { SeenQuestion(it) })
-        val total = questionDao.count()
-        if (total > 0) setProgress(Achievements.EXAM_ALL_SEEN, seenDao.count(), total)
+        val achievementId = Achievements.EXAM_ALL_SEEN_BY_MODE[mode] ?: return
+        val total = questionDao.countForMode(mode.code)
+        if (total > 0) setProgress(achievementId, questionDao.countSeenForMode(mode.code), total)
     }
 
     /** Appelé quand un thème d'entraînement est terminé (ou déjà terminé à l'ouverture). */
-    suspend fun onThemeCompleted(theme: String) {
-        val id = Achievements.TRAINING_BY_THEME[theme] ?: return
+    suspend fun onThemeCompleted(mode: ExamMode, theme: String) {
+        val id = Achievements.TRAINING_BY_KEY[mode.trainingKey(theme)] ?: return
         unlock(id)
-        // « Élève modèle » : progression = nombre de thèmes terminés (une seule requête).
-        val done = dao.countUnlockedIn(Achievements.TRAINING_BY_THEME.values.toList())
-        setProgress(Achievements.TRAIN_ALL, done, Achievements.TRAINING_BY_THEME.size)
+        // « Tous les thèmes » du QCM : progression = nombre de ses thèmes terminés (une requête).
+        val themeIds = Achievements.TRAINING_THEME_IDS_BY_MODE[mode] ?: return
+        val allId = Achievements.TRAINING_ALL_BY_MODE[mode] ?: return
+        setProgress(allId, dao.countUnlockedIn(themeIds), themeIds.size)
     }
 
     /**

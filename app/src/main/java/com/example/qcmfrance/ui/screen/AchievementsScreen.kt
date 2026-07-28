@@ -65,9 +65,9 @@ fun AchievementsScreen(
         }
     ) { innerPadding ->
         val unlocked = states.count { it.isUnlocked }
-        val examStates = states.filter { it.achievement.category == AchievementCategory.EXAM }
-        val trainingStates = states.filter { it.achievement.category == AchievementCategory.TRAINING }
-        val fichesStates = states.filter { it.achievement.category == AchievementCategory.FICHES }
+        // Une section par catégorie, dans l'ordre de déclaration de l'enum (examen, puis
+        // l'entraînement de chaque QCM, puis les fiches).
+        val byCategory = states.groupBy { it.achievement.category }
 
         LazyColumn(
             modifier = Modifier
@@ -79,19 +79,12 @@ fun AchievementsScreen(
         ) {
             item { SummaryHeader(unlocked = unlocked, total = states.size) }
 
-            if (examStates.isNotEmpty()) {
-                item { CategoryHeader(stringResource(R.string.achievements_category_exam)) }
-                items(examStates, key = { it.achievement.id }) { AchievementCard(it) }
-            }
-
-            if (trainingStates.isNotEmpty()) {
-                item { CategoryHeader(stringResource(R.string.achievements_category_training)) }
-                items(trainingStates, key = { it.achievement.id }) { AchievementCard(it) }
-            }
-
-            if (fichesStates.isNotEmpty()) {
-                item { CategoryHeader(stringResource(R.string.achievements_category_fiches)) }
-                items(fichesStates, key = { it.achievement.id }) { AchievementCard(it) }
+            AchievementCategory.entries.forEach { category ->
+                val categoryStates = byCategory[category].orEmpty()
+                if (categoryStates.isNotEmpty()) {
+                    item(key = "header_$category") { CategoryHeader(stringResource(category.titleRes)) }
+                    items(categoryStates, key = { it.achievement.id }) { AchievementCard(it) }
+                }
             }
         }
     }

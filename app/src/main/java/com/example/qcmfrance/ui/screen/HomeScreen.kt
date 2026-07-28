@@ -13,7 +13,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.Info
@@ -27,6 +32,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -40,10 +46,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.qcmfrance.R
+import com.example.qcmfrance.data.model.ExamMode
 
 // Couleurs du drapeau français
 private val FlagBlue = Color(0xFF002395)
@@ -54,6 +62,8 @@ private val ResumeBlue = Color(0xFF4A73C8)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
+    examMode: ExamMode,
+    onExamModeChange: (ExamMode) -> Unit,
     onStartExam: () -> Unit,
     onResumeExam: () -> Unit,
     onStartTraining: () -> Unit,
@@ -62,7 +72,8 @@ fun HomeScreen(
     onShowResources: () -> Unit,
     onShowSettings: () -> Unit,
     onShowHelp: () -> Unit,
-    hasPausedQuiz: Boolean = false
+    hasPausedQuiz: Boolean = false,
+    pausedMode: ExamMode? = null
 ) {
     var showConfirmDialog by remember { mutableStateOf(false) }
 
@@ -114,10 +125,13 @@ fun HomeScreen(
             )
         }
     ) { innerPadding ->
+        // Défilable : le sélecteur de QCM allonge l'écran, qui doit rester utilisable sur un petit
+        // écran et avec la taille de texte « Grand ».
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
+                .verticalScroll(rememberScrollState())
                 .padding(horizontal = 24.dp)
                 .padding(bottom = 24.dp),
             verticalArrangement = Arrangement.Center,
@@ -168,40 +182,33 @@ fun HomeScreen(
 
             Spacer(modifier = Modifier.height(32.dp))
 
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceVariant
-                )
+            // Choix du QCM préparé. Les règles de l'examen (40 questions, 45 min, seuil 32/40)
+            // sont identiques pour les trois et détaillées dans l'écran d'aide.
+            Text(
+                text = stringResource(R.string.home_mode_title),
+                style = MaterialTheme.typography.titleSmall,
+                fontWeight = FontWeight.SemiBold,
+                modifier = Modifier.fillMaxWidth()
+            )
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .selectableGroup(),
+                verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                Column(
-                    modifier = Modifier.padding(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    RuleRow(
-                        label = stringResource(R.string.home_rule_questions_label),
-                        value = stringResource(R.string.home_rule_questions_value)
-                    )
-                    RuleRow(
-                        label = stringResource(R.string.home_rule_pass_label),
-                        value = stringResource(R.string.home_rule_pass_value)
-                    )
-                    RuleRow(
-                        label = stringResource(R.string.home_rule_duration_label),
-                        value = stringResource(R.string.home_rule_duration_value)
-                    )
-                    RuleRow(
-                        label = stringResource(R.string.home_rule_format_label),
-                        value = stringResource(R.string.home_rule_format_value)
-                    )
-                    RuleRow(
-                        label = stringResource(R.string.home_rule_results_label),
-                        value = stringResource(R.string.home_rule_results_value)
+                ExamMode.entries.forEach { mode ->
+                    ExamModeRow(
+                        mode = mode,
+                        selected = mode == examMode,
+                        onSelect = { onExamModeChange(mode) }
                     )
                 }
             }
 
-            Spacer(modifier = Modifier.height(32.dp))
+            Spacer(modifier = Modifier.height(24.dp))
 
             // Couleurs du drapeau français : un bouton par couleur (bleu, blanc, rouge).
             Button(
@@ -212,7 +219,10 @@ fun HomeScreen(
                     contentColor = Color.White
                 )
             ) {
-                Text(text = stringResource(R.string.home_start_exam), style = MaterialTheme.typography.titleMedium)
+                Text(
+                    text = stringResource(R.string.home_start_exam, stringResource(examMode.shortLabelRes)),
+                    style = MaterialTheme.typography.titleMedium
+                )
             }
 
             if (hasPausedQuiz) {
@@ -226,7 +236,13 @@ fun HomeScreen(
                         contentColor = Color.White
                     )
                 ) {
-                    Text(text = stringResource(R.string.home_resume_exam), style = MaterialTheme.typography.titleMedium)
+                    Text(
+                        text = stringResource(
+                            R.string.home_resume_exam,
+                            stringResource((pausedMode ?: examMode).shortLabelRes)
+                        ),
+                        style = MaterialTheme.typography.titleMedium
+                    )
                 }
             }
 
@@ -275,23 +291,37 @@ fun HomeScreen(
 }
 
 @Composable
-private fun RuleRow(label: String, value: String) {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.Top
+private fun ExamModeRow(mode: ExamMode, selected: Boolean, onSelect: () -> Unit) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .selectable(selected = selected, onClick = onSelect, role = Role.RadioButton),
+        colors = CardDefaults.cardColors(
+            containerColor = if (selected) MaterialTheme.colorScheme.primaryContainer
+                             else MaterialTheme.colorScheme.surfaceVariant
+        ),
+        border = if (selected) BorderStroke(1.dp, MaterialTheme.colorScheme.primary) else null
     ) {
-        Text(
-            text = label,
-            style = MaterialTheme.typography.bodyMedium,
-            modifier = Modifier.weight(1f)
-        )
-        Spacer(modifier = Modifier.width(8.dp))
-        Text(
-            text = value,
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.primary,
-            textAlign = TextAlign.End
-        )
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 12.dp, vertical = 10.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            RadioButton(selected = selected, onClick = null)
+            Spacer(modifier = Modifier.width(12.dp))
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = stringResource(mode.labelRes),
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.SemiBold
+                )
+                Text(
+                    text = stringResource(mode.descriptionRes),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+        }
     }
 }

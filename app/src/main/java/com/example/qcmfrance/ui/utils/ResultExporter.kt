@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import com.example.qcmfrance.R
 import com.example.qcmfrance.data.ExamConstants
+import com.example.qcmfrance.data.model.ExamMode
 import com.example.qcmfrance.data.model.QuizResult
 import com.example.qcmfrance.ui.viewmodel.QuizUiState
 import java.text.SimpleDateFormat
@@ -23,6 +24,9 @@ object ResultExporter {
 
         val sb = StringBuilder()
         sb.appendLine(context.getString(R.string.export_full_header, dateStr))
+        sb.appendLine(
+            context.getString(R.string.export_mode_line, context.getString(uiState.mode.labelRes))
+        )
         sb.appendLine(
             context.getString(
                 R.string.export_score_line,
@@ -64,6 +68,12 @@ object ResultExporter {
 
         val text = buildString {
             appendLine(context.getString(R.string.export_single_header, dateStr))
+            appendLine(
+                context.getString(
+                    R.string.export_mode_line,
+                    context.getString(ExamMode.fromCode(result.examMode).labelRes)
+                )
+            )
             appendLine(
                 context.getString(
                     R.string.export_score_line,

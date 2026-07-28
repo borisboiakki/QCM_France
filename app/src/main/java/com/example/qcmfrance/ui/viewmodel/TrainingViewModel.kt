@@ -2,6 +2,7 @@ package com.example.qcmfrance.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.qcmfrance.data.model.ExamMode
 import com.example.qcmfrance.data.model.Question
 import com.example.qcmfrance.data.repository.AchievementRepository
 import com.example.qcmfrance.data.repository.TrainingRepository
@@ -26,7 +27,14 @@ data class ThemeProgress(
     val isComplete: Boolean get() = total > 0 && done >= total
 }
 
+/** Avancement des 5 thèmes d'un QCM, pour une section de l'écran « S'entraîner ». */
+data class ModeProgress(
+    val mode: ExamMode,
+    val themes: List<ThemeProgress>
+)
+
 data class TrainingUiState(
+    val mode: ExamMode = ExamMode.DEFAULT,
     val theme: String = "",
     val questions: List<Question> = emptyList(),  // toutes les questions du thème, options mélangées
     val currentIndex: Int = 0,
@@ -45,35 +53,52 @@ class TrainingViewModel @Inject constructor(
     private val _uiState = MutableStateFlow(TrainingUiState())
     val uiState: StateFlow<TrainingUiState> = _uiState.asStateFlow()
 
-    /** Totaux par thème (constants après amorçage) — calculés à l'ouverture de l'écran. */
+    /**
+     * Totaux par QCM et par thème (constants après amorçage), indexés par la clé d'entraînement —
+     * calculés à l'ouverture de l'écran.
+     */
     private val totals: StateFlow<Map<String, Int>> = flow {
-        emit(repository.themes.associateWith { repository.totalForTheme(it) })
+        emit(
+            ExamMode.entries.flatMap { mode ->
+                repository.themes.map { theme ->
+                    mode.trainingKey(theme) to repository.totalForTheme(mode, theme)
+                }
+            }.toMap()
+        )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyMap())
 
-    /** Avancement de chaque thème pour l'écran de sélection. */
-    val themeProgress: StateFlow<List<ThemeProgress>> =
-        combine(repository.observeProgress(), totals) { progress, totalsByTheme ->
-            repository.themes.map { theme ->
-                ThemeProgress(
-                    theme = theme,
-                    done = (progress[theme] ?: 0).coerceAtMost(totalsByTheme[theme] ?: 0),
-                    total = totalsByTheme[theme] ?: 0
+    /** Avancement de chaque thème de chaque QCM, pour les sections de l'écran de sélection. */
+    val modeProgress: StateFlow<List<ModeProgress>> =
+        combine(repository.observeProgress(), totals) { progress, totalsByKey ->
+            ExamMode.entries.map { mode ->
+                ModeProgress(
+                    mode = mode,
+                    themes = repository.themes.map { theme ->
+                        val key = mode.trainingKey(theme)
+                        val total = totalsByKey[key] ?: 0
+                        ThemeProgress(
+                            theme = theme,
+                            done = (progress[key] ?: 0).coerceAtMost(total),
+                            total = total
+                        )
+                    }
                 )
             }
         }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
-    /** Charge un thème et reprend à la position sauvegardée. */
-    fun startTheme(theme: String) {
+    /** Charge un thème d'un QCM et reprend à la position sauvegardée. */
+    fun startTheme(mode: ExamMode, theme: String) {
         viewModelScope.launch {
-            _uiState.value = TrainingUiState(theme = theme, isLoading = true)
+            _uiState.value = TrainingUiState(mode = mode, theme = theme, isLoading = true)
             // Contrairement à l'examen (un jeu tiré au hasard), l'entraînement déroule TOUS les
             // jeux de réponses d'une question à variantes, à la suite les uns des autres.
-            val questions = repository.questionsForTheme(theme)
+            val questions = repository.questionsForTheme(mode, theme)
                 .flatMap { it.allAnswerSets() }
                 .map { it.withShuffledOptions() }
-            val savedIndex = repository.progressFor(theme)
+            val savedIndex = repository.progressFor(mode, theme)
             val alreadyDone = questions.isNotEmpty() && savedIndex >= questions.size
             _uiState.value = TrainingUiState(
+                mode = mode,
                 theme = theme,
                 questions = questions,
                 currentIndex = savedIndex.coerceIn(0, (questions.size - 1).coerceAtLeast(0)),
@@ -81,7 +106,7 @@ class TrainingViewModel @Inject constructor(
                 isFinished = questions.isEmpty() || alreadyDone
             )
             // Rattrapage : un thème déjà terminé avant l'ajout des succès débloque le sien à l'ouverture.
-            if (alreadyDone) achievementRepository.onThemeCompleted(theme)
+            if (alreadyDone) achievementRepository.onThemeCompleted(mode, theme)
         }
     }
 
@@ -109,14 +134,14 @@ class TrainingViewModel @Inject constructor(
         if (nextIndex >= state.questions.size) {
             _uiState.update { it.copy(isFinished = true, selectedAnswer = null, revealed = false) }
             viewModelScope.launch {
-                repository.saveProgress(state.theme, state.questions.size)
-                achievementRepository.onThemeCompleted(state.theme)
+                repository.saveProgress(state.mode, state.theme, state.questions.size)
+                achievementRepository.onThemeCompleted(state.mode, state.theme)
             }
         } else {
             _uiState.update {
                 it.copy(currentIndex = nextIndex, selectedAnswer = null, revealed = false)
             }
-            viewModelScope.launch { repository.saveProgress(state.theme, nextIndex) }
+            viewModelScope.launch { repository.saveProgress(state.mode, state.theme, nextIndex) }
         }
     }
 
@@ -133,10 +158,11 @@ class TrainingViewModel @Inject constructor(
 
     /** Rejoue un thème depuis le début. */
     fun restartTheme() {
+        val mode = _uiState.value.mode
         val theme = _uiState.value.theme
         viewModelScope.launch {
-            repository.saveProgress(theme, 0)
-            startTheme(theme)
+            repository.saveProgress(mode, theme, 0)
+            startTheme(mode, theme)
         }
     }
 

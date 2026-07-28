@@ -98,6 +98,15 @@ fun QuizScreen(
         ) {
             Spacer(modifier = Modifier.height(16.dp))
 
+            // Rappel du QCM passé : le libellé de l'examen n'est plus le même pour tous.
+            Text(
+                text = stringResource(uiState.mode.labelRes),
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.primary
+            )
+
+            Spacer(modifier = Modifier.height(4.dp))
+
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,

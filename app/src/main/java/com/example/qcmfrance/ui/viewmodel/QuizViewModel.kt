@@ -4,6 +4,7 @@ import android.os.SystemClock
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.qcmfrance.data.ExamConstants
+import com.example.qcmfrance.data.model.ExamMode
 import com.example.qcmfrance.data.model.Question
 import com.example.qcmfrance.data.model.QuizResult
 import com.example.qcmfrance.data.repository.AchievementRepository
@@ -29,7 +30,9 @@ data class QuizUiState(
     val passed: Boolean = false,
     val remainingSeconds: Int = ExamConstants.EXAM_DURATION_SECONDS,
     val timerExpired: Boolean = false,
-    val isLoading: Boolean = true
+    val isLoading: Boolean = true,
+    /** QCM passé : détermine le vivier de questions, et s'affiche à l'examen comme au résultat. */
+    val mode: ExamMode = ExamMode.DEFAULT
 )
 
 @HiltViewModel
@@ -45,18 +48,19 @@ class QuizViewModel @Inject constructor(
 
     private var timerJob: Job? = null
 
-    fun startQuiz() {
+    fun startQuiz(mode: ExamMode) {
         // Réinitialisation synchrone : un état isFinished=true resté d'un examen précédent
         // déclencherait la navigation immédiate vers l'écran résultat.
         timerJob?.cancel()
-        _uiState.value = QuizUiState()
+        _uiState.value = QuizUiState(mode = mode)
         viewModelScope.launch {
             pausedQuizRepository.clear()
-            val questions = repository.drawStratifiedQuestions().map { it.pickVariant().withShuffledOptions() }
+            val questions = repository.drawStratifiedQuestions(mode).map { it.pickVariant().withShuffledOptions() }
             _uiState.update {
                 QuizUiState(
                     questions = questions,
-                    isLoading = false
+                    isLoading = false,
+                    mode = mode
                 )
             }
             runTimer()
@@ -81,7 +85,8 @@ class QuizViewModel @Inject constructor(
                 questions        = state.questions,
                 answers          = state.answers,
                 currentIndex     = state.currentIndex,
-                remainingSeconds = state.remainingSeconds
+                remainingSeconds = state.remainingSeconds,
+                mode             = state.mode
             )
         }
     }
@@ -93,12 +98,15 @@ class QuizViewModel @Inject constructor(
             val saved = pausedQuizRepository.load() ?: return@launch
             // La sauvegarde n'est pas effacée ici : elle sert de filet de sécurité si le
             // processus est tué pendant l'examen repris. Effacée à la soumission.
+            // Un examen repris l'est toujours dans le QCM où il a été lancé, quel que soit le
+            // mode sélectionné entre-temps sur l'accueil.
             _uiState.value = QuizUiState(
                 questions        = saved.questions,
                 answers          = saved.answers,
                 currentIndex     = saved.currentIndex,
                 remainingSeconds = saved.remainingSeconds,
-                isLoading        = false
+                isLoading        = false,
+                mode             = saved.mode
             )
             runTimer()
         }
@@ -138,10 +146,12 @@ class QuizViewModel @Inject constructor(
                     date            = System.currentTimeMillis(),
                     score           = score,
                     passed          = passed,
-                    durationSeconds = ExamConstants.EXAM_DURATION_SECONDS - state.remainingSeconds
+                    durationSeconds = ExamConstants.EXAM_DURATION_SECONDS - state.remainingSeconds,
+                    examMode        = state.mode.code
                 )
             )
             achievementRepository.onExamCompleted(
+                mode        = state.mode,
                 passed      = passed,
                 perfect     = score == state.questions.size,
                 questionIds = state.questions.map { it.id }

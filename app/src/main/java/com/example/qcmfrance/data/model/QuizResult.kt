@@ -10,5 +10,7 @@ data class QuizResult(
     val score: Int,
     val passed: Boolean,
     val totalQuestions: Int = 40,
-    val durationSeconds: Int
+    val durationSeconds: Int,
+    /** QCM passé : code d'[ExamMode] ("NAT" par défaut pour les résultats antérieurs au multi-QCM). */
+    val examMode: String = ExamMode.NATURALISATION.code
 )

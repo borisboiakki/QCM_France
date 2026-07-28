@@ -18,7 +18,7 @@ import com.example.qcmfrance.data.model.TrainingProgress
 
 @Database(
     entities = [Question::class, QuizResult::class, PausedQuiz::class, TrainingProgress::class, ExamCycle::class, AchievementRecord::class, SeenQuestion::class, ReadFiche::class],
-    version = 11,
+    version = 12,
     exportSchema = true
 )
 @TypeConverters(Converters::class)
@@ -190,9 +190,23 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
 
+        // Multi-QCM (naturalisation / carte de résident / carte de séjour pluriannuelle) : chaque
+        // question de connaissances appartient à un QCM, et chaque examen (en cours comme terminé)
+        // mémorise celui qu'il porte. Le défaut 'NAT' laisse les données existantes cohérentes ;
+        // la colonne des questions est ensuite peuplée par le seed (CONTENT_VERSION).
+        private val MIGRATION_11_12 = object : Migration(11, 12) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("ALTER TABLE questions ADD COLUMN examMode TEXT NOT NULL DEFAULT 'NAT'")
+                database.execSQL("ALTER TABLE paused_quiz ADD COLUMN examMode TEXT NOT NULL DEFAULT 'NAT'")
+                database.execSQL("ALTER TABLE quiz_results ADD COLUMN examMode TEXT NOT NULL DEFAULT 'NAT'")
+                // Les mises en situation sont communes aux trois QCM.
+                database.execSQL("UPDATE questions SET examMode = 'ALL' WHERE isSituation = 1")
+            }
+        }
+
         fun build(context: Context): AppDatabase =
             Room.databaseBuilder(context, AppDatabase::class.java, "qcm_france.db")
-                .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5, MIGRATION_5_6, MIGRATION_6_7, MIGRATION_7_8, MIGRATION_8_9, MIGRATION_9_10, MIGRATION_10_11)
+                .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5, MIGRATION_5_6, MIGRATION_6_7, MIGRATION_7_8, MIGRATION_8_9, MIGRATION_9_10, MIGRATION_10_11, MIGRATION_11_12)
                 .build()
     }
 }

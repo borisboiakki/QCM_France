@@ -1,16 +1,39 @@
 # QCM France
 
-Application Android de préparation à l'examen civique de naturalisation française.
+Application Android de préparation aux **examens civiques français** : naturalisation,
+carte de résident (CR) et carte de séjour pluriannuelle (CSP).
+
+---
+
+## Les trois examens couverts
+
+Le ministère de l'Intérieur publie une liste de questions de connaissance différente pour chaque
+niveau d'examen. L'application couvre les trois : le QCM préparé se choisit sur l'écran d'accueil,
+et l'examen blanc, l'entraînement et les succès s'y adaptent.
+
+| Examen | Questions de connaissances | Questions tirables (avec les mises en situation) |
+|---|---|---|
+| Naturalisation | 258 | 338 |
+| Carte de résident (CR) | 209 | 289 |
+| Carte de séjour pluriannuelle (CSP) | 191 | 271 |
+
+Les **80 questions de mise en situation** et les **fiches thématiques officielles** sont communes
+aux trois examens, tout comme la mécanique d'examen (40 questions, 45 minutes, seuil 32/40) : seule
+la liste de questions de connaissances change.
+
+**738 questions** au total. Le ministère ne publie que les énoncés : les propositions, les bonnes
+réponses, les explications, les sources et les variantes sont rédigées pour l'application. Détails
+et conventions : [`docs/MULTI_QCM_PLAN.md`](docs/MULTI_QCM_PLAN.md).
 
 ---
 
 ## Fonctionnalités
 
 ### Examen simulé
-- **40 questions** tirées aléatoirement : **28 questions de connaissances** + **12 questions de mise en situation**, dans une base de 338 questions officielles (258 connaissances + 80 mises en situation)
+- **40 questions** tirées aléatoirement dans l'examen choisi : **28 questions de connaissances** + **12 questions de mise en situation**
 - **Questions de mise en situation** — cas concrets de la vie quotidienne (voisinage, travail, discrimination, urgence…) où il faut choisir la réaction la plus appropriée, en plus des questions de connaissances classiques
 - **Tirage proportionnel** par thème pour respecter la répartition de l'examen réel, séparément pour les questions de connaissances et de mise en situation
-- **Anti-répétition entre examens** — chaque couple thème/type cycle sur toutes ses questions (ordre mélangé et persisté) avant qu'une question ne puisse revenir, au lieu d'un tirage aléatoire indépendant à chaque examen
+- **Anti-répétition entre examens** — chaque triplet QCM/thème/type cycle sur toutes ses questions (ordre mélangé et persisté) avant qu'une question ne puisse revenir, au lieu d'un tirage aléatoire indépendant à chaque examen ; passer un examen CR ne consomme pas la rotation de la naturalisation
 - **Chronomètre décompte 45 minutes** — affiché en rouge dans les 5 dernières minutes
 - **Soumission automatique** à 00:00 si l'examen n'est pas terminé manuellement
 - **Aucun feedback pendant l'examen** (règle officielle) — les réponses correctes ne sont révélées qu'à la fin
@@ -18,7 +41,7 @@ Application Android de préparation à l'examen civique de naturalisation franç
 - **Pause et reprise** — sauvegarde l'état complet (questions, réponses, timer) et permet de reprendre plus tard, même après fermeture de l'application
 
 ### Mode S'entraîner
-- **Choix du thème** parmi les 5 thèmes officiels — barre de progression `X/total` par thème
+- **Une section par examen** (naturalisation, carte de résident, carte de séjour pluriannuelle), chacune avec les 5 thèmes officiels — barre de progression `X/total` indépendante par examen et par thème
 - **Toutes les questions du thème**, une par une, dans un ordre stable et cohérent
 - **Toutes les variantes** : une question à plusieurs bonnes réponses valides est présentée une fois par jeu de réponses (libellé « Jeu de réponses X sur Y »), pour réviser toutes les réponses possibles
 - **Avancement persisté** : reprendre un thème interrompu reprend exactement là où on s'était arrêté, même après fermeture de l'application
@@ -32,16 +55,16 @@ Application Android de préparation à l'examen civique de naturalisation franç
 
 ### Succès (achievements)
 Système de gamification inspiré des trophées de jeux vidéo, pour rendre la préparation plus motivante.
-- **13 succès** répartis en trois catégories :
-  - *Examen* — premier examen terminé, premier examen réussi (≥ 32/40), score parfait 40/40 *(rare)*, et « Tour complet » quand toutes les questions de la base ont été vues au moins une fois (progression `X/338`)
-  - *Entraînement* — un succès par thème terminé, plus « Élève modèle » *(rare)* une fois les 5 thèmes complétés (progression `X/5`)
+- **27 succès** répartis en cinq catégories :
+  - *Examen* — premier examen terminé, premier examen réussi (≥ 32/40), score parfait 40/40 *(rare)*, communs aux trois examens ; plus un « Tour complet » **par examen**, débloqué quand toutes ses questions ont été vues au moins une fois
+  - *Entraînement* — un bloc par examen : un succès par thème terminé, plus un succès *(rare)* une fois les 5 thèmes de cet examen complétés (progression `X/5`)
   - *Fiches officielles* — « Première lecture » (première fiche consultée), « Lecteur assidu » (30 fiches consultées, progression `X/30`) et « Bibliothèque complète » *(rare, secret)* une fois toutes les fiches consultées (progression `X/total`)
 - **Popup au déblocage** — un bandeau « Succès débloqué ! » glisse depuis le haut de l'écran quel que soit l'endroit où l'on se trouve, avec un liseré doré pour les succès rares
-- **Page dédiée** accessible depuis l'accueil — compteur `X/13`, succès groupés par catégorie, succès verrouillés grisés, barres de progression et date de déblocage
+- **Page dédiée** accessible depuis l'accueil — compteur `X/27`, succès groupés par catégorie, succès verrouillés grisés, barres de progression et date de déblocage
 - **Réinitialisation** des succès depuis les Paramètres
 
 ### Écran d'accueil
-Rappel des règles officielles avant de commencer : nombre de questions, seuil de réussite, durée, format.  
+**Sélecteur d'examen** : Naturalisation, Carte de résident ou Carte de séjour pluriannuelle. Le choix est mémorisé d'un lancement à l'autre et détermine le vivier de questions de l'examen lancé. Les règles officielles (identiques pour les trois) sont détaillées dans l'écran d'aide.  
 Accès rapide aux succès, à l'historique, aux paramètres, aux **ressources complémentaires** (icône liste) et à l'aide (icône Info) depuis la barre du haut.  
 Si un examen est en pause, bouton **Reprendre l'examen** (couleur secondaire). Démarrer un nouvel examen affiche une confirmation pour éviter d'écraser l'état sauvegardé.
 
@@ -91,6 +114,8 @@ Accessible via l'icône liste (barre du haut de l'accueil), dans un menu dédié
 
 ## Règles officielles de l'examen
 
+Identiques pour les trois examens.
+
 | Règle | Valeur |
 |---|---|
 | Nombre de questions | 40 |
@@ -102,7 +127,10 @@ Accessible via l'icône liste (barre du haut de l'accueil), dans un menu dédié
 ### Répartition des thèmes (tirage stratifié)
 
 Le total par thème correspond à l'examen officiel (6/9/6/13/6 = 40) ; seule sa composition
-interne change entre questions de connaissances et de mise en situation. Le thème « Histoire,
+interne change entre questions de connaissances et de mise en situation. La répartition du tirage
+est **la même pour les trois examens** (chaque liste officielle compte au moins 13 questions dans
+« Histoire, géographie et culture ») ; le tableau ci-dessous donne les effectifs de la base pour la
+naturalisation. Le thème « Histoire,
 géographie et culture » reste 100 % connaissances (aucune mise en situation adaptée à ce thème).
 
 | Thème | Connaissances (base) | Mise en situation (base) | Tirées à l'examen |
@@ -132,18 +160,19 @@ app/src/main/java/com/example/qcmfrance/
 │
 ├── data/                          Couche données (indépendante de l'UI)
 │   ├── model/
+│   │   ├── ExamMode.kt            Les 3 QCM (NAT / CR / CSP) + clés de cycle et de progression
 │   │   ├── Question.kt            Entité Room : id, theme, text, optionA-D,
-│   │   │                          correctAnswer, explanation, source, isSituation
-│   │   ├── QuizResult.kt          Entité Room : id, date, score, passed, duration
-│   │   ├── PausedQuiz.kt          Entité Room singleton : état sérialisé (questions, réponses, timer)
-│   │   ├── TrainingProgress.kt    Entité Room : PK=theme, currentIndex (point de reprise par thème)
-│   │   ├── ExamCycle.kt           Entité Room : PK=theme, permutation d'ids (JSON) + curseur (anti-répétition examen)
+│   │   │                          correctAnswer, explanation, source, isSituation, variants, examMode
+│   │   ├── QuizResult.kt          Entité Room : id, date, score, passed, duration, examMode
+│   │   ├── PausedQuiz.kt          Entité Room singleton : état sérialisé (questions, réponses, timer, examMode)
+│   │   ├── TrainingProgress.kt    Entité Room : PK = clé QCM+thème, currentIndex (point de reprise)
+│   │   ├── ExamCycle.kt           Entité Room : PK = clé QCM+thème+type, permutation d'ids (JSON) + curseur (anti-répétition examen)
 │   │   ├── Achievement.kt         Catalogue statique (Achievements.ALL) + AchievementRecord (Entité Room) + AchievementState
 │   │   ├── SeenQuestion.kt        Entité Room : PK=questionId (questions déjà vues en examen, pour « Tour complet »)
 │   │   ├── ReadFiche.kt           Entité Room : PK=ficheId (fiches déjà consultées : avancement de lecture + succès fiches)
 │   │   └── Fiche.kt               Modèles Gson (FichesData / FicheTheme / Fiche) — fiches officielles hors-ligne, sans Room
 │   ├── db/
-│   │   ├── QuestionDao.kt         DAO Room : getAllByTheme, getIdsByTheme(theme, isSituation), getByIds, countByTheme, insertAll, count
+│   │   ├── QuestionDao.kt         DAO Room : getAllByTheme(theme, mode), getIdsByTheme(theme, isSituation, mode), getByIds, insertAll, count, countForMode, countSeenForMode
 │   │   ├── QuizResultDao.kt       DAO Room : getAll (Flow), insert, deleteAll
 │   │   ├── PausedQuizDao.kt       DAO Room : save (REPLACE), get, observe (Flow), delete
 │   │   ├── TrainingProgressDao.kt DAO Room : save (REPLACE), get, observeAll (Flow), clear
@@ -152,12 +181,12 @@ app/src/main/java/com/example/qcmfrance/
 │   │   ├── SeenQuestionDao.kt     DAO Room : insertAll (IGNORE), count, clear
 │   │   ├── ReadFicheDao.kt        DAO Room : insert (IGNORE), observeReadIds (Flow), count, clear
 │   │   ├── Converters.kt          @TypeConverter List<String> ↔ JSON String
-│   │   └── AppDatabase.kt         Base Room v11 + migrations 1→2→…→10→11
+│   │   └── AppDatabase.kt         Base Room v12 + migrations 1→2→…→11→12
 │   └── repository/
-│       ├── QuestionRepository.kt  seedIfNeeded (2 fichiers JSON) + tirage stratifié 28 connaissances + 12 mise en situation, cyclé par thème/type (exam_cycle), liste des thèmes
-│       ├── TrainingRepository.kt  Questions par thème (ordre stable), avancement par thème
+│       ├── QuestionRepository.kt  seedIfNeeded (4 fichiers JSON) + tirage stratifié par QCM : 28 connaissances + 12 mise en situation, cyclé par QCM/thème/type (exam_cycle), liste des thèmes
+│       ├── TrainingRepository.kt  Questions par QCM + thème (ordre stable), avancement par QCM + thème
 │       ├── HistoryRepository.kt   Sauvegarde et récupération de l'historique des résultats
-│       ├── SettingsRepository.kt  DataStore : ThemeMode + soundEnabled + TextSizeMode
+│       ├── SettingsRepository.kt  DataStore : ThemeMode + soundEnabled + TextSizeMode + ExamMode (QCM choisi)
 │       ├── PausedQuizRepository.kt  Sérialisation Gson : save / load / clear / observeHasPaused
 │       ├── FichesRepository.kt   Fiches officielles hors-ligne (Gson res/raw/fiches.json, cache) + suivi de lecture (read_fiche)
 │       └── AchievementRepository.kt  Moteur de déblocage (unlock / onExamCompleted / onThemeCompleted / onFicheRead), newlyUnlocked (SharedFlow), observe
@@ -168,9 +197,9 @@ app/src/main/java/com/example/qcmfrance/
 └── ui/                            Couche présentation
     ├── viewmodel/
     │   ├── QuizViewModel.kt       QuizUiState, timerJob (cancellable), pauseQuiz/resumeQuiz
-    │   ├── TrainingViewModel.kt   TrainingUiState + themeProgress, startTheme/confirmAnswer/next/restart/reset
+    │   ├── TrainingViewModel.kt   TrainingUiState + modeProgress (3 QCM × 5 thèmes), startTheme/confirmAnswer/next/restart/reset
     │   ├── QuestionExt.kt         Helpers partagés allAnswerSets() + pickVariant() + withShuffledOptions() (examen + entraînement)
-    │   ├── HomeViewModel.kt       hasPausedQuiz : StateFlow<Boolean> (Flow réactif depuis Room)
+    │   ├── HomeViewModel.kt       hasPausedQuiz + pausedMode (Flow réactif depuis Room) + examMode (DataStore)
     │   ├── HistoryViewModel.kt    Flow<List<QuizResult>>, clearHistory()
     │   ├── SettingsViewModel.kt   themeMode + soundEnabled + textSizeMode StateFlow
     │   ├── AchievementsViewModel.kt  achievements (StateFlow), newlyUnlocked (SharedFlow), resetAchievements()
@@ -178,7 +207,7 @@ app/src/main/java/com/example/qcmfrance/
     ├── navigation/
     │   └── NavGraph.kt            13 routes : home / quiz / result / history / settings / help / resources / training_themes / training / about / achievements / fiches_list / fiche_detail (+ overlay popup succès)
     ├── screen/
-    │   ├── HomeScreen.kt          Accueil : règles, boutons (examen + entraînement + succès), icône Aide
+    │   ├── HomeScreen.kt          Accueil : sélecteur de QCM, boutons (examen + entraînement + succès), icône Aide
     │   ├── QuizScreen.kt          Examen : question N/40, options, timer, Pause, BackHandler, son
     │   ├── ResultScreen.kt        Résultat : score, mention, filtre erreurs, export
     │   ├── HistoryScreen.kt       Historique : liste, export par résultat, vider
@@ -186,9 +215,9 @@ app/src/main/java/com/example/qcmfrance/
     │   ├── HelpScreen.kt          Aide : guide utilisateur (règles, thèmes, fonctionnalités)
     │   ├── ResourcesScreen.kt     Ressources complémentaires : liens officiels en ligne (3 sections)
     │   ├── AboutScreen.kt         À propos / mises à jour : version installée + lien releases GitHub
-    │   ├── TrainingThemesScreen.kt  "S'entraîner" : thèmes de questions (X/total) + section fiches officielles (lecture X/total)
+    │   ├── TrainingThemesScreen.kt  "S'entraîner" : 3 sections de QCM × 5 thèmes (X/total) + section fiches officielles (lecture X/total)
     │   ├── TrainingScreen.kt      Question d'entraînement, feedback immédiat, explication + lien source
-    │   ├── AchievementsScreen.kt  Succès : liste groupée par catégorie (Examen / Entraînement / Fiches), verrouillés grisés, barres X/target
+    │   ├── AchievementsScreen.kt  Succès : liste groupée par catégorie (Examen / Entraînement ×3 QCM / Fiches), verrouillés grisés, barres X/target
     │   ├── FichesListScreen.kt    Fiches offline : liste des fiches d'un thème (lu/non lu : carte atténuée + coche verte)
     │   └── FicheDetailScreen.kt   Fiches offline : rendu markdown + "Voir en ligne" + source
     ├── components/
@@ -235,10 +264,12 @@ startQuiz()
 
 ### Seed et synchronisation de la base de données
 
-Les 258 questions de connaissances (`res/raw/questions.json`) et les 80 questions de mise en
-situation (`res/raw/situational_questions.json`) sont insérées dans Room au premier lancement,
-dans `QuestionRepository.seedIfNeeded()`, appelée par le mode examen comme par le mode
-entraînement. Les lancements suivants utilisent directement la base SQLite.
+Les listes de connaissances des trois QCM (`res/raw/questions.json`, `questions_cr.json`,
+`questions_csp.json`) et les 80 questions de mise en situation, communes
+(`res/raw/situational_questions.json`), sont insérées dans Room au premier lancement, dans
+`QuestionRepository.seedIfNeeded()`, appelée par le mode examen comme par le mode entraînement.
+Le QCM d'appartenance (`Question.examMode`) est déduit du fichier chargé, il n'est pas répété dans
+le JSON. Les lancements suivants utilisent directement la base SQLite.
 
 La même fonction assure aussi une **resynchronisation du contenu** sans réinstallation : une
 constante `CONTENT_VERSION` est comparée à la version appliquée, stockée en `SharedPreferences`
@@ -249,18 +280,20 @@ succès, à la progression d'entraînement ni au cycle d'examen. Les installs an
 fonctionnalité n'ont pas de version stockée (défaut `0`) et sont donc resynchronisées une fois
 automatiquement.
 
-> **À chaque correction du JSON, incrémenter `CONTENT_VERSION`** pour propager le changement aux
-> apps déjà installées (la base Room n'est plus relue depuis le JSON après le seed initial).
+> **À chaque correction d'un fichier JSON, lancer `python3 scripts/check_questions_consistency.py`
+> puis incrémenter `CONTENT_VERSION`** pour propager le changement aux apps déjà installées (la base
+> Room n'est plus relue depuis le JSON après le seed initial).
 
 ### Cycle de tirage de l'examen (anti-répétition)
 
-Le tirage n'utilise pas `ORDER BY RANDOM()` à chaque examen (ce qui permettrait de retirer les mêmes questions d'un examen à l'autre). Chaque **couple thème + type** (connaissances ou mise en situation) a une permutation persistée de ses ids (table `exam_cycle`) et un curseur : chaque nouvel examen consomme la suite de la permutation, garantissant que toutes les questions d'un thème/type sont utilisées une fois avant qu'une répétition ne survienne. Quand un cycle boucle, une nouvelle permutation est générée pour le tour suivant. Ce cycle est indépendant de la pause/reprise : il n'avance qu'au lancement d'un nouvel examen.
+Le tirage n'utilise pas `ORDER BY RANDOM()` à chaque examen (ce qui permettrait de retirer les mêmes questions d'un examen à l'autre). Chaque **triplet QCM + thème + type** (connaissances ou mise en situation) a une permutation persistée de ses ids (table `exam_cycle`) et un curseur : chaque nouvel examen consomme la suite de la permutation, garantissant que toutes les questions d'un thème/type sont utilisées une fois avant qu'une répétition ne survienne. Quand un cycle boucle, une nouvelle permutation est générée pour le tour suivant. Ce cycle est indépendant de la pause/reprise : il n'avance qu'au lancement d'un nouvel examen.
 
 ### Navigation
 
 ```
 [HomeScreen]
-     │  "Commencer l'examen" → startQuiz() + navigate(quiz)
+     │  Sélecteur de QCM : Naturalisation / Carte de résident / Carte de séjour pluriannuelle
+     │  "Commencer l'examen" → startQuiz(mode) + navigate(quiz)
      │  "Reprendre l'examen" → resumeQuiz() + navigate(quiz)   (visible si pause sauvegardée)
      │  "S'entraîner" → navigate(training_themes)
      │  "🏆 Succès" → navigate(achievements)
@@ -334,6 +367,10 @@ Le tirage n'utilise pas `ORDER BY RANDOM()` à chaque examen (ce qui permettrait
 ```bash
 ./gradlew lint       # analyse statique
 ./gradlew test       # tests unitaires
+
+# Contenu des questions (3 QCM + mises en situation)
+python3 scripts/check_questions_consistency.py   # ids, propositions, variantes, cohérence inter-QCM
+python3 scripts/generate_questions_md.py         # régénère QUESTIONS.md
 ```
 
 L'APK debug se trouve dans `app/build/outputs/apk/debug/`.
@@ -389,9 +426,12 @@ QCM_France/
 │   ├── build.yml              CI — build APK debug sur push/PR vers main
 │   └── release.yml            Release — build + publication sur tag v.N.N.N
 ├── scripts/
-│   └── generate_questions_md.py   Génère QUESTIONS.md depuis questions.json + situational_questions.json
+│   ├── generate_questions_md.py       Génère QUESTIONS.md (une section par QCM + mises en situation)
+│   └── check_questions_consistency.py Contrôle des 4 fichiers de questions
+├── docs/
+│   └── MULTI_QCM_PLAN.md      Plan et suivi de l'extension multi-QCM (lots de rédaction CR/CSP)
 ├── LICENSE                    Licence MIT
-├── QUESTIONS.md               Liste des 338 questions : 258 connaissances + 80 mise en situation (généré automatiquement)
+├── QUESTIONS.md               Liste des questions des 3 QCM + mises en situation (généré automatiquement)
 ├── app/
 │   ├── build.gradle.kts
 │   └── src/main/
@@ -400,10 +440,10 @@ QCM_France/
 │       │   ├── MainActivity.kt
 │       │   ├── QcmFranceApplication.kt
 │       │   ├── data/
-│       │   │   ├── db/        AppDatabase.kt (v11)  QuestionDao.kt  QuizResultDao.kt
+│       │   │   ├── db/        AppDatabase.kt (v12)  QuestionDao.kt  QuizResultDao.kt
 │       │   │   │              PausedQuizDao.kt  TrainingProgressDao.kt  ExamCycleDao.kt
 │       │   │   │              AchievementDao.kt  SeenQuestionDao.kt  ReadFicheDao.kt  Converters.kt
-│       │   │   ├── model/     Question.kt  QuizResult.kt  PausedQuiz.kt  TrainingProgress.kt  ExamCycle.kt
+│       │   │   ├── model/     ExamMode.kt  Question.kt  QuizResult.kt  PausedQuiz.kt  TrainingProgress.kt  ExamCycle.kt
 │       │   │   │              Achievement.kt  SeenQuestion.kt  ReadFiche.kt  Fiche.kt
 │       │   │   └── repository/QuestionRepository.kt  TrainingRepository.kt  AchievementRepository.kt
 │       │   │                  HistoryRepository.kt  SettingsRepository.kt  PausedQuizRepository.kt  FichesRepository.kt
@@ -421,7 +461,8 @@ QCM_France/
 │       │       └── theme/     Theme.kt  Color.kt  Type.kt
 │       └── res/
 │           ├── mipmap-*/      Icônes adaptatives (fond bleu tricolore, texte QCM)
-│           ├── raw/           questions.json (258, seed)  situational_questions.json (80, seed)  fiches.json (fiches officielles hors-ligne)
+│           ├── raw/           questions.json (258, NAT)  questions_cr.json (CR)  questions_csp.json (CSP)
+│           │                  situational_questions.json (80, communes)  fiches.json (fiches officielles hors-ligne)
 │           └── values/        strings.xml  themes.xml  colors.xml
 ├── build.gradle.kts
 ├── settings.gradle.kts

@@ -100,6 +100,12 @@ fun ResultScreen(uiState: QuizUiState, soundEnabled: Boolean, onRestart: () -> U
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Text(
+                            text = stringResource(uiState.mode.labelRes),
+                            style = MaterialTheme.typography.labelMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Text(
                             text = passLabel,
                             style = MaterialTheme.typography.displaySmall,
                             color = passColor,
