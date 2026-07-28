@@ -1,7 +1,7 @@
 # QCM France — Liste des questions et réponses
 
 > Généré automatiquement le 2026-07-28 à partir des fichiers de `app/src/main/res/raw/`  
-> **591 questions** au total, réparties entre les trois examens civiques.
+> **621 questions** au total, réparties entre les trois examens civiques.
 
 > **Note :** dans l'application, l'ordre des propositions (A, B, C, D) est mélangé aléatoirement à chaque examen. L'ordre affiché dans ce tableau correspond à l'ordre original du fichier de données et peut donc différer de celui présenté lors du test.
 
@@ -21,11 +21,11 @@
   - [Droits et devoirs](#carte-de-resident-cr-droits-et-devoirs) (38)
   - [Histoire, géographie et culture](#carte-de-resident-cr-histoire-géographie-et-culture) (49)
   - [Vivre dans la société française](#carte-de-resident-cr-vivre-dans-la-société-française) (32)
-- [Carte de séjour pluriannuelle (CSP)](#carte-de-sejour-pluriannuelle-csp) (44 questions)
+- [Carte de séjour pluriannuelle (CSP)](#carte-de-sejour-pluriannuelle-csp) (74 questions)
   - [Principes et valeurs de la République](#carte-de-sejour-pluriannuelle-csp-principes-et-valeurs-de-la-république) (5)
   - [Système institutionnel et politique](#carte-de-sejour-pluriannuelle-csp-système-institutionnel-et-politique) (10)
   - [Droits et devoirs](#carte-de-sejour-pluriannuelle-csp-droits-et-devoirs) (2)
-  - [Histoire, géographie et culture](#carte-de-sejour-pluriannuelle-csp-histoire-géographie-et-culture) (17)
+  - [Histoire, géographie et culture](#carte-de-sejour-pluriannuelle-csp-histoire-géographie-et-culture) (47)
   - [Vivre dans la société française](#carte-de-sejour-pluriannuelle-csp-vivre-dans-la-société-française) (10)
 - [Mises en situation (communes aux trois examens)](#mises-en-situation-communes-aux-trois-examens) (80 questions)
   - [Principes et valeurs de la République](#mises-en-situation-communes-aux-trois-examens-principes-et-valeurs-de-la-république) (20)
@@ -592,7 +592,7 @@ Liste officielle des questions de connaissance de l'examen civique de niveau car
 
 Liste officielle des questions de connaissance de l'examen civique de niveau carte de séjour pluriannuelle.
 
-*44 questions — `app/src/main/res/raw/questions_csp.json`*
+*74 questions — `app/src/main/res/raw/questions_csp.json`*
 
 ### Principes et valeurs de la République
 
@@ -634,20 +634,42 @@ Liste officielle des questions de connaissance de l'examen civique de niveau car
 
 ### Histoire, géographie et culture
 
-*17 questions dans la base*
+*47 questions dans la base*
 
 | # | Type | Question | A | B | C | D | Bonne réponse | Source |
 |---|---|---|---|---|---|---|---|---|
 | 3114 | Connaissances | En quelle année a débuté la Révolution française ? | 1914 | 1848 | 1799 | 1789 | **D** — 1789 | [source](https://fr.wikipedia.org/wiki/R%C3%A9volution_fran%C3%A7aise) |
+| 3115 | Connaissances | Qui était Napoléon Ier ? | Un roi de France du Moyen Âge | Un général devenu empereur des Français en 1804 | Un président de la Ve République | Un philosophe des Lumières | **B** — Un général devenu empereur des Français en 1804 | [source](https://fr.wikipedia.org/wiki/Napol%C3%A9on_Ier) |
+| 3116 | Connaissances | Lequel de ces personnages historiques est français ? | Charles de Gaulle | Winston Churchill | Christophe Colomb | Jules César | **A** — Charles de Gaulle *(variantes : Napoléon Bonaparte, Jeanne d'Arc, Jules Ferry)* | [source](https://fr.wikipedia.org/wiki/Charles_de_Gaulle) |
+| 3117 | Connaissances | Dans quelle République est-on aujourd'hui ? | La IIIe République | La IVe République | La Ve République | La VIe République | **C** — La Ve République | [source](https://fr.wikipedia.org/wiki/Cinqui%C3%A8me_R%C3%A9publique_(France)) |
 | 3118 | Connaissances | Qu'est-ce que la Shoah ? | Une révolution | Le génocide des Juifs par les Nazis pendant la Seconde Guerre mondiale | Une bataille napoléonienne | Un traité de paix | **B** — Le génocide des Juifs par les Nazis pendant la Seconde Guerre mondiale | [source](https://fr.wikipedia.org/wiki/Shoah) |
+| 3119 | Connaissances | Quel pays ou région du monde a été colonisé par la France ? | L'Algérie | Le Japon | Le Brésil | L'Éthiopie | **A** — L'Algérie *(variantes : L'Indochine, Le Sénégal)* | [source](https://fr.wikipedia.org/wiki/Empire_colonial_fran%C3%A7ais) |
 | 3120 | Connaissances | Qui a rendu l’école gratuite, laïque et obligatoire ? | Victor Hugo | Napoléon Bonaparte | Léon Gambetta | Jules Ferry | **D** — Jules Ferry | [source](https://fr.wikipedia.org/wiki/Jules_Ferry) |
 | 3121 | Connaissances | Quand a eu lieu la Seconde Guerre mondiale ? | 1945-1950 | 1914-1918 | 1960-1970 | 1939-1945 | **D** — 1939-1945 | [source](https://fr.wikipedia.org/wiki/Seconde_Guerre_mondiale) |
 | 3122 | Connaissances | Quand a eu lieu la Première Guerre mondiale ? | 1870-1871 | 1939-1945 | 1940-1945 | 1914-1918 | **D** — 1914-1918 | [source](https://fr.wikipedia.org/wiki/Premi%C3%A8re_Guerre_mondiale) |
+| 3123 | Connaissances | En quelle année a été créée la Communauté Économique Européenne (CEE) ? | 1945 | 1957 | 1992 | 2002 | **B** — 1957 | [source](https://fr.wikipedia.org/wiki/Communaut%C3%A9_%C3%A9conomique_europ%C3%A9enne) |
 | 3124 | Connaissances | Le 11 novembre est un jour férié. À quoi correspond cette date ? | Fin de la Seconde Guerre mondiale | Fête nationale | Prise de la Bastille | L'armistice de la Première Guerre mondiale (1918) | **D** — L'armistice de la Première Guerre mondiale (1918) | [source](https://fr.wikipedia.org/wiki/Armistice_du_11_novembre_1918) |
+| 3125 | Connaissances | Qui a été le premier Président élu sous la Ve République ? | Charles de Gaulle | Georges Pompidou | René Coty | François Mitterrand | **A** — Charles de Gaulle | [source](https://fr.wikipedia.org/wiki/Liste_des_pr%C3%A9sidents_de_la_R%C3%A9publique_fran%C3%A7aise) |
+| 3126 | Connaissances | En quelle année l'esclavage a-t-il été aboli définitivement en France ? | 1789 | 1848 | 1905 | 1946 | **B** — 1848 | [source](https://fr.wikipedia.org/wiki/Abolition_de_l%27esclavage_en_France) |
 | 3127 | Connaissances | Depuis quelle année l'école publique est-elle gratuite ? | 1881 | 1945 | 1968 | 1789 | **A** — 1881 | [source](https://fr.wikipedia.org/wiki/Jules_Ferry) |
+| 3128 | Connaissances | Combien y a-t-il eu de républiques en France ? | Deux | Trois | Cinq | Dix | **C** — Cinq | [source](https://fr.wikipedia.org/wiki/R%C3%A9publique_fran%C3%A7aise) |
+| 3129 | Connaissances | Qui était le roi de France au moment de la Révolution française ? | Louis XIV | Louis XV | Louis XVI | Charles X | **C** — Louis XVI | [source](https://fr.wikipedia.org/wiki/Louis_XVI) |
+| 3130 | Connaissances | Qui a fondé la Ve République ? | Charles de Gaulle | Napoléon Bonaparte | Georges Clemenceau | Jules Ferry | **A** — Charles de Gaulle | [source](https://fr.wikipedia.org/wiki/Cinqui%C3%A8me_R%C3%A9publique_(France)) |
+| 3131 | Connaissances | Que célèbre-t-on le 14 juillet ? | L'armistice de 1918 | La fête nationale, en souvenir de la prise de la Bastille et de la Fête de la Fédération | La fin de la Seconde Guerre mondiale | L'abolition de l'esclavage | **B** — La fête nationale, en souvenir de la prise de la Bastille et de la Fête de la Fédération | [source](https://fr.wikipedia.org/wiki/F%C3%AAte_nationale_fran%C3%A7aise) |
+| 3132 | Connaissances | Quelle guerre a eu lieu entre 1914 et 1918 ? | La guerre de Cent Ans | La Première Guerre mondiale | La Seconde Guerre mondiale | La guerre d'Algérie | **B** — La Première Guerre mondiale | [source](https://fr.wikipedia.org/wiki/Premi%C3%A8re_Guerre_mondiale) |
 | 3133 | Connaissances | Pourquoi l’année 1958 est importante pour la France ? | C'est l'année de l'abolition de la peine de mort | C'est l'année où la France rejoint l'OTAN | C'est l'année où les femmes obtiennent le droit de vote | Elle marque la naissance de la Cinquième République | **D** — Elle marque la naissance de la Cinquième République | [source](https://fr.wikipedia.org/wiki/Cinqui%C3%A8me_R%C3%A9publique_(France)) |
+| 3134 | Connaissances | Quel fleuve coule en France ? | La Loire | Le Danube | Le Tage | La Volga | **A** — La Loire *(variantes : La Seine, Le Rhône, La Garonne)* | [source](https://fr.wikipedia.org/wiki/Liste_des_fleuves_de_France) |
+| 3135 | Connaissances | Quelle ville est française ? | Barcelone | Lyon | Milan | Genève | **B** — Lyon *(variantes : Bordeaux, Lille, Toulouse)* | [source](https://fr.wikipedia.org/wiki/Lyon) |
+| 3136 | Connaissances | Quel océan borde la côte ouest française ? | L'océan Pacifique | L'océan Indien | L'océan Atlantique | L'océan Arctique | **C** — L'océan Atlantique | [source](https://fr.wikipedia.org/wiki/G%C3%A9ographie_de_la_France) |
+| 3137 | Connaissances | Qu'est-ce que Paris ? | Une région française | La capitale de la France | Un département d'outre-mer | Un pays voisin de la France | **B** — La capitale de la France | [source](https://fr.wikipedia.org/wiki/Paris) |
+| 3138 | Connaissances | Quelle est la capitale de la France ? | Lyon | Marseille | Paris | Bordeaux | **C** — Paris | [source](https://fr.wikipedia.org/wiki/Paris) |
+| 3139 | Connaissances | Sur quel continent se situe la France métropolitaine ? | En Afrique | En Asie | En Europe | En Amérique | **C** — En Europe | [source](https://fr.wikipedia.org/wiki/G%C3%A9ographie_de_la_France) |
 | 3140 | Connaissances | Quelle île est un département d'outre-mer français ? | Malte | La Sicile | La Guadeloupe | La Corse | **C** — La Guadeloupe *(variantes : La Martinique, La Réunion)* | [source](https://fr.wikipedia.org/wiki/D%C3%A9partement_et_r%C3%A9gion_d%27outre-mer) |
 | 3141 | Connaissances | Combien y a-t-il de régions en France métropolitaine ? | 13 | 12 | 20 | 15 | **A** — 13 | [source](https://fr.wikipedia.org/wiki/R%C3%A9gion_fran%C3%A7aise) |
+| 3142 | Connaissances | Quelle ville est un grand port maritime ? | Marseille | Clermont-Ferrand | Dijon | Limoges | **A** — Marseille *(variantes : Le Havre, Dunkerque)* | [source](https://fr.wikipedia.org/wiki/Grand_port_maritime_de_Marseille) |
+| 3143 | Connaissances | Quelle est la mer au sud de la France métropolitaine ? | La mer Baltique | La mer Noire | La mer Méditerranée | La mer du Nord | **C** — La mer Méditerranée | [source](https://fr.wikipedia.org/wiki/G%C3%A9ographie_de_la_France) |
+| 3144 | Connaissances | Quelle ville est située au bord de la mer Méditerranée ? | Nice | Strasbourg | Lille | Rennes | **A** — Nice *(variantes : Marseille, Toulon)* | [source](https://fr.wikipedia.org/wiki/Nice) |
+| 3145 | Connaissances | Où se situe la Corse ? | Dans l'océan Atlantique | En mer Méditerranée | Dans l'océan Indien | Dans la mer des Caraïbes | **B** — En mer Méditerranée | [source](https://fr.wikipedia.org/wiki/Corse) |
 | 3146 | Connaissances | Quelle chaîne de montagnes est située entre la France et l'Italie ? | Les Vosges | Le Massif central | Les Alpes | Les Pyrénées | **C** — Les Alpes | [source](https://fr.wikipedia.org/wiki/Alpes) |
 | 3147 | Connaissances | Qui était Molière ? | Roi de France | Peintre impressionniste | Compositeur | Un écrivain et dramaturge français du XVIIe siècle | **D** — Un écrivain et dramaturge français du XVIIe siècle | [source](https://fr.wikipedia.org/wiki/Moli%C3%A8re) |
 | 3148 | Connaissances | Qui était Charles Baudelaire ? | Militaire | Architecte | Un poète français majeur du XIXe siècle | Scientifique | **C** — Un poète français majeur du XIXe siècle | [source](https://fr.wikipedia.org/wiki/Charles_Baudelaire) |
@@ -655,6 +677,14 @@ Liste officielle des questions de connaissance de l'examen civique de niveau car
 | 3150 | Connaissances | Qui était Simone de Beauvoir ? | Chanteuse | Sportive | Philosophe, romancière et féministe française | Actrice | **C** — Philosophe, romancière et féministe française | [source](https://fr.wikipedia.org/wiki/Simone_de_Beauvoir) |
 | 3151 | Connaissances | Qui était Albert Camus ? | Politicien | Peintre | Un écrivain et philosophe français, prix Nobel de littérature | Chef cuisinier | **C** — Un écrivain et philosophe français, prix Nobel de littérature | [source](https://fr.wikipedia.org/wiki/Albert_Camus) |
 | 3152 | Connaissances | Qui était Paul Cézanne ? | Architecte | Compositeur | Peintre post-impressionniste français | Sculpteur | **C** — Peintre post-impressionniste français | [source](https://fr.wikipedia.org/wiki/Paul_C%C3%A9zanne) |
+| 3153 | Connaissances | Qui était Marc Chagall ? | Un peintre naturalisé français, auteur du plafond de l'Opéra de Paris | Un président de la République | Un explorateur du XVIIIe siècle | Un compositeur d'opéras italiens | **A** — Un peintre naturalisé français, auteur du plafond de l'Opéra de Paris | [source](https://fr.wikipedia.org/wiki/Marc_Chagall) |
+| 3154 | Connaissances | Qui était Joséphine Baker ? | Une reine de France | Une artiste et résistante française, entrée au Panthéon en 2021 | Une romancière du XIXe siècle | Une navigatrice française | **B** — Une artiste et résistante française, entrée au Panthéon en 2021 | [source](https://fr.wikipedia.org/wiki/Jos%C3%A9phine_Baker) |
+| 3155 | Connaissances | Qui était une chanteuse française célèbre ? | Édith Piaf | Maria Callas | Ella Fitzgerald | Amy Winehouse | **A** — Édith Piaf *(variantes : Barbara, Mireille Mathieu)* | [source](https://fr.wikipedia.org/wiki/%C3%89dith_Piaf) |
+| 3156 | Connaissances | Qu'est-ce que le Louvre ? | Un stade parisien | Un musée situé à Paris, l'un des plus visités au monde | Une gare de Paris | Le siège du Gouvernement | **B** — Un musée situé à Paris, l'un des plus visités au monde | [source](https://fr.wikipedia.org/wiki/Mus%C3%A9e_du_Louvre) |
+| 3157 | Connaissances | Qui était Jean de la Fontaine ? | Un écrivain français, auteur de fables | Un roi de France | Un peintre impressionniste | Un explorateur du Nouveau Monde | **A** — Un écrivain français, auteur de fables | [source](https://fr.wikipedia.org/wiki/Jean_de_La_Fontaine) |
+| 3158 | Connaissances | Quel écrivain est français ? | William Shakespeare | Victor Hugo | Miguel de Cervantès | Johann Wolfgang von Goethe | **B** — Victor Hugo *(variantes : Molière, Albert Camus, Marcel Proust)* | [source](https://fr.wikipedia.org/wiki/Victor_Hugo) |
+| 3159 | Connaissances | Dans quelle ville se trouve la tour Eiffel ? | Lyon | Paris | Bordeaux | Strasbourg | **B** — Paris | [source](https://fr.wikipedia.org/wiki/Tour_Eiffel) |
+| 3160 | Connaissances | Quand célèbre-t-on Noël ? | Le 1er janvier | Le 25 décembre | Le 1er novembre | Le 15 août | **B** — Le 25 décembre | [source](https://www.service-public.fr/particuliers/vosdroits/F2405) |
 
 ### Vivre dans la société française
 

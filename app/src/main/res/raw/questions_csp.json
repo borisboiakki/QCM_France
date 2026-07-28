@@ -232,6 +232,65 @@
     "source": "https://fr.wikipedia.org/wiki/R%C3%A9volution_fran%C3%A7aise"
   },
   {
+    "id": 3115,
+    "theme": "Histoire, géographie et culture",
+    "text": "Qui était Napoléon Ier ?",
+    "optionA": "Un roi de France du Moyen Âge",
+    "optionB": "Un général devenu empereur des Français en 1804",
+    "optionC": "Un président de la Ve République",
+    "optionD": "Un philosophe des Lumières",
+    "correctAnswer": "B",
+    "explanation": "Napoléon Bonaparte, général de la Révolution, prend le pouvoir en 1799 et se fait sacrer empereur des Français en 1804. On lui doit notamment le Code civil de 1804 et la création des préfets et des lycées. Il est vaincu à Waterloo en 1815.",
+    "source": "https://fr.wikipedia.org/wiki/Napol%C3%A9on_Ier"
+  },
+  {
+    "id": 3116,
+    "theme": "Histoire, géographie et culture",
+    "text": "Lequel de ces personnages historiques est français ?",
+    "optionA": "Charles de Gaulle",
+    "optionB": "Winston Churchill",
+    "optionC": "Christophe Colomb",
+    "optionD": "Jules César",
+    "correctAnswer": "A",
+    "explanation": "Charles de Gaulle (1890-1970), chef de la France libre pendant la Seconde Guerre mondiale, est le fondateur et le premier président de la Ve République. Winston Churchill était britannique, Christophe Colomb génois et Jules César romain.",
+    "source": "https://fr.wikipedia.org/wiki/Charles_de_Gaulle",
+    "variants": [
+      {
+        "optionA": "Napoléon Bonaparte",
+        "optionB": "Otto von Bismarck",
+        "optionC": "George Washington",
+        "optionD": "Léonard de Vinci",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "Abraham Lincoln",
+        "optionB": "Jeanne d'Arc",
+        "optionC": "Christophe Colomb",
+        "optionD": "Alexandre le Grand",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Simón Bolívar",
+        "optionB": "Guillaume Tell",
+        "optionC": "Jules Ferry",
+        "optionD": "Marco Polo",
+        "correctAnswer": "C"
+      }
+    ]
+  },
+  {
+    "id": 3117,
+    "theme": "Histoire, géographie et culture",
+    "text": "Dans quelle République est-on aujourd'hui ?",
+    "optionA": "La IIIe République",
+    "optionB": "La IVe République",
+    "optionC": "La Ve République",
+    "optionD": "La VIe République",
+    "correctAnswer": "C",
+    "explanation": "La France vit sous la Ve République, instaurée par la Constitution du 4 octobre 1958 à l'initiative du général de Gaulle. Elle se caractérise par un pouvoir exécutif fort et l'élection du président au suffrage universel direct depuis 1962.",
+    "source": "https://fr.wikipedia.org/wiki/Cinqui%C3%A8me_R%C3%A9publique_(France)"
+  },
+  {
     "id": 3118,
     "theme": "Histoire, géographie et culture",
     "text": "Qu'est-ce que la Shoah ?",
@@ -242,6 +301,34 @@
     "correctAnswer": "B",
     "explanation": "La Shoah est le génocide systématique du peuple juif d'Europe par le régime nazi allemand et ses collaborateurs entre 1941 et 1945. Environ 6 millions de Juifs ont été assassinés, dont 1,5 million d'enfants. En France, la rafle du Vél d'Hiv des 16 et 17 juillet 1942 constitue l'un des épisodes les plus sombres. La loi française punit le négationnisme de la Shoah.",
     "source": "https://fr.wikipedia.org/wiki/Shoah"
+  },
+  {
+    "id": 3119,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quel pays ou région du monde a été colonisé par la France ?",
+    "optionA": "L'Algérie",
+    "optionB": "Le Japon",
+    "optionC": "Le Brésil",
+    "optionD": "L'Éthiopie",
+    "correctAnswer": "A",
+    "explanation": "La France a possédé un vaste empire colonial, principalement en Afrique du Nord et subsaharienne (Algérie, Maroc, Tunisie, Sénégal, Madagascar…) et en Indochine (Vietnam, Laos, Cambodge). La décolonisation s'est déroulée pour l'essentiel entre 1954 et 1962.",
+    "source": "https://fr.wikipedia.org/wiki/Empire_colonial_fran%C3%A7ais",
+    "variants": [
+      {
+        "optionA": "Le Japon",
+        "optionB": "L'Indochine",
+        "optionC": "L'Éthiopie",
+        "optionD": "La Thaïlande",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Le Sénégal",
+        "optionB": "Le Liberia",
+        "optionC": "Le Népal",
+        "optionD": "Le Brésil",
+        "correctAnswer": "A"
+      }
+    ]
   },
   {
     "id": 3120,
@@ -280,6 +367,18 @@
     "source": "https://fr.wikipedia.org/wiki/Premi%C3%A8re_Guerre_mondiale"
   },
   {
+    "id": 3123,
+    "theme": "Histoire, géographie et culture",
+    "text": "En quelle année a été créée la Communauté Économique Européenne (CEE) ?",
+    "optionA": "1945",
+    "optionB": "1957",
+    "optionC": "1992",
+    "optionD": "2002",
+    "correctAnswer": "B",
+    "explanation": "La Communauté économique européenne a été créée par le traité de Rome, signé le 25 mars 1957 par six pays : la France, l'Allemagne, l'Italie, la Belgique, les Pays-Bas et le Luxembourg. Elle est devenue l'Union européenne par le traité de Maastricht en 1992.",
+    "source": "https://fr.wikipedia.org/wiki/Communaut%C3%A9_%C3%A9conomique_europ%C3%A9enne"
+  },
+  {
     "id": 3124,
     "theme": "Histoire, géographie et culture",
     "text": "Le 11 novembre est un jour férié. À quoi correspond cette date ?",
@@ -290,6 +389,30 @@
     "correctAnswer": "D",
     "explanation": "Le 11 novembre 1918, à 11h du matin, l'armistice mettant fin aux combats de la Première Guerre mondiale a été signé dans un wagon de train à Rethondes, dans la forêt de Compiègne. Ce jour est férié en France depuis 1922. Il commémore les 1,4 million de soldats français morts au combat entre 1914 et 1918.",
     "source": "https://fr.wikipedia.org/wiki/Armistice_du_11_novembre_1918"
+  },
+  {
+    "id": 3125,
+    "theme": "Histoire, géographie et culture",
+    "text": "Qui a été le premier Président élu sous la Ve République ?",
+    "optionA": "Charles de Gaulle",
+    "optionB": "Georges Pompidou",
+    "optionC": "René Coty",
+    "optionD": "François Mitterrand",
+    "correctAnswer": "A",
+    "explanation": "Charles de Gaulle a été le premier président de la Ve République, élu fin 1958 et entré en fonction en janvier 1959. Il a ensuite été le premier président élu au suffrage universel direct en 1965. René Coty était le dernier président de la IVe République.",
+    "source": "https://fr.wikipedia.org/wiki/Liste_des_pr%C3%A9sidents_de_la_R%C3%A9publique_fran%C3%A7aise"
+  },
+  {
+    "id": 3126,
+    "theme": "Histoire, géographie et culture",
+    "text": "En quelle année l'esclavage a-t-il été aboli définitivement en France ?",
+    "optionA": "1789",
+    "optionB": "1848",
+    "optionC": "1905",
+    "optionD": "1946",
+    "correctAnswer": "B",
+    "explanation": "L'esclavage a été aboli une première fois en 1794, puis rétabli par Napoléon en 1802. L'abolition définitive date du décret du 27 avril 1848, obtenu grâce à l'action de Victor Schœlcher. La date du 10 mai commémore chaque année l'abolition de l'esclavage.",
+    "source": "https://fr.wikipedia.org/wiki/Abolition_de_l%27esclavage_en_France"
   },
   {
     "id": 3127,
@@ -304,6 +427,66 @@
     "source": "https://fr.wikipedia.org/wiki/Jules_Ferry"
   },
   {
+    "id": 3128,
+    "theme": "Histoire, géographie et culture",
+    "text": "Combien y a-t-il eu de républiques en France ?",
+    "optionA": "Deux",
+    "optionB": "Trois",
+    "optionC": "Cinq",
+    "optionD": "Dix",
+    "correctAnswer": "C",
+    "explanation": "La France a connu cinq républiques : la Ire (1792), la IIe (1848), la IIIe (1870), la IVe (1946) et la Ve, en vigueur depuis 1958. Entre ces périodes, le pays a aussi connu des empires et des monarchies.",
+    "source": "https://fr.wikipedia.org/wiki/R%C3%A9publique_fran%C3%A7aise"
+  },
+  {
+    "id": 3129,
+    "theme": "Histoire, géographie et culture",
+    "text": "Qui était le roi de France au moment de la Révolution française ?",
+    "optionA": "Louis XIV",
+    "optionB": "Louis XV",
+    "optionC": "Louis XVI",
+    "optionD": "Charles X",
+    "correctAnswer": "C",
+    "explanation": "Louis XVI régnait lors de la Révolution française de 1789. La monarchie est abolie le 21 septembre 1792 et le roi est guillotiné le 21 janvier 1793, après la proclamation de la Ire République.",
+    "source": "https://fr.wikipedia.org/wiki/Louis_XVI"
+  },
+  {
+    "id": 3130,
+    "theme": "Histoire, géographie et culture",
+    "text": "Qui a fondé la Ve République ?",
+    "optionA": "Charles de Gaulle",
+    "optionB": "Napoléon Bonaparte",
+    "optionC": "Georges Clemenceau",
+    "optionD": "Jules Ferry",
+    "correctAnswer": "A",
+    "explanation": "La Ve République a été fondée par le général Charles de Gaulle, avec la Constitution adoptée par référendum le 28 septembre 1958 et promulguée le 4 octobre. Il en devient le premier président en janvier 1959.",
+    "source": "https://fr.wikipedia.org/wiki/Cinqui%C3%A8me_R%C3%A9publique_(France)"
+  },
+  {
+    "id": 3131,
+    "theme": "Histoire, géographie et culture",
+    "text": "Que célèbre-t-on le 14 juillet ?",
+    "optionA": "L'armistice de 1918",
+    "optionB": "La fête nationale, en souvenir de la prise de la Bastille et de la Fête de la Fédération",
+    "optionC": "La fin de la Seconde Guerre mondiale",
+    "optionD": "L'abolition de l'esclavage",
+    "correctAnswer": "B",
+    "explanation": "Le 14 Juillet est la fête nationale française depuis 1880. Elle commémore la prise de la Bastille du 14 juillet 1789 et la Fête de la Fédération du 14 juillet 1790. Elle donne lieu à un défilé militaire, des feux d'artifice et des bals populaires.",
+    "source": "https://fr.wikipedia.org/wiki/F%C3%AAte_nationale_fran%C3%A7aise"
+  },
+  {
+    "id": 3132,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quelle guerre a eu lieu entre 1914 et 1918 ?",
+    "optionA": "La guerre de Cent Ans",
+    "optionB": "La Première Guerre mondiale",
+    "optionC": "La Seconde Guerre mondiale",
+    "optionD": "La guerre d'Algérie",
+    "correctAnswer": "B",
+    "explanation": "La Première Guerre mondiale s'est déroulée de 1914 à 1918. Elle a fait près de 1,4 million de morts français et s'est achevée par l'armistice du 11 novembre 1918, commémoré chaque année.",
+    "source": "https://fr.wikipedia.org/wiki/Premi%C3%A8re_Guerre_mondiale"
+  },
+  {
     "id": 3133,
     "theme": "Histoire, géographie et culture",
     "text": "Pourquoi l’année 1958 est importante pour la France ?",
@@ -314,6 +497,124 @@
     "correctAnswer": "D",
     "explanation": "L'année 1958 marque la naissance de la Ve République française. La IVe République, affaiblie par l'instabilité gouvernementale et la guerre d'Algérie, a cédé la place à une nouvelle Constitution, approuvée par référendum le 28 septembre 1958. Le général de Gaulle, qui en était l'inspirateur, a été élu premier Président de la Ve République.",
     "source": "https://fr.wikipedia.org/wiki/Cinqui%C3%A8me_R%C3%A9publique_(France)"
+  },
+  {
+    "id": 3134,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quel fleuve coule en France ?",
+    "optionA": "La Loire",
+    "optionB": "Le Danube",
+    "optionC": "Le Tage",
+    "optionD": "La Volga",
+    "correctAnswer": "A",
+    "explanation": "Les principaux fleuves français sont la Loire (le plus long, 1 006 km), la Seine, la Garonne, le Rhône et le Rhin, qui marque une partie de la frontière avec l'Allemagne. Le Danube, le Tage et la Volga ne traversent pas la France.",
+    "source": "https://fr.wikipedia.org/wiki/Liste_des_fleuves_de_France",
+    "variants": [
+      {
+        "optionA": "L'Èbre",
+        "optionB": "La Seine",
+        "optionC": "Le Pô",
+        "optionD": "L'Elbe",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "La Tamise",
+        "optionB": "Le Nil",
+        "optionC": "Le Rhône",
+        "optionD": "L'Oder",
+        "correctAnswer": "C"
+      },
+      {
+        "optionA": "La Garonne",
+        "optionB": "Le Mississippi",
+        "optionC": "Le Gange",
+        "optionD": "Le Douro",
+        "correctAnswer": "A"
+      }
+    ]
+  },
+  {
+    "id": 3135,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quelle ville est française ?",
+    "optionA": "Barcelone",
+    "optionB": "Lyon",
+    "optionC": "Milan",
+    "optionD": "Genève",
+    "correctAnswer": "B",
+    "explanation": "Lyon est la troisième ville de France par sa population, après Paris et Marseille. Barcelone est espagnole, Milan italienne et Genève suisse.",
+    "source": "https://fr.wikipedia.org/wiki/Lyon",
+    "variants": [
+      {
+        "optionA": "Bordeaux",
+        "optionB": "Turin",
+        "optionC": "Bruxelles",
+        "optionD": "Valence (Espagne)",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "Anvers",
+        "optionB": "Bilbao",
+        "optionC": "Lille",
+        "optionD": "Lausanne",
+        "correctAnswer": "C"
+      },
+      {
+        "optionA": "Naples",
+        "optionB": "Toulouse",
+        "optionC": "Séville",
+        "optionD": "Munich",
+        "correctAnswer": "B"
+      }
+    ]
+  },
+  {
+    "id": 3136,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quel océan borde la côte ouest française ?",
+    "optionA": "L'océan Pacifique",
+    "optionB": "L'océan Indien",
+    "optionC": "L'océan Atlantique",
+    "optionD": "L'océan Arctique",
+    "correctAnswer": "C",
+    "explanation": "La façade ouest de la France métropolitaine est bordée par l'océan Atlantique, de la Bretagne au Pays basque. Au nord se trouvent la Manche et la mer du Nord, au sud-est la mer Méditerranée.",
+    "source": "https://fr.wikipedia.org/wiki/G%C3%A9ographie_de_la_France"
+  },
+  {
+    "id": 3137,
+    "theme": "Histoire, géographie et culture",
+    "text": "Qu'est-ce que Paris ?",
+    "optionA": "Une région française",
+    "optionB": "La capitale de la France",
+    "optionC": "Un département d'outre-mer",
+    "optionD": "Un pays voisin de la France",
+    "correctAnswer": "B",
+    "explanation": "Paris est la capitale de la France et sa ville la plus peuplée, avec plus de deux millions d'habitants. Elle abrite les principales institutions : l'Élysée, Matignon, l'Assemblée nationale et le Sénat.",
+    "source": "https://fr.wikipedia.org/wiki/Paris"
+  },
+  {
+    "id": 3138,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quelle est la capitale de la France ?",
+    "optionA": "Lyon",
+    "optionB": "Marseille",
+    "optionC": "Paris",
+    "optionD": "Bordeaux",
+    "correctAnswer": "C",
+    "explanation": "Paris est la capitale de la France depuis le Moyen Âge. C'est le siège des pouvoirs publics : présidence de la République, Gouvernement, Assemblée nationale et Sénat.",
+    "source": "https://fr.wikipedia.org/wiki/Paris"
+  },
+  {
+    "id": 3139,
+    "theme": "Histoire, géographie et culture",
+    "text": "Sur quel continent se situe la France métropolitaine ?",
+    "optionA": "En Afrique",
+    "optionB": "En Asie",
+    "optionC": "En Europe",
+    "optionD": "En Amérique",
+    "correctAnswer": "C",
+    "explanation": "La France métropolitaine se situe en Europe occidentale. La France possède également des territoires d'outre-mer sur d'autres continents et dans trois océans : Guadeloupe, Martinique, Guyane, La Réunion, Mayotte, Nouvelle-Calédonie, Polynésie française…",
+    "source": "https://fr.wikipedia.org/wiki/G%C3%A9ographie_de_la_France"
   },
   {
     "id": 3140,
@@ -354,6 +655,86 @@
     "correctAnswer": "A",
     "explanation": "Depuis la réforme territoriale de 2016 (loi NOTRe), la France métropolitaine compte 13 régions (à la place des 22 précédentes). Ces 13 régions s'ajoutent aux 5 régions ultramarines (Guadeloupe, Martinique, Guyane, La Réunion, Mayotte). Les régions métropolitaines ont été fusionnées pour former des entités plus grandes et plus efficaces.",
     "source": "https://fr.wikipedia.org/wiki/R%C3%A9gion_fran%C3%A7aise"
+  },
+  {
+    "id": 3142,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quelle ville est un grand port maritime ?",
+    "optionA": "Marseille",
+    "optionB": "Clermont-Ferrand",
+    "optionC": "Dijon",
+    "optionD": "Limoges",
+    "correctAnswer": "A",
+    "explanation": "Marseille est le premier port maritime français et l'un des plus importants de la Méditerranée. Les autres grands ports maritimes français sont Le Havre, Dunkerque, Nantes-Saint-Nazaire et Calais.",
+    "source": "https://fr.wikipedia.org/wiki/Grand_port_maritime_de_Marseille",
+    "variants": [
+      {
+        "optionA": "Orléans",
+        "optionB": "Le Havre",
+        "optionC": "Grenoble",
+        "optionD": "Poitiers",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Reims",
+        "optionB": "Nancy",
+        "optionC": "Besançon",
+        "optionD": "Dunkerque",
+        "correctAnswer": "D"
+      }
+    ]
+  },
+  {
+    "id": 3143,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quelle est la mer au sud de la France métropolitaine ?",
+    "optionA": "La mer Baltique",
+    "optionB": "La mer Noire",
+    "optionC": "La mer Méditerranée",
+    "optionD": "La mer du Nord",
+    "correctAnswer": "C",
+    "explanation": "La mer Méditerranée borde le sud de la France métropolitaine, de la frontière espagnole à la frontière italienne, ainsi que la Corse. La mer du Nord et la Manche bordent le nord du pays.",
+    "source": "https://fr.wikipedia.org/wiki/G%C3%A9ographie_de_la_France"
+  },
+  {
+    "id": 3144,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quelle ville est située au bord de la mer Méditerranée ?",
+    "optionA": "Nice",
+    "optionB": "Strasbourg",
+    "optionC": "Lille",
+    "optionD": "Rennes",
+    "correctAnswer": "A",
+    "explanation": "Nice, sur la Côte d'Azur, est baignée par la mer Méditerranée. Marseille, Montpellier, Toulon et Perpignan sont également proches du littoral méditerranéen. Strasbourg, Lille et Rennes sont loin de cette mer.",
+    "source": "https://fr.wikipedia.org/wiki/Nice",
+    "variants": [
+      {
+        "optionA": "Brest",
+        "optionB": "Marseille",
+        "optionC": "Le Havre",
+        "optionD": "Dunkerque",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Toulon",
+        "optionB": "Nantes",
+        "optionC": "Rouen",
+        "optionD": "Metz",
+        "correctAnswer": "A"
+      }
+    ]
+  },
+  {
+    "id": 3145,
+    "theme": "Histoire, géographie et culture",
+    "text": "Où se situe la Corse ?",
+    "optionA": "Dans l'océan Atlantique",
+    "optionB": "En mer Méditerranée",
+    "optionC": "Dans l'océan Indien",
+    "optionD": "Dans la mer des Caraïbes",
+    "correctAnswer": "B",
+    "explanation": "La Corse est une île française de la mer Méditerranée, située au sud-est du continent, au nord de la Sardaigne. C'est une collectivité territoriale unique, la moins peuplée des régions françaises.",
+    "source": "https://fr.wikipedia.org/wiki/Corse"
   },
   {
     "id": 3146,
@@ -438,6 +819,141 @@
     "correctAnswer": "C",
     "explanation": "Paul Cézanne (1839-1906) est un peintre post-impressionniste français originaire d'Aix-en-Provence. Son travail, centré sur la structure géométrique des formes et des volumes (Les Grandes Baigneuses, les séries sur la Montagne Sainte-Victoire), a influencé l'art moderne et notamment le cubisme de Picasso et Braque.",
     "source": "https://fr.wikipedia.org/wiki/Paul_C%C3%A9zanne"
+  },
+  {
+    "id": 3153,
+    "theme": "Histoire, géographie et culture",
+    "text": "Qui était Marc Chagall ?",
+    "optionA": "Un peintre naturalisé français, auteur du plafond de l'Opéra de Paris",
+    "optionB": "Un président de la République",
+    "optionC": "Un explorateur du XVIIIe siècle",
+    "optionD": "Un compositeur d'opéras italiens",
+    "correctAnswer": "A",
+    "explanation": "Marc Chagall (1887-1985), né en Biélorussie et naturalisé français en 1937, est l'un des grands peintres du XXe siècle. Il a notamment peint le plafond de l'Opéra Garnier à Paris, inauguré en 1964. Un musée lui est consacré à Nice.",
+    "source": "https://fr.wikipedia.org/wiki/Marc_Chagall"
+  },
+  {
+    "id": 3154,
+    "theme": "Histoire, géographie et culture",
+    "text": "Qui était Joséphine Baker ?",
+    "optionA": "Une reine de France",
+    "optionB": "Une artiste et résistante française, entrée au Panthéon en 2021",
+    "optionC": "Une romancière du XIXe siècle",
+    "optionD": "Une navigatrice française",
+    "correctAnswer": "B",
+    "explanation": "Joséphine Baker (1906-1975), artiste de music-hall née aux États-Unis et naturalisée française, s'est engagée dans la Résistance pendant la Seconde Guerre mondiale et dans la lutte contre le racisme. Elle est entrée au Panthéon le 30 novembre 2021.",
+    "source": "https://fr.wikipedia.org/wiki/Jos%C3%A9phine_Baker"
+  },
+  {
+    "id": 3155,
+    "theme": "Histoire, géographie et culture",
+    "text": "Qui était une chanteuse française célèbre ?",
+    "optionA": "Édith Piaf",
+    "optionB": "Maria Callas",
+    "optionC": "Ella Fitzgerald",
+    "optionD": "Amy Winehouse",
+    "correctAnswer": "A",
+    "explanation": "Édith Piaf (1915-1963), interprète de La Vie en rose et de Non, je ne regrette rien, est l'une des chanteuses françaises les plus célèbres au monde. La chanson française compte aussi Barbara, Dalida ou France Gall.",
+    "source": "https://fr.wikipedia.org/wiki/%C3%89dith_Piaf",
+    "variants": [
+      {
+        "optionA": "Whitney Houston",
+        "optionB": "Barbara",
+        "optionC": "Nina Simone",
+        "optionD": "Celia Cruz",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Mireille Mathieu",
+        "optionB": "Madonna",
+        "optionC": "Björk",
+        "optionD": "Shakira",
+        "correctAnswer": "A"
+      }
+    ]
+  },
+  {
+    "id": 3156,
+    "theme": "Histoire, géographie et culture",
+    "text": "Qu'est-ce que le Louvre ?",
+    "optionA": "Un stade parisien",
+    "optionB": "Un musée situé à Paris, l'un des plus visités au monde",
+    "optionC": "Une gare de Paris",
+    "optionD": "Le siège du Gouvernement",
+    "correctAnswer": "B",
+    "explanation": "Le musée du Louvre, ancien palais royal situé à Paris, est le musée le plus visité au monde. Il abrite notamment la Joconde de Léonard de Vinci et la Vénus de Milo. Sa pyramide de verre a été inaugurée en 1989.",
+    "source": "https://fr.wikipedia.org/wiki/Mus%C3%A9e_du_Louvre"
+  },
+  {
+    "id": 3157,
+    "theme": "Histoire, géographie et culture",
+    "text": "Qui était Jean de la Fontaine ?",
+    "optionA": "Un écrivain français, auteur de fables",
+    "optionB": "Un roi de France",
+    "optionC": "Un peintre impressionniste",
+    "optionD": "Un explorateur du Nouveau Monde",
+    "correctAnswer": "A",
+    "explanation": "Jean de La Fontaine (1621-1695) est un écrivain français célèbre pour ses Fables, comme Le Corbeau et le Renard ou La Cigale et la Fourmi. Ces textes courts, mettant en scène des animaux, portent une morale et sont encore appris à l'école.",
+    "source": "https://fr.wikipedia.org/wiki/Jean_de_La_Fontaine"
+  },
+  {
+    "id": 3158,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quel écrivain est français ?",
+    "optionA": "William Shakespeare",
+    "optionB": "Victor Hugo",
+    "optionC": "Miguel de Cervantès",
+    "optionD": "Johann Wolfgang von Goethe",
+    "correctAnswer": "B",
+    "explanation": "Victor Hugo (1802-1885), auteur des Misérables et de Notre-Dame de Paris, est l'un des plus grands écrivains français. Shakespeare était anglais, Cervantès espagnol et Goethe allemand.",
+    "source": "https://fr.wikipedia.org/wiki/Victor_Hugo",
+    "variants": [
+      {
+        "optionA": "Léon Tolstoï",
+        "optionB": "Charles Dickens",
+        "optionC": "Molière",
+        "optionD": "Dante Alighieri",
+        "correctAnswer": "C"
+      },
+      {
+        "optionA": "Albert Camus",
+        "optionB": "Franz Kafka",
+        "optionC": "Ernest Hemingway",
+        "optionD": "Fiodor Dostoïevski",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "James Joyce",
+        "optionB": "Thomas Mann",
+        "optionC": "Gabriel García Márquez",
+        "optionD": "Marcel Proust",
+        "correctAnswer": "D"
+      }
+    ]
+  },
+  {
+    "id": 3159,
+    "theme": "Histoire, géographie et culture",
+    "text": "Dans quelle ville se trouve la tour Eiffel ?",
+    "optionA": "Lyon",
+    "optionB": "Paris",
+    "optionC": "Bordeaux",
+    "optionD": "Strasbourg",
+    "correctAnswer": "B",
+    "explanation": "La tour Eiffel se trouve à Paris, sur le Champ-de-Mars. Construite par Gustave Eiffel pour l'Exposition universelle de 1889, haute de 330 mètres, elle est le monument payant le plus visité au monde et le symbole de la capitale.",
+    "source": "https://fr.wikipedia.org/wiki/Tour_Eiffel"
+  },
+  {
+    "id": 3160,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quand célèbre-t-on Noël ?",
+    "optionA": "Le 1er janvier",
+    "optionB": "Le 25 décembre",
+    "optionC": "Le 1er novembre",
+    "optionD": "Le 15 août",
+    "correctAnswer": "B",
+    "explanation": "Noël est célébré le 25 décembre. C'est à l'origine une fête chrétienne, devenue une fête familiale largement partagée en France. Le 25 décembre est un jour férié, comme le 1er janvier, le 1er novembre et le 15 août.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F2405"
   },
   {
     "id": 3161,

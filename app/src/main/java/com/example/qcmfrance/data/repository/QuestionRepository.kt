@@ -79,8 +79,10 @@ class QuestionRepository @Inject constructor(
          * République » de la carte de résident (thème complet : 40/40).
          * v8 = lot 4 : rédaction des 53 dernières questions de la carte de résident (« Droits et
          * devoirs » et « Vivre dans la société française »). **Liste CR complète : 209/209.**
+         * v9 = lot 5 : rédaction des 30 questions manquantes du thème « Histoire, géographie et
+         * culture » de la carte de séjour pluriannuelle (thème complet : 47/47).
          */
-        const val CONTENT_VERSION = 8
+        const val CONTENT_VERSION = 9
         private const val CONTENT_PREFS = "question_content"
         private const val KEY_CONTENT_VERSION = "content_version"
     }
