@@ -77,8 +77,10 @@ class QuestionRepository @Inject constructor(
          * politique » de la carte de résident (thème complet : 50/50).
          * v7 = lot 3 : rédaction des 30 questions manquantes du thème « Principes et valeurs de la
          * République » de la carte de résident (thème complet : 40/40).
+         * v8 = lot 4 : rédaction des 53 dernières questions de la carte de résident (« Droits et
+         * devoirs » et « Vivre dans la société française »). **Liste CR complète : 209/209.**
          */
-        const val CONTENT_VERSION = 7
+        const val CONTENT_VERSION = 8
         private const val CONTENT_PREFS = "question_content"
         private const val KEY_CONTENT_VERSION = "content_version"
     }

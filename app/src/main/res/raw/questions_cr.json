@@ -1135,6 +1135,18 @@
     ]
   },
   {
+    "id": 2091,
+    "theme": "Droits et devoirs",
+    "text": "À quelle liberté la PMA fait-elle référence ?",
+    "optionA": "La liberté d'expression",
+    "optionB": "La liberté de disposer de son corps et de fonder une famille",
+    "optionC": "La liberté de circulation",
+    "optionD": "La liberté d'association",
+    "correctAnswer": "B",
+    "explanation": "La procréation médicalement assistée relève de la liberté de disposer de son corps et du droit de fonder une famille. La loi de bioéthique du 2 août 2021 l'a ouverte à toutes les femmes, en couple ou seules.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F31462"
+  },
+  {
     "id": 2092,
     "theme": "Droits et devoirs",
     "text": "Au nom de quoi l'État justifie-t-il la restriction des droits ?",
@@ -1145,6 +1157,42 @@
     "correctAnswer": "B",
     "explanation": "Dans un État de droit, les libertés individuelles ne sont pas absolues. L'État peut les restreindre, mais uniquement au nom de l'intérêt général (sécurité publique, ordre public, protection des droits d'autrui) et sous contrôle du juge. Par exemple, la liberté de manifester peut être limitée pour prévenir des troubles à l'ordre public.",
     "source": "https://fr.wikipedia.org/wiki/Int%C3%A9r%C3%AAt_g%C3%A9n%C3%A9ral"
+  },
+  {
+    "id": 2093,
+    "theme": "Droits et devoirs",
+    "text": "Concernant le droit de se marier, quelle proposition est correcte ?",
+    "optionA": "Chacun choisit librement son conjoint, sous réserve du consentement des deux époux majeurs",
+    "optionB": "Les parents peuvent choisir le conjoint de leur enfant",
+    "optionC": "Le mariage entre personnes de même sexe est interdit",
+    "optionD": "Le mariage est obligatoire pour vivre en couple",
+    "correctAnswer": "A",
+    "explanation": "Le mariage suppose le consentement libre et éclairé de deux personnes majeures. Le mariage forcé est un délit. Depuis la loi du 17 mai 2013, le mariage est ouvert aux couples de personnes de même sexe. Se marier n'est pas obligatoire : le Pacs et le concubinage existent aussi.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F930"
+  },
+  {
+    "id": 2094,
+    "theme": "Droits et devoirs",
+    "text": "Est-il toujours possible de divorcer ?",
+    "optionA": "Non, le mariage est indissoluble",
+    "optionB": "Oui, mais seulement avec l'accord des deux époux",
+    "optionC": "Oui : chaque époux peut demander le divorce, même sans l'accord de l'autre",
+    "optionD": "Non, sauf après vingt ans de mariage",
+    "correctAnswer": "C",
+    "explanation": "Le divorce est un droit. Il peut être prononcé par consentement mutuel, mais aussi à la demande d'un seul époux, notamment pour altération définitive du lien conjugal ou pour faute. Nul ne peut être contraint de rester marié.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/N142"
+  },
+  {
+    "id": 2095,
+    "theme": "Droits et devoirs",
+    "text": "La peine de mort est :",
+    "optionA": "Abolie en France depuis 1981",
+    "optionB": "Appliquée pour les crimes les plus graves",
+    "optionC": "Suspendue, mais toujours inscrite dans la loi",
+    "optionD": "Décidée au cas par cas par le président de la République",
+    "correctAnswer": "A",
+    "explanation": "La peine de mort a été abolie par la loi du 9 octobre 1981, à l'initiative du garde des Sceaux Robert Badinter. Depuis 2007, l'abolition est inscrite dans la Constitution : « Nul ne peut être condamné à la peine de mort » (article 66-1).",
+    "source": "https://fr.wikipedia.org/wiki/Peine_de_mort_en_France"
   },
   {
     "id": 2096,
@@ -1159,6 +1207,30 @@
     "source": "https://fr.wikipedia.org/wiki/D%C3%A9claration_des_droits_de_l%27homme_et_du_citoyen_de_1789"
   },
   {
+    "id": 2097,
+    "theme": "Droits et devoirs",
+    "text": "Le recours à l'avortement est-il autorisé ?",
+    "optionA": "Non, il est interdit",
+    "optionB": "Oui, il est autorisé et la liberté d'y recourir est garantie par la Constitution",
+    "optionC": "Oui, mais uniquement avec l'accord du conjoint",
+    "optionD": "Oui, mais uniquement pour raison médicale",
+    "correctAnswer": "B",
+    "explanation": "L'interruption volontaire de grossesse est légale depuis la loi Veil du 17 janvier 1975. Elle est possible jusqu'à la fin de la 14e semaine de grossesse et prise en charge à 100 % par l'Assurance maladie. Depuis mars 2024, la liberté d'y recourir est garantie par la Constitution.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1551"
+  },
+  {
+    "id": 2098,
+    "theme": "Droits et devoirs",
+    "text": "Que contient la Constitution ?",
+    "optionA": "Uniquement la liste des impôts",
+    "optionB": "L'organisation des pouvoirs publics et les droits et libertés fondamentaux",
+    "optionC": "Le règlement intérieur des entreprises",
+    "optionD": "Les tarifs des services publics",
+    "correctAnswer": "B",
+    "explanation": "La Constitution du 4 octobre 1958 fixe l'organisation des pouvoirs publics — président, Gouvernement, Parlement, autorité judiciaire — et garantit les droits et libertés fondamentaux, notamment par son préambule qui renvoie à la Déclaration de 1789 et à la Charte de l'environnement.",
+    "source": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000571356/"
+  },
+  {
     "id": 2099,
     "theme": "Droits et devoirs",
     "text": "Que garantit la liberté de la presse ?",
@@ -1169,6 +1241,186 @@
     "correctAnswer": "C",
     "explanation": "La liberté de la presse en France est garantie par la loi du 29 juillet 1881 sur la liberté de la presse. Cette loi permet aux journalistes et aux médias de publier des informations et des opinions sans censure préalable de l'État. Cependant, la presse reste soumise à des règles : elle ne peut pas diffamer, inciter à la haine ou divulguer des informations portant atteinte à la sécurité nationale.",
     "source": "https://fr.wikipedia.org/wiki/Libert%C3%A9_de_la_presse_en_France"
+  },
+  {
+    "id": 2100,
+    "theme": "Droits et devoirs",
+    "text": "Que prévoit la Charte de l'environnement ?",
+    "optionA": "Que chacun a le droit de vivre dans un environnement équilibré et respectueux de la santé, et le devoir de le préserver",
+    "optionB": "Que l'État peut polluer sans limite",
+    "optionC": "Que seules les entreprises doivent protéger la nature",
+    "optionD": "Que les questions d'environnement relèvent uniquement des communes",
+    "correctAnswer": "A",
+    "explanation": "La Charte de l'environnement, adossée à la Constitution depuis 2005, reconnaît à chacun le droit de vivre dans un environnement équilibré et respectueux de la santé, et lui impose le devoir de prendre part à sa préservation. Elle a donc valeur constitutionnelle.",
+    "source": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/charte-de-l-environnement-de-2004"
+  },
+  {
+    "id": 2101,
+    "theme": "Droits et devoirs",
+    "text": "Que signifie la dignité humaine ?",
+    "optionA": "Que chaque être humain doit être respecté et ne peut être traité comme une chose",
+    "optionB": "Que seuls les citoyens français doivent être respectés",
+    "optionC": "Qu'il faut porter une tenue correcte en public",
+    "optionD": "Que les plus riches méritent plus de considération",
+    "correctAnswer": "A",
+    "explanation": "La dignité de la personne humaine est un principe à valeur constitutionnelle : tout être humain, sans distinction, doit être respecté et ne peut jamais être traité comme un objet. Elle fonde l'interdiction de la torture, de l'esclavage et des traitements dégradants.",
+    "source": "https://fr.wikipedia.org/wiki/Dignit%C3%A9_humaine"
+  },
+  {
+    "id": 2102,
+    "theme": "Droits et devoirs",
+    "text": "Que signifie le droit de manifester ?",
+    "optionA": "Le droit de bloquer n'importe quel lieu sans prévenir",
+    "optionB": "Le droit d'exprimer publiquement et collectivement une opinion, après déclaration en préfecture",
+    "optionC": "Un droit réservé aux syndicats",
+    "optionD": "Le droit d'occuper des propriétés privées",
+    "correctAnswer": "B",
+    "explanation": "Le droit de manifester découle de la liberté d'expression et de la liberté de réunion. Une manifestation sur la voie publique doit être déclarée à l'avance en préfecture ou en mairie, et se dérouler pacifiquement. L'autorité peut l'interdire en cas de risque avéré pour l'ordre public.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F21899"
+  },
+  {
+    "id": 2103,
+    "theme": "Droits et devoirs",
+    "text": "Que signifie PMA ?",
+    "optionA": "Protection maternelle avancée",
+    "optionB": "Prise en charge médicale et administrative",
+    "optionC": "Procréation médicalement assistée",
+    "optionD": "Programme médical d'accompagnement",
+    "correctAnswer": "C",
+    "explanation": "PMA signifie procréation médicalement assistée (on parle aussi d'assistance médicale à la procréation). Elle regroupe les techniques médicales permettant d'avoir un enfant, comme l'insémination artificielle et la fécondation in vitro.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F31462"
+  },
+  {
+    "id": 2104,
+    "theme": "Droits et devoirs",
+    "text": "Quel texte est le plus difficile à modifier ?",
+    "optionA": "Un décret",
+    "optionB": "Un arrêté municipal",
+    "optionC": "Une circulaire ministérielle",
+    "optionD": "La Constitution",
+    "correctAnswer": "D",
+    "explanation": "La Constitution est la norme la plus élevée : sa révision suppose un vote en termes identiques par l'Assemblée nationale et le Sénat, puis un référendum ou l'approbation des trois cinquièmes du Congrès. Les décrets, arrêtés et circulaires se modifient beaucoup plus simplement.",
+    "source": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000571356/"
+  },
+  {
+    "id": 2105,
+    "theme": "Droits et devoirs",
+    "text": "Quelle liberté permet à une personne de croire en la religion de son choix ?",
+    "optionA": "La liberté de conscience",
+    "optionB": "La liberté d'entreprendre",
+    "optionC": "La liberté syndicale",
+    "optionD": "La liberté de circulation",
+    "correctAnswer": "A",
+    "explanation": "La liberté de conscience, garantie par la Déclaration de 1789 et par la loi de 1905, permet à chacun de croire en la religion de son choix, d'en changer ou de ne pas croire. Elle s'accompagne de la liberté de culte, c'est-à-dire du droit de pratiquer.",
+    "source": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000508749/"
+  },
+  {
+    "id": 2106,
+    "theme": "Droits et devoirs",
+    "text": "Qu'est-ce que le droit de grève ?",
+    "optionA": "Le droit de refuser définitivement de travailler tout en gardant son salaire",
+    "optionB": "Le droit de cesser collectivement le travail pour défendre des revendications professionnelles",
+    "optionC": "Un droit réservé aux fonctionnaires",
+    "optionD": "Le droit d'empêcher les autres salariés de travailler",
+    "correctAnswer": "B",
+    "explanation": "Le droit de grève est reconnu par le préambule de la Constitution de 1946. C'est la cessation collective et concertée du travail pour appuyer des revendications professionnelles. Les jours de grève ne sont pas rémunérés, et le gréviste ne peut empêcher les non-grévistes de travailler.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1808"
+  },
+  {
+    "id": 2107,
+    "theme": "Droits et devoirs",
+    "text": "Qu'est-ce que la Constitution ?",
+    "optionA": "Un règlement interne à l'Assemblée nationale",
+    "optionB": "La loi fondamentale qui organise les pouvoirs publics et garantit les droits fondamentaux",
+    "optionC": "Un traité signé avec l'Union européenne",
+    "optionD": "Un recueil de conseils sans valeur obligatoire",
+    "correctAnswer": "B",
+    "explanation": "La Constitution est la norme juridique la plus élevée. Celle de la Ve République date du 4 octobre 1958 : elle organise les pouvoirs publics, définit leurs rapports et garantit les droits et libertés fondamentaux. Toutes les autres normes doivent la respecter.",
+    "source": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000571356/"
+  },
+  {
+    "id": 2108,
+    "theme": "Droits et devoirs",
+    "text": "Qui peut demander à avorter ?",
+    "optionA": "Toute femme enceinte qui ne souhaite pas poursuivre sa grossesse",
+    "optionB": "Uniquement les femmes mariées",
+    "optionC": "Uniquement avec l'accord du père",
+    "optionD": "Uniquement les femmes de nationalité française",
+    "correctAnswer": "A",
+    "explanation": "Toute femme enceinte qui ne veut pas poursuivre sa grossesse peut demander une IVG, quels que soient son âge, sa situation familiale ou sa nationalité. Aucune autorisation du conjoint n'est requise ; une mineure peut y recourir sans le consentement de ses parents, accompagnée d'un adulte de son choix.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1551"
+  },
+  {
+    "id": 2109,
+    "theme": "Droits et devoirs",
+    "text": "Une femme majeure de nationalité française a-t-elle le droit de voter aux élections ?",
+    "optionA": "Non, seuls les hommes votent",
+    "optionB": "Oui, comme tout citoyen français majeur inscrit sur les listes électorales",
+    "optionC": "Oui, mais uniquement aux élections municipales",
+    "optionD": "Oui, avec l'accord de son mari",
+    "correctAnswer": "B",
+    "explanation": "Les femmes ont obtenu le droit de vote et d'éligibilité par l'ordonnance du 21 avril 1944, et ont voté pour la première fois en 1945. Le droit de vote est identique pour toutes et tous : nulle autorisation d'un conjoint n'est requise.",
+    "source": "https://fr.wikipedia.org/wiki/Droit_de_vote_des_femmes_en_France"
+  },
+  {
+    "id": 2110,
+    "theme": "Droits et devoirs",
+    "text": "Concernant l'utilisation des réseaux sociaux, quelle proposition est correcte ?",
+    "optionA": "On peut y écrire ce que l'on veut, la loi ne s'y applique pas",
+    "optionB": "L'anonymat protège de toute poursuite",
+    "optionC": "La loi s'y applique : injures, menaces, diffamation et incitation à la haine y sont punies",
+    "optionD": "Seuls les propos tenus en public dans la rue sont punissables",
+    "correctAnswer": "C",
+    "explanation": "Les réseaux sociaux ne sont pas une zone de non-droit : injure, diffamation, menaces, harcèlement, incitation à la haine et diffusion d'images sans consentement y sont punis comme ailleurs. L'anonymat n'empêche pas l'identification par la justice.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F32077"
+  },
+  {
+    "id": 2111,
+    "theme": "Droits et devoirs",
+    "text": "Jeter un mégot par terre est :",
+    "optionA": "Autorisé si le mégot est éteint",
+    "optionB": "Interdit et passible d'une amende",
+    "optionC": "Autorisé en dehors des villes",
+    "optionD": "Sans conséquence pour l'environnement",
+    "correctAnswer": "B",
+    "explanation": "Abandonner un mégot sur la voie publique est une infraction punie d'une amende forfaitaire de 135 euros. Un seul mégot peut polluer plusieurs centaines de litres d'eau et met une dizaine d'années à se dégrader.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F35223"
+  },
+  {
+    "id": 2112,
+    "theme": "Droits et devoirs",
+    "text": "L'État peut-il limiter les droits et libertés ?",
+    "optionA": "Non, jamais",
+    "optionB": "Oui, sans aucune règle",
+    "optionC": "Oui, mais uniquement par la loi, pour un motif d'intérêt général et de façon proportionnée",
+    "optionD": "Oui, sur simple décision d'un maire",
+    "correctAnswer": "C",
+    "explanation": "Les libertés ne sont pas absolues : la loi peut les limiter pour protéger l'ordre public, la sécurité, la santé publique ou les droits d'autrui. Ces limitations doivent être prévues par la loi, justifiées et proportionnées, sous le contrôle du juge.",
+    "source": "https://fr.wikipedia.org/wiki/Libert%C3%A9s_fondamentales_en_France"
+  },
+  {
+    "id": 2113,
+    "theme": "Droits et devoirs",
+    "text": "Parmi ces actions, laquelle permet d'adopter une attitude respectueuse de l’environnement ?",
+    "optionA": "Trier ses déchets et limiter sa consommation d'énergie",
+    "optionB": "Brûler ses déchets dans son jardin",
+    "optionC": "Jeter ses ordures dans la nature",
+    "optionD": "Vider ses huiles usagées dans l'évier",
+    "correctAnswer": "A",
+    "explanation": "Trier ses déchets, économiser l'eau et l'énergie, privilégier les transports en commun ou le vélo sont des gestes respectueux de l'environnement. Brûler ses déchets verts à l'air libre est en revanche interdit, comme l'abandon d'ordures dans la nature.",
+    "source": "https://www.ecologie.gouv.fr/"
+  },
+  {
+    "id": 2114,
+    "theme": "Droits et devoirs",
+    "text": "Quelle proposition constitue une obligation ?",
+    "optionA": "Adhérer à un parti politique",
+    "optionB": "Payer ses impôts et respecter la loi",
+    "optionC": "Pratiquer une religion",
+    "optionD": "Voter à chaque élection",
+    "correctAnswer": "B",
+    "explanation": "Respecter la loi, payer ses impôts, faire instruire ses enfants et respecter les symboles de la République sont des obligations. Voter est un droit et un devoir civique, mais pas une obligation légale ; adhérer à un parti ou pratiquer une religion relève de la liberté de chacun.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F31151"
   },
   {
     "id": 2115,
@@ -1183,6 +1435,90 @@
     "source": "https://fr.wikipedia.org/wiki/Discours_de_haine"
   },
   {
+    "id": 2116,
+    "theme": "Droits et devoirs",
+    "text": "Pourquoi doit-on trier ses déchets ?",
+    "optionA": "Pour permettre leur recyclage et limiter la pollution",
+    "optionB": "Pour réduire le nombre d'éboueurs",
+    "optionC": "Parce que c'est une tradition régionale",
+    "optionD": "Pour augmenter le volume des ordures",
+    "correctAnswer": "A",
+    "explanation": "Le tri permet de recycler le verre, le papier, le carton, les métaux et certains plastiques : on économise ainsi des matières premières et de l'énergie, et on réduit la quantité de déchets enfouis ou incinérés. Le tri est une obligation dans toutes les communes.",
+    "source": "https://www.ecologie.gouv.fr/"
+  },
+  {
+    "id": 2117,
+    "theme": "Droits et devoirs",
+    "text": "Que doit faire une victime de violences ?",
+    "optionA": "Se taire pour éviter les ennuis",
+    "optionB": "Se faire justice elle-même",
+    "optionC": "Porter plainte auprès de la police ou de la gendarmerie, et se faire soigner",
+    "optionD": "Attendre que la situation s'améliore d'elle-même",
+    "correctAnswer": "C",
+    "explanation": "Une victime de violences doit se mettre en sécurité, consulter un médecin pour faire constater les faits et porter plainte au commissariat, à la gendarmerie ou par courrier au procureur de la République. Des numéros gratuits existent, dont le 3919 pour les violences faites aux femmes.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1435"
+  },
+  {
+    "id": 2118,
+    "theme": "Droits et devoirs",
+    "text": "Que doit-on faire face aux ordres des policiers ou gendarmes ?",
+    "optionA": "Les ignorer si on les juge injustifiés",
+    "optionB": "Obéir, et contester ensuite par les voies légales si l'on s'estime lésé",
+    "optionC": "Résister physiquement",
+    "optionD": "Négocier le montant d'une amende sur place",
+    "correctAnswer": "B",
+    "explanation": "Il faut obéir aux injonctions des forces de l'ordre : refuser d'obtempérer ou opposer une résistance est un délit. Si l'on estime avoir subi un abus, on peut ensuite déposer une plainte, saisir l'Inspection générale de la police nationale ou le Défenseur des droits.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1036"
+  },
+  {
+    "id": 2119,
+    "theme": "Droits et devoirs",
+    "text": "Quel est le rôle de la police ?",
+    "optionA": "Juger et condamner les personnes arrêtées",
+    "optionB": "Faire respecter la loi, protéger les personnes et les biens et constater les infractions",
+    "optionC": "Voter les lois relatives à la sécurité",
+    "optionD": "Fixer le montant des peines de prison",
+    "correctAnswer": "B",
+    "explanation": "La police et la gendarmerie assurent la sécurité des personnes et des biens, préviennent les troubles à l'ordre public, constatent les infractions et recherchent leurs auteurs. Elles ne jugent pas : ce rôle appartient aux juridictions, indépendantes.",
+    "source": "https://www.police-nationale.interieur.gouv.fr/"
+  },
+  {
+    "id": 2120,
+    "theme": "Droits et devoirs",
+    "text": "Quel est un exemple d’assistance à personne en danger ?",
+    "optionA": "Filmer la scène et la publier sur les réseaux sociaux",
+    "optionB": "Appeler les secours et porter assistance dans la mesure de ses moyens",
+    "optionC": "S'éloigner sans rien faire",
+    "optionD": "Attendre l'arrivée d'un proche de la victime",
+    "correctAnswer": "B",
+    "explanation": "Face à une personne en danger, il faut alerter les secours (15 pour le SAMU, 17 pour la police, 18 pour les pompiers, 112 en Europe) et lui porter assistance sans se mettre soi-même en danger. La non-assistance à personne en péril est un délit puni de 5 ans de prison et 75 000 euros d'amende.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F32473"
+  },
+  {
+    "id": 2121,
+    "theme": "Droits et devoirs",
+    "text": "Quel exemple illustre une limitation de liberté pour protéger l'intérêt général ?",
+    "optionA": "L'interdiction de fumer dans les lieux publics fermés",
+    "optionB": "L'interdiction de choisir sa religion",
+    "optionC": "L'interdiction de voter pour certains partis",
+    "optionD": "L'interdiction de changer de travail",
+    "correctAnswer": "A",
+    "explanation": "Certaines libertés sont limitées pour protéger la santé ou la sécurité de tous : interdiction de fumer dans les lieux publics fermés, limitations de vitesse, obligation de déclarer une manifestation. Ces limites sont prévues par la loi et proportionnées à l'objectif poursuivi.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1961"
+  },
+  {
+    "id": 2122,
+    "theme": "Droits et devoirs",
+    "text": "Quelle est l’attitude à avoir lorsque qu'on est témoin de violences ?",
+    "optionA": "Ne rien faire, cela ne nous regarde pas",
+    "optionB": "Intervenir physiquement en toutes circonstances",
+    "optionC": "Alerter les secours ou la police, et témoigner si nécessaire",
+    "optionD": "Filmer la scène pour la diffuser en ligne",
+    "correctAnswer": "C",
+    "explanation": "Un témoin de violences doit alerter la police (17) ou les secours, sans se mettre en danger, et peut ensuite témoigner auprès des enquêteurs. Ne pas porter secours à une personne en péril alors qu'on le pouvait sans risque est un délit.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F32473"
+  },
+  {
     "id": 2123,
     "theme": "Droits et devoirs",
     "text": "Quelle est l'infraction la plus grave ?",
@@ -1193,6 +1529,66 @@
     "correctAnswer": "B",
     "explanation": "Le droit pénal français distingue trois catégories d'infractions selon leur gravité : les contraventions (les moins graves, jugées par le tribunal de police), les délits (gravité intermédiaire, jugés par le tribunal correctionnel) et les crimes (les plus graves : meurtre, viol, terrorisme, jugés par la cour d'assises).",
     "source": "https://fr.wikipedia.org/wiki/Infraction_p%C3%A9nale"
+  },
+  {
+    "id": 2124,
+    "theme": "Droits et devoirs",
+    "text": "Quelle obligation concerne toutes les personnes résidant en France quelle que soit leur nationalité ?",
+    "optionA": "Voter aux élections nationales",
+    "optionB": "Respecter la loi française",
+    "optionC": "Effectuer un service militaire",
+    "optionD": "Adhérer à un syndicat",
+    "correctAnswer": "B",
+    "explanation": "Toute personne vivant en France, française ou étrangère, doit respecter la loi française, payer les impôts dont elle est redevable et faire instruire ses enfants. Le droit de vote aux élections nationales, lui, est réservé aux citoyens français.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F31151"
+  },
+  {
+    "id": 2125,
+    "theme": "Droits et devoirs",
+    "text": "Quelle proposition représente un exemple de crime ?",
+    "optionA": "Un excès de vitesse",
+    "optionB": "Un vol simple dans un magasin",
+    "optionC": "Un meurtre",
+    "optionD": "Un stationnement gênant",
+    "correctAnswer": "C",
+    "explanation": "Le droit pénal français distingue trois catégories d'infractions. Les crimes sont les plus graves (meurtre, viol, vol à main armée) et sont jugés par la cour d'assises ou la cour criminelle. Viennent ensuite les délits, puis les contraventions.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1157"
+  },
+  {
+    "id": 2126,
+    "theme": "Droits et devoirs",
+    "text": "Quelle proposition représente un exemple de délit ?",
+    "optionA": "Un stationnement gênant",
+    "optionB": "Un vol",
+    "optionC": "Un assassinat",
+    "optionD": "Un défaut d'éclairage sur un vélo",
+    "correctAnswer": "B",
+    "explanation": "Le vol, l'escroquerie, les violences volontaires et la conduite en état d'ivresse sont des délits, jugés par le tribunal correctionnel. Le stationnement gênant est une contravention, l'assassinat un crime jugé en cour d'assises.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1157"
+  },
+  {
+    "id": 2127,
+    "theme": "Droits et devoirs",
+    "text": "Qui veille au maintien de l’ordre public ?",
+    "optionA": "Les forces de police et de gendarmerie, sous l'autorité de l'État et des maires",
+    "optionB": "Les associations de quartier",
+    "optionC": "Les entreprises privées uniquement",
+    "optionD": "Chaque citoyen, par ses propres moyens",
+    "correctAnswer": "A",
+    "explanation": "Le maintien de l'ordre public est assuré par la police nationale et la gendarmerie, sous l'autorité de l'État représenté par le préfet. Le maire dispose également de pouvoirs de police administrative dans sa commune. Nul ne peut se faire justice soi-même.",
+    "source": "https://www.interieur.gouv.fr/"
+  },
+  {
+    "id": 2128,
+    "theme": "Droits et devoirs",
+    "text": "S'agissant des déchets, quelle proposition est correcte ?",
+    "optionA": "On peut les abandonner dans la nature s'ils sont biodégradables",
+    "optionB": "Il faut les trier et les déposer dans les bacs prévus ou en déchetterie",
+    "optionC": "Il faut les brûler dans son jardin",
+    "optionD": "Il faut les déposer sur le trottoir n'importe quel jour",
+    "correctAnswer": "B",
+    "explanation": "Les déchets doivent être triés et déposés dans les conteneurs prévus, aux jours de collecte fixés par la commune. Les encombrants et les déchets spéciaux se déposent en déchetterie. Abandonner des déchets dans la nature ou les brûler à l'air libre est interdit et sanctionné.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F35223"
   },
   {
     "id": 2129,
@@ -2060,6 +2456,30 @@
     ]
   },
   {
+    "id": 2178,
+    "theme": "Vivre dans la société française",
+    "text": "Quel mariage est reconnu par l'État ?",
+    "optionA": "Le mariage religieux uniquement",
+    "optionB": "Le mariage civil, célébré en mairie par un officier d'état civil",
+    "optionC": "Le mariage célébré entre les familles, sans formalité",
+    "optionD": "Le mariage célébré à l'étranger sans transcription",
+    "correctAnswer": "B",
+    "explanation": "Seul le mariage civil, célébré publiquement en mairie par le maire ou un adjoint, produit des effets juridiques en France. Une cérémonie religieuse peut avoir lieu ensuite, mais jamais avant le mariage civil.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F930"
+  },
+  {
+    "id": 2179,
+    "theme": "Vivre dans la société française",
+    "text": "Auprès de quelle institution les parents peuvent-ils inscrire leur enfant à l'école publique ?",
+    "optionA": "La préfecture",
+    "optionB": "La mairie de la commune de résidence",
+    "optionC": "Le conseil régional",
+    "optionD": "Le tribunal judiciaire",
+    "correctAnswer": "B",
+    "explanation": "L'inscription à l'école maternelle ou élémentaire publique se fait à la mairie de la commune de résidence, qui délivre un certificat d'inscription. Les parents se présentent ensuite à l'école pour l'admission définitive auprès du directeur.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1864"
+  },
+  {
     "id": 2180,
     "theme": "Vivre dans la société française",
     "text": "En cas de divorce, qui exerce l'autorité parentale ?",
@@ -2096,6 +2516,42 @@
     "source": "https://fr.wikipedia.org/wiki/%C3%89tat_civil_en_France"
   },
   {
+    "id": 2183,
+    "theme": "Vivre dans la société française",
+    "text": "Quelle est l'une des conditions pour passer l'examen du permis de conduire ?",
+    "optionA": "Avoir au moins 18 ans pour le permis B et avoir obtenu le code de la route",
+    "optionB": "Être propriétaire d'un véhicule",
+    "optionC": "Être de nationalité française",
+    "optionD": "Avoir effectué un service civique",
+    "correctAnswer": "A",
+    "explanation": "Pour passer l'épreuve pratique du permis B, il faut avoir au moins 18 ans (17 ans en conduite accompagnée), avoir réussi l'épreuve théorique du code de la route et résider régulièrement en France. La nationalité française n'est pas exigée.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F2825"
+  },
+  {
+    "id": 2184,
+    "theme": "Vivre dans la société française",
+    "text": "Un bail locatif est valide s'il est :",
+    "optionA": "Conclu oralement entre le propriétaire et le locataire",
+    "optionB": "Écrit et signé par le propriétaire et le locataire",
+    "optionC": "Enregistré à la préfecture",
+    "optionD": "Validé par le maire de la commune",
+    "correctAnswer": "B",
+    "explanation": "Le contrat de location doit être établi par écrit et signé par le bailleur et le locataire. Il précise notamment la durée, le montant du loyer et le dépôt de garantie, et doit être accompagné d'un état des lieux et des diagnostics obligatoires.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1168"
+  },
+  {
+    "id": 2185,
+    "theme": "Vivre dans la société française",
+    "text": "Où peut-on déposer un lave-vaisselle cassé ?",
+    "optionA": "Sur le trottoir devant chez soi",
+    "optionB": "Dans un conteneur de tri sélectif",
+    "optionC": "En déchetterie, ou auprès d'un distributeur lors de l'achat d'un appareil neuf",
+    "optionD": "Dans un espace naturel à l'écart des habitations",
+    "correctAnswer": "C",
+    "explanation": "Les appareils électroménagers hors d'usage se déposent en déchetterie ou sont repris gratuitement par le vendeur lors de l'achat d'un appareil équivalent. Les abandonner sur la voie publique ou dans la nature est un dépôt sauvage, puni d'une amende pouvant atteindre 1 500 euros.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F35223"
+  },
+  {
     "id": 2186,
     "theme": "Vivre dans la société française",
     "text": "Quel numéro d'urgence permet d'appeler la police ?",
@@ -2106,6 +2562,30 @@
     "correctAnswer": "C",
     "explanation": "En France, les numéros d'urgence sont : 15 (SAMU - urgences médicales), 17 (Police Secours), 18 (Pompiers) et 112 (numéro d'urgence européen, accessible depuis tout pays de l'UE). Pour appeler la police, c'est donc le 17. Le 112 peut aussi rediriger vers la police selon la situation.",
     "source": "https://fr.wikipedia.org/wiki/Police_nationale_(France)"
+  },
+  {
+    "id": 2187,
+    "theme": "Vivre dans la société française",
+    "text": "Concernant l'accès aux soins, quelle proposition est correcte ?",
+    "optionA": "Toute personne résidant régulièrement en France peut être affiliée à l'Assurance maladie",
+    "optionB": "Les soins sont réservés aux personnes de nationalité française",
+    "optionC": "Il faut payer l'intégralité des soins sans jamais être remboursé",
+    "optionD": "L'accès aux soins d'urgence est réservé aux personnes assurées",
+    "correctAnswer": "A",
+    "explanation": "Toute personne qui travaille ou réside en France de façon stable et régulière est affiliée à l'Assurance maladie et bénéficie d'une prise en charge de ses soins. Les urgences vitales, elles, sont prises en charge pour toute personne, quelle que soit sa situation.",
+    "source": "https://www.ameli.fr/"
+  },
+  {
+    "id": 2188,
+    "theme": "Vivre dans la société française",
+    "text": "À qui est accessible la contraception ?",
+    "optionA": "Uniquement aux femmes mariées",
+    "optionB": "À toute personne, y compris les mineures, de façon confidentielle",
+    "optionC": "Uniquement aux personnes de plus de 25 ans",
+    "optionD": "Uniquement sur autorisation d'un parent ou du conjoint",
+    "correctAnswer": "B",
+    "explanation": "La contraception est libre depuis la loi Neuwirth de 1967. Elle est accessible à toute personne, sans autorisation du conjoint. Pour les mineures, elle est gratuite et confidentielle ; la contraception est prise en charge à 100 % jusqu'à 25 ans.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F3106"
   },
   {
     "id": 2189,
@@ -2168,6 +2648,114 @@
     "source": "https://fr.wikipedia.org/wiki/Travail_dissimul%C3%A9"
   },
   {
+    "id": 2194,
+    "theme": "Vivre dans la société française",
+    "text": "Lorsqu'un employeur veut qu'un salarié travaille plus longtemps que la durée prévue dans le contrat de travail :",
+    "optionA": "Le salarié n'a droit à aucune compensation",
+    "optionB": "Les heures supplémentaires doivent être majorées ou compensées, dans la limite des durées maximales légales",
+    "optionC": "L'employeur peut imposer un nombre d'heures illimité",
+    "optionD": "Le salarié doit démissionner s'il refuse",
+    "correctAnswer": "B",
+    "explanation": "Les heures effectuées au-delà de la durée légale de 35 heures sont des heures supplémentaires : elles donnent lieu à une majoration de salaire ou à un repos compensateur. La durée du travail ne peut dépasser 10 heures par jour et 48 heures par semaine, sauf dérogation.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F2109"
+  },
+  {
+    "id": 2195,
+    "theme": "Vivre dans la société française",
+    "text": "Quelle est la mission de France Travail ?",
+    "optionA": "Fixer le montant du salaire minimum",
+    "optionB": "Accompagner les demandeurs d'emploi, les indemniser et aider les entreprises à recruter",
+    "optionC": "Juger les litiges entre salariés et employeurs",
+    "optionD": "Délivrer les titres de séjour",
+    "correctAnswer": "B",
+    "explanation": "France Travail, qui a succédé à Pôle emploi en 2024, accueille et accompagne les demandeurs d'emploi, verse les allocations chômage et aide les entreprises dans leurs recrutements. Les litiges entre salarié et employeur relèvent du conseil de prud'hommes.",
+    "source": "https://www.francetravail.fr/"
+  },
+  {
+    "id": 2196,
+    "theme": "Vivre dans la société française",
+    "text": "Dans une entreprise, le droit syndical permet :",
+    "optionA": "D'adhérer au syndicat de son choix et de défendre collectivement ses intérêts professionnels",
+    "optionB": "D'obliger tous les salariés à se syndiquer",
+    "optionC": "De fixer soi-même son salaire",
+    "optionD": "De licencier les salariés non syndiqués",
+    "correctAnswer": "A",
+    "explanation": "La liberté syndicale permet à chaque salarié d'adhérer ou non au syndicat de son choix, de participer à son activité et d'être représenté. Nul ne peut être discriminé en raison de son appartenance ou de sa non-appartenance à un syndicat.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F2158"
+  },
+  {
+    "id": 2197,
+    "theme": "Vivre dans la société française",
+    "text": "Dans une entreprise, le droit de grève autorise :",
+    "optionA": "À dégrader le matériel de l'entreprise",
+    "optionB": "À cesser collectivement le travail pour appuyer des revendications professionnelles",
+    "optionC": "À empêcher les autres salariés de travailler",
+    "optionD": "À conserver l'intégralité de son salaire pendant la grève",
+    "correctAnswer": "B",
+    "explanation": "Le droit de grève est constitutionnel : les salariés peuvent cesser collectivement le travail pour des revendications professionnelles. Les jours de grève ne sont pas payés, et le gréviste ne peut ni bloquer le travail des non-grévistes ni dégrader l'outil de travail.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1808"
+  },
+  {
+    "id": 2198,
+    "theme": "Vivre dans la société française",
+    "text": "Quelles sont les conditions pour toucher les allocations chômage ?",
+    "optionA": "Avoir travaillé une durée minimale, avoir perdu son emploi involontairement, être inscrit comme demandeur d'emploi et rechercher un travail",
+    "optionB": "Avoir démissionné de son poste",
+    "optionC": "Être âgé de plus de 50 ans",
+    "optionD": "Ne jamais avoir travaillé",
+    "correctAnswer": "A",
+    "explanation": "L'allocation d'aide au retour à l'emploi suppose d'avoir suffisamment travaillé au cours des derniers mois, d'avoir perdu son emploi involontairement (licenciement, fin de CDD, rupture conventionnelle), d'être inscrit à France Travail et de rechercher activement un emploi.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F14860"
+  },
+  {
+    "id": 2199,
+    "theme": "Vivre dans la société française",
+    "text": "Qu'est-ce que l'école maternelle ?",
+    "optionA": "Une garderie facultative pour les enfants de moins de 6 ans",
+    "optionB": "La première école, obligatoire à partir de 3 ans",
+    "optionC": "Un établissement réservé aux enfants de familles modestes",
+    "optionD": "Un établissement privé payant",
+    "correctAnswer": "B",
+    "explanation": "L'école maternelle accueille les enfants de 3 à 6 ans. Depuis la rentrée 2019, l'instruction est obligatoire dès 3 ans : la maternelle n'est donc plus facultative. Elle est gratuite dans le secteur public et prépare aux apprentissages de l'école élémentaire.",
+    "source": "https://www.education.gouv.fr/"
+  },
+  {
+    "id": 2200,
+    "theme": "Vivre dans la société française",
+    "text": "Comment s'appelle le diplôme passé par les élèves à la fin du collège ?",
+    "optionA": "Le baccalauréat",
+    "optionB": "Le certificat d'études",
+    "optionC": "Le diplôme national du brevet",
+    "optionD": "La licence",
+    "correctAnswer": "C",
+    "explanation": "À la fin de la classe de troisième, les élèves passent le diplôme national du brevet. Le baccalauréat, lui, sanctionne la fin des études au lycée et ouvre l'accès à l'enseignement supérieur.",
+    "source": "https://www.education.gouv.fr/"
+  },
+  {
+    "id": 2201,
+    "theme": "Vivre dans la société française",
+    "text": "Les parents d'élève ont le droit de :",
+    "optionA": "Être informés du travail de leur enfant, rencontrer les enseignants et élire leurs représentants",
+    "optionB": "Choisir les enseignants de leur enfant",
+    "optionC": "Modifier les programmes scolaires",
+    "optionD": "Assister à tous les cours de leur enfant",
+    "correctAnswer": "A",
+    "explanation": "Les parents sont membres de la communauté éducative : ils ont droit à l'information sur les résultats et le comportement de leur enfant, à des rencontres régulières avec les enseignants, et peuvent élire des représentants au conseil d'école ou au conseil d'administration.",
+    "source": "https://www.education.gouv.fr/"
+  },
+  {
+    "id": 2202,
+    "theme": "Vivre dans la société française",
+    "text": "Qui peut manger à la cantine scolaire ?",
+    "optionA": "Uniquement les enfants dont les deux parents travaillent",
+    "optionB": "Tous les élèves, sans discrimination, dans la limite des places disponibles",
+    "optionC": "Uniquement les élèves boursiers",
+    "optionD": "Uniquement les élèves de nationalité française",
+    "correctAnswer": "B",
+    "explanation": "La restauration scolaire est un service public facultatif, mais lorsqu'il existe, tous les élèves doivent pouvoir y accéder sans discrimination. Le tarif est souvent calculé selon les revenus de la famille, et des aides existent pour les familles modestes.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F2523"
+  },
+  {
     "id": 2203,
     "theme": "Vivre dans la société française",
     "text": "À quel âge commence l'instruction obligatoire des enfants ?",
@@ -2178,6 +2766,30 @@
     "correctAnswer": "A",
     "explanation": "Depuis la loi du 26 juillet 2019, l'instruction est obligatoire à partir de 3 ans en France (et non plus 6 ans). Cette réforme vise à réduire les inégalités éducatives dès le plus jeune âge. Les enfants de 3 à 6 ans sont accueillis à l'école maternelle, qui est obligatoire depuis cette loi.",
     "source": "https://fr.wikipedia.org/wiki/Instruction_obligatoire_en_France"
+  },
+  {
+    "id": 2204,
+    "theme": "Vivre dans la société française",
+    "text": "Quel est l'âge de la majorité ?",
+    "optionA": "16 ans",
+    "optionB": "18 ans",
+    "optionC": "21 ans",
+    "optionD": "25 ans",
+    "correctAnswer": "B",
+    "explanation": "La majorité est fixée à 18 ans depuis 1974. À cet âge, une personne devient juridiquement responsable de ses actes, peut voter, signer seule des contrats et exercer pleinement ses droits civils.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1873"
+  },
+  {
+    "id": 2205,
+    "theme": "Vivre dans la société française",
+    "text": "À l'école, il est interdit aux parents de :",
+    "optionA": "Rencontrer les enseignants",
+    "optionB": "Participer aux élections des représentants de parents",
+    "optionC": "Contester un enseignement au nom de convictions religieuses ou politiques",
+    "optionD": "Demander un rendez-vous au directeur",
+    "correctAnswer": "C",
+    "explanation": "Les parents ne peuvent pas s'opposer au contenu des enseignements au nom de leurs convictions : les programmes nationaux s'appliquent à tous les élèves. Ils ne peuvent pas non plus troubler le fonctionnement de l'établissement. En revanche, le dialogue avec l'équipe éducative est un droit.",
+    "source": "https://www.education.gouv.fr/"
   },
   {
     "id": 2206,
@@ -2218,5 +2830,29 @@
     "correctAnswer": "D",
     "explanation": "Les parents qui ne respectent pas l'obligation d'instruction de leurs enfants s'exposent à des sanctions pénales. Depuis la loi du 26 juillet 2019, l'instruction à domicile est soumise à des conditions strictes. Le non-respect de l'obligation d'instruction peut être puni d'une amende pouvant aller jusqu'à 7 500 euros et 6 mois d'emprisonnement.",
     "source": "https://fr.wikipedia.org/wiki/Instruction_obligatoire_en_France"
+  },
+  {
+    "id": 2208,
+    "theme": "Vivre dans la société française",
+    "text": "Quand ont lieu les vacances scolaires de Noël ?",
+    "optionA": "En décembre et janvier, pendant environ deux semaines",
+    "optionB": "En octobre",
+    "optionC": "En février",
+    "optionD": "En juillet et août",
+    "correctAnswer": "A",
+    "explanation": "Les vacances de Noël durent environ deux semaines, de la fin décembre au début janvier, et sont communes à toutes les académies. Les vacances d'hiver et de printemps, elles, sont réparties en trois zones pour étaler les départs.",
+    "source": "https://www.education.gouv.fr/"
+  },
+  {
+    "id": 2209,
+    "theme": "Vivre dans la société française",
+    "text": "À l'école, un enfant en situation de handicap :",
+    "optionA": "Ne peut pas être scolarisé en milieu ordinaire",
+    "optionB": "A le droit d'être scolarisé, avec les aménagements et l'accompagnement nécessaires",
+    "optionC": "Doit obligatoirement suivre un enseignement à domicile",
+    "optionD": "Est scolarisé uniquement si les autres parents l'acceptent",
+    "correctAnswer": "B",
+    "explanation": "La loi du 11 février 2005 garantit à tout enfant en situation de handicap le droit d'être scolarisé, en priorité dans l'école de son quartier. Un projet personnalisé de scolarisation prévoit les aménagements nécessaires, qui peuvent inclure un accompagnant (AESH) ou du matériel adapté.",
+    "source": "https://www.education.gouv.fr/"
   }
 ]
