@@ -7,7 +7,7 @@ ce qui reste à faire, et les conventions à respecter pour chaque lot de conten
 | | |
 |---|---|
 | Branche | `claude/multi-qcm-expansion-m33wj9` |
-| Statut | Lots 0 à 7 livrés — **liste CR complète (209/209)**, rédaction CSP en cours |
+| Statut | **Terminé** — les trois listes officielles sont complètes (258 NAT + 209 CR + 191 CSP + 80 mises en situation = 738 questions) |
 | Dernière mise à jour | 2026-07-28 |
 
 ---
@@ -105,11 +105,10 @@ rédaction est en cours, c'est normal.
 
 - **Bumper `QuestionRepository.CONTENT_VERSION`** à chaque modification d'un fichier de questions,
   sinon les applications déjà installées ne voient pas le changement.
-- Tant qu'un thème compte moins de questions que le tirage n'en demande, l'examen de cet examen est
-  **plus court que 40 questions** (`drawIdsFromCycle` ne tire jamais deux fois la même question).
-  Le script de contrôle le signale en avertissement.
-- Le seuil de réussite reste 32/40 : un examen CR/CSP incomplet est donc difficile à réussir tant
-  que la liste n'est pas rédigée. C'est attendu jusqu'à la fin du lot 8.
+- Si un thème comptait moins de questions que le tirage n'en demande, l'examen serait **plus court
+  que 40 questions** (`drawIdsFromCycle` ne tire jamais deux fois la même question) et le script de
+  contrôle le signalerait en avertissement. Les trois listes étant complètes, le cas ne se produit
+  plus — mais le garde-fou reste utile pour un futur QCM en cours de saisie.
 
 ---
 
@@ -172,17 +171,40 @@ déjà en place).
 | 5 | CSP | Histoire, géographie et culture | 30 | ☑ thème complet (47/47) | |
 | 6 | CSP | Système institutionnel et politique | 36 | ☑ thème complet (46/46) | |
 | 7 | CSP | Principes et valeurs de la République | 32 | ☑ thème complet (37/37) | |
-| 8 | CSP | Droits et devoirs + Vivre dans la société française | 28 + 21 | ☐ | |
+| 8 | CSP | Droits et devoirs + Vivre dans la société française | 28 + 21 | ☑ **QCM CSP complet (191/191)** | |
 
-**Total à rédiger : 296 questions** (149 CR + 147 CSP) — **239 rédigées (tout le CR + 90 CSP), 44 restantes (CSP)**.
+**Total à rédiger : 296 questions** (149 CR + 147 CSP) — **296 rédigées, 0 restante.** ✅
 
 ### Après le dernier lot
 
-- [ ] `check_questions_consistency.py` sans aucun avertissement de couverture
-- [ ] `QUESTIONS.md` régénéré (658 questions attendues)
-- [ ] Mettre à jour les effectifs dans `CLAUDE.md` et `README.md`
-- [ ] Cibles par défaut des succès « Tour complet » alignées sur les effectifs réels
-      (`Achievement.target` — la valeur affichée est de toute façon résolue au runtime)
+- [x] `check_questions_consistency.py` sans aucun avertissement de couverture
+- [x] `QUESTIONS.md` régénéré (**738 questions**)
+- [x] Effectifs mis à jour dans `CLAUDE.md` et `README.md`
+- [x] Cibles par défaut des succès « Tour complet » alignées sur les effectifs réels
+      (338 / 289 / 271 — la valeur affichée est de toute façon résolue au runtime)
+
+### Effectifs finaux par QCM et par thème
+
+| Thème | NAT | CR | CSP | Mises en situation (communes) |
+|---|---|---|---|---|
+| Principes et valeurs de la République | 39 | 40 | 37 | 20 |
+| Système institutionnel et politique | 55 | 50 | 46 | 20 |
+| Droits et devoirs | 37 | 38 | 30 | 20 |
+| Histoire, géographie et culture | 83 | 49 | 47 | 0 |
+| Vivre dans la société française | 44 | 32 | 31 | 20 |
+| **Total connaissances** | **258** | **209** | **191** | **80** |
+| **Questions tirables (avec les mises en situation)** | **338** | **289** | **271** | |
+
+Chaque QCM tire donc bien 40 questions par examen (28 connaissances + 12 mises en situation),
+vérifié par simulation sur 50 examens consécutifs par QCM, sans aucun doublon intra-examen et avec
+une couverture complète du vivier par la rotation.
+
+### Note de contenu
+
+La liste officielle CSP comporte **deux fois la même question** sur l'obligation scolaire
+(ids 3186 et 3189, qui ne diffèrent que par un trait d'union). Les deux entrées portent
+volontairement le **même jeu de réponses** : c'est ce que détecte et impose
+`check_questions_consistency.py`.
 
 ---
 

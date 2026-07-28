@@ -11,19 +11,19 @@ Le ministère de l'Intérieur publie une liste de questions de connaissance diff
 niveau d'examen. L'application couvre les trois : le QCM préparé se choisit sur l'écran d'accueil,
 et l'examen blanc, l'entraînement et les succès s'y adaptent.
 
-| Examen | Questions de connaissances (liste officielle) |
-|---|---|
-| Naturalisation | 258 |
-| Carte de résident (CR) | 209 |
-| Carte de séjour pluriannuelle (CSP) | 191 |
+| Examen | Questions de connaissances | Questions tirables (avec les mises en situation) |
+|---|---|---|
+| Naturalisation | 258 | 338 |
+| Carte de résident (CR) | 209 | 289 |
+| Carte de séjour pluriannuelle (CSP) | 191 | 271 |
 
 Les **80 questions de mise en situation** et les **fiches thématiques officielles** sont communes
 aux trois examens, tout comme la mécanique d'examen (40 questions, 45 minutes, seuil 32/40) : seule
 la liste de questions de connaissances change.
 
-> **En cours :** les listes CR et CSP sont en cours de rédaction. Le ministère ne publie que les
-> énoncés — les propositions, explications, sources et variantes sont écrites pour l'application.
-> Avancement détaillé : [`docs/MULTI_QCM_PLAN.md`](docs/MULTI_QCM_PLAN.md).
+**738 questions** au total. Le ministère ne publie que les énoncés : les propositions, les bonnes
+réponses, les explications, les sources et les variantes sont rédigées pour l'application. Détails
+et conventions : [`docs/MULTI_QCM_PLAN.md`](docs/MULTI_QCM_PLAN.md).
 
 ---
 

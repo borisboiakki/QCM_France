@@ -86,8 +86,11 @@ class QuestionRepository @Inject constructor(
          * autre QCM et dont le jeu de réponses est repris à l'identique.
          * v11 = lot 7 : « Principes et valeurs de la République » de la carte de séjour
          * pluriannuelle (thème complet : 37/37).
+         * v12 = lot 8 : « Droits et devoirs » et « Vivre dans la société française » de la carte de
+         * séjour pluriannuelle. **Les trois listes officielles sont complètes** : 258 NAT + 209 CR
+         * + 191 CSP + 80 mises en situation = 738 questions.
          */
-        const val CONTENT_VERSION = 11
+        const val CONTENT_VERSION = 12
         private const val CONTENT_PREFS = "question_content"
         private const val KEY_CONTENT_VERSION = "content_version"
     }

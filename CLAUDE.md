@@ -10,20 +10,23 @@ résident (CR) et carte de séjour pluriannuelle (CSP).
 L'utilisateur choisit sur l'écran d'accueil l'examen qu'il prépare ; l'examen blanc, l'entraînement
 et les succès s'y adaptent. Le choix est persisté (DataStore, clé `exam_mode`).
 
-| Code | Examen | Fichier de connaissances | Plage d'ids | Questions (liste officielle) |
-|---|---|---|---|---|
-| `NAT` | Naturalisation | `res/raw/questions.json` | 1 – 999 | 258 |
-| `CR` | Carte de résident | `res/raw/questions_cr.json` | 2001 – 2999 | 209 |
-| `CSP` | Carte de séjour pluriannuelle | `res/raw/questions_csp.json` | 3001 – 3999 | 191 |
-| `ALL` | *(communes)* | `res/raw/situational_questions.json` | 1000 – 1999 | 80 mises en situation |
+| Code | Examen | Fichier de connaissances | Plage d'ids | Connaissances | Tirables (avec mises en situation) |
+|---|---|---|---|---|---|
+| `NAT` | Naturalisation | `res/raw/questions.json` | 1 – 999 | 258 | 338 |
+| `CR` | Carte de résident | `res/raw/questions_cr.json` | 2001 – 2999 | 209 | 289 |
+| `CSP` | Carte de séjour pluriannuelle | `res/raw/questions_csp.json` | 3001 – 3999 | 191 | 271 |
+| `ALL` | *(communes aux trois)* | `res/raw/situational_questions.json` | 1000 – 1999 | 80 mises en situation | — |
+
+**738 questions au total** dans la base.
 
 Les **mises en situation** (`isSituation = true`, `examMode = "ALL"`) et les **fiches thématiques
 officielles** sont communes aux trois examens. Toute la mécanique d'examen est elle aussi
 identique — seule la liste de questions de connaissances change.
 
-> **État de la rédaction :** les listes CR et CSP sont en cours de rédaction (le ministère ne publie
-> que les énoncés ; propositions, explications et sources sont écrites pour l'application).
-> Avancement et conventions : **`docs/MULTI_QCM_PLAN.md`**.
+> Le ministère ne publie que les **énoncés** : propositions, bonnes réponses, explications, sources
+> et variantes sont rédigées pour l'application. Conventions de rédaction et historique des lots :
+> **`docs/MULTI_QCM_PLAN.md`**. Contrôle avant tout commit de contenu :
+> `python3 scripts/check_questions_consistency.py`.
 
 ---
 
@@ -390,7 +393,7 @@ Cycle de tirage de l'**examen** (pas l'entraînement). Voir « Cycle de tirage d
 
 Résultat : toutes les questions d'un QCM/thème/type sont utilisées une fois avant qu'une répétition ne survienne d'un examen à l'autre, et passer un examen CR ne consomme pas la rotation de la naturalisation. Indépendant du flux pause/reprise (`PausedQuiz`) : le cycle n'avance qu'au lancement d'un nouvel examen (`QuizViewModel.startQuiz(mode)` → `drawStratifiedQuestions(mode)`), jamais pendant une reprise.
 
-> **Liste incomplète.** Si un thème compte moins de questions que le tirage n'en demande (listes CR/CSP en cours de rédaction), `drawIdsFromCycle` en fournit autant qu'il peut **sans jamais tirer deux fois la même** : l'examen est alors plus court que 40 questions. `scripts/check_questions_consistency.py` signale ce cas.
+> **Garde-fou.** Si un thème comptait moins de questions que le tirage n'en demande (ajout d'un futur QCM, thème amputé), `drawIdsFromCycle` en fournirait autant qu'il peut **sans jamais tirer deux fois la même** : l'examen serait plus court que 40 questions plutôt que faussé par un doublon dédoublonné en base. `scripts/check_questions_consistency.py` signale ce cas. Les trois listes actuelles sont complètes, le cas ne se produit pas.
 
 ---
 

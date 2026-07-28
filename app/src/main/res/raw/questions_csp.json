@@ -1067,6 +1067,94 @@
     "source": "https://fr.wikipedia.org/wiki/Journ%C3%A9e_de_l%27Europe"
   },
   {
+    "id": 3084,
+    "theme": "Droits et devoirs",
+    "text": "Comment s’appelle la Constitution actuelle de la France ?",
+    "optionA": "La Constitution de la IVe République",
+    "optionB": "La Constitution de la Ve République, du 4 octobre 1958",
+    "optionC": "La Charte constitutionnelle de 1814",
+    "optionD": "Le Code civil",
+    "correctAnswer": "B",
+    "explanation": "La France est régie par la Constitution de la Ve République, adoptée par référendum le 28 septembre 1958 et promulguée le 4 octobre 1958. C'est la norme juridique la plus élevée : toutes les autres règles doivent la respecter.",
+    "source": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000571356/"
+  },
+  {
+    "id": 3085,
+    "theme": "Droits et devoirs",
+    "text": "Comment s'appelle le texte qui énonce les droits et devoirs des personnes résidant en France ?",
+    "optionA": "La Charte des droits et devoirs du citoyen français",
+    "optionB": "Le règlement intérieur des préfectures",
+    "optionC": "Le Code de la route",
+    "optionD": "Le traité de Maastricht",
+    "correctAnswer": "A",
+    "explanation": "La Charte des droits et devoirs du citoyen français rappelle les principes, les valeurs et les symboles essentiels de la République. Elle est remise et signée lors de la cérémonie d'accueil dans la citoyenneté française.",
+    "source": "https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/charte-des-droits-et-devoirs-du-citoyen-francais.html"
+  },
+  {
+    "id": 3086,
+    "theme": "Droits et devoirs",
+    "text": "Concernant les droits individuels, quelle proposition est correcte ?",
+    "optionA": "Ils appartiennent uniquement aux citoyens français",
+    "optionB": "Ils peuvent être supprimés par un employeur",
+    "optionC": "Ils appartiennent à toute personne et s'exercent dans le respect de la loi et des droits d'autrui",
+    "optionD": "Ils ne s'appliquent pas dans la sphère familiale",
+    "correctAnswer": "C",
+    "explanation": "Les droits et libertés fondamentaux — sûreté, liberté de conscience, liberté d'expression, dignité — appartiennent à toute personne, quelle que soit sa nationalité. Ils s'exercent dans le respect de la loi et des droits d'autrui, y compris au sein de la famille.",
+    "source": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789"
+  },
+  {
+    "id": 3087,
+    "theme": "Droits et devoirs",
+    "text": "De quelle année date la Déclaration des droits de l’homme et du citoyen ?",
+    "optionA": "1789",
+    "optionB": "1848",
+    "optionC": "1905",
+    "optionD": "1958",
+    "correctAnswer": "A",
+    "explanation": "La Déclaration des droits de l'homme et du citoyen a été adoptée le 26 août 1789, pendant la Révolution française. Elle proclame la liberté, l'égalité et la souveraineté de la Nation, et a aujourd'hui valeur constitutionnelle.",
+    "source": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789"
+  },
+  {
+    "id": 3088,
+    "theme": "Droits et devoirs",
+    "text": "Lequel de ces droits est un droit fondamental ?",
+    "optionA": "Le droit de ne pas payer d'impôts",
+    "optionB": "La liberté d'expression",
+    "optionC": "Le droit de ne pas respecter la loi",
+    "optionD": "Le droit d'obtenir un logement gratuit",
+    "correctAnswer": "B",
+    "explanation": "Les droits fondamentaux comprennent notamment la liberté d'expression, la liberté de conscience, la sûreté, le droit à la vie privée, le droit de propriété et le droit à un procès équitable. Ils sont garantis par la Constitution et par les traités internationaux.",
+    "source": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789",
+    "variants": [
+      {
+        "optionA": "Le droit de circuler sans permis de conduire",
+        "optionB": "Le droit de ne pas être jugé",
+        "optionC": "La liberté de conscience",
+        "optionD": "Le droit de choisir ses impôts",
+        "correctAnswer": "C"
+      },
+      {
+        "optionA": "Le droit à un procès équitable",
+        "optionB": "Le droit de se faire justice soi-même",
+        "optionC": "Le droit d'ignorer les décisions de justice",
+        "optionD": "Le droit de travailler sans être déclaré",
+        "correctAnswer": "A"
+      }
+    ]
+  },
+  {
+    "id": 3089,
+    "theme": "Droits et devoirs",
+    "text": "Parmi ces textes, lequel garantit les droits et libertés en France ?",
+    "optionA": "Le règlement intérieur des entreprises",
+    "optionB": "La Déclaration des droits de l'homme et du citoyen de 1789",
+    "optionC": "Le Code de la route",
+    "optionD": "Les statuts des associations",
+    "correctAnswer": "B",
+    "explanation": "La Déclaration de 1789, le préambule de la Constitution de 1946 et la Charte de l'environnement de 2004 forment le « bloc de constitutionnalité » qui garantit les droits et libertés en France. Le Conseil constitutionnel veille à leur respect par la loi.",
+    "source": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite"
+  },
+  {
     "id": 3090,
     "theme": "Droits et devoirs",
     "text": "Qu’est-ce que la liberté d’expression ?",
@@ -1077,6 +1165,66 @@
     "correctAnswer": "A",
     "explanation": "La liberté d'expression, garantie par l'article 11 de la DDHC de 1789, est le droit de communiquer ses pensées et opinions par tout moyen. Ce droit est précieux dans une démocratie, mais il n'est pas absolu : la loi interdit notamment la diffamation, les injures, les appels à la haine raciale ou religieuse, et la provocation à la violence.",
     "source": "https://fr.wikipedia.org/wiki/Libert%C3%A9_d%27expression"
+  },
+  {
+    "id": 3091,
+    "theme": "Droits et devoirs",
+    "text": "Quel droit permet à une personne de se défendre devant la justice ?",
+    "optionA": "Les droits de la défense, dont le droit d'être assisté par un avocat",
+    "optionB": "Le droit de grève",
+    "optionC": "Le droit de propriété",
+    "optionD": "Le droit de vote",
+    "correctAnswer": "A",
+    "explanation": "Toute personne mise en cause a le droit de se défendre : être informée des faits reprochés, disposer du temps nécessaire, être assistée par un avocat — commis d'office et gratuit si ses revenus sont modestes — et exercer un recours contre la décision.",
+    "source": "https://www.justice.gouv.fr/"
+  },
+  {
+    "id": 3092,
+    "theme": "Droits et devoirs",
+    "text": "Quel est le texte fondateur établissant en France les droits et les devoirs de chaque citoyen ?",
+    "optionA": "Le Code du travail",
+    "optionB": "La Déclaration des droits de l'homme et du citoyen de 1789",
+    "optionC": "Le traité de Rome",
+    "optionD": "La loi de 1905",
+    "correctAnswer": "B",
+    "explanation": "La Déclaration des droits de l'homme et du citoyen du 26 août 1789 est le texte fondateur des droits et devoirs en France. Elle proclame notamment la liberté, l'égalité devant la loi, la présomption d'innocence et la nécessaire contribution de chacun aux dépenses publiques.",
+    "source": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789"
+  },
+  {
+    "id": 3093,
+    "theme": "Droits et devoirs",
+    "text": "Quel texte a été adopté pendant la Révolution française ?",
+    "optionA": "La Déclaration des droits de l'homme et du citoyen",
+    "optionB": "La Charte de l'environnement",
+    "optionC": "La loi de séparation des Églises et de l'État",
+    "optionD": "Le traité de Maastricht",
+    "correctAnswer": "A",
+    "explanation": "La Déclaration des droits de l'homme et du citoyen a été adoptée le 26 août 1789, au début de la Révolution française. La loi de séparation des Églises et de l'État date de 1905, la Charte de l'environnement de 2004 et le traité de Maastricht de 1992.",
+    "source": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789"
+  },
+  {
+    "id": 3094,
+    "theme": "Droits et devoirs",
+    "text": "Quelle liberté permet à une personne de ne pas avoir de religion ?",
+    "optionA": "La liberté de conscience",
+    "optionB": "La liberté de circulation",
+    "optionC": "La liberté syndicale",
+    "optionD": "La liberté du commerce",
+    "correctAnswer": "A",
+    "explanation": "La liberté de conscience permet à chacun de croire, de ne pas croire ou de changer de conviction. Garantie par la Déclaration de 1789 et par la loi de 1905, elle interdit que quiconque soit contraint d'adhérer à une religion ou d'en déclarer une.",
+    "source": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000508749/"
+  },
+  {
+    "id": 3095,
+    "theme": "Droits et devoirs",
+    "text": "Une femme peut avorter :",
+    "optionA": "Uniquement avec l'accord de son conjoint",
+    "optionB": "Librement, jusqu'à la fin de la 14e semaine de grossesse",
+    "optionC": "Uniquement pour raison médicale",
+    "optionD": "Jamais : l'avortement est interdit en France",
+    "correctAnswer": "B",
+    "explanation": "L'interruption volontaire de grossesse est légale depuis la loi Veil de 1975 et possible jusqu'à la fin de la 14e semaine de grossesse. Elle est prise en charge à 100 % par l'Assurance maladie et ne requiert l'accord de personne. Depuis 2024, cette liberté est garantie par la Constitution.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1551"
   },
   {
     "id": 3096,
@@ -1103,6 +1251,114 @@
     "source": "https://fr.wikipedia.org/wiki/Peine_de_mort_en_France"
   },
   {
+    "id": 3098,
+    "theme": "Droits et devoirs",
+    "text": "Concernant les limites aux libertés individuelles, quelle proposition est correcte ?",
+    "optionA": "Il n'existe aucune limite aux libertés individuelles",
+    "optionB": "Chacun fixe lui-même les limites de sa liberté",
+    "optionC": "Les libertés s'arrêtent là où commencent celles d'autrui, et la loi peut les encadrer",
+    "optionD": "Les limites sont décidées par les employeurs",
+    "correctAnswer": "C",
+    "explanation": "La liberté consiste à faire tout ce qui ne nuit pas à autrui. La loi peut l'encadrer pour protéger l'ordre public, la santé, la sécurité ou les droits des autres, à condition que ces limites soient justifiées et proportionnées, sous le contrôle du juge.",
+    "source": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789"
+  },
+  {
+    "id": 3099,
+    "theme": "Droits et devoirs",
+    "text": "En France, est-ce légal d'être marié à plusieurs personnes en même temps ?",
+    "optionA": "Oui, jusqu'à deux conjoints",
+    "optionB": "Oui, si le premier conjoint donne son accord",
+    "optionC": "Non : la polygamie est interdite et constitue un délit",
+    "optionD": "Oui, si le mariage a été célébré à l'étranger",
+    "correctAnswer": "C",
+    "explanation": "La monogamie est la règle en France : on ne peut être marié qu'à une seule personne à la fois. La bigamie est un délit puni d'un an d'emprisonnement et 45 000 euros d'amende. Un mariage polygame célébré à l'étranger n'a pas d'effet en France.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F930"
+  },
+  {
+    "id": 3100,
+    "theme": "Droits et devoirs",
+    "text": "Faut-il réduire ses déchets ?",
+    "optionA": "Non, cela n'a aucun effet",
+    "optionB": "Oui : c'est un geste utile pour préserver l'environnement et les ressources",
+    "optionC": "Uniquement dans les grandes villes",
+    "optionD": "Uniquement pour les entreprises",
+    "correctAnswer": "B",
+    "explanation": "Réduire ses déchets préserve les ressources naturelles et limite la pollution. Cela passe par l'achat de produits peu emballés, la réparation et le réemploi, le compostage des déchets alimentaires et le refus du gaspillage. La Charte de l'environnement fait de la préservation un devoir de chacun.",
+    "source": "https://www.ecologie.gouv.fr/"
+  },
+  {
+    "id": 3101,
+    "theme": "Droits et devoirs",
+    "text": "Jeter une bouteille dans la rue est :",
+    "optionA": "Autorisé si la bouteille est en plastique",
+    "optionB": "Interdit et passible d'une amende",
+    "optionC": "Autorisé la nuit",
+    "optionD": "Sans conséquence pour l'environnement",
+    "correctAnswer": "B",
+    "explanation": "Abandonner un déchet sur la voie publique est une infraction punie d'une amende forfaitaire de 135 euros, portée à 1 500 euros pour un dépôt effectué avec un véhicule. Les bouteilles doivent être déposées dans les conteneurs de tri prévus.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F35223"
+  },
+  {
+    "id": 3102,
+    "theme": "Droits et devoirs",
+    "text": "Pourquoi les libertés individuelles peuvent-elles être limitées ?",
+    "optionA": "Pour protéger l'ordre public, la sécurité, la santé et les droits d'autrui",
+    "optionB": "Pour favoriser certains citoyens",
+    "optionC": "Parce que les libertés n'ont aucune valeur juridique",
+    "optionD": "Pour permettre aux employeurs de fixer leurs propres règles",
+    "correctAnswer": "A",
+    "explanation": "La loi peut limiter les libertés lorsqu'un motif d'intérêt général le justifie : ordre public, sécurité, santé publique ou protection des droits d'autrui. Ces limitations doivent être prévues par la loi et proportionnées, et peuvent être contestées devant le juge.",
+    "source": "https://fr.wikipedia.org/wiki/Libert%C3%A9s_fondamentales_en_France"
+  },
+  {
+    "id": 3103,
+    "theme": "Droits et devoirs",
+    "text": "Que doit faire une personne en cas d’accident ?",
+    "optionA": "Poursuivre son chemin sans s'arrêter",
+    "optionB": "Alerter les secours et porter assistance sans se mettre en danger",
+    "optionC": "Filmer la scène pour la publier",
+    "optionD": "Déplacer les blessés dans tous les cas",
+    "correctAnswer": "B",
+    "explanation": "Face à un accident, il faut protéger les lieux, alerter les secours (15 pour le SAMU, 18 pour les pompiers, 112 en Europe) et secourir sans aggraver l'état des victimes ni se mettre en danger. La non-assistance à personne en péril est un délit puni de 5 ans de prison.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F32473"
+  },
+  {
+    "id": 3104,
+    "theme": "Droits et devoirs",
+    "text": "Que permet la citoyenneté française ?",
+    "optionA": "De ne plus payer d'impôts",
+    "optionB": "De voter, d'être candidat aux élections et d'accéder aux emplois publics",
+    "optionC": "D'échapper aux décisions de justice",
+    "optionD": "De choisir les lois que l'on souhaite respecter",
+    "correctAnswer": "B",
+    "explanation": "La citoyenneté française ouvre des droits politiques : voter à toutes les élections, se porter candidat et accéder à la plupart des emplois publics. Elle s'accompagne de devoirs : respecter la loi, contribuer aux charges publiques et faire preuve de solidarité.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/N111"
+  },
+  {
+    "id": 3105,
+    "theme": "Droits et devoirs",
+    "text": "Que risque une personne qui ne respecte pas la loi ?",
+    "optionA": "Rien, si elle ne se fait pas prendre",
+    "optionB": "Une sanction prononcée par un juge : amende, travail d'intérêt général ou prison selon la gravité",
+    "optionC": "Une sanction décidée par son employeur uniquement",
+    "optionD": "Une simple recommandation sans effet",
+    "correctAnswer": "B",
+    "explanation": "Une infraction expose son auteur à une sanction pénale, prononcée par une juridiction après un procès : amende pour une contravention, amende ou emprisonnement pour un délit, réclusion pour un crime. Des peines alternatives, comme le travail d'intérêt général, existent aussi.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1157"
+  },
+  {
+    "id": 3106,
+    "theme": "Droits et devoirs",
+    "text": "Quel est le rôle de la gendarmerie ?",
+    "optionA": "Juger les personnes arrêtées",
+    "optionB": "Assurer la sécurité des personnes et des biens et constater les infractions, principalement en zone rurale et périurbaine",
+    "optionC": "Voter les lois relatives à la sécurité",
+    "optionD": "Délivrer les titres de séjour",
+    "correctAnswer": "B",
+    "explanation": "La gendarmerie nationale assure la sécurité publique, principalement dans les zones rurales et périurbaines, tandis que la police nationale intervient surtout dans les grandes agglomérations. Comme la police, elle constate les infractions mais ne juge pas.",
+    "source": "https://www.gendarmerie.interieur.gouv.fr/"
+  },
+  {
     "id": 3107,
     "theme": "Droits et devoirs",
     "text": "Quel est le rôle de la police ?",
@@ -1113,6 +1369,54 @@
     "correctAnswer": "B",
     "explanation": "La police et la gendarmerie assurent la sécurité des personnes et des biens, préviennent les troubles à l'ordre public, constatent les infractions et recherchent leurs auteurs. Elles ne jugent pas : ce rôle appartient aux juridictions, indépendantes.",
     "source": "https://www.police-nationale.interieur.gouv.fr/"
+  },
+  {
+    "id": 3108,
+    "theme": "Droits et devoirs",
+    "text": "Qu'est-ce qu'une infraction ?",
+    "optionA": "Un comportement interdit par la loi et puni d'une sanction pénale",
+    "optionB": "Un désaccord entre voisins",
+    "optionC": "Une opinion contraire à celle du Gouvernement",
+    "optionD": "Une erreur administrative",
+    "correctAnswer": "A",
+    "explanation": "Une infraction est un comportement interdit par la loi pénale et sanctionné par elle. Le droit français distingue trois catégories selon la gravité : les contraventions, les délits et les crimes, jugés respectivement par le tribunal de police, le tribunal correctionnel et la cour d'assises.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1157"
+  },
+  {
+    "id": 3109,
+    "theme": "Droits et devoirs",
+    "text": "Comment peut-on réduire ses déchets ?",
+    "optionA": "En brûlant ses ordures dans son jardin",
+    "optionB": "En achetant en vrac, en réparant, en réutilisant et en compostant",
+    "optionC": "En jetant tout dans la même poubelle",
+    "optionD": "En déposant ses encombrants dans la nature",
+    "correctAnswer": "B",
+    "explanation": "Réduire ses déchets passe par l'achat en vrac ou peu emballé, la réparation et le don d'objets, le réemploi et le compostage des biodéchets, obligatoire depuis 2024. Brûler ses déchets à l'air libre est interdit et fortement polluant.",
+    "source": "https://www.ecologie.gouv.fr/"
+  },
+  {
+    "id": 3110,
+    "theme": "Droits et devoirs",
+    "text": "Déposer une machine à laver cassée sur le trottoir est :",
+    "optionA": "Autorisé si elle est en panne",
+    "optionB": "Autorisé la veille du jour de collecte des ordures",
+    "optionC": "Interdit : c'est un dépôt sauvage passible d'une amende",
+    "optionD": "Autorisé si un voisin peut la récupérer",
+    "correctAnswer": "C",
+    "explanation": "Abandonner un encombrant sur la voie publique est un dépôt sauvage, puni d'une amende pouvant atteindre 1 500 euros. Les appareils électroménagers se déposent en déchetterie, sont enlevés lors des collectes d'encombrants organisées par la commune, ou sont repris par le vendeur.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F35223"
+  },
+  {
+    "id": 3111,
+    "theme": "Droits et devoirs",
+    "text": "En quoi consiste la traite des êtres humains ?",
+    "optionA": "À exploiter des personnes par la contrainte, notamment par le travail forcé ou la prostitution",
+    "optionB": "À employer des salariés étrangers",
+    "optionC": "À organiser des déménagements internationaux",
+    "optionD": "À recruter des salariés par une agence d'intérim",
+    "correctAnswer": "A",
+    "explanation": "La traite des êtres humains consiste à recruter, transporter ou héberger une personne pour l'exploiter, par la menace, la contrainte ou l'abus de vulnérabilité : travail forcé, esclavage domestique, prostitution, mendicité. C'est un crime sévèrement puni ; les victimes sont protégées.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F35226"
   },
   {
     "id": 3112,
@@ -1887,6 +2191,78 @@
     "source": "https://fr.wikipedia.org/wiki/Service_d%27aide_m%C3%A9dicale_urgente"
   },
   {
+    "id": 3162,
+    "theme": "Vivre dans la société française",
+    "text": "Quel numéro d'urgence permet d'appeler les pompiers ?",
+    "optionA": "Le 15",
+    "optionB": "Le 17",
+    "optionC": "Le 18",
+    "optionD": "Le 39 19",
+    "correctAnswer": "C",
+    "explanation": "Le 18 est le numéro des sapeurs-pompiers (incendie, accident, secours d'urgence). Le 15 correspond au SAMU pour les urgences médicales, le 17 à la police et à la gendarmerie, et le 112 est le numéro d'urgence européen.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F34181"
+  },
+  {
+    "id": 3163,
+    "theme": "Vivre dans la société française",
+    "text": "Après avoir obtenu le permis de conduire, que faut-il faire pour pouvoir conduire sa voiture ?",
+    "optionA": "Rien de particulier",
+    "optionB": "Assurer le véhicule et disposer d'une carte grise à jour",
+    "optionC": "Repasser le code de la route chaque année",
+    "optionD": "Demander une autorisation à la mairie",
+    "correctAnswer": "B",
+    "explanation": "Pour circuler, un véhicule doit être assuré au minimum au tiers — l'assurance est obligatoire — et immatriculé, avec un certificat d'immatriculation (carte grise) au nom du propriétaire. Le contrôle technique est également obligatoire à partir de 4 ans.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F2717"
+  },
+  {
+    "id": 3164,
+    "theme": "Vivre dans la société française",
+    "text": "À quelles conditions un mariage est-il reconnu juridiquement ?",
+    "optionA": "S'il est célébré à la mairie par un officier d'état civil, avec le consentement libre des deux époux majeurs",
+    "optionB": "S'il est célébré dans un lieu de culte",
+    "optionC": "S'il est conclu entre les deux familles",
+    "optionD": "S'il est simplement déclaré par écrit entre les époux",
+    "correctAnswer": "A",
+    "explanation": "Seul le mariage civil, célébré publiquement en mairie par le maire ou un adjoint, produit des effets juridiques. Il suppose le consentement libre et éclairé de deux personnes majeures et non déjà mariées. Une cérémonie religieuse ne peut avoir lieu qu'après le mariage civil.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F930"
+  },
+  {
+    "id": 3165,
+    "theme": "Vivre dans la société française",
+    "text": "Quand faut-il déclarer son enfant au service d'état civil de la mairie ?",
+    "optionA": "Dans les 5 jours ouvrables suivant la naissance",
+    "optionB": "Dans l'année qui suit la naissance",
+    "optionC": "Au moment de l'inscription à l'école",
+    "optionD": "Il n'y a aucune obligation de déclaration",
+    "correctAnswer": "A",
+    "explanation": "La naissance doit être déclarée à l'officier d'état civil de la commune du lieu de naissance dans les 5 jours ouvrables. Cette déclaration, souvent effectuée par la maternité, permet d'établir l'acte de naissance de l'enfant.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F961"
+  },
+  {
+    "id": 3166,
+    "theme": "Vivre dans la société française",
+    "text": "Le travail non déclaré est :",
+    "optionA": "Autorisé pour les petits travaux",
+    "optionB": "Illégal, et sanctionné pour l'employeur comme pour le salarié",
+    "optionC": "Autorisé si les deux parties sont d'accord",
+    "optionD": "Autorisé pendant les trois premiers mois",
+    "correctAnswer": "B",
+    "explanation": "Le travail dissimulé est un délit puni de 3 ans d'emprisonnement et 45 000 euros d'amende pour l'employeur. Le salarié non déclaré est privé de protection sociale, de droits à la retraite et d'assurance chômage : il n'a aucune preuve de son activité.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1642"
+  },
+  {
+    "id": 3167,
+    "theme": "Vivre dans la société française",
+    "text": "Que doit faire un employeur pour fixer un salaire ?",
+    "optionA": "Il fixe librement le salaire, sans aucune contrainte",
+    "optionB": "Il doit respecter le SMIC, les minima de la convention collective et l'égalité de rémunération",
+    "optionC": "Il doit demander l'accord de la mairie",
+    "optionD": "Il doit appliquer le même salaire à tous ses salariés",
+    "correctAnswer": "B",
+    "explanation": "Le salaire est négocié dans le contrat de travail, mais il ne peut être inférieur au SMIC ni au minimum prévu par la convention collective de la branche. L'employeur doit aussi respecter l'égalité de rémunération entre les femmes et les hommes à travail de valeur égale.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F2300"
+  },
+  {
     "id": 3168,
     "theme": "Vivre dans la société française",
     "text": "Qu'est-ce que le SMIC ?",
@@ -1923,6 +2299,18 @@
     "source": "https://fr.wikipedia.org/wiki/35_heures"
   },
   {
+    "id": 3171,
+    "theme": "Vivre dans la société française",
+    "text": "Qui est aidé par France Travail ?",
+    "optionA": "Uniquement les personnes de nationalité française",
+    "optionB": "Les demandeurs d'emploi, les salariés en reconversion et les entreprises qui recrutent",
+    "optionC": "Uniquement les cadres",
+    "optionD": "Uniquement les personnes de plus de 50 ans",
+    "correctAnswer": "B",
+    "explanation": "France Travail, qui a succédé à Pôle emploi en 2024, accompagne les demandeurs d'emploi dans leur recherche et leur formation, verse les allocations chômage et aide les entreprises à recruter. L'inscription est ouverte à toute personne autorisée à travailler en France.",
+    "source": "https://www.francetravail.fr/"
+  },
+  {
     "id": 3172,
     "theme": "Vivre dans la société française",
     "text": "Une personne étrangère en situation régulière peut créer son entreprise :",
@@ -1947,6 +2335,18 @@
     "source": "https://fr.wikipedia.org/wiki/%C3%89galit%C3%A9_professionnelle_entre_les_femmes_et_les_hommes_en_France"
   },
   {
+    "id": 3174,
+    "theme": "Vivre dans la société française",
+    "text": "À partir de quel âge un mineur peut-il travailler ?",
+    "optionA": "Dès 12 ans, sans condition",
+    "optionB": "À partir de 16 ans, et dès 14 ans pour des travaux légers pendant les vacances avec autorisation",
+    "optionC": "À partir de 18 ans uniquement",
+    "optionD": "Il n'existe aucune règle d'âge",
+    "correctAnswer": "B",
+    "explanation": "L'âge minimum pour travailler est de 16 ans, l'instruction étant obligatoire jusqu'à cet âge. Des travaux légers sont possibles dès 14 ans pendant les vacances scolaires, avec l'autorisation de l'inspection du travail et l'accord des représentants légaux. L'apprentissage est possible dès 15 ans.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1649"
+  },
+  {
     "id": 3175,
     "theme": "Vivre dans la société française",
     "text": "Auprès de quel organisme faut-il demander le remboursement des frais de santé ?",
@@ -1959,6 +2359,18 @@
     "source": "https://fr.wikipedia.org/wiki/Caisse_primaire_d%27assurance_maladie"
   },
   {
+    "id": 3176,
+    "theme": "Vivre dans la société française",
+    "text": "Qu’est-ce qu’un numéro d’urgence ?",
+    "optionA": "Un numéro payant réservé aux professionnels",
+    "optionB": "Un numéro gratuit joignable à tout moment pour alerter les secours",
+    "optionC": "Un numéro à utiliser pour prendre un rendez-vous médical",
+    "optionD": "Un numéro réservé aux assurés sociaux",
+    "correctAnswer": "B",
+    "explanation": "Les numéros d'urgence sont gratuits et joignables 24 heures sur 24 depuis un téléphone fixe ou mobile, même sans crédit : 15 (SAMU), 17 (police et gendarmerie), 18 (pompiers), 112 (urgences européennes) et 114 (par SMS, pour les personnes sourdes ou malentendantes).",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F34181"
+  },
+  {
     "id": 3177,
     "theme": "Vivre dans la société française",
     "text": "Concernant l'accès aux soins, quelle proposition est correcte ?",
@@ -1969,6 +2381,54 @@
     "correctAnswer": "A",
     "explanation": "Toute personne qui travaille ou réside en France de façon stable et régulière est affiliée à l'Assurance maladie et bénéficie d'une prise en charge de ses soins. Les urgences vitales, elles, sont prises en charge pour toute personne, quelle que soit sa situation.",
     "source": "https://www.ameli.fr/"
+  },
+  {
+    "id": 3178,
+    "theme": "Vivre dans la société française",
+    "text": "En cas de problème de santé non urgent, à qui faut-il s’adresser en premier ?",
+    "optionA": "Aux urgences de l'hôpital",
+    "optionB": "À son médecin traitant",
+    "optionC": "Aux pompiers",
+    "optionD": "À la pharmacie de garde",
+    "correctAnswer": "B",
+    "explanation": "Pour un problème de santé qui n'est pas urgent, il faut consulter son médecin traitant, qui assure le suivi et oriente si nécessaire vers un spécialiste. Les urgences hospitalières sont réservées aux situations graves ou soudaines.",
+    "source": "https://www.ameli.fr/"
+  },
+  {
+    "id": 3179,
+    "theme": "Vivre dans la société française",
+    "text": "Quel est le rôle du médecin traitant ?",
+    "optionA": "Assurer le suivi médical habituel et orienter vers les spécialistes",
+    "optionB": "Délivrer les titres de séjour",
+    "optionC": "Fixer le montant des remboursements",
+    "optionD": "Intervenir uniquement en cas d'urgence vitale",
+    "correctAnswer": "A",
+    "explanation": "Le médecin traitant, choisi librement et déclaré à l'Assurance maladie, assure le suivi médical, coordonne les soins et oriente vers les spécialistes. Passer par lui permet d'être remboursé au meilleur taux : c'est le parcours de soins coordonnés.",
+    "source": "https://www.ameli.fr/"
+  },
+  {
+    "id": 3180,
+    "theme": "Vivre dans la société française",
+    "text": "Dans quelles situations doit-on se rendre aux urgences de l'hôpital ?",
+    "optionA": "Pour toute consultation médicale",
+    "optionB": "Pour obtenir une ordonnance de renouvellement",
+    "optionC": "En cas d'urgence grave : malaise, forte douleur, blessure importante, difficulté à respirer",
+    "optionD": "Pour un rendez-vous de suivi programmé",
+    "correctAnswer": "C",
+    "explanation": "Les urgences hospitalières sont réservées aux situations graves ou soudaines : malaise, douleur intense, hémorragie, difficulté respiratoire, traumatisme important. Pour les autres besoins, il faut consulter son médecin traitant ou appeler le 15 pour être orienté.",
+    "source": "https://www.ameli.fr/"
+  },
+  {
+    "id": 3181,
+    "theme": "Vivre dans la société française",
+    "text": "Quel est l’objectif des vaccinations obligatoires ?",
+    "optionA": "Protéger l'enfant et l'ensemble de la population contre des maladies graves",
+    "optionB": "Permettre d'obtenir un titre de séjour",
+    "optionC": "Réduire le coût des consultations médicales",
+    "optionD": "Remplacer le suivi médical habituel",
+    "correctAnswer": "A",
+    "explanation": "Onze vaccins sont obligatoires pour les enfants nés depuis 2018 (diphtérie, tétanos, poliomyélite, coqueluche, rougeole, oreillons, rubéole…). Ils protègent l'enfant et, par l'immunité collective, les personnes qui ne peuvent pas être vaccinées. Ils sont exigés pour l'entrée en collectivité.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F724"
   },
   {
     "id": 3182,
@@ -2005,5 +2465,89 @@
     "correctAnswer": "D",
     "explanation": "En France, l'instruction est obligatoire jusqu'à 16 ans, conformément à la loi de 1959 (ordonnance Berthoin) confirmée et étendue depuis. À 16 ans, les jeunes peuvent soit continuer leur scolarité, soit entrer en apprentissage ou en formation professionnelle. L'obligation scolaire commence désormais à 3 ans (depuis 2019).",
     "source": "https://fr.wikipedia.org/wiki/Instruction_obligatoire_en_France"
+  },
+  {
+    "id": 3185,
+    "theme": "Vivre dans la société française",
+    "text": "L'autorité parentale prévoit l'obligation :",
+    "optionA": "De protéger l'enfant, d'assurer son entretien, sa santé, sa sécurité et son éducation",
+    "optionB": "De choisir la religion de l'enfant devenu majeur",
+    "optionC": "De faire travailler l'enfant dès 12 ans",
+    "optionD": "D'obtenir l'accord du maire pour chaque décision",
+    "correctAnswer": "A",
+    "explanation": "L'autorité parentale est un ensemble de droits et de devoirs exercés dans l'intérêt de l'enfant : le protéger, assurer sa santé, sa sécurité, sa moralité, son entretien et son éducation. Elle appartient aux deux parents jusqu'à la majorité de l'enfant.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F3132"
+  },
+  {
+    "id": 3186,
+    "theme": "Vivre dans la société française",
+    "text": "Pour qui l'école est-elle obligatoire ?",
+    "optionA": "Uniquement pour les enfants de nationalité française",
+    "optionB": "Pour tous les enfants résidant en France, de 3 à 16 ans, quelle que soit leur nationalité",
+    "optionC": "Uniquement pour les garçons",
+    "optionD": "Uniquement pour les enfants dont les parents travaillent",
+    "correctAnswer": "B",
+    "explanation": "L'instruction est obligatoire pour tous les enfants résidant en France, de 3 à 16 ans, quelle que soit leur nationalité ou la situation administrative de leurs parents. Une formation est ensuite obligatoire jusqu'à 18 ans.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1898"
+  },
+  {
+    "id": 3187,
+    "theme": "Vivre dans la société française",
+    "text": "Quel diplôme obtient-on à la fin du lycée ?",
+    "optionA": "Le diplôme national du brevet",
+    "optionB": "Le baccalauréat",
+    "optionC": "La licence",
+    "optionD": "Le certificat d'aptitude professionnelle uniquement",
+    "correctAnswer": "B",
+    "explanation": "Le baccalauréat sanctionne la fin des études au lycée et ouvre l'accès à l'enseignement supérieur. Il existe trois voies : générale, technologique et professionnelle. Le diplôme national du brevet, lui, est passé à la fin du collège.",
+    "source": "https://www.education.gouv.fr/"
+  },
+  {
+    "id": 3188,
+    "theme": "Vivre dans la société française",
+    "text": "Dans quels établissements scolaires vont les élèves après l'école élémentaire ?",
+    "optionA": "À l'école maternelle",
+    "optionB": "Au collège",
+    "optionC": "Directement à l'université",
+    "optionD": "Au lycée",
+    "correctAnswer": "B",
+    "explanation": "Après l'école élémentaire, les élèves entrent au collège, de la sixième à la troisième, où ils passent le diplôme national du brevet. Ils poursuivent ensuite au lycée général, technologique ou professionnel.",
+    "source": "https://www.education.gouv.fr/"
+  },
+  {
+    "id": 3189,
+    "theme": "Vivre dans la société française",
+    "text": "Pour qui l'école est elle obligatoire ?",
+    "optionA": "Uniquement pour les enfants de nationalité française",
+    "optionB": "Pour tous les enfants résidant en France, de 3 à 16 ans, quelle que soit leur nationalité",
+    "optionC": "Uniquement pour les garçons",
+    "optionD": "Uniquement pour les enfants dont les parents travaillent",
+    "correctAnswer": "B",
+    "explanation": "L'instruction est obligatoire pour tous les enfants résidant en France, de 3 à 16 ans, quelle que soit leur nationalité ou la situation administrative de leurs parents. Une formation est ensuite obligatoire jusqu'à 18 ans.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1898"
+  },
+  {
+    "id": 3190,
+    "theme": "Vivre dans la société française",
+    "text": "Un enfant inscrit à l'école :",
+    "optionA": "Peut s'absenter quand il le souhaite",
+    "optionB": "Doit y assister régulièrement : l'assiduité est obligatoire",
+    "optionC": "N'est pas tenu de suivre tous les enseignements",
+    "optionD": "Peut choisir ses matières librement",
+    "correctAnswer": "B",
+    "explanation": "L'assiduité scolaire est obligatoire : l'enfant doit assister à tous les cours inscrits à son emploi du temps. Les absences doivent être justifiées auprès de l'établissement. Des absences répétées et injustifiées peuvent entraîner un signalement et des sanctions pour les parents.",
+    "source": "https://www.service-public.fr/particuliers/vosdroits/F1898"
+  },
+  {
+    "id": 3191,
+    "theme": "Vivre dans la société française",
+    "text": "Les enfants qui ne parlent pas français :",
+    "optionA": "Ne peuvent pas être scolarisés",
+    "optionB": "Sont scolarisés et bénéficient d'un accompagnement pour apprendre le français",
+    "optionC": "Doivent attendre de parler français pour aller à l'école",
+    "optionD": "Sont scolarisés dans des écoles séparées",
+    "correctAnswer": "B",
+    "explanation": "Tout enfant allophone nouvellement arrivé est scolarisé dans une classe ordinaire correspondant à son âge, avec un accompagnement adapté en français (dispositifs UPE2A). L'obligation d'instruction s'applique quelle que soit la langue parlée par l'enfant.",
+    "source": "https://www.education.gouv.fr/"
   }
 ]
