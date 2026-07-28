@@ -1,7 +1,7 @@
 # QCM France — Liste des questions et réponses
 
 > Généré automatiquement le 2026-07-28 à partir des fichiers de `app/src/main/res/raw/`  
-> **442 questions** au total, réparties entre les trois examens civiques.
+> **473 questions** au total, réparties entre les trois examens civiques.
 
 > **Note :** dans l'application, l'ordre des propositions (A, B, C, D) est mélangé aléatoirement à chaque examen. L'ordre affiché dans ce tableau correspond à l'ordre original du fichier de données et peut donc différer de celui présenté lors du test.
 
@@ -15,11 +15,11 @@
   - [Droits et devoirs](#naturalisation-droits-et-devoirs) (37)
   - [Histoire, géographie et culture](#naturalisation-histoire-géographie-et-culture) (83)
   - [Vivre dans la société française](#naturalisation-vivre-dans-la-société-française) (44)
-- [Carte de résident (CR)](#carte-de-resident-cr) (60 questions)
+- [Carte de résident (CR)](#carte-de-resident-cr) (91 questions)
   - [Principes et valeurs de la République](#carte-de-resident-cr-principes-et-valeurs-de-la-république) (10)
   - [Système institutionnel et politique](#carte-de-resident-cr-système-institutionnel-et-politique) (15)
   - [Droits et devoirs](#carte-de-resident-cr-droits-et-devoirs) (5)
-  - [Histoire, géographie et culture](#carte-de-resident-cr-histoire-géographie-et-culture) (18)
+  - [Histoire, géographie et culture](#carte-de-resident-cr-histoire-géographie-et-culture) (49)
   - [Vivre dans la société française](#carte-de-resident-cr-vivre-dans-la-société-française) (12)
 - [Carte de séjour pluriannuelle (CSP)](#carte-de-sejour-pluriannuelle-csp) (44 questions)
   - [Principes et valeurs de la République](#carte-de-sejour-pluriannuelle-csp-principes-et-valeurs-de-la-république) (5)
@@ -340,7 +340,7 @@ Liste officielle des questions de connaissance de l'examen civique de naturalisa
 
 Liste officielle des questions de connaissance de l'examen civique de niveau carte de résident.
 
-*60 questions — `app/src/main/res/raw/questions_cr.json`*
+*91 questions — `app/src/main/res/raw/questions_cr.json`*
 
 ### Principes et valeurs de la République
 
@@ -395,28 +395,59 @@ Liste officielle des questions de connaissance de l'examen civique de niveau car
 
 ### Histoire, géographie et culture
 
-*18 questions dans la base*
+*49 questions dans la base*
 
 | # | Type | Question | A | B | C | D | Bonne réponse | Source |
 |---|---|---|---|---|---|---|---|---|
+| 2129 | Connaissances | Quel était le surnom de Louis XIV ? | Le Roi de Fer | Le Roi-Soleil | Le Bien-Aimé | Le Roi Bourgeois | **B** — Le Roi-Soleil | [source](https://fr.wikipedia.org/wiki/Louis_XIV) |
+| 2130 | Connaissances | Quel roi de France a été exécuté pendant la Révolution française ? | Louis XVI | Louis XIV | Henri IV | Louis-Philippe Ier | **A** — Louis XVI | [source](https://fr.wikipedia.org/wiki/Louis_XVI) |
 | 2131 | Connaissances | En quelle année Napoléon Ier est-il devenu empereur ? | 1804 | 1830 | 1799 | 1815 | **A** — 1804 | [source](https://fr.wikipedia.org/wiki/Napol%C3%A9on_Ier) |
 | 2132 | Connaissances | Lequel de ces personnages a un lien avec la République française ? | Napoléon III | Charlemagne | Louis XIV | Jules Ferry | **D** — Jules Ferry *(variantes : Léon Gambetta, Victor Schoelcher)* | [source](https://fr.wikipedia.org/wiki/Jules_Ferry) |
 | 2133 | Connaissances | De quand date l'appel à la résistance du général de Gaulle ? | 11 novembre 1918 | 8 mai 1945 | 14 juillet 1789 | 18 juin 1940 | **D** — 18 juin 1940 | [source](https://fr.wikipedia.org/wiki/Appel_du_18_Juin) |
+| 2134 | Connaissances | Pourquoi la Shoah est-elle étudiée à l'école ? | Parce qu'il s'agit d'une tradition religieuse enseignée à l'école publique | Pour désigner les élèves responsables de ces événements | Pour transmettre la mémoire du génocide des Juifs et éduquer contre le racisme et l'antisémitisme | Parce que la loi interdit d'en parler ailleurs qu'à l'école | **C** — Pour transmettre la mémoire du génocide des Juifs et éduquer contre le racisme et l'antisémitisme | [source](https://fr.wikipedia.org/wiki/Shoah) |
+| 2135 | Connaissances | Quel pays a été colonisé par la France ? | Le Japon | Le Brésil | L'Algérie | L'Éthiopie | **C** — L'Algérie *(variantes : Le Sénégal, Le Vietnam, Madagascar)* | [source](https://fr.wikipedia.org/wiki/Empire_colonial_fran%C3%A7ais) |
 | 2136 | Connaissances | Depuis quand les Français élisent-ils le président de la République au suffrage universel direct ? | 2002 | 1981 | 1962 | 1945 | **C** — 1962 | [source](https://fr.wikipedia.org/wiki/%C3%89lection_pr%C3%A9sidentielle_en_France) |
 | 2137 | Connaissances | Quelle est la première étape de la construction européenne en 1951 ? | Traité de Rome | Traité de Maastricht | La création de la Communauté européenne du charbon et de l'acier (CECA) | Création de l'euro | **C** — La création de la Communauté européenne du charbon et de l'acier (CECA) | [source](https://fr.wikipedia.org/wiki/Communaut%C3%A9_europ%C3%A9enne_du_charbon_et_de_l%27acier) |
+| 2138 | Connaissances | Durant le mandat de quel président la peine de mort a-t-elle été abolie ? | Charles de Gaulle | Jacques Chirac | Nicolas Sarkozy | François Mitterrand | **D** — François Mitterrand | [source](https://fr.wikipedia.org/wiki/Peine_de_mort_en_France) |
+| 2139 | Connaissances | Quel régime politique a été mis en place pendant la Révolution française en 1792 ? | La monarchie absolue | La République | L'Empire | La Restauration | **B** — La République | [source](https://fr.wikipedia.org/wiki/Premi%C3%A8re_R%C3%A9publique_(France)) |
 | 2140 | Connaissances | Qui était une figure de la Résistance française pendant la Seconde Guerre mondiale ? | Napoléon | Pétain | Albert Lebrun | Jean Moulin | **D** — Jean Moulin *(variantes : Lucie Aubrac, Le général de Gaulle)* | [source](https://fr.wikipedia.org/wiki/Jean_Moulin) |
 | 2141 | Connaissances | En 1944, qu'est-ce qui a changé pour les femmes ? | Elles ont obtenu le droit de vote et le droit d'être élues (éligibilité) | Droit de travailler | Droit de conduire | Droit de divorcer | **A** — Elles ont obtenu le droit de vote et le droit d'être élues (éligibilité) | [source](https://fr.wikipedia.org/wiki/Droit_de_vote_des_femmes_en_France) |
+| 2142 | Connaissances | Quelle organisation internationale a été créée en 1945 après la Seconde Guerre mondiale ? | L'Union européenne | L'Organisation des Nations unies (ONU) | L'OTAN | Le Conseil de l'Europe | **B** — L'Organisation des Nations unies (ONU) | [source](https://fr.wikipedia.org/wiki/Organisation_des_Nations_unies) |
+| 2143 | Connaissances | Quelle peine a été supprimée en 1981 ? | L'amende | Le travail d'intérêt général | La peine de mort | La prison ferme | **C** — La peine de mort | [source](https://fr.wikipedia.org/wiki/Peine_de_mort_en_France) |
+| 2144 | Connaissances | En quelle année l'euro est-elle devenue la monnaie utilisée en France ? | 1992 | 1995 | 2010 | 2002 | **D** — 2002 | [source](https://fr.wikipedia.org/wiki/Euro) |
+| 2145 | Connaissances | En quelle année a commencé la Première Guerre mondiale ? | 1870 | 1914 | 1918 | 1939 | **B** — 1914 | [source](https://fr.wikipedia.org/wiki/Premi%C3%A8re_Guerre_mondiale) |
+| 2146 | Connaissances | Où a eu lieu le débarquement en 1944 ? | En Alsace | En Bretagne | En Normandie | En Aquitaine | **C** — En Normandie | [source](https://fr.wikipedia.org/wiki/D%C3%A9barquement_de_Normandie) |
+| 2147 | Connaissances | Quel continent a été le plus concerné par la décolonisation française après la Seconde Guerre mondiale ? | L'Afrique | L'Amérique du Nord | L'Océanie | L'Europe | **A** — L'Afrique | [source](https://fr.wikipedia.org/wiki/D%C3%A9colonisation) |
+| 2148 | Connaissances | Que fête-t-on le 8 mai ? | La fête nationale française | L'armistice de la Première Guerre mondiale | L'abolition de l'esclavage | La victoire des Alliés et la fin de la Seconde Guerre mondiale en Europe | **D** — La victoire des Alliés et la fin de la Seconde Guerre mondiale en Europe | [source](https://fr.wikipedia.org/wiki/8_mai_1945) |
 | 2149 | Connaissances | Quelle mer ou océan borde la France métropolitaine ? | Mer Méditerranée | Mer Baltique | Océan Pacifique | Mer Noir | **A** — Mer Méditerranée *(variantes : L'océan Atlantique, La Manche, La mer du Nord)* | [source](https://fr.wikipedia.org/wiki/G%C3%A9ographie_de_la_France) |
+| 2150 | Connaissances | Quel pays a une frontière terrestre avec la France métropolitaine ? | Le Portugal | Les Pays-Bas | La Belgique | L'Autriche | **C** — La Belgique *(variantes : L'Espagne, L'Italie, La Suisse)* | [source](https://fr.wikipedia.org/wiki/Fronti%C3%A8res_de_la_France) |
+| 2151 | Connaissances | Quelle ville française est un port maritime ? | Toulouse | Dijon | Clermont-Ferrand | Marseille | **D** — Marseille *(variantes : Le Havre, Dunkerque, Brest)* | [source](https://fr.wikipedia.org/wiki/Grand_port_maritime_de_Marseille) |
 | 2152 | Connaissances | Quelle mer se situe entre la France et l'Angleterre ? | La mer du Nord | La mer Méditerranée | La mer des Caraïbes | La Manche | **D** — La Manche | [source](https://fr.wikipedia.org/wiki/Manche_(mer)) |
 | 2153 | Connaissances | Qu'est ce que la France d'outre-mer ? | Les pays voisins | Les régions autonomes | Les colonies étrangères | Les territoires français situés hors du continent européen | **D** — Les territoires français situés hors du continent européen | [source](https://fr.wikipedia.org/wiki/France_d%27outre-mer) |
+| 2154 | Connaissances | Quelle chaîne de montagnes est située entre la France et l’Espagne ? | Les Alpes | Les Pyrénées | Le Jura | Les Vosges | **B** — Les Pyrénées | [source](https://fr.wikipedia.org/wiki/Pyr%C3%A9n%C3%A9es) |
+| 2155 | Connaissances | Quelle île française se trouve dans l'océan Indien ? | La Corse | La Guadeloupe | La Réunion | La Martinique | **C** — La Réunion *(variantes : Mayotte)* | [source](https://fr.wikipedia.org/wiki/La_R%C3%A9union) |
 | 2156 | Connaissances | Quelle est la population approximative de la France en 2025 ? | Environ 100 millions d'habitants | Environ 65 millions d'habitants | Environ 80 millions d'habitants | Environ 70 millions d'habitants | **D** — Environ 70 millions d'habitants | [source](https://fr.wikipedia.org/wiki/D%C3%A9mographie_de_la_France) |
 | 2157 | Connaissances | Quel fleuve traverse Paris ? | La Loire | La Seine | Le Rhône | La Garonne | **B** — La Seine | [source](https://fr.wikipedia.org/wiki/Seine) |
+| 2158 | Connaissances | Lequel de ces pays partage des frontières terrestres avec la France ? | Le Royaume-Uni | L'Irlande | La Suède | L'Allemagne | **D** — L'Allemagne *(variantes : Le Luxembourg, Andorre, Monaco)* | [source](https://fr.wikipedia.org/wiki/Fronti%C3%A8res_de_la_France) |
+| 2159 | Connaissances | Quel pays a une frontière avec la France métropolitaine au nord-est ? | L'Espagne | L'Italie | Le Portugal | L'Allemagne | **D** — L'Allemagne *(variantes : Le Luxembourg)* | [source](https://fr.wikipedia.org/wiki/Fronti%C3%A8res_de_la_France) |
+| 2160 | Connaissances | Où se trouvent les principales activités économiques en France ? | Uniquement dans les campagnes | Dans les grandes villes et leurs agglomérations | Uniquement dans les territoires d'outre-mer | Uniquement dans les zones de montagne | **B** — Dans les grandes villes et leurs agglomérations | [source](https://fr.wikipedia.org/wiki/%C3%89conomie_de_la_France) |
+| 2161 | Connaissances | Parmi ces pays, lequel attire le plus de visiteurs chaque année ? | La France | L'Allemagne | La Belgique | La Suède | **A** — La France | [source](https://fr.wikipedia.org/wiki/Tourisme_en_France) |
+| 2162 | Connaissances | Où habite la majorité des Français ? | En montagne | À la campagne | En ville | À l'étranger | **C** — En ville | [source](https://fr.wikipedia.org/wiki/D%C3%A9mographie_de_la_France) |
+| 2163 | Connaissances | Quelle région est la plus peuplée ? | La Corse | Le Centre-Val de Loire | La Bourgogne-Franche-Comté | L'Île-de-France | **D** — L'Île-de-France | [source](https://fr.wikipedia.org/wiki/%C3%8Ele-de-France) |
 | 2164 | Connaissances | Quelle ville française fait partie des 10 plus grandes métropoles du pays ? | Perpignan | Paris | Grenoble | Avignon | **B** — Paris *(variantes : Lyon, Marseille)* | [source](https://fr.wikipedia.org/wiki/D%C3%A9mographie_de_la_France) |
+| 2165 | Connaissances | Lequel de ces départements de France est le plus touristique ? | La Creuse | Paris | La Lozère | La Meuse | **B** — Paris | [source](https://fr.wikipedia.org/wiki/Tourisme_en_%C3%8Ele-de-France) |
+| 2166 | Connaissances | Quand peut-on visiter gratuitement des lieux culturels en France ? | Jamais : l'entrée est toujours payante | Uniquement le 14 Juillet | Lors des Journées européennes du patrimoine, en septembre | Uniquement si l'on est de nationalité française | **C** — Lors des Journées européennes du patrimoine, en septembre *(variantes : Le premier dimanche du mois, dans de nombreux musées nationaux)* | [source](https://fr.wikipedia.org/wiki/Journ%C3%A9es_europ%C3%A9ennes_du_patrimoine) |
+| 2167 | Connaissances | Combien de personnes parlent français dans le monde ? | Environ 10 millions | Environ 50 millions | Environ 300 millions | Environ 3 milliards | **C** — Environ 300 millions | [source](https://fr.wikipedia.org/wiki/Francophonie) |
 | 2168 | Connaissances | Qui était Marguerite Yourcenar ? | Écrivaine et académicienne française | Danseuse | Astronome | Médecin | **A** — Écrivaine et académicienne française | [source](https://fr.wikipedia.org/wiki/Marguerite_Yourcenar) |
 | 2169 | Connaissances | Quel peintre est français ? | Claude Monet | Van Gogh | Rembrandt | Picasso | **A** — Claude Monet *(variantes : Auguste Renoir, Eugène Delacroix)* | [source](https://fr.wikipedia.org/wiki/Claude_Monet) |
 | 2170 | Connaissances | Quel musée est situé à Paris ? | Le Musée du Louvre | Le British Museum | Le Prado | L'Ermitage | **A** — Le Musée du Louvre *(variantes : Le musée d'Orsay, Le Centre Pompidou)* | [source](https://fr.wikipedia.org/wiki/Mus%C3%A9e_du_Louvre) |
 | 2171 | Connaissances | Qui était Auguste Rodin ? | Peintre | Musicien | Écrivain | Sculpteur français | **D** — Sculpteur français | [source](https://fr.wikipedia.org/wiki/Auguste_Rodin) |
+| 2172 | Connaissances | Quel est le classement de la langue française parmi les langues les plus parlées dans le monde ? | 1re | 5e | 15e | 30e | **B** — 5e | [source](https://fr.wikipedia.org/wiki/Fran%C3%A7ais) |
+| 2173 | Connaissances | Quelle cathédrale célèbre a été en partie détruite par un incendie en 2019 ? | La cathédrale de Reims | La cathédrale de Chartres | La cathédrale de Strasbourg | La cathédrale Notre-Dame de Paris | **D** — La cathédrale Notre-Dame de Paris | [source](https://fr.wikipedia.org/wiki/Incendie_de_Notre-Dame_de_Paris) |
+| 2174 | Connaissances | Qui était une écrivaine française célèbre ? | Simone de Beauvoir | Édith Piaf | Camille Claudel | Sarah Bernhardt | **A** — Simone de Beauvoir *(variantes : George Sand, Colette, Marguerite Duras)* | [source](https://fr.wikipedia.org/wiki/Simone_de_Beauvoir) |
+| 2175 | Connaissances | Qui était un célèbre musicien français ? | Ludwig van Beethoven | Claude Debussy | Wolfgang Amadeus Mozart | Giuseppe Verdi | **B** — Claude Debussy *(variantes : Maurice Ravel, Hector Berlioz, Georges Bizet)* | [source](https://fr.wikipedia.org/wiki/Claude_Debussy) |
 | 2176 | Connaissances | Qui était Auguste Renoir ? | Poète | Philosophe | Peintre impressionniste français | Scientifique | **C** — Peintre impressionniste français | [source](https://fr.wikipedia.org/wiki/Auguste_Renoir) |
+| 2177 | Connaissances | Quelle fête est française ? | Thanksgiving | Halloween | Le 14 Juillet | Le Nouvel An chinois | **C** — Le 14 Juillet *(variantes : La Fête de la musique)* | [source](https://fr.wikipedia.org/wiki/F%C3%AAte_nationale_fran%C3%A7aise) |
 
 ### Vivre dans la société française
 

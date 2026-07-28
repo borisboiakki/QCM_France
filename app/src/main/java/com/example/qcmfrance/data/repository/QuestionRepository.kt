@@ -71,8 +71,10 @@ class QuestionRepository @Inject constructor(
          * v4 = multi-QCM : ajout des listes officielles carte de résident (`questions_cr.json`,
          * ids 2001+) et carte de séjour pluriannuelle (`questions_csp.json`, ids 3001+), et
          * renseignement de la colonne `examMode` sur toutes les questions.
+         * v5 = lot 1 : rédaction des 31 questions manquantes du thème « Histoire, géographie et
+         * culture » de la carte de résident (thème complet : 49/49).
          */
-        const val CONTENT_VERSION = 4
+        const val CONTENT_VERSION = 5
         private const val CONTENT_PREFS = "question_content"
         private const val KEY_CONTENT_VERSION = "content_version"
     }

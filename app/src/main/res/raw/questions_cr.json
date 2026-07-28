@@ -376,6 +376,30 @@
     "source": "https://fr.wikipedia.org/wiki/Infraction_p%C3%A9nale"
   },
   {
+    "id": 2129,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quel était le surnom de Louis XIV ?",
+    "optionA": "Le Roi de Fer",
+    "optionB": "Le Roi-Soleil",
+    "optionC": "Le Bien-Aimé",
+    "optionD": "Le Roi Bourgeois",
+    "correctAnswer": "B",
+    "explanation": "Louis XIV, roi de 1643 à 1715, est surnommé le Roi-Soleil : il avait choisi le soleil comme emblème. Son règne de 72 ans, le plus long de l'histoire de France, incarne la monarchie absolue et voit la construction du château de Versailles.",
+    "source": "https://fr.wikipedia.org/wiki/Louis_XIV"
+  },
+  {
+    "id": 2130,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quel roi de France a été exécuté pendant la Révolution française ?",
+    "optionA": "Louis XVI",
+    "optionB": "Louis XIV",
+    "optionC": "Henri IV",
+    "optionD": "Louis-Philippe Ier",
+    "correctAnswer": "A",
+    "explanation": "Louis XVI a été guillotiné le 21 janvier 1793, place de la Révolution (aujourd'hui place de la Concorde), après la proclamation de la République le 22 septembre 1792. La reine Marie-Antoinette a été exécutée la même année, le 16 octobre.",
+    "source": "https://fr.wikipedia.org/wiki/Louis_XVI"
+  },
+  {
     "id": 2131,
     "theme": "Histoire, géographie et culture",
     "text": "En quelle année Napoléon Ier est-il devenu empereur ?",
@@ -428,6 +452,53 @@
     "source": "https://fr.wikipedia.org/wiki/Appel_du_18_Juin"
   },
   {
+    "id": 2134,
+    "theme": "Histoire, géographie et culture",
+    "text": "Pourquoi la Shoah est-elle étudiée à l'école ?",
+    "optionA": "Parce qu'il s'agit d'une tradition religieuse enseignée à l'école publique",
+    "optionB": "Pour désigner les élèves responsables de ces événements",
+    "optionC": "Pour transmettre la mémoire du génocide des Juifs et éduquer contre le racisme et l'antisémitisme",
+    "optionD": "Parce que la loi interdit d'en parler ailleurs qu'à l'école",
+    "correctAnswer": "C",
+    "explanation": "La Shoah désigne le génocide de près de six millions de Juifs d'Europe par l'Allemagne nazie pendant la Seconde Guerre mondiale. Son enseignement est inscrit aux programmes scolaires : il s'agit de transmettre la mémoire des victimes et d'éduquer contre le racisme, l'antisémitisme et toutes les formes de discrimination.",
+    "source": "https://fr.wikipedia.org/wiki/Shoah"
+  },
+  {
+    "id": 2135,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quel pays a été colonisé par la France ?",
+    "optionA": "Le Japon",
+    "optionB": "Le Brésil",
+    "optionC": "L'Algérie",
+    "optionD": "L'Éthiopie",
+    "correctAnswer": "C",
+    "explanation": "La France a possédé un vaste empire colonial, principalement en Afrique (Algérie, Sénégal, Madagascar, Maroc, Tunisie…) et en Asie du Sud-Est (Indochine : Vietnam, Laos, Cambodge). La décolonisation s'est faite pour l'essentiel entre 1954 et 1962.",
+    "source": "https://fr.wikipedia.org/wiki/Empire_colonial_fran%C3%A7ais",
+    "variants": [
+      {
+        "optionA": "Le Sénégal",
+        "optionB": "Le Japon",
+        "optionC": "L'Iran",
+        "optionD": "L'Éthiopie",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "Le Brésil",
+        "optionB": "La Thaïlande",
+        "optionC": "L'Éthiopie",
+        "optionD": "Le Vietnam",
+        "correctAnswer": "D"
+      },
+      {
+        "optionA": "Le Népal",
+        "optionB": "Madagascar",
+        "optionC": "Le Liberia",
+        "optionD": "Le Japon",
+        "correctAnswer": "B"
+      }
+    ]
+  },
+  {
     "id": 2136,
     "theme": "Histoire, géographie et culture",
     "text": "Depuis quand les Français élisent-ils le président de la République au suffrage universel direct ?",
@@ -450,6 +521,30 @@
     "correctAnswer": "C",
     "explanation": "La Communauté européenne du charbon et de l'acier (CECA) a été créée par le traité de Paris du 18 avril 1951, signé par six pays fondateurs. Inspirée par le plan Schuman, elle visait à mettre en commun la production de charbon et d'acier entre la France et l'Allemagne pour rendre la guerre entre elles « matériellement impossible ». C'est le premier pas vers la construction européenne.",
     "source": "https://fr.wikipedia.org/wiki/Communaut%C3%A9_europ%C3%A9enne_du_charbon_et_de_l%27acier"
+  },
+  {
+    "id": 2138,
+    "theme": "Histoire, géographie et culture",
+    "text": "Durant le mandat de quel président la peine de mort a-t-elle été abolie ?",
+    "optionA": "Charles de Gaulle",
+    "optionB": "Jacques Chirac",
+    "optionC": "Nicolas Sarkozy",
+    "optionD": "François Mitterrand",
+    "correctAnswer": "D",
+    "explanation": "La peine de mort a été abolie par la loi du 9 octobre 1981, portée par le garde des Sceaux Robert Badinter, sous la présidence de François Mitterrand élu en mai 1981. L'abolition a été inscrite dans la Constitution en 2007.",
+    "source": "https://fr.wikipedia.org/wiki/Peine_de_mort_en_France"
+  },
+  {
+    "id": 2139,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quel régime politique a été mis en place pendant la Révolution française en 1792 ?",
+    "optionA": "La monarchie absolue",
+    "optionB": "La République",
+    "optionC": "L'Empire",
+    "optionD": "La Restauration",
+    "correctAnswer": "B",
+    "explanation": "La Ire République est proclamée le 22 septembre 1792 par la Convention nationale, après la chute de la monarchie le 10 août 1792. Pour la première fois, la France n'est plus gouvernée par un roi.",
+    "source": "https://fr.wikipedia.org/wiki/Premi%C3%A8re_R%C3%A9publique_(France)"
   },
   {
     "id": 2140,
@@ -492,6 +587,90 @@
     "source": "https://fr.wikipedia.org/wiki/Droit_de_vote_des_femmes_en_France"
   },
   {
+    "id": 2142,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quelle organisation internationale a été créée en 1945 après la Seconde Guerre mondiale ?",
+    "optionA": "L'Union européenne",
+    "optionB": "L'Organisation des Nations unies (ONU)",
+    "optionC": "L'OTAN",
+    "optionD": "Le Conseil de l'Europe",
+    "correctAnswer": "B",
+    "explanation": "L'Organisation des Nations unies a été créée le 24 octobre 1945 par la Charte de San Francisco, pour maintenir la paix et la sécurité internationales. La France est l'un de ses cinq membres permanents au Conseil de sécurité.",
+    "source": "https://fr.wikipedia.org/wiki/Organisation_des_Nations_unies"
+  },
+  {
+    "id": 2143,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quelle peine a été supprimée en 1981 ?",
+    "optionA": "L'amende",
+    "optionB": "Le travail d'intérêt général",
+    "optionC": "La peine de mort",
+    "optionD": "La prison ferme",
+    "correctAnswer": "C",
+    "explanation": "La loi du 9 octobre 1981, défendue par Robert Badinter, a aboli la peine de mort en France. La dernière exécution avait eu lieu en 1977. Depuis 2007, l'abolition figure à l'article 66-1 de la Constitution.",
+    "source": "https://fr.wikipedia.org/wiki/Peine_de_mort_en_France"
+  },
+  {
+    "id": 2144,
+    "theme": "Histoire, géographie et culture",
+    "text": "En quelle année l'euro est-elle devenue la monnaie utilisée en France ?",
+    "optionA": "1992",
+    "optionB": "1995",
+    "optionC": "2010",
+    "optionD": "2002",
+    "correctAnswer": "D",
+    "explanation": "Les pièces et les billets en euros sont entrés en circulation en France le 1er janvier 2002, remplaçant le franc. L'euro existait depuis 1999 comme monnaie de compte, mais sans pièces ni billets.",
+    "source": "https://fr.wikipedia.org/wiki/Euro"
+  },
+  {
+    "id": 2145,
+    "theme": "Histoire, géographie et culture",
+    "text": "En quelle année a commencé la Première Guerre mondiale ?",
+    "optionA": "1870",
+    "optionB": "1914",
+    "optionC": "1918",
+    "optionD": "1939",
+    "correctAnswer": "B",
+    "explanation": "La Première Guerre mondiale a commencé en 1914 et s'est achevée par l'armistice du 11 novembre 1918. Elle a fait près de 1,4 million de morts français et reste commémorée chaque 11 novembre.",
+    "source": "https://fr.wikipedia.org/wiki/Premi%C3%A8re_Guerre_mondiale"
+  },
+  {
+    "id": 2146,
+    "theme": "Histoire, géographie et culture",
+    "text": "Où a eu lieu le débarquement en 1944 ?",
+    "optionA": "En Alsace",
+    "optionB": "En Bretagne",
+    "optionC": "En Normandie",
+    "optionD": "En Aquitaine",
+    "correctAnswer": "C",
+    "explanation": "Le débarquement allié du 6 juin 1944 (D-Day) a eu lieu sur les plages de Normandie, dans le Calvados et la Manche. Il a ouvert la libération de la France occupée. Un second débarquement a eu lieu en Provence le 15 août 1944.",
+    "source": "https://fr.wikipedia.org/wiki/D%C3%A9barquement_de_Normandie"
+  },
+  {
+    "id": 2147,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quel continent a été le plus concerné par la décolonisation française après la Seconde Guerre mondiale ?",
+    "optionA": "L'Afrique",
+    "optionB": "L'Amérique du Nord",
+    "optionC": "L'Océanie",
+    "optionD": "L'Europe",
+    "correctAnswer": "A",
+    "explanation": "La décolonisation française a surtout concerné l'Afrique : le Maroc et la Tunisie en 1956, la quasi-totalité de l'Afrique subsaharienne en 1960, puis l'Algérie en 1962 après huit ans de guerre. L'Indochine, en Asie, avait obtenu son indépendance en 1954.",
+    "source": "https://fr.wikipedia.org/wiki/D%C3%A9colonisation"
+  },
+  {
+    "id": 2148,
+    "theme": "Histoire, géographie et culture",
+    "text": "Que fête-t-on le 8 mai ?",
+    "optionA": "La fête nationale française",
+    "optionB": "L'armistice de la Première Guerre mondiale",
+    "optionC": "L'abolition de l'esclavage",
+    "optionD": "La victoire des Alliés et la fin de la Seconde Guerre mondiale en Europe",
+    "correctAnswer": "D",
+    "explanation": "Le 8 mai commémore la capitulation de l'Allemagne nazie le 8 mai 1945, qui met fin à la Seconde Guerre mondiale en Europe. C'est un jour férié. L'armistice de 1918, lui, est commémoré le 11 novembre, et la fête nationale est le 14 Juillet.",
+    "source": "https://fr.wikipedia.org/wiki/8_mai_1945"
+  },
+  {
     "id": 2149,
     "theme": "Histoire, géographie et culture",
     "text": "Quelle mer ou océan borde la France métropolitaine ?",
@@ -527,6 +706,76 @@
     ]
   },
   {
+    "id": 2150,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quel pays a une frontière terrestre avec la France métropolitaine ?",
+    "optionA": "Le Portugal",
+    "optionB": "Les Pays-Bas",
+    "optionC": "La Belgique",
+    "optionD": "L'Autriche",
+    "correctAnswer": "C",
+    "explanation": "La France métropolitaine a une frontière terrestre avec huit pays : la Belgique, le Luxembourg, l'Allemagne, la Suisse, l'Italie, Monaco, l'Espagne et Andorre.",
+    "source": "https://fr.wikipedia.org/wiki/Fronti%C3%A8res_de_la_France",
+    "variants": [
+      {
+        "optionA": "Le Portugal",
+        "optionB": "L'Espagne",
+        "optionC": "La Grèce",
+        "optionD": "Le Danemark",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "La Croatie",
+        "optionB": "La Pologne",
+        "optionC": "La Norvège",
+        "optionD": "L'Italie",
+        "correctAnswer": "D"
+      },
+      {
+        "optionA": "La Suisse",
+        "optionB": "L'Autriche",
+        "optionC": "La Slovénie",
+        "optionD": "La Hongrie",
+        "correctAnswer": "A"
+      }
+    ]
+  },
+  {
+    "id": 2151,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quelle ville française est un port maritime ?",
+    "optionA": "Toulouse",
+    "optionB": "Dijon",
+    "optionC": "Clermont-Ferrand",
+    "optionD": "Marseille",
+    "correctAnswer": "D",
+    "explanation": "Marseille est le premier port maritime français et l'un des plus importants de la Méditerranée. Les autres grands ports maritimes français sont Le Havre, Dunkerque, Nantes-Saint-Nazaire, Brest et Calais.",
+    "source": "https://fr.wikipedia.org/wiki/Grand_port_maritime_de_Marseille",
+    "variants": [
+      {
+        "optionA": "Limoges",
+        "optionB": "Le Havre",
+        "optionC": "Orléans",
+        "optionD": "Grenoble",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Reims",
+        "optionB": "Poitiers",
+        "optionC": "Dunkerque",
+        "optionD": "Nancy",
+        "correctAnswer": "C"
+      },
+      {
+        "optionA": "Brest",
+        "optionB": "Metz",
+        "optionC": "Tours",
+        "optionD": "Besançon",
+        "correctAnswer": "A"
+      }
+    ]
+  },
+  {
     "id": 2152,
     "theme": "Histoire, géographie et culture",
     "text": "Quelle mer se situe entre la France et l'Angleterre ?",
@@ -551,6 +800,39 @@
     "source": "https://fr.wikipedia.org/wiki/France_d%27outre-mer"
   },
   {
+    "id": 2154,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quelle chaîne de montagnes est située entre la France et l’Espagne ?",
+    "optionA": "Les Alpes",
+    "optionB": "Les Pyrénées",
+    "optionC": "Le Jura",
+    "optionD": "Les Vosges",
+    "correctAnswer": "B",
+    "explanation": "Les Pyrénées forment la frontière naturelle entre la France et l'Espagne sur environ 430 km, de l'océan Atlantique à la mer Méditerranée. La principauté d'Andorre y est enclavée. Les Alpes, elles, séparent la France de l'Italie et de la Suisse.",
+    "source": "https://fr.wikipedia.org/wiki/Pyr%C3%A9n%C3%A9es"
+  },
+  {
+    "id": 2155,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quelle île française se trouve dans l'océan Indien ?",
+    "optionA": "La Corse",
+    "optionB": "La Guadeloupe",
+    "optionC": "La Réunion",
+    "optionD": "La Martinique",
+    "correctAnswer": "C",
+    "explanation": "La Réunion et Mayotte sont les deux départements français situés dans l'océan Indien. La Guadeloupe et la Martinique se trouvent dans la mer des Caraïbes, la Guyane en Amérique du Sud et la Corse en mer Méditerranée.",
+    "source": "https://fr.wikipedia.org/wiki/La_R%C3%A9union",
+    "variants": [
+      {
+        "optionA": "La Corse",
+        "optionB": "Mayotte",
+        "optionC": "La Martinique",
+        "optionD": "Saint-Pierre-et-Miquelon",
+        "correctAnswer": "B"
+      }
+    ]
+  },
+  {
     "id": 2156,
     "theme": "Histoire, géographie et culture",
     "text": "Quelle est la population approximative de la France en 2025 ?",
@@ -573,6 +855,110 @@
     "correctAnswer": "B",
     "explanation": "La Seine est le fleuve qui traverse Paris. Long de 775 km, il prend sa source en Côte-d'Or (Bourgogne) et se jette dans la Manche au Havre. Les autres grands fleuves français sont : la Loire (le plus long, 1 013 km), le Rhône, la Garonne et le Rhin. Paris est construite autour des îles de la Cité et de Saint-Louis, sur la Seine.",
     "source": "https://fr.wikipedia.org/wiki/Seine"
+  },
+  {
+    "id": 2158,
+    "theme": "Histoire, géographie et culture",
+    "text": "Lequel de ces pays partage des frontières terrestres avec la France ?",
+    "optionA": "Le Royaume-Uni",
+    "optionB": "L'Irlande",
+    "optionC": "La Suède",
+    "optionD": "L'Allemagne",
+    "correctAnswer": "D",
+    "explanation": "En Europe, la France métropolitaine a huit pays frontaliers : la Belgique, le Luxembourg, l'Allemagne, la Suisse, l'Italie, Monaco, l'Espagne et Andorre. La France a aussi des frontières terrestres outre-mer, avec le Brésil et le Suriname en Guyane.",
+    "source": "https://fr.wikipedia.org/wiki/Fronti%C3%A8res_de_la_France",
+    "variants": [
+      {
+        "optionA": "Le Danemark",
+        "optionB": "Le Luxembourg",
+        "optionC": "La Finlande",
+        "optionD": "La Roumanie",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Malte",
+        "optionB": "Chypre",
+        "optionC": "Andorre",
+        "optionD": "L'Islande",
+        "correctAnswer": "C"
+      },
+      {
+        "optionA": "Monaco",
+        "optionB": "Saint-Marin",
+        "optionC": "Le Liechtenstein",
+        "optionD": "Le Vatican",
+        "correctAnswer": "A"
+      }
+    ]
+  },
+  {
+    "id": 2159,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quel pays a une frontière avec la France métropolitaine au nord-est ?",
+    "optionA": "L'Espagne",
+    "optionB": "L'Italie",
+    "optionC": "Le Portugal",
+    "optionD": "L'Allemagne",
+    "correctAnswer": "D",
+    "explanation": "Au nord-est, la France métropolitaine est bordée par l'Allemagne et le Luxembourg, le long de la région Grand Est. L'Espagne et Andorre sont au sud-ouest, l'Italie et Monaco au sud-est, la Suisse à l'est et la Belgique au nord.",
+    "source": "https://fr.wikipedia.org/wiki/Fronti%C3%A8res_de_la_France",
+    "variants": [
+      {
+        "optionA": "Le Luxembourg",
+        "optionB": "L'Espagne",
+        "optionC": "Le Portugal",
+        "optionD": "La Grèce",
+        "correctAnswer": "A"
+      }
+    ]
+  },
+  {
+    "id": 2160,
+    "theme": "Histoire, géographie et culture",
+    "text": "Où se trouvent les principales activités économiques en France ?",
+    "optionA": "Uniquement dans les campagnes",
+    "optionB": "Dans les grandes villes et leurs agglomérations",
+    "optionC": "Uniquement dans les territoires d'outre-mer",
+    "optionD": "Uniquement dans les zones de montagne",
+    "correctAnswer": "B",
+    "explanation": "L'essentiel de l'activité économique française se concentre dans les grandes aires urbaines, au premier rang desquelles Paris et l'Île-de-France, qui produit à elle seule environ un tiers de la richesse nationale, puis Lyon, Marseille, Lille, Toulouse ou Bordeaux.",
+    "source": "https://fr.wikipedia.org/wiki/%C3%89conomie_de_la_France"
+  },
+  {
+    "id": 2161,
+    "theme": "Histoire, géographie et culture",
+    "text": "Parmi ces pays, lequel attire le plus de visiteurs chaque année ?",
+    "optionA": "La France",
+    "optionB": "L'Allemagne",
+    "optionC": "La Belgique",
+    "optionD": "La Suède",
+    "correctAnswer": "A",
+    "explanation": "La France est la première destination touristique mondiale, avec environ 100 millions de visiteurs étrangers par an. Le tourisme représente près de 8 % de la richesse produite dans le pays.",
+    "source": "https://fr.wikipedia.org/wiki/Tourisme_en_France"
+  },
+  {
+    "id": 2162,
+    "theme": "Histoire, géographie et culture",
+    "text": "Où habite la majorité des Français ?",
+    "optionA": "En montagne",
+    "optionB": "À la campagne",
+    "optionC": "En ville",
+    "optionD": "À l'étranger",
+    "correctAnswer": "C",
+    "explanation": "Plus de huit Français sur dix vivent aujourd'hui dans une aire urbaine. L'exode rural, engagé au XIXe siècle et accéléré après 1945, a fait passer la France d'une population majoritairement rurale à une population majoritairement urbaine.",
+    "source": "https://fr.wikipedia.org/wiki/D%C3%A9mographie_de_la_France"
+  },
+  {
+    "id": 2163,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quelle région est la plus peuplée ?",
+    "optionA": "La Corse",
+    "optionB": "Le Centre-Val de Loire",
+    "optionC": "La Bourgogne-Franche-Comté",
+    "optionD": "L'Île-de-France",
+    "correctAnswer": "D",
+    "explanation": "L'Île-de-France, région capitale organisée autour de Paris, compte plus de 12 millions d'habitants, soit près d'un Français sur cinq. La Corse est à l'inverse la région la moins peuplée, avec environ 350 000 habitants.",
+    "source": "https://fr.wikipedia.org/wiki/%C3%8Ele-de-France"
   },
   {
     "id": 2164,
@@ -601,6 +987,51 @@
         "correctAnswer": "A"
       }
     ]
+  },
+  {
+    "id": 2165,
+    "theme": "Histoire, géographie et culture",
+    "text": "Lequel de ces départements de France est le plus touristique ?",
+    "optionA": "La Creuse",
+    "optionB": "Paris",
+    "optionC": "La Lozère",
+    "optionD": "La Meuse",
+    "correctAnswer": "B",
+    "explanation": "Paris est le département le plus visité de France : la ville accueille chaque année des dizaines de millions de touristes, attirés notamment par la tour Eiffel, le musée du Louvre, Notre-Dame et les Champs-Élysées.",
+    "source": "https://fr.wikipedia.org/wiki/Tourisme_en_%C3%8Ele-de-France"
+  },
+  {
+    "id": 2166,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quand peut-on visiter gratuitement des lieux culturels en France ?",
+    "optionA": "Jamais : l'entrée est toujours payante",
+    "optionB": "Uniquement le 14 Juillet",
+    "optionC": "Lors des Journées européennes du patrimoine, en septembre",
+    "optionD": "Uniquement si l'on est de nationalité française",
+    "correctAnswer": "C",
+    "explanation": "Plusieurs dispositifs rendent la culture accessible gratuitement : les Journées européennes du patrimoine (troisième week-end de septembre), la gratuité le premier dimanche du mois dans de nombreux musées nationaux, et la gratuité permanente pour les moins de 26 ans résidant dans l'Union européenne.",
+    "source": "https://fr.wikipedia.org/wiki/Journ%C3%A9es_europ%C3%A9ennes_du_patrimoine",
+    "variants": [
+      {
+        "optionA": "Le premier dimanche du mois, dans de nombreux musées nationaux",
+        "optionB": "Jamais : l'entrée est toujours payante",
+        "optionC": "Uniquement le 1er janvier",
+        "optionD": "Uniquement sur invitation du maire",
+        "correctAnswer": "A"
+      }
+    ]
+  },
+  {
+    "id": 2167,
+    "theme": "Histoire, géographie et culture",
+    "text": "Combien de personnes parlent français dans le monde ?",
+    "optionA": "Environ 10 millions",
+    "optionB": "Environ 50 millions",
+    "optionC": "Environ 300 millions",
+    "optionD": "Environ 3 milliards",
+    "correctAnswer": "C",
+    "explanation": "Le français est parlé par environ 320 millions de personnes dans le monde, réparties sur les cinq continents. Il est langue officielle ou co-officielle d'une trentaine d'États et l'une des six langues officielles de l'ONU.",
+    "source": "https://fr.wikipedia.org/wiki/Francophonie"
   },
   {
     "id": 2168,
@@ -683,6 +1114,100 @@
     "source": "https://fr.wikipedia.org/wiki/Auguste_Rodin"
   },
   {
+    "id": 2172,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quel est le classement de la langue française parmi les langues les plus parlées dans le monde ?",
+    "optionA": "1re",
+    "optionB": "5e",
+    "optionC": "15e",
+    "optionD": "30e",
+    "correctAnswer": "B",
+    "explanation": "Le français est la cinquième langue la plus parlée au monde, derrière l'anglais, le mandarin, l'hindi et l'espagnol. C'est aussi la deuxième langue la plus apprise comme langue étrangère.",
+    "source": "https://fr.wikipedia.org/wiki/Fran%C3%A7ais"
+  },
+  {
+    "id": 2173,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quelle cathédrale célèbre a été en partie détruite par un incendie en 2019 ?",
+    "optionA": "La cathédrale de Reims",
+    "optionB": "La cathédrale de Chartres",
+    "optionC": "La cathédrale de Strasbourg",
+    "optionD": "La cathédrale Notre-Dame de Paris",
+    "correctAnswer": "D",
+    "explanation": "L'incendie du 15 avril 2019 a détruit la flèche et la charpente de la cathédrale Notre-Dame de Paris, monument gothique du XIIe siècle. Après cinq ans de travaux financés par des dons du monde entier, elle a rouvert au public en décembre 2024.",
+    "source": "https://fr.wikipedia.org/wiki/Incendie_de_Notre-Dame_de_Paris"
+  },
+  {
+    "id": 2174,
+    "theme": "Histoire, géographie et culture",
+    "text": "Qui était une écrivaine française célèbre ?",
+    "optionA": "Simone de Beauvoir",
+    "optionB": "Édith Piaf",
+    "optionC": "Camille Claudel",
+    "optionD": "Sarah Bernhardt",
+    "correctAnswer": "A",
+    "explanation": "Simone de Beauvoir (1908-1986), autrice du Deuxième Sexe, est l'une des grandes écrivaines françaises. La littérature française compte aussi George Sand, Colette, Marguerite Duras et Marguerite Yourcenar, première femme élue à l'Académie française en 1980.",
+    "source": "https://fr.wikipedia.org/wiki/Simone_de_Beauvoir",
+    "variants": [
+      {
+        "optionA": "Édith Piaf",
+        "optionB": "George Sand",
+        "optionC": "Camille Claudel",
+        "optionD": "Coco Chanel",
+        "correctAnswer": "B"
+      },
+      {
+        "optionA": "Berthe Morisot",
+        "optionB": "Édith Piaf",
+        "optionC": "Colette",
+        "optionD": "Joséphine Baker",
+        "correctAnswer": "C"
+      },
+      {
+        "optionA": "Rosa Bonheur",
+        "optionB": "Édith Piaf",
+        "optionC": "Coco Chanel",
+        "optionD": "Marguerite Duras",
+        "correctAnswer": "D"
+      }
+    ]
+  },
+  {
+    "id": 2175,
+    "theme": "Histoire, géographie et culture",
+    "text": "Qui était un célèbre musicien français ?",
+    "optionA": "Ludwig van Beethoven",
+    "optionB": "Claude Debussy",
+    "optionC": "Wolfgang Amadeus Mozart",
+    "optionD": "Giuseppe Verdi",
+    "correctAnswer": "B",
+    "explanation": "Claude Debussy (1862-1918), auteur de Clair de lune et de La Mer, est l'un des compositeurs français les plus célèbres. La musique française compte aussi Hector Berlioz, Georges Bizet (Carmen), Camille Saint-Saëns et Maurice Ravel (Boléro).",
+    "source": "https://fr.wikipedia.org/wiki/Claude_Debussy",
+    "variants": [
+      {
+        "optionA": "Jean-Sébastien Bach",
+        "optionB": "Franz Schubert",
+        "optionC": "Maurice Ravel",
+        "optionD": "Antonio Vivaldi",
+        "correctAnswer": "C"
+      },
+      {
+        "optionA": "Hector Berlioz",
+        "optionB": "Richard Wagner",
+        "optionC": "Joseph Haydn",
+        "optionD": "Piotr Ilitch Tchaïkovski",
+        "correctAnswer": "A"
+      },
+      {
+        "optionA": "Giacomo Puccini",
+        "optionB": "Robert Schumann",
+        "optionC": "Edvard Grieg",
+        "optionD": "Georges Bizet",
+        "correctAnswer": "D"
+      }
+    ]
+  },
+  {
     "id": 2176,
     "theme": "Histoire, géographie et culture",
     "text": "Qui était Auguste Renoir ?",
@@ -693,6 +1218,27 @@
     "correctAnswer": "C",
     "explanation": "Auguste Renoir (1841-1919) est l'un des grands maîtres de l'impressionnisme français. Ses tableaux, souvent joyeux et colorés, représentent des scènes de la vie quotidienne, des portraits et des nus. Ses œuvres les plus célèbres incluent Le Déjeuner des canotiers, Bal du moulin de la Galette et Les Grandes Baigneuses.",
     "source": "https://fr.wikipedia.org/wiki/Auguste_Renoir"
+  },
+  {
+    "id": 2177,
+    "theme": "Histoire, géographie et culture",
+    "text": "Quelle fête est française ?",
+    "optionA": "Thanksgiving",
+    "optionB": "Halloween",
+    "optionC": "Le 14 Juillet",
+    "optionD": "Le Nouvel An chinois",
+    "correctAnswer": "C",
+    "explanation": "Le 14 Juillet est la fête nationale française : elle commémore la prise de la Bastille (1789) et la Fête de la Fédération (1790). Elle donne lieu à un défilé militaire, des feux d'artifice et des bals populaires.",
+    "source": "https://fr.wikipedia.org/wiki/F%C3%AAte_nationale_fran%C3%A7aise",
+    "variants": [
+      {
+        "optionA": "Thanksgiving",
+        "optionB": "La Fête de la musique",
+        "optionC": "La Saint-Patrick",
+        "optionD": "L'Oktoberfest",
+        "correctAnswer": "B"
+      }
+    ]
   },
   {
     "id": 2180,
