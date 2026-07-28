@@ -68,6 +68,10 @@ private val LINK_SECTIONS = listOf(
                 url = "https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/lexamen-civique-pour-demande-de-naturalisation-ou-de-reintegration-dans-nationalite-francaise.html"
             ),
             ExternalLink(
+                labelRes = R.string.help_link_questions_nat,
+                url = "https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/questions-de-connaissance-pour-lexamen-civique-nationalite-francaise.html"
+            ),
+            ExternalLink(
                 labelRes = R.string.help_link_questions_cr,
                 url = "https://formation-civique.interieur.gouv.fr/examen-civique/liste-officielle-des-questions-de-connaissance-cr/"
             ),

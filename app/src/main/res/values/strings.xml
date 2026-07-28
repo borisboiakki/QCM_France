@@ -219,6 +219,7 @@
     <string name="help_settings_reset_achievements_title">Réinitialiser les succès</string>
     <string name="help_settings_reset_achievements_desc">Efface tous les succès débloqués et leur progression (action irréversible, avec confirmation).</string>
     <string name="help_link_general">Informations générales sur l\'examen civique</string>
+    <string name="help_link_questions_nat">Liste officielle des questions — naturalisation</string>
     <string name="help_link_questions_cr">Liste officielle des questions — carte de résident (CR)</string>
     <string name="help_link_questions_csp">Liste officielle des questions — carte de séjour pluriannuelle (CSP)</string>
     <string name="help_link_quiz">Tests complémentaires en ligne (Ensemble en France)</string>

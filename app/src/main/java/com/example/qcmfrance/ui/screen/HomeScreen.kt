@@ -5,17 +5,18 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -211,82 +212,93 @@ fun HomeScreen(
             Spacer(modifier = Modifier.height(24.dp))
 
             // Couleurs du drapeau français : un bouton par couleur (bleu, blanc, rouge).
-            Button(
+            HomeButton(
+                text = stringResource(R.string.home_start_exam, stringResource(examMode.shortLabelRes)),
                 onClick = { if (hasPausedQuiz) showConfirmDialog = true else onStartExam() },
-                modifier = Modifier.fillMaxWidth().height(56.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = FlagBlue,
-                    contentColor = Color.White
-                )
-            ) {
-                Text(
-                    text = stringResource(R.string.home_start_exam, stringResource(examMode.shortLabelRes)),
-                    style = MaterialTheme.typography.titleMedium
-                )
-            }
+                containerColor = FlagBlue,
+                contentColor = Color.White
+            )
 
             if (hasPausedQuiz) {
                 Spacer(modifier = Modifier.height(12.dp))
-                Button(
+                HomeButton(
+                    text = stringResource(
+                        R.string.home_resume_exam,
+                        stringResource((pausedMode ?: examMode).shortLabelRes)
+                    ),
                     onClick = onResumeExam,
-                    modifier = Modifier.fillMaxWidth().height(56.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        // Bleu plus clair que le bleu du drapeau
-                        containerColor = ResumeBlue,
-                        contentColor = Color.White
-                    )
-                ) {
-                    Text(
-                        text = stringResource(
-                            R.string.home_resume_exam,
-                            stringResource((pausedMode ?: examMode).shortLabelRes)
-                        ),
-                        style = MaterialTheme.typography.titleMedium
-                    )
-                }
-            }
-
-            Spacer(modifier = Modifier.height(12.dp))
-
-            Button(
-                onClick = onStartTraining,
-                modifier = Modifier.fillMaxWidth().height(56.dp),
-                border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary),
-                colors = ButtonDefaults.buttonColors(
-                    // « Blanc » du drapeau : surface du thème pour rester lisible en mode sombre
-                    containerColor = MaterialTheme.colorScheme.surface,
-                    contentColor = MaterialTheme.colorScheme.primary
-                )
-            ) {
-                Text(text = stringResource(R.string.home_training), style = MaterialTheme.typography.titleMedium)
-            }
-
-            Spacer(modifier = Modifier.height(12.dp))
-
-            Button(
-                onClick = onShowHistory,
-                modifier = Modifier.fillMaxWidth().height(56.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = FlagRed,
+                    // Bleu plus clair que le bleu du drapeau
+                    containerColor = ResumeBlue,
                     contentColor = Color.White
                 )
-            ) {
-                Text(text = stringResource(R.string.home_history), style = MaterialTheme.typography.titleMedium)
             }
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            Button(
+            HomeButton(
+                text = stringResource(R.string.home_training),
+                onClick = onStartTraining,
+                // « Blanc » du drapeau : surface du thème pour rester lisible en mode sombre
+                containerColor = MaterialTheme.colorScheme.surface,
+                contentColor = MaterialTheme.colorScheme.primary,
+                border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary)
+            )
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            HomeButton(
+                text = stringResource(R.string.home_history),
+                onClick = onShowHistory,
+                containerColor = FlagRed,
+                contentColor = Color.White
+            )
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            HomeButton(
+                text = stringResource(R.string.home_achievements),
                 onClick = onShowAchievements,
-                modifier = Modifier.fillMaxWidth().height(56.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.secondaryContainer,
-                    contentColor = MaterialTheme.colorScheme.onSecondaryContainer
-                )
-            ) {
-                Text(text = stringResource(R.string.home_achievements), style = MaterialTheme.typography.titleMedium)
-            }
+                containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                contentColor = MaterialTheme.colorScheme.onSecondaryContainer
+            )
         }
+    }
+}
+
+/**
+ * Bouton pleine largeur de l'accueil.
+ *
+ * La hauteur est un **minimum** et non une valeur figée : les libellés « Commencer / Reprendre
+ * l'examen — <QCM> » passent sur deux lignes pour les intitulés longs (carte de séjour
+ * pluriannuelle), et une hauteur fixe tronquait la seconde ligne. Le bouton s'agrandit donc au
+ * besoin — ce qui protège aussi les libellés courts en taille de texte « Grand ».
+ */
+@Composable
+private fun HomeButton(
+    text: String,
+    onClick: () -> Unit,
+    containerColor: Color,
+    contentColor: Color,
+    border: BorderStroke? = null
+) {
+    Button(
+        onClick = onClick,
+        modifier = Modifier
+            .fillMaxWidth()
+            .heightIn(min = 56.dp),
+        border = border,
+        colors = ButtonDefaults.buttonColors(
+            containerColor = containerColor,
+            contentColor = contentColor
+        ),
+        contentPadding = PaddingValues(horizontal = 24.dp, vertical = 12.dp)
+    ) {
+        Text(
+            text = text,
+            style = MaterialTheme.typography.titleMedium,
+            // Sans cela, la seconde ligne d'un libellé long serait alignée à gauche.
+            textAlign = TextAlign.Center
+        )
     }
 }
 
