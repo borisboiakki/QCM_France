@@ -145,7 +145,7 @@ QCM_France/
 │       └── update-fiches.yml                    Manuel (workflow_dispatch) — régénère res/raw/fiches.json + ouvre une PR
 ├── scripts/
 │   ├── generate_questions_md.py                 Génère QUESTIONS.md (une section par QCM + mises en situation)
-│   ├── check_questions_consistency.py           Contrôle des 4 fichiers de questions (ids, propositions, variantes, cohérence inter-QCM, couverture)
+│   ├── check_questions_consistency.py           Contrôle des 4 fichiers de questions (ids, propositions, variantes, cohérence inter-QCM, couverture, indice de longueur des mises en situation)
 │   └── fetch_fiches.py                          Scrape les fiches thématiques officielles → res/raw/fiches.json (offline)
 ├── LICENSE                                      Licence MIT
 ├── QUESTIONS.md                                 Liste des questions des 3 QCM + mises en situation (généré par release)
@@ -553,12 +553,12 @@ fichier lu (`QuestionRepository.readSeedFile`).
     "id": 1001,
     "theme": "Principes et valeurs de la République",
     "text": "Un parent d'élève demande que son enfant soit dispensé du cours de sciences de la vie pour un motif religieux. Que répond l'école publique ?",
-    "optionA": "Elle accorde la dispense sans discussion",
+    "optionA": "Elle dispense l'élève de la séance concernée mais maintient l'évaluation, sur simple courrier des parents",
     "optionB": "Elle rappelle que les programmes scolaires nationaux s'appliquent à tous les élèves, sans dispense pour motif religieux",
-    "optionC": "Elle exclut l'enfant de l'école",
-    "optionD": "Elle organise un cours séparé selon la religion de chaque élève",
+    "optionC": "Elle convoque un conseil de discipline, la demande valant refus d'assiduité de la part de la famille",
+    "optionD": "Elle propose un cours adapté aux convictions de chaque famille, comme pour les repas à la cantine",
     "correctAnswer": "B",
-    "explanation": "L'école publique est laïque : les programmes nationaux s'imposent à tous les élèves. Une dispense n'est possible que pour des motifs médicaux, jamais religieux.",
+    "explanation": "L'école publique est laïque : les programmes nationaux s'imposent à tous les élèves. Une dispense n'est possible que pour des motifs médicaux, jamais religieux. Aucun aménagement confessionnel du programme n'est prévu, et l'analogie avec les menus de substitution à la cantine ne tient pas : ceux-ci sont une simple faculté de la collectivité, pas un droit.",
     "source": "https://www.education.gouv.fr/",
     "isSituation": true
   }
