@@ -63,7 +63,7 @@ il reste 100 % connaissances.
 | 5 | Vivre dans la société française | 44 | 20 | 3 + 3 = 6 |
 | | **Total** | **258** | **80** | **28 + 12 = 40** |
 
-**Stratégie de tirage :** tirage proportionnel par thème (stratified sampling) pour garantir que chaque thème est représenté, séparément pour le pool « connaissances » et le pool « mise en situation », puis ajustement pour atteindre exactement 28 et 12. L'ordre final des 40 questions est ensuite mélangé.
+**Stratégie de tirage :** tirage proportionnel par thème (stratified sampling) pour garantir que chaque thème est représenté, séparément pour le pool « connaissances » et le pool « mise en situation », puis ajustement pour atteindre exactement 28 et 12. **Ordre de présentation :** comme dans l'examen officiel, les 28 questions de connaissances sont posées d'abord, puis les 12 mises en situation ; chaque bloc est mélangé séparément. Sur l'écran d'examen et dans le détail de l'écran résultat, les mises en situation portent un badge « Mise en situation » (`ui/components/SituationBadge.kt`).
 
 ### Calcul du tirage (implémentation)
 
@@ -181,7 +181,7 @@ QCM_France/
 │   │   │   │   │   ├── ReadFiche.kt             @Entity Room : PK=ficheId (fiches déjà consultées — avancement de lecture + succès fiches)
 │   │   │   │   │   └── Fiche.kt                 Modèles Gson (FichesData/FicheTheme/Fiche) — fiches offline, PAS de Room
 │   │   │   │   └── repository/
-│   │   │   │       ├── QuestionRepository.kt    seedIfNeeded (4 fichiers JSON) + tirage stratifié par QCM : 28 connaissances + 12 mise en situation, cyclé (exam_cycle), themes
+│   │   │   │       ├── QuestionRepository.kt    seedIfNeeded (4 fichiers JSON) + tirage stratifié par QCM : 28 connaissances puis 12 mise en situation (ordre garanti), cyclé (exam_cycle), themes
 │   │   │   │       ├── HistoryRepository.kt     sauvegarde et récupération de l'historique
 │   │   │   │       ├── SettingsRepository.kt    DataStore : ThemeMode + soundEnabled + TextSizeMode + ExamMode (QCM choisi)
 │   │   │   │       ├── PausedQuizRepository.kt  save/load/clear + PausedQuizState (Gson)
@@ -195,8 +195,8 @@ QCM_France/
 │   │   │   │   │   └── NavGraph.kt              13 routes : home/quiz/result/history/settings/help/resources/training_themes/training/about/achievements/fiches_list/fiche_detail + overlay popup succès
 │   │   │   │   ├── screen/
 │   │   │   │   │   ├── HomeScreen.kt            titre, sélecteur de QCM (NAT/CR/CSP), Reprendre (si pause), S'entraîner par thème, Succès, AlertDialog, icônes Ressources / Aide / Paramètres
-│   │   │   │   │   ├── QuizScreen.kt            question N/40, options, timer, bouton Pause, BackHandler, son
-│   │   │   │   │   ├── ResultScreen.kt          score, RÉUSSI/ÉCHOUÉ, temps, filtre erreurs (FilterChip), détail, export, musique de fin (MediaPlayer)
+│   │   │   │   │   ├── QuizScreen.kt            question N/40, badge « Mise en situation », options, timer, bouton Pause, BackHandler, son
+│   │   │   │   │   ├── ResultScreen.kt          score, RÉUSSI/ÉCHOUÉ, temps, filtre erreurs (FilterChip), détail (badge mise en situation), export, musique de fin (MediaPlayer)
 │   │   │   │   │   ├── HistoryScreen.kt         liste des résultats, export par résultat, vider
 │   │   │   │   │   ├── SettingsScreen.kt        thème (Système/Clair/Sombre), taille du texte (slider), toggle son, réinitialiser l'entraînement, réinitialiser le cycle de l'examen, réinitialiser les succès, À propos (défilable)
 │   │   │   │   │   ├── HelpScreen.kt            guide utilisateur (règles, thèmes, fonctionnalités) — les liens officiels sont dans ResourcesScreen
@@ -209,7 +209,8 @@ QCM_France/
 │   │   │   │   │   └── FicheDetailScreen.kt     fiches offline : rendu markdown + « Voir en ligne » + source
 │   │   │   │   ├── components/
 │   │   │   │   │   ├── AchievementUnlockedBanner.kt  bandeau animé « Succès débloqué ! » (overlay global, slide-in, auto-dismiss)
-│   │   │   │   │   └── MarkdownText.kt          rendu markdown minimal en Compose (titres/listes/gras/liens), sans dépendance
+│   │   │   │   │   ├── MarkdownText.kt          rendu markdown minimal en Compose (titres/listes/gras/liens), sans dépendance
+│   │   │   │   │   └── SituationBadge.kt        badge « Mise en situation » (examen + détail du résultat)
 │   │   │   │   ├── utils/
 │   │   │   │   │   └── ResultExporter.kt        partage texte via Intent.ACTION_SEND
 │   │   │   │   ├── viewmodel/
@@ -389,7 +390,7 @@ Cycle de tirage de l'**examen** (pas l'entraînement). Voir « Cycle de tirage d
 3. Si la permutation est épuisée avant d'avoir pris `count` ids (fin d'un tour), génère une nouvelle permutation de l'ensemble des ids du thème/type pour le tour suivant — en plaçant les ids déjà pris dans ce tirage en fin de liste, pour ne pas les retirer immédiatement dans le même examen.
 4. Persiste la permutation (éventuellement renouvelée) et le nouveau curseur, sous la clé de cycle.
 
-`drawStratifiedQuestions(mode)` appelle cette fonction une fois par thème pour `connaissanceCounts` (28 au total, `isSituation = false`) puis une fois par thème pour `situationCounts` (12 au total, `isSituation = true`), avant de concaténer et mélanger les 40 ids obtenus.
+`drawStratifiedQuestions(mode)` appelle cette fonction une fois par thème pour `connaissanceCounts` (28 au total, `isSituation = false`) puis une fois par thème pour `situationCounts` (12 au total, `isSituation = true`). Les 40 questions chargées sont ensuite partitionnées sur `isSituation` et rendues dans l'ordre « connaissances mélangées, puis mises en situation mélangées » — ce partitionnement rétablit aussi un ordre déterminé, `getByIds` ne préservant pas l'ordre de la liste d'ids.
 
 Résultat : toutes les questions d'un QCM/thème/type sont utilisées une fois avant qu'une répétition ne survienne d'un examen à l'autre, et passer un examen CR ne consomme pas la rotation de la naturalisation. Indépendant du flux pause/reprise (`PausedQuiz`) : le cycle n'avance qu'au lancement d'un nouvel examen (`QuizViewModel.startQuiz(mode)` → `drawStratifiedQuestions(mode)`), jamais pendant une reprise.
 
@@ -404,7 +405,7 @@ Mode complémentaire à l'examen, orienté apprentissage — l'inverse UX de l'e
 | Aspect | Examen | Entraînement |
 |---|---|---|
 | Questions | 40 tirées aléatoirement dans le QCM choisi | toutes les questions d'**un** thème d'**un** QCM |
-| Ordre | mélangé | **fixe** (`ORDER BY id`) pour une reprise cohérente |
+| Ordre | 28 connaissances mélangées, **puis** 12 mises en situation mélangées | **fixe** (`ORDER BY id`) pour une reprise cohérente |
 | Chronomètre | 45 min | aucun |
 | Feedback | uniquement à la fin | **immédiat** après chaque réponse |
 | Source | — | **lien cliquable** (`Question.source`) + explication, dans tous les cas |

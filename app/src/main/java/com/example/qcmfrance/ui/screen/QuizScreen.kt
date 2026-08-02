@@ -38,6 +38,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.example.qcmfrance.R
 import com.example.qcmfrance.data.ExamConstants
+import com.example.qcmfrance.ui.components.SituationBadge
 import com.example.qcmfrance.ui.viewmodel.QuizUiState
 
 @Composable
@@ -141,6 +142,11 @@ fun QuizScreen(
             )
 
             Spacer(modifier = Modifier.height(16.dp))
+
+            if (question.isSituation) {
+                SituationBadge()
+                Spacer(modifier = Modifier.height(8.dp))
+            }
 
             Text(
                 text = question.text,

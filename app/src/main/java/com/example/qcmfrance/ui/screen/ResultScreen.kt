@@ -42,6 +42,7 @@ import androidx.compose.ui.unit.dp
 import com.example.qcmfrance.R
 import com.example.qcmfrance.data.ExamConstants
 import com.example.qcmfrance.data.model.Question
+import com.example.qcmfrance.ui.components.SituationBadge
 import com.example.qcmfrance.ui.theme.FailureRed
 import com.example.qcmfrance.ui.theme.SuccessGreen
 import com.example.qcmfrance.ui.utils.ResultExporter
@@ -207,6 +208,10 @@ private fun QuestionResultItem(index: Int, question: Question, givenAnswer: Stri
 
     Card(modifier = Modifier.fillMaxWidth()) {
         Column(modifier = Modifier.padding(12.dp)) {
+            if (question.isSituation) {
+                SituationBadge()
+                Spacer(modifier = Modifier.height(4.dp))
+            }
             Text(
                 text = "$index. ${question.text}",
                 style = MaterialTheme.typography.bodyMedium,

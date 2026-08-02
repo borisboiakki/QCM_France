@@ -179,6 +179,9 @@ class QuestionRepository @Inject constructor(
      *
      * Chaque QCM a ses propres cycles (cf. [ExamMode.cycleKey]) : passer un examen carte de
      * résident ne consomme pas la rotation du mode naturalisation.
+     *
+     * **Ordre de présentation garanti** : les 28 questions de connaissances d'abord, puis les 12
+     * mises en situation, comme dans l'examen officiel. Chaque bloc est mélangé séparément.
      */
     suspend fun drawStratifiedQuestions(mode: ExamMode): List<Question> {
         seedIfNeeded()
@@ -190,7 +193,11 @@ class QuestionRepository @Inject constructor(
         for ((theme, count) in situationCounts) {
             ids += drawIdsFromCycle(theme, count, isSituation = true, mode = mode)
         }
-        return dao.getByIds(ids).shuffled()
+        // Les mises en situation sont posées après les questions de connaissances, comme dans
+        // l'examen officiel. Chaque bloc reste mélangé pour ne pas laisser transparaître l'ordre
+        // des thèmes du tirage stratifié (`getByIds` ne préserve pas l'ordre de `ids`).
+        val (situations, knowledge) = dao.getByIds(ids).partition { it.isSituation }
+        return knowledge.shuffled() + situations.shuffled()
     }
 
     /** Réinitialise le cycle de tirage de l'examen (tous QCM) : chaque clé repart d'une permutation neuve. */

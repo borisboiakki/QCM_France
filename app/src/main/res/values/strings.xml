@@ -54,6 +54,7 @@
     <!-- Examen -->
     <string name="quiz_question_counter">Question %1$d / %2$d</string>
     <string name="quiz_pause">Pause</string>
+    <string name="quiz_situation_badge">Mise en situation</string>
 
     <!-- Résultat -->
     <string name="result_score">%1$d / %2$d</string>
