@@ -89,8 +89,12 @@ class QuestionRepository @Inject constructor(
          * v12 = lot 8 : « Droits et devoirs » et « Vivre dans la société française » de la carte de
          * séjour pluriannuelle. **Les trois listes officielles sont complètes** : 258 NAT + 209 CR
          * + 191 CSP + 80 mises en situation = 738 questions.
+         * v13 = détrompeurs des 80 mises en situation réécrits (issue #43) : pour chaque question,
+         * l'un des trois distracteurs devient un « presque juste » (mauvais numéro d'urgence,
+         * mauvais délai, bonne règle appliquée à la mauvaise personne), les deux autres reçoivent
+         * une justification plausible, et l'explication indique pourquoi le piège ne tient pas.
          */
-        const val CONTENT_VERSION = 12
+        const val CONTENT_VERSION = 13
         private const val CONTENT_PREFS = "question_content"
         private const val KEY_CONTENT_VERSION = "content_version"
     }

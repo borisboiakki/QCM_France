@@ -17,11 +17,15 @@ Vérifications :
     classement de sa liste officielle) ;
   - couverture : effectifs par thème comparés aux listes officielles, et minimum requis par le
     tirage d'examen (13 questions dans « Histoire, géographie et culture », 6 en « Système
-    institutionnel et politique », 3 dans les trois autres).
+    institutionnel et politique », 3 dans les trois autres) ;
+  - indice de longueur des mises en situation : une bonne réponse nettement plus longue que tous
+    ses distracteurs se repère sans lire l'énoncé (cf. issue #43). Le contrôle ne porte que sur
+    `situational_questions.json`, dont les propositions sont intégralement rédigées pour
+    l'application ; les listes de connaissances, aux réponses naturellement brèves, en sont
+    exclues.
 
-Sortie : 0 si tout est conforme, 1 s'il y a au moins une erreur. Les écarts de couverture sont
-signalés en avertissement (tant que les listes CR/CSP sont en cours de rédaction) et ne font pas
-échouer le script.
+Sortie : 0 si tout est conforme, 1 s'il y a au moins une erreur. Les écarts de couverture et
+l'indice de longueur sont signalés en avertissement et ne font pas échouer le script.
 """
 
 import json
@@ -61,6 +65,14 @@ DRAW_MINIMUM = dict(zip(THEMES, [3, 6, 3, 13, 3]))
 
 LETTERS = ("A", "B", "C", "D")
 OPTION_FIELDS = [f"option{letter}" for letter in LETTERS]
+
+# Indice de longueur (mises en situation uniquement, cf. issue #43) : une bonne réponse est
+# signalée quand elle dépasse son plus long distracteur à la fois d'un nombre absolu de caractères
+# et d'un facteur — les deux conditions ensemble, pour ne pas alerter sur un simple écart de
+# formulation entre propositions déjà comparables.
+LENGTH_CUE_FILE = "situational_questions.json"
+LENGTH_CUE_ABSOLUTE = 15
+LENGTH_CUE_RATIO = 1.4
 
 
 def norm(text):
@@ -123,6 +135,21 @@ def main():
                     if variant_answer == base_answer:
                         errors.append(f"{vwhere} : même bonne réponse que le jeu de base")
 
+            if filename == LENGTH_CUE_FILE and q.get("correctAnswer") in LETTERS:
+                answer_length = len(q.get(f"option{q['correctAnswer']}", ""))
+                longest_decoy = max(
+                    len(q.get(f"option{letter}", ""))
+                    for letter in LETTERS
+                    if letter != q["correctAnswer"]
+                )
+                if (answer_length - longest_decoy > LENGTH_CUE_ABSOLUTE
+                        and answer_length > LENGTH_CUE_RATIO * longest_decoy):
+                    warnings.append(
+                        f"{where} : bonne réponse de {answer_length} caractères contre "
+                        f"{longest_decoy} pour le plus long distracteur — repérable sans lire "
+                        f"l'énoncé, allonger un détrompeur"
+                    )
+
             if q.get("text"):
                 by_text[norm(q["text"])].append((filename, qid, q))
 
@@ -165,7 +192,7 @@ def main():
         print(f"\n{len(errors)} erreur(s) sur {total} questions.")
         return 1
     print(f"\n✓ {total} questions contrôlées, aucune erreur"
-          f"{f' ({len(warnings)} avertissement(s) de couverture)' if warnings else ''}.")
+          f"{f' ({len(warnings)} avertissement(s))' if warnings else ''}.")
     return 0
 
 
