@@ -19,10 +19,8 @@ Vérifications :
     tirage d'examen (13 questions dans « Histoire, géographie et culture », 6 en « Système
     institutionnel et politique », 3 dans les trois autres) ;
   - indice de longueur : une bonne réponse nettement plus longue que tous ses distracteurs se
-    repère sans lire l'énoncé (cf. issue #43). Le contrôle porte sur les fichiers dont les
-    détrompeurs ont été repris à ce titre (`LENGTH_CUE_FILES`, jeu de base et variantes) ; les
-    listes non encore reprises en sont exclues, faute de quoi l'avertissement noierait les
-    autres.
+    repère sans lire l'énoncé (cf. issue #43). Le contrôle porte sur les quatre fichiers, jeu de
+    base et variantes.
 
 Sortie : 0 si tout est conforme, 1 s'il y a au moins une erreur. Les écarts de couverture et
 l'indice de longueur sont signalés en avertissement et ne font pas échouer le script.
@@ -69,9 +67,7 @@ OPTION_FIELDS = [f"option{letter}" for letter in LETTERS]
 # Indice de longueur (cf. issue #43) : une bonne réponse est signalée quand elle dépasse son plus
 # long distracteur à la fois d'un nombre absolu de caractères et d'un facteur — les deux conditions
 # ensemble, pour ne pas alerter sur un simple écart de formulation entre propositions déjà
-# comparables. Chaque liste rejoint ce contrôle une fois ses détrompeurs repris ; les deux autres
-# QCM suivront lot par lot.
-LENGTH_CUE_FILES = {"situational_questions.json", "questions.json"}
+# comparables. Les quatre listes ont été reprises à ce titre et sont donc toutes contrôlées.
 LENGTH_CUE_ABSOLUTE = 15
 LENGTH_CUE_RATIO = 1.4
 
@@ -144,10 +140,7 @@ def main():
                 errors.append(f"{where} : thème inconnu « {q.get('theme')} »")
 
             check_answer_set(where, q, errors)
-
-            checks_length = filename in LENGTH_CUE_FILES
-            if checks_length:
-                check_length_cue(where, q, warnings)
+            check_length_cue(where, q, warnings)
 
             base_answer = q.get(f"option{q['correctAnswer']}") if q.get("correctAnswer") in LETTERS else None
             for i, variant in enumerate(q.get("variants", []), start=1):
@@ -157,8 +150,7 @@ def main():
                     variant_answer = variant.get(f"option{variant['correctAnswer']}")
                     if variant_answer == base_answer:
                         errors.append(f"{vwhere} : même bonne réponse que le jeu de base")
-                if checks_length:
-                    check_length_cue(vwhere, variant, warnings)
+                check_length_cue(vwhere, variant, warnings)
 
             if q.get("text"):
                 by_text[norm(q["text"])].append((filename, qid, q))

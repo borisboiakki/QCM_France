@@ -98,8 +98,13 @@ class QuestionRepository @Inject constructor(
          * 3 variantes : distracteurs de longueur comparable, dont un « presque juste »
          * (mauvaise autorité, mauvais texte, mauvaise époque), explication complétée en
          * conséquence.
+         * v15 = fin de la reprise (issue #43) : mêmes principes appliqués aux listes de la carte
+         * de résident (75 questions, 2 variantes) et de la carte de séjour pluriannuelle
+         * (68 questions, 2 variantes). Les questions communes à plusieurs QCM reçoivent la
+         * rédaction déjà retenue pour la naturalisation, si bien que les quatre fichiers ne
+         * comportent plus aucune bonne réponse repérable à sa seule longueur.
          */
-        const val CONTENT_VERSION = 14
+        const val CONTENT_VERSION = 15
         private const val CONTENT_PREFS = "question_content"
         private const val KEY_CONTENT_VERSION = "content_version"
     }

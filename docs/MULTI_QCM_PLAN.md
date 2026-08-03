@@ -139,9 +139,11 @@ Pour chaque question à rédiger :
   l'`explanation` dit **pourquoi le piège ne tient pas**.
 - **Longueur des propositions comparable.** Une bonne réponse nettement plus longue que ses trois
   distracteurs se repère sans lire l'énoncé : `check_questions_consistency.py` le signale en
-  avertissement, jeu de base et variantes, sur les fichiers listés dans `LENGTH_CUE_FILES`
-  (`situational_questions.json`, `questions.json` ; les deux autres QCM les rejoindront à mesure
-  que leurs détrompeurs seront repris).
+  avertissement, jeu de base et variantes, sur les quatre fichiers.
+- **Questions communes à plusieurs QCM.** Une centaine de libellés officiels apparaissent dans deux
+  ou trois listes. Leurs propositions y sont **identiques** : en réécrire une, c'est réécrire les
+  autres, faute de quoi la même question apparaîtrait avec des détrompeurs différents selon le QCM
+  choisi (visible dans l'entraînement, qui affiche les trois).
 - **`explanation`** : 1 à 3 phrases justifiant la bonne réponse, plus une phrase écartant le
   détrompeur plausible — sans redire ce que le reste de l'explication établit déjà.
 - **`source`** : URL officielle — `legifrance.gouv.fr`, `service-public.fr`,
