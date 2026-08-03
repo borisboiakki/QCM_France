@@ -18,16 +18,16 @@
     "id": 2,
     "theme": "Principes et valeurs de la République",
     "text": "Dans le cadre d'un entretien d'embauche, que peut-on demander au candidat ?",
-    "optionA": "Ses opinions politiques",
-    "optionB": "Sa religion",
+    "optionA": "Une copie de son casier judiciaire, pour tout poste en contact avec du public",
+    "optionB": "La composition de son foyer et le nombre d'enfants qu'il élève",
     "optionC": "Une preuve de l'autorisation de travail (titre de séjour en cours de validité)",
-    "optionD": "Son origine ethnique",
+    "optionD": "Son affiliation syndicale, pour anticiper d'éventuelles absences",
     "correctAnswer": "C",
     "correctAnswers": [
       "Une preuve de l'autorisation de travail (titre de séjour en cours de validité)",
       "Des questions sur ses compétences et son expérience professionnelle"
     ],
-    "explanation": "Dans un entretien d'embauche, l'employeur ne peut poser que des questions en lien direct avec le poste et les compétences du candidat. Les questions sur la religion, les opinions politiques ou l'origine ethnique sont strictement interdites par la loi française, car elles constitueraient une discrimination. En revanche, vérifier l'autorisation légale de travailler est une obligation légale de l'employeur.",
+    "explanation": "Dans un entretien d'embauche, l'employeur ne peut poser que des questions en lien direct avec le poste et les compétences du candidat. Les questions sur la religion, les opinions politiques ou l'origine ethnique sont strictement interdites par la loi française, car elles constitueraient une discrimination. En revanche, vérifier l'autorisation légale de travailler est une obligation légale de l'employeur. Le bulletin n° 3 du casier judiciaire ne peut être exigé que pour certains emplois réglementés, jamais pour un recrutement ordinaire ; la situation de famille et l'appartenance syndicale relèvent, elles, de la vie privée.",
     "source": "https://fr.wikipedia.org/wiki/Discrimination_%C3%A0_l%27embauche"
   },
   {
@@ -49,30 +49,30 @@
     "id": 4,
     "theme": "Principes et valeurs de la République",
     "text": "En France, les impôts permettent de financer les dépenses publiques. Quelle proposition est correcte ?",
-    "optionA": "Uniquement les salaires des fonctionnaires",
-    "optionB": "Les impôts servent exclusivement à rembourser la dette de l'état",
+    "optionA": "Ils sont intégralement reversés aux collectivités locales, qui en décident l'emploi",
+    "optionB": "Ils servent d'abord à rembourser la dette de l'État, le solde finançant les services",
     "optionC": "Ils financent les services publics (éducation, santé, sécurité) et le fonctionnement de l'État",
-    "optionD": "Seulement les dépenses militaires",
+    "optionD": "Ils financent les seules dépenses régaliennes : armée, police, justice et diplomatie",
     "correctAnswer": "C",
     "correctAnswers": [
       "Ils financent les services publics (éducation, santé, sécurité) et le fonctionnement de l'État"
     ],
-    "explanation": "Les impôts constituent la principale ressource financière de l'État français. Ils servent à financer l'ensemble des services publics : l'éducation nationale, les hôpitaux, la sécurité, la justice, les infrastructures routières, etc. Ils participent également au fonctionnement des institutions (parlement, préfectures, armée). L'ensemble de ces dépenses est voté chaque année dans le cadre de la loi de finances.",
+    "explanation": "Les impôts constituent la principale ressource financière de l'État français. Ils servent à financer l'ensemble des services publics : l'éducation nationale, les hôpitaux, la sécurité, la justice, les infrastructures routières, etc. Ils participent également au fonctionnement des institutions (parlement, préfectures, armée). L'ensemble de ces dépenses est voté chaque année dans le cadre de la loi de finances. Une part de l'impôt est bien redistribuée aux collectivités et une autre paie la charge de la dette, mais aucune des deux n'épuise le budget : l'impôt finance l'ensemble des services publics.",
     "source": "https://fr.wikipedia.org/wiki/Finances_publiques_en_France"
   },
   {
     "id": 5,
     "theme": "Principes et valeurs de la République",
     "text": "La liberté d'association est :",
-    "optionA": "Interdite sans autorisation préalable",
-    "optionB": "Réservée aux partis politiques",
+    "optionA": "Soumise à l'autorisation préalable de la préfecture depuis la loi de 1901",
+    "optionB": "Un droit reconnu aux seules associations d'utilité publique",
     "optionC": "Un principe fondamental régi par la loi du 1er juillet 1901",
-    "optionD": "Limitée aux associations sportives",
+    "optionD": "Une liberté garantie par le Code du travail, réservée aux syndicats",
     "correctAnswer": "C",
     "correctAnswers": [
       "Un principe fondamental régi par la loi du 1er juillet 1901"
     ],
-    "explanation": "La liberté d'association est un droit fondamental en France, régi par la loi du 1er juillet 1901. Cette loi permet à toute personne de créer une association à but non lucratif simplement par une déclaration en préfecture, sans besoin d'autorisation préalable. Ce droit est garantit par la Constitution et reconnu comme principe fondamental de la République.",
+    "explanation": "La liberté d'association est un droit fondamental en France, régi par la loi du 1er juillet 1901. Cette loi permet à toute personne de créer une association à but non lucratif simplement par une déclaration en préfecture, sans besoin d'autorisation préalable. Ce droit est garantit par la Constitution et reconnu comme principe fondamental de la République. La préfecture reçoit une simple déclaration et ne délivre aucune autorisation ; la reconnaissance d'utilité publique est un statut accordé après coup, pas une condition d'existence.",
     "source": "https://fr.wikipedia.org/wiki/Loi_du_1er_juillet_1901_relative_au_contrat_d%27association"
   },
   {
@@ -146,9 +146,9 @@
     "id": 9,
     "theme": "Principes et valeurs de la République",
     "text": "Où peut-on voir la devise de la République ?",
-    "optionA": "Uniquement dans les églises",
-    "optionB": "Dans les musées privés",
-    "optionC": "Sur les billets de banque étrangers",
+    "optionA": "Sur les enseignes des commerces, qui doivent l'afficher comme leurs prix",
+    "optionB": "Sur les documents des associations reconnues d'utilité publique",
+    "optionC": "Uniquement sur les bâtiments de l'État, les mairies relevant des communes",
     "optionD": "Sur les frontons des bâtiments publics (Mairies, Écoles, Palais de Justice)",
     "correctAnswer": "D",
     "correctAnswers": [
@@ -156,21 +156,21 @@
       "Sur les pièces de monnaie",
       "Sur les timbres"
     ],
-    "explanation": "La devise de la République française, « Liberté, Égalité, Fraternité », est inscrite sur les frontons des bâtiments publics tels que les mairies, les écoles et les palais de justice. On la retrouve aussi sur les pièces de monnaie, les timbres et les documents officiels. Cette devise rappelle que les institutions de la République sont au service de tous les citoyens.",
+    "explanation": "La devise de la République française, « Liberté, Égalité, Fraternité », est inscrite sur les frontons des bâtiments publics tels que les mairies, les écoles et les palais de justice. On la retrouve aussi sur les pièces de monnaie, les timbres et les documents officiels. Cette devise rappelle que les institutions de la République sont au service de tous les citoyens. Les mairies, bien que gérées par les communes, sont des bâtiments publics et portent la devise ; aucune obligation d'affichage ne pèse en revanche sur les commerces ou les associations.",
     "source": "https://fr.wikipedia.org/wiki/Libert%C3%A9%2C_%C3%89galit%C3%A9%2C_Fraternit%C3%A9",
     "variants": [
       {
-        "optionA": "Sur les tickets de métro",
-        "optionB": "Sur les cartes bancaires",
+        "optionA": "Sur les tickets de transport en commun",
+        "optionB": "Sur les cartes bancaires émises en France",
         "optionC": "Sur les pièces de monnaie françaises (1 € et 2 €)",
-        "optionD": "Sur les plaques d'immatriculation",
+        "optionD": "Sur les plaques d'immatriculation des voitures",
         "correctAnswer": "C"
       },
       {
         "optionA": "Sur les documents officiels de l'État (logo de la République)",
-        "optionB": "Sur les billets d'avion",
-        "optionC": "Sur les enseignes des commerces",
-        "optionD": "Sur les cartes de vœux",
+        "optionB": "Sur les billets d'avion au départ de France",
+        "optionC": "Sur les enseignes des commerces de proximité",
+        "optionD": "Sur les cartes de vœux vendues dans les commerces",
         "correctAnswer": "A"
       }
     ]
@@ -320,34 +320,34 @@
     "id": 19,
     "theme": "Principes et valeurs de la République",
     "text": "Qu'est-ce que la liberté d'association ?",
-    "optionA": "Le droit de voter",
+    "optionA": "Le droit de créer une entreprise à plusieurs et d'en partager les bénéfices",
     "optionB": "Le droit de se regrouper pour un projet commun sans but lucratif",
-    "optionC": "Le droit de porter une arme",
-    "optionD": "Le droit de manifester",
+    "optionC": "Le droit pour les salariés d'adhérer au syndicat de leur choix",
+    "optionD": "Le droit de se rassembler sur la voie publique après déclaration",
     "correctAnswer": "B",
     "correctAnswers": [
       "Le droit de se regrouper pour un projet commun sans but lucratif",
       "La liberté régie par la loi du 1er juillet 1901",
       "Le droit de créer une association sur simple déclaration"
     ],
-    "explanation": "La liberté d'association, régie par la loi du 1er juillet 1901, est le droit de se regrouper librement pour poursuivre un objectif commun sans but lucratif. Il suffit de déposer une déclaration en préfecture : aucune autorisation préalable n'est nécessaire. Ce droit fondamental est distinct du droit de vote, du droit de manifester ou du droit de porter une arme.",
+    "explanation": "La liberté d'association, régie par la loi du 1er juillet 1901, est le droit de se regrouper librement pour poursuivre un objectif commun sans but lucratif. Il suffit de déposer une déclaration en préfecture : aucune autorisation préalable n'est nécessaire. Ce droit fondamental est distinct du droit de vote, du droit de manifester ou du droit de porter une arme. La liberté syndicale relève du même esprit mais d'un autre texte, et une association ne peut pas partager de bénéfices entre ses membres, à la différence d'une société.",
     "source": "https://fr.wikipedia.org/wiki/Loi_du_1er_juillet_1901_relative_au_contrat_d%27association"
   },
   {
     "id": 20,
     "theme": "Principes et valeurs de la République",
     "text": "Qu'est-ce qu'une liberté ?",
-    "optionA": "Un concept philosophique abstrait",
-    "optionB": "Un privilège accordé par l'État",
+    "optionA": "Un principe moral dépourvu de valeur juridique contraignante",
+    "optionB": "Une faculté accordée par l'État, qu'il peut retirer librement",
     "optionC": "Le droit de faire tout ce qui ne nuit pas à autrui",
-    "optionD": "Une obligation légale",
+    "optionD": "Le droit d'agir sans aucune limite, sauf en temps de guerre",
     "correctAnswer": "C",
     "correctAnswers": [
       "Le droit de faire tout ce qui ne nuit pas à autrui",
       "Un droit fondamental garanti par la Constitution",
       "La possibilité d'agir sans contrainte, dans les limites de la loi"
     ],
-    "explanation": "Une liberté est le droit de faire tout ce qui ne nuit pas à autrui, conformément à l'article 4 de la Déclaration des droits de l'homme et du citoyen de 1789. Les libertés ne sont pas absolues : elles s'exercent dans le cadre fixé par la loi, qui protège à la fois la liberté individuelle et les droits des autres citoyens. La loi fixe donc les limites nécessaires au « vivre ensemble ».",
+    "explanation": "Une liberté est le droit de faire tout ce qui ne nuit pas à autrui, conformément à l'article 4 de la Déclaration des droits de l'homme et du citoyen de 1789. Les libertés ne sont pas absolues : elles s'exercent dans le cadre fixé par la loi, qui protège à la fois la liberté individuelle et les droits des autres citoyens. La loi fixe donc les limites nécessaires au « vivre ensemble ». Les libertés ne sont pas des faveurs révocables : elles ont une valeur juridique et ne connaissent d'autres bornes que celles fixées par la loi, en tout temps.",
     "source": "https://fr.wikipedia.org/wiki/Libert%C3%A9"
   },
   {
@@ -404,9 +404,9 @@
     "id": 24,
     "theme": "Principes et valeurs de la République",
     "text": "Une personne peut-elle changer librement de religion en France ?",
-    "optionA": "Seulement si elle est athée",
-    "optionB": "Non",
-    "optionC": "Uniquement avec une autorisation",
+    "optionA": "Oui, mais après en avoir fait la déclaration en mairie",
+    "optionB": "Non, la religion déclarée à la naissance est définitive",
+    "optionC": "Oui, sauf pour les fonctionnaires, tenus à la neutralité",
     "optionD": "Oui, la France garantit la liberté de conscience",
     "correctAnswer": "D",
     "correctAnswers": [
@@ -414,7 +414,7 @@
       "Oui, chacun est libre de croire, de ne pas croire ou de changer de religion",
       "Oui, c'est un droit fondamental protégé par la laïcité"
     ],
-    "explanation": "La France garantit la liberté de conscience, c'est-à-dire la liberté de croire ou de ne pas croire, de pratiquer ou de changer de religion. Ce droit, fondé sur le principe de laïcité consacré par la loi de 1905, protège chacun dans sa sphère intime. Nul ne peut être contraint d'appartenir à une religion ou d'en changer contre sa volonté.",
+    "explanation": "La France garantit la liberté de conscience, c'est-à-dire la liberté de croire ou de ne pas croire, de pratiquer ou de changer de religion. Ce droit, fondé sur le principe de laïcité consacré par la loi de 1905, protège chacun dans sa sphère intime. Nul ne peut être contraint d'appartenir à une religion ou d'en changer contre sa volonté. Aucune déclaration n'est à faire : l'État ne tient pas registre des religions. La neutralité imposée aux fonctionnaires porte sur l'expression de leurs convictions dans le service, jamais sur leurs croyances.",
     "source": "https://fr.wikipedia.org/wiki/La%C3%AFcit%C3%A9_en_France"
   },
   {
@@ -471,16 +471,16 @@
     "id": 27,
     "theme": "Principes et valeurs de la République",
     "text": "En France, il est possible pour l'État de financer :",
-    "optionA": "Les clubs sportifs professionnels",
-    "optionB": "Les entreprises privées",
-    "optionC": "Les cultes religieux",
+    "optionA": "Les écoles privées hors contrat, à égalité avec les écoles publiques",
+    "optionB": "L'entretien des édifices religieux construits après la loi de 1905",
+    "optionC": "Les lieux de culte de toutes les confessions, au nom de l'égalité",
     "optionD": "Les écoles publiques, les hôpitaux et les infrastructures",
     "correctAnswer": "D",
     "correctAnswers": [
       "Les écoles publiques, les hôpitaux et les infrastructures",
       "Les services publics et les associations d'intérêt général"
     ],
-    "explanation": "En application du principe de laïcité, l'État ne peut pas financer les cultes religieux. Il peut en revanche financer les écoles publiques, les hôpitaux, les routes, les services de sécurité et d'autres services publics qui bénéficient à l'ensemble des citoyens. Ces dépenses sont financées par les impôts et contribuent à l'intérêt général.",
+    "explanation": "En application du principe de laïcité, l'État ne peut pas financer les cultes religieux. Il peut en revanche financer les écoles publiques, les hôpitaux, les routes, les services de sécurité et d'autres services publics qui bénéficient à l'ensemble des citoyens. Ces dépenses sont financées par les impôts et contribuent à l'intérêt général. L'État et les communes entretiennent les seuls édifices du culte bâtis avant 1905, dont ils sont devenus propriétaires, et ne financent aucun culte ; les écoles privées ne reçoivent de fonds publics que si elles ont passé un contrat avec l'État.",
     "source": "https://fr.wikipedia.org/wiki/Service_public_en_France"
   },
   {
@@ -503,16 +503,16 @@
     "theme": "Principes et valeurs de la République",
     "text": "Que dit la loi de 1905 ?",
     "optionA": "Elle garantit la liberté de conscience et le libre exercice des cultes",
-    "optionB": "Elle instaure le suffrage universel",
-    "optionC": "Elle crée l'école publique",
-    "optionD": "Elle interdit toutes les religions",
+    "optionB": "Elle confie aux communes la nomination des ministres du culte",
+    "optionC": "Elle rend l'enseignement primaire gratuit, laïque et obligatoire",
+    "optionD": "Elle interdit tout signe religieux dans les lieux ouverts au public",
     "correctAnswer": "A",
     "correctAnswers": [
       "Elle garantit la liberté de conscience et le libre exercice des cultes",
       "Elle sépare les Églises et l'État",
       "Elle affirme que la République ne salarie ni ne subventionne aucun culte"
     ],
-    "explanation": "La loi du 9 décembre 1905 pose les deux grands principes de la laïcité française : la liberté de conscience (chacun peut croire ou ne pas croire) et le libre exercice des cultes. Elle sépare l'Église et l'État en affirmant que « la République ne reconnaît, ne salarie ni ne subventionne aucun culte ». C'est le texte fondateur de la laïcité en France.",
+    "explanation": "La loi du 9 décembre 1905 pose les deux grands principes de la laïcité française : la liberté de conscience (chacun peut croire ou ne pas croire) et le libre exercice des cultes. Elle sépare l'Église et l'État en affirmant que « la République ne reconnaît, ne salarie ni ne subventionne aucun culte ». C'est le texte fondateur de la laïcité en France. L'école gratuite, laïque et obligatoire vient des lois Ferry de 1881-1882, et l'interdiction des signes religieux ostensibles de la loi de 2004, limitée aux écoles publiques : ni l'une ni l'autre n'est l'objet de la loi de 1905.",
     "source": "https://fr.wikipedia.org/wiki/Loi_du_9_d%C3%A9cembre_1905_concernant_la_s%C3%A9paration_des_%C3%89glises_et_de_l%27%C3%89tat"
   },
   {
@@ -582,15 +582,15 @@
     "id": 34,
     "theme": "Principes et valeurs de la République",
     "text": "Quel texte est considéré comme le texte fondateur de la laïcité ?",
-    "optionA": "La Déclaration des Droits de l'Homme",
-    "optionB": "La Constitution de 1958",
+    "optionA": "La Déclaration des droits de l'homme et du citoyen de 1789",
+    "optionB": "La loi Ferry de 1882 rendant l'instruction primaire obligatoire",
     "optionC": "La loi de 1905 de séparation des Églises et de l'État",
-    "optionD": "Le Code civil",
+    "optionD": "La loi de 2004 encadrant les signes religieux à l'école",
     "correctAnswer": "C",
     "correctAnswers": [
       "La loi de 1905 de séparation des Églises et de l'État"
     ],
-    "explanation": "La loi du 9 décembre 1905 est le texte fondateur de la laïcité française. Elle met fin au régime concordataire de 1801 (qui liait l'État à l'Église catholique) et établit la séparation complète entre les Églises et l'État. Bien que la Déclaration de 1789 garantisse la liberté de conscience, c'est la loi de 1905 qui institutionnalise la laïcité.",
+    "explanation": "La loi du 9 décembre 1905 est le texte fondateur de la laïcité française. Elle met fin au régime concordataire de 1801 (qui liait l'État à l'Église catholique) et établit la séparation complète entre les Églises et l'État. Bien que la Déclaration de 1789 garantisse la liberté de conscience, c'est la loi de 1905 qui institutionnalise la laïcité. Les lois Ferry de 1881-1882 laïcisent l'école et celle de 2004 n'encadre que les signes religieux portés par les élèves : ni l'une ni l'autre n'opère la séparation, objet de la loi de 1905.",
     "source": "https://fr.wikipedia.org/wiki/Loi_du_9_d%C3%A9cembre_1905_concernant_la_s%C3%A9paration_des_%C3%89glises_et_de_l%27%C3%89tat"
   },
   {
@@ -775,17 +775,17 @@
     "id": 46,
     "theme": "Système institutionnel et politique",
     "text": "Quelle condition faut-il remplir pour être candidat aux élections municipales ?",
-    "optionA": "Avoir habité la commune depuis au moins 10 ans",
+    "optionA": "Être inscrit sur la liste électorale de la commune et y résider depuis cinq ans",
     "optionB": "Être électeur de la commune et avoir la nationalité française ou d'un pays de l'Union Européenne",
-    "optionC": "Avoir plus de 30 ans et être de nationalité française",
-    "optionD": "Être né dans la commune où l'on se présente",
+    "optionC": "Avoir vingt-cinq ans révolus et être inscrit sur les listes de la commune",
+    "optionD": "Être propriétaire d'un logement dans la commune et y avoir sa résidence principale",
     "correctAnswer": "B",
     "correctAnswers": [
       "Être électeur de la commune et avoir la nationalité française ou d'un pays de l'Union Européenne",
       "Être inscrit sur les listes électorales de la commune et être ressortissant de l'UE",
       "Avoir 18 ans révolus et être citoyen européen résidant en France"
     ],
-    "explanation": "Pour être candidat aux élections municipales, il faut être électeur de la commune (inscrit sur les listes électorales) et avoir la nationalité française ou celle d'un État membre de l'Union européenne. Depuis le Traité de Maastricht (1992), les citoyens européens résidant en France peuvent voter et être élus aux élections municipales et européennes.",
+    "explanation": "Pour être candidat aux élections municipales, il faut être électeur de la commune (inscrit sur les listes électorales) et avoir la nationalité française ou celle d'un État membre de l'Union européenne. Depuis le Traité de Maastricht (1992), les citoyens européens résidant en France peuvent voter et être élus aux élections municipales et européennes. Aucune durée de résidence, condition de propriété ni âge supérieur à la majorité n'est exigé : il suffit d'avoir dix-huit ans révolus et d'être électeur ou contribuable de la commune.",
     "source": "https://fr.wikipedia.org/wiki/%C3%89lection_municipale_fran%C3%A7aise"
   },
   {
@@ -827,9 +827,9 @@
     "theme": "Système institutionnel et politique",
     "text": "Quelles sont les fonctions du maire ?",
     "optionA": "Représenter la commune, exécuter les décisions du conseil municipal et veiller à l'ordre public",
-    "optionB": "Nommer les juges et gérer les tribunaux locaux",
-    "optionC": "Voter les lois nationales et contrôler le gouvernement",
-    "optionD": "Percevoir les impôts nationaux et les redistribuer",
+    "optionB": "Nommer les juges du tribunal de sa ville et surveiller leur activité",
+    "optionC": "Recruter les enseignants des écoles communales et fixer les programmes",
+    "optionD": "Voter les lois au nom de sa commune et contrôler l'action du Gouvernement",
     "correctAnswer": "A",
     "correctAnswers": [
       "Représenter la commune, exécuter les décisions du conseil municipal et veiller à l'ordre public",
@@ -837,7 +837,7 @@
       "Il célèbre les mariages (officier d'état civil) et dirige la police municipale",
       "Il gère le budget de la commune, les écoles primaires et l'état civil"
     ],
-    "explanation": "Le maire cumule trois types de fonctions. Il représente la commune en justice et dans les actes civils. Il exécute les délibérations du conseil municipal (budget, règlements). Et il exerce des pouvoirs de police administrative (sécurité, salubrité). Il est aussi officier d'état civil (il célèbre les mariages) et officier de police judiciaire.",
+    "explanation": "Le maire cumule trois types de fonctions. Il représente la commune en justice et dans les actes civils. Il exécute les délibérations du conseil municipal (budget, règlements). Et il exerce des pouvoirs de police administrative (sécurité, salubrité). Il est aussi officier d'état civil (il célèbre les mariages) et officier de police judiciaire. La commune construit et entretient les écoles primaires, mais les enseignants sont recrutés et rémunérés par l'État, qui fixe seul les programmes ; le maire ne nomme aucun juge et ne vote aucune loi.",
     "source": "https://fr.wikipedia.org/wiki/Maire_(France)"
   },
   {
@@ -845,14 +845,14 @@
     "theme": "Système institutionnel et politique",
     "text": "Une personne, n'ayant pas d'accès à internet, veut s'inscrire sur les listes électorales pour pouvoir voter aux prochaines élections politiques. Où peut-elle s'inscrire ?",
     "optionA": "En se rendant à la mairie de son domicile (ou par courrier)",
-    "optionB": "Au commissariat de police de son quartier",
-    "optionC": "Dans n'importe quel bureau de poste",
-    "optionD": "À la préfecture de son département",
+    "optionB": "Au commissariat de police ou à la gendarmerie de son quartier",
+    "optionC": "À la préfecture du département, qui tient les listes électorales",
+    "optionD": "Au bureau de vote le jour du scrutin, avec une pièce d'identité",
     "correctAnswer": "A",
     "correctAnswers": [
       "En se rendant à la mairie de son domicile (ou par courrier)"
     ],
-    "explanation": "Pour s'inscrire sur les listes électorales sans accès à internet, un citoyen peut se rendre directement à la mairie de sa commune de résidence ou lui envoyer un courrier accompagné des pièces justificatives. Il est également possible de passer par certaines structures habilitées (associations, consulats pour les Français de l'étranger). La démarche en ligne est possible via service-public.fr.",
+    "explanation": "Pour s'inscrire sur les listes électorales sans accès à internet, un citoyen peut se rendre directement à la mairie de sa commune de résidence ou lui envoyer un courrier accompagné des pièces justificatives. Il est également possible de passer par certaines structures habilitées (associations, consulats pour les Français de l'étranger). La démarche en ligne est possible via service-public.fr. Les listes électorales sont tenues par le maire, sous le contrôle de l'Insee : ni la préfecture, ni la police, ni le bureau de vote le jour du scrutin ne peuvent enregistrer une inscription.",
     "source": "https://www.service-public.fr/particuliers/vosdroits/F1372"
   },
   {
@@ -1187,32 +1187,32 @@
     "id": 71,
     "theme": "Système institutionnel et politique",
     "text": "Quel est le rôle du Conseil constitutionnel ?",
-    "optionA": "Gérer les élections",
-    "optionB": "Voter les lois",
+    "optionA": "Juger les ministres pour les actes commis dans leurs fonctions",
+    "optionB": "Trancher les litiges entre l'administration et les citoyens",
     "optionC": "Vérifier que les lois respectent la Constitution",
-    "optionD": "Nommer les ministres",
+    "optionD": "Rédiger les projets de révision de la Constitution",
     "correctAnswer": "C",
     "correctAnswers": [
       "Vérifier que les lois respectent la Constitution"
     ],
-    "explanation": "Le Conseil constitutionnel est l'institution chargée de contrôler la conformité des lois à la Constitution française. Il peut être saisi avant la promulgation d'une loi par le Président de la République, le Premier ministre ou les présidents des assemblées. Depuis 2010, tout citoyen peut aussi soulever une Question prioritaire de constitutionnalité (QPC) lors d'un procès.",
+    "explanation": "Le Conseil constitutionnel est l'institution chargée de contrôler la conformité des lois à la Constitution française. Il peut être saisi avant la promulgation d'une loi par le Président de la République, le Premier ministre ou les présidents des assemblées. Depuis 2010, tout citoyen peut aussi soulever une Question prioritaire de constitutionnalité (QPC) lors d'un procès. Les litiges avec l'administration relèvent de la juridiction administrative, les infractions commises par les ministres de la Cour de justice de la République, et la révision de la Constitution du Parlement.",
     "source": "https://fr.wikipedia.org/wiki/Conseil_constitutionnel_(France)"
   },
   {
     "id": 72,
     "theme": "Système institutionnel et politique",
     "text": "Quelle condition est obligatoire pour se présenter à l'élection présidentielle ?",
-    "optionA": "Être riche",
+    "optionA": "Être français depuis dix ans au moins et avoir trente ans révolus",
     "optionB": "Être français, majeur et jouir de ses droits civiques",
-    "optionC": "Être né en France",
-    "optionD": "Avoir un casier judiciaire vierge",
+    "optionC": "Être né en France et y résider de façon continue",
+    "optionD": "Avoir déjà exercé un mandat électif national ou local",
     "correctAnswer": "B",
     "correctAnswers": [
       "Être français, majeur et jouir de ses droits civiques",
       "Avoir recueilli 500 parrainages d'élus",
       "Ne pas être inéligible (condamnation judiciaire)"
     ],
-    "explanation": "Pour se présenter à l'élection présidentielle en France, les conditions sont : être de nationalité française, avoir 18 ans révolus, jouir de ses droits civiques et ne pas être frappé d'inéligibilité. Le candidat doit également réunir 500 parrainages d'élus provenant d'au moins 30 départements ou collectivités différents. La richesse ou la naissance en France ne sont pas des critères.",
+    "explanation": "Pour se présenter à l'élection présidentielle en France, les conditions sont : être de nationalité française, avoir 18 ans révolus, jouir de ses droits civiques et ne pas être frappé d'inéligibilité. Le candidat doit également réunir 500 parrainages d'élus provenant d'au moins 30 départements ou collectivités différents. La richesse ou la naissance en France ne sont pas des critères. Il faut en revanche réunir cinq cents parrainages d'élus, sans avoir soi-même exercé le moindre mandat, et aucune durée minimale de nationalité n'est exigée.",
     "source": "https://fr.wikipedia.org/wiki/%C3%89lection_pr%C3%A9sidentielle_en_France"
   },
   {
@@ -1299,10 +1299,10 @@
     "id": 78,
     "theme": "Système institutionnel et politique",
     "text": "Quel est le rôle du Défenseur des droits ?",
-    "optionA": "Gérer les prisons",
+    "optionA": "Assurer la défense des prévenus qui ne peuvent pas payer un avocat",
     "optionB": "Veiller au respect des droits et libertés et lutter contre les discriminations",
-    "optionC": "Défendre les accusés",
-    "optionD": "Contrôler les médias",
+    "optionC": "Contrôler l'impartialité des médias et le pluralisme des programmes",
+    "optionD": "Contrôler les conditions de détention dans les prisons et les rétentions",
     "correctAnswer": "B",
     "correctAnswers": [
       "Veiller au respect des droits et libertés et lutter contre les discriminations",
@@ -1310,7 +1310,7 @@
       "Lutter contre les discriminations",
       "Défendre les droits de l'enfant et la déontologie de la sécurité"
     ],
-    "explanation": "Le Défenseur des droits est une autorité constitutionnelle indépendante, créée en 2011. Il est chargé de veiller au respect des droits et libertés par les services publics et les organismes privés, de lutter contre les discriminations et de défendre les droits de l'enfant. Toute personne s'estimant victime peut le saisir gratuitement.",
+    "explanation": "Le Défenseur des droits est une autorité constitutionnelle indépendante, créée en 2011. Il est chargé de veiller au respect des droits et libertés par les services publics et les organismes privés, de lutter contre les discriminations et de défendre les droits de l'enfant. Toute personne s'estimant victime peut le saisir gratuitement. La défense des personnes poursuivies revient aux avocats, au besoin par l'aide juridictionnelle, le pluralisme des médias à l'Arcom et les lieux d'enfermement au Contrôleur général des lieux de privation de liberté.",
     "source": "https://fr.wikipedia.org/wiki/D%C3%A9fenseur_des_droits_(France)"
   },
   {
@@ -1408,16 +1408,16 @@
     "theme": "Système institutionnel et politique",
     "text": "Qui siège au Parlement européen ?",
     "optionA": "Des eurodéputés élus par les citoyens des États membres",
-    "optionB": "Les chefs d'État",
-    "optionC": "Les militaires",
-    "optionD": "Les juges",
+    "optionB": "Les ministres des États membres, selon les sujets débattus",
+    "optionC": "Des députés désignés par les parlements nationaux",
+    "optionD": "Les chefs d'État et de gouvernement des vingt-sept pays",
     "correctAnswer": "A",
     "correctAnswers": [
       "Des eurodéputés élus par les citoyens des États membres",
       "Des eurodéputés (ou députés européens)",
       "Des représentants élus directement par les citoyens européens"
     ],
-    "explanation": "Le Parlement européen est composé d'eurodéputés (ou députés européens) élus directement par les citoyens des États membres tous les 5 ans au suffrage universel direct. C'est la seule institution de l'UE dont les membres sont élus directement. Le Parlement européen partage le pouvoir législatif avec le Conseil de l'UE.",
+    "explanation": "Le Parlement européen est composé d'eurodéputés (ou députés européens) élus directement par les citoyens des États membres tous les 5 ans au suffrage universel direct. C'est la seule institution de l'UE dont les membres sont élus directement. Le Parlement européen partage le pouvoir législatif avec le Conseil de l'UE. Les ministres siègent au Conseil de l'Union et les chefs d'État au Conseil européen ; la désignation par les parlements nationaux, elle, a pris fin avec la première élection au suffrage universel direct, en 1979.",
     "source": "https://fr.wikipedia.org/wiki/Parlement_europ%C3%A9en"
   },
   {
@@ -1514,16 +1514,16 @@
     "id": 92,
     "theme": "Système institutionnel et politique",
     "text": "De quoi est composé le drapeau européen ?",
-    "optionA": "Un aigle",
-    "optionB": "Un lion",
-    "optionC": "Un croissant",
+    "optionA": "Autant d'étoiles dorées que d'États membres",
+    "optionB": "Douze bandes bleues et jaunes alternées",
+    "optionC": "Un cercle d'étoiles bleues sur fond jaune",
     "optionD": "12 étoiles dorées sur fond bleu",
     "correctAnswer": "D",
     "correctAnswers": [
       "12 étoiles dorées sur fond bleu",
       "Un cercle de 12 étoiles d'or"
     ],
-    "explanation": "Le drapeau européen se compose d'un cercle de 12 étoiles dorées sur fond bleu. Le nombre 12 est un symbole de perfection et d'unité (comme les 12 mois de l'année ou les 12 heures d'une horloge), et ne correspond pas au nombre d'États membres. Il a été créé en 1955 par le Conseil de l'Europe et adopté par l'UE en 1985.",
+    "explanation": "Le drapeau européen se compose d'un cercle de 12 étoiles dorées sur fond bleu. Le nombre 12 est un symbole de perfection et d'unité (comme les 12 mois de l'année ou les 12 heures d'une horloge), et ne correspond pas au nombre d'États membres. Il a été créé en 1955 par le Conseil de l'Europe et adopté par l'UE en 1985. Le nombre d'étoiles est fixé à douze et ne varie pas avec les adhésions : il symbolise la perfection et l'unité, non le nombre d'États membres.",
     "source": "https://fr.wikipedia.org/wiki/Drapeau_europ%C3%A9en"
   },
   {
@@ -1560,10 +1560,10 @@
     "id": 95,
     "theme": "Droits et devoirs",
     "text": "À quoi sert le droit de grève ?",
-    "optionA": "Licencier des employés",
-    "optionB": "Protester contre le gouvernement",
+    "optionA": "À permettre à un salarié de cesser le travail lorsqu'il se juge en danger",
+    "optionB": "À obtenir la démission du Gouvernement quand le mouvement est suivi partout",
     "optionC": "À permettre aux salariés de cesser collectivement le travail pour défendre leurs intérêts professionnels",
-    "optionD": "Fermer une entreprise",
+    "optionD": "À suspendre les contrats des salariés qu'une entreprise ne peut plus payer",
     "correctAnswer": "C",
     "correctAnswers": [
       "À permettre aux salariés de cesser collectivement le travail pour défendre leurs intérêts professionnels",
@@ -1571,17 +1571,17 @@
       "À revendiquer de meilleures conditions de travail ou de salaire",
       "Il permet aux salariés de cesser collectivement le travail pour faire aboutir des revendications"
     ],
-    "explanation": "Le droit de grève est un droit constitutionnel en France, reconnu depuis le préambule de la Constitution de 1946. Il permet à des salariés de cesser collectivement et temporairement le travail pour défendre leurs intérêts professionnels (salaires, conditions de travail, emploi). La grève est encadrée par la loi, notamment dans les services publics où un préavis de 5 jours est obligatoire.",
+    "explanation": "Le droit de grève est un droit constitutionnel en France, reconnu depuis le préambule de la Constitution de 1946. Il permet à des salariés de cesser collectivement et temporairement le travail pour défendre leurs intérêts professionnels (salaires, conditions de travail, emploi). La grève est encadrée par la loi, notamment dans les services publics où un préavis de 5 jours est obligatoire. Cesser le travail devant un danger grave et imminent relève du droit de retrait, individuel, et la suspension des contrats faute d'activité du chômage partiel : la grève est, elle, une cessation collective et concertée.",
     "source": "https://fr.wikipedia.org/wiki/Droit_de_gr%C3%A8ve_en_France"
   },
   {
     "id": 96,
     "theme": "Droits et devoirs",
     "text": "Au nom de quoi l'État justifie-t-il la restriction des droits ?",
-    "optionA": "La volonté du président",
+    "optionA": "Pour préserver l'équilibre des finances publiques",
     "optionB": "Pour l'intérêt général et la sécurité de tous",
-    "optionC": "Les demandes des entreprises",
-    "optionD": "Les traditions",
+    "optionC": "Pour répondre à la demande de la majorité des citoyens",
+    "optionD": "Pour protéger les traditions et l'identité nationale",
     "correctAnswer": "B",
     "correctAnswers": [
       "Pour l'intérêt général et la sécurité de tous",
@@ -1589,17 +1589,17 @@
       "Au nom de l'intérêt général",
       "Pour protéger les droits et libertés d'autrui"
     ],
-    "explanation": "Dans un État de droit, les libertés individuelles ne sont pas absolues. L'État peut les restreindre, mais uniquement au nom de l'intérêt général (sécurité publique, ordre public, protection des droits d'autrui) et sous contrôle du juge. Par exemple, la liberté de manifester peut être limitée pour prévenir des troubles à l'ordre public.",
+    "explanation": "Dans un État de droit, les libertés individuelles ne sont pas absolues. L'État peut les restreindre, mais uniquement au nom de l'intérêt général (sécurité publique, ordre public, protection des droits d'autrui) et sous contrôle du juge. Par exemple, la liberté de manifester peut être limitée pour prévenir des troubles à l'ordre public. Une restriction ne se justifie ni par la volonté de la majorité, ni par des considérations budgétaires ou identitaires : seule la préservation de l'intérêt général et de l'ordre public l'autorise, et toujours par la loi.",
     "source": "https://fr.wikipedia.org/wiki/Int%C3%A9r%C3%AAt_g%C3%A9n%C3%A9ral"
   },
   {
     "id": 97,
     "theme": "Droits et devoirs",
     "text": "Laquelle de ces citations est inscrite dans la Déclaration des Droits de l'Homme et du Citoyen de 1789 ?",
-    "optionA": "La France est une République",
-    "optionB": "La propriété est un vol",
+    "optionA": "La France est une République indivisible, laïque et sociale",
+    "optionB": "Nul ne peut être privé de la nationalité française sans jugement",
     "optionC": "Les hommes naissent et demeurent libres et égaux en droits",
-    "optionD": "Le roi est le chef de l'État",
+    "optionD": "Chacun a le devoir de travailler et le droit d'obtenir un emploi",
     "correctAnswer": "C",
     "correctAnswers": [
       "Les hommes naissent et demeurent libres et égaux en droits",
@@ -1608,65 +1608,65 @@
       "\"Nul ne doit être inquiété pour ses opinions, même religieuses.\" (Article 10)",
       "\"Tout homme étant présumé innocent jusqu'à ce qu'il ait été déclaré coupable.\" (Article 9)"
     ],
-    "explanation": "L'article 1er de la Déclaration des droits de l'homme et du citoyen de 1789 affirme : « Les hommes naissent et demeurent libres et égaux en droits ». Ce texte fondateur des droits et libertés en France a valeur constitutionnelle depuis 1971 (décision du Conseil constitutionnel). Il protège l'ensemble des libertés fondamentales.",
+    "explanation": "L'article 1er de la Déclaration des droits de l'homme et du citoyen de 1789 affirme : « Les hommes naissent et demeurent libres et égaux en droits ». Ce texte fondateur des droits et libertés en France a valeur constitutionnelle depuis 1971 (décision du Conseil constitutionnel). Il protège l'ensemble des libertés fondamentales. La formule sur la République indivisible et laïque ouvre la Constitution de 1958, et le droit d'obtenir un emploi figure au Préambule de 1946 : ces textes complètent la Déclaration de 1789 sans s'y confondre.",
     "source": "https://fr.wikipedia.org/wiki/D%C3%A9claration_des_droits_de_l%27homme_et_du_citoyen_de_1789"
   },
   {
     "id": 98,
     "theme": "Droits et devoirs",
     "text": "L'article 4 de la Déclaration des droits de l'homme et du citoyen affirme que \"la liberté consiste à pouvoir faire tout ce qui ne nuit pas à autrui\". Qu'est-ce que cela signifie ?",
-    "optionA": "La propriété est sacrée",
-    "optionB": "Tous les hommes sont égaux",
+    "optionA": "Que la loi doit céder devant la liberté individuelle en cas de conflit",
+    "optionB": "Que l'État doit garantir à chacun les moyens d'exercer sa liberté",
     "optionC": "Que la liberté individuelle s'arrête là où commence celle des autres",
-    "optionD": "Le gouvernement doit être renversé",
+    "optionD": "Que toute liberté trouve sa limite dans l'intérêt supérieur de la Nation",
     "correctAnswer": "C",
     "correctAnswers": [
       "Que la liberté individuelle s'arrête là où commence celle des autres",
       "Que la liberté est limitée par le respect des droits d'autrui et par la loi"
     ],
-    "explanation": "L'article 4 de la DDHC de 1789 pose la définition de la liberté : « La liberté consiste à pouvoir faire tout ce qui ne nuit pas à autrui. » Cela signifie que la liberté de chacun s'arrête là où commence celle des autres. La loi fixe les limites de la liberté individuelle pour protéger les droits collectifs.",
+    "explanation": "L'article 4 de la DDHC de 1789 pose la définition de la liberté : « La liberté consiste à pouvoir faire tout ce qui ne nuit pas à autrui. » Cela signifie que la liberté de chacun s'arrête là où commence celle des autres. La loi fixe les limites de la liberté individuelle pour protéger les droits collectifs. La limite posée par l'article 4 n'est ni l'intérêt de la Nation, ni un devoir d'assistance de l'État : c'est le droit d'autrui, et il revient à la loi seule d'en fixer les bornes.",
     "source": "https://fr.wikipedia.org/wiki/D%C3%A9claration_des_droits_de_l%27homme_et_du_citoyen_de_1789"
   },
   {
     "id": 99,
     "theme": "Droits et devoirs",
     "text": "Que dit l'article 1er de la Constitution française ?",
-    "optionA": "L'armée dirige le pays",
-    "optionB": "Le président est tout-puissant",
-    "optionC": "La monarchie est rétablie",
+    "optionA": "La souveraineté appartient au peuple, qui l'exerce par ses représentants",
+    "optionB": "Les hommes naissent et demeurent libres et égaux en droits",
+    "optionC": "Le Président de la République est le garant de l'indépendance nationale",
     "optionD": "La France est une République indivisible, laïque, démocratique et sociale",
     "correctAnswer": "D",
     "correctAnswers": [
       "La France est une République indivisible, laïque, démocratique et sociale"
     ],
-    "explanation": "L'article 1er de la Constitution française de 1958 dispose : « La France est une République indivisible, laïque, démocratique et sociale. » Ces quatre qualificatifs définissent la nature de l'État français : une République une et indivisible (pas d'état fédéral), séparée des religions (laïque), fondée sur le vote populaire (démocratique) et soucieuse de réduire les inégalités (sociale).",
+    "explanation": "L'article 1er de la Constitution française de 1958 dispose : « La France est une République indivisible, laïque, démocratique et sociale. » Ces quatre qualificatifs définissent la nature de l'État français : une République une et indivisible (pas d'état fédéral), séparée des religions (laïque), fondée sur le vote populaire (démocratique) et soucieuse de réduire les inégalités (sociale). La souveraineté du peuple est proclamée à l'article 3 et le rôle du Président à l'article 5 ; quant à l'égalité de naissance en droits, elle ouvre la Déclaration de 1789.",
     "source": "https://fr.wikipedia.org/wiki/Constitution_de_la_Cinqui%C3%A8me_R%C3%A9publique_fran%C3%A7aise"
   },
   {
     "id": 100,
     "theme": "Droits et devoirs",
     "text": "Que garantit la liberté de la presse ?",
-    "optionA": "Le droit de mentir",
-    "optionB": "Le droit de diffuser des secrets d'État",
+    "optionA": "Que les journalistes ne peuvent pas être poursuivis pour ce qu'ils publient",
+    "optionB": "Que l'État garantit à chaque titre de presse les moyens de paraître",
     "optionC": "Que les médias peuvent publier des informations sans censure préalable de l'État",
-    "optionD": "Le droit de censurer",
+    "optionD": "Que toute information doit être publiée dès lors qu'elle est vérifiée",
     "correctAnswer": "C",
     "correctAnswers": [
       "Que les médias peuvent publier des informations sans censure préalable de l'État",
       "La liberté de diffuser des opinions, régie par la loi du 29 juillet 1881",
       "Le pluralisme des médias et l'indépendance des journalistes"
     ],
-    "explanation": "La liberté de la presse en France est garantie par la loi du 29 juillet 1881 sur la liberté de la presse. Cette loi permet aux journalistes et aux médias de publier des informations et des opinions sans censure préalable de l'État. Cependant, la presse reste soumise à des règles : elle ne peut pas diffamer, inciter à la haine ou divulguer des informations portant atteinte à la sécurité nationale.",
+    "explanation": "La liberté de la presse en France est garantie par la loi du 29 juillet 1881 sur la liberté de la presse. Cette loi permet aux journalistes et aux médias de publier des informations et des opinions sans censure préalable de l'État. Cependant, la presse reste soumise à des règles : elle ne peut pas diffamer, inciter à la haine ou divulguer des informations portant atteinte à la sécurité nationale. L'absence de censure préalable n'est donc pas une impunité : la responsabilité du journal se joue après publication, devant le juge.",
     "source": "https://fr.wikipedia.org/wiki/Libert%C3%A9_de_la_presse_en_France"
   },
   {
     "id": 101,
     "theme": "Droits et devoirs",
     "text": "Que permet la liberté de circulation ?",
-    "optionA": "Voyager gratuitement",
+    "optionA": "De circuler dans tous les pays du monde sans visa ni contrôle",
     "optionB": "De se déplacer et de résider librement sur le territoire national",
-    "optionC": "Entrer dans les propriétés privées",
-    "optionD": "Conduire sans permis",
+    "optionC": "De franchir les frontières de l'espace Schengen sans document d'identité",
+    "optionD": "De stationner et d'installer son habitation sur tout terrain public",
     "correctAnswer": "B",
     "correctAnswers": [
       "De se déplacer et de résider librement sur le territoire national",
@@ -1674,33 +1674,33 @@
       "Le droit de se déplacer d'une ville à une autre sans autorisation",
       "Le droit de choisir librement son lieu de résidence (son domicile)"
     ],
-    "explanation": "La liberté de circulation est un droit fondamental qui permet à toute personne de se déplacer librement sur le territoire français et d'y choisir son lieu de résidence. Elle est garantie par la Constitution et par la Convention européenne des droits de l'homme. Des restrictions sont possibles en cas de procédure judiciaire (contrôle judiciaire) ou d'état d'urgence.",
+    "explanation": "La liberté de circulation est un droit fondamental qui permet à toute personne de se déplacer librement sur le territoire français et d'y choisir son lieu de résidence. Elle est garantie par la Constitution et par la Convention européenne des droits de l'homme. Des restrictions sont possibles en cas de procédure judiciaire (contrôle judiciaire) ou d'état d'urgence. La libre circulation dans l'espace Schengen dispense des contrôles systématiques mais non de détenir un titre d'identité, et elle ne s'étend pas au reste du monde.",
     "source": "https://fr.wikipedia.org/wiki/Libert%C3%A9_de_circulation"
   },
   {
     "id": 102,
     "theme": "Droits et devoirs",
     "text": "Que signifie être citoyen d'un État ?",
-    "optionA": "Avoir seulement des droits",
+    "optionA": "Résider durablement sur son territoire et y payer ses impôts",
     "optionB": "Avoir des droits (notamment de vote) et des devoirs envers cet État",
-    "optionC": "Avoir une nationalité étrangère",
-    "optionD": "Être né dans le pays",
+    "optionC": "Être né sur son territoire, quelle que soit la nationalité des parents",
+    "optionD": "Bénéficier de sa protection à l'étranger, sans obligation en retour",
     "correctAnswer": "B",
     "correctAnswers": [
       "Avoir des droits (notamment de vote) et des devoirs envers cet État",
       "Avoir la nationalité d'un État et jouir de droits politiques (vote)",
       "Participer à la souveraineté nationale"
     ],
-    "explanation": "Être citoyen signifie appartenir à une communauté politique et y exercer des droits spécifiques (droit de vote, droit d'être élu) en contrepartie de devoirs (respecter les lois, payer ses impôts, participer à la défense nationale). La citoyenneté française est liée à la nationalité française et ouvre l'accès à la plénitude des droits politiques.",
+    "explanation": "Être citoyen signifie appartenir à une communauté politique et y exercer des droits spécifiques (droit de vote, droit d'être élu) en contrepartie de devoirs (respecter les lois, payer ses impôts, participer à la défense nationale). La citoyenneté française est liée à la nationalité française et ouvre l'accès à la plénitude des droits politiques. Résider et payer ses impôts ne confère pas la citoyenneté, et naître en France ne donne pas d'emblée la nationalité : celle-ci s'acquiert à la majorité, sous condition de résidence.",
     "source": "https://fr.wikipedia.org/wiki/Citoyennet%C3%A9_fran%C3%A7aise"
   },
   {
     "id": 103,
     "theme": "Droits et devoirs",
     "text": "Que sont les droits fondamentaux ?",
-    "optionA": "Des obligations",
-    "optionB": "Des privilèges",
-    "optionC": "Des suggestions",
+    "optionA": "Des avantages sociaux accordés par l'État selon ses ressources",
+    "optionB": "Des principes moraux dont le juge ne peut pas assurer le respect",
+    "optionC": "Des droits réservés aux citoyens français et aux ressortissants européens",
     "optionD": "Des droits essentiels et inaliénables garantis par la Constitution",
     "correctAnswer": "D",
     "correctAnswers": [
@@ -1708,7 +1708,7 @@
       "Des droits essentiels garantis par la Constitution et les textes internationaux",
       "Des libertés inaliénables que l'État ne peut pas supprimer"
     ],
-    "explanation": "Les droits fondamentaux sont des droits essentiels, inaliénables et imprescriptibles, garantis par la Constitution et les textes internationaux (DDHC de 1789, préambule de 1946, Charte des droits fondamentaux de l'UE). Ils comprennent notamment le droit à la vie, la liberté d'expression, le droit au respect de la vie privée et l'interdiction de la torture. Ils ne peuvent pas être supprimés par une loi ordinaire.",
+    "explanation": "Les droits fondamentaux sont des droits essentiels, inaliénables et imprescriptibles, garantis par la Constitution et les textes internationaux (DDHC de 1789, préambule de 1946, Charte des droits fondamentaux de l'UE). Ils comprennent notamment le droit à la vie, la liberté d'expression, le droit au respect de la vie privée et l'interdiction de la torture. Ils ne peuvent pas être supprimés par une loi ordinaire. La plupart des droits fondamentaux — dignité, sûreté, liberté de conscience — protègent toute personne présente sur le territoire, quelle que soit sa nationalité, et le juge peut être saisi de leur violation.",
     "source": "https://fr.wikipedia.org/wiki/Droits_fondamentaux"
   },
   {
@@ -1730,47 +1730,47 @@
     "id": 105,
     "theme": "Droits et devoirs",
     "text": "Quel est le texte fondateur établissant les droits et les devoirs de chaque citoyen ?",
-    "optionA": "Le Code civil",
-    "optionB": "La Constitution",
+    "optionA": "La Constitution de la Ve République, adoptée en 1958",
+    "optionB": "Le Code civil, promulgué par Napoléon Bonaparte en 1804",
     "optionC": "La Déclaration des Droits de l'Homme et du Citoyen de 1789",
-    "optionD": "Le traité de l'UE",
+    "optionD": "La Convention européenne des droits de l'homme, signée en 1950",
     "correctAnswer": "C",
     "correctAnswers": [
       "La Déclaration des Droits de l'Homme et du Citoyen de 1789"
     ],
-    "explanation": "La Déclaration des droits de l'homme et du citoyen de 1789 est le texte fondateur des droits et libertés en France. Adoptée par l'Assemblée nationale constituante le 26 août 1789, elle a valeur constitutionnelle depuis la décision du Conseil constitutionnel de 1971. Elle proclame les droits naturels et civils de tous les êtres humains.",
+    "explanation": "La Déclaration des droits de l'homme et du citoyen de 1789 est le texte fondateur des droits et libertés en France. Adoptée par l'Assemblée nationale constituante le 26 août 1789, elle a valeur constitutionnelle depuis la décision du Conseil constitutionnel de 1971. Elle proclame les droits naturels et civils de tous les êtres humains. La Constitution de 1958 organise les pouvoirs publics, le Code civil régit les rapports entre particuliers et la Convention européenne protège les mêmes droits à l'échelle du continent : tous renvoient à la Déclaration de 1789.",
     "source": "https://fr.wikipedia.org/wiki/D%C3%A9claration_des_droits_de_l%27homme_et_du_citoyen_de_1789"
   },
   {
     "id": 106,
     "theme": "Droits et devoirs",
     "text": "Quel texte affirme que tous les hommes naissent libres et égaux en droits ?",
-    "optionA": "La Bible",
-    "optionB": "Le Code pénal",
-    "optionC": "La Constitution",
+    "optionA": "Le Préambule de la Constitution de 1946, sur les droits sociaux",
+    "optionB": "Le Code civil de 1804, dans son article premier",
+    "optionC": "La Constitution de la Ve République, adoptée en 1958",
     "optionD": "La Déclaration des Droits de l'Homme et du Citoyen de 1789",
     "correctAnswer": "D",
     "correctAnswers": [
       "La Déclaration des Droits de l'Homme et du Citoyen de 1789"
     ],
-    "explanation": "L'article 1er de la DDHC de 1789 proclame : « Les hommes naissent et demeurent libres et égaux en droits. » C'est le premier texte officiel français à poser ce principe d'universalité des droits humains. Ce texte a eu une influence mondiale et a inspiré de nombreuses constitutions et déclarations de droits à travers le monde.",
+    "explanation": "L'article 1er de la DDHC de 1789 proclame : « Les hommes naissent et demeurent libres et égaux en droits. » C'est le premier texte officiel français à poser ce principe d'universalité des droits humains. Ce texte a eu une influence mondiale et a inspiré de nombreuses constitutions et déclarations de droits à travers le monde. Le Préambule de 1946 ajoute les droits sociaux et la Constitution de 1958 y renvoie, mais la formule elle-même ouvre l'article premier de la Déclaration de 1789.",
     "source": "https://fr.wikipedia.org/wiki/D%C3%A9claration_des_droits_de_l%27homme_et_du_citoyen_de_1789"
   },
   {
     "id": 107,
     "theme": "Droits et devoirs",
     "text": "Quelle situation est une atteinte à la dignité humaine ?",
-    "optionA": "Un désaccord politique",
+    "optionA": "Être licencié pour motif économique sans proposition de reclassement",
     "optionB": "Être soumis à des conditions de travail ou de vie dégradantes (esclavage moderne)",
-    "optionC": "Un divorce",
-    "optionD": "Un licenciement économique",
+    "optionC": "Se voir refuser un logement au motif que ses revenus sont insuffisants",
+    "optionD": "Être condamné à une peine de prison ferme pour un délit mineur",
     "correctAnswer": "B",
     "correctAnswers": [
       "Être soumis à des conditions de travail ou de vie dégradantes (esclavage moderne)",
       "Subir des tortures ou des traitements inhumains",
       "Être traité comme un objet ou une marchandise (traite des êtres humains)"
     ],
-    "explanation": "La dignité humaine est un principe fondamental reconnu par la Constitution française (dans le préambule de 1946, qui a valeur constitutionnelle). Elle interdit toute forme d'esclavage, de torture, de traitements inhumains ou dégradants. Les conditions de travail ou de vie dégradantes constituent une atteinte à ce droit fondamental et sont sanctionnées par la loi.",
+    "explanation": "La dignité humaine est un principe fondamental reconnu par la Constitution française (dans le préambule de 1946, qui a valeur constitutionnelle). Elle interdit toute forme d'esclavage, de torture, de traitements inhumains ou dégradants. Les conditions de travail ou de vie dégradantes constituent une atteinte à ce droit fondamental et sont sanctionnées par la loi. Un licenciement, une condamnation ou un refus de louer fondé sur les ressources obéissent à des règles particulières et peuvent être contestés, mais seule la privation des conditions élémentaires d'existence porte atteinte à la dignité.",
     "source": "https://fr.wikipedia.org/wiki/Dignit%C3%A9_humaine"
   },
   {
@@ -1778,15 +1778,15 @@
     "theme": "Droits et devoirs",
     "text": "Qu'est-ce que la liberté d'expression ?",
     "optionA": "Le droit de communiquer ses idées et opinions, dans le respect de la loi",
-    "optionB": "Droit de dire n'importe quoi",
-    "optionC": "Droit de critiquer le gouvernement uniquement",
-    "optionD": "Droit réservé aux journalistes",
+    "optionB": "Le droit d'exprimer publiquement toute opinion, y compris haineuse",
+    "optionC": "Le droit de s'exprimer sans avoir à en répondre devant un juge",
+    "optionD": "Le droit, réservé aux journalistes et aux élus, de s'exprimer publiquement",
     "correctAnswer": "A",
     "correctAnswers": [
       "Le droit de communiquer ses idées et opinions, dans le respect de la loi",
       "La liberté de communication des pensées, sauf abus réprimés par la loi"
     ],
-    "explanation": "La liberté d'expression, garantie par l'article 11 de la DDHC de 1789, est le droit de communiquer ses pensées et opinions par tout moyen. Ce droit est précieux dans une démocratie, mais il n'est pas absolu : la loi interdit notamment la diffamation, les injures, les appels à la haine raciale ou religieuse, et la provocation à la violence.",
+    "explanation": "La liberté d'expression, garantie par l'article 11 de la DDHC de 1789, est le droit de communiquer ses pensées et opinions par tout moyen. Ce droit est précieux dans une démocratie, mais il n'est pas absolu : la loi interdit notamment la diffamation, les injures, les appels à la haine raciale ou religieuse, et la provocation à la violence. Cette liberté n'exonère donc pas de répondre de ses propos, et elle appartient à chacun : ni les journalistes ni les élus n'en ont le monopole.",
     "source": "https://fr.wikipedia.org/wiki/Libert%C3%A9_d%27expression"
   },
   {
@@ -1812,9 +1812,9 @@
     "id": 110,
     "theme": "Droits et devoirs",
     "text": "Tous les citoyens français ont-ils une religion ?",
-    "optionA": "Seulement les chrétiens",
-    "optionB": "Oui, c'est obligatoire",
-    "optionC": "Seulement les athées",
+    "optionA": "Oui, elle est mentionnée sur les registres de l'état civil",
+    "optionB": "Non, mais l'État recense les appartenances religieuses tous les cinq ans",
+    "optionC": "Oui, sauf pour les personnes ayant demandé une dispense en mairie",
     "optionD": "Non, la religion est un choix individuel (liberté de conscience)",
     "correctAnswer": "D",
     "correctAnswers": [
@@ -1822,7 +1822,7 @@
       "Non, chacun est libre de croire ou de ne pas croire",
       "Non, la République ne reconnait aucun culte (Laïcité)"
     ],
-    "explanation": "En France, la liberté de conscience, protégée par le principe de laïcité et la loi de 1905, garantit que chacun est libre de croire ou de ne pas croire, de pratiquer une religion ou d'être athée. La religion est une affaire strictement personnelle. L'État ne peut pas imposer de croyance et ne reconnaît aucune religion officielle.",
+    "explanation": "En France, la liberté de conscience, protégée par le principe de laïcité et la loi de 1905, garantit que chacun est libre de croire ou de ne pas croire, de pratiquer une religion ou d'être athée. La religion est une affaire strictement personnelle. L'État ne peut pas imposer de croyance et ne reconnaît aucune religion officielle. L'état civil ne mentionne aucune religion et le recensement ne pose pas la question : la loi interdit en principe de collecter des données sur les convictions religieuses.",
     "source": "https://fr.wikipedia.org/wiki/Libert%C3%A9_de_conscience"
   },
   {
@@ -1844,15 +1844,15 @@
     "id": 112,
     "theme": "Droits et devoirs",
     "text": "Dans lequel de ces endroits est-on autorisé à fumer ?",
-    "optionA": "Dans les restaurants",
-    "optionB": "Dans les écoles",
-    "optionC": "Dans les hôpitaux",
+    "optionA": "Dans les espaces fermés des bars et des restaurants",
+    "optionB": "Sur les quais couverts des gares et des aéroports",
+    "optionC": "Dans un bureau individuel, en l'absence de collègues",
     "optionD": "Dans un lieu privé. (domicile par exemple)",
     "correctAnswer": "D",
     "correctAnswers": [
       "Dans un lieu privé. (domicile par exemple)"
     ],
-    "explanation": "La loi du 10 janvier 1991 (loi Évin) a progressivement restreint le tabagisme dans les espaces publics. La loi du 1er février 2007 l'a généralisé à tous les lieux fermés et couverts accueillant du public, y compris les restaurants et les bars. Il est interdit de fumer dans ces espaces. Restent autorisés les lieux privés (domicile) et certains espaces de plein air comme les terrasses ouvertes des cafés — avec, depuis le 1er juillet 2025, de nouvelles interdictions dans les parcs, sur les plages et aux abords des écoles.",
+    "explanation": "La loi du 10 janvier 1991 (loi Évin) a progressivement restreint le tabagisme dans les espaces publics. La loi du 1er février 2007 l'a généralisé à tous les lieux fermés et couverts accueillant du public, y compris les restaurants et les bars. Il est interdit de fumer dans ces espaces. Restent autorisés les lieux privés (domicile) et certains espaces de plein air comme les terrasses ouvertes des cafés — avec, depuis le 1er juillet 2025, de nouvelles interdictions dans les parcs, sur les plages et aux abords des écoles. L'interdiction vise tous les lieux fermés accueillant du public ou servant de lieu de travail : un bureau individuel ou un quai couvert en font partie, contrairement au domicile.",
     "source": "https://fr.wikipedia.org/wiki/L%C3%A9gislation_sur_le_tabac_en_France",
     "variants": [
       {
@@ -1886,16 +1886,16 @@
     "theme": "Droits et devoirs",
     "text": "En quoi consiste le devoir de solidarité ?",
     "optionA": "À contribuer au bien commun (impôts, cotisations) et à porter secours",
-    "optionB": "Payer des impôts uniquement",
-    "optionC": "Servir dans l'armée",
-    "optionD": "Voter à toutes les élections",
+    "optionB": "À verser une aide directe aux membres de sa famille en difficulté",
+    "optionC": "À consacrer une partie de son temps à une activité bénévole",
+    "optionD": "À participer aux opérations de secours organisées par la commune",
     "correctAnswer": "A",
     "correctAnswers": [
       "À contribuer au bien commun (impôts, cotisations) et à porter secours",
       "Contribuer au financement de la protection sociale et porter secours",
       "Payer l'impôt et assister les personnes en danger"
     ],
-    "explanation": "Le devoir de solidarité se manifeste concrètement par la participation aux systèmes de protection sociale : paiement des cotisations sociales, paiement des impôts, et obligation morale de porter secours à une personne en danger. En France, le fait de ne pas porter secours à une personne en péril est un délit puni par la loi (non-assistance à personne en danger).",
+    "explanation": "Le devoir de solidarité se manifeste concrètement par la participation aux systèmes de protection sociale : paiement des cotisations sociales, paiement des impôts, et obligation morale de porter secours à une personne en danger. En France, le fait de ne pas porter secours à une personne en péril est un délit puni par la loi (non-assistance à personne en danger). L'obligation alimentaire envers ses proches et le bénévolat existent, mais l'un est un devoir de famille et l'autre un engagement volontaire : la solidarité nationale passe, elle, par l'impôt, les cotisations et le secours à toute personne en danger.",
     "source": "https://fr.wikipedia.org/wiki/Solidarit%C3%A9"
   },
   {
@@ -1917,15 +1917,15 @@
     "id": 116,
     "theme": "Droits et devoirs",
     "text": "Est-ce obligatoire de déclarer ses impôts chaque année en France ?",
-    "optionA": "Seulement si on est riche",
+    "optionA": "Non, le prélèvement à la source a supprimé la déclaration annuelle",
     "optionB": "Oui, la déclaration est obligatoire chaque année pour tous les résidents",
-    "optionC": "Non",
-    "optionD": "Uniquement pour les entreprises",
+    "optionC": "Oui, mais seulement au-delà d'un certain niveau de revenus",
+    "optionD": "Non, sauf pour les travailleurs indépendants et les entreprises",
     "correctAnswer": "B",
     "correctAnswers": [
       "Oui, la déclaration est obligatoire chaque année pour tous les résidents"
     ],
-    "explanation": "La déclaration annuelle des revenus est obligatoire pour tous les résidents fiscaux en France, quelle que soit leur situation (salarié, retraité, étudiant, etc.). Ne pas déclarer ses revenus est une fraude fiscale passible de sanctions (amende, majorations). La déclaration peut se faire en ligne sur impots.gouv.fr ou par courrier.",
+    "explanation": "La déclaration annuelle des revenus est obligatoire pour tous les résidents fiscaux en France, quelle que soit leur situation (salarié, retraité, étudiant, etc.). Ne pas déclarer ses revenus est une fraude fiscale passible de sanctions (amende, majorations). La déclaration peut se faire en ligne sur impots.gouv.fr ou par courrier. Le prélèvement à la source ne change que la date du paiement : la déclaration reste due chaque année, y compris par les foyers non imposables, ne serait-ce que pour établir leurs droits.",
     "source": "https://fr.wikipedia.org/wiki/Imp%C3%B4t_sur_le_revenu_(France)"
   },
   {
@@ -1978,26 +1978,26 @@
     "id": 120,
     "theme": "Droits et devoirs",
     "text": "Le non-respect du code de la route est :",
-    "optionA": "Réservé aux conducteurs professionnels",
+    "optionA": "Une faute civile, réparée par l'assurance sans sanction du conducteur",
     "optionB": "Une infraction qui entraîne des sanctions (amende, retrait de points)",
-    "optionC": "Sans conséquence",
-    "optionD": "Uniquement verbal",
+    "optionC": "Une infraction sanctionnée uniquement lorsqu'elle cause un accident",
+    "optionD": "Une simple recommandation, sauf sur les autoroutes et voies rapides",
     "correctAnswer": "B",
     "correctAnswers": [
       "Une infraction qui entraîne des sanctions (amende, retrait de points)",
       "Une contravention ou un délit selon la gravité"
     ],
-    "explanation": "Le non-respect du Code de la route est sanctionné selon la gravité de l'infraction : les contraventions (excès de vitesse modéré, stationnement interdit) entraînent des amendes et un retrait de points ; les délits (conduite en état d'ivresse, grand excès de vitesse) peuvent entraîner une suspension ou annulation du permis, voire une peine de prison.",
+    "explanation": "Le non-respect du Code de la route est sanctionné selon la gravité de l'infraction : les contraventions (excès de vitesse modéré, stationnement interdit) entraînent des amendes et un retrait de points ; les délits (conduite en état d'ivresse, grand excès de vitesse) peuvent entraîner une suspension ou annulation du permis, voire une peine de prison. La sanction est encourue dès la commission de l'infraction, sur toutes les voies et indépendamment de tout accident ; l'assurance indemnise la victime mais n'efface ni l'amende ni le retrait de points.",
     "source": "https://fr.wikipedia.org/wiki/Code_de_la_route_(France)"
   },
   {
     "id": 121,
     "theme": "Droits et devoirs",
     "text": "Lequel de ces crimes ou délits peut entrainer la privation des droits civils et politiques par un juge ?",
-    "optionA": "Les délits fiscaux",
-    "optionB": "Les infractions mineures",
+    "optionA": "Un excès de vitesse ayant entraîné un retrait de permis",
+    "optionB": "Le défaut de paiement d'une amende de stationnement",
     "optionC": "Une fraude électorale (tricher lors d'une élection)",
-    "optionD": "Les contraventions",
+    "optionD": "Une contravention pour tapage nocturne, même répétée",
     "correctAnswer": "C",
     "correctAnswers": [
       "Une fraude électorale (tricher lors d'une élection)",
@@ -2007,7 +2007,7 @@
       "Une falsification de documents officiels",
       "une falsification de chèques"
     ],
-    "explanation": "Certaines condamnations pénales peuvent entraîner la privation des droits civiques et politiques à titre de peine complémentaire. C'est notamment le cas pour la fraude électorale, la corruption, la trahison ou les actes terroristes. Cette privation prive le condamné du droit de vote et du droit d'être élu pendant la durée fixée par le juge.",
+    "explanation": "Certaines condamnations pénales peuvent entraîner la privation des droits civiques et politiques à titre de peine complémentaire. C'est notamment le cas pour la fraude électorale, la corruption, la trahison ou les actes terroristes. Cette privation prive le condamné du droit de vote et du droit d'être élu pendant la durée fixée par le juge. Une contravention ou un impayé n'emportent aucune privation de droits : la peine complémentaire d'inéligibilité suppose une condamnation pour un délit ou un crime, et la fraude électorale en est l'exemple type.",
     "source": "https://fr.wikipedia.org/wiki/Fraude_%C3%A9lectorale"
   },
   {
@@ -2045,17 +2045,17 @@
     "id": 124,
     "theme": "Droits et devoirs",
     "text": "Que doit faire un citoyen s'il est appelé à être juré dans un procès d'assises ?",
-    "optionA": "Envoyer un remplaçant",
-    "optionB": "Refuser sans explication",
+    "optionA": "Il peut refuser en désignant un remplaçant de son entourage",
+    "optionB": "Il peut refuser librement, la fonction de juré étant volontaire",
     "optionC": "Il est obligé de siéger, sauf motif grave reconnu valable",
-    "optionD": "Ignorer la convocation",
+    "optionD": "Il ne siège que s'il accepte la convocation par écrit",
     "correctAnswer": "C",
     "correctAnswers": [
       "Il est obligé de siéger, sauf motif grave reconnu valable",
       "C'est une obligation civique, on ne peut pas refuser (sauf motif grave)",
       "Il est obligé de siéger sous peine d'amende (3 750 €)"
     ],
-    "explanation": "La cour d'assises juge les crimes les plus graves (meurtre, viol, braquage, etc.). Elle est composée de 3 magistrats professionnels et de 6 jurés (ou 12 en appel), citoyens ordinaires tirés au sort. La participation à un jury d'assises est un devoir civique obligatoire, sous peine d'amende. Des motifs graves peuvent être acceptés pour être dispensé.",
+    "explanation": "La cour d'assises juge les crimes les plus graves (meurtre, viol, braquage, etc.). Elle est composée de 3 magistrats professionnels et de 6 jurés (ou 12 en appel), citoyens ordinaires tirés au sort. La participation à un jury d'assises est un devoir civique obligatoire, sous peine d'amende. Des motifs graves peuvent être acceptés pour être dispensé. La convocation n'a rien de facultatif : refuser sans motif reconnu par la cour expose à une amende, et nul ne peut se faire remplacer par la personne de son choix.",
     "source": "https://fr.wikipedia.org/wiki/Cour_d%27assises_(France)"
   },
   {
@@ -2109,17 +2109,17 @@
     "id": 128,
     "theme": "Droits et devoirs",
     "text": "Qu'est-ce que la citoyenneté numérique ?",
-    "optionA": "Le droit de pirater",
-    "optionB": "Le droit de ne pas utiliser Internet",
+    "optionA": "Le droit d'accéder gratuitement à Internet, reconnu comme droit fondamental",
+    "optionB": "La possibilité de voter par Internet à toutes les élections nationales",
     "optionC": "L'utilisation responsable des outils numériques pour participer à la vie démocratique",
-    "optionD": "Le droit de censurer Internet",
+    "optionD": "L'obligation de réaliser toutes ses démarches administratives en ligne",
     "correctAnswer": "C",
     "correctAnswers": [
       "L'utilisation responsable des outils numériques pour participer à la vie démocratique",
       "Avoir un comportement responsable et respectueux sur internet",
       "Respecter la loi et la politesse dans l'espace numérique"
     ],
-    "explanation": "La citoyenneté numérique désigne l'ensemble des comportements responsables et éthiques adoptés lors de l'utilisation des outils numériques (internet, réseaux sociaux, messageries). Elle implique de respecter les lois (droit d'auteur, vie privée, interdiction des contenus illicites), d'adopter un comportement respectueux en ligne et de participer de manière constructive à la vie démocratique en ligne.",
+    "explanation": "La citoyenneté numérique désigne l'ensemble des comportements responsables et éthiques adoptés lors de l'utilisation des outils numériques (internet, réseaux sociaux, messageries). Elle implique de respecter les lois (droit d'auteur, vie privée, interdiction des contenus illicites), d'adopter un comportement respectueux en ligne et de participer de manière constructive à la vie démocratique en ligne. Le vote par Internet n'est ouvert qu'aux Français établis hors de France et pour certains scrutins, l'accès au réseau n'est pas gratuit et un guichet reste toujours accessible : la citoyenneté numérique est un usage, pas un droit ni une obligation.",
     "source": "https://fr.wikipedia.org/wiki/Citoyennet%C3%A9_num%C3%A9rique"
   },
   {
@@ -2127,16 +2127,16 @@
     "theme": "Droits et devoirs",
     "text": "Qu'est-ce que le devoir de mémoire ?",
     "optionA": "Une obligation morale de se souvenir des souffrances du passé pour éviter qu'elles ne se reproduisent",
-    "optionB": "Célébrer uniquement les victoires",
-    "optionC": "Oublier le passé",
-    "optionD": "Ignorer les guerres",
+    "optionB": "L'obligation faite aux écoles de commémorer chaque date nationale",
+    "optionC": "Le droit des victimes d'obtenir réparation des faits subis par leurs ascendants",
+    "optionD": "La conservation par l'État des archives de toutes les guerres du XXe siècle",
     "correctAnswer": "A",
     "correctAnswers": [
       "Une obligation morale de se souvenir des souffrances du passé pour éviter qu'elles ne se reproduisent",
       "Se souvenir des événements tragiques du passé pour défendre la démocratie",
       "L'obligation morale de ne pas oublier les victimes de l'histoire (Guerres, Shoah, Esclavage)"
     ],
-    "explanation": "Le devoir de mémoire est une obligation morale, pour les individus et la société, de se souvenir des souffrances et des erreurs du passé afin d'en tirer des leçons pour l'avenir. En France, il concerne notamment la Shoah, l'esclavage, les deux guerres mondiales. Ce devoir se traduit par des commémorations officielles, des musées, des programmes scolaires et des lois (comme la loi Gayssot de 1990 qui punit le négationnisme).",
+    "explanation": "Le devoir de mémoire est une obligation morale, pour les individus et la société, de se souvenir des souffrances et des erreurs du passé afin d'en tirer des leçons pour l'avenir. En France, il concerne notamment la Shoah, l'esclavage, les deux guerres mondiales. Ce devoir se traduit par des commémorations officielles, des musées, des programmes scolaires et des lois (comme la loi Gayssot de 1990 qui punit le négationnisme). Il ne s'agit ni d'une obligation scolaire précise, ni d'un droit à réparation, ni d'une mission d'archivage : le devoir de mémoire est une exigence morale, qui s'appuie sur l'enseignement et les commémorations sans s'y réduire.",
     "source": "https://fr.wikipedia.org/wiki/Devoir_de_m%C3%A9moire"
   },
   {
@@ -2160,14 +2160,14 @@
     "theme": "Droits et devoirs",
     "text": "Une personne est privée de ses droits civils et politiques pendant 5 ans suite à une condamnation. Parmi ces propositions laquelle est correcte ? Pendant 5 ans,...",
     "optionA": "Elle ne peut plus voter ni se présenter aux élections",
-    "optionB": "Cela n'existe pas en France",
-    "optionC": "Seulement pour les crimes financiers",
-    "optionD": "Uniquement pour les étrangers",
+    "optionB": "Elle perd la nationalité française pendant la même durée",
+    "optionC": "Elle ne peut plus voter mais reste éligible aux élections locales",
+    "optionD": "Elle conserve le droit de vote, seule l'éligibilité étant suspendue",
     "correctAnswer": "A",
     "correctAnswers": [
       "Elle ne peut plus voter ni se présenter aux élections"
     ],
-    "explanation": "La privation des droits civils et politiques est une peine complémentaire prononcée par un juge à la suite de certaines condamnations. Elle emporte notamment l'interdiction de voter et de se présenter à des élections. Pendant la durée de cette peine, la personne concernée ne peut exercer aucun droit électoral.",
+    "explanation": "La privation des droits civils et politiques est une peine complémentaire prononcée par un juge à la suite de certaines condamnations. Elle emporte notamment l'interdiction de voter et de se présenter à des élections. Pendant la durée de cette peine, la personne concernée ne peut exercer aucun droit électoral. Elle porte à la fois sur le droit de vote et sur l'éligibilité, à tous les scrutins, et reste sans effet sur la nationalité.",
     "source": "https://fr.wikipedia.org/wiki/Droits_civiques"
   },
   {
@@ -2249,17 +2249,17 @@
     "id": 135,
     "theme": "Histoire, géographie et culture",
     "text": "Que signifie la date du 14 juillet pour les Français ?",
-    "optionA": "Fin de la Première Guerre mondiale",
-    "optionB": "Signature du traité de Versailles",
+    "optionA": "L'anniversaire de la proclamation de la Première République, en 1792",
+    "optionB": "La signature de la Déclaration des droits de l'homme et du citoyen",
     "optionC": "C'est la fête nationale (Prise de la Bastille et Fête de la Fédération)",
-    "optionD": "Naissance de la République",
+    "optionD": "La commémoration de l'abolition des privilèges, la nuit du 4 août",
     "correctAnswer": "C",
     "correctAnswers": [
       "C'est la fête nationale (Prise de la Bastille et Fête de la Fédération)",
       "La Fête nationale (Prise de la Bastille et Fête de la Fédération)",
       "La prise de la Bastille (14 juillet 1789) et l'union nationale (14 juillet 1790)"
     ],
-    "explanation": "Le 14 juillet est la fête nationale française depuis 1880. Cette date commémore deux événements historiques : la prise de la Bastille le 14 juillet 1789, symbole de la fin de l'Ancien Régime, et la Fête de la Fédération du 14 juillet 1790, qui célébrait l'unité de la Nation. Elle est marquée chaque année par un défilé militaire sur les Champs-Élysées.",
+    "explanation": "Le 14 juillet est la fête nationale française depuis 1880. Cette date commémore deux événements historiques : la prise de la Bastille le 14 juillet 1789, symbole de la fin de l'Ancien Régime, et la Fête de la Fédération du 14 juillet 1790, qui célébrait l'unité de la Nation. Elle est marquée chaque année par un défilé militaire sur les Champs-Élysées. L'abolition des privilèges date de la nuit du 4 août 1789 et la Déclaration des droits du 26 août suivant ; la République, elle, n'est proclamée qu'en 1792.",
     "source": "https://fr.wikipedia.org/wiki/F%C3%AAte_nationale_fran%C3%A7aise"
   },
   {
@@ -2465,17 +2465,17 @@
     "id": 146,
     "theme": "Histoire, géographie et culture",
     "text": "Qu'est-ce que la Shoah ?",
-    "optionA": "Une révolution",
+    "optionA": "La déportation des opposants politiques français vers l'Allemagne",
     "optionB": "Le génocide des Juifs par les Nazis pendant la Seconde Guerre mondiale",
-    "optionC": "Une bataille napoléonienne",
-    "optionD": "Un traité de paix",
+    "optionC": "Le régime de collaboration mis en place à Vichy à partir de 1940",
+    "optionD": "L'ensemble des victimes civiles de la Seconde Guerre mondiale",
     "correctAnswer": "B",
     "correctAnswers": [
       "Le génocide des Juifs par les Nazis pendant la Seconde Guerre mondiale",
       "L'extermination (ou le génocide) des Juifs d'Europe par le régime nazi",
       "Le génocide systématique perpétré contre le peuple juif pendant la Seconde Guerre mondiale"
     ],
-    "explanation": "La Shoah est le génocide systématique du peuple juif d'Europe par le régime nazi allemand et ses collaborateurs entre 1941 et 1945. Environ 6 millions de Juifs ont été assassinés, dont 1,5 million d'enfants. En France, la rafle du Vél d'Hiv des 16 et 17 juillet 1942 constitue l'un des épisodes les plus sombres. La loi française punit le négationnisme de la Shoah.",
+    "explanation": "La Shoah est le génocide systématique du peuple juif d'Europe par le régime nazi allemand et ses collaborateurs entre 1941 et 1945. Environ 6 millions de Juifs ont été assassinés, dont 1,5 million d'enfants. En France, la rafle du Vél d'Hiv des 16 et 17 juillet 1942 constitue l'un des épisodes les plus sombres. La loi française punit le négationnisme de la Shoah. La collaboration de Vichy et la déportation des résistants relèvent de la même période, mais la Shoah désigne l'extermination systématique des Juifs d'Europe, environ six millions de personnes.",
     "source": "https://fr.wikipedia.org/wiki/Shoah"
   },
   {
@@ -2614,33 +2614,33 @@
     "id": 154,
     "theme": "Histoire, géographie et culture",
     "text": "Que célèbre-t-on le 8 mai ?",
-    "optionA": "Prise de la Bastille",
-    "optionB": "Fête de la Musique",
+    "optionA": "La libération de Paris par les Alliés",
+    "optionB": "Le débarquement allié en Normandie",
     "optionC": "La fin de la seconde guerre mondiale",
-    "optionD": "Armistice de 1918",
+    "optionD": "L'armistice de la Première Guerre mondiale",
     "correctAnswer": "C",
     "correctAnswers": [
       "La fin de la seconde guerre mondiale",
       "La victoire des Alliés et la fin de la Seconde Guerre mondiale en Europe (1945)",
       "La capitulation de l'Allemagne nazie (8 mai 1945)"
     ],
-    "explanation": "Le 8 mai 1945 commémore la capitulation de l'Allemagne nazie et la victoire des Alliés en Europe, mettant fin à la Seconde Guerre mondiale sur le continent européen. Ce jour férié rend hommage aux soldats et civils morts pour la Libération. Il ne faut pas le confondre avec le 11 novembre (armistice de la Première Guerre mondiale).",
+    "explanation": "Le 8 mai 1945 commémore la capitulation de l'Allemagne nazie et la victoire des Alliés en Europe, mettant fin à la Seconde Guerre mondiale sur le continent européen. Ce jour férié rend hommage aux soldats et civils morts pour la Libération. Il ne faut pas le confondre avec le 11 novembre (armistice de la Première Guerre mondiale). Le débarquement de Normandie a eu lieu le 6 juin 1944 et la libération de Paris le 25 août suivant : ni l'un ni l'autre ne marque la fin du conflit.",
     "source": "https://fr.wikipedia.org/wiki/8_mai_1945"
   },
   {
     "id": 155,
     "theme": "Histoire, géographie et culture",
     "text": "Quelle est la première étape de la construction européenne en 1951 ?",
-    "optionA": "Traité de Rome",
-    "optionB": "Traité de Maastricht",
+    "optionA": "La signature du traité de Rome, qui institue le Marché commun",
+    "optionB": "La création du Conseil de l'Europe et de sa Cour des droits de l'homme",
     "optionC": "La création de la Communauté européenne du charbon et de l'acier (CECA)",
-    "optionD": "Création de l'euro",
+    "optionD": "L'adoption du plan Marshall pour la reconstruction de l'Europe",
     "correctAnswer": "C",
     "correctAnswers": [
       "La création de la Communauté européenne du charbon et de l'acier (CECA)",
       "La CECA (mise en commun de la production de charbon et d'acier)"
     ],
-    "explanation": "La Communauté européenne du charbon et de l'acier (CECA) a été créée par le traité de Paris du 18 avril 1951, signé par six pays fondateurs. Inspirée par le plan Schuman, elle visait à mettre en commun la production de charbon et d'acier entre la France et l'Allemagne pour rendre la guerre entre elles « matériellement impossible ». C'est le premier pas vers la construction européenne.",
+    "explanation": "La Communauté européenne du charbon et de l'acier (CECA) a été créée par le traité de Paris du 18 avril 1951, signé par six pays fondateurs. Inspirée par le plan Schuman, elle visait à mettre en commun la production de charbon et d'acier entre la France et l'Allemagne pour rendre la guerre entre elles « matériellement impossible ». C'est le premier pas vers la construction européenne. Le plan Marshall (1947) et le Conseil de l'Europe (1949) précèdent la CECA sans relever de la construction communautaire ; le traité de Rome, lui, ne vient qu'en 1957.",
     "source": "https://fr.wikipedia.org/wiki/Communaut%C3%A9_europ%C3%A9enne_du_charbon_et_de_l%27acier"
   },
   {
@@ -2679,16 +2679,16 @@
     "id": 157,
     "theme": "Histoire, géographie et culture",
     "text": "Le 11 novembre est un jour férié. À quoi correspond cette date ?",
-    "optionA": "Fin de la Seconde Guerre mondiale",
-    "optionB": "Fête nationale",
-    "optionC": "Prise de la Bastille",
+    "optionA": "La signature du traité de Versailles, en juin 1919",
+    "optionB": "La capitulation de l'Allemagne nazie, en mai 1945",
+    "optionC": "L'entrée en guerre de la France, en août 1914",
     "optionD": "L'armistice de la Première Guerre mondiale (1918)",
     "correctAnswer": "D",
     "correctAnswers": [
       "L'armistice de la Première Guerre mondiale (1918)",
       "La fin des combats de la Grande Guerre"
     ],
-    "explanation": "Le 11 novembre 1918, à 11h du matin, l'armistice mettant fin aux combats de la Première Guerre mondiale a été signé dans un wagon de train à Rethondes, dans la forêt de Compiègne. Ce jour est férié en France depuis 1922. Il commémore les 1,4 million de soldats français morts au combat entre 1914 et 1918.",
+    "explanation": "Le 11 novembre 1918, à 11h du matin, l'armistice mettant fin aux combats de la Première Guerre mondiale a été signé dans un wagon de train à Rethondes, dans la forêt de Compiègne. Ce jour est férié en France depuis 1922. Il commémore les 1,4 million de soldats français morts au combat entre 1914 et 1918. Le traité de Versailles, signé en juin 1919, met fin à l'état de guerre, mais l'armistice qui fait taire les armes date bien du 11 novembre 1918 ; le 8 mai commémore, lui, la capitulation allemande de 1945.",
     "source": "https://fr.wikipedia.org/wiki/Armistice_du_11_novembre_1918"
   },
   {
@@ -2741,15 +2741,15 @@
     "theme": "Histoire, géographie et culture",
     "text": "En 1944, qu'est-ce qui a changé pour les femmes ?",
     "optionA": "Elles ont obtenu le droit de vote et le droit d'être élues (éligibilité)",
-    "optionB": "Droit de travailler",
-    "optionC": "Droit de conduire",
-    "optionD": "Droit de divorcer",
+    "optionB": "Elles ont pu travailler et ouvrir un compte sans l'accord de leur mari",
+    "optionC": "Elles ont obtenu l'égalité salariale pour un travail équivalent",
+    "optionD": "Elles ont voté pour la première fois lors d'un scrutin national",
     "correctAnswer": "A",
     "correctAnswers": [
       "Elles ont obtenu le droit de vote et le droit d'être élues (éligibilité)",
       "Le droit de voter aux élections"
     ],
-    "explanation": "L'ordonnance du 21 avril 1944, signée par le général de Gaulle à Alger au nom du Gouvernement provisoire de la République française, a accordé le droit de vote et d'éligibilité aux femmes françaises. Pour la première fois, les femmes ont pu voter aux élections municipales d'avril-mai 1945, puis aux législatives d'octobre 1945.",
+    "explanation": "L'ordonnance du 21 avril 1944, signée par le général de Gaulle à Alger au nom du Gouvernement provisoire de la République française, a accordé le droit de vote et d'éligibilité aux femmes françaises. Pour la première fois, les femmes ont pu voter aux élections municipales d'avril-mai 1945, puis aux législatives d'octobre 1945. Travailler et ouvrir un compte bancaire sans l'autorisation de son mari date, lui, de 1965, et l'égalité salariale de 1972.",
     "source": "https://fr.wikipedia.org/wiki/Droit_de_vote_des_femmes_en_France"
   },
   {
@@ -2942,17 +2942,17 @@
     "id": 170,
     "theme": "Histoire, géographie et culture",
     "text": "Qui était Marie Curie ?",
-    "optionA": "Peintre",
-    "optionB": "Écrivaine",
+    "optionA": "Une aviatrice, première femme à traverser la Manche en avion",
+    "optionB": "Une résistante déportée à Ravensbrück, entrée au Panthéon",
     "optionC": "Une pionnière dans le domaine de la radioactivité et double prix Nobel",
-    "optionD": "Musicienne",
+    "optionD": "Une chimiste, première femme reçue à l'Académie française",
     "correctAnswer": "C",
     "correctAnswers": [
       "Une pionnière dans le domaine de la radioactivité et double prix Nobel",
       "Une physicienne et chimiste, double prix Nobel",
       "Une scientifique pionnière de la radioactivité"
     ],
-    "explanation": "Marie Curie (1867-1934), née Maria Skłodowska en Pologne, a mené ses travaux scientifiques à Paris. Elle a découvert la radioactivité (avec son mari Pierre Curie) et les éléments polonium et radium. Elle a reçu deux prix Nobel : en physique en 1903 (avec Pierre Curie) et en chimie en 1911. Elle est la première femme à avoir reçu un prix Nobel.",
+    "explanation": "Marie Curie (1867-1934), née Maria Skłodowska en Pologne, a mené ses travaux scientifiques à Paris. Elle a découvert la radioactivité (avec son mari Pierre Curie) et les éléments polonium et radium. Elle a reçu deux prix Nobel : en physique en 1903 (avec Pierre Curie) et en chimie en 1911. Elle est la première femme à avoir reçu un prix Nobel. Elle n'a en revanche jamais siégé à l'Académie française ; elle est, en 1995, la première femme entrée au Panthéon pour ses propres mérites.",
     "source": "https://fr.wikipedia.org/wiki/Marie_Curie"
   },
   {
@@ -3043,15 +3043,15 @@
     "id": 176,
     "theme": "Histoire, géographie et culture",
     "text": "Pendant quelles journées peut-on visiter gratuitement des lieux culturels en France ?",
-    "optionA": "Pâques",
-    "optionB": "1er mai",
+    "optionA": "Les journées portes ouvertes des mairies, en janvier",
+    "optionB": "La Nuit des musées, organisée chaque 1er janvier",
     "optionC": "Journées européennes du patrimoine",
-    "optionD": "Noël",
+    "optionD": "La Fête de la musique, le 21 juin de chaque année",
     "correctAnswer": "C",
     "correctAnswers": [
       "Journées européennes du patrimoine"
     ],
-    "explanation": "Les Journées européennes du patrimoine ont lieu chaque année le troisième week-end de septembre. Pendant ce week-end, de nombreux monuments historiques, musées et institutions publics généralement fermés ouvrent leurs portes gratuitement ou à prix réduit. Créées en France en 1984 par Jack Lang, elles ont été étendues à toute l'Europe en 1991. La Nuit européenne des musées, organisée chaque année en mai, permet également de visiter gratuitement de nombreux musées en soirée.",
+    "explanation": "Les Journées européennes du patrimoine ont lieu chaque année le troisième week-end de septembre. Pendant ce week-end, de nombreux monuments historiques, musées et institutions publics généralement fermés ouvrent leurs portes gratuitement ou à prix réduit. Créées en France en 1984 par Jack Lang, elles ont été étendues à toute l'Europe en 1991. La Nuit européenne des musées, organisée chaque année en mai, permet également de visiter gratuitement de nombreux musées en soirée. La Nuit des musées existe donc bel et bien, mais en mai et non en janvier, et la Fête de la musique concerne les concerts, pas les monuments.",
     "source": "https://fr.wikipedia.org/wiki/Journ%C3%A9es_europ%C3%A9ennes_du_patrimoine",
     "variants": [
       {
@@ -3142,77 +3142,77 @@
     "id": 182,
     "theme": "Histoire, géographie et culture",
     "text": "Qui était Molière ?",
-    "optionA": "Roi de France",
-    "optionB": "Peintre impressionniste",
-    "optionC": "Compositeur",
+    "optionA": "Un peintre de la cour de Louis XIV, portraitiste du roi",
+    "optionB": "Un philosophe des Lumières, auteur du Contrat social",
+    "optionC": "Un compositeur baroque, maître de chapelle du roi",
     "optionD": "Un écrivain et dramaturge français du XVIIe siècle",
     "correctAnswer": "D",
     "correctAnswers": [
       "Un écrivain et dramaturge français du XVIIe siècle",
       "Un célèbre dramaturge (auteur de théâtre) et comédien du XVIIe siècle"
     ],
-    "explanation": "Jean-Baptiste Poquelin, dit Molière (1622-1673), est le plus célèbre dramaturge français du XVIIe siècle. Ses pièces de théâtre (comédies), jouées à la cour de Louis XIV, mêlent humour et critique sociale. Parmi ses œuvres les plus célèbres : Tartuffe, Le Misanthrope, L'Avare, Le Bourgeois Gentilhomme.",
+    "explanation": "Jean-Baptiste Poquelin, dit Molière (1622-1673), est le plus célèbre dramaturge français du XVIIe siècle. Ses pièces de théâtre (comédies), jouées à la cour de Louis XIV, mêlent humour et critique sociale. Parmi ses œuvres les plus célèbres : Tartuffe, Le Misanthrope, L'Avare, Le Bourgeois Gentilhomme. Le Contrat social est de Rousseau, un siècle plus tard : Molière, lui, écrivait pour la scène sous le règne de Louis XIV.",
     "source": "https://fr.wikipedia.org/wiki/Moli%C3%A8re"
   },
   {
     "id": 183,
     "theme": "Histoire, géographie et culture",
     "text": "Qui était Charles Baudelaire ?",
-    "optionA": "Militaire",
-    "optionB": "Architecte",
+    "optionA": "Un romancier, auteur des Misérables",
+    "optionB": "Un peintre impressionniste français",
     "optionC": "Un poète français majeur du XIXe siècle",
-    "optionD": "Scientifique",
+    "optionD": "Un philosophe du siècle des Lumières",
     "correctAnswer": "C",
     "correctAnswers": [
       "Un poète français majeur du XIXe siècle"
     ],
-    "explanation": "Charles Baudelaire (1821-1867) est l'un des poètes français les plus importants du XIXe siècle. Son recueil « Les Fleurs du Mal » (1857), pour lequel il fut condamné pour immoralité, est considéré comme l'un des chefs-d'œuvre de la poésie française. Il a ouvert la voie au symbolisme et à la poésie moderne.",
+    "explanation": "Charles Baudelaire (1821-1867) est l'un des poètes français les plus importants du XIXe siècle. Son recueil « Les Fleurs du Mal » (1857), pour lequel il fut condamné pour immoralité, est considéré comme l'un des chefs-d'œuvre de la poésie française. Il a ouvert la voie au symbolisme et à la poésie moderne. Les Misérables sont de Victor Hugo, son contemporain, et l'impressionnisme ne naîtra qu'après sa mort.",
     "source": "https://fr.wikipedia.org/wiki/Charles_Baudelaire"
   },
   {
     "id": 184,
     "theme": "Histoire, géographie et culture",
     "text": "Qui était George Sand ?",
-    "optionA": "Peintre",
+    "optionA": "Une peintre paysagiste de l'école de Barbizon",
     "optionB": "Une écrivaine et romancière française du XIXe siècle",
-    "optionC": "Reine de France",
-    "optionD": "Musicienne",
+    "optionC": "Une chanteuse d'opéra du Second Empire",
+    "optionD": "Une souveraine de la Restauration",
     "correctAnswer": "B",
     "correctAnswers": [
       "Une écrivaine et romancière française du XIXe siècle"
     ],
-    "explanation": "George Sand (1804-1876), de son vrai nom Amantine Aurore Lucile Dupin, est une romancière française du XIXe siècle connue pour ses romans ruraux (La Mare au diable, La Petite Fadette) et ses romans féministes (Indiana, Lélia). Elle était aussi célèbre pour sa vie indépendante et sa liaison avec Frédéric Chopin.",
+    "explanation": "George Sand (1804-1876), de son vrai nom Amantine Aurore Lucile Dupin, est une romancière française du XIXe siècle connue pour ses romans ruraux (La Mare au diable, La Petite Fadette) et ses romans féministes (Indiana, Lélia). Elle était aussi célèbre pour sa vie indépendante et sa liaison avec Frédéric Chopin. La Mare au diable est donc bien d'elle, mais ni la peinture, ni l'opéra, ni la cour ne font partie de sa vie.",
     "source": "https://fr.wikipedia.org/wiki/George_Sand"
   },
   {
     "id": 185,
     "theme": "Histoire, géographie et culture",
     "text": "Qui était Simone de Beauvoir ?",
-    "optionA": "Chanteuse",
-    "optionB": "Sportive",
+    "optionA": "Résistante et femme politique, ministre de la Santé",
+    "optionB": "Chanteuse et actrice, figure du music-hall parisien",
     "optionC": "Philosophe, romancière et féministe française",
-    "optionD": "Actrice",
+    "optionD": "Physicienne, première femme professeure à la Sorbonne",
     "correctAnswer": "C",
     "correctAnswers": [
       "Philosophe, romancière et féministe française"
     ],
-    "explanation": "Simone de Beauvoir (1908-1986) est une philosophe existentialiste et romancière française. Son essai « Le Deuxième Sexe » (1949) est un texte fondateur du féminisme moderne, analysant la condition des femmes dans la société. Elle était la compagne de Jean-Paul Sartre et a milité toute sa vie pour l'émancipation des femmes.",
+    "explanation": "Simone de Beauvoir (1908-1986) est une philosophe existentialiste et romancière française. Son essai « Le Deuxième Sexe » (1949) est un texte fondateur du féminisme moderne, analysant la condition des femmes dans la société. Elle était la compagne de Jean-Paul Sartre et a milité toute sa vie pour l'émancipation des femmes. La ministre de la Santé qui a fait adopter la loi sur l'IVG en 1975 est Simone Veil : les deux femmes sont souvent confondues.",
     "source": "https://fr.wikipedia.org/wiki/Simone_de_Beauvoir"
   },
   {
     "id": 186,
     "theme": "Histoire, géographie et culture",
     "text": "Qui était Albert Camus ?",
-    "optionA": "Politicien",
-    "optionB": "Peintre",
+    "optionA": "Un homme politique de la IVe République, plusieurs fois ministre",
+    "optionB": "Un cinéaste de la Nouvelle Vague, critique de cinéma",
     "optionC": "Un écrivain et philosophe français, prix Nobel de littérature",
-    "optionD": "Chef cuisinier",
+    "optionD": "Un journaliste résistant, fusillé pendant l'Occupation",
     "correctAnswer": "C",
     "correctAnswers": [
       "Un écrivain et philosophe français, prix Nobel de littérature",
       "L'auteur de L'Étranger et de La Peste"
     ],
-    "explanation": "Albert Camus (1913-1960) est un écrivain et philosophe algérien-français, figure de l'absurde et de l'humanisme. Il a reçu le prix Nobel de littérature en 1957. Ses œuvres majeures incluent L'Étranger (1942), La Peste (1947) et Le Mythe de Sisyphe (1942). Il a été tué dans un accident de voiture en janvier 1960.",
+    "explanation": "Albert Camus (1913-1960) est un écrivain et philosophe algérien-français, figure de l'absurde et de l'humanisme. Il a reçu le prix Nobel de littérature en 1957. Ses œuvres majeures incluent L'Étranger (1942), La Peste (1947) et Le Mythe de Sisyphe (1942). Il a été tué dans un accident de voiture en janvier 1960. Il a bien dirigé le journal clandestin Combat pendant l'Occupation, mais il y a survécu, et le cinéma comme la politique lui sont restés étrangers.",
     "source": "https://fr.wikipedia.org/wiki/Albert_Camus"
   },
   {
@@ -3220,31 +3220,31 @@
     "theme": "Histoire, géographie et culture",
     "text": "Qui était Marguerite Yourcenar ?",
     "optionA": "Écrivaine et académicienne française",
-    "optionB": "Danseuse",
-    "optionC": "Astronome",
-    "optionD": "Médecin",
+    "optionB": "Résistante et députée de l'après-guerre",
+    "optionC": "Astronome, découvreuse d'une comète",
+    "optionD": "Danseuse étoile de l'Opéra de Paris",
     "correctAnswer": "A",
     "correctAnswers": [
       "Écrivaine et académicienne française",
       "La première femme élue à l'Académie française"
     ],
-    "explanation": "Marguerite Yourcenar (1903-1987), de son vrai nom Marguerite Cleenewerck de Crayencour, est une romancière française (anagramme de son nom). En 1980, elle est devenue la première femme élue à l'Académie française, fondée en 1635. Elle est célèbre pour « Mémoires d'Hadrien » (1951) et « L'Œuvre au noir » (1968).",
+    "explanation": "Marguerite Yourcenar (1903-1987), de son vrai nom Marguerite Cleenewerck de Crayencour, est une romancière française (anagramme de son nom). En 1980, elle est devenue la première femme élue à l'Académie française, fondée en 1635. Elle est célèbre pour « Mémoires d'Hadrien » (1951) et « L'Œuvre au noir » (1968). Elle est, en 1980, la première femme élue à l'Académie française.",
     "source": "https://fr.wikipedia.org/wiki/Marguerite_Yourcenar"
   },
   {
     "id": 188,
     "theme": "Histoire, géographie et culture",
     "text": "Qui était Paul Cézanne ?",
-    "optionA": "Architecte",
-    "optionB": "Compositeur",
+    "optionA": "Sculpteur français, auteur du Penseur",
+    "optionB": "Compositeur français, auteur du Boléro",
     "optionC": "Peintre post-impressionniste français",
-    "optionD": "Sculpteur",
+    "optionD": "Ingénieur, bâtisseur de la tour Eiffel",
     "correctAnswer": "C",
     "correctAnswers": [
       "Peintre post-impressionniste français",
       "Un peintre français"
     ],
-    "explanation": "Paul Cézanne (1839-1906) est un peintre post-impressionniste français originaire d'Aix-en-Provence. Son travail, centré sur la structure géométrique des formes et des volumes (Les Grandes Baigneuses, les séries sur la Montagne Sainte-Victoire), a influencé l'art moderne et notamment le cubisme de Picasso et Braque.",
+    "explanation": "Paul Cézanne (1839-1906) est un peintre post-impressionniste français originaire d'Aix-en-Provence. Son travail, centré sur la structure géométrique des formes et des volumes (Les Grandes Baigneuses, les séries sur la Montagne Sainte-Victoire), a influencé l'art moderne et notamment le cubisme de Picasso et Braque. Le Penseur est de Rodin, le Boléro de Ravel et la tour Eiffel de Gustave Eiffel.",
     "source": "https://fr.wikipedia.org/wiki/Paul_C%C3%A9zanne"
   },
   {
@@ -3299,15 +3299,15 @@
     "id": 191,
     "theme": "Histoire, géographie et culture",
     "text": "Qui était Auguste Renoir ?",
-    "optionA": "Poète",
-    "optionB": "Philosophe",
+    "optionA": "Sculpteur français du XIXe siècle",
+    "optionB": "Cinéaste français des années 1930",
     "optionC": "Peintre impressionniste français",
-    "optionD": "Scientifique",
+    "optionD": "Poète français de la fin du XIXe siècle",
     "correctAnswer": "C",
     "correctAnswers": [
       "Peintre impressionniste français"
     ],
-    "explanation": "Auguste Renoir (1841-1919) est l'un des grands maîtres de l'impressionnisme français. Ses tableaux, souvent joyeux et colorés, représentent des scènes de la vie quotidienne, des portraits et des nus. Ses œuvres les plus célèbres incluent Le Déjeuner des canotiers, Bal du moulin de la Galette et Les Grandes Baigneuses.",
+    "explanation": "Auguste Renoir (1841-1919) est l'un des grands maîtres de l'impressionnisme français. Ses tableaux, souvent joyeux et colorés, représentent des scènes de la vie quotidienne, des portraits et des nus. Ses œuvres les plus célèbres incluent Le Déjeuner des canotiers, Bal du moulin de la Galette et Les Grandes Baigneuses. Le cinéaste Jean Renoir, auteur de La Grande Illusion, est son fils : la confusion entre le père et le fils est fréquente.",
     "source": "https://fr.wikipedia.org/wiki/Auguste_Renoir"
   },
   {
@@ -3627,16 +3627,16 @@
     "id": 204,
     "theme": "Histoire, géographie et culture",
     "text": "Qu'est-ce que la France d'outre-mer ?",
-    "optionA": "Les pays voisins",
-    "optionB": "Les régions autonomes",
-    "optionC": "Les colonies étrangères",
+    "optionA": "Les anciennes colonies devenues indépendantes après 1960",
+    "optionB": "Les pays francophones liés à la France par un traité",
+    "optionC": "Les territoires administrés par la France pour le compte de l'ONU",
     "optionD": "Les territoires français situés hors du continent européen",
     "correctAnswer": "D",
     "correctAnswers": [
       "Les territoires français situés hors du continent européen",
       "L'ensemble des terres françaises situées en Amérique, Océanie, Océan Indien et Antarctique"
     ],
-    "explanation": "La France d'outre-mer désigne l'ensemble des territoires français situés en dehors du continent européen. Elle comprend des départements et régions d'outre-mer (DROM : Guadeloupe, Martinique, Guyane, La Réunion, Mayotte), des collectivités d'outre-mer (COM) et des territoires à statut particulier. Au total, ils sont présents sur tous les océans du globe.",
+    "explanation": "La France d'outre-mer désigne l'ensemble des territoires français situés en dehors du continent européen. Elle comprend des départements et régions d'outre-mer (DROM : Guadeloupe, Martinique, Guyane, La Réunion, Mayotte), des collectivités d'outre-mer (COM) et des territoires à statut particulier. Au total, ils sont présents sur tous les océans du globe. Les anciennes colonies devenues indépendantes ne font plus partie de la République et la France n'administre aucun territoire pour l'ONU : l'outre-mer, ce sont des départements, régions et collectivités français à part entière.",
     "source": "https://fr.wikipedia.org/wiki/France_d%27outre-mer"
   },
   {
@@ -3795,14 +3795,14 @@
     "theme": "Vivre dans la société française",
     "text": "Où faut-il déclarer la naissance d'un enfant ?",
     "optionA": "À la mairie du lieu de naissance",
-    "optionB": "Au commissariat",
-    "optionC": "À la préfecture",
-    "optionD": "À l'hôpital",
+    "optionB": "À la mairie du domicile des parents",
+    "optionC": "Au tribunal judiciaire du département",
+    "optionD": "À la maternité, qui transmet le dossier",
     "correctAnswer": "A",
     "correctAnswers": [
       "À la mairie du lieu de naissance"
     ],
-    "explanation": "En France, tout enfant qui naît doit être déclaré à la mairie du lieu de naissance (pas à la mairie du domicile des parents). Cette déclaration doit être faite dans les 5 jours suivant la naissance (article 55 du Code civil). Elle peut être effectuée par le père, la mère, un médecin, une sage-femme ou toute personne ayant assisté à l'accouchement.",
+    "explanation": "En France, tout enfant qui naît doit être déclaré à la mairie du lieu de naissance (pas à la mairie du domicile des parents). Cette déclaration doit être faite dans les 5 jours suivant la naissance (article 55 du Code civil). Elle peut être effectuée par le père, la mère, un médecin, une sage-femme ou toute personne ayant assisté à l'accouchement. C'est la commune où l'enfant est né qui dresse l'acte, dans les cinq jours, et non celle où résident les parents ; un officier d'état civil peut tenir une permanence à la maternité, mais l'acte reste dressé par la mairie.",
     "source": "https://fr.wikipedia.org/wiki/%C3%89tat_civil_en_France"
   },
   {
@@ -3810,9 +3810,9 @@
     "theme": "Vivre dans la société française",
     "text": "Quelle action peut réaliser le locataire d'un logement sans l'autorisation du propriétaire ?",
     "optionA": "Repeindre les murs (couleurs \"neutres\" uniquement)",
-    "optionB": "Peindre les murs",
-    "optionC": "Changer la moquette",
-    "optionD": "Démolir un mur",
+    "optionB": "Abattre une cloison pour agrandir la pièce principale",
+    "optionC": "Remplacer la moquette des chambres par un parquet",
+    "optionD": "Fermer le balcon ou installer une véranda vitrée",
     "correctAnswer": "A",
     "correctAnswers": [
       "Repeindre les murs (couleurs \"neutres\" uniquement)",
@@ -3820,53 +3820,53 @@
       "Faire des travaux de décoration ou d'aménagement",
       "Changer la tapisserie"
     ],
-    "explanation": "Selon la loi française sur les baux d'habitation, le locataire peut effectuer de petits travaux d'aménagement et de décoration (repeindre les murs, poser des étagères, changer la tapisserie) sans l'accord du propriétaire, à condition de ne pas modifier substantiellement le logement. En revanche, les travaux plus importants (démolition de murs, changement de revêtements de sol) nécessitent l'autorisation du bailleur.",
+    "explanation": "Selon la loi française sur les baux d'habitation, le locataire peut effectuer de petits travaux d'aménagement et de décoration (repeindre les murs, poser des étagères, changer la tapisserie) sans l'accord du propriétaire, à condition de ne pas modifier substantiellement le logement. En revanche, les travaux plus importants (démolition de murs, changement de revêtements de sol) nécessitent l'autorisation du bailleur. Fermer un balcon ou poser une véranda relèvent de la même règle et peuvent en outre exiger une autorisation d'urbanisme.",
     "source": "https://fr.wikipedia.org/wiki/Bail_d%27habitation_(droit_fran%C3%A7ais)"
   },
   {
     "id": 217,
     "theme": "Vivre dans la société française",
     "text": "Quel mariage est reconnu légalement ?",
-    "optionA": "Le concubinage",
+    "optionA": "Le mariage religieux célébré en France",
     "optionB": "Le mariage civil (célébré à la mairie)",
-    "optionC": "Le mariage religieux",
-    "optionD": "Le PACS",
+    "optionC": "Le PACS, enregistré en mairie ou chez le notaire",
+    "optionD": "Le concubinage attesté par un certificat de vie commune",
     "correctAnswer": "B",
     "correctAnswers": [
       "Le mariage civil (célébré à la mairie)"
     ],
-    "explanation": "En France, seul le mariage civil (célébré à la mairie devant un officier d'état civil) a une valeur légale. Le mariage religieux peut s'y ajouter mais n'a aucun effet juridique s'il n'est pas précédé du mariage civil. Le PACS (Pacte civil de solidarité) est aussi un contrat reconnu légalement, mais ses effets sont différents du mariage.",
+    "explanation": "En France, seul le mariage civil (célébré à la mairie devant un officier d'état civil) a une valeur légale. Le mariage religieux peut s'y ajouter mais n'a aucun effet juridique s'il n'est pas précédé du mariage civil. Le PACS (Pacte civil de solidarité) est aussi un contrat reconnu légalement, mais ses effets sont différents du mariage. Le concubinage peut être attesté par un certificat de vie commune et le PACS enregistré en mairie ou chez un notaire, mais ni l'un ni l'autre n'est un mariage ; le mariage religieux, lui, ne peut être célébré qu'après le passage devant l'officier d'état civil.",
     "source": "https://fr.wikipedia.org/wiki/Mariage_civil_en_France"
   },
   {
     "id": 218,
     "theme": "Vivre dans la société française",
     "text": "Le stationnement sur une place réservée aux personnes handicapées :",
-    "optionA": "Est payant",
+    "optionA": "Est toléré pour un arrêt de moins de quinze minutes",
     "optionB": "Est interdit, sauf pour les titulaires de la carte spécifique (CMI)",
-    "optionC": "Est autorisé pour tous",
-    "optionD": "Est réservé aux femmes enceintes",
+    "optionC": "Est autorisé si l'on transporte une personne âgée ou blessée",
+    "optionD": "Est réservé aux véhicules munis d'un macaron délivré par la mairie",
     "correctAnswer": "B",
     "correctAnswers": [
       "Est interdit, sauf pour les titulaires de la carte spécifique (CMI)"
     ],
-    "explanation": "Les places de stationnement réservées aux personnes handicapées (signalées par le pictogramme bleu du fauteuil roulant) sont réservées aux titulaires de la carte mobilité inclusion (CMI, mention stationnement). Se garer sans cette carte constitue une infraction grave, sanctionnée par une amende de 135 euros. Il est impossible d'y stationner même quelques minutes.",
+    "explanation": "Les places de stationnement réservées aux personnes handicapées (signalées par le pictogramme bleu du fauteuil roulant) sont réservées aux titulaires de la carte mobilité inclusion (CMI, mention stationnement). Se garer sans cette carte constitue une infraction grave, sanctionnée par une amende de 135 euros. Il est impossible d'y stationner même quelques minutes. La carte mobilité inclusion est délivrée par la maison départementale des personnes handicapées, et non par la mairie ; transporter une personne âgée ou blessée ne dispense pas de la détenir.",
     "source": "https://www.service-public.fr/particuliers/vosdroits/F34049"
   },
   {
     "id": 219,
     "theme": "Vivre dans la société française",
     "text": "Si une machine à laver est cassée, il est possible de :",
-    "optionA": "La réparer soi-même",
-    "optionB": "La jeter",
+    "optionA": "Obtenir aussitôt le remboursement intégral du prix payé",
+    "optionB": "S'adresser au fabricant, seul tenu par la garantie légale",
     "optionC": "Demander au vendeur de la faire réparer ou de la remplacer",
-    "optionD": "L'ignorer",
+    "optionD": "La faire réparer à ses frais, la garantie ne couvrant que le neuf",
     "correctAnswer": "C",
     "correctAnswers": [
       "Demander au vendeur de la faire réparer ou de la remplacer",
       "Faire jouer la garantie de 2 ans"
     ],
-    "explanation": "La garantie légale de conformité protège l'acheteur pendant 2 ans à compter de la livraison d'un bien. Si un produit est défectueux, le vendeur professionnel est obligé de le réparer, de le remplacer ou, si impossible, de le rembourser. Cette garantie s'applique aux achats effectués auprès d'un professionnel et s'ajoute à la garantie commerciale.",
+    "explanation": "La garantie légale de conformité protège l'acheteur pendant 2 ans à compter de la livraison d'un bien. Si un produit est défectueux, le vendeur professionnel est obligé de le réparer, de le remplacer ou, si impossible, de le rembourser. Cette garantie s'applique aux achats effectués auprès d'un professionnel et s'ajoute à la garantie commerciale. L'acheteur choisit d'abord entre la réparation et le remplacement, et c'est au vendeur qu'il s'adresse, non au fabricant.",
     "source": "https://www.service-public.fr/particuliers/vosdroits/F11007"
   },
   {
@@ -3950,14 +3950,14 @@
     "theme": "Vivre dans la société française",
     "text": "En cas de divorce, qui exerce l'autorité parentale ?",
     "optionA": "Les deux parents, sauf décision contraire du juge",
-    "optionB": "Le juge",
-    "optionC": "La mère uniquement",
-    "optionD": "Le père uniquement",
+    "optionB": "Le parent chez qui l'enfant a sa résidence habituelle",
+    "optionC": "Le parent désigné par l'enfant, à partir de treize ans",
+    "optionD": "Les deux parents jusqu'aux dix ans de l'enfant, puis un seul",
     "correctAnswer": "A",
     "correctAnswers": [
       "Les deux parents, sauf décision contraire du juge"
     ],
-    "explanation": "Depuis la loi du 4 mars 2002, l'autorité parentale est exercée conjointement par les deux parents, y compris après la séparation ou le divorce, sauf décision contraire du juge. Le juge aux affaires familiales peut exceptionnellement confier l'autorité parentale à un seul parent si l'intérêt de l'enfant l'exige.",
+    "explanation": "Depuis la loi du 4 mars 2002, l'autorité parentale est exercée conjointement par les deux parents, y compris après la séparation ou le divorce, sauf décision contraire du juge. Le juge aux affaires familiales peut exceptionnellement confier l'autorité parentale à un seul parent si l'intérêt de l'enfant l'exige. La résidence habituelle chez l'un des parents ne change rien à cet exercice conjoint : les décisions importantes — école, santé, déménagement — restent prises à deux.",
     "source": "https://fr.wikipedia.org/wiki/Autorit%C3%A9_parentale_en_France"
   },
   {
@@ -4044,32 +4044,32 @@
     "id": 231,
     "theme": "Vivre dans la société française",
     "text": "À quoi sert la carte Vitale ?",
-    "optionA": "Conduire",
-    "optionB": "Voter",
+    "optionA": "À justifier de son identité auprès du médecin",
+    "optionB": "À dispenser du paiement de tous les frais médicaux",
     "optionC": "À simplifier le remboursement des frais de santé",
-    "optionD": "Payer les impôts",
+    "optionD": "À remplacer le contrat de mutuelle santé",
     "correctAnswer": "C",
     "correctAnswers": [
       "À simplifier le remboursement des frais de santé",
       "À transmettre électroniquement les feuilles de soins à la Sécurité sociale"
     ],
-    "explanation": "La carte Vitale est la carte d'assuré social française. Elle contient en mémoire les informations administratives de l'assuré (numéro de Sécurité sociale, droits ouverts). Remise au professionnel de santé lors d'une consultation, elle permet la transmission électronique de la feuille de soins à la CPAM, accélérant le remboursement.",
+    "explanation": "La carte Vitale est la carte d'assuré social française. Elle contient en mémoire les informations administratives de l'assuré (numéro de Sécurité sociale, droits ouverts). Remise au professionnel de santé lors d'une consultation, elle permet la transmission électronique de la feuille de soins à la CPAM, accélérant le remboursement. La carte Vitale atteste des droits à l'assurance maladie et transmet la feuille de soins, mais elle n'est pas une pièce d'identité, ne remplace pas la mutuelle et ne dispense pas de la part qui reste à charge.",
     "source": "https://fr.wikipedia.org/wiki/Carte_Vitale"
   },
   {
     "id": 232,
     "theme": "Vivre dans la société française",
     "text": "À quoi sert une mutuelle santé ?",
-    "optionA": "Payer les loyers",
+    "optionA": "À se substituer à la Sécurité sociale pour les salariés du privé",
     "optionB": "À compléter les remboursements de la Sécurité sociale (ticket modérateur)",
-    "optionC": "Remplacer l'Assurance Maladie",
-    "optionD": "Acheter des médicaments",
+    "optionC": "À avancer les frais d'hospitalisation, remboursés ensuite par l'État",
+    "optionD": "À garantir l'accès à un médecin traitant sans délai d'attente",
     "correctAnswer": "B",
     "correctAnswers": [
       "À compléter les remboursements de la Sécurité sociale (ticket modérateur)",
       "À rembourser la part des frais médicaux non couverte par l'Assurance Maladie"
     ],
-    "explanation": "Une mutuelle santé (ou complémentaire santé) est un organisme qui rembourse tout ou partie des frais médicaux non couverts par l'Assurance Maladie (Sécurité sociale). La part non remboursée par la Sécu s'appelle le « ticket modérateur ». Depuis 2016, tout employeur privé doit proposer une complémentaire santé collective à ses salariés.",
+    "explanation": "Une mutuelle santé (ou complémentaire santé) est un organisme qui rembourse tout ou partie des frais médicaux non couverts par l'Assurance Maladie (Sécurité sociale). La part non remboursée par la Sécu s'appelle le « ticket modérateur ». Depuis 2016, tout employeur privé doit proposer une complémentaire santé collective à ses salariés. Elle ne remplace donc pas l'Assurance Maladie et ne garantit aucun accès prioritaire aux soins.",
     "source": "https://fr.wikipedia.org/wiki/Mutuelle_(assurance)"
   },
   {
@@ -4077,15 +4077,15 @@
     "theme": "Vivre dans la société française",
     "text": "Qu'est-ce que le tiers payant ?",
     "optionA": "Le droit pour le patient de ne pas avancer l'argent des frais médicaux",
-    "optionB": "Payer en 3 fois",
-    "optionC": "Un remboursement intégral",
-    "optionD": "Un type d'assurance",
+    "optionB": "Le remboursement des soins par un organisme tiers, sous deux mois",
+    "optionC": "La prise en charge intégrale des soins par la Sécurité sociale",
+    "optionD": "Le paiement des soins en trois fois, proposé par le professionnel",
     "correctAnswer": "A",
     "correctAnswers": [
       "Le droit pour le patient de ne pas avancer l'argent des frais médicaux",
       "Le paiement direct du professionnel de santé par l'Assurance Maladie et la mutuelle"
     ],
-    "explanation": "Le tiers payant est un dispositif qui permet au patient de ne pas avancer les frais médicaux lors d'une consultation. C'est l'Assurance Maladie (et éventuellement la mutuelle) qui paye directement le professionnel de santé. Depuis 2017, tout patient peut bénéficier du tiers payant pour la part remboursée par la Sécurité sociale.",
+    "explanation": "Le tiers payant est un dispositif qui permet au patient de ne pas avancer les frais médicaux lors d'une consultation. C'est l'Assurance Maladie (et éventuellement la mutuelle) qui paye directement le professionnel de santé. Depuis 2017, tout patient peut bénéficier du tiers payant pour la part remboursée par la Sécurité sociale. Le tiers payant porte sur l'avance des frais, non sur leur montant : la part non remboursée reste due, et elle est réglée directement au professionnel par la caisse ou la mutuelle.",
     "source": "https://fr.wikipedia.org/wiki/Tiers_payant"
   },
   {
@@ -4093,61 +4093,61 @@
     "theme": "Vivre dans la société française",
     "text": "L'inscription à l'Assurance maladie est :",
     "optionA": "Obligatoire pour tous les résidents réguliers en France",
-    "optionB": "Facultative",
-    "optionC": "Réservée aux riches",
-    "optionD": "Interdite aux étrangers",
+    "optionB": "Facultative pour les personnes couvertes par une mutuelle",
+    "optionC": "Réservée aux personnes exerçant une activité professionnelle",
+    "optionD": "Ouverte après cinq ans de résidence ininterrompue en France",
     "correctAnswer": "A",
     "correctAnswers": [
       "Obligatoire pour tous les résidents réguliers en France"
     ],
-    "explanation": "L'affiliation à l'Assurance Maladie (Sécurité sociale) est obligatoire pour toute personne résidant régulièrement en France, qu'elle soit salariée, étudiante, retraitée ou sans emploi. La Protection universelle maladie (PUMA), instaurée en 2016, garantit à toute personne résidant de façon stable en France l'accès aux remboursements de soins.",
+    "explanation": "L'affiliation à l'Assurance Maladie (Sécurité sociale) est obligatoire pour toute personne résidant régulièrement en France, qu'elle soit salariée, étudiante, retraitée ou sans emploi. La Protection universelle maladie (PUMA), instaurée en 2016, garantit à toute personne résidant de façon stable en France l'accès aux remboursements de soins. La couverture tient à la résidence, non à l'emploi ni à l'ancienneté, et une mutuelle ne peut en aucun cas s'y substituer.",
     "source": "https://fr.wikipedia.org/wiki/Assurance_maladie_(France)"
   },
   {
     "id": 235,
     "theme": "Vivre dans la société française",
     "text": "L'avortement est-il possible en France ?",
-    "optionA": "Seulement pour les mineures",
-    "optionB": "Non",
+    "optionA": "Oui, avec l'accord écrit du père de l'enfant à naître",
+    "optionB": "Oui, jusqu'à la fin du troisième mois de grossesse",
     "optionC": "Oui, c'est une liberté garantie par la Constitution",
-    "optionD": "Uniquement en cas de viol",
+    "optionD": "Oui, mais uniquement dans les établissements privés agréés",
     "correctAnswer": "C",
     "correctAnswers": [
       "Oui, c'est une liberté garantie par la Constitution",
       "Oui, c'est légal jusqu'à 14 semaines de grossesse"
     ],
-    "explanation": "L'interruption volontaire de grossesse (IVG) a été dépénalisée en France par la loi Veil du 17 janvier 1975. En 2024, l'IVG a été constitutionnalisée : la liberté de recourir à l'avortement est désormais inscrite dans la Constitution française. L'IVG est autorisée jusqu'à 14 semaines de grossesse et est prise en charge à 100 % par l'Assurance Maladie.",
+    "explanation": "L'interruption volontaire de grossesse (IVG) a été dépénalisée en France par la loi Veil du 17 janvier 1975. En 2024, l'IVG a été constitutionnalisée : la liberté de recourir à l'avortement est désormais inscrite dans la Constitution française. L'IVG est autorisée jusqu'à 14 semaines de grossesse et est prise en charge à 100 % par l'Assurance Maladie. Ni l'accord du père, ni un établissement particulier ne sont requis, et le délai de quatorze semaines va bien au-delà du troisième mois de grossesse.",
     "source": "https://fr.wikipedia.org/wiki/Interruption_volontaire_de_grossesse_en_France"
   },
   {
     "id": 236,
     "theme": "Vivre dans la société française",
     "text": "Travailler sans être déclaré est :",
-    "optionA": "Légal",
+    "optionA": "Un manquement sanctionné par un simple rappel de cotisations",
     "optionB": "Une infraction pénale appelée travail dissimulé",
-    "optionC": "Autorisé pour les étudiants",
-    "optionD": "Sans conséquence",
+    "optionC": "Une pratique tolérée en dessous d'un certain montant annuel",
+    "optionD": "Une situation régularisable par une déclaration a posteriori",
     "correctAnswer": "B",
     "correctAnswers": [
       "Une infraction pénale appelée travail dissimulé",
       "Un délit puni par la loi"
     ],
-    "explanation": "Le travail dissimulé (ou « travail au noir ») consiste à employer un salarié sans le déclarer aux organismes sociaux ou fiscaux. C'est un délit grave puni par le Code du travail : jusqu'à 3 ans d'emprisonnement et 45 000 euros d'amende pour l'employeur, et des sanctions pour le salarié. Cela prive le travailleur de ses droits sociaux (sécurité sociale, retraite, chômage).",
+    "explanation": "Le travail dissimulé (ou « travail au noir ») consiste à employer un salarié sans le déclarer aux organismes sociaux ou fiscaux. C'est un délit grave puni par le Code du travail : jusqu'à 3 ans d'emprisonnement et 45 000 euros d'amende pour l'employeur, et des sanctions pour le salarié. Cela prive le travailleur de ses droits sociaux (sécurité sociale, retraite, chômage). Le montant en jeu est indifférent, un rappel de cotisations ne remplace pas la sanction pénale et une régularisation tardive n'efface pas l'infraction.",
     "source": "https://fr.wikipedia.org/wiki/Travail_dissimul%C3%A9"
   },
   {
     "id": 237,
     "theme": "Vivre dans la société française",
     "text": "Qu'est-ce que le SMIC ?",
-    "optionA": "Une aide sociale",
-    "optionB": "Un impôt",
-    "optionC": "Un type de contrat",
+    "optionA": "Le salaire moyen constaté par branche professionnelle",
+    "optionB": "Le seuil de revenus ouvrant droit aux aides sociales",
+    "optionC": "Le montant minimum garanti aux personnes sans emploi",
     "optionD": "Le Salaire Minimum Interprofessionnel de Croissance",
     "correctAnswer": "D",
     "correctAnswers": [
       "Le Salaire Minimum Interprofessionnel de Croissance"
     ],
-    "explanation": "Le SMIC (Salaire Minimum Interprofessionnel de Croissance) est le salaire minimum légal en dessous duquel aucun salarié ne peut être rémunéré en France. Il est révisé chaque année au 1er janvier par décret (et peut être réévalué en cours d'année si l'inflation dépasse 2 %). Tout employeur qui ne respecte pas le SMIC est passible de sanctions.",
+    "explanation": "Le SMIC (Salaire Minimum Interprofessionnel de Croissance) est le salaire minimum légal en dessous duquel aucun salarié ne peut être rémunéré en France. Il est révisé chaque année au 1er janvier par décret (et peut être réévalué en cours d'année si l'inflation dépasse 2 %). Tout employeur qui ne respecte pas le SMIC est passible de sanctions. Il ne se confond ni avec les minima fixés par les branches professionnelles, ni avec les minima sociaux versés aux personnes sans activité.",
     "source": "https://fr.wikipedia.org/wiki/Salaire_minimum_interprofessionnel_de_croissance"
   },
   {
@@ -4200,16 +4200,16 @@
     "id": 241,
     "theme": "Vivre dans la société française",
     "text": "Une personne étrangère, en situation régulière, peut créer son entreprise :",
-    "optionA": "Uniquement dans certains secteurs",
+    "optionA": "Oui, à condition d'être associé à un ressortissant français",
     "optionB": "Oui, sous réserve d'avoir un titre de séjour qui l'autorise",
-    "optionC": "Seulement avec un partenaire français",
-    "optionD": "Non",
+    "optionC": "Oui, après cinq années de résidence régulière en France",
+    "optionD": "Non, la création d'entreprise est réservée aux nationaux",
     "correctAnswer": "B",
     "correctAnswers": [
       "Oui, sous réserve d'avoir un titre de séjour qui l'autorise",
       "Oui, à condition d'être en situation régulière avec un statut adapté"
     ],
-    "explanation": "Une personne étrangère en situation régulière en France peut créer son entreprise à condition de disposer d'un titre de séjour qui autorise l'exercice d'une activité commerciale ou artisanale (par exemple, une carte de résident, un visa « talent », ou certains titres de séjour « salarié » ne permettent pas de créer une entreprise). Les ressortissants européens ont les mêmes droits que les Français.",
+    "explanation": "Une personne étrangère en situation régulière en France peut créer son entreprise à condition de disposer d'un titre de séjour qui autorise l'exercice d'une activité commerciale ou artisanale (par exemple, une carte de résident, un visa « talent », ou certains titres de séjour « salarié » ne permettent pas de créer une entreprise). Les ressortissants européens ont les mêmes droits que les Français. Aucune durée de résidence ni association avec un ressortissant français n'est exigée : tout dépend de la mention portée sur le titre.",
     "source": "https://fr.wikipedia.org/wiki/Cr%C3%A9ation_d%27entreprise_en_France"
   },
   {
@@ -4255,16 +4255,16 @@
     "id": 244,
     "theme": "Vivre dans la société française",
     "text": "Quelles sont les affaires traitées par le conseil de prud'hommes ?",
-    "optionA": "Les divorces",
-    "optionB": "Les contraventions",
-    "optionC": "Les crimes",
+    "optionA": "Les litiges entre deux entreprises liées par un contrat",
+    "optionB": "Les recours contre les décisions de France Travail",
+    "optionC": "Les accidents du travail et les maladies professionnelles",
     "optionD": "Les litiges (conflits) entre un employeur et un salarié",
     "correctAnswer": "D",
     "correctAnswers": [
       "Les litiges (conflits) entre un employeur et un salarié",
       "Les désaccords liés au contrat de travail (licenciement, salaires impayés)"
     ],
-    "explanation": "Le conseil de prud'hommes est une juridiction spécialisée dans le règlement des litiges individuels entre employeurs et salariés découlant du contrat de travail : licenciement, salaires impayés, non-respect des congés, harcèlement moral, etc. Il est composé à parts égales de représentants des employeurs et des salariés.",
+    "explanation": "Le conseil de prud'hommes est une juridiction spécialisée dans le règlement des litiges individuels entre employeurs et salariés découlant du contrat de travail : licenciement, salaires impayés, non-respect des congés, harcèlement moral, etc. Il est composé à parts égales de représentants des employeurs et des salariés. Les conflits entre entreprises relèvent du tribunal de commerce et les litiges avec un organisme social du pôle social du tribunal judiciaire : le conseil de prud'hommes ne juge que l'exécution ou la rupture du contrat de travail.",
     "source": "https://fr.wikipedia.org/wiki/Conseil_de_prud%27hommes_(France)"
   },
   {
@@ -4316,30 +4316,30 @@
     "id": 248,
     "theme": "Vivre dans la société française",
     "text": "Des parents ne respectent pas l'obligation d'instruction pour leurs enfants. Quelle sanction maximale risquent-ils ?",
-    "optionA": "Une amende de 100 €",
-    "optionB": "Aucune sanction",
-    "optionC": "Un avertissement",
+    "optionA": "Une amende de 1 500 euros, sans peine de prison",
+    "optionB": "Le retrait des allocations familiales pendant un an",
+    "optionC": "Un placement de l'enfant décidé par le juge",
     "optionD": "6 mois de prison et 7 500 euros d'amende",
     "correctAnswer": "D",
     "correctAnswers": [
       "6 mois de prison et 7 500 euros d'amende"
     ],
-    "explanation": "Les parents qui ne respectent pas l'obligation d'instruction de leurs enfants s'exposent à des sanctions pénales. Depuis la loi du 26 juillet 2019, l'instruction à domicile est soumise à des conditions strictes. Le non-respect de l'obligation d'instruction peut être puni d'une amende pouvant aller jusqu'à 7 500 euros et 6 mois d'emprisonnement.",
+    "explanation": "Les parents qui ne respectent pas l'obligation d'instruction de leurs enfants s'exposent à des sanctions pénales. Depuis la loi du 26 juillet 2019, l'instruction à domicile est soumise à des conditions strictes. Le non-respect de l'obligation d'instruction peut être puni d'une amende pouvant aller jusqu'à 7 500 euros et 6 mois d'emprisonnement. La suspension des allocations familiales et le placement de l'enfant relèvent, eux, d'autres procédures et ne sont pas la sanction encourue ici.",
     "source": "https://fr.wikipedia.org/wiki/Instruction_obligatoire_en_France"
   },
   {
     "id": 249,
     "theme": "Vivre dans la société française",
     "text": "Quelle est la définition de l'autorité parentale ?",
-    "optionA": "Le droit de punir",
-    "optionB": "Le droit de choisir l'école",
+    "optionA": "Le droit des parents de décider seuls de l'orientation scolaire",
+    "optionB": "La responsabilité des parents pour les dommages causés par l'enfant",
     "optionC": "L'ensemble des droits et devoirs des parents envers leurs enfants",
-    "optionD": "Le droit de voyager",
+    "optionD": "Le pouvoir de corriger un enfant pour lui faire respecter les règles",
     "correctAnswer": "C",
     "correctAnswers": [
       "L'ensemble des droits et devoirs des parents envers leurs enfants"
     ],
-    "explanation": "L'autorité parentale est l'ensemble des droits et devoirs que la loi confère aux parents pour protéger leur enfant mineur dans sa personne et ses biens. Elle comprend le droit et le devoir de le nourrir, de l'élever, de l'éduquer, de l'entretenir et de le représenter dans les actes civils. Elle s'exerce dans l'intérêt supérieur de l'enfant.",
+    "explanation": "L'autorité parentale est l'ensemble des droits et devoirs que la loi confère aux parents pour protéger leur enfant mineur dans sa personne et ses biens. Elle comprend le droit et le devoir de le nourrir, de l'élever, de l'éduquer, de l'entretenir et de le représenter dans les actes civils. Elle s'exerce dans l'intérêt supérieur de l'enfant. Elle exclut toute violence, y compris éducative, depuis la loi de 2019, et associe l'enfant aux décisions selon son âge ; la responsabilité civile des parents n'en est qu'une conséquence.",
     "source": "https://fr.wikipedia.org/wiki/Autorit%C3%A9_parentale_en_France"
   },
   {
@@ -4368,10 +4368,10 @@
         "correctAnswer": "B"
       },
       {
-        "optionA": "Un week-end prolongé",
-        "optionB": "Une compétition de jeux vidéo",
+        "optionA": "Un week-end prolongé après un jour férié",
+        "optionB": "Un rendez-vous chez le coiffeur en fin de matinée",
         "optionC": "Une réunion solennelle de famille (mariage, deuil)",
-        "optionD": "Une grasse matinée",
+        "optionD": "Une compétition de jeux vidéo se tenant à l'étranger",
         "correctAnswer": "C"
       }
     ]
@@ -4425,10 +4425,10 @@
     "id": 254,
     "theme": "Vivre dans la société française",
     "text": "En tant que parent d'élève, il est possible de :",
-    "optionA": "Donner des cours",
-    "optionB": "Choisir les professeurs",
+    "optionA": "Assister aux cours pour observer le travail des enseignants",
+    "optionB": "Choisir la classe et l'enseignant de son enfant à la rentrée",
     "optionC": "Voter aux élections des représentants de parents d'élèves",
-    "optionD": "Fermer l'école",
+    "optionD": "Consulter le dossier scolaire des autres élèves de la classe",
     "correctAnswer": "C",
     "correctAnswers": [
       "Voter aux élections des représentants de parents d'élèves",
@@ -4436,7 +4436,7 @@
       "Rejoindre une association de parents d'élèves (comme la FCPE ou la PEEP)",
       "Rencontrer les professeurs lors des réunions régulières"
     ],
-    "explanation": "Les parents d'élèves sont représentés dans les instances de gouvernance des établissements scolaires. Ils élisent leurs représentants pour siéger au conseil d'école (primaire) ou au conseil d'administration (collège et lycée). Ils peuvent aussi adhérer à des associations de parents d'élèves reconnues (FCPE, PEEP) et rencontrer les enseignants lors des réunions.",
+    "explanation": "Les parents d'élèves sont représentés dans les instances de gouvernance des établissements scolaires. Ils élisent leurs représentants pour siéger au conseil d'école (primaire) ou au conseil d'administration (collège et lycée). Ils peuvent aussi adhérer à des associations de parents d'élèves reconnues (FCPE, PEEP) et rencontrer les enseignants lors des réunions. Ils ne choisissent en revanche ni la classe ni le professeur de leur enfant, n'assistent pas aux cours et n'ont accès qu'à son seul dossier.",
     "source": "https://fr.wikipedia.org/wiki/Association_de_parents_d%27%C3%A9l%C3%A8ves",
     "variants": [
       {
@@ -4452,15 +4452,15 @@
     "id": 255,
     "theme": "Vivre dans la société française",
     "text": "Quelle instruction est prévue pour les enfants qui ne parlent pas français ?",
-    "optionA": "Aucune aide",
+    "optionA": "Une année de scolarité dans un établissement spécialisé",
     "optionB": "Un programme spécifique pour apprendre le français",
-    "optionC": "Cours de latin",
-    "optionD": "Exclusion de l'école",
+    "optionC": "Un report de la scolarisation jusqu'à la maîtrise du français",
+    "optionD": "Un enseignement dispensé dans la langue d'origine de l'élève",
     "correctAnswer": "B",
     "correctAnswers": [
       "Un programme spécifique pour apprendre le français"
     ],
-    "explanation": "En France, tout enfant, quelle que soit sa nationalité ou sa maîtrise du français, a droit à l'instruction publique. Pour les enfants allophones (non francophones), des classes spéciales existent : les UPE2A (Unités Pédagogiques pour Élèves Allophones Arrivants), anciennement CLIN et CLA, qui permettent d'apprendre le français tout en suivant une scolarité adaptée.",
+    "explanation": "En France, tout enfant, quelle que soit sa nationalité ou sa maîtrise du français, a droit à l'instruction publique. Pour les enfants allophones (non francophones), des classes spéciales existent : les UPE2A (Unités Pédagogiques pour Élèves Allophones Arrivants), anciennement CLIN et CLA, qui permettent d'apprendre le français tout en suivant une scolarité adaptée. L'élève reste inscrit dans une classe ordinaire correspondant à son âge : ni établissement à part, ni report de scolarisation, l'instruction étant obligatoire dès trois ans.",
     "source": "https://eduscol.education.fr/"
   },
   {

@@ -145,7 +145,7 @@ QCM_France/
 │       └── update-fiches.yml                    Manuel (workflow_dispatch) — régénère res/raw/fiches.json + ouvre une PR
 ├── scripts/
 │   ├── generate_questions_md.py                 Génère QUESTIONS.md (une section par QCM + mises en situation)
-│   ├── check_questions_consistency.py           Contrôle des 4 fichiers de questions (ids, propositions, variantes, cohérence inter-QCM, couverture, indice de longueur des mises en situation)
+│   ├── check_questions_consistency.py           Contrôle des 4 fichiers de questions (ids, propositions, variantes, cohérence inter-QCM, couverture, indice de longueur — cf. LENGTH_CUE_FILES)
 │   └── fetch_fiches.py                          Scrape les fiches thématiques officielles → res/raw/fiches.json (offline)
 ├── LICENSE                                      Licence MIT
 ├── QUESTIONS.md                                 Liste des questions des 3 QCM + mises en situation (généré par release)

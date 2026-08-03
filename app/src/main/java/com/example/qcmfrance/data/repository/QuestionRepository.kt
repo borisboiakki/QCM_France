@@ -93,8 +93,13 @@ class QuestionRepository @Inject constructor(
          * l'un des trois distracteurs devient un « presque juste » (mauvais numéro d'urgence,
          * mauvais délai, bonne règle appliquée à la mauvaise personne), les deux autres reçoivent
          * une justification plausible, et l'explication indique pourquoi le piège ne tient pas.
+         * v14 = même reprise (issue #43) sur les 77 questions de connaissances de la
+         * naturalisation dont la bonne réponse était repérable à sa seule longueur, et sur
+         * 3 variantes : distracteurs de longueur comparable, dont un « presque juste »
+         * (mauvaise autorité, mauvais texte, mauvaise époque), explication complétée en
+         * conséquence.
          */
-        const val CONTENT_VERSION = 13
+        const val CONTENT_VERSION = 14
         private const val CONTENT_PREFS = "question_content"
         private const val KEY_CONTENT_VERSION = "content_version"
     }

@@ -119,23 +119,31 @@ Pour chaque question à rédiger :
 - **4 propositions**, une seule défendable. Les 3 distracteurs doivent être **clairement faux** —
   pas une réponse alternative également correcte (piège corrigé en `CONTENT_VERSION` 3 sur la
   naturalisation).
-- **Détrompeurs plausibles** (mises en situation, issue #43). Un distracteur caricatural
-  — violence, indifférence affichée, illégalité manifeste — s'élimine sans connaître la règle et
-  ne teste rien. Chaque mise en situation comporte donc un détrompeur « presque juste », faux pour
-  une raison **précise et citable** :
-  - le mauvais numéro ou la mauvaise autorité (15 au lieu du 115, préfet au lieu du procureur) ;
-  - le mauvais délai ou le mauvais seuil (7 jours au lieu de 14 pour la rétractation) ;
-  - le bon réflexe dans le mauvais ordre (saisir le juge avant la réclamation préalable) ;
-  - la bonne règle appliquée à la mauvaise personne (neutralité laïque étendue aux usagers) ;
-  - une condition inventée mais crédible (« avec l'accord écrit du préfet »).
+- **Détrompeurs plausibles** (issue #43). Un distracteur caricatural — violence, indifférence
+  affichée, illégalité manifeste, personnage sans rapport — s'élimine sans connaître la règle et ne
+  teste rien. Chaque question comporte donc un détrompeur « presque juste », faux pour une raison
+  **précise et citable** :
+  - le mauvais numéro ou la mauvaise autorité (15 au lieu du 115, préfet au lieu du procureur,
+    préfecture au lieu de la mairie pour les listes électorales) ;
+  - le mauvais délai ou le mauvais seuil (7 jours au lieu de 14 pour la rétractation, 25 ans au
+    lieu de la majorité pour être candidat aux municipales) ;
+  - le bon réflexe dans le mauvais ordre (saisir le juge avant la réclamation préalable, exiger le
+    remboursement avant la réparation) ;
+  - la bonne règle appliquée à la mauvaise personne, au mauvais texte ou à la mauvaise époque
+    (neutralité laïque étendue aux usagers, lois Ferry présentées comme la loi de 1905, Jean Renoir
+    pris pour son père) ;
+  - une condition inventée mais crédible (« avec l'accord écrit du préfet », « le prélèvement à la
+    source a supprimé la déclaration »).
 
   Les deux autres distracteurs portent une justification plausible plutôt qu'un refus brut, et
   l'`explanation` dit **pourquoi le piège ne tient pas**.
 - **Longueur des propositions comparable.** Une bonne réponse nettement plus longue que ses trois
   distracteurs se repère sans lire l'énoncé : `check_questions_consistency.py` le signale en
-  avertissement sur `situational_questions.json`.
+  avertissement, jeu de base et variantes, sur les fichiers listés dans `LENGTH_CUE_FILES`
+  (`situational_questions.json`, `questions.json` ; les deux autres QCM les rejoindront à mesure
+  que leurs détrompeurs seront repris).
 - **`explanation`** : 1 à 3 phrases justifiant la bonne réponse, plus une phrase écartant le
-  détrompeur plausible pour les mises en situation.
+  détrompeur plausible — sans redire ce que le reste de l'explication établit déjà.
 - **`source`** : URL officielle — `legifrance.gouv.fr`, `service-public.fr`,
   `formation-civique.interieur.gouv.fr`, `vie-publique.fr`, `elysee.fr`, `assemblee-nationale.fr`…
 - **`variants`** : à ajouter quand plusieurs bonnes réponses sont également valides (« Quel musée
